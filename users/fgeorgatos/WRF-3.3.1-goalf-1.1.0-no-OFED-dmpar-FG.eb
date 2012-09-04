@@ -1,3 +1,10 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   GPL
+# Date::      Tue Sep  4 12:40:28 CEST 2012
+
 name='WRF'
 version='3.3.1'
 
