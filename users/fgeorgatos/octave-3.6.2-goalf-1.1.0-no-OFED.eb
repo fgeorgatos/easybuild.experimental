@@ -1,0 +1,19 @@
+name='octave'
+version='3.6.2'
+
+homepage='http://www.gnu.org/software/octave/'
+description="""octave"""
+
+toolkit={'name':'goalf','version':'1.1.0-no-OFED'}
+toolkitopts={'opt':False, 'optarch':False} # don't use agressive optimization, stick to -O2
+
+sources=['%s-%s.tar.bz2'%(name,version)]
+sourceURLs=['ftp://ftp.gnu.org/gnu/octave']
+
+sanityCheckPaths={
+                  'files':[],
+                  'dirs':['.']
+                 }
+
+# limit parallel build to 20
+maxparallel=12
