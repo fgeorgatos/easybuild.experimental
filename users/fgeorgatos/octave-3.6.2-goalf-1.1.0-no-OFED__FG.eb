@@ -1,0 +1,25 @@
+name='octave'
+version='3.6.2'
+
+versionsuffix='-20120724'
+
+#homepage='http://www.gnu.org/software/octave/'
+homepage='http://www.octave.org/'
+description="octave- description: High-level_language,_intended_for_numerical_computations"
+
+#toolkit={'name':'goalf','version':'1.1.0-no-OFED'}
+#toolkitopts={'optarch':True, 'pic':True}
+
+toolkit={'name':'goalf','version':'1.1.0-no-OFED'}
+toolkitopts={'opt':False, 'optarch':False} # don't use agressive optimization, stick to -O2
+
+sanityCheckPaths={
+                  'files':[],
+                  'dirs':['.']
+                 }
+
+sources=['%s-%s.tar.bz2'%(name,version)]
+sourceURLs=['ftp://ftp.gnu.org/gnu/octave']
+
+# limit parallel build to 12
+maxparallel=12
