@@ -1,0 +1,18 @@
+easyblock='EB_PackedBinary'
+
+name='GIMPS'
+version='p95v277'
+
+homepage='http://www.mersenne.org/'
+description="""GIMPS: Great Internet Mersenne Prime Search"""
+
+toolkit={'name':'dummy','version':'dummy'}
+
+sources=['%s.linux64.tar.gz'%(version)]
+sourceURLs=['ftp://mersenne.org/%s/'%(name.lower())]
+
+sanityCheckPaths = {
+                    'files':["mprime"],
+                    'dirs':[]
+                   }
+
