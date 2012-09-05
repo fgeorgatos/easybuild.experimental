@@ -1,0 +1,34 @@
+
+
+
+name='tmux'
+version='1.6'
+
+homepage='http://tmux.sourceforge.net/'
+
+description="tmux is a terminal multiplexer: it enables a number of terminals (or windows), each running a separate program, to be created, accessed, and controlled from a single screen. tmux may be detached from a screen and continue running in the background, then later reattached."
+
+toolkit= {'name':'dummy', 'version': 'dummy'}  #{'name':'ictce','version':'4.0.0'}
+toolkitopts={} # {'pic':True,'opt':True,'optarch':True}
+
+patches=[]
+
+(libevent,libeventver) = ("libevent", "2.0.20")
+
+
+dependencies=[(libevent,libeventver)]
+
+osdependencies=[]
+
+sourceURLs=["http://downloads.sourceforge.net/project/%s/%s/%s-%s" % (name, name, name, ".".join(version.split(".") [:2]) )]
+ 
+sources=['%s-%s.tar.gz'%(name,version)]
+
+
+
+sanityCheckPaths =  {'files': [], 'dirs': ['bin']}
+
+
+configopts=""
+
+moduleclass='base'

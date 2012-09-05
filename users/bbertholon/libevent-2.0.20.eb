@@ -1,0 +1,25 @@
+
+
+
+name='libevent'
+version='2.0.20'
+
+homepage='http://tmux.sourceforge.net/'
+
+description="The libevent API provides a mechanism to execute a callback function when a specific event occurs on a file descriptor or after a timeout has been reached. It is meant to replace the asynchronous event loop found in event-driven network servers."
+
+toolkit= {'name':'dummy', 'version': 'dummy'}  #{'name':'ictce','version':'4.0.0'}
+toolkitopts={} # {'pic':True,'opt':True,'optarch':True}
+
+patches=[]
+
+osdependencies=[]
+
+sourceURLs=["http://downloads.sourceforge.net/project/levent/%s/%s-%s" % ( name, name, ".".join(version.split(".") [:2]) )]
+
+
+sources=['%s-%s-stable.tar.gz'%(name,version)]
+
+configopts=""
+
+moduleclass='base'
