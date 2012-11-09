@@ -5,11 +5,12 @@
 # Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
 # Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
 # License::   MIT/GPL
-# Date::      20121109
+# Date::      2012-11-09
 # File::      pkg2eb_v2.sh
 
 # Disclaimer:
-# This code is NOT to be used as an example in anything; it is just quick'n'dirty prototype work to produce easybuild files using as source any pkgsrc Makefile
+# This code is not meant to be used as an example in anything;
+# it is just quick'n'dirty prototype work to produce easybuild files using as source any pkgsrc Makefile
 
 OUTPUTDIR=$HOME/arena/pkg2eb/outdir_v2
 
@@ -37,8 +38,9 @@ export OUTPUTFILE=$OUTPUTDIR/$FIRSTLETTER/$DISTFILE
 
 (
 cat <<EOF1
-# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
-# It has been automatically produced by $0 ; ie. there is no warranty, given AS-IS, etc
+# This file is an EasyBuild recipy as per: https://github.com/hpcugent/easybuild
+# It has been automatically produced by:   $0
+# ie. there is no warranty, given AS-IS, etc
 #  
 #  #######                     ######                                    ### 
 #  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
@@ -52,14 +54,15 @@ cat <<EOF1
 # Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
 # License::   MIT/GPL
 # File::      $DISTFILE
-# Date::      `date`
+# Date::      `date --rfc-3339=date`
 
 EOF1
 
 echo "# The following values are best-guess, which may be further overriden on"
 echo "name = '$PKGNAME'"
 echo "version = '$PKGVERSION'"
-echo "versionsuffix = '-"`date --rfc-3339=date`"'" # Put the timestamp of the current day, in order to organize better multiple successive builds
+# Add the timestamp of the current day, to organize better multiple successive builds
+echo "versionsuffix = '-"`date --rfc-3339=date`"'"
 echo
 
 echo "# The following are automatically calculated - cross fingers"
@@ -118,10 +121,10 @@ maxparallel = 1
 
 moduleclass = 'base'
 
+###### The appended information is the pkgsrc sourcefile: $1 ######
 EOF2
 
-echo ###### The appended information is the pkgsrc sourcefile: $1 ######
-sed "s/^/# /g" $1
+sed "s/^/# /g" $1 # Push the file indicated by $1 in a sed stream and comment it out
 
 ) |tee $OUTPUTFILE| wc -l | ( echo Resulting file has `cat` lines and is available at: $OUTPUTFILE)
 
