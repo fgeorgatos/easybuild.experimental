@@ -9,7 +9,7 @@ Basic headlines:
 * commit/push directly and avoid completely the pull/request cycles - no time for that
 * thousands of easyconfig files built in a bulk fashion may become available here, for example see *a2ps* under [contrib/pkgsrc], 
 * If you cross the boundary of 100 buildable easyconfigs in some kind of provably intelligent way (Reverse Turing test, anyone?),
-  the repo owner will own you an EasyBuild towel, delivered on his birthday as per http://en.wikipedia.org/wiki/Towel_Day
+  the repo owner will owe you an EasyBuild towel, delivered on his birthday as per http://en.wikipedia.org/wiki/Towel_Day
 * whatever you do, remember the words of this pal [http://www.ece.cmu.edu/~ganger/712.fall02/papers/p761-thompson.pdf]
 
 Now, jump to the wiki for more details:
