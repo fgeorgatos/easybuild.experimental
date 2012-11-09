@@ -1,0 +1,119 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      icu4c-49_1_2-src.eb
+# Date::      Fri Nov  9 14:37:56 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'icu4c'
+version = '49_1_2-src'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['icu4c-49_1_2-src.tgz']
+source_urls = ['http://download.icu-project.org/files/icu4c/${PKGVERSION_NOREV}/']
+homepage = 'http://www.icu-project.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "icu4c-49_1_2-src description: Robust_and_full-featured_Unicode_services"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.76 2012/10/25 06:55:56 asau Exp $
+# 
+# DISTNAME=	icu4c-49_1_2-src
+# PKGNAME=	${DISTNAME:S/4c//:S/-src//:S/_/./g}
+# PKGREVISION=	1
+# CATEGORIES=	textproc
+# MASTER_SITES=	http://download.icu-project.org/files/icu4c/${PKGVERSION_NOREV}/
+# EXTRACT_SUFX=	.tgz
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.icu-project.org/
+# COMMENT=	Robust and full-featured Unicode services
+# LICENSE=	mit
+# 
+# WRKSRC=			${WRKDIR}/icu/source
+# USE_TOOLS+=		gmake
+# USE_LANGUAGES=		c c++
+# TEST_TARGET=		check
+# UNLIMIT_RESOURCES+=	datasize
+# GNU_CONFIGURE=		yes
+# CONFIGURE_ARGS+=	--enable-static
+# CONFIGURE_ENV+=		U_MAKE=${TOOLS_GMAKE}
+# 
+# .include "../../mk/pthread.buildlink3.mk"
+# 
+# .if defined(PTHREAD_TYPE) && ${PTHREAD_TYPE} != "native"
+# CONFIGURE_ARGS+=	--disable-threads
+# .endif
+# 
+# .include "../../mk/compiler.mk"
+# 
+# .if ${OPSYS} == "FreeBSD" || ${OPSYS} == "NetBSD" || ${OPSYS} == "OpenBSD" || ${OPSYS} == "DragonFly" || ${OPSYS} == "MirBSD"
+# PLIST_SUBST+=		MH_NAME=mh-bsd-gcc
+# .elif ${OPSYS} == "Linux"
+# PLIST_SUBST+=		MH_NAME=mh-linux
+# .elif ${OPSYS} == "SunOS"
+# .  if !empty(CC_VERSION:Mgcc*)
+# PLIST_SUBST+=		MH_NAME=mh-solaris-gcc
+# .  else
+# PLIST_SUBST+=		MH_NAME=mh-solaris
+# .  endif
+# .  if !empty(CC_VERSION:Mgcc-4.[6-9].*)
+# BUILDLINK_TRANSFORM+=	rm:-D__STDC__=0
+# .  endif
+# BUILDLINK_TRANSFORM+=	rm:-ansi
+# CFLAGS.SunOS+=		-std=c99
+# .elif ${OPSYS} == "IRIX"
+# PLIST_SUBST+=		MH_NAME=mh-irix
+# .elif ${OPSYS} == "Darwin"
+# PLIST_SUBST+=		MH_NAME=mh-darwin
+# .else
+# # For unknown systems, set the filename to mh-unknown so that the user
+# # gets a warning about missing files.
+# PLIST_SUBST+=		MH_NAME=mh-unknown
+# .endif
+# 
+# .if ${OPSYS} == "Darwin"
+# INSTALL_UNSTRIPPED=	yes
+# .endif
+# 
+# # expect builtin gcc atomic functions for gcc>=4.1
+# # (source/common/putilimp.h)
+# .if !empty(CC_VERSION:Mgcc-*) &&	\
+# 	(empty(CC_VERSION:Mgcc-4.0*) && empty(CC_VERSION:Mgcc-[0-3].*))
+# .  if ${MACHINE_ARCH} == "i386"
+# CFLAGS+=	-march=i486
+# .  endif
+# .endif
+# 
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,78 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      fl_logbook.121.src.eb
+# Date::      Fri Nov  9 14:37:25 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'fl_logbook-1.21'
+version = 'fl_logbook.121.src'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['fl_logbook.121.src.tar.gz']
+source_urls = ['http://www.w1hkj.com/LinuxApps/']
+homepage = 'http://www.w1hkj.com/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "fl_logbook.121.src description: FLTK-based_amateur_radio_log_book"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.6 2012/10/03 13:01:43 asau Exp $
+# #
+# 
+# DISTNAME=		fl_logbook.121.src
+# PKGNAME=		fl_logbook-1.21
+# PKGREVISION=		2
+# CATEGORIES=		ham
+# MASTER_SITES=		http://www.w1hkj.com/LinuxApps/
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://www.w1hkj.com/
+# COMMENT=		FLTK-based amateur radio log book
+# 
+# WRKSRC=			${WRKDIR}/${PKGNAME_NOREV:C/-.*//}
+# 
+# USE_LANGUAGES=		c++
+# USE_TOOLS+=		gmake
+# 
+# MAKE_ENV+=		CFG=Release
+# 
+# BUILD_TARGET=		#defined in dist Makefile
+# 
+# INSTALLATION_DIRS=	bin
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/Release/fl_logbook ${DESTDIR}${PREFIX}/bin
+# 
+# .include "../../x11/fltk/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

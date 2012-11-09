@@ -1,0 +1,106 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      scribus-1.4.1.eb
+# Date::      Fri Nov  9 14:37:45 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'scribus'
+version = '1.4.1'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['scribus-1.4.1.tar.bz2']
+source_urls = ['http://sourceforge.net/projects/scribus/files', 'download']
+homepage = 'http://www.scribus.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "scribus-1.4.1 description: Publishing_layout_with_graphical_interface"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.18 2012/10/08 23:02:21 adam Exp $
+# 
+# DISTNAME=		scribus-1.4.1
+# PKGREVISION=		6
+# CATEGORIES=		print
+# MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=scribus/}
+# EXTRACT_SUFX=		.tar.bz2
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://www.scribus.net/
+# COMMENT=		Publishing layout with graphical interface
+# 
+# WRKSRC=			${WRKDIR}/Scribus
+# USE_LANGUAGES=		c c++
+# USE_LIBTOOL=		YES
+# USE_TOOLS+=		gmake perl pkg-config
+# PTHREAD_OPTS+=		require
+# SHLIBTOOL_OVERRIDE=	# empty
+# USE_CMAKE=	yes
+# CMAKE_ARGS+=	-DPNG_LIBRARY_RELEASE=${LOCALBASE}/lib
+# CONFIGURE_ARGS+=	--enable-cairo
+# CONFIGURE_ARGS+=	--with-extra-includes=${PREFIX}/include
+# CONFIGURE_ARGS+=	--with-extra-libs=${PREFIX}/lib
+# CONFIGURE_ARGS+=	--with-qt-dir=${QTDIR}
+# CONFIGURE_ARGS+=	--with-pythondir=${PREFIX}
+# # XXX make an option
+# CONFIGURE_ARGS+=	--disable-cups
+# 
+# INSTALLATION_DIRS+=	share/pixmaps
+# 
+# post-install:
+# 	${INSTALL_DATA} ${WRKSRC}/resources/icons/scribus.png \
+# 		${DESTDIR}${PREFIX}/share/pixmaps
+# 
+# .include "../../devel/boost-headers/buildlink3.mk"
+# .include "../../print/cups/buildlink3.mk"
+# .include "../../print/podofo/buildlink3.mk"
+# .include "../../graphics/cairo/buildlink3.mk"
+# .include "../../mk/jpeg.buildlink3.mk"
+# .include "../../graphics/png/buildlink3.mk"
+# .include "../../graphics/lcms2/buildlink3.mk"
+# BUILDLINK_API_DEPENDS.libart+= libart>=2.3.19nb1
+# .include "../../graphics/libart/buildlink3.mk"
+# .include "../../graphics/tiff/buildlink3.mk"
+# .include "../../textproc/libxml2/buildlink3.mk"
+# .include "../../textproc/aspell/buildlink3.mk"
+# .include "../../x11/libSM/buildlink3.mk"
+# .include "../../x11/libX11/buildlink3.mk"
+# .include "../../x11/libXt/buildlink3.mk"
+# .include "../../x11/qt4-libs/buildlink3.mk"
+# .include "../../x11/qt4-tools/buildlink3.mk"
+# .include "../../mk/pthread.buildlink3.mk"
+# .include "../../lang/python/application.mk"
+# .include "../../databases/shared-mime-info/mimedb.mk"
+# .include "../../sysutils/desktop-file-utils/desktopdb.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"

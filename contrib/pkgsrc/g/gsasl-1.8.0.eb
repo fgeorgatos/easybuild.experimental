@@ -1,0 +1,85 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      gsasl-1.8.0.eb
+# Date::      Fri Nov  9 14:37:48 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'gsasl'
+version = '1.8.0'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['gsasl-1.8.0.tar.gz']
+source_urls = ['http://ftp.gnu.org/gnu/gsasl']
+homepage = 'http://www.gnu.org/software/gsasl/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "gsasl-1.8.0 description: GNU_implementation_of_the_Simple_Authentication_and_Security_Layer"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.36 2012/10/23 18:16:29 asau Exp $
+# 
+# DISTNAME=	gsasl-1.8.0
+# PKGREVISION=	1
+# CATEGORIES=	security
+# MASTER_SITES=	${MASTER_SITE_GNU:=gsasl/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.gnu.org/software/gsasl/
+# COMMENT=	GNU implementation of the Simple Authentication and Security Layer
+# LICENSE=	gnu-gpl-v3
+# 
+# USE_TOOLS+=		msgfmt pkg-config
+# USE_LIBTOOL=		yes
+# USE_PKGLOCALEDIR=	yes
+# GNU_CONFIGURE=		yes
+# CONFIGURE_ARGS+=	--disable-gtk-doc
+# CONFIGURE_ARGS+=	--with-gssapi-impl=${GSSIMPL.${KRB5_TYPE}}
+# CONFIGURE_ARGS+=	--with-html-dir=${PREFIX}/share/doc/html
+# CONFIGURE_ARGS+=	--with-libgcrypt
+# GSSIMPL.heimdal=	heimdal
+# GSSIMPL.mit-krb5=	mit
+# 
+# PKGCONFIG_OVERRIDE+=	lib/libgsasl.pc.in
+# INFO_FILES=		yes
+# TEST_TARGET=		check
+# 
+# .include "../../devel/gettext-lib/buildlink3.mk"
+# .include "../../devel/libidn/buildlink3.mk"
+# .include "../../devel/libntlm/buildlink3.mk"
+# .include "../../devel/readline/buildlink3.mk"
+# .include "../../security/gnutls/buildlink3.mk"
+# .include "../../security/libgcrypt/buildlink3.mk"
+# .include "../../security/openssl/buildlink3.mk"
+# .include "../../mk/krb5.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,67 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      python-xlib-0.14.eb
+# Date::      Fri Nov  9 14:38:09 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = '-Xlib-0.14'
+version = 'xlib-0.14'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['python-xlib-0.14.tar.gz']
+source_urls = ['http://sourceforge.net/projects/python-xlib/files', 'download']
+homepage = 'http://python-xlib.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "python-xlib-0.14 description: Functional_X_client_library_for_Python"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.10 2012/10/29 05:06:44 asau Exp $
+# 
+# DISTNAME=	python-xlib-0.14
+# PKGNAME=	${PYPKGPREFIX}-Xlib-0.14
+# CATEGORIES=	x11
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=python-xlib/}
+# 
+# MAINTAINER=	ccatrian@eml.cc
+# HOMEPAGE=	http://python-xlib.sourceforge.net/
+# COMMENT=	Functional X client library for Python
+# LICENSE=	gnu-gpl-v2
+# 
+# PYTHON_VERSIONS_INCLUDE_3X=	yes
+# 
+# EGG_NAME=	python_xlib-0.12
+# 
+# .include "../../lang/python/distutils.mk"
+# .include "../../mk/bsd.pkg.mk"

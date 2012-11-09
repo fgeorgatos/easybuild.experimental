@@ -1,0 +1,73 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      ssync-1.6.eb
+# Date::      Fri Nov  9 14:37:39 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'ssync'
+version = '1.6'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['ssync-1.6.tar.gz']
+source_urls = ['#ftp://ftp.gw.com/pub/people/kim/']
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "ssync-1.6 description: Invoke_rsync_to_distribute_files_to_a_set_of_hosts"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.12 2012/10/23 17:19:10 asau Exp $
+# #
+# 
+# DISTNAME=		ssync-1.6
+# CATEGORIES=		net
+# MASTER_SITES=		# ftp://ftp.gw.com/pub/people/kim/
+# 
+# MAINTAINER=		kim@tac.nyc.ny.us
+# COMMENT=		Invoke rsync to distribute files to a set of hosts
+# 
+# DEPENDS+=		netname-[0-9]*:../../net/netname
+# DEPENDS+=		osname-[0-9]*:../../sysutils/osname
+# DEPENDS+=		rsync>=2.3.1:../../net/rsync
+# DEPENDS+=		srsh-[0-9]*:../../net/srsh
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# SSYNC_PAWD?=		pwd
+# 
+# NO_CONFIGURE=		yes
+# BUILD_TARGET=		all PREFIX=${PREFIX} PAWD=${SSYNC_PAWD}
+# INSTALL_TARGET=		install PREFIX=${DESTDIR}${PREFIX}
+# INSTALLATION_DIRS=	sbin ${PKGMANDIR}/man8
+# 
+# .include "../../mk/bsd.pkg.mk"

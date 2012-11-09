@@ -1,0 +1,88 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      xservers-3.3.6.5.eb
+# Date::      Fri Nov  9 14:38:11 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'xservers'
+version = '3.3.6.5'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['xservers-3.3.6.5.tar.bz2']
+source_urls = ['${MASTER_SITE_LOCAL}']
+homepage = 'http://www.xfree86.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "xservers-3.3.6.5 description: Old_X11_servers_for_use_under_XFree86_4.x"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.36 2011/04/03 13:43:18 obache Exp $
+# 
+# DISTNAME=	xservers-3.3.6.5
+# PKGREVISION=	2
+# CATEGORIES=	x11
+# MASTER_SITES=	${MASTER_SITE_LOCAL}
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.xfree86.org/
+# COMMENT=	Old X11 servers for use under XFree86 4.x
+# 
+# ONLY_FOR_PLATFORM=	NetBSD-*-i386
+# 
+# NO_SRC_ON_FTP=	Already in MASTER_SITE_LOCAL.
+# 
+# PKG_DESTDIR_SUPPORT=	destdir
+# 
+# MAKE_JOBS_SAFE=		no
+# 
+# BUILD_TARGET=	World
+# PLIST_SRC=	${WRKDIR}/PLIST
+# 
+# X11_SUBDIR=	X11R6.3
+# 
+# MESSAGE_SUBST+=	X11_SUBDIR=${X11_SUBDIR}
+# 
+# BUILDLINK_PASSTHRU_RPATHDIRS+=	${PREFIX}/X11R6.3/lib
+# 
+# do-configure:
+# 	${SED} -e 's#@PROJECTROOT@#${PREFIX}/${X11_SUBDIR}#' \
+# 	  ${FILESDIR}/host.def >${WRKSRC}/config/cf/host.def
+# 	${ECHO} "#define NetBSDThreads NO" >>${WRKSRC}/config/cf/host.def
+# 
+# post-install:
+# 	cd ${DESTDIR}${PREFIX} && \
+# 	${FIND} ${X11_SUBDIR} \! -type d -print | ${SORT} >${PLIST_SRC}
+# 
+# .include "../../mk/bsd.pkg.mk"

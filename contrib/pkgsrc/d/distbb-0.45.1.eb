@@ -1,0 +1,101 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      distbb-0.45.1.eb
+# Date::      Fri Nov  9 14:37:42 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'distbb'
+version = '0.45.1'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['distbb-0.45.1.tar.gz']
+source_urls = ['ftp://ftp.NetBSD.org/pub/NetBSD/misc/cheusov/distbb/']
+homepage = 'http://mova.org/~cheusov/pub/distbb/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "distbb-0.45.1 description: DISTributed_Bulk_Build_tool_for_pkgsrc"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.16 2012/10/05 17:14:54 cheusov Exp $
+# #
+# 
+# DISTNAME=	distbb-0.45.1
+# PKGREVISION=	3
+# CATEGORIES=	pkgtools
+# MASTER_SITES=	ftp://ftp.NetBSD.org/pub/NetBSD/misc/cheusov/distbb/ \
+# 		http://mova.org/~cheusov/pub/distbb/
+# 
+# MAINTAINER=	cheusov@NetBSD.org
+# HOMEPAGE=	http://mova.org/~cheusov/pub/distbb/
+# COMMENT=	DISTributed Bulk Build tool for pkgsrc
+# LICENSE=	2-clause-bsd
+# 
+# DEPENDS+=	pkg_summary-utils>=0.58.4:../../pkgtools/pkg_summary-utils
+# DEPENDS+=	paexec>=0.16.0:../../parallel/paexec
+# DEPENDS+=	runawk>=1.1.0:../../lang/runawk
+# DEPENDS+=	pipestatus>=0.6.0:../../devel/pipestatus
+# DEPENDS+=	digest-[0-9]*:../../pkgtools/digest
+# 
+# BUILD_DEPENDS+=	mk-configure>=0.21:../../devel/mk-configure
+# 
+# USE_LANGUAGES=		# none
+# 
+# REPLACE_SH+=		distbb.in distbb_diff.in slave.in stage_*.in
+# 
+# REPLACE_INTERPRETER+=	runawk
+# REPLACE.runawk.old=	/usr/bin/env runawk
+# REPLACE.runawk.new=	${PREFIX}/bin/runawk
+# REPLACE_FILES.runawk=	gen_weights.in pkg_summary2build_deps.in \
+# 			distbb_grep.in gen_queue.in
+# 
+# EGDIR=			${PREFIX}/share/examples/distbb
+# DOCDIR=			${PREFIX}/share/doc/distbb
+# 
+# CONF_FILES=		${EGDIR}/distbb.conf     ${PKG_SYSCONFDIR}/distbb.conf
+# CONF_FILES+=		${EGDIR}/distbb.local.mk ${PKG_SYSCONFDIR}/distbb.local.mk
+# 
+# DOCFILES=		README NEWS TODO
+# 
+# MAKE_FLAGS+=		EGDIR=${EGDIR}
+# 
+# INSTALLATION_DIRS=	${DOCDIR}
+# 
+# post-install:
+# .for f in ${DOCFILES}
+# 	${INSTALL_DATA} ${WRKSRC}/${f} ${DESTDIR}${DOCDIR}
+# .endfor
+# 
+# .include "../../devel/mk-configure/mk-c.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"

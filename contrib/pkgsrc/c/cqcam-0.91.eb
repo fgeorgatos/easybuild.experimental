@@ -1,0 +1,90 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      cqcam-0.91.eb
+# Date::      Fri Nov  9 14:37:21 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'cqcam'
+version = '0.91'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['cqcam-0.91.tar.gz']
+source_urls = ['http://piki.org/patrick/cqcam/']
+homepage = 'http://piki.org/patrick/cqcam/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "cqcam-0.91 description: Free_Color_QuickCam_control_program"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.38 2012/10/23 10:24:06 wiz Exp $
+# #
+# 
+# DISTNAME=		cqcam-0.91
+# PKGREVISION=		4
+# CATEGORIES=		graphics x11
+# MASTER_SITES=		http://piki.org/patrick/cqcam/
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://piki.org/patrick/cqcam/
+# COMMENT=		Free Color QuickCam control program
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# #NOT_FOR_UNPRIVILEGED=	yes	# seems to need setuid for everything
+# .if ${OPSYS} == "SunOS"
+# # Tries to install a device driver with unrestricted access to all
+# # hardware ports, which is also specific to i86pc platforms.
+# NOT_FOR_UNPRIVILEGED=	yes
+# .endif
+# 
+# .if ${MACHINE_ARCH} != "i386"
+# CONFIGURE_ARGS+=	--disable-asm
+# .endif
+# 
+# GNU_CONFIGURE=		yes
+# CONFIGURE_ARGS+=	--without-xview
+# USE_LANGUAGES=		c c++
+# 
+# CONFIGURE_ENV+=		TCLCONFIG_SH=${TCLCONFIG_SH:Q}
+# CONFIGURE_ARGS+=	--x-includes=${X11BASE:Q}/include
+# CONFIGURE_ARGS+=	--x-libraries=${X11BASE:Q}/lib
+# 
+# BUILDLINK_DEPMETHOD.libXt?=	build
+# 
+# .include "../../mk/jpeg.buildlink3.mk"
+# .include "../../lang/tcl/buildlink3.mk"
+# .include "../../x11/tk/buildlink3.mk"
+# .include "../../x11/libXt/buildlink3.mk"
+# .include "../../x11/libXext/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

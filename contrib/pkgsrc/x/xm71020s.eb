@@ -1,0 +1,92 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      xm71020s.eb
+# Date::      Fri Nov  9 14:37:14 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'xm7-1020s'
+version = 'xm71020s'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['xm71020s.zip']
+version = '1020s'
+name = 'xm7'
+source_urls = ['http://yohkai.no-ip.info/fm7/']
+homepage = 'http://yohkai.no-ip.info/fm7/XM7.htm'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "xm71020s description: X11-based_FM-7_emulator"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.31 2012/10/23 10:24:04 wiz Exp $
+# #
+# 
+# DISTNAME=		xm71020s
+# PKGNAME=		xm7-1020s
+# CATEGORIES=		emulators
+# MASTER_SITES=		http://yohkai.no-ip.info/fm7/
+# EXTRACT_SUFX=		.zip
+# 
+# MAINTAINER=		tech-pkg-ja@jp.NetBSD.org
+# HOMEPAGE=		http://yohkai.no-ip.info/fm7/XM7.htm
+# COMMENT=		X11-based FM-7 emulator
+# LICENSE=		xm7-license
+# 
+# RESTRICTED=		source archive is not redistributable
+# NO_BIN_ON_CDROM=	${RESTRICTED}
+# NO_SRC_ON_CDROM=	${RESTRICTED}
+# NO_BIN_ON_FTP=		${RESTRICTED}
+# NO_SRC_ON_FTP=		${RESTRICTED}
+# 
+# BUILD_DEPENDS+=		nkf>=1.7:../../converters/nkf
+# 
+# NOT_FOR_BULK_PLATFORM=	Linux-*-*
+# 
+# EXTRACT_OPTS_ZIP=	-aqoLL	# lower-case filenames are expected
+# 
+# WRKSRC=			${WRKDIR}/vm
+# NO_CONFIGURE=		yes
+# MAKE_FILE=		makefile.x11
+# INSTALLATION_DIRS=	bin
+# 
+# post-extract:
+# 	cd ${WRKDIR} && mv linux/* vm
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKDIR}/vm/xm7 ${DESTDIR}${PREFIX}/bin
+# 
+# .include "../../x11/libXext/buildlink3.mk"
+# .include "../../x11/libXt/buildlink3.mk"
+# .include "../../mk/oss.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,68 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      font-ibm-type1-1.0.3.eb
+# Date::      Fri Nov  9 14:37:16 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'font'
+version = 'ibm-type1-1.0.3'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['font-ibm-type1-1.0.3.tar.bz2']
+source_urls = ['http://sourceforge.net/projects/font/files', 'download']
+homepage = 'http://xorg.freedesktop.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "font-ibm-type1-1.0.3 description: IBM_Courier_Type1_fonts"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.7 2012/10/03 18:28:21 asau Exp $
+# #
+# 
+# DISTNAME=		font-ibm-type1-1.0.3
+# CATEGORIES=		fonts
+# MASTER_SITES=		${MASTER_SITE_XORG:=font/}
+# EXTRACT_SUFX=		.tar.bz2
+# 
+# MAINTAINER=		joerg@NetBSD.org
+# HOMEPAGE=		http://xorg.freedesktop.org/
+# COMMENT=		IBM Courier Type1 fonts
+# 
+# GNU_CONFIGURE=		yes
+# CONFIGURE_ENV+=		FCCACHE=${TOOLS_CMD.true:Q}
+# 
+# FONTS_DIRS.type1=	share/fonts/X11/Type1
+# FONTS_DIRS.x11=		share/fonts/X11/Type1
+# 
+# .include "../../mk/bsd.pkg.mk"

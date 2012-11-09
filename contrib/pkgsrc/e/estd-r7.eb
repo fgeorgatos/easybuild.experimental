@@ -1,0 +1,81 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      estd-r7.eb
+# Date::      Fri Nov  9 14:37:52 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'estd-0.7'
+version = 'r7'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['estd-r7.tar.gz']
+version = '0.7'
+name = 'estd'
+source_urls = ['http://www.ecademix.com/JohannesHofmann/']
+homepage = 'http://www.ecademix.com/JohannesHofmann/estd.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "estd-r7 description: Dynamically_sets_the_CPU-frequency_on_SpeedStep_and_PowerNow_CPUs"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.20 2012/10/23 19:51:00 asau Exp $
+# 
+# DISTNAME=	estd-r7
+# PKGNAME=	estd-0.7
+# CATEGORIES=	sysutils
+# MASTER_SITES=	http://www.ecademix.com/JohannesHofmann/
+# 
+# MAINTAINER=	dillo@NetBSD.org
+# HOMEPAGE=	http://www.ecademix.com/JohannesHofmann/estd.html
+# COMMENT=	Dynamically sets the CPU-frequency on SpeedStep and PowerNow CPUs
+# LICENSE=	2-clause-bsd
+# 
+# INSTALLATION_DIRS=	share/examples/rc.d
+# 
+# ONLY_FOR_PLATFORM=	NetBSD-2.99.*-i386 NetBSD-[3-9]*-i386 \
+# 			NetBSD-[4-9]*-x86_64 DragonFly-*-i386 \
+# 			NetBSD-5.99.*-powerpc \
+# 			NetBSD-5.99.*-mips64el
+# 
+# RCD_SCRIPTS=		estd
+# RCD_SCRIPT_SRC.estd=	${WRKSRC}/estd.sh
+# 
+# SUBST_CLASSES+=		rcd
+# SUBST_STAGE.rcd=	do-configure
+# SUBST_MESSAGE.rcd=	Fixing startup script.
+# SUBST_FILES.rcd=	estd.sh
+# SUBST_SED.rcd=		-e 's|@PREFIX@|${PREFIX}|'
+# SUBST_SED.rcd+=		-e 's|@ECHO@|${ECHO}|'
+# 
+# .include "../../mk/bsd.pkg.mk"

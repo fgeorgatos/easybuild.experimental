@@ -1,0 +1,92 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      rfc-3.2.eb
+# Date::      Fri Nov  9 14:37:58 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'rfcutil-3.2'
+version = '3.2'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['rfc-3.2#']
+version = '3.2'
+name = 'rfcutil'
+source_urls = ['http://www.dewn.com/rfc/']
+homepage = 'http://www.dewn.com/rfc/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "rfc-3.2 description: "
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.24 2012/10/25 06:56:54 asau Exp $
+# #
+# 
+# DISTNAME=	rfc-3.2
+# PKGNAME=	rfcutil-3.2
+# PKGREVISION=	8
+# CATEGORIES=	textproc
+# MASTER_SITES=	http://www.dewn.com/rfc/
+# EXTRACT_SUFX=	#
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.dewn.com/rfc/
+# COMMENT=	Search for RFCs and do ports, services & protocol lookups
+# 
+# WRKSRC=		${WRKDIR}
+# EXTRACT_ONLY=	#
+# 
+# NO_BUILD=	YES
+# USE_TOOLS+=	perl:run
+# REPLACE_PERL=	rfc
+# 
+# RFCINDEXURL=	http://www.ietf.org/download/
+# 
+# INSTALLATION_DIRS=	bin
+# 
+# SUBST_CLASSES+=		rfcutil
+# SUBST_STAGE.rfcutil=	post-patch
+# SUBST_FILES.rfcutil=	rfc
+# SUBST_SED.rfcutil+=	-e 's,/usr/local,${PREFIX},'
+# SUBST_SED.rfcutil+=	-e '/VIEWER=/s,w3m lynx,${RFCVIEWER},'
+# SUBST_SED.rfcutil+=	-e '/viewer/s,-dump,${RFCDUMPOPT},'
+# SUBST_SED.rfcutil+=	-e '/viewer/s,http://ftp.isi.edu/in-notes/,${RFCINDEXURL},'
+# .include "options.mk"
+# 
+# do-extract:
+# 	${CP} ${DISTDIR}/${DISTNAME} ${WRKSRC}/rfc
+# 
+# do-install:
+# 	${INSTALL_SCRIPT} ${WRKSRC}/rfc ${DESTDIR}${PREFIX}/bin/rfc
+# 
+# .include "../../mk/bsd.pkg.mk"

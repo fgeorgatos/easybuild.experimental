@@ -1,0 +1,84 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      udns-0.2.eb
+# Date::      Fri Nov  9 14:37:40 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'udns'
+version = '0.2'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['udns-0.2.tar.gz']
+source_urls = ['http://www.corpit.ru/mjt/udns/']
+homepage = 'http://www.corpit.ru/mjt/udns.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "udns-0.2 description: Lightweight_DNS_resolver_supporting_asynchronous_queries"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.6 2012/10/23 17:19:15 asau Exp $
+# 
+# DISTNAME=	udns-0.2
+# PKGREVISION=	1
+# CATEGORIES=	net
+# MASTER_SITES=	http://www.corpit.ru/mjt/udns/
+# 
+# MAINTAINER=	eric@cirr.com
+# HOMEPAGE=	http://www.corpit.ru/mjt/udns.html
+# COMMENT=	Lightweight DNS resolver supporting asynchronous queries
+# LICENSE=	gnu-lgpl-v2.1
+# 
+# CONFLICTS=	rblcheck-[0-9]*
+# 
+# WRKSRC=		${WRKDIR}/${PKGNAME_NOREV}
+# 
+# USE_LIBTOOL=		yes
+# HAS_CONFIGURE=		yes
+# INSTALLATION_DIRS=	bin lib include ${PKGMANDIR}/man1 ${PKGMANDIR}/man3
+# 
+# .include "options.mk"
+# 
+# do-install:
+# 	${LIBTOOL} --mode=install ${INSTALL_LIB} \
+# 		${WRKSRC}/libudns.la ${DESTDIR}${PREFIX}/lib
+# 	${LIBTOOL} --mode=install ${INSTALL_PROGRAM} \
+# 		${WRKSRC}/dnsget ${DESTDIR}${PREFIX}/bin
+# 	${LIBTOOL} --mode=install ${INSTALL_PROGRAM} \
+# 		${WRKSRC}/rblcheck ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_DATA} ${WRKSRC}/udns.h ${DESTDIR}${PREFIX}/include
+# 	${INSTALL_MAN} ${WRKSRC}/udns.3 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man3
+# 	${INSTALL_MAN} ${WRKSRC}/dnsget.1 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man1
+# 	${INSTALL_MAN} ${WRKSRC}/rblcheck.1 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man1
+# 
+# .include "../../mk/bsd.pkg.mk"

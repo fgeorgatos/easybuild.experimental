@@ -1,0 +1,79 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      ed-1.1.eb
+# Date::      Fri Nov  9 14:37:12 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'ed'
+version = '1.1'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['ed-1.1.tar.bz2']
+source_urls = ['http://ftp.gnu.org/gnu/ed']
+homepage = 'http://www.gnu.org/software/ed/ed.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "ed-1.1 description: GNU_version_of_line-oriented_text_editor"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.15 2012/10/03 11:43:32 asau Exp $
+# 
+# DISTNAME=		ed-1.1
+# PKGREVISION=		2
+# CATEGORIES=		editors
+# MASTER_SITES=		${MASTER_SITE_GNU:=ed/}
+# EXTRACT_SUFX=		.tar.bz2
+# 
+# MAINTAINER=		reed@reedmedia.net
+# HOMEPAGE=		http://www.gnu.org/software/ed/ed.html
+# COMMENT=		GNU version of line-oriented text editor
+# LICENSE=		gnu-gpl-v3
+# 
+# GNU_CONFIGURE=		YES
+# 
+# INFO_FILES=		yes
+# 
+# CONFIGURE_ARGS+=	--program-prefix=g
+# 
+# INSTALL_TARGET=		install install-man
+# 
+# AUTO_MKDIRS=		yes
+# 
+# post-install:
+# .for f in ed red
+# 	${LN} -sf ${PREFIX}/bin/g${f} ${DESTDIR}${PREFIX}/gnu/bin/${f}
+# 	${LN} -sf ${PREFIX}/${PKGMANDIR}/man1/g${f}.1 ${DESTDIR}${PREFIX}/gnu/man/man1/${f}.1
+# .endfor
+# 
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,84 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      glclock-6.0b6.0.eb
+# Date::      Fri Nov  9 14:38:00 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'glclock'
+version = '6.0b6.0'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['glclock-6.0b6.0.tar.gz']
+source_urls = ['http://www.daionet.gr.jp/~masa/archives/']
+homepage = 'http://www.daionet.gr.jp/~masa/glclock/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "glclock-6.0b6.0 description: OpenGL-based_pocket_watch"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.24 2012/10/08 13:04:18 asau Exp $
+# #
+# 
+# DISTNAME=		glclock-6.0b6.0
+# PKGREVISION=		3
+# CATEGORIES=		x11 graphics time
+# MASTER_SITES=		http://www.daionet.gr.jp/~masa/archives/
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://www.daionet.gr.jp/~masa/glclock/
+# COMMENT=		OpenGL-based pocket watch
+# 
+# USE_LANGUAGES=		c++
+# 
+# MAKE_FILE=		makefile
+# BUILD_TARGET=		glclock
+# 
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# .if ${OPSYS} == NetBSD && ${MACHINE_ARCH} == sparc
+# CFLAGS=
+# .endif
+# 
+# INSTALLATION_DIRS=	bin
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/glclock ${DESTDIR}${PREFIX}/bin
+# #notyet: lookup of .ppm files
+# #	for i in benchclock crystalclock marbleclock metalclock \
+# #			mwclock woodclock;do \
+# #	${INSTALL_SCRIPT} ${WRKSRC}/$$i ${PREFIX}/bin; done
+# 
+# .include "../../graphics/Mesa/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

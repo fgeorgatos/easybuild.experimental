@@ -1,0 +1,105 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      vtun-3.0.2.eb
+# Date::      Fri Nov  9 14:37:40 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'vtun'
+version = '3.0.2'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['vtun-3.0.2.tar.gz']
+source_urls = ['http://sourceforge.net/projects/vtun/files', 'download']
+homepage = 'http://vtun.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "vtun-3.0.2 description: Virtual_Tunnels_over_TCP/IP_networks_with_traffic_shaping"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.47 2012/10/23 17:19:18 asau Exp $
+# 
+# DISTNAME=	vtun-3.0.2
+# CATEGORIES=	net
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=vtun/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://vtun.sourceforge.net/
+# COMMENT=	Virtual Tunnels over TCP/IP networks with traffic shaping
+# LICENSE=	gnu-gpl-v2
+# 
+# GNU_CONFIGURE=		yes
+# CONFIGURE_ARGS+=	--localstatedir=${VARBASE}
+# CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR}
+# CONFIGURE_ARGS+=	--with-ssl-headers=${SSLBASE}/include/openssl
+# CONFIGURE_ARGS+=	--with-ssl-lib=${SSLBASE}/lib
+# CONFIGURE_ARGS+=	--with-lzo-headers=${BUILDLINK_PREFIX.lzo}/include/lzo
+# CONFIGURE_ARGS+=	--with-lzo-lib=${BUILDLINK_PREFIX.lzo}/lib
+# BUILD_TARGET=		vtund
+# 
+# DOCDIR=			${PREFIX}/share/doc/vtun
+# EGDIR=			${PREFIX}/share/examples/vtun
+# LOCKDIR=		/var/run/vtund
+# LOGDIR=			/var/log/vtund
+# 
+# CONF_FILES_PERMS=	${EGDIR}/vtund.conf ${PKG_SYSCONFDIR}/vtund.conf \
+# 			${REAL_ROOT_USER} ${REAL_ROOT_GROUP} 0600
+# OWN_DIRS=		${LOCKDIR} ${LOGDIR}
+# 
+# INSTALLATION_DIRS=	${PKGMANDIR}/man5 ${PKGMANDIR}/man8 sbin
+# INSTALLATION_DIRS+=	${EGDIR} ${DOCDIR}
+# 
+# SUBST_CLASSES+=		fix-man
+# SUBST_STAGE.fix-man=	pre-configure
+# SUBST_MESSAGE.fix-man=	Fixing man pages.
+# SUBST_FILES.fix-man=	vtund.8
+# SUBST_VARS.fix-man=	PKG_SYSCONFDIR
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/vtund ${DESTDIR}${PREFIX}/sbin
+# 	${INSTALL_DATA} ${WRKSRC}/README ${DESTDIR}${DOCDIR}
+# 	${INSTALL_DATA} ${WRKSRC}/README.Setup ${DESTDIR}${DOCDIR}
+# 	${INSTALL_DATA} ${WRKSRC}/README.Shaper ${DESTDIR}${DOCDIR}
+# 	${INSTALL_DATA} ${WRKSRC}/vtund.conf ${DESTDIR}${EGDIR}/vtund.conf
+# 	${INSTALL_MAN} ${WRKSRC}/vtund.conf.5 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man5
+# 	${INSTALL_MAN} ${WRKSRC}/vtund.8 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man8
+# 
+# .include "../../mk/bsd.prefs.mk"
+# .if ${OPSYS} == "SunOS"
+# .include "../../net/solaris-tap/buildlink3.mk"
+# .endif
+# 
+# .include "../../archivers/lzo/buildlink3.mk"
+# .include "../../devel/zlib/buildlink3.mk"
+# .include "../../security/openssl/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

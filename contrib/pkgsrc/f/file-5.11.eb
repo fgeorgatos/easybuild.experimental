@@ -1,0 +1,89 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      file-5.11.eb
+# Date::      Fri Nov  9 14:37:52 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'file'
+version = '5.11'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['file-5.11.tar.gz']
+source_urls = ['ftp://ftp.astron.com/pub/file/']
+homepage = 'http://www.darwinsys.com/file/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "file-5.11 description: Tool_for_determining_file_type"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.28 2012/10/23 19:51:01 asau Exp $
+# 
+# DISTNAME=		file-5.11
+# CATEGORIES=		sysutils
+# MASTER_SITES=		ftp://ftp.astron.com/pub/file/
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://www.darwinsys.com/file/
+# COMMENT=		Tool for determining file type
+# LICENSE=		2-clause-bsd
+# 
+# USE_LIBTOOL=		YES
+# 
+# GNU_CONFIGURE=		YES
+# CONFIGURE_ARGS+=	--enable-fsect-man5
+# CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR:Q}
+# 
+# MESSAGE_SUBST+=		PKG_SYSCONFDIR=${PKG_SYSCONFDIR}
+# 
+# TEST_TARGET=		check
+# 
+# .include "../../mk/compiler.mk"
+# 
+# # gcc<4 does not know -Wextra.
+# # XXX: should be treated with wrappers automatically.
+# .if !empty(CC_VERSION:Mgcc-[23]*)
+# BUILDLINK_TRANSFORM+=	rename:-Wextra:-W
+# .endif
+# # gcc<3 does not know -Wunused-parameter
+# .if !empty(CC_VERSION:Mgcc-2*)
+# BUILDLINK_TRANSFORM+=  rm:-Wunused-parameter
+# .endif
+# 
+# .if ${LOWER_OPSYS} == "aix"
+# CFLAGS+=	-D_LINUX_SOURCE_COMPAT
+# .endif
+# 
+# .include "../../devel/zlib/buildlink3.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,95 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      pam_ldap-186.eb
+# Date::      Fri Nov  9 14:37:49 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'pam_ldap'
+version = '186'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['pam_ldap-186.tar.gz']
+source_urls = ['ftp://ftp.padl.com/pub/']
+homepage = 'http://www.padl.com/pam_ldap.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "pam_ldap-186 description: Pluggable_authentication_module_for_LDAP_directories"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.36 2012/10/23 18:16:48 asau Exp $
+# 
+# DISTNAME=	pam_ldap-186
+# PKGNAME=	${DISTNAME:S/_/-/}
+# CATEGORIES=	security
+# MASTER_SITES=	ftp://ftp.padl.com/pub/ \
+# 		http://www.padl.com/download/
+# 
+# MAINTAINER=	rh@NetBSD.org
+# HOMEPAGE=	http://www.padl.com/pam_ldap.html
+# COMMENT=	Pluggable authentication module for LDAP directories
+# LICENSE=	gnu-lgpl-v2
+# 
+# USE_LIBTOOL=		yes
+# USE_TOOLS+=		gmake
+# GNU_CONFIGURE=		yes
+# CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR}
+# CONFIGURE_ARGS+=	--with-ldap-lib=openldap
+# CONFIGURE_ARGS+=	--with-ldap-dir=${BUILDLINK_PREFIX.openldap-client}
+# CONFIGURE_ARGS+=	--with-ldap-conf-file=${PKG_SYSCONFDIR}/ldap.conf
+# CONFIGURE_ARGS+=	--with-ldap-secret-file=${PKG_SYSCONFDIR}/ldap.secret
+# 
+# # Fix (workaround?) a bug with openpam/NetBSD
+# # The bug is described in PR security/39313.
+# .include "../../mk/bsd.prefs.mk"
+# 
+# .if ${OPSYS} == "NetBSD"
+# CFLAGS+=		-DNO_STATIC_MODULES
+# .endif
+# 
+# # shared with databases/nss_ldap
+# EGDIR=			${PREFIX}/share/examples/${PKGBASE}
+# CONF_FILES=		${EGDIR}/ldap.conf ${PKG_SYSCONFDIR}/ldap.conf
+# 
+# INSTALL_MAKE_FLAGS=	${MAKE_FLAGS} sysconfdir=${EGDIR}
+# INSTALL_TARGET=		install install-data
+# 
+# .include "../../databases/openldap-client/buildlink3.mk"
+# .include "../../mk/pam.buildlink3.mk"
+# 
+# post-install:
+# .for file in ldapns.schema ns-pwd-policy.schema
+# 	cd ${WRKSRC} && ${INSTALL_DATA} ${file} ${DESTDIR}${EGDIR}
+# .endfor
+# 
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,98 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      librep-0.91.0.eb
+# Date::      Fri Nov  9 14:37:26 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'librep'
+version = '0.91.0'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['librep-0.91.0.tar.bz2']
+source_urls = ['http://download.tuxfamily.org/sawfish/librep/']
+homepage = 'http://librep.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "librep-0.91.0 description: Emacs_Lisp-like_runtime_library,_interpreter,_compiler_and_VM"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.59 2012/10/02 20:11:44 asau Exp $
+# #
+# 
+# DISTNAME=		librep-0.91.0
+# PKGREVISION=		4
+# CATEGORIES=		lang devel
+# MASTER_SITES=		http://download.tuxfamily.org/sawfish/librep/
+# EXTRACT_SUFX=		.tar.bz2
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://librep.sourceforge.net/
+# COMMENT=		Emacs Lisp-like runtime library, interpreter, compiler and VM
+# 
+# USE_TOOLS+=		gmake makeinfo
+# USE_GNU_READLINE=	yes # uses rl_basic_quote_characters
+# USE_LIBTOOL=		yes
+# # we have a symlink to libtool
+# DEPENDS+=		libtool-base-[0-9]*:../../devel/libtool-base
+# INFO_FILES=		yes
+# PKGCONFIG_OVERRIDE=	librep.pc.in
+# 
+# REP_LIBTOOL=		${PREFIX}/lib/rep/${MACHINE_GNU_PLATFORM}/libtool
+# 
+# GNU_CONFIGURE=		yes
+# CONFIGURE_ARGS+=	--with-readline
+# CONFIGURE_ARGS+=	--with-gmp
+# CONFIGURE_ARGS+=	--enable-static
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# .if ${MACHINE_ARCH} == "x86_64"
+# CONFIGURE_ARGS+=	--with-stack-direction=-1
+# .endif
+# 
+# REPLACE_INTERPRETER+=	rep
+# REPLACE.rep.old=	.*/bin/rep
+# REPLACE.rep.new=	${PREFIX}/bin/rep
+# REPLACE_FILES.rep=	src/rep-xgettext.jl
+# 
+# post-install:
+# 	${RM} -f ${DESTDIR}${REP_LIBTOOL}
+# 	${LN} -s ${PKG_LIBTOOL} ${DESTDIR}${REP_LIBTOOL}
+# 
+# .include "../../databases/gdbm/buildlink3.mk"
+# .include "../../devel/gettext-lib/buildlink3.mk"
+# .include "../../devel/gmp/buildlink3.mk"
+# .include "../../devel/libffi/buildlink3.mk"
+# .include "../../devel/readline/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

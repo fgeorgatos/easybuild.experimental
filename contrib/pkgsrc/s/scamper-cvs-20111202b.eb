@@ -1,0 +1,68 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      scamper-cvs-20111202b.eb
+# Date::      Fri Nov  9 14:37:39 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'scamper'
+version = 'cvs-20111202b'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['scamper-cvs-20111202b.tar.gz']
+source_urls = ['http://www.wand.net.nz/scamper/']
+homepage = 'http://www.wand.net.nz/scamper/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "scamper-cvs-20111202b description: Tool_for_parallelised_IPv4_and_IPv6_measurement"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.13 2012/10/23 17:19:07 asau Exp $
+# #
+# 
+# DISTNAME=	scamper-cvs-20111202b
+# PKGNAME=	${DISTNAME:S/-cvs//}
+# CATEGORIES=	net
+# MASTER_SITES=	http://www.wand.net.nz/scamper/
+# 
+# MAINTAINER=	mjl@luckie.org.nz
+# HOMEPAGE=	http://www.wand.net.nz/scamper/
+# COMMENT=	Tool for parallelised IPv4 and IPv6 measurement
+# LICENSE=	gnu-gpl-v2
+# 
+# GNU_CONFIGURE=	yes
+# USE_LIBTOOL=	yes
+# 
+# USE_FEATURES+=	inet6
+# 
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,98 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      rox-session-0.28.eb
+# Date::      Fri Nov  9 14:38:09 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'rox'
+version = 'session-0.28'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['rox-session-0.28.tar.bz2']
+source_urls = ['http://sourceforge.net/projects/rox/files', 'download']
+homepage = 'http://rox.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "rox-session-0.28 description: Very_simple_session_manager"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.33 2012/10/29 05:06:50 asau Exp $
+# #
+# 
+# DISTNAME=	rox-session-0.28
+# PKGREVISION=	20
+# CATEGORIES=	x11
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=rox/}
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	rxg@NetBSD.org
+# HOMEPAGE=	http://rox.sourceforge.net/
+# COMMENT=	Very simple session manager
+# 
+# DEPENDS+=	rox-lib>=2.0.2nb2:../../devel/rox-lib
+# 
+# WRKSRC=		${WRKDIR}/${DISTNAME}/ROX-Session
+# DIST_SUBDIR=	rox
+# 
+# NO_BUILD=	yes
+# 
+# PYTHON_PATCH_SCRIPTS=	AppRun tests/testutils.py
+# 
+# INSTALLATION_DIRS=	share/rox/ROX-Session
+# 
+# SUBST_CLASSES+=		path
+# SUBST_MESSAGE.path=	Fixing hardcoded paths.
+# SUBST_STAGE.path=	post-patch
+# SUBST_FILES.path=	Login
+# SUBST_SED.path=		-e 's,/usr/local,${PREFIX},g'
+# 
+# SUBST_CLASSES+=		lib
+# SUBST_MESSAGE.lib=	Fixing hardcoded paths for ROX-Lib.
+# SUBST_STAGE.lib=	post-patch
+# SUBST_FILES.lib=	findrox.py
+# SUBST_SED.lib=		-e 's,/usr/local/lib,${PREFIX}/share/rox,g'
+# 
+# USE_TOOLS+=	pax
+# 
+# pre-install:
+# 	${RM} -f ${WRKSRC}/wm.py.orig
+# 	${RM} -f ${WRKSRC}/setup.py.orig
+# 
+# do-install:
+# 	cd ${WRKSRC} && pax -rw . ${DESTDIR}${PREFIX}/share/rox/ROX-Session
+# 
+# .include "../../lang/python/application.mk"
+# .include "../../sysutils/py-dbus/buildlink3.mk"
+# .include "../../x11/py-gtk2/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

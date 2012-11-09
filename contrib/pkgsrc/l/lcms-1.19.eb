@@ -1,0 +1,84 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      lcms-1.19.eb
+# Date::      Fri Nov  9 14:37:22 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'lcms'
+version = '1.19'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['lcms-1.19.tar.gz']
+source_urls = ['http://sourceforge.net/projects/lcms/files', 'download']
+homepage = 'http://www.littlecms.com/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "lcms-1.19 description: Little_Color_Management_System_--_a_color_management_library"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.38 2012/10/06 14:11:02 asau Exp $
+# 
+# DISTNAME=	lcms-1.19
+# PKGREVISION=	1
+# CATEGORIES=	graphics
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=lcms/}
+# 
+# MAINTAINER=	gdt@NetBSD.org
+# HOMEPAGE=	http://www.littlecms.com/
+# COMMENT=	Little Color Management System -- a color management library
+# # This is very MIT-like, but perhaps not the exact text.
+# #LICENSE=	lcms-license
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# 
+# GNU_CONFIGURE=		yes
+# USE_LIBTOOL=		yes
+# TEST_TARGET=		check
+# 
+# # lcms does not need zlib, but will look for it and link it to tifficc
+# # if present.  Therefore, we don't enjoin lcms from finding zlib, but
+# # don't include it via bl3.
+# 
+# PKGCONFIG_OVERRIDE=	lcms.pc.in
+# 
+# INSTALLATION_DIRS+=	share/doc/lcms
+# 
+# post-install:
+# .for _f_ in LCMSAPI.TXT TUTORIAL.TXT
+# 	${INSTALL_DATA} ${WRKSRC}/doc/${_f_} ${DESTDIR}${PREFIX}/share/doc/lcms/${_f_}
+# .endfor
+# 
+# .include "../../mk/jpeg.buildlink3.mk"
+# .include "../../graphics/tiff/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

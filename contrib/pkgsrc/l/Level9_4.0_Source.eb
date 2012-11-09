@@ -1,0 +1,82 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      Level9_4.0_Source.eb
+# Date::      Fri Nov  9 14:37:19 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'level9-4.0'
+version = 'Level9_4.0_Source'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['Level9_4.0_Source.zip']
+version = '4.0'
+name = 'level9'
+source_urls = ['http://www.ifarchive.org/if-archive/level9/interpreters/level9/']
+homepage = 'http://www.ifarchive.org/if-archive/level9/interpreters/level9/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "Level9_4.0_Source description: Curses_port_of_the_Level_9_text_adventure_interpreter"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.15 2012/10/06 11:54:45 asau Exp $
+# 
+# DISTNAME=		Level9_4.0_Source
+# PKGNAME=		level9-4.0
+# PKGREVISION=		1
+# CATEGORIES=		games
+# MASTER_SITES=		http://www.ifarchive.org/if-archive/level9/interpreters/level9/
+# EXTRACT_SUFX=		.zip
+# 
+# MAINTAINER=		dillo@NetBSD.org
+# HOMEPAGE=		http://www.ifarchive.org/if-archive/level9/interpreters/level9/
+# COMMENT=		Curses port of the Level 9 text adventure interpreter
+# 
+# WRKSRC=			${WRKDIR}/Unix
+# # uses halfkey (present since 1.6M)
+# INCOMPAT_CURSES+=	NetBSD-1.4[Y-Z]*-* NetBSD-1.5*-* NetBSD-1.6-*
+# INCOMPAT_CURSES+=	NetBSD-1.6.*-* NetBSD-1.6[A-L]*-*
+# 
+# INSTALLATION_DIRS=	bin
+# 
+# post-extract:
+# 	${CP} ${FILESDIR}/Makefile ${WRKSRC}
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/level9 ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/doc/level9
+# 	${INSTALL_DATA} ${WRKDIR}/level9.txt \
+# 		${DESTDIR}${PREFIX}/share/doc/level9
+# 
+# .include "../../devel/ncurses/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

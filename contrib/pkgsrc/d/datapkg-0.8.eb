@@ -1,0 +1,68 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      datapkg-0.8.eb
+# Date::      Fri Nov  9 14:36:59 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = '-'
+version = '0.8'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['datapkg-0.8.tar.gz']
+source_urls = ['http://pypi.python.org/packages/source/d/datapkg/']
+homepage = 'http://okfn.org/projects/datapkg/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "datapkg-0.8 description: Tool_for_distributing,_discovering,_and_installing_data_packages"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.7 2012/10/02 21:25:49 asau Exp $
+# #
+# 
+# DISTNAME=	datapkg-0.8
+# PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+# CATEGORIES=	databases
+# MASTER_SITES=	http://pypi.python.org/packages/source/d/datapkg/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://okfn.org/projects/datapkg/
+# COMMENT=	Tool for distributing, discovering, and installing data packages
+# LICENSE=	mit
+# 
+# DEPENDS+=	${PYPKGPREFIX}-ckanclient-[0-9]*:../../databases/py-ckanclient
+# 
+# CONFLICTS=	datapkg-[0-9]*
+# 
+# .include "../../lang/python/egg.mk"
+# .include "../../mk/bsd.pkg.mk"

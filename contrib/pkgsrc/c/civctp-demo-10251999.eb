@@ -1,0 +1,108 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      civctp-demo-10251999.eb
+# Date::      Fri Nov  9 14:37:18 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'civctp-demo-19991025'
+version = 'demo-10251999'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['civctp-demo-10251999.tar.gz']
+version = 'demo-19991025'
+name = 'civctp'
+source_urls = ['ftp://ftp.linuxgames.com/loki/demos/civctp/']
+homepage = 'http://www.lokigames.com/products/civctp/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "civctp-demo-10251999 description: Civilization:_Call_to_Power_-_graphical_strategy__linux_demo_"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.20 2012/10/06 11:54:33 asau Exp $
+# 
+# DISTNAME=	civctp-demo-10251999
+# PKGNAME=	civctp-demo-19991025
+# PKGREVISION=	1
+# CATEGORIES=	games x11
+# MASTER_SITES=	ftp://ftp.linuxgames.com/loki/demos/civctp/ \
+# 		ftp://download.linuxlords.com/pub/demos/civctp/ \
+# 		ftp://ftp.linux.tucows.com/pub/Loki/demos/civctp/
+# 
+# MAINTAINER=	abs@NetBSD.org
+# HOMEPAGE=	http://www.lokigames.com/products/civctp/
+# COMMENT=	Civilization: Call to Power - graphical strategy (linux demo)
+# 
+# # Someone needs to look at alpha, powerpc and sparc compat_linux
+# EMUL_PLATFORMS=		linux-i386
+# EMUL_MODULES.linux=	x11
+# 
+# INSTALLATION_DIRS=	bin ${LIBDIR} ${SHAREDIR}
+# 
+# USE_TOOLS+=	pax
+# 
+# WRKSRC=		${WRKDIR}/${WRKNAME}
+# BUILD_DIRS=	# empty
+# 
+# WRKNAME=	civctp_demo
+# DISTBINNAME=	civctp
+# BINNAME=	civctp-demo
+# 
+# DIST_SUBDIR=	lokigames
+# LIBDIR=		${PREFIX}/lib/lokigames/${BINNAME}
+# SHAREDIR=	${PREFIX}/share/doc/lokigames
+# 
+# BINTYPE.i386=		x86/glibc-2.1
+# BINTYPE.alpha=		alpha/glibc-2.1
+# BINTYPE.powerpc=	ppc/glibc-2.1
+# BINTYPE.sparc64=	sparc64/glibc-2.1
+# BINTYPE=		${BINTYPE.${EMUL_ARCH}}
+# 
+# do-build:
+# 	${SED} -e 's#@@PREFIX@@#${PREFIX}#g' \
+# 	       -e 's#@@LIBDIR@@#${LIBDIR}#g' \
+# 	       -e 's#@@BINNAME@@#${BINNAME}#g' \
+# 	    <${FILESDIR}/wrapper.sh >${WRKDIR}/${BINNAME}.sh
+# 
+# # The executable must be in the same directory as the data.
+# do-install:
+# 	${INSTALL_SCRIPT} ${WRKDIR}/${BINNAME}.sh \
+# 		${DESTDIR}${PREFIX}/bin/${BINNAME}
+# 	${INSTALL_PROGRAM} ${WRKSRC}/bin/${BINTYPE}/${DISTBINNAME} \
+# 		${DESTDIR}${LIBDIR}/${BINNAME}
+# 	${INSTALL_DATA} ${WRKSRC}/README \
+# 		${DESTDIR}${SHAREDIR}/${BINNAME}-README
+# 	cd ${WRKSRC} && pax -rw appstr.txt civpaths.txt ctp_data \
+# 		${DESTDIR}${LIBDIR}
+# 
+# .include "../../mk/bsd.pkg.mk"

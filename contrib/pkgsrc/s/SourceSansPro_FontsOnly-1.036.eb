@@ -1,0 +1,72 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      SourceSansPro_FontsOnly-1.036.eb
+# Date::      Fri Nov  9 14:37:17 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'SourceSansPro_FontsOnly'
+version = '1.036'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['SourceSansPro_FontsOnly-1.036.zip']
+source_urls = ['http://sourceforge.net/projects/sourcesans.adobe/files', 'download']
+homepage = 'http://sourceforge.net/projects/sourcesans.adobe/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "SourceSansPro_FontsOnly-1.036 description: Set_of_OpenType_fonts_designed_for_user_interfaces_from_Adobe"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.3 2012/10/03 18:28:30 asau Exp $
+# #
+# 
+# DISTNAME=	SourceSansPro_FontsOnly-1.036
+# PKGNAME=	${DISTNAME:S/SourceSansPro_FontsOnly/sourcesans-fonts/}
+# CATEGORIES=	fonts
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=sourcesans.adobe/}
+# EXTRACT_SUFX=	.zip
+# 
+# MAINTAINER=	ryoon@NetBSD.org
+# HOMEPAGE=	http://sourceforge.net/projects/sourcesans.adobe/
+# COMMENT=	Set of OpenType fonts designed for user interfaces from Adobe
+# LICENSE=	open-font-license
+# 
+# USE_LANGUAGES=	# none
+# NO_BUILD=	yes
+# FONTS_DIR=	${PREFIX}/share/fonts/sourcesans
+# INSTALLATION_DIRS=	share/fonts/sourcesans
+# 
+# do-install:
+# 	${INSTALL_DATA} ${WRKSRC}/*.otf  ${DESTDIR}${FONTS_DIR}
+# 
+# .include "../../mk/bsd.pkg.mk"

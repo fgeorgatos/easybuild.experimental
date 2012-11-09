@@ -1,0 +1,84 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      nvtv-0.4.7.eb
+# Date::      Fri Nov  9 14:37:22 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'nvtv'
+version = '0.4.7'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['nvtv-0.4.7.tar.gz']
+source_urls = ['http://sourceforge.net/projects/nv-tv-out/files', 'download']
+homepage = 'http://sourceforge.net/projects/nv-tv-out/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "nvtv-0.4.7 description: Tool_to_manipulate_TV-Out_settings_on_NVidia_cards"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.24 2012/10/08 23:01:47 adam Exp $
+# 
+# DISTNAME=	nvtv-0.4.7
+# PKGREVISION=	19
+# CATEGORIES=	graphics
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=nv-tv-out/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://sourceforge.net/projects/nv-tv-out/
+# COMMENT=	Tool to manipulate TV-Out settings on NVidia cards
+# 
+# ONLY_FOR_PLATFORM=	*-*-i386
+# 
+# CONFLICTS=	nvtv-gtk2-[0-9]*
+# 
+# GNU_CONFIGURE=		YES
+# RCD_SCRIPTS=		nvtvd
+# 
+# INSTALLATION_DIRS+= share/doc/nvtv
+# 
+# post-patch:
+# 	${CP} ${WRKSRC}/man/nvtv.1x ${WRKSRC}/man/nvtv.1
+# 
+# post-install:
+# 	${INSTALL_DATA} ${WRKSRC}/README ${WRKSRC}/FAQ ${WRKSRC}/doc/USAGE \
+# 		${WRKSRC}/doc/chips.txt \
+# 		${WRKSRC}/doc/overview.txt ${WRKSRC}/doc/timing.txt \
+# 		${DESTDIR}${PREFIX}/share/doc/nvtv
+# 
+# .include "../../sysutils/pciutils/buildlink3.mk"
+# .include "../../x11/libXmu/buildlink3.mk"
+# .include "../../x11/libXxf86vm/buildlink3.mk"
+# .include "../../x11/gtk2/buildlink3.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"

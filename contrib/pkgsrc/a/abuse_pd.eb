@@ -1,0 +1,81 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      abuse_pd.eb
+# Date::      Fri Nov  9 14:37:17 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'abuse-2.0'
+version = 'abuse_pd'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['abuse_pd.tar.gz']
+version = '2.0'
+name = 'abuse'
+source_urls = ['http://public.planetmirror.com/pub/abuse/']
+homepage = '#AWOL'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "abuse_pd description: Full_color_320x200_arcade_quality_platform_shooter"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.27 2012/10/23 10:24:04 wiz Exp $
+# 
+# DISTNAME=		abuse_pd
+# PKGNAME=		abuse-2.0
+# PKGREVISION=		2
+# CATEGORIES=		games x11
+# MASTER_SITES=		http://public.planetmirror.com/pub/abuse/
+# DISTFILES=		${DISTNAME}.tgz abuse_data.tar.gz
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		# AWOL
+# COMMENT=		Full color 320x200 arcade quality platform shooter
+# 
+# USE_X11BASE=		yes
+# GNU_CONFIGURE=		yes
+# CONFIGURE_ENV+=		LDFLAGS=${X11_LDFLAGS:Q}
+# USE_TOOLS+=		gmake gtar
+# USE_LANGUAGES=		c c++
+# 
+# NOT_FOR_PLATFORM=	NetBSD-*-arm32
+# 
+# INSTALL_MAKE_FLAGS=	prefix=${DESTDIR}${PREFIX} \
+# 			mandir=${DESTDIR}${PREFIX}/${PKGMANDIR}
+# 
+# post-extract:
+# 	cd ${WRKSRC}/abuse						\
+# 	&& ${GTAR} xfz ${DISTDIR}/abuse_data.tar.gz
+# 
+# .include "../../x11/libXext/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

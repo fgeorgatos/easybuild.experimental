@@ -1,0 +1,67 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      qprint-1.0.eb
+# Date::      Fri Nov  9 14:37:58 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'qprint'
+version = '1.0'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['qprint-1.0.tar.gz']
+source_urls = ['http://www.fourmilab.ch/webtools/qprint/']
+homepage = 'http://www.fourmilab.ch/webtools/qprint/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "qprint-1.0 description: Encode_and_decode_quoted-printable_files"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.3 2012/10/25 06:56:53 asau Exp $
+# #
+# 
+# DISTNAME=		qprint-1.0
+# CATEGORIES=		textproc mail
+# MASTER_SITES=		http://www.fourmilab.ch/webtools/qprint/
+# 
+# MAINTAINER=		simonb@NetBSD.org
+# HOMEPAGE=		http://www.fourmilab.ch/webtools/qprint/
+# COMMENT=		Encode and decode quoted-printable files
+# 
+# USE_PKGLOCALEDIR=	yes
+# GNU_CONFIGURE=		yes
+# BUILD_TARGET=		prog
+# 
+# INSTALLATION_DIRS=	bin ${PKGMANDIR}/man1
+# 
+# .include "../../mk/bsd.pkg.mk"

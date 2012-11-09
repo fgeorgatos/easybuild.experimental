@@ -1,0 +1,78 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      XmHTML-1.1.7.eb
+# Date::      Fri Nov  9 14:38:07 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'XmHTML'
+version = '1.1.7'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['XmHTML-1.1.7.tar.gz']
+source_urls = ['#http://www.xs4all.nl/~ripley/XmHTML/dist/']
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "XmHTML-1.1.7 description: Motif_Widget_capable_of_displaying_HTML_3.2_conforming_text"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.52 2012/10/29 05:06:07 asau Exp $
+# #
+# 
+# DISTNAME=	XmHTML-1.1.7
+# PKGREVISION=	11
+# CATEGORIES=	x11
+# MASTER_SITES=	# http://www.xs4all.nl/~ripley/XmHTML/dist/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# #HOMEPAGE=	http://www.xs4all.nl/~ripley/XmHTML/
+# COMMENT=	Motif Widget capable of displaying HTML 3.2 conforming text
+# LICENSE=	gnu-lgpl-v2
+# 
+# USE_X11BASE=	YES
+# USE_TOOLS+=	gmake
+# USE_LIBTOOL=	YES
+# 
+# INSTALLATION_DIRS=	include/XmHTML lib
+# 
+# do-install:
+# 	${LIBTOOL} --mode=install ${INSTALL_LIB} \
+# 		${WRKSRC}/lib/libXmHTML.la ${DESTDIR}${PREFIX}/lib
+# 	${INSTALL_DATA} ${WRKSRC}/include/XmHTML/*.h ${DESTDIR}${PREFIX}/include/XmHTML
+# 
+# .include "../../mk/jpeg.buildlink3.mk"
+# .include "../../graphics/png/buildlink3.mk"
+# .include "../../x11/libXpm/buildlink3.mk"
+# .include "../../mk/motif.buildlink3.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"

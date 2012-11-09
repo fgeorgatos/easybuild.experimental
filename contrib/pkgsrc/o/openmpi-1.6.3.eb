@@ -1,0 +1,104 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      openmpi-1.6.3.eb
+# Date::      Fri Nov  9 14:37:42 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'openmpi'
+version = '1.6.3'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['openmpi-1.6.3.tar.bz2']
+source_urls = ['http://www.open-mpi.org/software/ompi/v1.6/downloads/']
+homepage = 'http://www.open-mpi.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "openmpi-1.6.3 description: Open_source_MPI-2_implementation"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.20 2012/10/31 06:19:35 asau Exp $
+# 
+# DISTNAME=	openmpi-1.6.3
+# CATEGORIES=	parallel
+# MASTER_SITES=	http://www.open-mpi.org/software/ompi/v1.6/downloads/
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	asau@inbox.ru
+# HOMEPAGE=	http://www.open-mpi.org/
+# COMMENT=	Open source MPI-2 implementation
+# 
+# CONFLICTS+=	mpich-[0-9]*	# installs bin/mpicc & other wrappers
+# CONFLICTS+=	mpich2-[0-9]*	# installs bin/mpicc & other wrappers
+# 
+# GNU_CONFIGURE=		yes
+# USE_LANGUAGES=		c c++ fortran77
+# USE_LIBTOOL=		yes
+# LIBTOOL_OVERRIDE=	${WRKSRC}/libtool \
+# 			${WRKSRC}/ompi/contrib/vt/vt/extlib/otf/libtool \
+# 			${WRKSRC}/ompi/contrib/vt/vt/libtool \
+# 			${WRKSRC}/ompi/mca/io/romio/romio/libtool
+# SHLIBTOOL_OVERRIDE=	${WRKSRC}/config/libtool.m4 \
+# 			${WRKSRC}/opal/libltdl/m4/libtool.m4
+# 
+# CONFIGURE_ARGS+=	--disable-mpi-f90
+# CONFIGURE_ARGS+=	--without-sge
+# CONFIGURE_ARGS+=	--without-slurm
+# CONFIGURE_ARGS+=	--enable-contrib-no-build=vt # in separate package
+# CONFIGURE_ARGS+=	--with-libltdl=external # use our libltdl
+# CONFIGURE_ARGS+=	--with-hwloc=$(BUILDLINK_PREFIX.hwloc:Q) #external
+# CONFIGURE_ARGS+=	--with-wrapper-ldflags="-L${PREFIX}/lib ${LINKER_RPATH_FLAG}${PREFIX}/lib"
+# CONFIGURE_ENV+=		ompi_cv_f77_have_INTEGERp8=no	# no "INTEGER*8"??
+# CONFIGURE_ARGS+=	OPAL_HAVE_LTDL_ADVISE=0
+# 
+# # Prevent detection of OpenMP support in order to make PLIST consistent:
+# BUILDLINK_TRANSFORM=	rm:-fopenmp
+# 
+# USE_TOOLS+=		perl:run
+# 
+# .include "options.mk"
+# 
+# TEST_TARGET=	check
+# 
+# ## Just in case you'll need it...
+# # USE_TOOLS+=	aclocal autoconf automake bash perl
+# # REPLACE_BASH=	autogen.sh
+# 
+# # pre-configure:	replace-interpreter
+# # 	cd $(WRKSRC) && $(BASH) autogen.sh
+# 
+# LIBLTDL_CONVENIENCE_SUBDIR=	opal/libltdl
+# .include "../../devel/libltdl/convenience.mk" # for "test" target to work
+# .include "../../devel/libltdl/buildlink3.mk"
+# .include "../../parallel/hwloc/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

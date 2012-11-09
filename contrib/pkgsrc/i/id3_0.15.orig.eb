@@ -1,0 +1,64 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      id3_0.15.orig.eb
+# Date::      Fri Nov  9 14:36:51 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'id3-0.15'
+version = 'id3_0.15.orig'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['id3_0.15.orig.tar.gz']
+version = '0.15'
+name = 'id3'
+source_urls = ['http://sourceforge.net/projects/pool/main/i/id3/files', 'download']
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "id3_0.15.orig description: ID3_v1.1_tag_editor"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.10 2012/09/12 00:24:39 asau Exp $
+# 
+# DISTNAME=	id3_0.15.orig
+# PKGNAME=	id3-0.15
+# CATEGORIES=	audio
+# MASTER_SITES=	${MASTER_SITE_DEBIAN:=pool/main/i/id3/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# #HOMEPAGE=	http://packages.qa.debian.org/i/id3.html
+# COMMENT=	ID3 v1.1 tag editor
+# 
+# WRKSRC=		${WRKDIR}/${PKGNAME_NOREV}
+# 
+# .include "../../mk/bsd.pkg.mk"

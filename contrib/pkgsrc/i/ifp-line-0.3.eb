@@ -1,0 +1,69 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      ifp-line-0.3.eb
+# Date::      Fri Nov  9 14:36:51 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'ifp'
+version = 'line-0.3'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['ifp-line-0.3.tar.gz']
+source_urls = ['http://sourceforge.net/projects/ifp-driver/files', 'download']
+homepage = 'http://ifp-driver.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "ifp-line-0.3 description: Command-line_interface_to_iRiver_MP3_players"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.13 2012/09/12 00:24:40 asau Exp $
+# 
+# DISTNAME=		ifp-line-0.3
+# CATEGORIES=		audio
+# MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=ifp-driver/}
+# 
+# MAINTAINER=		sekiya@NetBSD.org
+# HOMEPAGE=		http://ifp-driver.sourceforge.net/
+# COMMENT=		Command-line interface to iRiver MP3 players
+# 
+# INSTALL_MAKE_FLAGS+=	PREFIX=${DESTDIR}${PREFIX}
+# INSTALLATION_DIRS+=	bin
+# 
+# GNU_CONFIGURE=		yes
+# 
+# USE_FEATURES+=		fts_open
+# 
+# .include "../../converters/libiconv/buildlink3.mk"
+# .include "../../devel/libusb/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

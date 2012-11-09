@@ -1,0 +1,80 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      fragroute-1.2.eb
+# Date::      Fri Nov  9 14:37:48 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'fragroute'
+version = '1.2'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['fragroute-1.2.tar.gz']
+source_urls = ['http://monkey.org/~dugsong/fragroute/']
+homepage = 'http://www.monkey.org/~dugsong/fragroute/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "fragroute-1.2 description: Tool_for_intercepting,_modifying_and_rewriting_egress_traffic"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.21 2012/10/23 18:16:27 asau Exp $
+# 
+# DISTNAME=	fragroute-1.2
+# PKGREVISION=	12
+# CATEGORIES=	security net
+# MASTER_SITES=	http://monkey.org/~dugsong/fragroute/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.monkey.org/~dugsong/fragroute/
+# COMMENT=	Tool for intercepting, modifying and rewriting egress traffic
+# 
+# GNU_CONFIGURE=		YES
+# CONFIGURE_ARGS+=	--with-libdnet=${BUILDLINK_PREFIX.libdnet}
+# CONFIGURE_ARGS+=	--with-libevent=${BUILDLINK_PREFIX.libevent}
+# CONFIGURE_ARGS+=	--with-pcap=${BUILDLINK_PREFIX.libpcap}
+# 
+# SCRIPTS=	README.snort base-1 frag-1 frag-2 frag-3 frag-4 frag-5 \
+# 	frag-6 frag-7-unix frag-7-win32 ins-2 ins-3 tcbc-2 tcp-3 tcp-5 \
+# 	tcp-7 tcp-9
+# 
+# INSTALLATION_DIRS+=	share/fragroute
+# 
+# pre-install:
+# .for FILE in ${SCRIPTS}
+# 	${INSTALL_DATA} ${WRKSRC}/scripts/${FILE} ${DESTDIR}${PREFIX}/share/fragroute
+# .endfor
+# 
+# .include "../../net/libpcap/buildlink3.mk"
+# .include "../../net/libdnet/buildlink3.mk"
+# .include "../../devel/libevent/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

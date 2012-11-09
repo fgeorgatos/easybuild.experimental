@@ -1,0 +1,69 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      logrot-1.7.eb
+# Date::      Fri Nov  9 14:37:52 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'logrot'
+version = '1.7'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['logrot-1.7.tar.gz']
+source_urls = ['http://www.mewburn.net/luke/src/']
+homepage = 'http://www.mewburn.net/luke/software.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "logrot-1.7 description: Rotate_log_files_in_a_safe_and_configurable_manner"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.10 2012/10/23 19:51:11 asau Exp $
+# #
+# 
+# DISTNAME=	logrot-1.7
+# CATEGORIES=	sysutils
+# MASTER_SITES=	http://www.mewburn.net/luke/src/
+# 
+# MAINTAINER=	lukem@NetBSD.org
+# HOMEPAGE=	http://www.mewburn.net/luke/software.html
+# COMMENT=	Rotate log files in a safe and configurable manner
+# 
+# GNU_CONFIGURE=	YES
+# 
+# OPSYSVARS+=		CONFIGURE_ARGS
+# CONFIGURE_ARGS.NetBSD+=	--with-pidfile=/var/run/syslogd.pid
+# 
+# INSTALL_MAKE_FLAGS+=	bindir=${DESTDIR}${PREFIX}/bin \
+# 			mandir=${DESTDIR}${PREFIX}/${PKGMANDIR}/man1
+# 
+# .include "../../mk/bsd.pkg.mk"

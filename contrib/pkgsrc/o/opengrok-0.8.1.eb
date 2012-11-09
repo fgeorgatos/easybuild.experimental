@@ -1,0 +1,118 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      opengrok-0.8.1.eb
+# Date::      Fri Nov  9 14:37:03 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'opengrok'
+version = '0.8.1'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['opengrok-0.8.1.tar.gz']
+source_urls = ['http://hub.opensolaris.org/bin/download/Project+opengrok/files/']
+homepage = 'http://hub.opensolaris.org/bin/view/Project+opengrok/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "opengrok-0.8.1 description: Fast_and_usable_source_code_search_and_cross_reference_engine"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.20 2012/10/31 11:17:34 asau Exp $
+# #
+# 
+# DISTNAME=	opengrok-0.8.1
+# PKGREVISION=	4
+# CATEGORIES=	devel
+# MASTER_SITES=	http://hub.opensolaris.org/bin/download/Project+opengrok/files/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://hub.opensolaris.org/bin/view/Project+opengrok/
+# COMMENT=	Fast and usable source code search and cross reference engine
+# 
+# DEPENDS+=	exctags-[0-9]*:../../devel/exctags
+# 
+# .include "options.mk"
+# 
+# .if empty(PKG_OPTIONS:Mopengrok-build)
+# NO_BUILD=	YES
+# .endif
+# 
+# USE_JAVA=	run
+# USE_JAVA2=	yes
+# USE_TOOLS+=	unzip:run zip:run
+# 
+# CONF_FILES=	${PREFIX}/share/examples/opengrok/paths.tsv \
+# 		${PREFIX}/share/opengrok/paths.tsv
+# 
+# SUBST_CLASSES+=		run
+# SUBST_STAGE.run=	post-patch
+# SUBST_FILES.run=	run.sh run-quiet.sh
+# SUBST_SED.run=		-e "s|/usr/local/bin/ctags|${PREFIX}/bin/exctags|g"
+# SUBST_SED.run+=		-e "s|java|${PKG_JAVA_HOME}/bin/java|g"
+# SUBST_SED.run+=		-e "s|@PREFIX@|${PREFIX}|g"
+# SUBST_MESSAGE.run=	Fixing hardcoded paths.
+# 
+# pre-build:
+# 	${CP} ${PREFIX}/lib/java/JFlex.jar ${WRKSRC}/lib
+# 
+# do-build:
+# 	cd ${WRKSRC} && ${PREFIX}/bin/ant
+# 
+# post-build:
+# 	${RM} -f ${WRKSRC}/lib/*.jar
+# 	${CP} ${WRKSRC}/dist/lib/*.jar ${WRKSRC}/lib
+# 	${CP} ${WRKSRC}/dist/opengrok.jar ${WRKSRC}
+# 	${CP} ${WRKSRC}/dist/source.war ${WRKSRC}
+# 
+# do-install:
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/opengrok
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/opengrok/lib
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/examples/opengrok
+# 
+# 	${INSTALL_DATA} ${WRKSRC}/README.txt \
+# 		${DESTDIR}${PREFIX}/share/opengrok
+# 	${INSTALL_DATA} ${WRKSRC}/opengrok.jar \
+# 		${DESTDIR}${PREFIX}/share/opengrok
+# 	${INSTALL_DATA} ${WRKSRC}/source.war \
+# 		${DESTDIR}${PREFIX}/share/opengrok
+# 	${INSTALL_DATA} ${WRKSRC}/lib/*.jar \
+# 		${DESTDIR}${PREFIX}/share/opengrok/lib
+# 	${INSTALL_DATA} ${WRKSRC}/paths.tsv \
+# 		${DESTDIR}${PREFIX}/share/examples/opengrok
+# 	${INSTALL_SCRIPT} ${WRKSRC}/run.sh \
+# 		${DESTDIR}${PREFIX}/share/opengrok
+# 	${INSTALL_SCRIPT} ${WRKSRC}/run-quiet.sh \
+# 		${DESTDIR}${PREFIX}/share/opengrok
+# 
+# .include "../../mk/java-vm.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,92 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      zoom-1.0.3.eb
+# Date::      Fri Nov  9 14:37:20 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'zoom'
+version = '1.0.3'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['zoom-1.0.3.tar.gz']
+source_urls = ['http://www.logicalshift.co.uk/unix/zoom/']
+homepage = 'http://www.logicalshift.demon.co.uk/unix/zoom/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "zoom-1.0.3 description: Plays_Infocom-compatible_games,_with_graphics_support"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.27 2012/10/06 11:55:04 asau Exp $
+# 
+# DISTNAME=	zoom-1.0.3
+# PKGREVISION=	9
+# CATEGORIES=	games
+# MASTER_SITES=	http://www.logicalshift.co.uk/unix/zoom/
+# 
+# MAINTAINER=		dillo@NetBSD.org
+# HOMEPAGE=		http://www.logicalshift.demon.co.uk/unix/zoom/
+# COMMENT=		Plays Infocom-compatible games, with graphics support
+# 
+# USE_LIBTOOL=		yes
+# USE_PKGLOCALEDIR=	yes
+# USE_TOOLS+=		gmake perl
+# GNU_CONFIGURE=		yes
+# 
+# .if ${MACHINE_ARCH} == "alpha"
+# GCC_REQD+=		3.0
+# .endif
+# UNLIMIT_RESOURCES+=	datasize
+# 
+# DOCDIR=			${PREFIX}/share/doc/html/zoom
+# 
+# post-install:
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${DOCDIR}
+# 	for f in colours.png configXwin.html configmac.html fonts.png \
+# 		game.png generalset.png idx index.html intro.html \
+# 		resources.png troubleshooting.html ui.png zicon.gif \
+# 		zoom-icon.png zoom.html ztitle.html; \
+# 	do \
+# 		${INSTALL_DATA} ${WRKSRC}/manual/$$f ${DESTDIR}${DOCDIR}; \
+# 	done
+# 
+# BUILDLINK_DEPMETHOD.libXt=	build
+# 
+# .include "../../fonts/fontconfig/buildlink3.mk"
+# .include "../../fonts/t1lib/buildlink3.mk"
+# .include "../../graphics/png/buildlink3.mk"
+# .include "../../x11/libXft/buildlink3.mk"
+# .include "../../x11/libSM/buildlink3.mk"
+# .include "../../x11/libX11/buildlink3.mk"
+# .include "../../x11/libXt/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

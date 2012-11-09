@@ -1,0 +1,93 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      hanyang-font-pcf.eb
+# Date::      Fri Nov  9 14:37:16 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'ko-hanyang-20010718'
+version = 'font-pcf'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['hanyang-font-pcf.tar.gz']
+version = 'hanyang-20010718'
+name = 'ko'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "hanyang-font-pcf description: X11_fonts_for_KSC_5601_standard"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.12 2012/10/03 18:28:26 asau Exp $
+# #
+# 
+# DISTNAME=	hanyang-font-pcf
+# PKGNAME=	ko-hanyang-20010718
+# PKGREVISION=	1
+# CATEGORIES=	fonts x11 korean
+# MASTER_SITES+=	ftp://ftp.kaist.ac.kr/pub/hangul/fonts/ \
+# 		ftp://ftp.kreonet.re.kr/pub/hangul/cair-archive/fonts/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# COMMENT=	X11 fonts for KSC 5601 standard
+# 
+# CONFLICTS+=	ksc5601fonts-[0-9]*
+# 
+# USE_X11BASE=	yes
+# USE_TOOLS+=	gzip
+# EXTRACT_ONLY=	# empty
+# 
+# MAKE_ENV+=	FONTDIR=${DESTDIR}${FONTDIR:Q} GZIP_CMD=${GZIP_CMD:Q}
+# 
+# # fonts
+# EXTRACT_ONLY+=	hanyang-font-pcf.tar.gz
+# HANYANG_PCF=	hgm10.pcf hgm12.pcf hgm14.pcf hgm16.pcf hgm18.pcf hgm20.pcf \
+# 		hmm10.pcf hmm12.pcf hmm14.pcf hmm16.pcf hmm18.pcf hmm20.pcf
+# 
+# FONTDIR=	${PREFIX}/lib/X11/fonts/local
+# FONTS_DIRS.x11=	${FONTDIR}
+# 
+# post-extract:
+# 	${MKDIR} ${WRKSRC}
+# 	${CP} ${.CURDIR}/../../fonts/ko-x11fonts/files/Makefile ${WRKSRC}
+# 
+# do-configure:
+# 	cd ${WRKSRC}; ${MAKE} prepare
+# 
+# post-build:
+# 	for i in ${HANYANG_PCF}; do \
+# 		${MV} ${WRKDIR}/$$i ${WRKSRC}; \
+# 	done
+# 
+# INSTALLATION_DIRS=	${FONTDIR}
+# 
+# .include "../../mk/bsd.pkg.mk"

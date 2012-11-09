@@ -1,0 +1,84 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      aaronsw---0-g.eb
+# Date::      Fri Nov  9 14:37:58 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = '--'
+version = '--0-g'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['aaronsw-${GHNAME}-${GHVERSION}-0-g${GHCOMMIT}.tar.gz']
+source_urls = ['https://github.com/aaronsw/html2text/tarball/${GHVERSION}/']
+homepage = 'http://www.aaronsw.com/2002/html2text/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "aaronsw---0-g description: Convert_HTML_into_easy-to-read_plain_ASCII_text"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.25 2012/10/25 06:56:50 asau Exp $
+# #
+# 
+# DISTNAME=		aaronsw-${GHNAME}-${GHVERSION}-0-g${GHCOMMIT}
+# PKGREVISION=		1
+# GHNAME=			html2text
+# GHVERSION=		3.02
+# GHCOMMIT=		d9bf7d6
+# PKGNAME=		${PYPKGPREFIX}-${GHNAME}-${GHVERSION}
+# CATEGORIES=		textproc python
+# MASTER_SITES=		https://github.com/aaronsw/html2text/tarball/${GHVERSION}/
+# 
+# MAINTAINER=		schmonz@NetBSD.org
+# HOMEPAGE=		http://www.aaronsw.com/2002/html2text/
+# COMMENT=		Convert HTML into easy-to-read plain ASCII text
+# LICENSE=		gnu-gpl-v2
+# 
+# FETCH_USING=		curl
+# 
+# PYTHON_VERSIONS_INCLUDE_3X=	yes
+# PYTHON_SELF_CONFLICT=		yes
+# 
+# WRKSRC=			${WRKDIR}/aaronsw-${GHNAME}-${GHCOMMIT}
+# 
+# NO_BUILD=		yes
+# 
+# REPLACE_PYTHON=		html2text.py
+# 
+# INSTALLATION_DIRS=	share/html2text
+# 
+# do-install:
+# 	${INSTALL_SCRIPT} ${WRKSRC}/html2text.py ${DESTDIR}${PREFIX}/share/html2text
+# 
+# .include "../../lang/python/application.mk"
+# .include "../../mk/bsd.pkg.mk"

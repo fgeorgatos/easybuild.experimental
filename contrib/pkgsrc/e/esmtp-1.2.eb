@@ -1,0 +1,95 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      esmtp-1.2.eb
+# Date::      Fri Nov  9 14:37:28 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'esmtp'
+version = '1.2'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['esmtp-1.2.tar.bz2']
+source_urls = ['http://sourceforge.net/projects/esmtp/files', 'download']
+homepage = 'http://esmtp.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "esmtp-1.2 description: Relay-only_Mail_Transfer_Agent_with_sendmail-compatible_syntax"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.12 2012/10/08 12:19:09 asau Exp $
+# #
+# 
+# DISTNAME=	esmtp-1.2
+# CATEGORIES=	mail
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=esmtp/}
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://esmtp.sourceforge.net/
+# COMMENT=	Relay-only Mail Transfer Agent with sendmail-compatible syntax
+# LICENSE=	gnu-gpl-v2
+# 
+# CONFLICTS+=	courier-mta-[0-9]* fastforward>=0.51nb2 postfix-[0-9]*
+# CONFLICTS+=	sendmail-[0-9]*
+# 
+# GNU_CONFIGURE=		yes
+# USE_TOOLS+=		bison flex
+# PTHREAD_OPTS+=		require
+# 
+# CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR:Q}
+# 
+# SUBST_CLASSES+=		paths
+# SUBST_MESSAGE.paths=	Fixing hardcoded paths.
+# SUBST_STAGE.paths=	pre-configure
+# SUBST_FILES.paths=	README esmtp.1 esmtprc.5 sample.esmtprc
+# SUBST_SED.paths=	-e 's|/usr/bin|${PREFIX}/bin|g'
+# SUBST_SED.paths+=	-e 's|/etc|${PKG_SYSCONFDIR}|g'
+# 
+# PKG_SYSCONFSUBDIR=	esmtp
+# 
+# EGDIR=			${PREFIX}/share/examples/esmtp
+# CONF_FILES=		${EGDIR}/sample.esmtprc \
+# 			${PKG_SYSCONFDIR}/esmtprc
+# 
+# INSTALLATION_DIRS=	${EGDIR} share/doc/esmtp
+# 
+# .include "../../mail/libesmtp/buildlink3.mk"
+# .include "../../security/openssl/buildlink3.mk"
+# .include "../../mk/pthread.buildlink3.mk"
+# 
+# post-install:
+# 	${INSTALL_DATA} ${WRKSRC}/sample.esmtprc ${DESTDIR}${EGDIR}
+# 	${INSTALL_DATA} ${WRKSRC}/README ${DESTDIR}${PREFIX}/share/doc/esmtp
+# 
+# .include "../../mk/bsd.pkg.mk"

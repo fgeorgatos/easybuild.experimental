@@ -1,0 +1,83 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      hp2xx-3.4.4.eb
+# Date::      Fri Nov  9 14:37:22 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'hp2xx'
+version = '3.4.4'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['hp2xx-3.4.4.tar.gz']
+source_urls = ['http://ftp.gnu.org/gnu/hp2xx']
+homepage = 'http://www.gnu.org/software/hp2xx/hp2xx.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "hp2xx-3.4.4 description: HPGL_converter_and_previewer"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.42 2012/10/06 14:10:59 asau Exp $
+# #
+# 
+# DISTNAME=	hp2xx-3.4.4
+# PKGREVISION=	11
+# CATEGORIES=	graphics
+# MASTER_SITES=	${MASTER_SITE_GNU:=hp2xx/}
+# 
+# MAINTAINER=	dmcmahill@NetBSD.org
+# HOMEPAGE=	http://www.gnu.org/software/hp2xx/hp2xx.html
+# COMMENT=	HPGL converter and previewer
+# 
+# BUILD_DIRS=	sources
+# USE_TOOLS+=	makeinfo
+# MAKE_FLAGS=	prefix=${PREFIX}					\
+# 		mandir=${PREFIX}/${PKGMANDIR}				\
+# 		infodir=${PREFIX}/${PKGINFODIR}
+# MAKE_ENV+=	XLDFLAGS=${LDFLAGS:Q} XCPPFLAGS=${CPPFLAGS:Q}
+# INFO_FILES=	# PLIST
+# 
+# INSTALL_MAKE_FLAGS+=	prefix=${DESTDIR}${PREFIX}			\
+# 		mandir=${DESTDIR}${PREFIX}/${PKGMANDIR}			\
+# 		infodir=${DESTDIR}${PREFIX}/${PKGINFODIR}
+# 
+# INSTALLATION_DIRS=	bin ${PKGINFODIR} ${PKGMANDIR}/man1
+# 
+# post-extract:
+# 	${CP} ${WRKSRC}/makes/generic.mak ${WRKSRC}/sources/Makefile
+# 
+# .include "../../graphics/tiff/buildlink3.mk"
+# .include "../../graphics/png/buildlink3.mk"
+# .include "../../print/pdflib/buildlink3.mk"
+# .include "../../x11/libX11/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

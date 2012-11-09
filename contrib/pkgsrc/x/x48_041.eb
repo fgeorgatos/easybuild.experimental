@@ -1,0 +1,80 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      x48_041.eb
+# Date::      Fri Nov  9 14:37:14 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'x48-0.4.1'
+version = 'x48_041'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['x48_041.tar.gz']
+version = '0.4.1'
+name = 'x48'
+source_urls = ['http://home.earthlink.net/~rmmlgetz/']
+homepage = 'http://home.earthlink.net/~rmmlgetz/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "x48_041 description: HP48_emulator"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.14 2012/10/23 10:24:04 wiz Exp $
+# #
+# 
+# DISTNAME=	x48_041
+# PKGNAME=	x48-0.4.1
+# PKGREVISION=	1
+# CATEGORIES=	emulators
+# MASTER_SITES=	http://home.earthlink.net/~rmmlgetz/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://home.earthlink.net/~rmmlgetz/
+# COMMENT=	HP48 emulator
+# 
+# WRKSRC=		${WRKDIR}/${PKGNAME_NOREV}
+# USE_IMAKE=	YES
+# 
+# INSTALLATION_DIRS+=	share/doc/x48/romdump
+# 
+# post-install:
+# 	cd ${WRKSRC}/doc && \
+# 		${INSTALL_MAN} CARDS.doc INSTALLING ROMDump.doc \
+# 			${DESTDIR}${PREFIX}/share/doc/x48
+# 	cd ${WRKSRC}/romdump && \
+# 		${INSTALL_MAN} README ${DESTDIR}${PREFIX}/share/doc/x48/romdump && \
+# 		${INSTALL_DATA} ROMDump ROMDump.s \
+# 			${DESTDIR}${PREFIX}/share/doc/x48/romdump
+# 
+# .include "../../x11/libXext/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

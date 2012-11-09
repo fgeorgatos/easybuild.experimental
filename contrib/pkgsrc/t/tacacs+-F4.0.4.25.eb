@@ -1,0 +1,101 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      tacacs+-F4.0.4.25.eb
+# Date::      Fri Nov  9 14:37:41 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'tacacs+'
+version = 'F4.0.4.25'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['tacacs+-F4.0.4.25.tar.gz']
+source_urls = ['ftp://ftp.shrubbery.net/pub/tac_plus/']
+homepage = 'http://www.shrubbery.net/tac_plus/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "tacacs+-F4.0.4.25 description: Cisco_AAA_protocol__tacacs+__daemon__Shrubbery_Networks_version_"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.6 2012/10/23 17:19:11 asau Exp $
+# #
+# 
+# DISTNAME=	tacacs+-F4.0.4.25
+# PKGNAME=	${DISTNAME:S,-F,-,}
+# PKGREVISION=	1
+# CATEGORIES=	net security
+# MASTER_SITES=	ftp://ftp.shrubbery.net/pub/tac_plus/
+# 
+# MAINTAINER=	schwarz@NetBSD.org
+# HOMEPAGE=	http://www.shrubbery.net/tac_plus/
+# COMMENT=	Cisco AAA protocol (tacacs+) daemon (Shrubbery Networks version)
+# LICENSE=	cisco-license
+# 
+# CONFLICTS+=	tacacs-[0-9]*
+# 
+# USE_TOOLS+=	id # used in options.mk
+# MAKE_JOBS_SAFE=	no
+# 
+# .include "../../mk/bsd.prefs.mk"
+# .include "options.mk"
+# 
+# GNU_CONFIGURE=	yes
+# USE_TOOLS+=	bison flex perl
+# USE_LIBTOOL=    yes
+# USE_LANGUAGES=	c c++
+# USE_FEATURES+=	snprintf
+# 
+# CONFIGURE_ARGS+=	--with-acctfile=${VARBASE:Q}/log/tac_plus.acct
+# CONFIGURE_ARGS+=	--with-logfile=${VARBASE:Q}/log/tac_plus.log
+# CONFIGURE_ARGS+=	--with-pidfile=${VARBASE:Q}/run/tac_plus.pid
+# CONFIGURE_ENV+=		PERLV_PATH=${PERL5:Q}
+# BUILD_DEFS+=		VARBASE
+# 
+# .if !empty(LOWER_OPSYS:Mirix5*)
+# CPPFLAGS+=		-Duint16_t=u_int16_t -Duint32_t=u_int32_t
+# .endif
+# 
+# INSTALLATION_DIRS=	lib sbin ${PKGMANDIR}/man3 ${PKGMANDIR}/man5 \
+# 			${PKGMANDIR}/man8 share/doc/tacacs
+# 
+# do-install:
+# 	${LIBTOOL} --mode=install ${INSTALL_PROGRAM} ${WRKSRC}/tac_plus ${DESTDIR}${PREFIX}/sbin
+# 	${LIBTOOL} --mode=install ${INSTALL_LIB} ${WRKSRC}/libtacacs.la ${DESTDIR}${PREFIX}/lib
+# 	${INSTALL_PROGRAM} ${WRKSRC}/tac_pwd ${DESTDIR}${PREFIX}/sbin
+# 	${INSTALL_SCRIPT} ${WRKSRC}/tac_convert ${DESTDIR}${PREFIX}/sbin
+# 	${INSTALL_MAN} ${WRKSRC}/tac_plus.conf.5 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man5
+# 	${INSTALL_MAN} ${WRKSRC}/tac_plus.8 ${WRKSRC}/tac_pwd.8 \
+# 	${DESTDIR}${PREFIX}/${PKGMANDIR}/man8
+# 	${INSTALL_DATA} ${WRKSRC}/users_guide ${DESTDIR}${PREFIX}/share/doc/tacacs
+# 
+# .include "../../mk/bsd.pkg.mk"

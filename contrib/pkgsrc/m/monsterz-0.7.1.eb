@@ -1,0 +1,77 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      monsterz-0.7.1.eb
+# Date::      Fri Nov  9 14:37:19 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'monsterz'
+version = '0.7.1'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['monsterz-0.7.1.tar.gz']
+source_urls = ['http://sam.zoy.org/monsterz/']
+homepage = 'http://sam.zoy.org/monsterz/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "monsterz-0.7.1 description: Puzzle_game_similar_to_the_famous_Bejeweled_or_Zookeeper"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.10 2012/10/06 11:54:47 asau Exp $
+# #
+# 
+# DISTNAME=		monsterz-0.7.1
+# PKGREVISION=		4
+# CATEGORIES=		games
+# MASTER_SITES=		http://sam.zoy.org/monsterz/
+# 
+# MAINTAINER=		wiz@NetBSD.org
+# HOMEPAGE=		http://sam.zoy.org/monsterz/
+# COMMENT=		Puzzle game similar to the famous Bejeweled or Zookeeper
+# 
+# DEPENDS+=		${PYPKGPREFIX}-game-[0-9]*:../../devel/py-game
+# DEPENDS+=		${PYPKGPREFIX}-Numeric-[0-9]*:../../math/py-Numeric
+# 
+# PYTHON_PATCH_SCRIPTS=	monsterz.py
+# 
+# MAKE_ENV+=		GAMEOWN=${GAMEOWN:Q}
+# MAKE_ENV+=		GAMEGRP=${GAMEGRP:Q}
+# MAKE_ENV+=		VARBASE=${VARBASE:Q}
+# 
+# SETGIDGAME=		yes
+# CONF_FILES_PERMS+=	/dev/null ${VARBASE}/games/monsterz \
+# 			${GAMES_USER} ${GAMES_GROUP} ${GAMEDATAMODE}
+# SPECIAL_PERMS=		bin/monsterz ${SETGID_GAMES_PERMS}
+# 
+# .include "../../lang/python/application.mk"
+# .include "../../mk/bsd.pkg.mk"

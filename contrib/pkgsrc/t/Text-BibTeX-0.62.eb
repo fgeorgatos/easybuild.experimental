@@ -1,0 +1,82 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      Text-BibTeX-0.62.eb
+# Date::      Fri Nov  9 14:37:57 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'p5-'
+version = 'BibTeX-0.62'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['Text-BibTeX-0.62.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Text/']
+homepage = 'http://www.gerg.ca/software/btOOL/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "Text-BibTeX-0.62 description: Perl_library_for_reading,_parsing,_and_processing_BibTeX_files"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.29 2012/10/25 06:56:23 asau Exp $
+# 
+# DISTNAME=	Text-BibTeX-0.62
+# PKGNAME=	p5-${DISTNAME}
+# PKGREVISION=	2
+# SVR4_PKGNAME=	p5tbt
+# CATEGORIES=	textproc perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Text/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.gerg.ca/software/btOOL/
+# #HOMEPAGE=	http://search.cpan.org/dist/Text-BibTeX/
+# COMMENT=	Perl library for reading, parsing, and processing BibTeX files
+# LICENSE=	${PERL5_LICENSE}
+# 
+# BUILD_DEPENDS+=		p5-Capture-Tiny>=0.06:../../devel/p5-Capture-Tiny
+# BUILD_DEPENDS+=		p5-Config-AutoConf>=0.14:../../devel/p5-Config-AutoConf
+# BUILD_DEPENDS+=		p5-ExtUtils-LibBuilder>=0.01:../../devel/p5-ExtUtils-LibBuilder
+# BUILD_DEPENDS+=		{perl>=5.14.1,p5-ExtUtils-CBuilder>=0.27}:../../devel/p5-ExtUtils-CBuilder
+# 
+# USE_LANGUAGES+=		c
+# PERL5_PACKLIST=		auto/Text/BibTeX/.packlist
+# PERL5_MODULE_TYPE=	Module::Build
+# 
+# ALL_ENV+=	TMPDIR=${WRKDIR}/tmp
+# 
+# pre-configure:
+# 	${MKDIR} ${WRKDIR}/tmp
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

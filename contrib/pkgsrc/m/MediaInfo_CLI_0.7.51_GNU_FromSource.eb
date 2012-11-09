@@ -1,0 +1,84 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      MediaInfo_CLI_0.7.51_GNU_FromSource.eb
+# Date::      Fri Nov  9 14:37:35 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'mediainfo-0.7.51'
+version = 'MediaInfo_CLI_0.7.51_GNU_FromSource'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['MediaInfo_CLI_0.7.51_GNU_FromSource.tar.bz2']
+version = '0.7.51'
+name = 'mediainfo'
+source_urls = ['http://sourceforge.net/projects/mediainfo/files', 'download']
+homepage = 'http://mediainfo.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "MediaInfo_CLI_0.7.51_GNU_FromSource description: Utility_to_supply_technical_information_about_audio_and_video_files"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.7 2012/10/08 09:21:08 asau Exp $
+# 
+# DISTNAME=	MediaInfo_CLI_0.7.51_GNU_FromSource
+# PKGNAME=	mediainfo-0.7.51
+# PKGREVISION=	1
+# CATEGORIES=	multimedia
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=mediainfo/}
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://mediainfo.sourceforge.net/
+# COMMENT=	Utility to supply technical information about audio and video files
+# LICENSE=	gnu-lgpl-v3
+# 
+# WRKSRC=			${WRKDIR}/MediaInfo_CLI_GNU_FromSource
+# USE_TOOLS+=		pkg-config
+# USE_LANGUAGES=		c c++
+# GNU_CONFIGURE=		yes
+# 
+# OVERRIDE_DIRDEPTH=	4
+# INSTALLATION_DIRS=	bin
+# 
+# do-configure:
+# 
+# do-build:
+# 	${RUN} cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ./CLI_Compile.sh
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/MediaInfo/Project/GNU/CLI/mediainfo \
+# 	    ${DESTDIR}${PREFIX}/bin/mediainfo
+# 
+# .include "../../devel/zlib/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

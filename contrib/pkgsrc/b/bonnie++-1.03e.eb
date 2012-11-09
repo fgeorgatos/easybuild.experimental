@@ -1,0 +1,85 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      bonnie++-1.03e.eb
+# Date::      Fri Nov  9 14:36:53 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'bonnie++'
+version = '1.03e'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['bonnie++-1.03e.tgz']
+source_urls = ['http://www.coker.com.au/bonnie++/']
+homepage = 'http://www.coker.com.au/bonnie++/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "bonnie++-1.03e description: Enhanced_performance_Test_of_Filesystem_I/O"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.27 2012/10/03 21:53:58 wiz Exp $
+# #
+# 
+# DISTNAME=	bonnie++-1.03e
+# PKGREVISION=	2
+# CATEGORIES=	benchmarks
+# MASTER_SITES=	http://www.coker.com.au/bonnie++/
+# EXTRACT_SUFX=	.tgz
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.coker.com.au/bonnie++/
+# COMMENT=	Enhanced performance Test of Filesystem I/O
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# 
+# USE_LANGUAGES=		c c++
+# GNU_CONFIGURE=		YES
+# USE_TOOLS+=		gmake perl:run tee
+# REPLACE_PERL+=		bon_csv2txt.in bon_csv2html.in
+# 
+# INSTALLATION_DIRS=	bin share/doc/bonnie++ ${PKGMANDIR}/man1 ${PKGMANDIR}/man8
+# 
+# # todo: patch bonnie++.8 to point to correct path to readme.html
+# post-install:
+# 	${INSTALL_DATA} ${WRKSRC}/readme.html ${DESTDIR}${PREFIX}/share/doc/bonnie++/
+# 
+# .PHONY: benchmark
+# benchmark: build
+# 	cd ${WRKSRC} && ./bonnie++ -u ${ROOT_USER}:${ROOT_GROUP} | ${TEE} bonnie.out
+# 
+# .PHONY: results
+# results: build
+# 	@${MKDIR} /tmp/benches/`domainname`
+# 	-@${CP} ${WRKSRC:Q}/bonnie.out /tmp/benches/`domainname`/bonnie++.`uname`-`uname -m`-`uname -r`.`hostname`
+# 
+# .include "../../mk/bsd.pkg.mk"

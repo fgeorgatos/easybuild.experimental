@@ -1,0 +1,115 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      freepops-0.2.8.eb
+# Date::      Fri Nov  9 14:37:28 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'freepops'
+version = '0.2.8'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['freepops-0.2.8.tar.gz']
+source_urls = ['http://sourceforge.net/projects/freepops/files', 'download']
+homepage = 'http://www.freepops.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "freepops-0.2.8 description: POP3_gateway_to_AOL,_Gmail,_Hotmail,_Juno,_Yahoo,_etc."
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.19 2012/10/08 12:19:12 asau Exp $
+# #
+# 
+# DISTNAME=		freepops-0.2.8
+# PKGREVISION=		2
+# CATEGORIES=		mail
+# MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=freepops/}
+# 
+# MAINTAINER=		schmonz@NetBSD.org
+# HOMEPAGE=		http://www.freepops.org/
+# COMMENT=		POP3 gateway to AOL, Gmail, Hotmail, Juno, Yahoo, etc.
+# 
+# MAKE_JOBS_SAFE=		no
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# USE_LANGUAGES=		c c++
+# USE_TOOLS+=		bash:run bison gmake patch pkg-config tar
+# .if ${OPSYS} != "NetBSD"
+# USE_TOOLS+=		gsed
+# .endif
+# USE_LIBTOOL=		yes
+# REPLACE_BASH=		configure.sh
+# HAS_CONFIGURE=		yes
+# CONFIGURE_SCRIPT=	configure.sh
+# CONFIGURE_ARGS=		pkgsrc
+# LDFLAGS+=		-lintl		# directly link, req. by ld 2.22
+# LIBS.SunOS+=		-lsocket -lnsl
+# 
+# PKG_SYSCONFSUBDIR=	freepops
+# EGDIR=			${PREFIX}/share/examples/${PKGBASE}
+# CONF_FILES=		${EGDIR}/config.lua ${PKG_SYSCONFDIR}/config.lua
+# OWN_DIRS+=		${VARBASE}/lib/${PKGBASE}/lua_unofficial
+# OWN_DIRS+=		${VARBASE}/lib/${PKGBASE}/lua_updates
+# OWN_DIRS+=		${VARBASE}/lib/${PKGBASE}/lua_updates/lxp
+# OWN_DIRS+=		${VARBASE}/lib/${PKGBASE}/lua_updates/browser
+# OWN_DIRS+=		${VARBASE}/lib/${PKGBASE}/lua_updates/soap
+# 
+# SUBST_CLASSES+=		paths
+# SUBST_STAGE.paths=	do-configure
+# SUBST_FILES.paths=	config.h doc/freepopsd.1 src/freepops.h
+# SUBST_FILES.paths+=	src/lua/freepops.lua
+# SUBST_SED.paths=	-e 's|@PREFIX@|${PREFIX}|g'
+# SUBST_SED.paths+=	-e 's|@PKG_SYSCONFDIR@|${PKG_SYSCONFDIR}|g'
+# SUBST_SED.paths+=	-e 's|@VARBASE@|${VARBASE}|g'
+# SUBST_MESSAGE.paths=	Adjusting paths.
+# 
+# BUILD_DEFS+=		VARBASE
+# 
+# RCD_SCRIPTS=			freepopsd
+# FREEPOPSD_USER?=		freepops
+# FREEPOPSD_GROUP?=		freepops
+# PKG_GROUPS=			${FREEPOPSD_GROUP}
+# PKG_USERS=			${FREEPOPSD_USER}:${FREEPOPSD_GROUP}
+# PKG_GECOS.${FREEPOPSD_USER}=	freepopsd POP3 user
+# FILES_SUBST+=			FREEPOPSD_USER=${FREEPOPSD_USER:Q}
+# FILES_SUBST+=			FREEPOPSD_GROUP=${FREEPOPSD_GROUP:Q}
+# PKG_GROUPS_VARS+=		FREEPOPSD_GROUP
+# PKG_USERS_VARS+=		FREEPOPSD_USER
+# 
+# .include "../../devel/gettext-lib/buildlink3.mk"
+# .include "../../security/openssl/buildlink3.mk"
+# .include "../../textproc/expat/buildlink3.mk"
+# .include "../../www/curl/buildlink3.mk"
+# .include "../../mk/pthread.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

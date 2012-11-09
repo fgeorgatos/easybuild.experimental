@@ -1,0 +1,116 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      adodb496a.eb
+# Date::      Fri Nov  9 14:36:56 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'adodb-4.96a'
+version = 'adodb496a'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['adodb496a.tgz']
+version = '4.96a'
+name = 'adodb'
+source_urls = ['http://sourceforge.net/projects/adodb/files', 'download']
+homepage = 'http://adodb.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "adodb496a description: Active_Data_Objects_Data_Base_for_php"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.16 2012/10/02 21:25:15 asau Exp $
+# #
+# 
+# DISTNAME=	adodb496a
+# PKGNAME=	adodb-4.96a
+# PKGREVISION=	1
+# CATEGORIES=	databases www
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=adodb/}
+# EXTRACT_SUFX=	.tgz
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://adodb.sourceforge.net/
+# COMMENT=	Active Data Objects Data Base for php
+# 
+# WRKSRC=			${WRKDIR}/adodb
+# NO_CONFIGURE=		YES
+# NO_BUILD=		YES
+# 
+# .include "../../lang/php/phpversion.mk"
+# .include "${PHPPKGSRCDIR}/buildlink3.mk"
+# 
+# do-install:
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/adodb
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/adodb/cute_icons_for_site
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/adodb/datadict
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/adodb/drivers
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/adodb/lang
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/adodb/perf
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/adodb/tests
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/adodb/xsl
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/adodb/session
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/doc/adodb
+# 
+# 	${INSTALL_DATA} ${WRKSRC}/*.php ${DESTDIR}${PREFIX}/share/adodb
+# 	${INSTALL_DATA} ${WRKSRC}/*.dtd ${DESTDIR}${PREFIX}/share/adodb
+# 	${INSTALL_DATA} ${WRKSRC}/cute_icons_for_site/*.gif \
+# 		${DESTDIR}${PREFIX}/share/adodb/cute_icons_for_site
+# 	${INSTALL_DATA} ${WRKSRC}/datadict/*.php \
+# 		${DESTDIR}${PREFIX}/share/adodb/datadict
+# 	${INSTALL_DATA} ${WRKSRC}/drivers/*.php \
+# 		${DESTDIR}${PREFIX}/share/adodb/drivers
+# 	${INSTALL_DATA} ${WRKSRC}/lang/*.php \
+# 		${DESTDIR}${PREFIX}/share/adodb/lang
+# 	${INSTALL_DATA} ${WRKSRC}/perf/*.php \
+# 		${DESTDIR}${PREFIX}/share/adodb/perf
+# 	${INSTALL_DATA} ${WRKSRC}/tests/*.php \
+# 		${DESTDIR}${PREFIX}/share/adodb/tests
+# 	${INSTALL_DATA} ${WRKSRC}/tests/*.xml \
+# 		${DESTDIR}${PREFIX}/share/adodb/tests
+# 	${INSTALL_DATA} ${WRKSRC}/session/*.php \
+# 		${DESTDIR}${PREFIX}/share/adodb/session
+# 	${INSTALL_DATA} ${WRKSRC}/session/*.txt \
+# 		${DESTDIR}${PREFIX}/share/adodb/session
+# 	${INSTALL_DATA} ${WRKSRC}/session/*.sql \
+# 		${DESTDIR}${PREFIX}/share/adodb/session
+# 	${INSTALL_DATA} ${WRKSRC}/session/*.xml \
+# 		${DESTDIR}${PREFIX}/share/adodb/session
+# 	${INSTALL_DATA} ${WRKSRC}/xsl/*.xsl ${DESTDIR}${PREFIX}/share/adodb/xsl
+# 	${INSTALL_DATA} ${WRKSRC}/docs/*.htm ${DESTDIR}${PREFIX}/share/doc/adodb
+# 	${INSTALL_DATA} ${WRKSRC}/*.txt ${DESTDIR}${PREFIX}/share/doc/adodb
+# 
+# 	${FIND} ${DESTDIR}${PREFIX}/share/adodb -name \*.\* -type f -print | \
+# 		${XARGS} ${CHMOD} ${SHAREMODE}
+# 
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,72 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      Mail-Webmail-Gmail-1.09.eb
+# Date::      Fri Nov  9 14:37:29 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'p5-'
+version = 'Webmail-Gmail-1.09'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['Mail-Webmail-Gmail-1.09.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Mail/']
+homepage = 'http://search.cpan.org/dist/Mail-Webmail-Gmail/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "Mail-Webmail-Gmail-1.09 description: Interface_to_Google_s_webmail_service"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.8 2012/10/08 12:19:24 asau Exp $
+# 
+# DISTNAME=	Mail-Webmail-Gmail-1.09
+# PKGNAME=	p5-${DISTNAME}
+# PKGREVISION=	4
+# CATEGORIES=	mail perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Mail/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/Mail-Webmail-Gmail/
+# COMMENT=	Interface to Google's webmail service
+# 
+# DEPENDS+=	p5-Crypt-SSLeay>=0.51:../../security/p5-Crypt-SSLeay
+# DEPENDS+=	p5-libwww>=5.80:../../www/p5-libwww
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# 
+# PERL5_PACKLIST=	auto/Mail/Webmail/Gmail/.packlist
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

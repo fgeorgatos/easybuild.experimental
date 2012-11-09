@@ -1,0 +1,73 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      GD-SVG-0.33.eb
+# Date::      Fri Nov  9 14:37:22 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'p5-'
+version = 'SVG-0.33'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['GD-SVG-0.33.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/GD/']
+homepage = 'http://search.cpan.org/dist/GD-SVG/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "GD-SVG-0.33 description: Enables_SVG_output_from_scripts_written_using_GD"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.8 2012/10/06 14:11:10 asau Exp $
+# #
+# 
+# DISTNAME=	GD-SVG-0.33
+# PKGNAME=	p5-${DISTNAME}
+# PKGREVISION=	3
+# CATEGORIES=	graphics perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=GD/}
+# 
+# MAINTAINER=	heinz@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/GD-SVG/
+# COMMENT=	Enables SVG output from scripts written using GD
+# LICENSE=	${PERL5_LICENSE}
+# 
+# DEPENDS+=		p5-GD-[0-9]*:../../graphics/p5-GD
+# DEPENDS+=		p5-SVG-[0-9]*:../../graphics/p5-SVG
+# 
+# PERL5_PACKLIST=		auto/GD/SVG/.packlist
+# USE_LANGUAGES=		# none
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

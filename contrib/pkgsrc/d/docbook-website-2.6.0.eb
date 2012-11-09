@@ -1,0 +1,90 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      docbook-website-2.6.0.eb
+# Date::      Fri Nov  9 14:37:55 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'docbook'
+version = 'website-2.6.0'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['docbook-website-2.6.0.tar.gz']
+source_urls = ['http://sourceforge.net/projects/docbook/files', 'download']
+homepage = 'http://docbook.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "docbook-website-2.6.0 description: DocBook_XML_DTD_for_building_websites"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.28 2012/10/25 06:55:47 asau Exp $
+# #
+# 
+# DISTNAME=	docbook-website-2.6.0
+# PKGREVISION=	3
+# CATEGORIES=	textproc
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=docbook/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://docbook.sourceforge.net/
+# COMMENT=	DocBook XML DTD for building websites
+# 
+# DEPENDS+=	docbook-simple-[0-9]*:../../textproc/docbook-simple
+# DEPENDS+=	docbook-xsl>=1.58:../../textproc/docbook-xsl
+# 
+# USE_LANGUAGES=	# empty
+# USE_TOOLS+=	pax
+# NO_BUILD=	YES
+# NO_CONFIGURE=	YES
+# 
+# DOCDIR=		${PREFIX}/share/doc/docbook-website
+# DTDDIR=		${PREFIX}/share/xml/website
+# EGDIR=		${PREFIX}/share/examples/docbook-website
+# 
+# XML_CATALOGS=	${DTDDIR}/catalog.xml
+# SGML_CATALOGS=	${DTDDIR}/catalog
+# 
+# INSTALLATION_DIRS=	${DOCDIR} ${DTDDIR} ${EGDIR}
+# 
+# do-install:
+# 	cd ${WRKSRC} && ${FIND} . -name "*.orig" -exec ${RM} {} \;
+# 	cd ${WRKSRC} && pax -rwpm ChangeLog README VERSION \
+# 		RELEASE-NOTES.html RELEASE-NOTES.txt RELEASE-NOTES.xml \
+# 		TODO ${DESTDIR}${DOCDIR}
+# 	cd ${WRKSRC}/example && pax -rwpm . ${DESTDIR}${EGDIR}
+# 	cd ${WRKSRC} && pax -rwpm VERSION extensions schema xsl \
+# 		${DESTDIR}${DTDDIR}
+# 	${INSTALL_DATA} ${WRKSRC}/catalog.xml ${WRKSRC}/catalog ${DESTDIR}${DTDDIR}
+# 
+# .include "../../textproc/xmlcatmgr/catalogs.mk"
+# .include "../../mk/bsd.pkg.mk"

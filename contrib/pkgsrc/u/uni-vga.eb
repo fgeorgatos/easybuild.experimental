@@ -1,0 +1,79 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      uni-vga.eb
+# Date::      Fri Nov  9 14:37:17 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = '-1'
+version = 'vga'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['uni-vga.tgz']
+source_urls = ['http://www.inp.nsk.su/~bolkhov/files/fonts/univga/']
+homepage = 'http://www.inp.nsk.su/~bolkhov/files/fonts/univga/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "uni-vga description: Monospaced_Unicode_font_based_on_the_original_IBM_VGA_font"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.4 2012/10/03 18:28:32 asau Exp $
+# #
+# 
+# DISTNAME=	uni-vga
+# PKGNAME=	${DISTNAME}-1
+# CATEGORIES=	fonts x11
+# MASTER_SITES=	http://www.inp.nsk.su/~bolkhov/files/fonts/univga/
+# EXTRACT_SUFX=	.tgz
+# 
+# MAINTAINER=	mw+pkgsrc@wzff.de
+# HOMEPAGE=	http://www.inp.nsk.su/~bolkhov/files/fonts/univga/
+# COMMENT=	Monospaced Unicode font based on the original IBM VGA font
+# LICENSE=	mit
+# 
+# USE_TOOLS+=		bdftopcf gzip
+# 
+# FONTDIR=		${PREFIX}/lib/X11/fonts/uni-vga
+# FONTS_DIRS.x11+=	${FONTDIR}
+# WRKSRC=			${WRKDIR}/uni_vga
+# 
+# INSTALLATION_DIRS=	${FONTDIR}
+# 
+# do-build:
+# 	${TOOLS_PATH.bdftopcf} -o ${WRKSRC}/u_vga16.pcf ${WRKSRC}/u_vga16.bdf
+# 	${TOOLS_PATH.gzip} -9 ${WRKSRC}/u_vga16.pcf
+# 
+# do-install:
+# 	${INSTALL_DATA} ${WRKSRC}/u_vga16.pcf.gz ${DESTDIR}${FONTDIR}
+# 
+# .include "../../mk/bsd.pkg.mk"

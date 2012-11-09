@@ -1,0 +1,81 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      applerecords-0.5.eb
+# Date::      Fri Nov  9 14:36:50 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'applerecords'
+version = '0.5'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['applerecords-0.5.jar']
+source_urls = ['#']
+homepage = 'http://web.archive.org/web/20060501054520/http://www.cdavies.org/applerecords.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "applerecords-0.5 description: Java_DAAP_client"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.9 2012/09/11 23:59:24 asau Exp $
+# #
+# 
+# DISTNAME=		applerecords-0.5
+# PKGREVISION=		1
+# CATEGORIES=		audio
+# MASTER_SITES=		#
+# EXTRACT_SUFX=		.jar
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://web.archive.org/web/20060501054520/http://www.cdavies.org/applerecords.html
+# COMMENT=		Java DAAP client
+# 
+# NO_BUILD=		yes
+# WRKSRC=			${WRKDIR}
+# USE_JAVA=		run
+# 
+# INSTALLATION_DIRS=	bin
+# 
+# .include "../../mk/java-vm.mk"
+# 
+# do-extract:
+# 	${CP} ${DISTDIR}/${DIST_SUBDIR}/${DISTNAME}.jar ${WRKSRC}
+# 	${SED} -e 's|@SH@|${SH}|g' -e 's|@PREFIX@|${PREFIX}|g' ${FILESDIR}/applerecords > ${WRKSRC}/applerecords
+# 
+# do-install:
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/lib/applerecords
+# 	${INSTALL_DATA} ${WRKSRC}/${DISTNAME}.jar \
+# 		${DESTDIR}${PREFIX}/lib/applerecords/applerecords.jar
+# 	${INSTALL_SCRIPT} ${WRKSRC}/applerecords ${DESTDIR}${PREFIX}/bin
+# 
+# .include "../../mk/bsd.pkg.mk"

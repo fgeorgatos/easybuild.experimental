@@ -1,0 +1,73 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      apachetop-0.12.5.eb
+# Date::      Fri Nov  9 14:38:02 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'apachetop'
+version = '0.12.5'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['apachetop-0.12.5.tar.gz']
+source_urls = ['${MASTER_SITE_FREEBSD}']
+homepage = 'http://spork.qfe3.net/apachetop/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "apachetop-0.12.5 description: Real_time_apache_log_display"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.14 2012/10/28 06:30:10 asau Exp $
+# #
+# 
+# DISTNAME=	apachetop-0.12.5
+# PKGREVISION=	2
+# CATEGORIES=	sysutils www
+# MASTER_SITES=	${MASTER_SITE_FREEBSD}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://spork.qfe3.net/apachetop/
+# COMMENT=	Real time apache log display
+# 
+# GNU_CONFIGURE=		YES
+# CONFIGURE_ARGS+=	--with-logfile=${VARBASE}/log/httpd/access_log
+# USE_LANGUAGES=		c c++
+# 
+# # NetBSD releases which do not include wattr_on() et al.
+# INCOMPAT_CURSES=	NetBSD-1.5*-*
+# INCOMPAT_CURSES=	NetBSD-1.6-* NetBSD-1.6.*-* NetBSD-1.6[A-Q]-*
+# 
+# .include "../../devel/ncurses/buildlink3.mk"
+# .include "../../devel/readline/buildlink3.mk"
+# .include "../../mk/pthread.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

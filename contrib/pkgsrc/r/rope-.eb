@@ -1,0 +1,69 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      rope-.eb
+# Date::      Fri Nov  9 14:37:10 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = '-'
+version = ''
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['rope-${VERS}.tar.gz']
+source_urls = ['http://pypi.python.org/packages/source/r/rope/']
+homepage = 'http://rope.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "rope- description: Rope_is_a_python_refactoring_library"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.5 2012/10/31 11:19:34 asau Exp $
+# #
+# 
+# VERS=		0.9.3
+# DISTNAME=	rope-${VERS}
+# PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+# CATEGORIES=	devel
+# MASTER_SITES=	http://pypi.python.org/packages/source/r/rope/
+# 
+# MAINTAINER=	helgoman@users.sourceforge.net
+# HOMEPAGE=	http://rope.sourceforge.net/
+# COMMENT=	Rope is a python refactoring library
+# LICENSE=	gnu-gpl-v2
+# 
+# # XXX tests in contrib.codeassisttest fail
+# do-test:
+# 	cd ${WRKSRC} && ${PYTHONBIN} setup.py test
+# 
+# .include "../../lang/python/egg.mk"
+# .include "../../mk/bsd.pkg.mk"

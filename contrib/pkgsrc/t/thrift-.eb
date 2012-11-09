@@ -1,0 +1,88 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      thrift-.eb
+# Date::      Fri Nov  9 14:37:09 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'libthrift-'
+version = ''
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['thrift-${THRIFT_VERSION}.tar.gz']
+version = '${THRIFT_VERSION}'
+name = 'libthrift'
+source_urls = ['http://sourceforge.net/projects/thrift/${THRIFT_VERSION}/files', 'download']
+homepage = 'http://incubator.apache.org/thrift/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "thrift- description: Cross-language_data_serialization_library"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.22 2012/10/31 11:17:22 asau Exp $
+# 
+# DISTNAME=	thrift-${THRIFT_VERSION}
+# PKGNAME=	libthrift-${THRIFT_VERSION}
+# PKGREVISION=	9
+# CATEGORIES=	devel
+# MASTER_SITES=	${MASTER_SITE_APACHE:=thrift/${THRIFT_VERSION}/}
+# EXTRACT_SUFX=	.tar.gz
+# 
+# MAINTAINER=	tonnerre@NetBSD.org
+# HOMEPAGE=	http://incubator.apache.org/thrift/
+# COMMENT=	Cross-language data serialization library
+# LICENSE=	apache-2.0
+# 
+# MAKE_JOBS_SAFE=		no
+# 
+# USE_LANGUAGES=		c c++
+# USE_LIBTOOL=		yes
+# USE_PKGLOCALEDIR=	yes
+# USE_TOOLS+=		gmake pkg-config
+# GNU_CONFIGURE=		yes
+# CONFIGURE_ENV+=		LEXLIB=""
+# 
+# WRKSRC=		${WRKDIR}/thrift-${THRIFT_VERSION}
+# THRIFT_VERSION=	0.7.0
+# 
+# pre-build:
+# 	${CHMOD} 0755 ${WRKSRC}/lib/erl/rebar
+# 
+# .include "options.mk"
+# 
+# .include "../../security/openssl/buildlink3.mk"
+# .include "../../devel/zlib/buildlink3.mk"
+# .include "../../devel/libevent/buildlink3.mk"
+# .include "../../devel/boost-libs/buildlink3.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,72 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      rtf2html.eb
+# Date::      Fri Nov  9 14:36:56 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'rtf2html-1.1'
+version = 'rtf2html'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['rtf2html.tar.gz']
+version = '1.1'
+name = 'rtf2html'
+source_urls = ['http://www.45.free.net/~vitus/ice/misc/']
+homepage = 'http://www.45.free.net/~vitus/ice/catdoc/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "rtf2html description: Rich_Text_to_HTML_file_converter"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.16 2012/10/03 00:20:17 asau Exp $
+# #
+# 
+# DISTNAME=	rtf2html
+# PKGNAME=	rtf2html-1.1
+# CATEGORIES=	converters
+# MASTER_SITES=	http://www.45.free.net/~vitus/ice/misc/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.45.free.net/~vitus/ice/catdoc/
+# COMMENT=	Rich Text to HTML file converter
+# 
+# BUILD_TARGET=	rtf2html
+# MAKE_FLAGS+=	CFLAGS=${CFLAGS:M*:Q}
+# 
+# INSTALLATION_DIRS=	bin
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/rtf2html ${DESTDIR}${PREFIX}/bin
+# 
+# .include "../../mk/bsd.pkg.mk"

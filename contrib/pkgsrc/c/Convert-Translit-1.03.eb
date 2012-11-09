@@ -1,0 +1,80 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      Convert-Translit-1.03.eb
+# Date::      Fri Nov  9 14:37:56 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'p5-'
+version = 'Translit-1.03'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['Convert-Translit-1.03.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Convert/']
+homepage = 'http://search.cpan.org/dist/Convert-Translit/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "Convert-Translit-1.03 description: Perl5_module_to_transliterate_various_character_sets"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.6 2012/10/25 06:56:11 asau Exp $
+# #
+# 
+# DISTNAME=		Convert-Translit-1.03
+# PKGNAME=		p5-${DISTNAME}
+# PKGREVISION=		3
+# CATEGORIES=		converters perl5
+# MASTER_SITES=		${MASTER_SITE_PERL_CPAN:=Convert/}
+# 
+# MAINTAINER=		pkgsrc-p5-people@NetBSD.org
+# HOMEPAGE=		http://search.cpan.org/dist/Convert-Translit/
+# COMMENT=		Perl5 module to transliterate various character sets
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# 
+# USE_LANGUAGES=		# empty
+# PERL5_PACKLIST=		auto/Convert/Translit/.packlist
+# REPLACE_PERL=		lib/Convert/Translit.pm
+# 
+# SUBST_CLASSES=		example
+# SUBST_FILES.example=	MANIFEST
+# SUBST_SED.example=	-e "s@^example\.pl@@"
+# SUBST_STAGE.example=	post-extract
+# 
+# post-extract:
+# 	${RM} -f ${WRKSRC}/example.pl
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

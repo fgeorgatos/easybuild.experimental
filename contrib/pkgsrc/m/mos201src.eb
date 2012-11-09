@@ -1,0 +1,93 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      mos201src.eb
+# Date::      Fri Nov  9 14:37:26 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'moscow_ml-2.01'
+version = 'mos201src'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['mos201src.tar.gz']
+source_urls = ['http://www.itu.dk/people/sestoft/mosml/']
+homepage = 'http://www.dina.kvl.dk/~sestoft/mosml.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "mos201src description: Moscow_ML,_a_version_of_Standard_ML"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.32 2012/10/03 21:56:19 wiz Exp $
+# 
+# DISTNAME=	mos201src
+# PKGNAME=	moscow_ml-2.01
+# PKGREVISION=	2
+# CATEGORIES=	lang
+# MASTER_SITES=	http://www.itu.dk/people/sestoft/mosml/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.dina.kvl.dk/~sestoft/mosml.html
+# COMMENT=	Moscow ML, a version of Standard ML
+# 
+# WRKSRC=		${WRKDIR}/mosml/src
+# USE_TOOLS+=	perl pax
+# 
+# BUILD_TARGET=	clean world
+# MAKE_JOBS_SAFE=	no
+# 
+# INSTALLATION_DIRS+=	share/examples/moscow_ml/calc
+# INSTALLATION_DIRS+=	share/examples/moscow_ml/cgi
+# INSTALLATION_DIRS+=	share/examples/moscow_ml/lexyacc
+# INSTALLATION_DIRS+=	share/examples/moscow_ml/lexyacc/cl
+# INSTALLATION_DIRS+=	share/examples/moscow_ml/manual
+# INSTALLATION_DIRS+=	share/examples/moscow_ml/mls
+# INSTALLATION_DIRS+=	share/examples/moscow_ml/modules
+# INSTALLATION_DIRS+=	share/examples/moscow_ml/parsercomb
+# INSTALLATION_DIRS+=	share/examples/moscow_ml/paulson
+# INSTALLATION_DIRS+=	share/examples/moscow_ml/pretty
+# INSTALLATION_DIRS+=	share/examples/moscow_ml/small
+# INSTALLATION_DIRS+=	share/examples/moscow_ml/units
+# INSTALLATION_DIRS+=	share/examples/moscow_ml/weak
+# INSTALLATION_DIRS+=	share/examples/moscow_ml/webserver
+# 
+# post-extract:
+# 	${CHMOD} -x ${WRKDIR}/mosml/examples/modules/matrix.sml
+# 
+# post-install:
+# 	cd ${WRKDIR}/mosml/examples && ${PAX} -rw . \
+# 		${DESTDIR}${PREFIX}/share/examples/moscow_ml
+# 	${CHOWN} -R ${SHAREOWN}:${SHAREGRP} \
+# 		${DESTDIR}${PREFIX}/share/examples/moscow_ml
+# 	${CHMOD} -R ugo+rX ${DESTDIR}${PREFIX}/share/examples/moscow_ml
+# 
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,131 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      tor-0.2.2.39.eb
+# Date::      Fri Nov  9 14:37:40 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'tor'
+version = '0.2.2.39'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['tor-0.2.2.39.tar.gz']
+source_urls = ['http://www.torproject.org/dist/']
+homepage = 'http://www.torproject.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "tor-0.2.2.39 description: Anonymizing_overlay_network_for_TCP"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.90 2012/10/23 17:19:14 asau Exp $
+# #
+# 
+# DISTNAME=		tor-0.2.2.39
+# CATEGORIES=		net security
+# MASTER_SITES=		http://www.torproject.org/dist/
+# # MASTER_SITES redirects to https, and ftp(1) cannot handle that.
+# FETCH_USING=		curl
+# 
+# MAINTAINER=		athaba@users.sourceforge.net
+# HOMEPAGE=		http://www.torproject.org/
+# COMMENT=		Anonymizing overlay network for TCP
+# LICENSE=		modified-bsd
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# USE_LANGUAGES=		c99
+# # tor is not documented to require GNU make, but it fails to build on
+# # NetBSD 5.1 with (system) BSD make.  Reported to
+# # tor-talk@lists.torproject.org on 20110907.
+# USE_TOOLS+=		gmake
+# USE_PKGLOCALEDIR=	yes
+# GNU_CONFIGURE=		yes
+# 
+# CONFIGURE_ENV+=		CPP=${CPP:Q}
+# CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFBASEDIR}
+# 
+# TEST_TARGET=		check
+# 
+# TOR_USER?=		tor
+# TOR_GROUP?=		tor
+# PKG_HOME?=		${VARBASE}/chroot/tor
+# BUILD_DEFS+=		VARBASE
+# PKG_SYSCONFSUBDIR=	tor
+# 
+# PKG_GROUPS_VARS+=	TOR_GROUP
+# PKG_USERS_VARS=		TOR_USER
+# 
+# RCD_SCRIPTS=		tor
+# RCD_SCRIPT_SRC.tor=	${FILESDIR}/tor.in
+# PKG_GROUPS=		${TOR_GROUP}
+# PKG_USERS=		${TOR_USER}:${TOR_GROUP}::Torifier:${PKG_HOME}
+# USER_GROUP=		${TOR_USER} ${TOR_GROUP}
+# 
+# OWN_DIRS_PERMS+=	${PKG_HOME} ${USER_GROUP} 0700
+# 
+# CONFIGURE_ARGS+=	--localstatedir=${VARBASE}
+# 
+# CONF_FILES+=		${PREFIX}/share/examples/tor/tor-tsocks.conf 	\
+# 				${PKG_SYSCONFDIR}/tor-tsocks.conf
+# CONF_FILES+=		${PREFIX}/share/examples/tor/torrc.sample 	\
+# 				${PKG_SYSCONFDIR}/torrc
+# 
+# FILES_SUBST+=		PKG_HOME=${PKG_HOME}
+# FILES_SUBST+=		TOR_USER=${TOR_USER} TOR_GROUP=${TOR_GROUP}
+# 
+# SUBST_CLASSES+=			fix-paths
+# SUBST_STAGE.fix-paths=		pre-configure
+# SUBST_MESSAGE.fix-paths=	Fixing absolute paths.
+# SUBST_FILES.fix-paths=		contrib/torify.in
+# SUBST_SED.fix-paths=		-e 's,"/etc/tor,"${PKG_SYSCONFDIR},g'
+# 
+# INSTALL_MAKE_FLAGS+=	sysconfdir=${PREFIX}/share/examples
+# 
+# CHECK_PORTABILITY_SKIP+=contrib/*
+# 
+# .if !empty(PKGSRC_COMPILER:Mmipspro)
+# CFLAGS+=		-c99
+# .endif
+# 
+# BUILD_DEPENDS+= asciidoc-[0-9]*:../../textproc/asciidoc
+# BUILDLINK_API_DEPENDS.libevent+= libevent>=1.2
+# .include "../../devel/libevent/buildlink3.mk"
+# .include "../../devel/zlib/buildlink3.mk"
+# .include "../../security/openssl/buildlink3.mk"
+# .include "../../mk/pthread.buildlink3.mk"
+# 
+# ## We include this after other b3.mk files since we use PTHREAD_TYPE.
+# ##
+# .include "options.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"

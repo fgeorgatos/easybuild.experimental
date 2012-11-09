@@ -1,0 +1,76 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      stl.eb
+# Date::      Fri Nov  9 14:37:08 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'sgi-stl-3.3'
+version = 'stl'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['stl.tar.gz']
+version = 'stl-3.3'
+name = 'sgi'
+source_urls = ['http://www.sgi.com/tech/stl/']
+homepage = 'http://www.sgi.com/tech/stl/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "stl description: SGI_Standard_Template_Library"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.17 2012/10/31 11:19:45 asau Exp $
+# 
+# DISTNAME=		stl
+# PKGNAME=		sgi-stl-3.3
+# CATEGORIES=		devel
+# MASTER_SITES=		http://www.sgi.com/tech/stl/
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://www.sgi.com/tech/stl/
+# COMMENT=		SGI Standard Template Library
+# 
+# WRKSRC=			${WRKDIR}
+# DIST_SUBDIR=		${PKGNAME_NOREV}
+# 
+# NO_CONFIGURE=		yes
+# NO_BUILD=		yes
+# 
+# do-install:
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/include/sgi-stl
+# 	cd ${WRKSRC}; for file in `${GREP} "^include/sgi-stl/" ${PLIST_SRC} \
+# 	    | ${SED} "s,^include/sgi-stl/,,g"`; do \
+# 		${INSTALL_DATA} $${file} ${DESTDIR}${PREFIX}/include/sgi-stl/$${file}; \
+# 	done
+# 
+# .include "../../mk/bsd.pkg.mk"

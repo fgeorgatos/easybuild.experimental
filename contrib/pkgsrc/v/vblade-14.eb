@@ -1,0 +1,82 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      vblade-14.eb
+# Date::      Fri Nov  9 14:37:36 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'aoe-vblade-14'
+version = '14'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['vblade-14.tgz']
+version = 'vblade-14'
+name = 'aoe'
+source_urls = ['http://sourceforge.net/projects/aoetools/files', 'download']
+homepage = 'http://aoetools.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "vblade-14 description: ATA_over_Ethernet__AoE__server_-_thin,_LAN-based_storage_protocol"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.7 2012/10/23 17:18:09 asau Exp $
+# 
+# DISTNAME=	vblade-14
+# PKGNAME=	aoe-vblade-14
+# CATEGORIES=	net sysutils
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=aoetools/}
+# EXTRACT_SUFX=	.tgz
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://aoetools.sourceforge.net/
+# COMMENT=	ATA over Ethernet (AoE) server - thin, LAN-based storage protocol
+# 
+# ONLY_FOR_PLATFORM+=	NetBSD-*-* FreeBSD-*-* Linux-*-* DragonFly-*-*
+# 
+# INSTALLATION_DIRS=	${PKGMANDIR}/man8 sbin
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# do-build:
+# .if ${OPSYS} == "NetBSD" || ${OPSYS} == "FreeBSD" || ${OPSYS} == "DragonFly"
+# 	cd ${WRKSRC} && ${CP} freebsd.c bsd.c && ${MAKE} PLATFORM=bsd
+# .elif ${OPSYS} == "Linux"
+# 	cd ${WRKSRC} && ${MAKE} PLATFORM=linux
+# .endif
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/vblade ${DESTDIR}${PREFIX}/sbin/
+# 	${INSTALL_SCRIPT} ${WRKSRC}/vbladed ${DESTDIR}${PREFIX}/sbin/
+# 	${INSTALL_MAN} ${WRKSRC}/vblade.8 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man8/
+# 
+# .include "../../mk/bsd.pkg.mk"

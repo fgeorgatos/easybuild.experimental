@@ -1,0 +1,97 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      xpaint-2.7.8.1.eb
+# Date::      Fri Nov  9 14:37:23 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'xpaint'
+version = '2.7.8.1'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['xpaint-2.7.8.1.tar.bz2']
+source_urls = ['http://sourceforge.net/projects/sf-xpaint/files', 'download']
+homepage = 'http://sf-xpaint.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "xpaint-2.7.8.1 description: Simple_paint_program"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.71 2012/10/23 10:24:07 wiz Exp $
+# 
+# DISTNAME=	xpaint-2.7.8.1
+# PKGREVISION=	8
+# CATEGORIES=	graphics x11
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=sf-xpaint/}
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	adam@NetBSD.org
+# HOMEPAGE=	http://sf-xpaint.sourceforge.net/
+# COMMENT=	Simple paint program
+# 
+# USE_IMAKE=	yes
+# USE_TOOLS+=		gmake
+# MAKE_ENV+=		XMKMF=${XMKMF:Q}
+# MAKE_JOBS_SAFE=		NO
+# 
+# SUBST_CLASSES+=		foo
+# SUBST_STAGE.foo=	pre-configure
+# SUBST_FILES.foo=	Local.config configure
+# SUBST_SED.foo=		-e "s|@LOCALBASE@|${LOCALBASE}|g" \
+# 			-e "s|@PREFIX@|${PREFIX}|g" \
+# 			-e "s|@XAWDIR@|${BUILDLINK_PREFIX.Xaw3d}|g" \
+# 			-e "s|@XPMDIR@|${BUILDLINK_PREFIX.libXpm}|g"
+# 
+# INSTALLATION_DIRS+=	bin lib/X11/app-defaults ${PKGMANDIR}/cat1
+# INSTALLATION_DIRS+=	share/xpaint
+# INSTALLATION_DIRS+=	share/xpaint/include
+# INSTALLATION_DIRS+=	share/xpaint/c_scripts
+# INSTALLATION_DIRS+=	share/xpaint/c_scripts/3d_surfaces
+# INSTALLATION_DIRS+=	share/xpaint/c_scripts/filters
+# INSTALLATION_DIRS+=	share/xpaint/c_scripts/images
+# INSTALLATION_DIRS+=	share/xpaint/c_scripts/layers
+# INSTALLATION_DIRS+=	share/xpaint/c_scripts/procedures
+# INSTALLATION_DIRS+=	share/xpaint/c_scripts/3d_curves
+# INSTALLATION_DIRS+=	share/xpaint/help
+# INSTALLATION_DIRS+=	share/xpaint/messages
+# 
+# pre-configure:
+# 	cd ${WRKSRC} && ./configure xaw3dg
+# 
+# .include "../../mk/jpeg.buildlink3.mk"
+# .include "../../graphics/png/buildlink3.mk"
+# .include "../../graphics/tiff/buildlink3.mk"
+# .include "../../x11/libXext/buildlink3.mk"
+# .include "../../x11/libXpm/buildlink3.mk"
+# .include "../../x11/Xaw3d/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

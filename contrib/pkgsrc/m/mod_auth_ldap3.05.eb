@@ -1,0 +1,97 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      mod_auth_ldap3.05.eb
+# Date::      Fri Nov  9 14:38:02 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'ap2-auth-ldap-3.05'
+version = 'mod_auth_ldap3.05'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['mod_auth_ldap3.05.tar.gz']
+version = 'auth-ldap-3.05'
+name = 'ap2'
+source_urls = ['http://www.muquit.com/muquit/software/mod_auth_ldap/']
+homepage = '${MASTER_SITES}/mod_auth_ldap.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "mod_auth_ldap3.05 description: Module_to_allow_apache2_authentication_against_an_LDAP_directory"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.21 2012/10/28 06:30:06 asau Exp $
+# 
+# DISTNAME=	mod_auth_ldap3.05
+# PKGNAME=	ap2-auth-ldap-3.05
+# PKGREVISION=	6
+# CATEGORIES=	www databases
+# MASTER_SITES=	http://www.muquit.com/muquit/software/mod_auth_ldap/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	${MASTER_SITES}/mod_auth_ldap.html
+# COMMENT=	Module to allow apache2 authentication against an LDAP directory
+# 
+# GNU_CONFIGURE=		YES
+# APACHE_MODULE=		YES
+# APACHE_MODULE_NAME=	mm_auth_ldap_module
+# USE_LIBTOOL=		YES
+# CPPFLAGS+=		-L${PREFIX}/lib ${COMPILER_RPATH_FLAG}${PREFIX}/lib -lldap -llber
+# 
+# PKG_APACHE_ACCEPTED=	apache2
+# 
+# .include "../../mk/apache.mk"
+# BUILDLINK_API_DEPENDS.apache+=	apache>=2.0.47
+# 
+# CONFIGURE_ARGS+=	--with-apxs=${APXS:Q}
+# CONFIGURE_ARGS+=	--with-ldap-dir=${BUILDLINK_PREFIX.openldap-client}
+# CONFIGURE_ARGS+=	--with-apache-dir=${PREFIX:Q}
+# CONFIGURE_ARGS+=	--with-apache-ver=2
+# 
+# SUBST_CLASSES+=		paths
+# SUBST_STAGE.paths=	post-patch
+# SUBST_FILES.paths=	configure
+# SUBST_SED.paths=	-e "s|@@HASHLIB@@|${PREFIX}/include|g" \
+# 			-e "s|@@HASHINC@@|${PREFIX}/lib|g"
+# SUBST_MESSAGE.paths=	Fixing hardcoded paths.
+# 
+# INSTALLATION_DIRS+=	lib/httpd
+# 
+# do-install:
+# 	${PREFIX}/share/httpd/build/instdso.sh \
+# 	    SH_LIBTOOL=${PREFIX}/share/httpd/build/libtool \
+# 	    ${WRKSRC}/mod_auth_ldap.la ${DESTDIR}${PREFIX}/lib/httpd
+# 
+# .include "../../databases/openldap-client/buildlink3.mk"
+# .include "../../security/openssl/buildlink3.mk"
+# .include "../../mk/pthread.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

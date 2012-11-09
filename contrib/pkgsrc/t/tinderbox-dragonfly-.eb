@@ -1,0 +1,124 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      tinderbox-dragonfly-.eb
+# Date::      Fri Nov  9 14:37:42 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'tinderbox'
+version = 'dragonfly-'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['tinderbox-dragonfly-${TBOX_VERSION}.tar.gz']
+source_urls = ['http://tinderbox.marcuscom.com/']
+homepage = 'http://tinderbox.marcuscom.com/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "tinderbox-dragonfly- description: Tinderbox_package_building_system__pkgsrc_"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.9 2012/10/03 21:57:16 wiz Exp $
+# #
+# 
+# DISTNAME=	tinderbox-dragonfly-${TBOX_VERSION}
+# PKGREVISION=	4
+# CATEGORIES=	pkgtools
+# MASTER_SITES=	http://tinderbox.marcuscom.com/
+# DISTFILES=	tinderbox-${TBOX_VERSION}.tar.gz
+# 
+# MAINTAINER=	draco@marino.st
+# HOMEPAGE=	http://tinderbox.marcuscom.com/
+# COMMENT=	Tinderbox package building system (pkgsrc)
+# LICENSE=	modified-bsd
+# 
+# DEPENDS+=	p5-Compress-Bzip2>=2:../../archivers/p5-Compress-Bzip2
+# DEPENDS+=	csup>=20100101:../../net/csup
+# DEPENDS+=	scmgit>1.6:../../devel/scmgit
+# 
+# TBOX_VERSION=		3.4.1
+# ONLY_FOR_PLATFORM=	DragonFly-*-*
+# 
+# USE_TOOLS+=		perl perl:run
+# NO_CONFIGURE=		yes
+# NO_BUILD=		yes
+# RCD_SCRIPTS=		tinderd
+# WRKSRC=			${WRKDIR}/tinderbox-${TBOX_VERSION}
+# TRASH=			${WRKDIR}/trash
+# MAN_FILES_cmd=		${SED} -ne "s,^man/man1/,,p" PLIST
+# MAN_FILES=		${MAN_FILES_cmd:sh}
+# 
+# INSTALLATION_DIRS+=	tinderbox/scripts
+# INSTALLATION_DIRS+=	${PKGMANDIR}/man1
+# 
+# SUBST_CLASSES+=		paths
+# SUBST_FILES.paths+=	contrib/bulk/add_all_packages.sh
+# SUBST_FILES.paths+=	contrib/bulk/bulk_hook_1.sh
+# SUBST_FILES.paths+=	contrib/bulk/bulkbuild.sh
+# SUBST_SED.paths+=	-e 's,@TINROOT@,${PREFIX}/tinderbox,g'
+# SUBST_STAGE.paths=	post-patch
+# 
+# .include "options.mk"
+# 
+# post-extract:
+# 	${MKDIR} ${TRASH}
+# .if empty(PKG_OPTIONS:Mwebui)
+# 	mv ${WRKSRC}/webui ${TRASH}
+# .endif
+# 	mv ${WRKSRC}/etc/rc.d ${TRASH}
+# 	${MKDIR} ${WRKSRC}/contrib/bulk
+# 	for dossier in add_all_packages bulk_hook_1 bulkbuild; do \
+# 		${CP} ${FILESDIR}/$${dossier}.sh.in \
+# 		${WRKSRC}/contrib/bulk/$${dossier}.sh; \
+# 	done
+# 	chmod 755 ${WRKSRC}/contrib/bulk/*
+# 
+# post-patch:
+# .if !empty(PKG_OPTIONS:Manybody)
+# 	perl -i -pe 's/^if \[ `id -u` != 0 \]; then/if false; then/' \
+# 		${WRKSRC}/tc
+# .endif
+# 	cd ${WRKSRC} && ${FIND} -E . -regex '.*(orig|bak)' -exec ${RM} {} \;
+# 
+# do-install:
+# 	for manual in ${MAN_FILES}; do \
+# 		${INSTALL_MAN} ${WRKSRC}/man/man1/$${manual} ${DESTDIR}${PREFIX}/${PKGMANDIR}/man1; \
+# 	done
+# 	mv ${WRKSRC}/man ${TRASH}
+# 	cd ${WRKSRC}; for dossier in .version *; do \
+# 		${TEST} ! -f "$$dossier" || \
+# 		${CP} "$$dossier" ${DESTDIR}${PREFIX}/tinderbox/scripts; \
+# 		${TEST} ! -d "$$dossier" || \
+# 		${CP} -R "$$dossier" ${DESTDIR}${PREFIX}/tinderbox/scripts; \
+# 	done
+# 
+# .include "../../mk/bsd.pkg.mk"

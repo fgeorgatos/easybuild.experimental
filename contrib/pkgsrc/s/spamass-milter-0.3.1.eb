@@ -1,0 +1,79 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      spamass-milter-0.3.1.eb
+# Date::      Fri Nov  9 14:37:29 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'spamass'
+version = 'milter-0.3.1'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['spamass-milter-0.3.1.tar.gz']
+source_urls = ['http://savannah.nongnu.org/download/spamass-milt/']
+homepage = 'http://savannah.nongnu.org/projects/spamass-milt/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "spamass-milter-0.3.1 description: Milter_interface_to_Spamassassin"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.32 2012/10/08 12:19:31 asau Exp $
+# #
+# 
+# DISTNAME=	spamass-milter-0.3.1
+# PKGREVISION=	4
+# CATEGORIES=	mail
+# MASTER_SITES=	http://savannah.nongnu.org/download/spamass-milt/
+# 
+# # This patch is taken from upstream CVS, and is from the 0.3.1 release
+# # tag to head of CVS on 5 Jun 2010, although CVS last changed on 24
+# # Jul 2006.  The patch fixes an error in formatting of the synthetic
+# # Received: line.  The patch is a patchfile (hosted on ftp.netbsd.org)
+# # instead of a pkgsrc patch because it is something upstream would
+# # have released if upstream were still maintaining this code.
+# PATCHFILES=	spamass-milter-001.patch
+# 
+# MAINTAINER=	gdt@NetBSD.org
+# HOMEPAGE=	http://savannah.nongnu.org/projects/spamass-milt/
+# COMMENT=	Milter interface to Spamassassin
+# 
+# DEPENDS+=	spamassassin>=2.44:../../mail/spamassassin
+# 
+# GNU_CONFIGURE=	YES
+# USE_LANGUAGES=	c c++
+# 
+# RCD_SCRIPTS=	spamass-milter
+# 
+# .include "../../mail/libmilter/buildlink3.mk"
+# .include "../../mk/pthread.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

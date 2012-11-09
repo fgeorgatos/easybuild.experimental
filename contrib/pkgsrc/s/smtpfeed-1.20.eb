@@ -1,0 +1,96 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      smtpfeed-1.20.eb
+# Date::      Fri Nov  9 14:37:29 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'smtpfeed'
+version = '1.20'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['smtpfeed-1.20.tar.gz']
+source_urls = ['ftp://sh.wide.ad.jp/WIDE/free-ware/smtpfeed/']
+homepage = 'http://member.wide.ad.jp/wg/smtp/smtpfeed.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "smtpfeed-1.20 description: SMTP_Fast_Exploding_External_Deliverer_for_Sendmail"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.36 2012/10/08 12:19:31 asau Exp $
+# 
+# DISTNAME=	smtpfeed-1.20
+# CATEGORIES=	mail
+# MASTER_SITES=	ftp://sh.wide.ad.jp/WIDE/free-ware/smtpfeed/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://member.wide.ad.jp/wg/smtp/smtpfeed.html
+# COMMENT=	SMTP Fast Exploding External Deliverer for Sendmail
+# LICENSE=	original-bsd
+# 
+# # sendmail 8.x with WIDE patch works better with it, than stock 8.x.
+# # require sendmail from pkgsrc.
+# #DEPENDS+=	sendmail>=8.9.3:../../mail/sendmail
+# 
+# GNU_CONFIGURE=		yes
+# CONFIGURE_ARGS+=	--libexecdir=${PREFIX:Q}/libexec
+# # configure tries to be clever, so force our setting
+# CONFIGURE_ENV+=		my_cv_path_lib_exec=${PREFIX:Q}/libexec
+# # use bind8?
+# #CONFIGURE_ARGS+=	--with-bind8
+# 
+# DOCS=	COPYRIGHT FEATURES FEATURES.j FYI FYI.j INSTALL INSTALL.j \
+# 	ML-ADMIN ML-ADMIN.j OPTIONS OPTIONS.j README README.j \
+# 	RELEASE.NOTE SIGNAL SIGNAL.j TODO
+# 
+# PKG_OPTIONS_VAR=	PKG_OPTIONS.smtpfeed
+# PKG_SUPPORTED_OPTIONS=	inet6
+# PKG_SUGGESTED_OPTIONS=	inet6
+# 
+# .include "../../mk/bsd.options.mk"
+# 
+# .if !empty(PKG_OPTIONS:Minet6)
+# CONFIGURE_ARGS+=	--enable-ipv6
+# .endif
+# 
+# INSTALLATION_DIRS=	libexec ${PKGMANDIR}/man8 share/doc/smtpfeed
+# INSTALL_MAKE_FLAGS+=	libexecdir=${DESTDIR}${PREFIX}/libexec
+# 
+# post-install:
+# 	${INSTALL_MAN} ${WRKSRC}/smtpfeed.8 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man8
+# 	for i in ${DOCS}; do \
+# 		${INSTALL_DATA} ${WRKSRC}/$$i ${DESTDIR}${PREFIX}/share/doc/smtpfeed; \
+# 	done
+# 
+# .include "../../devel/sysexits/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

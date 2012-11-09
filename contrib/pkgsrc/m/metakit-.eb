@@ -1,0 +1,77 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      metakit-.eb
+# Date::      Fri Nov  9 14:36:57 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'metakit-lib-'
+version = ''
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['metakit-${VERSION}.tar.gz']
+version = 'lib-${VERSION}'
+name = 'metakit'
+source_urls = ['http://www.equi4.com/pub/mk/']
+homepage = 'http://www.equi4.com/metakit/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "metakit- description: Embedded_database_library"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.21 2012/10/02 21:25:22 asau Exp $
+# #
+# 
+# VERSION=	2.4.9.7
+# DISTNAME=	metakit-${VERSION}
+# PKGNAME=	metakit-lib-${VERSION}
+# CATEGORIES=	databases
+# MASTER_SITES=	http://www.equi4.com/pub/mk/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.equi4.com/metakit/
+# COMMENT=	Embedded database library
+# 
+# GNU_CONFIGURE=	yes
+# CONFIGURE_DIRS=	builds
+# CONFIGURE_SCRIPT= ../unix/configure
+# CONFIGURE_ARGS+=	--without-tcl
+# BUILD_DIRS=	builds
+# USE_LANGUAGES=	c c++
+# USE_LIBTOOL=	yes
+# TEST_TARGET=	test
+# 
+# post-install:
+# 	${INSTALL_DATA} ${WRKSRC}/include/mk4io.h ${DESTDIR}${PREFIX}/include
+# 
+# .include "../../mk/bsd.pkg.mk"

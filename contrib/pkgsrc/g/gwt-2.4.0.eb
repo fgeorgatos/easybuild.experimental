@@ -1,0 +1,102 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      gwt-2.4.0.eb
+# Date::      Fri Nov  9 14:38:05 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'gwt'
+version = '2.4.0'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['gwt-2.4.0.zip']
+source_urls = ['http://google-web-toolkit.googlecode.com/files/']
+homepage = 'https://developers.google.com/web-toolkit/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "gwt-2.4.0 description: Google_Web_Toolkit"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.2 2012/10/28 06:30:16 asau Exp $
+# #
+# 
+# DISTNAME=	gwt-2.4.0
+# CATEGORIES=	www
+# MASTER_SITES=	http://google-web-toolkit.googlecode.com/files/
+# EXTRACT_SUFX=	.zip
+# 
+# MAINTAINER=	ryoon@NetBSD.org
+# HOMEPAGE=	https://developers.google.com/web-toolkit/
+# COMMENT=	Google Web Toolkit
+# LICENSE=	apache-2.0
+# 
+# NO_BUILD=	yes
+# USE_LANGUAGES=	# none
+# USE_JAVA=	run
+# USE_JAVA2=	yes
+# 
+# USE_TOOLS+=	pax
+# 
+# GWTDOCDIR=	share/doc/gwt
+# GWTDIR=		lib/java/gwt
+# 
+# INSTALLATION_DIRS=	bin ${GWTDOCDIR} ${GWTDIR}
+# 
+# SUBST_CLASSES+=		gwt
+# SUBST_STAGE.gwt=	pre-configure
+# SUBST_MESSAGE.gwt=	Fix for GWT
+# SUBST_FILES.gwt=	benchmarkViewer
+# SUBST_FILES.gwt+=	i18nCreator
+# SUBST_FILES.gwt+=	webAppCreator
+# SUBST_SED.gwt=		-e 's,java ,${PKG_JAVA_HOME}/bin/java ,g'
+# SUBST_SED.gwt+=		-e 's,HOMEDIR=.*,HOMEDIR=${PREFIX}/${GWTDIR};,g'
+# SUBST_SED.gwt+=		-e 's,APPDIR=.*,APPDIR=${PREFIX}/${GWTDIR};,g'
+# 
+# do-install:
+# 	${INSTALL_SCRIPT} ${WRKSRC}/benchmarkViewer ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_SCRIPT} ${WRKSRC}/i18nCreator ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_SCRIPT} ${WRKSRC}/webAppCreator ${DESTDIR}${PREFIX}/bin
+# 
+# 	${INSTALL_DATA} ${WRKSRC}/*jar ${DESTDIR}${PREFIX}/${GWTDIR}
+# 	${INSTALL_DATA} ${WRKSRC}/*dtd ${DESTDIR}${PREFIX}/${GWTDIR}
+# 	${INSTALL_DATA} ${WRKSRC}/*war ${DESTDIR}${PREFIX}/${GWTDIR}
+# 	${INSTALL_DATA} ${WRKSRC}/*dll ${DESTDIR}${PREFIX}/${GWTDIR}
+# 
+# 	cd ${WRKSRC} && pax -rw -pmp \
+# 		doc samples COPYING COPYING.html \
+# 		about.html about.txt release_notes.html \
+# 		${DESTDIR}${PREFIX}/${GWTDOCDIR}
+# 
+# .include "../../mk/java-env.mk"
+# .include "../../mk/java-vm.mk"
+# .include "../../mk/bsd.pkg.mk"

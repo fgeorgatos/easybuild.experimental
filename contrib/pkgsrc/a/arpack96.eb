@@ -1,0 +1,78 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      arpack96.eb
+# Date::      Fri Nov  9 14:37:32 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'arpack-96'
+version = 'arpack96'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['arpack96.tar.gz']
+version = '96'
+name = 'arpack'
+source_urls = ['http://www.caam.rice.edu/software/ARPACK/SRC/']
+homepage = 'http://www.caam.rice.edu/software/ARPACK/SRC/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "arpack96 description: Library_of_subroutines_to_solve_eigenvalue_problems"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.2 2012/09/11 23:04:16 asau Exp $
+# 
+# DISTNAME=	arpack96
+# PKGNAME=	arpack-96
+# CATEGORIES=	math
+# MASTER_SITES=	http://www.caam.rice.edu/software/ARPACK/SRC/
+# DISTFILES=	arpack96.tar.gz patch.tar.gz
+# 
+# MAINTAINER=	jwbacon@tds.net
+# HOMEPAGE=	http://www.caam.rice.edu/software/ARPACK/SRC/
+# COMMENT=	Library of subroutines to solve eigenvalue problems
+# LICENSE=	original-bsd
+# 
+# WRKSRC=		${WRKDIR}/ARPACK
+# USE_LANGUAGES=	fortran77
+# MAKE_ENV+=	WRKSRC=${WRKSRC}
+# 
+# INSTALLATION_DIRS=	lib
+# 
+# # Patches must be extracted AFTER the main dist to overwrite files
+# post-extract:
+# 	cd ${WRKDIR} && ${TAR} -zxf ${DISTDIR}/patch.tar.gz
+# 
+# do-install:
+# 	${INSTALL_DATA} ${WRKSRC}/libarpack.a ${DESTDIR}${PREFIX}/lib
+# 
+# .include "../../mk/bsd.pkg.mk"

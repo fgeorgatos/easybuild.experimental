@@ -1,0 +1,87 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      dbz.eb
+# Date::      Fri Nov  9 14:37:15 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'dbz-ttf-20050114'
+version = 'dbz'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['dbz.zip']
+version = 'ttf-20050114'
+name = 'dbz'
+source_urls = ['http://www.andrew.cmu.edu/~twm/fonts/']
+homepage = 'http://fonts.tom7.com/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "dbz description: Divide_By_Zero_TrueType_fonts_created_by_Tom_Murphy_7"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.19 2012/10/03 18:28:18 asau Exp $
+# #
+# 
+# DISTNAME=	dbz
+# PKGNAME=	dbz-ttf-20050114
+# PKGREVISION=	1
+# CATEGORIES=	fonts
+# MASTER_SITES=	http://www.andrew.cmu.edu/~twm/fonts/
+# EXTRACT_SUFX=	.zip
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://fonts.tom7.com/
+# COMMENT=	Divide By Zero TrueType fonts created by Tom Murphy 7
+# LICENSE=	dbz-ttf-license
+# 
+# RESTRICTED=	Resale prohibited.
+# NO_SRC_ON_CDROM=${RESTRICTED}
+# NO_BIN_ON_CDROM=${RESTRICTED}
+# 
+# DIST_SUBDIR=	${PKGNAME_NOREV}
+# EXTRACT_OPTS_ZIP=	-Laqo
+# 
+# USE_X11=	YES
+# NO_BUILD=	YES
+# NO_CONFIGURE=	YES
+# 
+# FONTS_DIRS.ttf=	${PREFIX}/lib/X11/fonts/TTF
+# DOCDIR=		${PREFIX}/share/doc/dbz-ttf
+# 
+# do-install:
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${FONTS_DIRS.ttf}
+# 	${INSTALL_DATA} ${WRKDIR}/*.ttf ${DESTDIR}${FONTS_DIRS.ttf}
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${DOCDIR}
+# 	${INSTALL_DATA} ${WRKDIR}/readme.txt ${DESTDIR}${DOCDIR}
+# 
+# .include "../../mk/bsd.pkg.mk"

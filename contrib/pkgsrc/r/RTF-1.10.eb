@@ -1,0 +1,114 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      RTF-1.10.eb
+# Date::      Fri Nov  9 14:37:58 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'rtf-tools-1.10'
+version = '1.10'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['RTF-1.10.tar.Z']
+version = 'tools-1.10'
+name = 'rtf'
+source_urls = ['http://www.snake.net/software/RTF/']
+homepage = '${MASTER_SITES}'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "RTF-1.10 description: RTF_to_troff/groff/text_converter"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.24 2012/10/25 06:56:55 asau Exp $
+# #
+# 
+# DISTNAME=		RTF-1.10
+# PKGNAME=		rtf-tools-1.10
+# PKGREVISION=		3
+# CATEGORIES=		textproc
+# MASTER_SITES=		http://www.snake.net/software/RTF/
+# EXTRACT_SUFX=		.tar.Z
+# 
+# PATCHFILES=		rtf-tools-jumbo-patch-20111006.gz
+# PATCH_SITES=		http://www.NetBSD.org/~dholland/patchkits/rtf-tools/
+# PATCH_DIST_STRIP=	-p1
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		${MASTER_SITES}
+# COMMENT=		RTF to troff/groff/text converter
+# 
+# WRKSRC=			${WRKDIR}/rtf
+# INSTALL_TARGET=		install install.man
+# INSTALLATION_DIRS=	bin ${PKGMANDIR}/manl lib/rtf-tools
+# 
+# SUBST_CLASSES+=		rtf
+# SUBST_STAGE.rtf=	pre-configure
+# SUBST_MESSAGE.rtf=	Fixing absolute paths in Makefiles.
+# SUBST_FILES.rtf=	Makefile */Makefile
+# SUBST_SED.rtf+=		-e 's|-DVARARGS|-DSTDARGS|g'
+# SUBST_SED.rtf+=		-e 's|/usr/local|${PREFIX}|g'
+# SUBST_SED.rtf+=		-e 's|/usr/man|${PREFIX}/man|'
+# SUBST_SED.rtf+=		-e 's|\(LOCALBINDIR =.*\)|\1/bin|'
+# 
+# # turn this on when hacking or debugging the package
+# #WARNFLAGS=		-O2 -Wall -Wextra -Wwrite-strings -Wmissing-prototypes
+# #SUBST_CLASSES+= 	warn
+# #SUBST_STAGE.warn=	pre-build
+# #SUBST_MESSAGE.warn=	Enabling lots of warnings.
+# #SUBST_FILES.warn=	Makefile */Makefile
+# #SUBST_SED.warn= 	-e '/CDEBUGFLAGS/s/-O/${WARNFLAGS}/'
+# 
+# do-install:
+# 	${INSTALL_DATA} ${WRKSRC}/h/standard-names ${DESTDIR}${PREFIX}/lib/rtf-tools
+# 	cd ${WRKSRC}/lib && ${INSTALL_DATA} ansi-gen ansi-sym \
+# 		ansicpg1252-gen ansicpg1252-sym \
+# 		mac-gen mac-sym pc-gen pc-sym pca-gen pca-sym \
+# 		${DESTDIR}${PREFIX}/lib/rtf-tools
+# 	${INSTALL_DATA} ${WRKSRC}/rtf2text/text-map ${DESTDIR}${PREFIX}/lib/rtf-tools
+# 	cd ${WRKSRC}/rtf2troff && ${INSTALL_DATA} troff-map groff-map \
+# 		xroff-map dwbtroff-map troff-man-map troff-me-map \
+# 		troff-mm-map troff-ms-map ${DESTDIR}${PREFIX}/lib/rtf-tools
+# 	${INSTALL_SCRIPT} ${WRKSRC}/util/rtfchkmap ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_SCRIPT} ${WRKSRC}/util/rtfmaptortf ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_PROGRAM} ${WRKSRC}/rtf2null/rtf2null ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_PROGRAM} ${WRKSRC}/rtf2text/rtf2text ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_PROGRAM} ${WRKSRC}/rtf2troff/rtf2troff ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_SCRIPT} ${WRKSRC}/rtf2troff/rtf2groff ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_PROGRAM} ${WRKSRC}/rtfdiag/rtfdiag ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_PROGRAM} ${WRKSRC}/rtfindent/rtfindent ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_PROGRAM} ${WRKSRC}/rtfwc/rtfwc ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_MAN} ${WRKSRC}/man/rtf2troff.man \
+# 		${DESTDIR}${PREFIX}/${PKGMANDIR}/manl/rtf2troff.l
+# 
+# .include "../../devel/libts/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

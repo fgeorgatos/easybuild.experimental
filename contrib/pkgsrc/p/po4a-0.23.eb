@@ -1,0 +1,77 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      po4a-0.23.eb
+# Date::      Fri Nov  9 14:37:58 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'po4a'
+version = '0.23'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['po4a-0.23.tar.gz']
+source_urls = ['http://alioth.debian.org/download.php/1317/']
+homepage = 'http://po4a.alioth.debian.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "po4a-0.23 description: Tool_for_using_gettext_where_it_was_not_intended_to_be_used"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.18 2012/10/25 06:56:46 asau Exp $
+# #
+# 
+# DISTNAME=		po4a-0.23
+# PKGREVISION=		9
+# CATEGORIES=		textproc
+# MASTER_SITES=		http://alioth.debian.org/download.php/1317/
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://po4a.alioth.debian.org/
+# COMMENT=		Tool for using gettext where it was not intended to be used
+# 
+# DEPENDS+=		p5-gettext>=1.01:../../devel/p5-gettext
+# DEPENDS+=		p5-SGMLS-[0-9]*:../../textproc/p5-SGMLS
+# DEPENDS+=		p5-Term-ReadKey-[0-9]*:../../devel/p5-Term-ReadKey
+# DEPENDS+=		p5-Text-WrapI18N-[0-9]*:../../textproc/p5-Text-WrapI18N
+# 
+# USE_TOOLS+=		pkg-config perl:run msgmerge:run msgfmt:run
+# 
+# PERL5_MODULE_TYPE=	Module::Build
+# PERL5_PACKLIST=		auto/po4a/.packlist
+# REPLACE_PERL=		msguntypot po4a po4a-gettextize po4a-normalize \
+# 			po4a-translate po4a-updatepo
+# 
+# MAKE_ENV+=		COLUMNS=76
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

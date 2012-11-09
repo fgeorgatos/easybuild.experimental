@@ -1,0 +1,78 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      kochi-substitute-.eb
+# Date::      Fri Nov  9 14:37:16 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'kochi-ttf-'
+version = 'substitute-'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['kochi-substitute-${KOCHI_VERSION}.tar.bz2']
+version = 'ttf-${KOCHI_VERSION}'
+name = 'kochi'
+source_urls = ['http://sourceforge.net/projects/efont/5411/files', 'download']
+homepage = 'http://wiki.fdiary.net/font/?kochi-alternative'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "kochi-substitute- description: Free_Japanese_TrueType_font_by_Yasuyuki_Furukawa"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.20 2012/10/03 18:28:26 asau Exp $
+# 
+# DISTNAME=	kochi-substitute-${KOCHI_VERSION}
+# PKGNAME=	kochi-ttf-${KOCHI_VERSION}
+# PKGREVISION=	5
+# CATEGORIES=	fonts japanese
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE_JP:=efont/5411/}
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	uebayasi@NetBSD.org
+# HOMEPAGE=	http://wiki.fdiary.net/font/?kochi-alternative
+# COMMENT=	Free Japanese TrueType font by Yasuyuki Furukawa
+# 
+# KOCHI_VERSION=	20030809
+# 
+# NO_BUILD=	yes
+# 
+# FONTS_DIRS.ttf=	${PREFIX}/lib/X11/fonts/TTF
+# 
+# do-install:
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/lib/X11/fonts/TTF
+# 	${INSTALL_DATA} ${WRKSRC}/kochi-gothic-subst.ttf \
+# 	    ${DESTDIR}${PREFIX}/lib/X11/fonts/TTF/kochi-gothic.ttf
+# 	${INSTALL_DATA} ${WRKSRC}/kochi-mincho-subst.ttf \
+# 	    ${DESTDIR}${PREFIX}/lib/X11/fonts/TTF/kochi-mincho.ttf
+# 
+# .include "../../mk/bsd.pkg.mk"

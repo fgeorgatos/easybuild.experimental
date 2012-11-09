@@ -1,0 +1,106 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      dnsmasq-2.62.eb
+# Date::      Fri Nov  9 14:37:36 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'dnsmasq'
+version = '2.62'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['dnsmasq-2.62.tar.gz']
+source_urls = ['http://www.thekelleys.org.uk/dnsmasq/']
+homepage = 'http://www.thekelleys.org.uk/dnsmasq/doc.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "dnsmasq-2.62 description: Lightweight,_easy_to_configure_DNS_forwarder"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.19 2012/10/23 17:18:17 asau Exp $
+# #
+# 
+# DISTNAME=		dnsmasq-2.62
+# CATEGORIES=		net
+# MASTER_SITES=		http://www.thekelleys.org.uk/dnsmasq/
+# LICENSE=		gnu-gpl-v3
+# 
+# MAINTAINER=		roy@NetBSD.org
+# HOMEPAGE=		http://www.thekelleys.org.uk/dnsmasq/doc.html
+# COMMENT=		Lightweight, easy to configure DNS forwarder
+# 
+# RCD_SCRIPTS=		dnsmasq
+# CONF_FILES=		${PREFIX}/share/examples/dnsmasq/dnsmasq.conf.example \
+# 			${PKG_SYSCONFDIR}/dnsmasq.conf
+# 
+# PKG_OPTIONS_VAR=	PKG_OPTIONS.dnsmasq
+# PKG_SUPPORTED_OPTIONS=	dbus inet6
+# PKG_SUGGESTED_OPTIONS=	inet6
+# PLIST_VARS+=	dbus
+# 
+# .include "../../mk/bsd.options.mk"
+# 
+# .if !empty(PKG_OPTIONS:Mdbus)
+# USE_TOOLS+=	pkg-config
+# CFLAGS+=	-DHAVE_DBUS
+# .include "../../sysutils/dbus/buildlink3.mk"
+# CONF_FILES+=	${PREFIX}/share/examples/dnsmasq/dnsmasq-dbus.conf \
+# 		${PKG_SYSCONFDIR}/dbus-1/system.d/dnsmasq-dbus.conf
+# PLIST.dbus=	yes
+# .endif
+# 
+# .if empty(PKG_OPTIONS:Minet6)
+# CFLAGS+=	-DNO_IPV6
+# .endif
+# 
+# # Override the defaults
+# AUTO_MKDIRS=yes
+# CFLAGS+=		-DCONFFILE=\\\"${PKG_SYSCONFDIR}/dnsmasq.conf\\\"
+# BUILD_MAKE_FLAGS+=	COPTS="${CFLAGS}"
+# INSTALL_MAKE_FLAGS+=	PREFIX="${PREFIX}"
+# INSTALL_MAKE_FLAGS+=	MANDIR="${PREFIX}/${PKGMANDIR}"
+# INSTALL_MAKE_FLAGS+=	LOCALEDIR="${PREFIX}/${PKGLOCALEDIR}"
+# 
+# # Upstream wants to use nawk, but awk should work just fine here.
+# BUILD_MAKE_FLAGS+=	AWK="${AWK}"
+# INSTALL_MAKE_FLAGS+=	AWK="${AWK}"
+# 
+# post-install:
+# 	${INSTALL_DATA} ${WRKSRC}/dnsmasq.conf.example \
+# 		${DESTDIR}${PREFIX}/share/examples/dnsmasq/
+# .if !empty(PKG_OPTIONS:Mdbus)
+# 	${INSTALL_DATA} ${WRKSRC}/dbus/dnsmasq.conf \
+# 		${DESTDIR}${PREFIX}/share/examples/dnsmasq/dnsmasq-dbus.conf
+# .endif
+# 
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,73 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      Spreadsheet-XLSX-0.13-withoutworldwriteables.eb
+# Date::      Fri Nov  9 14:37:31 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'p5-'
+version = 'XLSX-0.13-withoutworldwriteables'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['Spreadsheet-XLSX-0.13-withoutworldwriteables.tar.gz']
+version = '${DISTNAME:S/-withoutworldwriteables//}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Spreadsheet/']
+homepage = 'http://search.cpan.org/dist/Spreadsheet-XLSX/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "Spreadsheet-XLSX-0.13-withoutworldwriteables description: Perl_5_module_to_read_MS_Excel_2007_files"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.8 2012/10/03 21:56:40 wiz Exp $
+# #
+# 
+# DISTNAME=	Spreadsheet-XLSX-0.13-withoutworldwriteables
+# PKGNAME=	p5-${DISTNAME:S/-withoutworldwriteables//}
+# PKGREVISION=	3
+# CATEGORIES=	math perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Spreadsheet/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/Spreadsheet-XLSX/
+# COMMENT=	Perl 5 module to read MS Excel 2007 files
+# 
+# DEPENDS+=	p5-Archive-Zip-[0-9]*:../../archivers/p5-Archive-Zip
+# DEPENDS+=	p5-Spreadsheet-ParseExcel-[0-9]*:../../math/p5-Spreadsheet-ParseExcel
+# 
+# WRKSRC=		${WRKDIR}/${PKGNAME_NOREV:S/p5-//}
+# USE_LANGUAGES=		# empty
+# PERL5_PACKLIST=		auto/Spreadsheet/XLSX/.packlist
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

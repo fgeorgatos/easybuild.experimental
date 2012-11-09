@@ -1,0 +1,102 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      urt.eb
+# Date::      Fri Nov  9 14:37:23 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'urt-3.1b1'
+version = 'urt'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['urt.tar.gz']
+version = '3.1b1'
+name = 'urt'
+source_urls = ['ftp://ftp.iastate.edu/pub/utah-raster/']
+homepage = 'http://www.cs.utah.edu/gdc/projects/urt/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "urt description: Toolkit_and_library_for_raster_image_processing"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.58 2012/10/23 10:24:07 wiz Exp $
+# 
+# DISTNAME=	urt
+# PKGNAME=	urt-3.1b1
+# PKGREVISION=	13
+# CATEGORIES=	graphics
+# MASTER_SITES=	ftp://ftp.iastate.edu/pub/utah-raster/
+# DISTFILES=	urt-3.1b.tar.Z urt-doc.tar.Z urt-img.tar.Z
+# 
+# PATCH_SITES=	http://www.funet.fi/pub/graphics/packages/urt/rel2/
+# PATCHFILES=	urt-3.1b-3.1b1.patch
+# PATCH_DIST_STRIP=-p1
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.cs.utah.edu/gdc/projects/urt/
+# COMMENT=	Toolkit and library for raster image processing
+# 
+# EXTRACT_ONLY=	urt-3.1b.tar.Z
+# 
+# WRKSRC=		${WRKDIR}
+# USE_LIBTOOL=	yes
+# USE_TOOLS+=	pax
+# CONFIGURE_SCRIPT=./Configure
+# CONFIGURE_ARGS+=	config/urt
+# HAS_CONFIGURE=	yes
+# MAKE_FILE=	makefile
+# BUILD_TARGET=	# the default one
+# 
+# AUTO_MKDIRS=			yes
+# 
+# post-extract:
+# 	chmod 644 ${WRKSRC}/man/man1/rletotarga.1
+# 
+# SUBST_CLASSES+=	man
+# SUBST_STAGE.man=	pre-configure
+# SUBST_FILES.man=	config/urt
+# SUBST_SED.man=		-e 's,^\(\#defpath MAN_DEST\).*,\1 ${PREFIX}/${PKGMANDIR},'
+# 
+# post-install:
+# 	cd ${DESTDIR:Q}${PREFIX:Q}/share/doc/urt && \
+# 	    pax -z -r -p m -s '/doc/./' -f ${DISTDIR}/urt-doc.tar.Z
+# 	cd ${DESTDIR:Q}${PREFIX:Q}/share/examples/urt && \
+# 	    pax -z -r -p m -f ${DISTDIR}/urt-img.tar.Z
+# 	cd ${DESTDIR:Q}${PREFIX:Q} && \
+# 	    chown -R ${ROOT_USER}:${ROOT_GROUP} share/doc/urt share/examples/urt && \
+# 	    find share/doc/urt share/examples/urt -type d -print | xargs chmod 755 && \
+# 	    find share/doc/urt share/examples/urt -type f -print | xargs chmod 444
+# 
+# .include "../../graphics/netpbm/buildlink3.mk"
+# .include "../../x11/libXext/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,76 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      mod_transform-0.4.0.eb
+# Date::      Fri Nov  9 14:38:02 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = '-'
+version = '0.4.0'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['mod_transform-0.4.0.tar.gz']
+source_urls = ['http://www.outoforder.cc/downloads/mod_transform/']
+homepage = 'http://www.outoforder.cc/projects/apache/mod_transform/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "mod_transform-0.4.0 description: Filter_module_for_Apache_2.0_to_do_dynamic_XSL_transformations"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.18 2012/10/28 06:30:08 asau Exp $
+# #
+# 
+# DISTNAME=	mod_transform-0.4.0
+# PKGNAME=	${APACHE_PKG_PREFIX}-${DISTNAME:S/mod_//}
+# PKGREVISION=	6
+# CATEGORIES=	www
+# MASTER_SITES=	http://www.outoforder.cc/downloads/mod_transform/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.outoforder.cc/projects/apache/mod_transform/
+# COMMENT=	Filter module for Apache 2.0 to do dynamic XSL transformations
+# LICENSE=	gnu-gpl-v2 # or later
+# 
+# USE_TOOLS+=		pkg-config
+# USE_LIBTOOL=		yes
+# GNU_CONFIGURE=		yes
+# 
+# PKG_APACHE_ACCEPTED=	apache2 apache22
+# 
+# CONFIGURE_ARGS+=	--with-apxs=${APXS:Q}
+# 
+# INSTALLATION_DIRS+=	lib/httpd include/httpd
+# 
+# .include "../../textproc/libxslt/buildlink3.mk"
+# .include "../../mk/apache.mk"
+# .include "../../mk/bsd.pkg.mk"

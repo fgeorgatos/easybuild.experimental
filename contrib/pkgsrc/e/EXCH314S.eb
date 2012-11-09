@@ -1,0 +1,88 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      EXCH314S.eb
+# Date::      Fri Nov  9 14:37:18 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'exchess-3.14'
+version = 'EXCH314S'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['EXCH314S.zip']
+version = '3.14'
+name = 'exchess'
+source_urls = ['${MASTER_SITE_LOCAL}']
+homepage = 'http://personal.denison.edu/~homand/EXchess.htm'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "EXCH314S description: Experimental_chess_engine"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.15 2012/10/06 11:54:36 asau Exp $
+# 
+# DISTNAME=		EXCH314S
+# # 5.01beta available
+# PKGNAME=		exchess-3.14
+# PKGREVISION=		1
+# CATEGORIES=		games
+# MASTER_SITES=		${MASTER_SITE_LOCAL}
+# EXTRACT_SUFX=		.zip
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://personal.denison.edu/~homand/EXchess.htm
+# COMMENT=		Experimental chess engine
+# 
+# USE_LANGUAGES=		c++
+# NO_CONFIGURE=		yes
+# 
+# WRKSRC=			${WRKDIR}
+# LIBDIR=			${PREFIX}/lib/exchess
+# DOCDIR=			${PREFIX}/share/doc/exchess
+# 
+# post-extract:
+# 	cd ${WRKSRC} && ${MV} search.par search.par.in
+# 	${CP} ${FILESDIR}/Makefile ${WRKSRC}
+# 
+# post-build:
+# 	${SED}	-e "s,@PREFIX@,${PREFIX},g" \
+# 		< ${WRKSRC}/search.par.in > ${WRKSRC}/search.par
+# 
+# INSTALLATION_DIRS+=	bin lib/exchess ${DOCDIR}
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/exchess ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_DATA} ${WRKSRC}/search.par ${DESTDIR}${PREFIX}/lib/exchess
+# 	${INSTALL_DATA} ${WRKSRC}/readme.txt ${DESTDIR}${DOCDIR}
+# 
+# .include "../../mk/bsd.pkg.mk"

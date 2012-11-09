@@ -1,0 +1,84 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      libsigc++-2.2.11.eb
+# Date::      Fri Nov  9 14:37:02 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'libsigc++'
+version = '2.2.11'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['libsigc++-2.2.11.tar.xz']
+source_urls = ['http://sourceforge.net/projects/sources/libsigc++/2.2/files', 'download']
+homepage = 'http://libsigc.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "libsigc++-2.2.11 description: Type-safe_callback_system_for_C++_programs"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.39 2012/10/31 11:17:20 asau Exp $
+# 
+# DISTNAME=	libsigc++-2.2.11
+# CATEGORIES=	devel
+# MASTER_SITES=	${MASTER_SITE_GNOME:=sources/libsigc++/2.2/}
+# EXTRACT_SUFX=	.tar.xz
+# 
+# MAINTAINER=	bsieker@freenet.de
+# HOMEPAGE=	http://libsigc.sourceforge.net/
+# COMMENT=	Type-safe callback system for C++ programs
+# LICENSE=	gnu-lgpl-v2.1
+# 
+# USE_LANGUAGES=		c c++
+# USE_LIBTOOL=		yes
+# USE_TOOLS+=		gm4 gmake perl:build
+# GNU_CONFIGURE=		yes
+# 
+# CONFLICTS+=		libsigc++2-[0-9]*
+# 
+# # supported according to the file README
+# GCC_REQD+=		3.2
+# # use something that can extract long filenames in GNU format on NetBSD 1.6.x
+# EXTRACT_USING=		bsdtar
+# 
+# PKGCONFIG_OVERRIDE=	sigc++.pc.in
+# 
+# TEST_TARGET=		check
+# 
+# .include "../../mk/pthread.buildlink3.mk"
+# 
+# .if defined(PTHREAD_TYPE) && (${PTHREAD_TYPE} == "none")
+# CONFIGURE_ARGS+=	--disable-threads
+# .endif
+# 
+# .include "../../mk/bsd.pkg.mk"

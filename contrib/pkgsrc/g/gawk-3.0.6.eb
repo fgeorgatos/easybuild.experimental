@@ -1,0 +1,81 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      gawk-3.0.6.eb
+# Date::      Fri Nov  9 14:37:26 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'ja-'
+version = '3.0.6'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['gawk-3.0.6.tar.gz']
+version = '${DISTNAME}'
+name = 'ja'
+source_urls = ['http://ftp.gnu.org/gnu/ja-']
+homepage = 'http://www.gnu.org/software/gawk/gawk.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "gawk-3.0.6 description: GNU_awk_+_multi-byte_extension"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.11 2012/10/02 20:11:43 asau Exp $
+# 
+# DISTNAME=	gawk-3.0.6
+# PKGNAME=	ja-${DISTNAME}
+# CATEGORIES=	japanese lang
+# MASTER_SITES=	${MASTER_SITE_GNU:=gawk/}
+# 
+# PATCH_SITES=	http://www.hinadori.atnifty.com/~wills/program/
+# PATCHFILES=	gawkmb115.diff.gz
+# PATCH_DIST_STRIP=	-p1
+# 
+# MAINTAINER=	tech-pkg-ja@jp.NetBSD.org
+# HOMEPAGE=	http://www.gnu.org/software/gawk/gawk.html
+# COMMENT=	GNU awk + multi-byte extension
+# LICENSE=	gnu-gpl-v2
+# 
+# CONFLICTS=	gawk-[0-9]*
+# 
+# INFO_FILES=	yes
+# 
+# GNU_CONFIGURE=	yes
+# USE_TOOLS+=	yacc
+# 
+# INSTALLATION_DIRS+=	share/doc/ja-gawk
+# 
+# post-install:
+# 	${INSTALL_DATA} ${WRKSRC}/OREADME.MB ${DESTDIR}${PREFIX}/share/doc/ja-gawk
+# 	${INSTALL_DATA} ${WRKSRC}/README.MB ${DESTDIR}${PREFIX}/share/doc/ja-gawk
+# 
+# .include "../../mk/bsd.pkg.mk"

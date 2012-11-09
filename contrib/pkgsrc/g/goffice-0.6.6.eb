@@ -1,0 +1,87 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      goffice-0.6.6.eb
+# Date::      Fri Nov  9 14:37:33 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'goffice0.6-0.6.6'
+version = '0.6.6'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['goffice-0.6.6.tar.gz']
+source_urls = ['http://sourceforge.net/projects/sources/goffice/0.6/files', 'download']
+homepage = 'http://www.gnome.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "goffice-0.6.6 description: Library_of_document-centric_objects_and_utilities"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.32 2012/10/08 23:00:36 adam Exp $
+# #
+# 
+# DISTNAME=		goffice-0.6.6
+# PKGNAME=		goffice0.6-0.6.6
+# PKGREVISION=		22
+# CATEGORIES=		misc
+# MASTER_SITES=		${MASTER_SITE_GNOME:=sources/goffice/0.6/}
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://www.gnome.org/
+# COMMENT=		Library of document-centric objects and utilities
+# 
+# CONFLICTS+=		goffice<0.4.2nb1 goffice0.5<0.5.4
+# 
+# USE_PKGLOCALEDIR=	yes
+# USE_LIBTOOL=		yes
+# PKGCONFIG_OVERRIDE+=	${WRKSRC}/libgoffice.pc.in
+# GNU_CONFIGURE=		yes
+# CONFIGURE_ARGS+=	--disable-gnome
+# USE_TOOLS+=		gmake intltool msgfmt pkg-config
+# 
+# .include "../../converters/libiconv/buildlink3.mk"
+# .include "../../devel/gettext-lib/buildlink3.mk"
+# .include "../../devel/pcre/buildlink3.mk"
+# BUILDLINK_API_DEPENDS.glib2+=	glib2>=2.8.0
+# .include "../../devel/glib2/buildlink3.mk"
+# .include "../../devel/libglade/buildlink3.mk"
+# .include "../../devel/libgsf/buildlink3.mk"
+# BUILDLINK_API_DEPENDS.pango+=	pango>=1.8.1
+# .include "../../devel/pango/buildlink3.mk"
+# .include "../../graphics/cairo/buildlink3.mk"
+# BUILDLINK_API_DEPENDS.libart+=	libart>=2.3.11
+# .include "../../graphics/libart/buildlink3.mk"
+# .include "../../textproc/libxml2/buildlink3.mk"
+# BUILDLINK_API_DEPENDS.gtk2+=	gtk2+>=2.6.0
+# .include "../../x11/gtk2/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,126 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      xdm3d-1.0.eb
+# Date::      Fri Nov  9 14:38:10 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'xdm3d'
+version = '1.0'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['xdm3d-1.0.tar.gz']
+source_urls = ['${MASTER_SITE_LOCAL}']
+homepage = 'http://www.hijinks.com/~spade/linux/XBanner/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "xdm3d-1.0 description: Replacement_for_xdm_with_3D_effects"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.27 2012/10/29 05:07:01 asau Exp $
+# 
+# DISTNAME=		xdm3d-1.0
+# PKGREVISION=		5
+# CATEGORIES=		x11
+# MASTER_SITES=		${MASTER_SITE_LOCAL}
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://www.hijinks.com/~spade/linux/XBanner/
+# COMMENT=		Replacement for xdm with 3D effects
+# 
+# WRKSRC=			${WRKDIR}/xdm
+# NO_INSTALL_MANPAGES=	yes
+# USE_IMAKE=		yes
+# 
+# PLIST_SRC=		${WRKDIR}/PLIST-src
+# INSTALLATION_DIRS=	bin
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# .if exists(${X11BASE}/lib/X11/xdm)
+# XDMDIR=${X11BASE}/lib/X11/xdm
+# .elif exists(/etc/X11/xdm)
+# XDMDIR=/etc/X11/xdm
+# .else
+# PKG_FAIL_REASON+=	"Cannot find xdm directory."
+# .endif
+# 
+# # These hacks should probably be moved to the infrastructure
+# .if ${OPSYS} == "NetBSD"
+# .  if ${X11_TYPE} == "native"
+# # wrong in 5.x's native X
+# IMAKEOPTS+=-DHasSecureRPC=NO
+# BUILDLINK_TRANSFORM+=	rm:-DSECURE_RPC
+# .  endif
+# IMAKEOPTS+=-DHasSetUserContext=YES
+# .endif
+# 
+# do-install:
+# 	${ECHO} "${X11BASE} ${XDMDIR}"
+# 	${INSTALL_PROGRAM} ${WRKSRC}/xdm ${DESTDIR}${PREFIX}/bin/xdm3d
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/xdm3d
+# 	${INSTALL_DATA} ${XDMDIR}/GiveConsole ${DESTDIR}${PREFIX}/share/xdm3d
+# 	${INSTALL_DATA} ${XDMDIR}/TakeConsole ${DESTDIR}${PREFIX}/share/xdm3d
+# 	${INSTALL_DATA} ${XDMDIR}/Xaccess ${DESTDIR}${PREFIX}/share/xdm3d
+# 	${INSTALL_DATA} ${XDMDIR}/Xservers ${DESTDIR}${PREFIX}/share/xdm3d
+# 	${INSTALL_DATA} ${XDMDIR}/Xsession ${DESTDIR}${PREFIX}/share/xdm3d
+# 	@if [ -r ${XDMDIR}/Xsetup ]; then			\
+# 		${INSTALL_DATA} ${XDMDIR}/Xsetup ${DESTDIR}${PREFIX}/share/xdm3d; \
+# 		sedexpr='-e s|^share/xdm3d/Xsetup_0$$|@comment\ &|';	\
+# 	elif [ -r ${XDMDIR}/Xsetup_0 ]; then		\
+# 		${INSTALL_DATA} ${XDMDIR}/Xsetup_0 ${DESTDIR}${PREFIX}/share/xdm3d; \
+# 		sedexpr='-e s|^share/xdm3d/Xsetup$$|@comment\ &|';	\
+# 	fi;								\
+# 	${SED} "$$sedexpr" ${PKGDIR}/PLIST > ${PLIST_SRC}
+# 	@if [ -r ${XDMDIR}/chooser ]; then				\
+# 		${INSTALL_PROGRAM} ${XDMDIR}/chooser ${DESTDIR}${PREFIX}/share/xdm3d;		\
+# 	elif [ -r ${X11BASE}/libexec/chooser ]; then			\
+# 		${INSTALL_PROGRAM} ${X11BASE}/libexec/chooser ${DESTDIR}${PREFIX}/share/xdm3d;	\
+# 	else								\
+# 		${INSTALL_PROGRAM} ${WRKSRC}/chooser ${DESTDIR}${PREFIX}/share/xdm3d;		\
+# 	fi
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/xdm3d/authdir
+# 	${CHMOD} 700 ${DESTDIR}${PREFIX}/share/xdm3d/authdir
+# 	${SED} -e 's@${XDMDIR}@${PREFIX}/share/xdm3d@' < \
+# 		${XDMDIR}/xdm-config > \
+# 		${DESTDIR}${PREFIX}/share/xdm3d/xdm-config
+# 	${INSTALL_DATA} ${WRKSRC}/Xresources.3D ${DESTDIR}${PREFIX}/share/xdm3d/Xresources
+# 	${ECHO} 'DisplayManager*loginmoveInterval:		10' >> \
+# 		${DESTDIR}${PREFIX}/share/xdm3d/xdm-config
+# 
+# .include "../../x11/libXau/buildlink3.mk"
+# .include "../../x11/libXdmcp/buildlink3.mk"
+# .include "../../x11/libXmu/buildlink3.mk"
+# .include "../../x11/libXt/buildlink3.mk"
+# .include "../../mk/xaw.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,79 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      XML-Simple-2.20.eb
+# Date::      Fri Nov  9 14:37:57 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'p5-'
+version = 'Simple-2.20'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['XML-Simple-2.20.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/XML/']
+homepage = 'http://search.cpan.org/dist/XML-Simple/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "XML-Simple-2.20 description: Easy_Perl_API_to_read/write_XML"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.27 2012/10/25 06:56:40 asau Exp $
+# #
+# 
+# DISTNAME=	XML-Simple-2.20
+# PKGNAME=	p5-${DISTNAME}
+# PKGREVISION=	1
+# SVR4_PKGNAME=	p5xsi
+# CATEGORIES=	textproc perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=XML/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/XML-Simple/
+# COMMENT=	Easy Perl API to read/write XML
+# LICENSE=	${PERL5_LICENSE}
+# 
+# # well, XML::SAX >= 0.15 is required, and we distribute 0.99 after a lot of
+# # out and back in of XML::SAX::Base I tend to require no specific version
+# DEPENDS+=	p5-XML-SAX-[0-9]*:../../textproc/p5-XML-SAX
+# DEPENDS+=	p5-XML-SAX-Expat-[0-9]*:../../textproc/p5-XML-SAX-Expat
+# DEPENDS+=	p5-XML-Parser-[0-9]*:../../textproc/p5-XML-Parser
+# DEPENDS+=	p5-XML-NamespaceSupport>=1.04:../../textproc/p5-XML-NamespaceSupport
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# 
+# PERL5_PACKLIST=		auto/XML/Simple/.packlist
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

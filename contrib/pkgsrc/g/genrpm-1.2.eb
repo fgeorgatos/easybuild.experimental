@@ -1,0 +1,83 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      genrpm-1.2.eb
+# Date::      Fri Nov  9 14:37:42 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'genrpm'
+version = '1.2'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['genrpm-1.2.tar.gz']
+source_urls = ['#empty']
+homepage = 'http://www.pkgsrc.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "genrpm-1.2 description: Generate_an_RPM_package_from_an_installed_pkgsrc_package"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.9 2012/09/11 23:19:34 asau Exp $
+# 
+# DISTNAME=	genrpm-1.2
+# CATEGORIES=	pkgtools
+# MASTER_SITES=	# empty
+# DISTFILES=	# empty
+# 
+# MAINTAINER=	agc@NetBSD.org
+# HOMEPAGE=	http://www.pkgsrc.org/
+# COMMENT=	Generate an RPM package from an installed pkgsrc package
+# 
+# DEPENDS+=	pkg_tarup-[0-9]*:../../pkgtools/pkg_tarup
+# DEPENDS+=	rpm-[0-9]*:../../misc/rpm
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# 
+# WRKSRC=		${WRKDIR}
+# 
+# INSTALLATION_DIRS=	${PKGMANDIR}/man8 sbin
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# do-build:
+# 	@for f in genrpm genrpm.8 genrpm.0; do				\
+# 		${SED} -e 's|@PKGSRCDIR@|${PKGSRCDIR}|g'		\
+# 			-e 's|@SH@|${SH}|g'				\
+# 			${FILESDIR}/$$f > ${WRKSRC}/$$f;		\
+# 	done
+# 
+# do-install:
+# 	${INSTALL_SCRIPT} ${WRKSRC}/genrpm ${DESTDIR}${PREFIX}/sbin
+# 	${INSTALL_MAN} ${WRKSRC}/genrpm.8 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man8
+# 
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,68 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      CGI-Minimal-1.29.eb
+# Date::      Fri Nov  9 14:38:03 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'p5-'
+version = 'Minimal-1.29'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['CGI-Minimal-1.29.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/CGI/']
+homepage = 'http://search.cpan.org/dist/CGI-Minimal/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "CGI-Minimal-1.29 description: Perl5_module_for_simple_CGI_scripts"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.20 2012/10/28 06:30:28 asau Exp $
+# 
+# DISTNAME=		CGI-Minimal-1.29
+# PKGNAME=		p5-${DISTNAME}
+# PKGREVISION=		4
+# SVR4_PKGNAME=		p5cgm
+# CATEGORIES=		www perl5
+# MASTER_SITES=		${MASTER_SITE_PERL_CPAN:=CGI/}
+# 
+# MAINTAINER=		rhaen@NetBSD.org
+# HOMEPAGE=		http://search.cpan.org/dist/CGI-Minimal/
+# COMMENT=		Perl5 module for simple CGI scripts
+# 
+# PERL5_PACKLIST=		auto/CGI/Minimal/.packlist
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

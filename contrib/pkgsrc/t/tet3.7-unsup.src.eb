@@ -1,0 +1,103 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      tet3.7-unsup.src.eb
+# Date::      Fri Nov  9 14:37:08 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'tet3-3.7'
+version = 'unsup.src'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['tet3.7-unsup.src.tgz']
+version = '3.7'
+name = 'tet3'
+source_urls = ['http://tetworks.opengroup.org/tet/']
+homepage = 'http://tetworks.opengroup.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "tet3.7-unsup.src description: The_Open_Group_test_harness"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.20 2012/10/31 11:19:50 asau Exp $
+# 
+# DISTNAME=	tet3.7-unsup.src
+# PKGNAME=	tet3-3.7
+# PKGREVISION=	3
+# CATEGORIES=	devel
+# MASTER_SITES=	http://tetworks.opengroup.org/tet/
+# EXTRACT_SUFX=	.tgz
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://tetworks.opengroup.org/
+# COMMENT=	The Open Group test harness
+# LICENSE=	artistic
+# 
+# WRKSRC=		${WRKDIR}
+# HAS_CONFIGURE=		yes
+# CONFIG_SHELL=		${SH}
+# CONFIGURE_ARGS+=	-t inet
+# BUILD_DIRS=		src
+# 
+# USE_LANGUAGES=	c c++
+# USE_TOOLS+=	pax perl:run ksh:run
+# REPLACE_PERL=	contrib/suite/src/common.pl contrib/NTperldemo/ts/tc1.pl
+# REPLACE_PERL+=	contrib/NTperldemo/ts/tc2.pl contrib/NTperldemo/ts/tc3.pl
+# REPLACE_PERL+=	contrib/tetreport/TetJournal.pl contrib/tetreport/TetReports.pl
+# REPLACE_PERL+=	contrib/tetreport/tetreport.pl contrib/templates/perl-api.pl
+# REPLACE_PERL+=	src/perl/api.pl
+# REPLACE_KSH+=	src/scripts/tet_start.sh
+# MAKE_FILE=	makefile
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# PLIST_VARS+=	java
+# .if ${OPSYS} == "SunOS"
+# PLIST.java=	yes
+# .endif
+# 
+# post-install:
+# 	${INSTALL_PROGRAM_DIR} ${DESTDIR}${PREFIX}/tet3
+# 	${INSTALL_PROGRAM_DIR} ${DESTDIR}${PREFIX}/tet3/bin
+# 	cd ${WRKSRC}/bin && pax -rwpe . ${DESTDIR}${PREFIX}/tet3/bin
+# 	${INSTALL_PROGRAM_DIR} ${DESTDIR}${PREFIX}/tet3/lib
+# 	cd ${WRKSRC}/lib && pax -rwpe . ${DESTDIR}${PREFIX}/tet3/lib
+# 
+# PTHREAD_OPTS+=	native	# only native threads make sense
+# .include "../../mk/pthread.buildlink3.mk"
+# 
+# .if defined(PTHREAD_TYPE) && ${PTHREAD_TYPE} != "native"
+# PKG_SKIP_REASON+=	"Native threads are needed for this package"
+# .endif
+# 
+# .include "../../mk/bsd.pkg.mk"

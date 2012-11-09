@@ -1,0 +1,98 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      xsokoban-3.3c.eb
+# Date::      Fri Nov  9 14:37:20 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'xsokoban'
+version = '3.3c'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['xsokoban-3.3c.tar.gz']
+source_urls = ['http://www.cs.cornell.edu/andru/release/']
+homepage = 'http://www.cs.cornell.edu/andru/release/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "xsokoban-3.3c description: Classic_logical_game"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.4 2012/10/06 11:55:03 asau Exp $
+# #
+# 
+# DISTNAME=	xsokoban-3.3c
+# PKGREVISION=	1
+# CATEGORIES=	games
+# MASTER_SITES=	http://www.cs.cornell.edu/andru/release/
+# 
+# MAINTAINER=	cheusov@NetBSD.org
+# HOMEPAGE=	http://www.cs.cornell.edu/andru/release/
+# COMMENT=	Classic logical game
+# 
+# WRKSRC=		${WRKDIR}/xsokoban
+# 
+# GNU_CONFIGURE=	yes
+# USE_TOOLS+=	autoconf
+# 
+# SAVEPATH=		${VARBASE}/games/xsokoban
+# SCOREFILE=		${SAVEPATH}/scores
+# 
+# CONFIGURE_ARGS+=	--datadir=${PREFIX}/share/xsokoban
+# CONFIGURE_ENV+=		X11BASE=${X11BASE}
+# 
+# # For removing setting SETGIDGAME from here pkgsrc should be fixed
+# SETGIDGAME=		yes
+# 
+# SPECIAL_PERMS=		bin/xsokoban ${SETGID_GAMES_PERMS}
+# OWN_DIRS_PERMS+=	${SAVEPATH} ${GAMES_USER} ${GAMES_GROUP} ${GAMEDIRMODE}
+# 
+# MAKE_FLAGS+=		INSTALL_PROGRAM=${INSTALL_PROGRAM:Q}
+# MAKE_FLAGS+=		INSTALL_DATA=${INSTALL_DATA:Q}
+# MAKE_FLAGS+=		INSTALL=${INSTALL:Q}
+# MAKE_FLAGS+=		INSTALL_MAN=${INSTALL_MAN:Q}
+# 
+# BUILD_TARGET=		xsokoban
+# 
+# CPPFLAGS+=		-DROOTDIR="\"${PREFIX}/share/xsokoban\""
+# CPPFLAGS+=		-DSAVEPATH="\"${SAVEPATH}\""
+# CPPFLAGS+=		-DSCOREPATH="\"${SCOREFILE}\""
+# 
+# AUTO_MKDIRS=		yes
+# 
+# AUTOCONF_REQD=		2.59
+# 
+# pre-configure:
+# 	cd ${WRKSRC} && autoconf
+# 
+# .include "../../x11/libXpm/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

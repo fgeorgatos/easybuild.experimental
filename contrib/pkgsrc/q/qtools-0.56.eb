@@ -1,0 +1,68 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v2.sh ; ie. there is no warranty, given AS-IS, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      qtools-0.56.eb
+# Date::      Fri Nov  9 14:37:29 CET 2012
+
+# The following values are best-guess, which may be further overriden on
+name = 'qtools'
+version = '0.56'
+versionsuffix = '-2012-11-09'
+
+# The following are automatically calculated - cross fingers
+sources = ['qtools-0.56.tar.gz']
+source_urls = ['http://www.superscript.com/qtools/']
+homepage = 'http://www.superscript.com/qtools/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+# This has eventually to be amended with the real values of files/directories, as needed on a per package basis
+# Such incomplete easyconfigs are OK for repo https://github.com/fgeorgatos/easybuild.experimental but not for production EasyBuild
+# In case you decide to commit/push your experimental easyconfigs, remember to place them under users/
+
+sanity_check_paths = {
+                  'files': [],
+                  'dirs': ['.']
+                 }
+
+description = "qtools-0.56 description: Utilities_for_filtering_via_.qmail"
+
+# we play conservative in compilation parallelism, to maximize chances of success on the compilation step
+
+parallel = 1 
+maxparallel = 1 
+
+moduleclass = 'base'
+
+
+# # $NetBSD: Makefile,v 1.17 2012/10/08 12:19:29 asau Exp $
+# #
+# 
+# DISTNAME=		qtools-0.56
+# CATEGORIES=		mail
+# MASTER_SITES=		${HOMEPAGE}
+# 
+# MAINTAINER=		schmonz@NetBSD.org
+# HOMEPAGE=		http://www.superscript.com/qtools/
+# COMMENT=		Utilities for filtering via .qmail
+# 
+# DEPENDS+=		{ezmlm>=0.53,ezmlm-idx-[0-9]*}:../../mail/ezmlm
+# DEPENDS+=		qmail>=1.03:../../mail/qmail
+# 
+# DJB_RESTRICTED=		NO
+# DJB_CONFIG_CMDS=	${ECHO} ${LOCALBASE:Q} > ${WRKSRC}/conf-ezmlm
+# 
+# .include "../../mk/djbware.mk"
+# .include "../../mk/bsd.pkg.mk"
