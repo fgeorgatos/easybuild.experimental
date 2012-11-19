@@ -16,8 +16,6 @@ toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
 sources = ['gpu-blast-1.1_ncbi-blast-2.2.26.tar.gz']
 source_urls = ['http://eudoxus.cheme.cmu.edu/gpublast/']
 
-preconfigopts = '/bin/true'
-
 sanity_check_paths = {
                       'files': [], #"bin/blastn","bin/blastp","bin/blastx"],
                       'dirs': ["."]

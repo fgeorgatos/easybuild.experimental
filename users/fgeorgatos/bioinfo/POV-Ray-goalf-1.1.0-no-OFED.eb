@@ -16,8 +16,6 @@ toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
 sources = ['povlinux-3.6.tgz']
 source_urls = ['http://www.povray.org/redirect/www.povray.org/ftp/pub/povray/Official/Linux/']
 
-preconfigopts = '/bin/true'
-
 sanity_check_paths = {
                       'files': [], #"bin/blastn","bin/blastp","bin/blastx"],
                       'dirs': ["."]

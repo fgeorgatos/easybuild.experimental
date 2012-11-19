@@ -16,8 +16,6 @@ toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
 sources = ['ncbi_cxx--9_0_0.tar.gz']
 source_urls = ['ftp://ftp.ncbi.nlm.nih.gov/toolbox/ncbi_tools++/ARCHIVE/9_0_0']
 
-dontcreateinstalldir = 'True'
-
 sanity_check_paths = {
                       'files': ["bin/blastn","bin/blastp","bin/blastx"],
                       'dirs': ["."]
