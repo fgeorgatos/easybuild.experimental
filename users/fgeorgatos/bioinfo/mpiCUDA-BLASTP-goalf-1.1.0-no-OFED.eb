@@ -1,0 +1,26 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+
+name = 'mpiCUDA-BLASTP'
+version = '1.0'
+
+homepage = 'https://sites.google.com/site/liuweiguohome/mpicuda-blastp'
+description = """mpiCUDA-BLASTP 1.0 is freely available under the BSD license agreement. mpiCUDA-BLASTP is designed to accelerate BLASTP for scanning protein sequence databases on GPU clusters, programmed using CUDA, MPI, and OpenMP programming models. It has been tested on a GPU cluster with four nodes and a Tesla S1060 quad-GPU system."""
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+# eg. https://sites.google.com/site/liuweiguohome/mpicuda-blastp/mpiCUDA-BLASTP1.0-source.tar.gz?attredirects=0&d=1
+sources = ['mpiCUDA-BLASTP1.0-source.tar.gz']
+source_urls = ['https://sites.google.com/site/liuweiguohome/software','?attredirects=0&d=1']
+
+preconfigopts = '/bin/true'
+
+sanity_check_paths = {
+                      'files': [], #"bin/blastn","bin/blastp","bin/blastx"],
+                      'dirs': ["."]
+                     }
+
+# moduleclass = 'bio'

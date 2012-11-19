@@ -1,0 +1,28 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+
+easyblock = "Tarball"
+
+name = 'SSAHA'
+version = '31c'
+
+homepage = 'http://www.sanger.ac.uk/resources/software/ssaha/'
+description = """SSAHA is a software tool for very fast matching and alignment of DNA sequences.
+It achieves its fast search speed by converting sequence information into a 'hash table' data structure, which can then be searched very rapidly for matches.
+For improved alignment and mapping of paired-end sequencing reads please use SSAHA2/"""
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+# eg. ftp://ftp.sanger.ac.uk/pub4/resources/software/ssaha/ssaha_v31c.tar.gz
+sources = ['ssaha_v31c.tar.gz']
+source_urls = ['ftp://ftp.sanger.ac.uk/pub4/resources/software/ssaha/']
+
+sanity_check_paths = {
+                      'files': ["Binary/testSSAHA.csh"],
+                      'dirs': ["."]
+                     }
+
+# moduleclass = 'bio'

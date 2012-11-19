@@ -1,0 +1,24 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+
+name = 'RepeatMasker'
+version = '3.3.0'
+
+homepage = 'http://www.repeatmasker.org/'
+description = """RepeatMasker is a program that screens DNA sequences for interspersed repeats and low complexity DNA sequences. The output of the program is a detailed annotation of the repeats that are present in the query sequence as well as a modified version of the query sequence in which all the annotated repeats have been masked (default: replaced by Ns). On average, almost 50% of a human genomic DNA sequence currently will be masked by the program. Sequence comparisons in RepeatMasker are performed by one of several popular search engines including, cross_match, ABBlast/WUBlast, RMBlast and Decypher."""
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+# eg. http://www.repeatmasker.org/RepeatMasker-open-3-3-0-p1.tar.gz
+sources = ['RepeatMasker-open-3-3-0-p1.tar.gz']
+source_urls = ['http://www.repeatmasker.org/']
+
+sanity_check_paths = {
+                      'files': [], #"Binary/testSSAHA.csh"],
+                      'dirs': ["."]
+                     }
+
+# moduleclass = 'bio'

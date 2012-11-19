@@ -1,0 +1,26 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+
+easyblock = "Tarball"
+
+name = 'SSAHA2'
+version = '31c'
+
+homepage = 'http://www.sanger.ac.uk/resources/software/ssaha2/'
+description = """SSAHA2 (Sequence Search and Alignment by Hashing Algorithm) is a pairwise sequence alignment program designed for the efficient mapping of sequencing reads onto genomic reference sequences.  SSAHA2 reads of most sequencing platforms (ABI-Sanger, Roche 454, Illumina-Solexa) and a range of output formats (SAM, CIGAR, PSL etc.) are supported. A pile-up pipeline for analysis and genotype calling is available as a separate package."""
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+# eg. ftp://ftp.sanger.ac.uk/pub4/resources/software/ssaha/ssaha_v31c.tar.gz
+sources = ['ssaha_v31c.tar.gz']
+source_urls = ['ftp://ftp.sanger.ac.uk/pub4/resources/software/ssaha/']
+
+sanity_check_paths = {
+                      'files': ["Binary/testSSAHA.csh"],
+                      'dirs': ["."]
+                     }
+
+# moduleclass = 'bio'

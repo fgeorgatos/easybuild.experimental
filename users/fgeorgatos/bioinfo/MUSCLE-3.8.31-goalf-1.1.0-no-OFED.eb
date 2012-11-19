@@ -1,0 +1,27 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+
+easyblock = "PackedBinary"
+
+name = 'MUSCLE'
+version = '3.8.31'
+
+homepage = 'http://www.drive5.com/muscle/'
+description = """MUSCLE is a program for creating multiple alignments of amino acid or nucleotide sequences. A range of options is provided that give you the choice of optimizing accuracy, speed, or some compromise between the two."""
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+# eg. http://www.drive5.com/muscle/downloads3.8.31/muscle3.8.31_i86linux64.tar.gz
+# sources = ['muscle3.8.31_src.tar.gz']
+sources = ['muscle3.8.31_i86linux64.tar.gz']
+source_urls = ['http://www.drive5.com/muscle/downloads3.8.31/']
+
+sanity_check_paths = {
+                      'files': ['muscle3.8.31_i86linux64'],
+                      'dirs': []
+                     }
+
+# moduleclass = 'bio'

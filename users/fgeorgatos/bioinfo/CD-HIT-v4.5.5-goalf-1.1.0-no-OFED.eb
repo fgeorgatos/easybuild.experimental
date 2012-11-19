@@ -1,0 +1,26 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+
+easyblock = "Tarball"
+
+name = 'CD-HIT'
+version = '4.5.5-2011-03-07'
+
+homepage = 'http://www.bioinformatics.org/cd-hit/'
+description = """CD-HIT stands for Cluster Database at High Identity with Tolerance. The program (cd-hit) takes a fasta format sequence database as input and produces a set of 'non-redundant' (nr) representative sequences as output. In addition cd-hit outputs a cluster file, documenting the sequence 'groupies' for each nr sequence representative. """
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+# eg. http://www.bioinformatics.org/downloads/index.php/cd-hit/cd-hit-v4.5.4-2011-03-07.tgz
+sources = ['cd-hit-v4.5.4-2011-03-07.tgz']
+source_urls = ['http://www.bioinformatics.org/downloads/index.php/cd-hit/']
+
+sanity_check_paths = {
+                      'files': ['psi-cd-hit.pl'],
+                      'dirs': ["."]
+                     }
+
+# moduleclass = 'bio'
