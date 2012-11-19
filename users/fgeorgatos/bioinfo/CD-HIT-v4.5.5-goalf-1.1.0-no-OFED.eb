@@ -9,7 +9,7 @@
 easyblock = "Tarball"
 
 name = 'CD-HIT'
-version = '4.5.5-2011-03-07'
+version = '4.5.5'
 
 homepage = 'http://www.bioinformatics.org/cd-hit/'
 description = """CD-HIT stands for Cluster Database at High Identity with Tolerance. The program (cd-hit) takes a fasta format sequence database as input and produces a set of 'non-redundant' (nr) representative sequences as output. In addition cd-hit outputs a cluster file, documenting the sequence 'groupies' for each nr sequence representative. """

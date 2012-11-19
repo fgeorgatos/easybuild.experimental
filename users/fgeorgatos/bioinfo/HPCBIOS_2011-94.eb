@@ -14,20 +14,28 @@ version='20121114'
 homepage='http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2011-94.html'
 description="""Bioinformatics & Computational Biology productivity environment includes a set of HPC tools which are needed for scientific computing and visualization in the respective domain. """
 
-toolchain={'name':'dummy','version':'dummy'}
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
 
 dependencies=[
+('PLINK', '1.07'),
+#('MUSCLE', '3.8.31'),
+('BFAST', '0.7.0a'),
+('BLAST', '2.2.27'),
+#('CD-HIT', '4.5.5'),
+('MEME', '4.8.0'),
+('PolyPhen', '2.2.2r405'),
+('SSAHA2', '31c'),
 ('AMOS', '3.1.0'),
-('BEAGLE','20120124'),
-('BiSearch', '20051222'),
+#('BEAGLE','20120124'),
+#('BiSearch', '20051222'),
 ('Bowtie2', '2.0.0-beta7'),
 ('BWA', '0.6.2'),
 ('ClustalW2', '2.1'),
-('FASTX-Toolkit', '0.0.13.2'),
+#('FASTX-Toolkit', '0.0.13.2'),
 ('MetaVelvet', '1.2.01'),
-('MrBayes','3.2.0'),
+#('MrBayes','3.2.0'),
 ('MUMmer', '3.23'),
-('Pasha', '1.0.3'),
+#('Pasha', '1.0.3'),
 ('Primer3', '2.3.0'),
 ('RNAz', '2.1'),
 ('SAMtools', '0.1.18'),
