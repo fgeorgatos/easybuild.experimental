@@ -1,0 +1,23 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 University of Luxembourg / Luxembourg Center for Systems Biomedicine
+# This work is part of HPCBIOS project
+#
+# This file implements the policy http://hpcbios.readthedocs.org/en/latest/HPCBIOS_07_03.html
+#
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+
+easyblock = "Toolchain"
+
+name = 'HPCBIOS_07_03'
+version = '20121119'
+
+homepage = 'http://hpcbios.readthedocs.org/en/latest/HPCBIOS_07_03.html'
+description = """Common Set of Open Source Compilers includes a set of free compilers, notably the default version of GCC"""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+dependencies = [('GCC', '4.6.3')]
+
+moduleclass = 'base'

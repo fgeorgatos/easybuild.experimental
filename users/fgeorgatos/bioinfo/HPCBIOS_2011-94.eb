@@ -8,63 +8,45 @@
 # Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
 # License::   MIT/GPL
 
-easyblock="Toolchain"
+easyblock = "Toolchain"
 
-name='HPCBIOS_2011-94'
-version='20121119'
+name = 'HPCBIOS_2011-94'
+version = '20121119'
 
-homepage='http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2011-94.html'
-description="""Bioinformatics & Computational Biology productivity environment includes a set of HPC tools which are needed for scientific computing and visualization in the respective domain. """
+homepage = 'http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2011-94.html'
+description = """Bioinformatics & Computational Biology productivity environment includes a set of HPC tools,
+  which are needed for scientific computing and visualization in the respective domain. """
 
 toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
 
-dependencies=[
-('PLINK', '1.07'),
+dependencies = [
+  ('PLINK', '1.07'),
 #('MUSCLE', '3.8.31'),
-('BFAST', '0.7.0a'),
-('BLAST', '2.2.27'),
+  ('BFAST', '0.7.0a'),
+  ('BLAST', '2.2.27'),
 #('CD-HIT', '4.5.5'),
-('MEME', '4.8.0'),
-('PolyPhen', '2.2.2r405'),
-('SSAHA2', '31c'),
-('AMOS', '3.1.0'),
+  ('MEME', '4.8.0'),
+  ('PolyPhen', '2.2.2r405'),
+  ('SSAHA2', '31c'),
+  ('AMOS', '3.1.0'),
 #('BEAGLE','20120124'),
 #('BiSearch', '20051222'),
-('Bowtie2', '2.0.0-beta7'),
-('BWA', '0.6.2'),
-('ClustalW2', '2.1'),
+  ('Bowtie2', '2.0.0-beta7'),
+  ('BWA', '0.6.2'),
+  ('ClustalW2', '2.1'),
 #('FASTX-Toolkit', '0.0.13.2'),
-('MetaVelvet', '1.2.01'),
+  ('MetaVelvet', '1.2.01'),
 #('MrBayes','3.2.0'),
-('MUMmer', '3.23'),
-('MCL', '12.135'),
+  ('MUMmer', '3.23'),
+  ('MCL', '12.135'),
 #('Pasha', '1.0.3'),
-('Primer3', '2.3.0'),
-('RNAz', '2.1'),
-('SAMtools', '0.1.18'),
-('SHRiMP', '2.2.3'),
-('SOAPdenovo', '1.05'),
-('Velvet', '1.2.07'),
-('ViennaRNA', '2.0.7')
-             ]
+  ('Primer3', '2.3.0'),
+  ('RNAz', '2.1'),
+  ('SAMtools', '0.1.18'),
+  ('SHRiMP', '2.2.3'),
+  ('SOAPdenovo', '1.05'),
+  ('Velvet', '1.2.07'),
+  ('ViennaRNA', '2.0.7')
+  ]
 
-# /a/AMOS/AMOS-3.1.0-goalf-1.1.0-no-OFED.eb
-# /b/BEAGLE/BEAGLE-20120124-goalf-1.1.0-no-OFED.eb
-# /b/BiSearch/BiSearch-20051222-goalf-1.1.0-no-OFED.eb
-# /b/Bowtie2/Bowtie2-2.0.0-beta7-goalf-1.1.0-no-OFED.eb
-# /b/BWA/BWA-0.6.2-goalf-1.1.0-no-OFED.eb
-# /c/ClustalW2/ClustalW2-2.1-goalf-1.1.0-no-OFED.eb
-# /f/FASTX-Toolkit/FASTX-Toolkit-0.0.13.2-goalf-1.1.0-no-OFED.eb
-# /m/MetaVelvet/MetaVelvet-1.2.01-goalf-1.1.0-no-OFED.eb
-# /m/MrBayes/MrBayes-3.2.0-goalf-1.1.0-no-OFED.eb
-# /m/MUMmer/MUMmer-3.23-goalf-1.1.0-no-OFED.eb
-# /p/Pasha/Pasha-1.0.3-goalf-1.1.0-no-OFED.eb
-# /p/Primer3/Primer3-2.3.0-goalf-1.1.0-no-OFED.eb
-# /r/RNAz/RNAz-2.1-goalf-1.1.0-no-OFED.eb
-# /s/SAMtools/SAMtools-0.1.18-goalf-1.1.0-no-OFED.eb
-# /s/SHRiMP/SHRiMP-2.2.3-goalf-1.1.0-no-OFED.eb
-# /s/SOAPdenovo/SOAPdenovo-1.05-goalf-1.1.0-no-OFED.eb
-# /v/Velvet/Velvet-1.2.07-goalf-1.1.0-no-OFED.eb
-# /v/ViennaRNA/ViennaRNA-2.0.7-goalf-1.1.0-no-OFED.eb
-
-moduleclass='base'
+moduleclass = 'base'

@@ -1,0 +1,23 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 University of Luxembourg / Luxembourg Center for Systems Biomedicine
+# This work is part of HPCBIOS project
+#
+# This file implements the policy http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2011-96.html
+#
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+
+easyblock = "Toolchain"
+
+name = 'HPCBIOS_2011-96'
+version = '20121119'
+
+homepage = 'http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2011-96.html'
+description = """Common Set of Commercial Compilers includes a set of commercial compilers, notably the default version of Intel compiler icc."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+dependencies = [('ictce', '4.0.6')] # This automagically loads: icc/2011.6.233, ifort/2011.6.233, impi/4.0.2.003, imkl/10.3.6.233
+
+moduleclass = 'base'
