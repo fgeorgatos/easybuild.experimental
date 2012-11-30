@@ -15,8 +15,7 @@ version = '0.9.5'
 
 homepage = 'http://wiki2beamer.sourceforge.net/'
 description = """wiki2beamer converts a simple wiki-like syntax to complex LaTeX beamer code.
-  It's written in python and should run on windows and all *nix platforms. Why collaborative?
-  Because you can use it with version control systems. Afraid to loose some LaTeX powers?
+  It's written in python and should run on all *nix platforms. Afraid to loose some LaTeX powers?
   Don't worry: you can always fall back to plain LaTeX as wiki2beamer is just a preprocessor."""
 
 toolchain = {'name': 'dummy', 'version': 'dummy'}
