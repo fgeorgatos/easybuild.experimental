@@ -10,7 +10,10 @@ name = 'NCBI-Toolkit'
 version = '2.2.26'
 
 homepage = 'http://eudoxus.cheme.cmu.edu/gpublast/gpublast.html'
-description = """GPU-BLAST is an accelerated version of the popular NCBI-BLAST. The implementation is based on the source code of NCBI-BLAST, thus maintaining the same input and output interface while producing identical results. In comparison to the sequential NCBI-BLAST, the speedups achieved by GPU-BLAST range mostly between 3 and 4."""
+description = """GPU-BLAST is an accelerated version of the popular NCBI-BLAST. The implementation is based
+  on the source code of NCBI-BLAST, thus maintaining the same input and output interface while producing
+  identical results. In comparison to the sequential NCBI-BLAST, the speedups achieved
+  by GPU-BLAST range mostly between 3 and 4."""
 
 toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
 

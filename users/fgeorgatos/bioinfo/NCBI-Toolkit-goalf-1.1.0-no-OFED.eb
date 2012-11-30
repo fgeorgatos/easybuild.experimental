@@ -10,7 +10,10 @@ name = 'NCBI-Toolkit'
 version = '9.0.0'
 
 homepage = 'http://www.ncbi.nlm.nih.gov/toolkit'
-description = """The NCBI Toolkit is a collection of utilities developed for the production and distribution of GenBank, Entrez, BLAST, and related services by the National Center for Biotechnology Information. It includes the popular bioinformatics tools formatdb and blastall."""
+description = """The NCBI Toolkit is a collection of utilities developed for the
+  production and distribution of GenBank, Entrez, BLAST, and related services
+  by the National Center for Biotechnology Information. It includes the popular
+  bioinformatics tools formatdb and blastall."""
 
 toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
 
@@ -23,4 +26,4 @@ sanity_check_paths = {
                       'dirs': ["."]
                      }
 
-# moduleclass = 'bio'
+moduleclass = 'bio'

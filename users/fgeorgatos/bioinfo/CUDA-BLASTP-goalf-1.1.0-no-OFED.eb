@@ -10,7 +10,8 @@ name = 'CUDA-BLASTP'
 version = '2.0'
 
 homepage = 'https://sites.google.com/site/liuweiguohome/software'
-description = """CUDA-BLASTP is designed to accelerate NCBI BLASTP for scanning protein sequence databases on GPUs, programmed using the CUDA programming model. It has been tested on NVIDIA Tesla C1060 and C2050 GPUs."""
+description = """CUDA-BLASTP is designed to accelerate NCBI BLASTP for scanning protein sequence databases on GPUs,
+  programmed using the CUDA programming model. It has been tested on NVIDIA Tesla C1060 and C2050 GPUs."""
 
 toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
 
@@ -23,4 +24,4 @@ sanity_check_paths = {
                       'dirs': ["."]
                      }
 
-# moduleclass = 'bio'
+moduleclass = 'bio'

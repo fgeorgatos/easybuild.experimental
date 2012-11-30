@@ -10,7 +10,10 @@ name = 'mpiCUDA-BLASTP'
 version = '1.0'
 
 homepage = 'https://sites.google.com/site/liuweiguohome/mpicuda-blastp'
-description = """mpiCUDA-BLASTP 1.0 is freely available under the BSD license agreement. mpiCUDA-BLASTP is designed to accelerate BLASTP for scanning protein sequence databases on GPU clusters, programmed using CUDA, MPI, and OpenMP programming models. It has been tested on a GPU cluster with four nodes and a Tesla S1060 quad-GPU system."""
+description = """mpiCUDA-BLASTP 1.0 is freely available under the BSD license agreement.
+  mpiCUDA-BLASTP is designed to accelerate BLASTP for scanning protein sequence databases
+  on GPU clusters, programmed using CUDA, MPI, and OpenMP programming models. It has been
+  tested on a GPU cluster with four nodes and a Tesla S1060 quad-GPU system."""
 
 toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
 
@@ -23,4 +26,4 @@ sanity_check_paths = {
                       'dirs': ["."]
                      }
 
-# moduleclass = 'bio'
+moduleclass = 'bio'

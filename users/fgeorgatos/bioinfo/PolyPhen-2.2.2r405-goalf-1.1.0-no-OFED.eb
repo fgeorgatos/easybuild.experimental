@@ -12,7 +12,9 @@ name = 'PolyPhen'
 version = '2.2.2r405'
 
 homepage = 'http://genetics.bwh.harvard.edu/pph2/dokuwiki/start'
-description = """PolyPhen-2 (Polymorphism Phenotyping v2) is a software tool which predicts possible impact of amino acid substitutions on the structure and function of human proteins using straightforward physical and evolutionary comparative considerations."""
+description = """PolyPhen-2 (Polymorphism Phenotyping v2) is a software tool which predicts
+  possible impact of amino acid substitutions on the structure and function of human proteins
+  using straightforward physical and evolutionary comparative considerations."""
 
 toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
 
@@ -25,4 +27,4 @@ sanity_check_paths = {
                       'dirs': ["."]
                      }
 
-# moduleclass = 'bio'
+moduleclass = 'bio'

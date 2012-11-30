@@ -10,7 +10,13 @@ name = 'RepeatMasker'
 version = '3.3.0'
 
 homepage = 'http://www.repeatmasker.org/'
-description = """RepeatMasker is a program that screens DNA sequences for interspersed repeats and low complexity DNA sequences. The output of the program is a detailed annotation of the repeats that are present in the query sequence as well as a modified version of the query sequence in which all the annotated repeats have been masked (default: replaced by Ns). On average, almost 50% of a human genomic DNA sequence currently will be masked by the program. Sequence comparisons in RepeatMasker are performed by one of several popular search engines including, cross_match, ABBlast/WUBlast, RMBlast and Decypher."""
+description = """RepeatMasker is a program that screens DNA sequences for interspersed repeats
+  and low complexity DNA sequences. The output of the program is a detailed annotation of the
+  repeats that are present in the query sequence as well as a modified version of the query
+  sequence in which all the annotated repeats have been masked (default: replaced by Ns).
+  On average, almost 50% of a human genomic DNA sequence currently will be masked by the program.
+  Sequence comparisons in RepeatMasker are performed by one of several popular search engines
+  including, cross_match, ABBlast/WUBlast, RMBlast and Decypher."""
 
 toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
 
@@ -23,4 +29,4 @@ sanity_check_paths = {
                       'dirs': ["."]
                      }
 
-# moduleclass = 'bio'
+moduleclass = 'bio'

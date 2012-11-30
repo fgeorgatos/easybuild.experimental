@@ -12,7 +12,9 @@ name = 'MUSCLE'
 version = '3.8.31'
 
 homepage = 'http://www.drive5.com/muscle/'
-description = """MUSCLE is a program for creating multiple alignments of amino acid or nucleotide sequences. A range of options is provided that give you the choice of optimizing accuracy, speed, or some compromise between the two."""
+description = """MUSCLE is a program for creating multiple alignments of amino acid or
+  nucleotide sequences. A range of options is provided that give you the choice of
+  optimizing accuracy, speed, or some compromise between the two."""
 
 toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
 
@@ -26,4 +28,4 @@ sanity_check_paths = {
                       'dirs': []
                      }
 
-# moduleclass = 'bio'
+moduleclass = 'bio'
