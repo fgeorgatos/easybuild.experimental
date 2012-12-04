@@ -23,8 +23,8 @@ sources = ['mcl-12-135.tar.gz']
 source_urls = ['http://micans.org/mcl/src/']
 
 sanity_check_paths = {
-                      'files': [], #"Binary/testSSAHA.csh"],
-                      'dirs': ["."]
+                      'files': ["bin/mcl"],
+                      'dirs': ["bin","share"]
                      }
 
 moduleclass = 'bio'

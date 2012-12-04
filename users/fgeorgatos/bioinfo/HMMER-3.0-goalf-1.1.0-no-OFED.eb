@@ -26,7 +26,7 @@ sources = ['hmmer-3.0-linux-intel-x86_64.tar.gz']
 source_urls = ['http://selab.janelia.org/software/hmmer3/3.0/']
 
 sanity_check_paths = {
-                      'files': [], #"bin/blastn","bin/blastp","bin/blastx"],
+                      'files': ["bin/hmmemit", "bin/hmmemit"],
                       'dirs': ["."]
                      }
 

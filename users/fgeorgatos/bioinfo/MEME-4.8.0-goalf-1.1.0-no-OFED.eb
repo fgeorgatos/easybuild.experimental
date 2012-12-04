@@ -23,8 +23,8 @@ sources = ['meme_4.8.0.tar.gz']
 source_urls = ['ftp://ftp.ebi.edu.au/pub/software/MEME/r4.8.0']
 
 sanity_check_paths = {
-                      'files': ['bin/meme'],
-                      'dirs': ["."]
+                      'files': ["bin/meme"],
+                      'dirs': ["bin","doc","lib"]
                      }
 
 moduleclass = 'bio'
