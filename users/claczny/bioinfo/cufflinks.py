@@ -62,7 +62,7 @@ class EB_Cufflinks(EasyBlock):
 	cmd = "sed \'s/#include <boost\/for_each.hpp>/#include <boost\/foreach.hpp>/\' src/common.h > src/x && mv src/x src/common.h"
 	run_cmd(cmd, log_all=True, simple=True)
 
-	Application.make(self)
+	super(EB_Cufflinks, self).build_step()
 
 
     def sanity_check_step(self):
