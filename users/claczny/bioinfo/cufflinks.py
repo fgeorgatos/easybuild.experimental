@@ -27,17 +27,32 @@
 # You should have received a copy of the GNU General Public License
 # along with EasyBuild.  If not, see <http://www.gnu.org/licenses/>.
 ##
+# import os
+# import shutil
+# from easybuild.framework.application import Application
+# from easybuild.tools.filetools import unpack, patch, run_cmd, convertName
+
+
+import fileinput
+import glob
+import re
 import os
 import shutil
-from easybuild.framework.application import Application
-from easybuild.tools.filetools import unpack, patch, run_cmd, convertName
+import sys
+from distutils.version import LooseVersion
 
-class EB_Cufflinks(Application):
+import easybuild.tools.toolchain as toolchain
+from easybuild.framework.easyblock import EasyBlock
+from easybuild.framework.easyconfig import CUSTOM
+from easybuild.tools.filetools import run_cmd
+from easybuild.tools.modules import get_software_root, get_software_version
+
+class EB_Cufflinks(EasyBlock):
     """
     Support for building cufflinks (Transcript assembly, differential expression, and differential regulation for RNA-Seq)
     """
 
-    def make(self):
+    def build_step(self):
 	"""
 	First we need to rename a few things, s.a. http://wiki.ci.uchicago.edu/Beagle/BuildingSoftware -> "Cufflinks"
 	"""
