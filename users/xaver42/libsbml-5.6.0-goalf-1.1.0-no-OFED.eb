@@ -1,0 +1,52 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author:: Nils Christian <nils.christian@uni.lu>
+# License:: MIT/GPL ; ie. no warranty, AS-IS, recycle as needed with other Open Source licenses
+# File:: $File$
+# Date:: $Date$
+
+name = 'libsbml'
+version = '5.6.0'
+
+homepage = 'http://sbml.org/Software/libSBML'
+description = """LibSBML is a free, open-source programming library to help 
+you read, write, manipulate, translate, and validate SBML files and data streams."""
+
+sources = ['%s-%s-src.tar.gz' % (name.lower(),version)]
+source_urls = [('http://sourceforge.net/projects/sbml/files/libsbml/%s/stable/' % version, 'download')]
+
+configopts = "--with-zlib --with-bzip2 --with-perl --with-python --with-java"
+# we might want to select --with-octave or --with-matlab and such parameters, 
+# depending on the context of compilation; this is not yet implemented; example
+# configopts = "--with-zlib --with-bzip2 --with-perl --with-python --with-java --with-octave --with-matlab --with-ruby"
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+builddependencies = [
+                     ('Python', '2.7.3'),
+                     ('SWIG', '2.0.4', '-goalf-1.1.0-no-OFED-Python-2.7.3', True)
+                    ]
+
+# FIXME perl dependency: once a Perl easyconfig becomes part of EasyBuild, 
+# the above should be amended for v5.10.1, together with the sanity check;
+# and finally, the osdependencies below should preferably go away
+# last but not least, the (devel?) modulefile should provide for
+# PERL5LIB and variables of the related family (python, java, what have you)
+
+osdependencies = ["perl"]
+
+sanity_check_paths = {
+                      'files': [
+                                "lib/libsbml.a",
+                                ('lib/libsbml.so.%s' % version),
+                                "share/java/libsbmlj.jar",
+                                "lib/perl/5.10.1/LibSBML.pm" 
+                               ],
+                      'dirs': [
+                               "include",
+                               "lib/python2.7/site-packages/libsbml"
+                              ]
+                     }
+
+parallel = 1 # NOTE for some reason parallel build does not work, perhaps due to Makefile
+
