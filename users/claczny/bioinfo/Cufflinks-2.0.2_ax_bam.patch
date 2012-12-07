@@ -5,7 +5,7 @@
  		fi
  	else
 -		BAM_LIB="-lbam"
-+		BAM_LIB="${SOFTROOTSAMTOOLS}/lib/libbam.a"
++		BAM_LIB="${EBROOTSAMTOOLS}/lib/libbam.a"
  		AC_SUBST(BAM_CPPFLAGS)
  		AC_SUBST(BAM_LDFLAGS)
  		AC_SUBST(BAM_LIB)
