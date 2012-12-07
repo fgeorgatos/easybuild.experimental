@@ -24,8 +24,10 @@ toolchain = {'name': 'dummy', 'version': 'dummy'}
 sources = ['wiki2beamer-0.9.5.zip']
 source_urls = ['http://sourceforge.net/projects/wiki2beamer/files/wiki2beamer/wiki2beamer-0.9.5','download']
 
+start_dir = 'code'
+
 sanity_check_paths = {
-                      'files': [], #"wiki2beamer"],
+                      'files': ["wiki2beamer"],
                       'dirs': ["."]
                      }
 
