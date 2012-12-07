@@ -28,7 +28,7 @@ source_urls = ['http://cufflinks.cbcb.umd.edu/downloads/']
 configopts = '--with-boost=$EBROOTBOOST'
 preconfigopts = 'CPPFLAGS=-I$EBROOTEIGEN/include'
 
-patches = ['cufflinks-2.0.2_ax_bam.patch']
+patches = ['Cufflinks-2.0.2_ax_bam.patch']
 
 sanity_check_paths = {
                       'files': ['bin/cufflinks'],

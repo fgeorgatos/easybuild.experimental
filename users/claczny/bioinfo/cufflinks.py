@@ -6,30 +6,36 @@
 # File::      $File$ 
 # Date::      $Date$
 
+import fileinput
+import glob
+import re
 import os
 import shutil
+import sys
 
-from easybuild.framework.easyblock import EasyBlock
-from easybuild.tools.filetools import run_cmd
+from easybuild.easyblocks.generic.configuremake import ConfigureMake
 
-class EB_Cufflinks(EasyBlock):
+class EB_Cufflinks(ConfigureMake):
     """
     Support for building cufflinks (Transcript assembly, differential expression, and differential regulation for RNA-Seq)
     """
-
     def patch_step(self):
 	"""
 	First we need to rename a few things, s.a. http://wiki.ci.uchicago.edu/Beagle/BuildingSoftware -> "Cufflinks"
 	"""
-	cmd = "for x in src/*.cpp src/*.h; do sed \'s/foreach/for_each/\' $x > src/x; mv src/x $x; done"
-	run_cmd(cmd, log_all=True, simple=True)
+	build_dir = os.getcwd()
+	source_files = build_dir + '/src/*.cpp'
+	header_files = build_dir + '/src/*.h'
+	files = glob.glob(source_files)
+	files = files + (glob.glob(header_files))
+	for fname in files:
+		for line in fileinput.input(fname, inplace=1, backup='.orig'):
+			line = re.sub(r'foreach', 'for_each', line, count=0)
+			sys.stdout.write(line)
 
-	cmd = "sed \'s/#include <boost\/for_each.hpp>/#include <boost\/foreach.hpp>/\' src/common.h > src/x && mv src/x src/common.h"
-	run_cmd(cmd, log_all=True, simple=True)
+	for line in fileinput.input(build_dir +'/src/common.h', inplace=1, backup='.orig'):
+			line = re.sub(r'#include \<boost\/for\_each.hpp\>', '#include <boost/foreach.hpp>', line, count=0)
+			sys.stdout.write(line)
 
 	super(EB_Cufflinks, self).patch_step()
-
-
-    def sanity_check_step(self):
-        pass
 
