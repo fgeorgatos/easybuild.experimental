@@ -33,3 +33,5 @@ sanity_check_paths = {
                     'dirs': []
                    }
 parallel=1  # make crashes otherwise
+
+moduleclass = 'bio'
