@@ -1,0 +1,27 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Cedric Laczny <cedric.laczny@uni.lu>, Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# File::      $File$ 
+# Date::      $Date$
+
+
+easyblock = 'PackedBinary'
+name = 'Picard'
+version = '1.81'
+
+homepage = 'http://picard.sourceforge.net/'
+description = """Picard comprises Java-based command-line utilities that manipulate SAM files, and a Java API (SAM-JDK) for creating new programs that read and write SAM files. Both SAM text format and SAM binary (BAM) format are supported."""
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+sources = ['%s-tools-%s.zip' % (name.lower(), version)]
+source_urls = [('http://sourceforge.net/projects/%s/files/picard-tools/%s' % (name.lower(), version), 'download')]
+#http://sourceforge.net/projects/picard/files/picard-tools/1.81/picard-tools-1.81.zip/download
+
+sanity_check_paths = {
+                      'files': ['picard-1.81.jar'],
+                      'dirs': []
+                     }
