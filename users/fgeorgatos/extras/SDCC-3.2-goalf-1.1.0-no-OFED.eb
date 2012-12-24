@@ -24,11 +24,13 @@ toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
 sources = ['sdcc-src-%s.tar.bz2' % version]
 source_urls = ['http://sourceforge.net/projects/sdcc/files/sdcc/%s/' % version, 'download']
 
+configopts = "--disable-pic14-port --disable-pic16-port"
+
 sanity_check_paths = {
-                      'files': [], #"bin/llc"], 
-                      'dirs': ["."]
+                      'files': ["bin/sdcc"], 
+                      'dirs': []
                      }
 
-# runtest = 'check-all'
+# runtest = 'installcheck' # the current Makefile is placeholder and empty - so leaving this for future plumping
 
 moduleclass = 'compiler'
