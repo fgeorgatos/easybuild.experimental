@@ -1,0 +1,30 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 University of Luxembourg / Luxembourg Center for Systems Biomedicine
+# This work is part of HPCBIOS project
+#
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+
+easyblock = "Tarball"
+
+name = 'MOCAT'
+version = '1.1'
+_altversions = ['1.0', '1.1']
+
+homepage = 'www.bork.embl.de/mocat'
+description = """MOCAT is a package for analyzing metagenomics datasets.
+  Currently MOCAT supports Illumina single- and paired-end reads in raw FastQ format."""
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+# eg. http://mocat.googlecode.com/files/MOCATv1.1.tar
+sources = ['MOCATv1.1.tar']
+source_urls = ['http://mocat.googlecode.com/files/']
+
+sanity_check_paths = {
+                      'files': ["README.txt"],
+                      'dirs': ["."]
+                     }
+
+moduleclass = 'bio'

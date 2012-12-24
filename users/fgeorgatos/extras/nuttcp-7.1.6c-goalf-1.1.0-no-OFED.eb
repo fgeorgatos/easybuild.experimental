@@ -1,0 +1,29 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 University of Luxembourg / Luxembourg Center for Systems Biomedicine
+# This work is part of HPCBIOS project
+#
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+
+name = 'nuttcp'
+version = '7.1.6c'
+
+homepage = 'http://www.nuttcp.net'
+description = """nuttcp is a network performance measurement tool intended for use by network and system managers. Its most basic usage is to determine the raw TCP (or UDP) network layer throughput by transferring memory buffers from a source system across an interconnecting network to a destination system, either transferring data for a specified time interval, or alternatively transferring a specified number of bytes. In addition to reporting the achieved network throughput in Mbps, nuttcp also provides additional useful information related to the data transfer such as user, system, and wall-clock time, transmitter and receiver CPU utilization, and loss percentage (for UDP transfers)."""
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+# eg. http://lcp.nrl.navy.mil/nuttcp/beta/nuttcp-7.1.6.c
+sources = ['nuttcp-7.1.6.c']
+source_urls = ['http://lcp.nrl.navy.mil/nuttcp/beta/']
+
+sanity_check_paths = {
+                      'files': ["bin/abinit"], 
+                      'dirs': ["."]
+                     }
+
+moduleclass = 'base'
+
+# some extra info visible at:
+# http://wiki.maxgigapop.net/twiki/bin/view/MAX/PerformanceTuning

@@ -1,0 +1,27 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 University of Luxembourg / Luxembourg Center for Systems Biomedicine
+# This work is part of HPCBIOS project
+#
+# This file implements the policy http://hpcbios.readthedocs.org/en/latest/HPCBIOS_06-01.html
+#
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+
+easyblock = "Toolchain"
+
+name = 'HPCBIOS_06-01'
+version = '20121224'
+
+homepage = 'http://hpcbios.readthedocs.org/en/latest/HPCBIOS_06-01.html'
+description = """Common Set of Open Source Math Libraries includes a set of HPC tools which are needed for scientific computing in multiple occasions"""
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+dependencies = [
+  ('goalf', '1.1.0'),   # goalf module automatically loads as of Nov. 12 all of: ATLAS/3.8.4, FFTW/3.3.1, LAPACK/3.4.0, ScaLAPACK/1.8.0, BLACS/1.1
+  ('PETSc', '3.3-p2'),
+  ('GSL', '1.15')
+             ]
+
+moduleclass = 'base'

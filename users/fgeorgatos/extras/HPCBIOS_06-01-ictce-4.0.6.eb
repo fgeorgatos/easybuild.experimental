@@ -11,15 +11,15 @@
 easyblock = "Toolchain"
 
 name = 'HPCBIOS_06-01'
-version = '20121119'
+version = '20121224'
 
 homepage = 'http://hpcbios.readthedocs.org/en/latest/HPCBIOS_06-01.html'
 description = """Common Set of Open Source Math Libraries includes a set of HPC tools which are needed for scientific computing in multiple occasions"""
 
-toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchain = {'name': 'ictce', 'version': '4.0.6'}
 
 dependencies = [
-  ('goalf', '1.1.0'),   # goalf module automatically loads as of Nov. 12 all of: ATLAS/3.8.4, FFTW/3.3.1, LAPACK/3.4.0, ScaLAPACK/1.8.0, BLACS/1.1
+  ('ictce', '4.0.6'),   # ictce module includes as of Dec. 12 MKL, which provides for Linear Algebra and FFT interfaces.
   ('PETSc', '3.3-p2'),
   ('GSL', '1.15')
              ]

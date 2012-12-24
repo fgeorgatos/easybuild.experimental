@@ -3,17 +3,17 @@
 # Copyright:: Copyright (c) 2012 University of Luxembourg / Luxembourg Center for Systems Biomedicine
 # This work is part of HPCBIOS project
 #
-# This file implements the policy http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2011-94.html
+# This file implements the policy http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-94.html
 #
 # Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
 # License::   MIT/GPL
 
 easyblock = "Toolchain"
 
-name = 'HPCBIOS_2011-94'
-version = '20121119'
+name = 'HPCBIOS_2012-94'
+version = '20121224'
 
-homepage = 'http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2011-94.html'
+homepage = 'http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-94.html'
 description = """Bioinformatics & Computational Biology productivity environment includes a set of HPC tools,
   which are needed for scientific computing and visualization in the respective domain. """
 

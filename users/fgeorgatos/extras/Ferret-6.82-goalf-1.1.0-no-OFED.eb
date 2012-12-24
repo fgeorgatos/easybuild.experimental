@@ -1,0 +1,30 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 University of Luxembourg / Luxembourg Center for Systems Biomedicine
+# This work is part of HPCBIOS project
+#
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+
+## Resulting modulefile misses PATH variable
+
+name = 'Ferret'
+version = '6.82'
+
+homepage = 'http://ferret.wrc.noaa.gov/Ferret/'
+description = """Ferret is an interactive computer visualization and analysis environment designed to meet the needs of oceanographers and meteorologists analyzing large and complex gridded data sets. It runs on most Unix systems."""
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+# eg. ftp://ftp.pmel.noaa.gov/ferret/pub/source/fer_source.v682.tar.gz
+sources = ['fer_source.v682.tar.gz']
+source_urls = ['ftp://ftp.pmel.noaa.gov/ferret/pub/source/']
+
+sanity_check_paths = {
+                      'files': [], #'povray'],
+                      'dirs': ["."]
+                     }
+
+build_in_install_dir = True
+
+moduleclass = 'base'
