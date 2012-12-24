@@ -32,4 +32,4 @@ sanity_check_paths = {
 
 runtest = 'check-all'
 
-moduleclass = 'base'
+moduleclass = 'compiler'
