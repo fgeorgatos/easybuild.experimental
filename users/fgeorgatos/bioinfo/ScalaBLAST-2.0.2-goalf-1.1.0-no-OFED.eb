@@ -1,0 +1,29 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 University of Luxembourg / Luxembourg Center for Systems Biomedicine
+# This work is part of HPCBIOS project
+#
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+
+name = 'ScalaBLAST'
+version = '2.0.2'
+
+homepage = 'http://omics.pnl.gov/software/ScalaBLAST.php'
+description = """ScalaBLAST is a high-performance multiprocessor implementation of the NCBI BLAST library.
+  ScalaBLAST supports all 5 primary program types (blastn, blastp, tblastn, tblastx, and blastx) and several
+  output formats (pairwise, tabular, or XML). ScalaBLAST will run on most multiprocessor systems that have MPI
+  installed, and can run over a wide variety of interconnects including infiniband, quadrics, and ethernet."""
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+# eg. http://omics.pnl.gov/installers/scalablast_source.tar.gz
+sources = ['scalablast_source.tar.gz']
+source_urls = ['http://omics.pnl.gov/installers/']
+
+sanity_check_paths = {
+                      'files': [], #"bin/blastn", "bin/blastp", "bin/blastx"],
+                      'dirs': ["."]
+                     }
+
+moduleclass = 'bio'

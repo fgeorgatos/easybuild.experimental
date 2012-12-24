@@ -1,0 +1,37 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 University of Luxembourg / Luxembourg Center for Systems Biomedicine
+# This work is part of HPCBIOS project
+#
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+
+easyblock = "BuildInInstallDir"
+
+name = 'FSA-BLAST'
+version = '1.05'
+
+homepage = 'http://fsa-blast.sourceforge.net/'
+description = """FSA-BLAST is a new version of the popular BLAST (Basic Local Alignment Search Tool)
+  bioinformatics tool, used to search genomic databases containing either protein or nucleotide sequences.
+  FSA stands for Faster Search Algorithm; FSA-BLAST is twice as fast as NCBI-BLAST with no loss in accuracy."""
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+# eg. http://sourceforge.net/projects/fsa-blast/files/fsa-blast/fsablast-source/fsablast105-source.tar.gz/download
+sources = ['fsablast%s-source.tar.gz' % "".join(version.split("."))]
+source_urls = ['http://sourceforge.net/projects/fsa-blast/files/fsa-blast/fsablast-source/', 'download']
+
+patches = ['FSA-BLAST-1.05-goalf-1.1.0.patch']
+
+preconfigopts = '/bin/true'
+build_in_installdir = 'True'
+sourceinstall = 'True'
+preinstallopts = '/bin/true'
+
+sanity_check_paths = {
+                      'files': [], #"bin/blastn", "bin/blastp", "bin/blastx"],
+                      'dirs': ["."]
+                     }
+
+moduleclass = 'bio'

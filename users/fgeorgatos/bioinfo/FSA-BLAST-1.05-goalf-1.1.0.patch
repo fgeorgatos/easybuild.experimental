@@ -1,0 +1,10 @@
+--- makefile.orig       2012-12-24 16:02:47.095272219 +0100
++++ makefile    2012-12-24 16:02:58.210972953 +0100
+@@ -13,7 +13,7 @@
+ # Linux
+ ifeq ($(PLATFORM), Linux)
+     CC=gcc
+-    CFLAGS=-I$(INC) -O3 -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE
++    CFLAGS=-I$(INC) -O3 -mcpu=pentiumpro -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE
+     LDFLAGS=-lm
+ endif
