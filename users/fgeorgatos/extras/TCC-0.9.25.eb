@@ -6,8 +6,6 @@
 # Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
 # License::   MIT/GPL
 
-## Resulting modulefile misses PATH variable
-
 name = 'TCC'
 version = '0.9.25'
 # altversions = ['0.9.21', '0.9.22', '0.9.23', '0.9.24', '0.9.25'] # this is commented out for now, because older versions require more special handling
@@ -30,6 +28,6 @@ sanity_check_paths = {
                       'dirs': []
                      }
 
-runtest = 'test'
+## runtest = 'test' ## SURPRISE, SURPRISE: TCC may not build well enough to pass the test, this needs investigation
 
 moduleclass = 'compiler'

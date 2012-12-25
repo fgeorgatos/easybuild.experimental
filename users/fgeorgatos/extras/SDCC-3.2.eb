@@ -6,8 +6,6 @@
 # Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
 # License::   MIT/GPL
 
-## Resulting modulefile misses PATH variable
-
 name = 'SDCC'
 version = '3.2.0'
 
@@ -18,7 +16,7 @@ description = """SDCC is a retargettable, optimizing ANSI - C compiler suite tha
   MCUs (z80, z180, gbz80, Rabbit 2000/3000, Rabbit 3000A). Work is in progress on supporting the
   Microchip PIC16 and PIC18 targets. It can be retargeted for other microprocessors."""
 
-toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchain = {'name': 'dummy', 'version': 'dummy'}
 
 # eg. http://sourceforge.net/projects/sdcc/files/sdcc/3.2.0/sdcc-src-3.2.0.tar.bz2/download
 sources = ['sdcc-src-%s.tar.bz2' % version]
