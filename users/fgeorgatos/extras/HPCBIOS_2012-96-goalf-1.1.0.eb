@@ -11,7 +11,7 @@
 easyblock = "Toolchain"
 
 name = 'HPCBIOS_2012-96'
-version = '20121119'
+version = '20121225'
 
 homepage = 'http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-96.html'
 description = """Common Set of Commercial Compilers includes a set of commercial compilers, notably the default version of Intel compiler icc."""

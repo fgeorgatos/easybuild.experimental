@@ -11,7 +11,7 @@
 easyblock = "Toolchain"
 
 name = 'HPCBIOS_07_03'
-version = '20121224'
+version = '20121225'
 
 homepage = 'http://hpcbios.readthedocs.org/en/latest/HPCBIOS_07_03.html'
 description = """Common Set of Open Source Compilers includes a set of free compilers, notably the default version of GCC"""
@@ -19,8 +19,8 @@ description = """Common Set of Open Source Compilers includes a set of free comp
 toolchain = {'name': 'dummy', 'version': 'dummy'}
 
 dependencies = [
-                ('GCC', '4.6.3') # version which is selected as default, as per issue #400
-                ('GCC', '4.7.1') # this version includes support for GO v1.0 plus many improvements
+                ('GCC', '4.6.3'), # version which is selected as default, as per issue #400
+                ('GCC', '4.7.1'), # this version includes support for GO v1.0 plus many improvements
 # Possible future extension on dependencies requirement level?
 #               ('GCC', '4.1.2', 'SHOULD') # needed by unknown software
 #               ('GCC', '4.3.5', 'SHOULD') # CUDA on Debian requires this, in relation to kernel compatibility issues

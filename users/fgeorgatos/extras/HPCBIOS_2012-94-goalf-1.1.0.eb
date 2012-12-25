@@ -11,7 +11,7 @@
 easyblock = "Toolchain"
 
 name = 'HPCBIOS_2012-94'
-version = '20121224'
+version = '20121225'
 
 homepage = 'http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-94.html'
 description = """Bioinformatics & Computational Biology productivity environment includes a set of HPC tools,
@@ -20,14 +20,14 @@ description = """Bioinformatics & Computational Biology productivity environment
 toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
 
 dependencies = [
-  ('PLINK', '1.07'),
+##   ('PLINK', '1.07'),
 #('MUSCLE', '3.8.31'),
   ('BFAST', '0.7.0a'),
   ('BLAST', '2.2.27'),
 #('CD-HIT', '4.5.5'),
   ('MEME', '4.8.0'),
-  ('PolyPhen', '2.2.2r405'),
-  ('SSAHA2', '31c'),
+##   ('PolyPhen', '2.2.2r405'),
+##   ('SSAHA2', '31c'),
   ('AMOS', '3.1.0'),
 #('BEAGLE','20120124'),
 #('BiSearch', '20051222'),
