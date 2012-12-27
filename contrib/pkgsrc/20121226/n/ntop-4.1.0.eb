@@ -1,0 +1,105 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      ntop-4.1.0.eb
+# Date::      Wed Dec 26 17:08:50 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'ntop'
+version = '4.1.0'
+versionsuffix = '-20121226'
+
+description = "ntop-4.1.0: Shows network usage similar to top for processes "
+
+# The following are automatically calculated - cross fingers
+sources = ['ntop-4.1.0.tar.gz']
+source_urls = ['http://sourceforge.net/projects/ntop/files', 'download']
+homepage = 'http://www.ntop.org/products/ntop/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/ntop/Makefile ######
+# # $NetBSD: Makefile,v 1.78.2.1 2012/10/03 12:09:08 spz Exp $
+# 
+# DISTNAME=	ntop-4.1.0
+# PKGREVISION=	10
+# CATEGORIES=	net
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=ntop/}
+# 
+# MAINTAINER=	adam@NetBSD.org
+# HOMEPAGE=	http://www.ntop.org/products/ntop/
+# COMMENT=	Shows network usage (similar to "top" for processes)
+# LICENSE=	gnu-gpl-v3
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# CONFLICTS=	ntop-[0-9]*
+# DEPENDS+=	${PYPKGPREFIX}-mako-[0-9]*:../../devel/py-mako
+# 
+# USE_LIBTOOL=		yes
+# USE_PKGLOCALEDIR=	yes
+# USE_TOOLS+=		aclocal autoconf autoheader automake gawk gmake gunzip
+# GNU_CONFIGURE=		yes
+# CONFIGURE_ARGS+=	--localstatedir=${VARBASE}
+# CONFIGURE_ARGS+=	--sysconfdir=${PREFIX}/share/ntop
+# CONFIGURE_ARGS+=	--with-gdbm-root=${BUILDLINK_PREFIX.gdbm}
+# CONFIGURE_ARGS+=	--with-ossl-root=${BUILDLINK_PREFIX.openssl}
+# CONFIGURE_ARGS+=	--with-pcap-root=${BUILDLINK_PREFIX.libpcap}
+# CONFIGURE_ARGS+=	--with-zlib-root=${BUILDLINK_PREFIX.zlib}
+# 
+# BUILDLINK_API_DEPENDS.libpcap+=	libpcap>=0.8.3
+# 
+# .include "../../mk/pthread.buildlink3.mk"
+# .if defined(PTHREAD_TYPE) && ${PTHREAD_TYPE} == "none"
+# CONFIGURE_ARGS+=	--disable-mt
+# .endif
+# 
+# .if ${OPSYS} == "Darwin"
+# # This package uses "-flat_namespace -undefined suppress" and exports
+# # symbols from the executable that get stripped unless we set this:
+# INSTALL_UNSTRIPPED=	yes
+# .endif
+# 
+# .if (${OPSYS} == "NetBSD" && !empty(OS_VERSION:M[0-4].*))
+# USE_BUILTIN.libevent=	no
+# .endif
+# 
+# pre-configure:
+# 	set -e; cd ${WRKSRC}; \
+# 	libtoolize -c -f; cp m4/libtool.m4 libtool.m4.in; \
+# 	cat acinclude.m4.in libtool.m4.in acinclude.m4.ntop > acinclude.m4; \
+# 	aclocal; autoheader; automake -a --foreign -i; autoconf
+# 
+# .include "../../databases/gdbm/buildlink3.mk"
+# .include "../../databases/rrdtool/buildlink3.mk"
+# .include "../../devel/libevent/buildlink3.mk"
+# .include "../../devel/pcre/buildlink3.mk"
+# .include "../../lang/python/application.mk"
+# .include "../../net/GeoIP/buildlink3.mk"
+# .include "../../net/libpcap/buildlink3.mk"
+# .include "../../security/openssl/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

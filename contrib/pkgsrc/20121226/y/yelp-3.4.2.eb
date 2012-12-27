@@ -1,0 +1,82 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      yelp-3.4.2.eb
+# Date::      Wed Dec 26 17:08:47 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'yelp'
+version = '3.4.2'
+versionsuffix = '-20121226'
+
+description = "yelp-3.4.2: Mallard capable help browser"
+
+# The following are automatically calculated - cross fingers
+sources = ['yelp-3.4.2.tar.xz']
+source_urls = ['http://sourceforge.net/projects/sources/yelp/3.4/files', 'download']
+homepage = 'http://www.gnome.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/misc/yelp3/Makefile ######
+# # $NetBSD: Makefile,v 1.10.2.1 2012/10/03 12:08:51 spz Exp $
+# #
+# 
+# DISTNAME=		yelp-3.4.2
+# PKGREVISION=		3
+# CATEGORIES=		misc gnome
+# MASTER_SITES=		${MASTER_SITE_GNOME:=sources/yelp/3.4/}
+# EXTRACT_SUFX=		.tar.xz
+# 
+# MAINTAINER=		prlw1@cam.ac.uk
+# HOMEPAGE=		http://www.gnome.org/
+# COMMENT=		Mallard capable help browser
+# LICENSE=		gnu-gpl-v2
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_TOOLS+=		gmake intltool msgfmt pkg-config
+# USE_LIBTOOL=		yes
+# USE_PKGLOCALEDIR=	yes
+# GNU_CONFIGURE=		yes
+# 
+# BUILD_DEPENDS+=		itstool-[0-9]*:../../textproc/itstool
+# 
+# BUILDLINK_API_DEPENDS.libxslt+=	libxslt>=1.1.4
+# 
+# .include "../../archivers/bzip2/buildlink3.mk"
+# .include "../../devel/glib2/schemas.mk"
+# .include "../../x11/gtk3/buildlink3.mk"
+# .include "../../textproc/libxml2/buildlink3.mk"
+# .include "../../textproc/libxslt/buildlink3.mk"
+# .include "../../databases/sqlite3/buildlink3.mk"
+# .include "../../www/webkit-gtk3/buildlink3.mk"
+# .include "../../textproc/yelp-xsl/buildlink3.mk"
+# 
+# .include "../../sysutils/desktop-file-utils/desktopdb.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"

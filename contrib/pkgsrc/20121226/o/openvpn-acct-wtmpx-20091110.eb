@@ -1,0 +1,70 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      openvpn-acct-wtmpx-20091110.eb
+# Date::      Wed Dec 26 17:08:50 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'openvpn'
+version = 'acct-wtmpx-20091110'
+versionsuffix = '-20121226'
+
+description = "openvpn-acct-wtmpx-20091110: Log OpenVPN logins and logouts to wtmpx"
+
+# The following are automatically calculated - cross fingers
+sources = ['openvpn-acct-wtmpx-20091110.tgz']
+source_urls = ['http://ftp.espci.fr/pub/openvpn-acct-wtmpx/']
+homepage = 'http://ftp.espci.fr/pub/openvpn-acct-wtmpx/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/openvpn-acct-wtmpx/Makefile ######
+# # $NetBSD: Makefile,v 1.2 2011/11/23 23:31:22 joerg Exp $
+# #
+# 
+# DISTNAME=	openvpn-acct-wtmpx-20091110
+# PKGREVISION=	1
+# DISTFILES=	${DISTNAME}${EXTRACT_SUFX} openvpn-2.1_rc20.tar.gz
+# CATEGORIES=	net
+# MASTER_SITES=	http://ftp.espci.fr/pub/openvpn-acct-wtmpx/
+# SITES.openvpn-2.1_rc20.tar.gz=	http://openvpn.net/release/
+# EXTRACT_SUFX=	.tgz
+# 
+# MAINTAINER=	manu@NetBSD.org
+# HOMEPAGE=	http://ftp.espci.fr/pub/openvpn-acct-wtmpx/
+# COMMENT=	Log OpenVPN logins and logouts to wtmpx
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LIBTOOL=	yes
+# USE_TOOLS+=	install
+# 
+# WRKSRC=	${WRKDIR}/openvpn-acct-wtmpx
+# 
+# SPECIAL_PERMS+=	bin/logwtmpx ${SETUID_ROOT_PERMS}
+# 
+# .include "../../mk/bsd.pkg.mk"

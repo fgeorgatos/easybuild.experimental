@@ -1,0 +1,71 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      xbomber.0.8.eb
+# Date::      Wed Dec 26 17:08:35 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'xbomber-0.8'
+version = 'xbomber.0.8'
+versionsuffix = '-20121226'
+
+description = "xbomber.0.8: Colorful game where you blow other people/robots up"
+
+# The following are automatically calculated - cross fingers
+sources = ['xbomber.0.8.tar.gz']
+version = '0.8'
+name = 'xbomber'
+source_urls = ['ftp://ftp.billsgames.com/unix/x/xbomber/']
+homepage = 'http://www.newbreedsoftware.com/xbomber/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/xbomber/Makefile ######
+# # $NetBSD: Makefile,v 1.18 2011/05/24 12:03:37 obache Exp $
+# #
+# 
+# DISTNAME=	xbomber.0.8
+# PKGNAME=	xbomber-0.8
+# PKGREVISION=	2
+# CATEGORIES=	games x11
+# MASTER_SITES=	ftp://ftp.billsgames.com/unix/x/xbomber/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.newbreedsoftware.com/xbomber/
+# COMMENT=	Colorful game where you blow other people/robots up
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=		${WRKDIR}/xbomber
+# MAKE_FILE=	makefile
+# 
+# pre-install:
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/doc/xbomber
+# 	${INSTALL_DATA} ${WRKSRC}/README.txt ${DESTDIR}${PREFIX}/share/doc/xbomber
+# 
+# .include "../../x11/libX11/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

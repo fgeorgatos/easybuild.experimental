@@ -1,0 +1,62 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      activemodel-.eb
+# Date::      Wed Dec 26 17:08:27 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'activemodel'
+version = ''
+versionsuffix = '-20121226'
+
+description = "activemodel-: Toolkit for building modeling frameworks part of Rails 3.2 "
+
+# The following are automatically calculated - cross fingers
+sources = ['activemodel-${RUBY_RAILS_VERSION}.tar.gz']
+homepage = 'http://www.rubyonrails.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/ruby-activemodel32/Makefile ######
+# # $NetBSD: Makefile,v 1.2 2012/06/14 15:12:15 taca Exp $
+# 
+# DISTNAME=	activemodel-${RUBY_RAILS_VERSION}
+# CATEGORIES=	devel
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.rubyonrails.org/
+# COMMENT=	Toolkit for building modeling frameworks (part of Rails 3.2)
+# LICENSE=	mit
+# 
+# DEPENDS+=	${RUBY_ACTIVESUPPORT_DEPENDS}
+# DEPENDS+=	${RUBY_PKGPREFIX}-builder>=3.0.0<3.1:../../textproc/ruby-builder
+# 
+# RUBY_RAILS_SUPPORTED=	32
+# RUBY_RAILS_STRICT_DEP=	yes
+# 
+# .include "../../lang/ruby/gem.mk"
+# .include "../../mk/bsd.pkg.mk"

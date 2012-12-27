@@ -1,0 +1,93 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      validate-1.2.2.eb
+# Date::      Wed Dec 26 17:09:07 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'wdg-'
+version = '1.2.2'
+versionsuffix = '-20121226'
+
+description = "validate-1.2.2: HTML validator from the Web Design Group"
+
+# The following are automatically calculated - cross fingers
+sources = ['validate-1.2.2.tar.gz']
+version = '${DISTNAME}'
+name = 'wdg'
+source_urls = ['http://www.htmlhelp.com/tools/validator/offline/']
+homepage = 'http://www.htmlhelp.com/tools/validator/offline/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/wdg-validate/Makefile ######
+# # $NetBSD: Makefile,v 1.20 2008/06/20 01:09:43 joerg Exp $
+# #
+# 
+# DISTNAME=	validate-1.2.2
+# PKGNAME=	wdg-${DISTNAME}
+# CATEGORIES=	www
+# MASTER_SITES=	http://www.htmlhelp.com/tools/validator/offline/
+# DISTFILES=	${DISTNAME} wdg-sgml-lib-1.1.4.tar.gz README
+# 
+# MAINTAINER=	norm@sandbox.org.uk
+# HOMEPAGE=	http://www.htmlhelp.com/tools/validator/offline/
+# COMMENT=	HTML validator from the Web Design Group
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# DEPENDS+=	lq-sp>=1.3.4.5:../../textproc/lq-sp
+# 
+# WRKSRC=		${WRKDIR}
+# DIST_SUBDIR=	validate
+# EXTRACT_ONLY=	wdg-sgml-lib-1.1.4.tar.gz
+# SITES.wdg-sgml-lib-1.1.4.tar.gz=	http://www.htmlhelp.com/tools/validator/src/
+# 
+# USE_TOOLS+=	perl:run pax
+# REPLACE_PERL=	validate
+# NO_BUILD=	YES
+# 
+# SUBST_CLASSES+=		paths
+# SUBST_MESSAGE.paths=	Fixing hardcoded paths.
+# SUBST_STAGE.paths=	post-patch
+# SUBST_FILES.paths=	validate
+# SUBST_SED.paths=	-e 's,/usr/local/share,${PREFIX}/share,g' \
+# 			-e 's,/usr/local/bin/lq-nsgmls,${LOCALBASE}/bin/lq-nsgmls,g'
+# 
+# INSTALLATION_DIRS+=	bin share/doc share/wdg/sgml-lib
+# 
+# post-extract:
+# 	${CP} ${DISTDIR}/${DIST_SUBDIR}/${DISTNAME} ${WRKSRC}/validate
+# 	${CP} ${DISTDIR}/${DIST_SUBDIR}/README ${WRKSRC}/README
+# 
+# do-install:
+# 	${INSTALL_SCRIPT} ${WRKSRC}/validate ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_DATA} ${WRKSRC}/README ${DESTDIR}${PREFIX}/share/doc/validate.README
+# 	cd ${WRKSRC}/wdg/sgml-lib && pax -rw * ${DESTDIR}${PREFIX}/share/wdg/sgml-lib/
+# 
+# .include "../../mk/bsd.pkg.mk"

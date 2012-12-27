@@ -1,0 +1,83 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      pv-0.9.6.eb
+# Date::      Wed Dec 26 17:09:02 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'pv'
+version = '0.9.6'
+versionsuffix = '-20121226'
+
+description = "pv-0.9.6: Monitor the progress of data through a pipeline"
+
+# The following are automatically calculated - cross fingers
+sources = ['pv-0.9.6.tar.gz']
+source_urls = ['http://www.ivarch.com/programs/sources/']
+homepage = 'http://www.ivarch.com/programs/pv.shtml'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/pv/Makefile ######
+# # $NetBSD: Makefile,v 1.20 2011/04/22 13:44:45 obache Exp $
+# #
+# 
+# DISTNAME=		pv-0.9.6
+# PKGREVISION=		1
+# CATEGORIES=		sysutils
+# MASTER_SITES=		http://www.ivarch.com/programs/sources/
+# MASTER_SITES+=		${MASTER_SITE_SOURCEFORGE:=pipeviewer/}
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://www.ivarch.com/programs/pv.shtml
+# COMMENT=		Monitor the progress of data through a pipeline
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=		yes
+# USE_TOOLS+=		gmake msgfmt
+# USE_PKGLOCALEDIR=	yes
+# INFO_FILES=		# PLIST
+# 
+# # Don't gzip the installed info file and man pages.
+# CONFIGURE_ENV+=		DO_GZIP=${TOOLS_CMD.true}
+# 
+# DOCDIR=			${PREFIX}/share/doc/pv
+# INSTALLATION_DIRS=	${DOCDIR}
+# 
+# # Grab list of files to install from the PLIST.
+# post-install:
+# 	dir=${DOCDIR:S/^${PREFIX}\///:Q}; cd ${WRKSRC}/doc;		\
+# 	${GREP} "^$$dir/" ${PKGDIR}/PLIST | ${SED} "s|^$$dir/||" |	\
+# 	while read file; do						\
+# 		test ! -f "$$file" ||					\
+# 			${INSTALL_DATA} "$$file" ${DESTDIR}${PREFIX}/$$dir; \
+# 	done
+# 	${INSTALL_DATA} ${WRKSRC}/README ${DESTDIR}${DOCDIR}
+# 
+# .include "../../devel/gettext-lib/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

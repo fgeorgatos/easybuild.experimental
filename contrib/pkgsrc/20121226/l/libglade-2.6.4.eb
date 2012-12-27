@@ -1,0 +1,85 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      libglade-2.6.4.eb
+# Date::      Wed Dec 26 17:08:21 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'libglade'
+version = '2.6.4'
+versionsuffix = '-20121226'
+
+description = "libglade-2.6.4: Runtime interpreter for GLADE GUI files"
+
+# The following are automatically calculated - cross fingers
+sources = ['libglade-2.6.4.tar.bz2']
+source_urls = ['http://sourceforge.net/projects/sources/libglade/2.6/files', 'download']
+homepage = 'http://www.jamesh.id.au/software/libglade/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/libglade/Makefile ######
+# # $NetBSD: Makefile,v 1.81.2.1 2012/10/03 12:07:13 spz Exp $
+# #
+# 
+# DISTNAME=		libglade-2.6.4
+# PKGREVISION=		13
+# CATEGORIES=		devel gnome
+# MASTER_SITES=		${MASTER_SITE_GNOME:=sources/libglade/2.6/}
+# EXTRACT_SUFX=		.tar.bz2
+# 
+# MAINTAINER=		drochner@NetBSD.org
+# HOMEPAGE=		http://www.jamesh.id.au/software/libglade/
+# COMMENT=		Runtime interpreter for GLADE GUI files
+# LICENSE=		gnu-lgpl-v2
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_TOOLS+=		gmake msgfmt pkg-config
+# GNU_CONFIGURE=		YES
+# USE_LIBTOOL=		YES
+# PKGCONFIG_OVERRIDE=	libglade-2.0.pc.in
+# 
+# CONFLICTS+=		libglade2-[0-9]*
+# 
+# CONFIGURE_ARGS+=	--without-xml-catalog
+# 
+# XML_ENTRIES=	system http://glade.gnome.org/glade-2.0.dtd \
+# 		${PREFIX}/share/xml/libglade/glade-2.0.dtd
+# 
+# BUILDLINK_API_DEPENDS.atk+=		atk>=1.9.0
+# BUILDLINK_API_DEPENDS.glib2+=	glib2>=2.6.0
+# BUILDLINK_API_DEPENDS.gtk2+=	gtk2+>=2.6.0
+# 
+# INSTALLATION_DIRS+=	lib/libglade/2.0
+# 
+# .include "../../devel/atk/buildlink3.mk"
+# .include "../../devel/glib2/buildlink3.mk"
+# .include "../../textproc/libxml2/buildlink3.mk"
+# .include "../../textproc/xmlcatmgr/catalogs.mk"
+# .include "../../x11/gtk2/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

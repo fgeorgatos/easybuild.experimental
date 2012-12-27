@@ -1,0 +1,112 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      libggi-2.2.2.src.eb
+# Date::      Wed Dec 26 17:08:37 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'libggi'
+version = '2.2.2.src'
+versionsuffix = '-20121226'
+
+description = "libggi-2.2.2.src: General Graphics Interface library is a flexible drawing library"
+
+# The following are automatically calculated - cross fingers
+sources = ['libggi-2.2.2.src.tar.bz2']
+source_urls = ['http://www.ggi-project.org/ftp/ggi/v2.2/']
+homepage = 'http://www.ggi-project.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/libggi/Makefile ######
+# # $NetBSD: Makefile,v 1.51 2012/01/23 20:19:00 sbd Exp $
+# #
+# 
+# DISTNAME=	libggi-2.2.2.src
+# PKGNAME=	${DISTNAME:S/.src//}
+# PKGREVISION=	1
+# CATEGORIES=	graphics
+# MASTER_SITES=	http://www.ggi-project.org/ftp/ggi/v2.2/ \
+# 		${MASTER_SITE_SOURCEFORGE:=ggi/}
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.ggi-project.org/
+# COMMENT=	General Graphics Interface library is a flexible drawing library
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# MAKE_JOBS_SAFE=		no
+# 
+# WRKSRC=			${WRKDIR}/${PKGNAME_NOREV}
+# USE_LIBTOOL=		yes
+# 
+# GNU_CONFIGURE=		yes
+# CONFIGURE_ARGS+=	--disable-debug
+# CONFIGURE_ARGS+=	--with-x
+# CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR:Q}
+# 
+# PKG_SYSCONFSUBDIR=	ggi
+# EGDIR=			${PREFIX}/share/examples/ggi
+# CONF_FILES=		${EGDIR}/libggi.conf ${PKG_SYSCONFDIR}/libggi.conf
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# .if ${OPSYS} == "Linux"
+# CONF_FILES+=	${EGDIR}/fbdev.conf ${PKG_SYSCONFDIR}/ggi/ggi/targets/fbdev.conf
+# .endif
+# 
+# PLIST_VARS+=		libvgl terminfo xf86dga
+# 
+# .if ${OPSYS} == "NetBSD"
+# .  if empty(OS_VERSION:M1.[56].*)
+# PLIST.terminfo=		yes
+# .  endif
+# .else
+# PLIST.terminfo=		yes
+# .endif
+# 
+# .if ${OPSYS} == "DragonFly" || ${OPSYS} == "FreeBSD"
+# PLIST.libvgl=		yes
+# .endif
+# 
+# .if ${X11_TYPE} == "modular" || \
+# 	exists(${X11BASE}/include/X11/extensions/xf86dga.h)
+# .include "../../x11/libXxf86dga/buildlink3.mk"
+# .include "../../x11/libXxf86vm/buildlink3.mk"
+# .include "../../x11/xf86dgaproto/buildlink3.mk"
+# PLIST.xf86dga=		yes
+# .endif
+# 
+# BUILDLINK_DEPMETHOD.libXt?=	build
+# 
+# .include "../../devel/ncurses/buildlink3.mk"
+# .include "../../graphics/libgii/buildlink3.mk"
+# .include "../../x11/libX11/buildlink3.mk"
+# .include "../../x11/libXext/buildlink3.mk"
+# .include "../../x11/libXt/buildlink3.mk"
+# .include "../../x11/xextproto/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

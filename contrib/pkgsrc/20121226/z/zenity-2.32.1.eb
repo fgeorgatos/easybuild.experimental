@@ -1,0 +1,76 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      zenity-2.32.1.eb
+# Date::      Wed Dec 26 17:09:16 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'zenity'
+version = '2.32.1'
+versionsuffix = '-20121226'
+
+description = "zenity-2.32.1: Display GNOME dialogs from the command line"
+
+# The following are automatically calculated - cross fingers
+sources = ['zenity-2.32.1.tar.bz2']
+source_urls = ['http://sourceforge.net/projects/sources/zenity/2.32/files', 'download']
+homepage = 'http://www.gnome.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/zenity/Makefile ######
+# # $NetBSD: Makefile,v 1.70.2.1 2012/10/03 12:10:11 spz Exp $
+# #
+# 
+# DISTNAME=	zenity-2.32.1
+# PKGREVISION=	8
+# CATEGORIES=	x11 gnome
+# MASTER_SITES=	${MASTER_SITE_GNOME:=sources/zenity/2.32/}
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.gnome.org/
+# COMMENT=	Display GNOME dialogs from the command line
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_PKGLOCALEDIR=	yes
+# GNU_CONFIGURE=		yes
+# USE_TOOLS+=		gmake intltool msgfmt pkg-config
+# 
+# BUILDLINK_API_DEPENDS.glib2+=	glib2>=2.8.0
+# 
+# .include "../../sysutils/libnotify/buildlink3.mk"
+# .include "../../devel/gettext-lib/buildlink3.mk"
+# .include "../../devel/glib2/buildlink3.mk"
+# #.include "../../devel/libglade/buildlink3.mk"
+# .include "../../devel/pango/buildlink3.mk"
+# #.include "../../graphics/libgnomecanvas/buildlink3.mk"
+# .include "../../textproc/gnome-doc-utils/buildlink3.mk"
+# .include "../../mk/omf-scrollkeeper.mk"
+# .include "../../x11/gtk2/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

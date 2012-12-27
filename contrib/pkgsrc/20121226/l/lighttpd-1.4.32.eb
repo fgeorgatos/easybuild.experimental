@@ -1,0 +1,118 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      lighttpd-1.4.32.eb
+# Date::      Wed Dec 26 17:09:04 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'lighttpd'
+version = '1.4.32'
+versionsuffix = '-20121226'
+
+description = "lighttpd-1.4.32: Fast, light-footprint HTTP server"
+
+# The following are automatically calculated - cross fingers
+sources = ['lighttpd-1.4.32.tar.bz2']
+source_urls = ['http://download.lighttpd.net/lighttpd/releases-1.4.x/']
+homepage = 'http://www.lighttpd.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/lighttpd/Makefile ######
+# # $NetBSD: Makefile,v 1.33.2.1 2012/12/01 12:07:23 tron Exp $
+# 
+# DISTNAME=	lighttpd-1.4.32
+# CATEGORIES=	www
+# MASTER_SITES=	http://download.lighttpd.net/lighttpd/releases-1.4.x/
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	joerg@NetBSD.org
+# HOMEPAGE=	http://www.lighttpd.net/
+# COMMENT=	Fast, light-footprint HTTP server
+# LICENSE=	modified-bsd
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LIBTOOL=		yes
+# SHLIBTOOL_OVERRIDE=	# empty
+# GNU_CONFIGURE=		yes
+# GNU_CONFIGURE_LIBSUBDIR=${PKGBASE}
+# CONFIGURE_ARGS+=	--with-pcre
+# 
+# DOCDIR=			${PREFIX}/share/doc/${PKGBASE}
+# EGDIR=			${PREFIX}/share/examples/${PKGBASE}
+# PKG_SYSCONFSUBDIR=	${PKGBASE}
+# RCD_SCRIPTS=		lighttpd
+# 
+# .include "options.mk"
+# 
+# CNFS_cmd=		${SED} -ne "s,^share/examples/lighttpd/,,p" PLIST
+# CNFS=			${CNFS_cmd:sh}
+# .for file in ${CNFS}
+# CONF_FILES+=		${EGDIR}/${file:Q} ${PKG_SYSCONFDIR}/${file:Q}
+# .endfor
+# 
+# BUILD_DEFS+=		VARBASE LIGHTTPD_LOGDIR LIGHTTPD_STATEDIR
+# BUILD_DEFS+=		LIGHTTPD_USER LIGHTTPD_GROUP
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# LIGHTTPD_LOGDIR?=	${VARBASE}/log/lighttpd
+# LIGHTTPD_STATEDIR?=	${VARBASE}/run
+# LIGHTTPD_USER?=		lighttpd
+# LIGHTTPD_GROUP?=	lighttpd
+# 
+# INSTALLATION_DIRS=	${DOCDIR} ${EGDIR} ${EGDIR}/conf.d ${EGDIR}/vhosts.d
+# OWN_DIRS=		${PKG_SYSCONFDIR}/conf.d
+# OWN_DIRS+=		${PKG_SYSCONFDIR}/vhosts.d
+# OWN_DIRS_PERMS=		${LIGHTTPD_LOGDIR} ${LIGHTTPD_USER} ${LIGHTTPD_GROUP} 0755
+# OWN_DIRS+=		${LIGHTTPD_STATEDIR}
+# 
+# SUBST_CLASSES+=		path
+# SUBST_MESSAGE.path=	Fixing config file paths
+# SUBST_STAGE.path=	pre-configure
+# SUBST_FILES.path=	doc/config/lighttpd.conf
+# SUBST_VARS.path=	LIGHTTPD_LOGDIR LIGHTTPD_STATEDIR LIGHTTPD_USER \
+# 			LIGHTTPD_GROUP PKG_SYSCONFDIR
+# 
+# post-install:
+# 	set -e; cd ${WRKSRC}/doc;				\
+# 	for f in *.css outdated/*.dot outdated/*.txt; do	\
+# 		${INSTALL_DATA} $$f ${DESTDIR}${DOCDIR};	\
+# 	done;							\
+# 	for f in config/*.conf scripts/*.sh; do			\
+# 		${INSTALL_DATA} $$f ${DESTDIR}${EGDIR};		\
+# 	done;							\
+# 	for f in config/conf.d/*.conf config/conf.d/mod.*; do	\
+# 		${INSTALL_DATA} $$f ${DESTDIR}${EGDIR}/conf.d;	\
+# 	done;							\
+# 	${INSTALL_DATA} config/vhosts.d/*.template ${DESTDIR}${EGDIR}/vhosts.d
+# 
+# .include "../../devel/pcre/buildlink3.mk"
+# .include "../../devel/zlib/buildlink3.mk"
+# .include "../../mk/dlopen.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

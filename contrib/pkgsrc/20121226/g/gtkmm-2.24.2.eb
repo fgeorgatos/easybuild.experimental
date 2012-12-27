@@ -1,0 +1,78 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      gtkmm-2.24.2.eb
+# Date::      Wed Dec 26 17:09:13 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'gtkmm'
+version = '2.24.2'
+versionsuffix = '-20121226'
+
+description = "gtkmm-2.24.2: C++ interface to Gtk+ v2"
+
+# The following are automatically calculated - cross fingers
+sources = ['gtkmm-2.24.2.tar.bz2']
+source_urls = ['http://sourceforge.net/projects/sources/gtkmm/${PKGVERSION_NOREV:R}/files', 'download']
+homepage = 'http://www.gtkmm.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/gtkmm/Makefile ######
+# # $NetBSD: Makefile,v 1.84.2.1 2012/10/03 12:09:53 spz Exp $
+# 
+# DISTNAME=	gtkmm-2.24.2
+# PKGREVISION=	6
+# CATEGORIES=	x11
+# MASTER_SITES=	${MASTER_SITE_GNOME:=sources/gtkmm/${PKGVERSION_NOREV:R}/}
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	adam@NetBSD.org
+# HOMEPAGE=	http://www.gtkmm.org/
+# COMMENT=	C++ interface to Gtk+ v2
+# LICENSE=	gnu-lgpl-v2.1
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=		c c++
+# USE_LIBTOOL=		yes
+# USE_TOOLS+=		gmake perl:run pkg-config
+# GNU_CONFIGURE=		yes
+# 
+# EXTRACT_USING=		bsdtar
+# 
+# PKGCONFIG_OVERRIDE+=	gdk/gdkmm.pc.in
+# PKGCONFIG_OVERRIDE+=	gtk/gtkmm.pc.in
+# 
+# BUILDLINK_API_DEPENDS.gtk2+=	gtk2+>=2.24.0
+# 
+# .include "../../devel/atkmm/buildlink3.mk"
+# BUILDLINK_API_DEPENDS.pangomm+= pangomm>=2.28.0
+# .include "../../devel/pangomm/buildlink3.mk"
+# .include "../../devel/glibmm/buildlink3.mk"
+# .include "../../x11/gtk2/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

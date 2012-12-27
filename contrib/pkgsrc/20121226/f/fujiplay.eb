@@ -1,0 +1,86 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      fujiplay.eb
+# Date::      Wed Dec 26 17:08:36 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'fujiplay-1.33'
+version = 'fujiplay'
+versionsuffix = '-20121226'
+
+description = "fujiplay: Download pictures from some Fujifilm digital cameras"
+
+# The following are automatically calculated - cross fingers
+sources = ['fujiplay.tgz']
+version = '1.33'
+name = 'fujiplay'
+source_urls = ['http://topo.math.u-psud.fr/~bousch/']
+homepage = 'http://topo.math.u-psud.fr/~bousch/fujiplay.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/fujiplay/Makefile ######
+# # $NetBSD: Makefile,v 1.15 2008/03/04 15:39:09 jlam Exp $
+# #
+# 
+# DISTNAME=	fujiplay
+# PKGNAME=	fujiplay-1.33
+# PKGREVISION=	1
+# CATEGORIES=	graphics
+# MASTER_SITES=	http://topo.math.u-psud.fr/~bousch/
+# EXTRACT_SUFX=	.tgz
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://topo.math.u-psud.fr/~bousch/fujiplay.html
+# COMMENT=	Download pictures from some Fujifilm digital cameras
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# DIST_SUBDIR=	fujiplay-1.33
+# WRKSRC=		${WRKDIR}
+# 
+# SUBST_CLASSES+=		cvsid
+# SUBST_MESSAGE.cvsid=	Removing CVS Ids from files.
+# SUBST_STAGE.cvsid=	post-extract
+# SUBST_SED.cvsid=	-e 's|\$$Id|Id|'
+# SUBST_SED.cvsid+=	-e 's| \$$$$||'
+# SUBST_FILES.cvsid=	fujiplay.c
+# 
+# INSTALLATION_DIRS=	bin
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/fujiplay	${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_PROGRAM} ${WRKSRC}/yycc2ppm	${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_MAN_DIR} ${DESTDIR}${PREFIX}/share/doc/fujiplay
+# 	${INSTALL_MAN} ${WRKSRC}/README ${DESTDIR}${PREFIX}/share/doc/fujiplay
+# 	${INSTALL_MAN} ${WRKSRC}/fujiplay.lsm \
+# 		${DESTDIR}${PREFIX}/share/doc/fujiplay
+# 	${INSTALL_MAN} ${WRKSRC}/mx700-commands.html \
+# 		${DESTDIR}${PREFIX}/share/doc/fujiplay
+# 
+# .include "../../mk/bsd.pkg.mk"

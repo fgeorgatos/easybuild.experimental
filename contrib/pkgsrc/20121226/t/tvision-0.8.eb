@@ -1,0 +1,70 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      tvision-0.8.eb
+# Date::      Wed Dec 26 17:08:28 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'tvision'
+version = '0.8'
+versionsuffix = '-20121226'
+
+description = "tvision-0.8: Turbo Vision C++ CUI library for UNIX"
+
+# The following are automatically calculated - cross fingers
+sources = ['tvision-0.8.tar.gz']
+source_urls = ['http://ftp.nluug.nl/sunsite/devel/lang/c++/']
+homepage = 'http://www.sigala.it/sergio/tvision/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/tvision/Makefile ######
+# # $NetBSD: Makefile,v 1.20 2012/06/28 03:16:06 dholland Exp $
+# #
+# 
+# DISTNAME=		tvision-0.8
+# PKGREVISION=		1
+# CATEGORIES=		devel
+# MASTER_SITES=		${MASTER_SITE_SUNSITE:=devel/lang/c++/}
+# 
+# PATCHFILES=		tvision-0.8-freebsd-patches-20040910.diff.bz2
+# PATCH_DIST_STRIP=	-p1
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://www.sigala.it/sergio/tvision/
+# COMMENT=		Turbo Vision C++ CUI library for UNIX
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# MAKE_JOBS_SAFE=		no
+# GNU_CONFIGURE=		YES
+# USE_LANGUAGES=		c c++
+# USE_LIBTOOL=		YES
+# GCC_REQD+=		3.0
+# 
+# .include "../../devel/ncurses/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

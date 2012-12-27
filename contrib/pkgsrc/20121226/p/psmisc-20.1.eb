@@ -1,0 +1,76 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      psmisc-20.1.eb
+# Date::      Wed Dec 26 17:09:02 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'psmisc'
+version = '20.1'
+versionsuffix = '-20121226'
+
+description = "psmisc-20.1: Miscellaneous procfs tools: killall, pidof, and pstree"
+
+# The following are automatically calculated - cross fingers
+sources = ['psmisc-20.1.tar.gz']
+source_urls = ['http://sourceforge.net/projects/psmisc/files', 'download']
+homepage = 'http://psmisc.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/psmisc/Makefile ######
+# # $NetBSD: Makefile,v 1.25 2012/01/08 03:47:51 sbd Exp $
+# 
+# DISTNAME=		psmisc-20.1
+# CATEGORIES=		sysutils
+# PKGREVISION=		2
+# MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=psmisc/}
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://psmisc.sourceforge.net/
+# COMMENT=		Miscellaneous procfs tools: killall, pidof, and pstree
+# 
+# CONFLICTS+=		pstree<=2.16
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=		yes
+# LIBS+=			${BUILDLINK_LDADD.getopt}
+# 
+# # "make install" doesn't install the link from killall -> pidof.
+# post-install:
+# 	${RM} -f ${DESTDIR}${PREFIX}/bin/pidof
+# 	${LN} -f ${DESTDIR}${PREFIX}/bin/killall ${DESTDIR}${PREFIX}/bin/pidof
+# 
+# .include "../../mk/termcap.buildlink3.mk"
+# # XXX configure only tests for ncurses and termcap.
+# .if empty(BUILDLINK_TREE:Mncurses)
+# BUILDLINK_TRANSFORM+=	l:ncurses:curses
+# .endif
+# .include "../../devel/libgetopt/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

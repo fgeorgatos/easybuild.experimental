@@ -1,0 +1,56 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      ttfunk-1.0.3.eb
+# Date::      Wed Dec 26 17:08:32 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'ttfunk'
+version = '1.0.3'
+versionsuffix = '-20121226'
+
+description = "ttfunk-1.0.3: TrueType Font Metrics Parser"
+
+# The following are automatically calculated - cross fingers
+sources = ['ttfunk-1.0.3.tar.gz']
+homepage = '#unknown'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/fonts/ruby-ttfunk/Makefile ######
+# # $NetBSD: Makefile,v 1.3 2011/12/15 15:36:20 taca Exp $
+# 
+# DISTNAME=	ttfunk-1.0.3
+# CATEGORIES=	fonts
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	# unknown
+# COMMENT=	TrueType Font Metrics Parser
+# LICENSE=	gnu-gpl-v2 OR gnu-gpl-v3 OR ruby-license
+# 
+# .include "../../lang/ruby/gem.mk"
+# .include "../../mk/bsd.pkg.mk"

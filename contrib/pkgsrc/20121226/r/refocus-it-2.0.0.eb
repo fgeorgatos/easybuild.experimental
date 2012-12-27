@@ -1,0 +1,68 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      refocus-it-2.0.0.eb
+# Date::      Wed Dec 26 17:08:38 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'refocus'
+version = 'it-2.0.0'
+versionsuffix = '-20121226'
+
+description = "refocus-it-2.0.0: Refocus images"
+
+# The following are automatically calculated - cross fingers
+sources = ['refocus-it-2.0.0.tar.gz']
+source_urls = ['http://sourceforge.net/projects/refocus-it/files', 'download']
+homepage = 'http://refocus-it.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/refocus-it/Makefile ######
+# # $NetBSD: Makefile,v 1.14 2011/04/22 13:43:50 obache Exp $
+# #
+# 
+# DISTNAME=		refocus-it-2.0.0
+# PKGREVISION=		4
+# CATEGORIES=		graphics
+# MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=refocus-it/}
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://refocus-it.sourceforge.net/
+# COMMENT=		Refocus images
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=		yes
+# #just build the command line tool
+# CONFIGURE_ARGS+=	--without-gimp
+# USE_PKGLOCALEDIR=	yes
+# USE_TOOLS+=		intltool msgfmt
+# BROKEN_GETTEXT_DETECTION=	yes
+# 
+# .include "../../devel/gettext-lib/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

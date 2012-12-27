@@ -1,0 +1,89 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      inadyn.v1.96.2.eb
+# Date::      Wed Dec 26 17:08:49 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = '#inadyn-1.96.2'
+version = 'inadyn.v1.96.2'
+versionsuffix = '-20121226'
+
+description = "inadyn.v1.96.2: Dynamic DNS client"
+
+# The following are automatically calculated - cross fingers
+sources = ['inadyn.v1.96.2.zip']
+source_urls = ['http://www.inatech.eu/inadyn/']
+homepage = 'http://www.inatech.eu/inadyn/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/inadyn/Makefile ######
+# # $NetBSD: Makefile,v 1.2 2011/12/14 13:35:46 abs Exp $
+# 
+# DISTNAME=	inadyn.v1.96.2
+# PKGNAME=	${DISTNAME:C:.v:-:} # inadyn-1.96.2
+# PKGREVISION=	1
+# CATEGORIES=	net
+# MASTER_SITES=	http://www.inatech.eu/inadyn/
+# EXTRACT_SUFX=	.zip
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.inatech.eu/inadyn/
+# COMMENT=	Dynamic DNS client
+# LICENSE=	gnu-gpl-v2
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_TOOLS+=	gmake
+# RCD_SCRIPTS=	inadyn
+# RCD_SCRIPT_WRK.inadyn=	${WRKDIR}/inadyn.sh
+# 
+# LIBS.SunOS=	-lsocket -lnsl
+# MAKE_ENV+=	TARGET_ARCH=pkgsrc
+# 
+# WRKSRC=		${WRKDIR}/inadyn
+# MAKE_FILE=	makefile
+# 
+# INSTALLATION_DIRS=	bin ${PKGMANDIR}/man5 ${PKGMANDIR}/man8
+# 
+# pre-patch:
+# 	set -e && cd ${WRKSRC} &&  \
+# 	for f in man/inadyn.conf.5 man/inadyn.8 src/dyndns.h ; do	\
+# 		${SED}	-e "s|/etc|${PKG_SYSCONFDIR}|g"			\
+# 			$${f} > $${f}.orig;			\
+# 		${CP} -f $${f}.orig $${f};			\
+# 	done
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/bin/pkgsrc/inadyn ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_MAN} ${WRKSRC}/man/inadyn.conf.5 \
+# 		${DESTDIR}${PREFIX}/${PKGMANDIR}/man5
+# 	${INSTALL_MAN} ${WRKSRC}/man/inadyn.8 \
+# 		${DESTDIR}${PREFIX}/${PKGMANDIR}/man8
+# 
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,79 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      wgetpaste-2.20.eb
+# Date::      Wed Dec 26 17:08:52 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'wgetpaste'
+version = '2.20'
+versionsuffix = '-20121226'
+
+description = "wgetpaste-2.20: Command line utility to upload to pastebin sites"
+
+# The following are automatically calculated - cross fingers
+sources = ['wgetpaste-2.20.tar.bz2']
+source_urls = ['http://wgetpaste.zlin.dk/']
+homepage = 'http://wgetpaste.zlin.dk/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/wgetpaste/Makefile ######
+# # $NetBSD: Makefile,v 1.1 2012/08/11 08:43:45 obache Exp $
+# 
+# DISTNAME=	wgetpaste-2.20
+# CATEGORIES=	net www
+# MASTER_SITES=	http://wgetpaste.zlin.dk/
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://wgetpaste.zlin.dk/
+# COMMENT=	Command line utility to upload to pastebin sites
+# LICENSE=	public-domain
+# 
+# DEPENDS+=	wget>=1.13.4:../../net/wget
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# INSTALLATION_DIRS=	bin share/examples/wgetpaste etc
+# NO_BUILD=		yes
+# 
+# CONF_FILES=		${PREFIX}/share/examples/wgetpaste/wgetpaste.conf ${PKG_SYSCONFDIR}/wgetpaste.conf
+# 
+# SUBST_CLASSES+=		config
+# SUBST_SED.config+=	-e "s,/etc/,${PKG_SYSCONFDIR}/,g"
+# SUBST_FILES.config+=	wgetpaste
+# SUBST_STAGE.config=	pre-install
+# SUBST_MESSAGE.config=	Fixing path to global config files.
+# 
+# USE_TOOLS+=		bash:run
+# REPLACE_BASH=		wgetpaste
+# 
+# do-install:
+# 	${INSTALL_SCRIPT} ${WRKSRC}/wgetpaste ${DESTDIR}${PREFIX}/bin/wgetpaste
+# 	${INSTALL_DATA} ${FILESDIR}/wgetpaste.conf ${DESTDIR}${PREFIX}/share/examples/wgetpaste/wgetpaste.conf
+# 
+# .include "../../mk/bsd.pkg.mk"

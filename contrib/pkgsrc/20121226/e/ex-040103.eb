@@ -1,0 +1,67 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      ex-040103.eb
+# Date::      Wed Dec 26 17:08:29 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'ex-20040103'
+version = '040103'
+versionsuffix = '-20121226'
+
+description = "ex-040103: Berkeley vi 3.7"
+
+# The following are automatically calculated - cross fingers
+sources = ['ex-040103.tar.gz']
+version = '20040103'
+name = 'ex'
+source_urls = ['http://sourceforge.net/projects/ex-vi/files/ex-vi/040103/files', 'download']
+homepage = 'http://ex-vi.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/editors/ex/Makefile ######
+# # $NetBSD: Makefile,v 1.9 2011/12/17 10:15:20 sbd Exp $
+# #
+# 
+# DISTNAME=	ex-040103
+# PKGNAME=	ex-20040103
+# PKGREVISION=	2
+# CATEGORIES=	editors
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=ex-vi/files/ex-vi/040103/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://ex-vi.sourceforge.net/
+# COMMENT=	Berkeley vi 3.7
+# LICENSE=	original-bsd
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# MAKE_DIRS_PERMS+=	${VARBASE}/tmp/vi.recover ${REAL_ROOT_USER} ${REAL_ROOT_GROUP} 1777
+# 
+# .include "../../mk/curses.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

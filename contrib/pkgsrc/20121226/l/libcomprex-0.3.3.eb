@@ -1,0 +1,71 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      libcomprex-0.3.3.eb
+# Date::      Wed Dec 26 17:08:10 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'libcomprex'
+version = '0.3.3'
+versionsuffix = '-20121226'
+
+description = "libcomprex-0.3.3: Library to handle de compression of files"
+
+# The following are automatically calculated - cross fingers
+sources = ['libcomprex-0.3.3.tar.gz']
+source_urls = ['http://sourceforge.net/projects/gnupdate/files', 'download']
+homepage = 'http://www.gnupdate.org/components/libcomprex/index.xml'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/archivers/libcomprex/Makefile ######
+# # $NetBSD: Makefile,v 1.26 2012/09/11 19:46:56 asau Exp $
+# 
+# DISTNAME=	libcomprex-0.3.3
+# PKGREVISION=	5
+# CATEGORIES=	archivers
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=gnupdate/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.gnupdate.org/components/libcomprex/index.xml
+# COMMENT=	Library to handle (de)compression of files
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# 
+# USE_LIBTOOL=		yes
+# USE_TOOLS+=		pkg-config
+# USE_PKGLOCALEDIR=	yes
+# PKGCONFIG_OVERRIDE=	libcomprex.pc.in
+# GNU_CONFIGURE=		yes
+# BROKEN_GETTEXT_DETECTION=	yes
+# CONFIGURE_ENV+=		ac_cv_lib_curl_curl_formparse=yes
+# REPLACE_SH=		comprex-config.in
+# 
+# .include "../../archivers/bzip2/buildlink3.mk"
+# .include "../../devel/gettext-lib/buildlink3.mk"
+# .include "../../www/curl/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

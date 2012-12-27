@@ -1,0 +1,65 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      tex.eb
+# Date::      Wed Dec 26 17:08:56 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'tex--3.1415926'
+version = 'tex'
+versionsuffix = '-20121226'
+
+description = "tex: Plain TeX format"
+
+# The following are automatically calculated - cross fingers
+sources = ['tex.tar.gz']
+version = '${DISTNAME}-3.1415926'
+name = 'tex'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/print/tex-tex/Makefile ######
+# # $NetBSD: Makefile,v 1.6 2012/03/03 18:53:42 minskim Exp $
+# 
+# DISTNAME=	tex
+# PKGNAME=	tex-${DISTNAME}-3.1415926
+# TEXLIVE_REV=	23409
+# 
+# MAINTAINER=	minskim@NetBSD.org
+# COMMENT=	Plain TeX format
+# 
+# CONFLICTS+=	teTeX-texmf<=3.0nb20
+# CONFLICTS+=	tex-bin-tex-[0-9]*
+# DEPENDS+=	tex-plain-[0-9]*:../../print/tex-plain
+# DEPENDS+=	web2c-[0-9]*:../../print/web2c
+# SUPERSEDES=	tex-bin-tex<2009
+# 
+# TEX_FORMATS+=	"tex tex - tex.ini\\n"
+# TEX_TEXMF_DIRS=	# empty
+# 
+# .include "../../print/texlive/package.mk"
+# .include "../../mk/bsd.pkg.mk"

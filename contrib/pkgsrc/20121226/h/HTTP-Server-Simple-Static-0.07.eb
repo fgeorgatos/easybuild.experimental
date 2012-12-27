@@ -1,0 +1,71 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      HTTP-Server-Simple-Static-0.07.eb
+# Date::      Wed Dec 26 17:09:05 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'Server-Simple-Static-0.07'
+versionsuffix = '-20121226'
+
+description = "HTTP-Server-Simple-Static-0.07: Serve static files with HTTP::Server::Simple"
+
+# The following are automatically calculated - cross fingers
+sources = ['HTTP-Server-Simple-Static-0.07.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/HTTP/']
+homepage = 'http://search.cpan.org/dist/HTTP-Server-Simple-Static/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/p5-HTTP-Server-Simple-Static/Makefile ######
+# # $NetBSD: Makefile,v 1.6 2011/08/14 16:05:59 obache Exp $
+# 
+# DISTNAME=	HTTP-Server-Simple-Static-0.07
+# PKGNAME=	p5-${DISTNAME}
+# PKGREVISION=	3
+# CATEGORIES=	www perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=HTTP/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/HTTP-Server-Simple-Static/
+# COMMENT=	Serve static files with HTTP::Server::Simple
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# PERL5_MODULE_TYPE=	Module::Build
+# PERL5_PACKLIST=		auto/HTTP/Server/Simple/Static/.packlist
+# 
+# DEPENDS+=	p5-File-MMagic-[0-9]*:../../misc/p5-File-MMagic
+# DEPENDS+=	p5-HTTP-Server-Simple>=0.01:../../www/p5-HTTP-Server-Simple
+# DEPENDS+=	p5-MIME-Types-[0-9]*:../../mail/p5-MIME-Types
+# DEPENDS+=	p5-URI-[0-9]*:../../www/p5-URI
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

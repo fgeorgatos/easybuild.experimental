@@ -1,0 +1,79 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      unalz-0.61.eb
+# Date::      Wed Dec 26 17:08:10 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'unalz'
+version = '0.61'
+versionsuffix = '-20121226'
+
+description = "unalz-0.61: Alzip archive .alz extractor"
+
+# The following are automatically calculated - cross fingers
+sources = ['unalz-0.61.tgz']
+source_urls = ['http://www.kipple.pe.kr/win/unalz/']
+homepage = 'http://www.kipple.pe.kr/win/unalz/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/archivers/unalz/Makefile ######
+# # $NetBSD: Makefile,v 1.14 2012/09/11 19:47:02 asau Exp $
+# #
+# 
+# DISTNAME=		unalz-0.61
+# CATEGORIES=		archivers
+# MASTER_SITES=		http://www.kipple.pe.kr/win/unalz/
+# EXTRACT_SUFX=		.tgz
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://www.kipple.pe.kr/win/unalz/
+# COMMENT=		Alzip archive (.alz) extractor
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# 
+# BUILD_TARGET=		posix-utf8
+# USE_LANGUAGES=		c c++
+# WRKSRC=			${WRKDIR}/unalz
+# 
+# INSTALLATION_DIRS=	bin
+# 
+# SUBST_CLASSES+=		d2u
+# SUBST_STAGE.d2u=	pre-configure
+# SUBST_FILES.d2u=	bzip2/*.[ch] zlib/*.[ch]
+# SUBST_FILTER_CMD.d2u=	${TR} -d '\r'
+# USE_TOOLS+=		tr
+# 
+# .include "../../archivers/bzip2/buildlink3.mk"
+# .include "../../devel/zlib/buildlink3.mk"
+# .include "../../converters/libiconv/buildlink3.mk"
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/unalz ${DESTDIR}${PREFIX}/bin
+# 
+# .include "../../mk/bsd.pkg.mk"

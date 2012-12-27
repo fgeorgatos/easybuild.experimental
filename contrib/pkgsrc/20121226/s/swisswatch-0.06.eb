@@ -1,0 +1,64 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      swisswatch-0.06.eb
+# Date::      Wed Dec 26 17:09:12 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'swisswatch'
+version = '0.06'
+versionsuffix = '-20121226'
+
+description = "swisswatch-0.06: Swiss railway clock emulation, and a fancy default appearance"
+
+# The following are automatically calculated - cross fingers
+sources = ['swisswatch-0.06.tar.Z']
+source_urls = ['${MASTER_SITE_FREEBSD}']
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/time/swisswatch/Makefile ######
+# # $NetBSD: Makefile,v 1.8 2009/05/30 01:35:45 zafer Exp $
+# 
+# DISTNAME=	swisswatch-0.06
+# PKGREVISION=	2
+# CATEGORIES=	x11 time
+# MASTER_SITES=	${MASTER_SITE_FREEBSD}
+# EXTRACT_SUFX=	.tar.Z
+# 
+# MAINTAINER=	sanpei@yy.cs.keio.ac.jp
+# COMMENT=	Swiss railway clock emulation, and a fancy default appearance
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_IMAKE=	yes
+# 
+# .include "../../x11/libXext/buildlink3.mk"
+# .include "../../x11/libXmu/buildlink3.mk"
+# .include "../../x11/libXt/buildlink3.mk"
+# .include "../../x11/xextproto/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

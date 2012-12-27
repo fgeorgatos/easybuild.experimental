@@ -1,0 +1,80 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      rx-1.5.eb
+# Date::      Wed Dec 26 17:08:26 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'rx'
+version = '1.5'
+versionsuffix = '-20121226'
+
+description = "rx-1.5: Fast replacement for the GNU regex library"
+
+# The following are automatically calculated - cross fingers
+sources = ['rx-1.5.tar.bz2']
+source_urls = ['#']
+homepage = 'http://www.gnu.org/software/rx/rx.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/rx/Makefile ######
+# # $NetBSD: Makefile,v 1.23 2009/05/18 05:44:13 dholland Exp $
+# 
+# DISTNAME=	rx-1.5
+# PKGREVISION=	2
+# CATEGORIES=	devel
+# MASTER_SITES=	#
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.gnu.org/software/rx/rx.html
+# COMMENT=	Fast replacement for the GNU regex library
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LIBTOOL=	yes
+# GNU_CONFIGURE=	yes
+# INFO_FILES=	# PLIST
+# 
+# # When the API changes and breaks binary-compatibility with the previous
+# # version, increment the MAJOR by 1 and reset the MINOR to 0.  Otherwise,
+# # bump the MINOR when a new version comes out.
+# #
+# RX_MAJOR=	0
+# RX_MINOR=	0
+# MAKE_ENV+=	RX_MAJOR=${RX_MAJOR:Q} RX_MINOR=${RX_MINOR:Q}
+# 
+# INSTALLATION_DIRS=	${PKGINFODIR}
+# 
+# post-install:
+# 	cd ${WRKSRC}/doc; for f in rx.info rx.info-[0-9]*; do		\
+# 		${TEST} ! -f "$$f" ||					\
+# 		${INSTALL_DATA} "$$f" ${DESTDIR}${PREFIX}/${PKGINFODIR};	\
+# 	done
+# 
+# .include "../../mk/bsd.pkg.mk"

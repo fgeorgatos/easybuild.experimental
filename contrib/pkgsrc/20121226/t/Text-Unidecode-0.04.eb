@@ -1,0 +1,66 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Text-Unidecode-0.04.eb
+# Date::      Wed Dec 26 17:09:09 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'Unidecode-0.04'
+versionsuffix = '-20121226'
+
+description = "Text-Unidecode-0.04: Perl5 module that transliterates Unicode to US-ASCII"
+
+# The following are automatically calculated - cross fingers
+sources = ['Text-Unidecode-0.04.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Text/']
+homepage = 'http://search.cpan.org/dist/Text-Unidecode/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/p5-Text-Unidecode/Makefile ######
+# # $NetBSD: Makefile,v 1.4 2011/08/14 15:14:15 obache Exp $
+# #
+# 
+# DISTNAME=	Text-Unidecode-0.04
+# PKGNAME=	p5-${DISTNAME}
+# PKGREVISION=	2
+# CATEGORIES=	textproc perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Text/}
+# 
+# MAINTAINER=	pkgsrc-p5-people@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/Text-Unidecode/
+# COMMENT=	Perl5 module that transliterates Unicode to US-ASCII
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# PERL5_PACKLIST=		auto/Text/Unidecode/.packlist
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

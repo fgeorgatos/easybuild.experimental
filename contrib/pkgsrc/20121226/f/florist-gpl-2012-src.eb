@@ -1,0 +1,70 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      florist-gpl-2012-src.eb
+# Date::      Wed Dec 26 17:08:20 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'florist-gpl-2012'
+version = 'gpl-2012-src'
+versionsuffix = '-20121226'
+
+description = "florist-gpl-2012-src: POSIX Ada Binding, IEEE Standards 1003.5 b,c "
+
+# The following are automatically calculated - cross fingers
+sources = ['florist-gpl-2012-src.tgz']
+version = 'gpl-2012'
+name = 'florist'
+source_urls = ['http://downloads.dragonlace.net/src/']
+homepage = 'http://libre.adacore.com/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/florist/Makefile ######
+# # $NetBSD: Makefile,v 1.15 2012/07/15 11:52:57 marino Exp $
+# #
+# 
+# DISTNAME=		florist-gpl-2012-src
+# PKGNAME=		florist-gpl-2012
+# CATEGORIES=		devel
+# MASTER_SITES=		http://downloads.dragonlace.net/src/ \
+# 			http://dragonlace.mirrors.ada.cx/src/
+# EXTRACT_SUFX=		.tgz
+# 
+# MAINTAINER=		draco@marino.st
+# HOMEPAGE=		http://libre.adacore.com/
+# COMMENT=		POSIX Ada Binding, IEEE Standards 1003.5(b,c)
+# LICENSE=		gnu-gpl-v3
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# GNU_CONFIGURE=		yes
+# USE_LANGUAGES=		c ada
+# 
+# post-extract:
+# 	${CP} ${FILESDIR}/pconfig.* ${WRKSRC}/configs
+# 
+# .include "../../mk/bsd.pkg.mk"

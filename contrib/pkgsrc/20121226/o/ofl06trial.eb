@@ -1,0 +1,93 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      ofl06trial.eb
+# Date::      Wed Dec 26 17:08:46 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'softmaker-office-demo-2006'
+version = 'ofl06trial'
+versionsuffix = '-20121226'
+
+description = "ofl06trial: SoftMaker Office TextMaker and PlanMaker demo version Linux binary "
+
+# The following are automatically calculated - cross fingers
+sources = ['ofl06trial.tgz']
+version = 'office-demo-2006'
+name = 'softmaker'
+source_urls = ['http://www.softmaker.net/down/']
+homepage = 'http://www.softmaker.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/misc/softmaker-office-demo/Makefile ######
+# # $NetBSD: Makefile,v 1.7 2012/05/24 17:13:54 marino Exp $
+# #
+# 
+# DISTNAME=	ofl06trial
+# PKGNAME=	softmaker-office-demo-2006
+# CATEGORIES=	misc
+# MASTER_SITES=	http://www.softmaker.net/down/
+# EXTRACT_SUFX=	.tgz
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.softmaker.net/
+# COMMENT=	SoftMaker Office (TextMaker and PlanMaker) demo version (Linux binary)
+# LICENSE=	softmaker-office-demo-license
+# 
+# RESTRICTED=		Only separately distributed, exact copies, for no fee
+# NO_SRC_ON_FTP=		${RESTRICTED}
+# NO_BIN_ON_FTP=		${RESTRICTED}
+# NO_SRC_ON_CDROM=	${RESTRICTED}
+# NO_BIN_ON_CDROM=	${RESTRICTED}
+# 
+# NOT_FOR_PLATFORM+=	DragonFly-*-*
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=		${WRKDIR}/officetrial
+# USE_LANGUAGES=	# none
+# USE_TOOLS+=		pax
+# EMUL_PLATFORMS=		linux-i386
+# EMUL_MODULES.linux=	base x11
+# 
+# INSTALLATION_DIRS=	bin lib/softmaker
+# 
+# do-build:
+# 	${ECHO} '#!/bin/sh' > ${WRKDIR}/textmaker
+# 	${ECHO} 'cd ${PREFIX}/lib/softmaker' >> ${WRKDIR}/textmaker
+# 	${ECHO} './textmaker' >> ${WRKDIR}/textmaker
+# 	${ECHO} '#!/bin/sh' > ${WRKDIR}/planmaker
+# 	${ECHO} 'cd ${PREFIX}/lib/softmaker' >> ${WRKDIR}/planmaker
+# 	${ECHO} './planmaker' >> ${WRKDIR}/planmaker
+# 
+# do-install:
+# 	${INSTALL_SCRIPT} ${WRKDIR}/textmaker ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_SCRIPT} ${WRKDIR}/planmaker ${DESTDIR}${PREFIX}/bin
+# 	cd ${WRKSRC} && pax -rwpp * ${DESTDIR}${PREFIX}/lib/softmaker
+# 
+# .include "../../mk/bsd.pkg.mk"

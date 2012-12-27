@@ -1,0 +1,81 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      fluctuate1.4.src.doc.eb
+# Date::      Wed Dec 26 17:08:13 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'fluctuate-1.4'
+version = 'fluctuate1.4.src.doc'
+versionsuffix = '-20121226'
+
+description = "fluctuate1.4.src.doc: Estimation of population growth rate"
+
+# The following are automatically calculated - cross fingers
+sources = ['fluctuate1.4.src.doc.tar.gz']
+version = '1.4'
+name = 'fluctuate'
+source_urls = ['http://evolution.gs.washington.edu/lamarc/fluctuate/']
+homepage = 'http://evolution.genetics.washington.edu/lamarc/fluctuate.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/biology/fluctuate/Makefile ######
+# # $NetBSD: Makefile,v 1.9 2012/09/11 20:32:12 asau Exp $
+# #
+# 
+# DISTNAME=	fluctuate1.4.src.doc
+# PKGNAME=	fluctuate-1.4
+# CATEGORIES=	biology
+# MASTER_SITES=	http://evolution.gs.washington.edu/lamarc/fluctuate/
+# 
+# MAINTAINER=	brook@nmsu.edu
+# HOMEPAGE=	http://evolution.genetics.washington.edu/lamarc/fluctuate.html
+# COMMENT=	Estimation of population growth rate
+# 
+# WRKSRC=		${WRKDIR}/fluctuate1.4
+# BUILD_TARGET=	fluctuate
+# 
+# DOCDIR=		${PREFIX}/share/doc/fluctuate
+# EXDIR=		${PREFIX}/share/examples/fluctuate
+# DOCFILES=	fluctuate.doc errors.doc
+# EXFILES=	bestree infile outfile
+# 
+# INSTALLATION_DIRS=	bin
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/fluctuate ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${DOCDIR}
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${EXDIR}
+# 	for f in ${DOCFILES}; do 					\
+# 		${INSTALL_DATA} ${WRKSRC}/$$f ${DESTDIR}${DOCDIR}/$$f; 	\
+# 	done
+# 	for f in ${EXFILES}; do 					\
+# 		${INSTALL_DATA} ${WRKSRC}/$$f ${DESTDIR}${EXDIR}/$$f; 	\
+# 	done
+# 
+# .include "../../mk/bsd.pkg.mk"

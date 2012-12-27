@@ -1,0 +1,68 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      renderproto-0.9.3.eb
+# Date::      Wed Dec 26 17:09:15 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'renderproto'
+version = '0.9.3'
+versionsuffix = '-20121226'
+
+description = "renderproto-0.9.3: Render extension headers"
+
+# The following are automatically calculated - cross fingers
+sources = ['renderproto-0.9.3.tar.bz2']
+source_urls = ['http://sourceforge.net/projects/proto/files', 'download']
+homepage = 'http://xorg.freedesktop.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/renderproto9/Makefile ######
+# # $NetBSD: Makefile,v 1.1.1.1 2010/12/15 09:29:34 abs Exp $
+# #
+# # This package is for use with native X11. Do not update to later versions.
+# 
+# DISTNAME=		renderproto-0.9.3
+# PKGREVISION=		2
+# CATEGORIES=		x11
+# MASTER_SITES=		${MASTER_SITE_XORG:=proto/}
+# EXTRACT_SUFX=		.tar.bz2
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://xorg.freedesktop.org/
+# COMMENT=		Render extension headers
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# CONFLICTS+=		renderext-[0-9]*
+# 
+# GNU_CONFIGURE=		yes
+# PKGCONFIG_OVERRIDE+=	${WRKSRC}/renderproto.pc.in
+# USE_LANGUAGES=		# none, not even C
+# 
+# .include "../../mk/bsd.pkg.mk"

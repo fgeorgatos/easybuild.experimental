@@ -1,0 +1,85 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      kdegames-.eb
+# Date::      Wed Dec 26 17:08:34 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'kdegames'
+version = ''
+versionsuffix = '-20121226'
+
+description = "kdegames-: Games for the KDE integrated X11 desktop"
+
+# The following are automatically calculated - cross fingers
+sources = ['kdegames-${_KDE_VERSION}.tar.gz']
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/kdegames3/Makefile ######
+# # $NetBSD: Makefile,v 1.65 2012/09/15 10:04:41 obache Exp $
+# 
+# DISTNAME=	kdegames-${_KDE_VERSION}
+# PKGREVISION=	15
+# CATEGORIES=	games
+# COMMENT=	Games for the KDE integrated X11 desktop
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# .include "../../meta-pkgs/kde3/Makefile.kde3"
+# 
+# CONFIGURE_ARGS+=	--disable-setgid
+# 
+# .include "../../meta-pkgs/kde3/kde3.mk"
+# .include "../../graphics/hicolor-icon-theme/buildlink3.mk"
+# .include "../../x11/kdebase3/buildlink3.mk"
+# .include "../../x11/kdelibs3/buildlink3.mk"
+# .include "../../sysutils/desktop-file-utils/desktopdb.mk"
+# .include "../../mk/bsd.pkg.mk"
+/kajongg.py
+# REPLACE_PYTHON+=	kajongg/src/kajonggserver.py
+# REPLACE_PYTHON+=	kajongg/src/scoringtest.py
+# REPLACE_PYTHON+=	kajongg/src/server.py
+# 
+# .include "../../meta-pkgs/kde4/kde4.mk"
+# 
+# .include "../../audio/openal/buildlink3.mk"
+# .include "../../audio/libsndfile/buildlink3.mk"
+# .include "../../databases/sqlite3/buildlink3.mk"
+# .include "../../lang/python/application.mk"
+# # don't add python include dir to include path
+# # as eg kolf will pick up wrong versions of header files
+# BUILDLINK_INCDIRS.${PYPACKAGE}=
+# .include "../../games/ggz-client-libs/buildlink3.mk"
+# .include "../../graphics/hicolor-icon-theme/buildlink3.mk"
+# .include "../../security/qca2/buildlink3.mk"
+# .include "../../sysutils/desktop-file-utils/desktopdb.mk"
+# .include "../../x11/kdelibs4/buildlink3.mk"
+# .include "../../x11/kde-runtime4/buildlink3.mk"
+# .include "../../x11/py-kde4/buildlink3.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"

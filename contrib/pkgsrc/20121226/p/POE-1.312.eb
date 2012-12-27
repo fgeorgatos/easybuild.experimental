@@ -1,0 +1,81 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      POE-1.312.eb
+# Date::      Wed Dec 26 17:08:25 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = '1.312'
+versionsuffix = '-20121226'
+
+description = "POE-1.312: Perl Object Environment"
+
+# The following are automatically calculated - cross fingers
+sources = ['POE-1.312.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/POE/']
+homepage = 'http://poe.perl.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-POE/Makefile ######
+# # $NetBSD: Makefile,v 1.19 2011/08/06 13:24:20 adam Exp $
+# 
+# DISTNAME=	POE-1.312
+# PKGNAME=	p5-${DISTNAME}
+# CATEGORIES=	devel perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=POE/}
+# 
+# MAINTAINER=	minskim@NetBSD.org
+# HOMEPAGE=	http://poe.perl.org/
+# #HOMEPAGE=	http://search.cpan.org/dist/POE/
+# COMMENT=	Perl Object Environment
+# LICENSE=	${PERL5_LICENSE}
+# 
+# DEPENDS+=	p5-IO-Compress>=2.017:../../devel/p5-IO-Compress
+# DEPENDS+=	p5-Curses>=1.08:../../devel/p5-Curses
+# DEPENDS+=	p5-Event>=1.00:../../devel/p5-Event
+# DEPENDS+=	p5-IO-tty>=1.08:../../devel/p5-IO-Tty
+# DEPENDS+=	p5-IO>=1.2301:../../devel/p5-IO
+# DEPENDS+=	p5-POE-Test-Loops>=1.030:../../devel/p5-POE-Test-Loops
+# DEPENDS+=	p5-Socket6>=0.14:../../net/p5-Socket6
+# DEPENDS+=	p5-Term-ReadKey>=2.21:../../devel/p5-Term-ReadKey
+# DEPENDS+=	p5-Term-Cap>=1.09:../../devel/p5-Term-Cap
+# DEPENDS+=	p5-Time-HiRes>=1.59:../../time/p5-Time-HiRes
+# DEPENDS+=	p5-URI>=1.30:../../www/p5-URI
+# DEPENDS+=	p5-libwww-[0-9]*:../../www/p5-libwww
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# MAKE_PARAMS+=	--default
+# PERL5_PACKLIST=	auto/POE/.packlist
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

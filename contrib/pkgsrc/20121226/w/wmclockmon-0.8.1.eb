@@ -1,0 +1,66 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      wmclockmon-0.8.1.eb
+# Date::      Wed Dec 26 17:09:12 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'wmclockmon'
+version = '0.8.1'
+versionsuffix = '-20121226'
+
+description = "wmclockmon-0.8.1: Windowmaker dockapp for time/date"
+
+# The following are automatically calculated - cross fingers
+sources = ['wmclockmon-0.8.1.tar.gz']
+source_urls = ['http://tnemeth.free.fr/projets/programmes/']
+homepage = 'http://tnemeth.free.fr/projets/dockapps.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/time/wmclockmon/Makefile ######
+# # $NetBSD: Makefile,v 1.8 2011/04/22 13:44:54 obache Exp $
+# #
+# 
+# DISTNAME=	wmclockmon-0.8.1
+# PKGREVISION=	2
+# CATEGORIES=	time x11
+# MASTER_SITES=	http://tnemeth.free.fr/projets/programmes/
+# 
+# MAINTAINER=	poff@sixbit.org
+# HOMEPAGE=	http://tnemeth.free.fr/projets/dockapps.html
+# COMMENT=	Windowmaker dockapp for time/date
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=	yes
+# 
+# .include "../../x11/gtk/buildlink3.mk"
+# .include "../../x11/libXext/buildlink3.mk"
+# .include "../../x11/libXpm/buildlink3.mk"
+# .include "../../x11/xextproto/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

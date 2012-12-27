@@ -1,0 +1,63 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      i810switch-0.6.5.eb
+# Date::      Wed Dec 26 17:09:01 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'i810switch'
+version = '0.6.5'
+versionsuffix = '-20121226'
+
+description = "i810switch-0.6.5: Switch LCD/CRT 855/865/915 Intel chips"
+
+# The following are automatically calculated - cross fingers
+sources = ['i810switch-0.6.5.tar.gz']
+source_urls = ['http://www16.plala.or.jp/mano-a-mano/i810switch/']
+homepage = 'http://www16.plala.or.jp/mano-a-mano/i810switch/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/i810switch/Makefile ######
+# # $NetBSD: Makefile,v 1.2 2007/12/19 18:43:37 joerg Exp $
+# #
+# 
+# DISTNAME=	i810switch-0.6.5
+# CATEGORIES=	sysutils
+# MASTER_SITES=	http://www16.plala.or.jp/mano-a-mano/i810switch/
+# 
+# MAINTAINER=	christos@NetBSD.org
+# HOMEPAGE=	http://www16.plala.or.jp/mano-a-mano/i810switch/
+# COMMENT=	Switch LCD/CRT 855/865/915 Intel chips
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# ONLY_FOR_PLATFORM=	NetBSD-*-i386 NetBSD-*-x86_64 Linux-*-i386
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"

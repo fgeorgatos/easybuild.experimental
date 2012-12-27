@@ -1,0 +1,67 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      sparsehash-2.0.2.eb
+# Date::      Wed Dec 26 17:08:28 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'sparsehash'
+version = '2.0.2'
+versionsuffix = '-20121226'
+
+description = "sparsehash-2.0.2: Extremely memory-efficient hash map implementation"
+
+# The following are automatically calculated - cross fingers
+sources = ['sparsehash-2.0.2.tar.gz']
+source_urls = ['http://sparsehash.googlecode.com/files/']
+homepage = 'http://goog-sparsehash.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/sparsehash/Makefile ######
+# # $NetBSD: Makefile,v 1.11 2012/09/15 17:21:52 dholland Exp $
+# #
+# 
+# DISTNAME=		sparsehash-2.0.2
+# CATEGORIES=		devel
+# MASTER_SITES=		http://sparsehash.googlecode.com/files/
+# 
+# MAINTAINER=		cheusov@NetBSD.org
+# HOMEPAGE=		http://goog-sparsehash.sourceforge.net/
+# COMMENT=		Extremely memory-efficient hash_map implementation
+# LICENSE=		modified-bsd
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=		c c++
+# GNU_CONFIGURE=		yes
+# 
+# TEST_TARGET=		check
+# 
+# INSTALL_MAKE_FLAGS=	docdir=${PREFIX}/share/doc/sparsehash
+# 
+# .include "../../mk/bsd.pkg.mk"

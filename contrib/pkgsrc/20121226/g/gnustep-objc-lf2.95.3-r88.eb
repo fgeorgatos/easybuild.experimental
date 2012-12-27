@@ -1,0 +1,80 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      gnustep-objc-lf2.95.3-r88.eb
+# Date::      Wed Dec 26 17:08:20 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'gnustep'
+version = 'objc-lf2.95.3-r88'
+versionsuffix = '-20121226'
+
+description = "gnustep-objc-lf2.95.3-r88: Objective-C library required for libFoundation"
+
+# The following are automatically calculated - cross fingers
+sources = ['gnustep-objc-lf2.95.3-r88.tar.gz']
+source_urls = ['http://download.opengroupware.org/nightly/sources/releases/']
+homepage = 'http://sope.opengroupware.org/en/build/thirdparty.html\#gstep_objc'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/gnustep-objc-lf2/Makefile ######
+# # $NetBSD: Makefile,v 1.13 2009/05/19 08:59:09 wiz Exp $
+# #
+# 
+# DISTNAME=	gnustep-objc-lf2.95.3-r88
+# PKGNAME=	${DISTNAME:S/.9/-2.9/:S/-r/./}
+# PKGREVISION=	3
+# CATEGORIES=	devel gnustep
+# MASTER_SITES=	http://download.opengroupware.org/nightly/sources/releases/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://sope.opengroupware.org/en/build/thirdparty.html\#gstep_objc
+# COMMENT=	Objective-C library required for libFoundation
+# LICENSE=	gnu-gpl-v2
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=	objc
+# 
+# WRKSRC=		${WRKDIR}/libobjc-lf2
+# USE_TOOLS+=	gmake
+# MAKE_JOBS_SAFE=	no
+# MAKE_FILE=	GNUmakefile
+# 
+# .include "../../devel/gnustep-make/buildlink3.mk"
+# 
+# do-configure:
+# .if ${GNUSTEP_HOST_CPU} == "x86_64"
+# 	${LN} -s alpha ${WRKSRC}/config/x86_64
+# .else
+# 	${MKDIR} ${WRKSRC}/config/${GNUSTEP_HOST_CPU}
+# 	[ -e ${WRKSRC}/config/${GNUSTEP_HOST_CPU}/${LOWER_OPSYS} ] || \
+# 	${LN} -s linux-gnu ${WRKSRC}/config/${GNUSTEP_HOST_CPU}/generic
+# .endif
+# 
+# .include "../../mk/bsd.pkg.mk"

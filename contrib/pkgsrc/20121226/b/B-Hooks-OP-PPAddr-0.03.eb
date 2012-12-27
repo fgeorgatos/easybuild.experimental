@@ -1,0 +1,74 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      B-Hooks-OP-PPAddr-0.03.eb
+# Date::      Wed Dec 26 17:08:22 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'Hooks-OP-PPAddr-0.03'
+versionsuffix = '-20121226'
+
+description = "B-Hooks-OP-PPAddr-0.03: Hook into opcode execution"
+
+# The following are automatically calculated - cross fingers
+sources = ['B-Hooks-OP-PPAddr-0.03.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/B/']
+homepage = 'http://search.cpan.org/dist/B-Hooks-OP-PPAddr/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-B-Hooks-OP-PPAddr/Makefile ######
+# # $NetBSD: Makefile,v 1.4 2011/08/09 07:37:56 adam Exp $
+# 
+# DISTNAME=	B-Hooks-OP-PPAddr-0.03
+# PKGNAME=	p5-${DISTNAME}
+# PKGREVISION=	2
+# CATEGORIES=	devel perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=B/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/B-Hooks-OP-PPAddr/
+# COMMENT=	Hook into opcode execution
+# LICENSE=	${PERL5_LICENSE}
+# 
+# BUILD_DEPENDS+=	p5-ExtUtils-Depends>=0.302:../../devel/p5-ExtUtils-Depends
+# DEPENDS+=	p5-parent>0:../../devel/p5-parent
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=		c
+# PERL5_PACKLIST=		auto/B/Hooks/OP/PPAddr/.packlist
+# 
+# post-install:
+# 	${INSTALL_DATA_DIR} ${DESTDIR}/${PREFIX}/include
+# 	${INSTALL_DATA} ${WRKSRC}/hook_op_ppaddr.h ${DESTDIR}/${PREFIX}/include
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

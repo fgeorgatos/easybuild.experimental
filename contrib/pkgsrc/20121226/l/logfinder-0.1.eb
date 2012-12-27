@@ -1,0 +1,71 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      logfinder-0.1.eb
+# Date::      Wed Dec 26 17:09:01 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'logfinder'
+version = '0.1'
+versionsuffix = '-20121226'
+
+description = "logfinder-0.1: Eliminate Unwanted Logging of Personal Data"
+
+# The following are automatically calculated - cross fingers
+sources = ['logfinder-0.1.tar.gz']
+source_urls = ['http://www.eff.org/osp/']
+homepage = 'http://www.eff.org/osp/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/logfinder/Makefile ######
+# # $NetBSD: Makefile,v 1.9 2012/03/15 11:53:38 obache Exp $
+# #
+# 
+# DISTNAME=		logfinder-0.1
+# PKGREVISION=		4
+# CATEGORIES=		sysutils
+# MASTER_SITES=		http://www.eff.org/osp/
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://www.eff.org/osp/
+# COMMENT=		Eliminate Unwanted Logging of Personal Data
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# DEPENDS+=		lsof>=4.72:../../sysutils/lsof
+# 
+# NO_BUILD=		YES
+# 
+# PYTHON_PATCH_SCRIPTS+=	${WRKSRC}/logfinder.py
+# INSTALLATION_DIRS=	sbin
+# 
+# do-install:
+# 	${INSTALL_SCRIPT} ${WRKSRC}/logfinder.py ${DESTDIR}${PREFIX}/sbin/
+# 
+# .include "../../lang/python/application.mk"
+# .include "../../mk/bsd.pkg.mk"

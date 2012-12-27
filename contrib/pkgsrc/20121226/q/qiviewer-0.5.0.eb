@@ -1,0 +1,81 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      qiviewer-0.5.0.eb
+# Date::      Wed Dec 26 17:08:38 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'qiviewer'
+version = '0.5.0'
+versionsuffix = '-20121226'
+
+description = "qiviewer-0.5.0: Qt image viewer, designed to be fast and lightweight"
+
+# The following are automatically calculated - cross fingers
+sources = ['qiviewer-0.5.0.tar.bz2']
+source_urls = ['http://qiviewer.googlecode.com/files/']
+homepage = 'http://code.google.com/p/qiviewer/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/qiviewer/Makefile ######
+# # $NetBSD: Makefile,v 1.6.2.1 2012/10/03 12:08:13 spz Exp $
+# #
+# 
+# DISTNAME=	qiviewer-0.5.0
+# PKGREVISION=	6
+# CATEGORIES=	graphics
+# MASTER_SITES=	http://qiviewer.googlecode.com/files/
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	ryoon@NetBSD.org
+# HOMEPAGE=	http://code.google.com/p/qiviewer/
+# COMMENT=	Qt image viewer, designed to be fast and lightweight
+# LICENSE=	gnu-gpl-v2
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=		${WRKDIR}/qiviewer/src
+# USE_LANGUAGES=	c c++
+# USE_TOOLS+=	gmake
+# 
+# do-configure:
+# 	(cd ${WRKSRC} && \
+# 	${QTDIR}/bin/qmake \
+# 		PREFIX=${DESTDIR}${PREFIX} \
+# 		CONFIG+=enable-webp)
+# 
+# SUBST_CLASSES+=			fix-target
+# SUBST_STAGE.fix-target=		post-configure
+# SUBST_MESSAGE.fix-target=	Replace QMAKE_TARGET with TARGET
+# SUBST_FILES.fix-target+=	Makefile
+# SUBST_SED.fix-target+=		-e 's/(QMAKE_TARGET)/{TARGET}/'
+# 
+# .include "../../sysutils/desktop-file-utils/desktopdb.mk"
+# .include "../../x11/qt4-libs/buildlink3.mk"
+# .include "../../x11/qt4-tools/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

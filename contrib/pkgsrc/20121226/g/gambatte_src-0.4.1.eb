@@ -1,0 +1,85 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      gambatte_src-0.4.1.eb
+# Date::      Wed Dec 26 17:08:30 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'gambatte_src'
+version = '0.4.1'
+versionsuffix = '-20121226'
+
+description = "gambatte_src-0.4.1: Game Boy Color emulator"
+
+# The following are automatically calculated - cross fingers
+sources = ['gambatte_src-0.4.1.tar.gz']
+source_urls = ['http://sourceforge.net/projects/gambatte/files', 'download']
+homepage = 'http://gambatte.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/emulators/gambatte/Makefile ######
+# # $NetBSD: Makefile,v 1.14.2.1 2012/10/03 12:07:36 spz Exp $
+# #
+# 
+# DISTNAME=	gambatte_src-0.4.1
+# PKGNAME=	${DISTNAME:S/_src//}
+# PKGREVISION=	12
+# CATEGORIES=	emulators
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=gambatte/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://gambatte.sourceforge.net/
+# COMMENT=	Game Boy Color emulator
+# 
+# BUILD_DEPENDS+=	scons-[0-9]*:../../devel/scons
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=	c c++
+# INSTALLATION_DIRS=	bin share/doc/gambatte
+# 
+# SUBST_CLASSES+=		sdl
+# SUBST_FILES.sdl=	gambatte_sdl/SConstruct
+# SUBST_MESSAGE.sdl=	Fixing path to sdl-config.
+# SUBST_SED.sdl=		-e "s,sdl-config,${LOCALBASE}/bin/sdl-config,"
+# SUBST_STAGE.sdl=	pre-build
+# 
+# .include "options.mk"
+# 
+# do-build:
+# 	cd ${WRKSRC}/libgambatte && ${SETENV} ${MAKE_ENV} scons
+# 	cd ${WRKSRC}/gambatte_sdl && ${SETENV} ${MAKE_ENV} scons
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/gambatte_sdl/gambatte_sdl \
+# 		${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_DATA} ${WRKSRC}/README ${DESTDIR}${PREFIX}/share/doc/gambatte
+# 
+# .include "../../devel/SDL/buildlink3.mk"
+# .include "../../devel/zlib/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

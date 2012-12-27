@@ -1,0 +1,78 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      blas.eb
+# Date::      Wed Dec 26 17:08:43 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'blas-1.1'
+version = 'blas'
+versionsuffix = '-20121226'
+
+description = "blas: Basic Linear Algebra Subprograms Fortran "
+
+# The following are automatically calculated - cross fingers
+sources = ['blas.tgz']
+version = '1.1'
+name = 'blas'
+source_urls = ['${MASTER_SITE_NETLIB:=blas/}']
+homepage = 'http://www.netlib.org/blas/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/math/blas/Makefile ######
+# # $NetBSD: Makefile,v 1.30 2012/09/11 23:04:17 asau Exp $
+# #
+# 
+# DISTNAME=	blas
+# PKGNAME=	blas-1.1
+# PKGREVISION=	2
+# CATEGORIES=	math
+# MASTER_SITES=	${MASTER_SITE_NETLIB:=blas/}
+# EXTRACT_SUFX=	.tgz
+# 
+# MAINTAINER=	adam@NetBSD.org
+# HOMEPAGE=	http://www.netlib.org/blas/
+# COMMENT=	Basic Linear Algebra Subprograms (Fortran)
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# 
+# DIST_SUBDIR=		${PKGNAME_NOREV}
+# WRKSRC=			${WRKDIR}/BLAS
+# USE_LANGUAGES=		c fortran77
+# USE_LIBTOOL=		yes
+# 
+# # Pass along the major and minor of the version number as the major and
+# # minor of the shared library to be built.
+# #
+# MAKE_ENV+=	SHLIB_MAJOR=${PKGNAME_NOREV:S/${PKGBASE}-//:C/[.].*$//}
+# MAKE_ENV+=	SHLIB_MINOR=${PKGNAME_NOREV:S/${PKGBASE}-//:C/^.*[.]//}
+# 
+# post-extract:
+# 	cp -f ${FILESDIR}/Makefile.blas ${WRKSRC}/Makefile
+# 
+# .include "../../mk/bsd.pkg.mk"

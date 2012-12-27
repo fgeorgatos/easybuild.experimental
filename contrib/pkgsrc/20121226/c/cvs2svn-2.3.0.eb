@@ -1,0 +1,87 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      cvs2svn-2.3.0.eb
+# Date::      Wed Dec 26 17:08:20 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'cvs2svn'
+version = '2.3.0'
+versionsuffix = '-20121226'
+
+description = "cvs2svn-2.3.0: Converts a CVS repository to a Subversion repository"
+
+# The following are automatically calculated - cross fingers
+sources = ['cvs2svn-2.3.0.tar.gz']
+source_urls = ['http://cvs2svn.tigris.org/files/documents/1462/46528/']
+homepage = 'http://cvs2svn.tigris.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/cvs2svn/Makefile ######
+# # $NetBSD: Makefile,v 1.27 2012/03/09 12:34:05 wiz Exp $
+# 
+# DISTNAME=	cvs2svn-2.3.0
+# PKGREVISION=	2
+# CATEGORIES=	devel scm
+# MASTER_SITES=	http://cvs2svn.tigris.org/files/documents/1462/46528/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://cvs2svn.tigris.org/
+# COMMENT=	Converts a CVS repository to a Subversion repository
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# DEPENDS+=	subversion-base-[0-9]*:../../devel/subversion-base
+# 
+# CONFLICTS+=	py*-subversion<1.0.1
+# 
+# PYDISTUTILSPKG=			yes
+# PYTHON_PATCH_SCRIPTS=		run-tests.py cvs2svn_rcsparse/run-tests.py \
+# 				cvs2svn_rcsparse/parse_rcs_file.py
+# #USE_TOOLS+=			gtar
+# #EXTRACT_USING=			gtar
+# 
+# # XXX cvs2svn depends on sort(1) with '-T' option. A dependency and a patch
+# # to resort on GNU sort from coreutils may be required.
+# 
+# INSTALLATION_DIRS+=	share/doc/cvs2svn
+# INSTALLATION_DIRS+=	share/examples/cvs2svn
+# 
+# post-install:
+# 	cd ${WRKSRC}/www && \
+# 	${INSTALL_DATA} *.html ${DESTDIR}${PREFIX}/share/doc/cvs2svn
+# 	cd ${WRKSRC} && \
+# 	${INSTALL_DATA} cvs2svn-example.options ${DESTDIR}${PREFIX}/share/examples/cvs2svn
+# 
+# do-test:
+# 	cd ${WRKSRC} && ./run-tests.py
+# 
+# .include "../../databases/py-bsddb3/buildlink3.mk"
+# .include "../../lang/python/application.mk"
+# .include "../../lang/python/extension.mk"
+# .include "../../mk/bsd.pkg.mk"

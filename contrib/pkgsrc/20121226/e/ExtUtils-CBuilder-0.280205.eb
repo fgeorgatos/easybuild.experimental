@@ -1,0 +1,67 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      ExtUtils-CBuilder-0.280205.eb
+# Date::      Wed Dec 26 17:08:23 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-ExtUtils-CBuilder-0.28.02.05'
+version = 'CBuilder-0.280205'
+versionsuffix = '-20121226'
+
+description = "ExtUtils-CBuilder-0.280205: Perl5 module for compiling and linking C code for Perl modules"
+
+# The following are automatically calculated - cross fingers
+sources = ['ExtUtils-CBuilder-0.280205.tar.gz']
+version = 'ExtUtils-CBuilder-0.28.02.05'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/ExtUtils/']
+homepage = 'http://search.cpan.org/dist/ExtUtils-CBuilder/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-ExtUtils-CBuilder/Makefile ######
+# # $NetBSD: Makefile,v 1.19 2012/03/11 04:27:23 markd Exp $
+# 
+# DISTNAME=	ExtUtils-CBuilder-0.280205
+# PKGNAME=	p5-ExtUtils-CBuilder-0.28.02.05
+# SVR4_PKGNAME=	p5ecb
+# CATEGORIES=	devel perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=ExtUtils/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/ExtUtils-CBuilder/
+# COMMENT=	Perl5 module for compiling and linking C code for Perl modules
+# LICENSE=	${PERL5_LICENSE}
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=		c
+# PERL5_PACKLIST=		auto/ExtUtils/CBuilder/.packlist
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

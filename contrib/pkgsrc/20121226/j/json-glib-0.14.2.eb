@@ -1,0 +1,72 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      json-glib-0.14.2.eb
+# Date::      Wed Dec 26 17:09:08 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'json'
+version = 'glib-0.14.2'
+versionsuffix = '-20121226'
+
+description = "json-glib-0.14.2: JSON parser for GLib-based libraries and applications"
+
+# The following are automatically calculated - cross fingers
+sources = ['json-glib-0.14.2.tar.bz2']
+source_urls = ['http://sourceforge.net/projects/sources/json-glib/0.14/files', 'download']
+homepage = 'http://live.gnome.org/JsonGlib'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/json-glib/Makefile ######
+# # $NetBSD: Makefile,v 1.15 2012/09/15 10:06:37 obache Exp $
+# #
+# 
+# DISTNAME=	json-glib-0.14.2
+# PKGREVISION=	3
+# CATEGORIES=	textproc
+# MASTER_SITES=	${MASTER_SITE_GNOME:=sources/json-glib/0.14/}
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://live.gnome.org/JsonGlib
+# COMMENT=	JSON parser for GLib-based libraries and applications
+# LICENSE=	gnu-lgpl-v2.1
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=	yes
+# USE_LIBTOOL=	yes
+# USE_TOOLS+=	gmake pkg-config
+# 
+# PKGCONFIG_OVERRIDE+=	json-glib.pc.in
+# 
+# TEST_TARGET=	check
+# 
+# BUILDLINK_API_DEPENDS.glib2+=	glib2>=2.16.0
+# .include "../../devel/glib2/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

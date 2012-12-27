@@ -1,0 +1,74 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      devkitd-jmcneill-003.eb
+# Date::      Wed Dec 26 17:09:00 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'devkitd'
+version = 'jmcneill-003'
+versionsuffix = '-20121226'
+
+description = "devkitd-jmcneill-003: NetBSD port of devkitd for DeviceKit "
+
+# The following are automatically calculated - cross fingers
+sources = ['devkitd-jmcneill-003.tar.gz']
+source_urls = ['http://www.invisible.ca/~jmcneill/devkitd/']
+homepage = 'http://www.invisible.ca/~jmcneill/devkitd/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/devkitd/Makefile ######
+# # $NetBSD: Makefile,v 1.6 2012/09/15 10:06:22 obache Exp $
+# #
+# 
+# DISTNAME=	devkitd-jmcneill-003
+# PKGNAME=	${DISTNAME:S/-jmcneill//}
+# PKGREVISION=	4
+# CATEGORIES=	sysutils
+# MASTER_SITES=	http://www.invisible.ca/~jmcneill/devkitd/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.invisible.ca/~jmcneill/devkitd/
+# COMMENT=	NetBSD port of devkitd (for DeviceKit)
+# LICENSE=	gnu-lgpl-v2 AND gnu-gpl-v2
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# ONLY_FOR_PLATFORM=	NetBSD-[5-9]*-*
+# 
+# GNU_CONFIGURE=	yes
+# USE_LIBTOOL=	yes
+# USE_TOOLS+=	gmake pkg-config
+# 
+# CONF_FILES+=	share/examples/GConf/org.freedesktop.DeviceKit.conf \
+# 		${PKG_SYSCONFBASEDIR}/dbus-1/system.d/org.freedesktop.DeviceKit.conf
+# 
+# .include "../../devel/glib2/buildlink3.mk"
+# .include "../../sysutils/dbus-glib/buildlink3.mk"
+# .include "../../sysutils/libdevkit-gobject/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

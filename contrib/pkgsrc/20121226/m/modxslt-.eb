@@ -1,0 +1,86 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      modxslt-.eb
+# Date::      Wed Dec 26 17:09:03 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = '-xslt2-'
+version = ''
+versionsuffix = '-20121226'
+
+description = "modxslt-: Apache module able to apply stylesheets to XML data on the fly"
+
+# The following are automatically calculated - cross fingers
+sources = ['modxslt-${DIST_VER}.tar.gz']
+source_urls = ['http://www.mod-xslt2.com/software/archive/${DIST_VER}/']
+homepage = 'http://www.mod-xslt2.com/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/ap2-xslt2/Makefile ######
+# # $NetBSD: Makefile,v 1.14 2012/06/14 07:44:42 sbd Exp $
+# #
+# 
+# DISTNAME=	modxslt-${DIST_VER}
+# PKGNAME=	${APACHE_PKG_PREFIX}-xslt2-${DIST_VER}
+# PKGREVISION=	4
+# CATEGORIES=	www
+# MASTER_SITES=	http://www.mod-xslt2.com/software/archive/${DIST_VER}/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.mod-xslt2.com/
+# COMMENT=	Apache module able to apply stylesheets to XML data on the fly
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=	yes
+# USE_LIBTOOL=	yes
+# USE_TOOLS+=	gmake bash:run
+# 
+# APACHE_MODULE=	yes
+# DIST_VER=	2004112100
+# 
+# PKG_APACHE_ACCEPTED=	apache2
+# 
+# CONFIGURE_ARGS+=	--enable-fallback-wraparound
+# CONFIGURE_ARGS+=	--enable-libxslt-hack
+# CONFIGURE_ARGS+=	--with-apxs=${PREFIX}/sbin/apxs \
+# 			--with-xml2-config=${BUILDLINK_PREFIX.libxml2}/bin/xml2-config \
+# 			--with-apr-config=${BUILDLINK_PREFIX.apr}/bin/apr-config \
+# 			--with-apu-config=${BUILDLINK_PREFIX.apr}/bin/apu-config 
+# 
+# REPLACE_BASH=	utils/modxslt-config.pre.in
+# 
+# INSTALLATION_DIRS+=	bin lib/httpd
+# 
+# .include "../../devel/pcre/buildlink3.mk"
+# .include "../../textproc/libxml2/buildlink3.mk"
+# .include "../../textproc/libxslt/buildlink3.mk"
+# .include "../../mk/apache.mk"
+# .include "../../mk/pthread.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

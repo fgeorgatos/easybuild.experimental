@@ -1,0 +1,81 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      cbzone-sound.eb
+# Date::      Wed Dec 26 17:08:33 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'cbzone-2.0c'
+version = 'sound'
+versionsuffix = '-20121226'
+
+description = "cbzone-sound: Simple classic game of 3D tank warfare"
+
+# The following are automatically calculated - cross fingers
+sources = ['cbzone-sound.tar.gz']
+version = '2.0c'
+name = 'cbzone'
+source_urls = ['ftp://ftp.cdrom.com/pub/X11/R5contrib/']
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/cbzone/Makefile ######
+# # $NetBSD: Makefile,v 1.10 2011/03/16 08:47:37 obache Exp $
+# 
+# DISTNAME=		cbzone-sound
+# PKGNAME=		cbzone-2.0c
+# PKGREVISION=		2
+# CATEGORIES=		games x11
+# MASTER_SITES=		ftp://ftp.cdrom.com/pub/X11/R5contrib/
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# COMMENT=		Simple classic game of 3D tank warfare
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=			${WRKDIR}/cbzone
+# USE_TOOLS+=		gmake
+# USE_IMAKE=		yes
+# 
+# BUILD_DEFS+=		VARBASE
+# BUILD_DEFS+=		GAMES_USER
+# BUILD_DEFS+=		GAMES_GROUP
+# BUILD_DEFS+=		GAMEDATAMODE
+# 
+# MAKE_DIRS_PERMS+=	${VARBASE}/games ${GAMES_USER} ${GAMES_GROUP} ${GAMEDIRMODE}
+# REQD_FILES_PERMS+=	/dev/null ${VARBASE}/games/cbzone.highscores \
+# 			${GAMES_USER} ${GAMES_GROUP} ${GAMEDATAMODE}
+# SPECIAL_PERMS+=		bin/cbzone.exec ${SETGID_GAMES_PERMS}
+# 
+# SUBST_CLASSES+=		scoredir
+# SUBST_STAGE.scoredir=	post-configure
+# SUBST_FILES.scoredir=	c_scores.c
+# SUBST_VARS.scoredir=	VARBASE
+# 
+# .include "../../x11/libXext/buildlink3.mk"
+# .include "../../x11/libXt/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

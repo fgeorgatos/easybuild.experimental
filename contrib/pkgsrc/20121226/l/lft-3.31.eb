@@ -1,0 +1,70 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      lft-3.31.eb
+# Date::      Wed Dec 26 17:08:49 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'lft'
+version = '3.31'
+versionsuffix = '-20121226'
+
+description = "lft-3.31: Layer four traceroute capable of tracing protocol paths"
+
+# The following are automatically calculated - cross fingers
+sources = ['lft-3.31.tar.gz']
+source_urls = ['http://pwhois.org/dl/index.who?file=']
+homepage = 'http://pwhois.org/lft/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/lft/Makefile ######
+# # $NetBSD: Makefile,v 1.8 2011/03/11 07:02:38 gls Exp $
+# #
+# 
+# DISTNAME=		lft-3.31
+# CATEGORIES=		net
+# MASTER_SITES=	http://pwhois.org/dl/index.who?file=
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://pwhois.org/lft/
+# COMMENT=		Layer four traceroute capable of tracing protocol paths
+# LICENSE=		lft-license
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_PKGLOCALEDIR=	yes
+# GNU_CONFIGURE=		yes
+# 
+# INSTALLATION_DIRS+=	bin ${PKGMANDIR}/man8
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/lft ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_MAN} ${WRKSRC}/lft.8 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man8
+# 
+# .include "../../net/libpcap/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

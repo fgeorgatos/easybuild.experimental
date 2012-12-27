@@ -1,0 +1,71 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Moo-1.000003.eb
+# Date::      Wed Dec 26 17:08:24 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = '1.000003'
+versionsuffix = '-20121226'
+
+description = "Moo-1.000003: Minimalist Object Orientation with Moose compatiblity "
+
+# The following are automatically calculated - cross fingers
+sources = ['Moo-1.000003.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/../../authors/id/I/IL/ILMARI/']
+homepage = 'http://search.cpan.org/dist/Moo/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Moo/Makefile ######
+# # $NetBSD: Makefile,v 1.4 2012/09/10 13:07:11 sno Exp $
+# 
+# DISTNAME=	Moo-1.000003
+# PKGNAME=	p5-${DISTNAME}
+# CATEGORIES=	devel perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=../../authors/id/I/IL/ILMARI/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/Moo/
+# COMMENT=	Minimalist Object Orientation (with Moose compatiblity)
+# LICENSE=	${PERL5_LICENSE}
+# 
+# DEPENDS+=	p5-Class-Method-Modifiers>=1.05:../../devel/p5-Class-Method-Modifiers
+# DEPENDS+=	p5-Devel-GlobalDestruction>=0.09:../../devel/p5-Devel-GlobalDestruction
+# DEPENDS+=	p5-Module-Runtime>=0.012:../../devel/p5-Module-Runtime
+# DEPENDS+=	p5-Role-Tiny>=1.001003:../../devel/p5-Role-Tiny
+# DEPENDS+=	p5-strictures>=1.001001:../../devel/p5-strictures
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# PERL5_PACKLIST=	auto/Moo/.packlist
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

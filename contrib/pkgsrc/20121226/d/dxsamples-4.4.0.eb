@@ -1,0 +1,65 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      dxsamples-4.4.0.eb
+# Date::      Wed Dec 26 17:08:36 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'dxsamples'
+version = '4.4.0'
+versionsuffix = '-20121226'
+
+description = "dxsamples-4.4.0: Sample data for Open Visualization Data Explorer"
+
+# The following are automatically calculated - cross fingers
+sources = ['dxsamples-4.4.0.tar.gz']
+source_urls = ['http://opendx.npaci.edu/source/']
+homepage = 'http://www.research.ibm.com/dx/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/dxsamples/Makefile ######
+# # $NetBSD: Makefile,v 1.26 2011/03/31 08:07:01 asau Exp $
+# 
+# DISTNAME=	dxsamples-4.4.0
+# CATEGORIES=	graphics
+# MASTER_SITES=	http://opendx.npaci.edu/source/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.research.ibm.com/dx/
+# COMMENT=	Sample data for Open Visualization Data Explorer
+# 
+# DEPENDS+=	dx-[0-9]*:../../graphics/dx
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=	yes
+# USE_TOOLS+=	gmake makeinfo
+# CONFIGURE_ARGS+=	MAKEINFO=${TOOLS_PATH.makeinfo}
+# USE_X11BASE=	yes
+# 
+# .include "../../mk/bsd.pkg.mk"

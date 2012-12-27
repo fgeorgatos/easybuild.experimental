@@ -1,0 +1,81 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      gtoaster1.0Beta5.eb
+# Date::      Wed Dec 26 17:09:01 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'gnometoaster-1.0Beta5'
+version = 'gtoaster1.0Beta5'
+versionsuffix = '-20121226'
+
+description = "gtoaster1.0Beta5: CD recording frontend for X/GTK+"
+
+# The following are automatically calculated - cross fingers
+sources = ['gtoaster1.0Beta5.tgz']
+version = '1.0Beta5'
+name = 'gnometoaster'
+source_urls = ['#http://gnometoaster.rulez.org/archive/']
+homepage = 'http://gnometoaster.rulez.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/gnometoaster/Makefile ######
+# # $NetBSD: Makefile,v 1.26 2012/01/29 00:16:38 marino Exp $
+# #
+# 
+# DISTNAME=	gtoaster1.0Beta5
+# PKGNAME=	gnometoaster-1.0Beta5
+# PKGREVISION=	6
+# CATEGORIES=	sysutils
+# MASTER_SITES=	# http://gnometoaster.rulez.org/archive/
+# EXTRACT_SUFX=	.tgz
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://gnometoaster.rulez.org/
+# COMMENT=	CD recording frontend for X/GTK+
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=			${WRKDIR}/gtoaster
+# USE_TOOLS+=		gmake
+# 
+# GNU_CONFIGURE=		YES
+# CONFIGURE_ARGS+=	--with-oss --without-esd
+# CONFIGURE_ARGS+=	--without-gnome --without-orbit
+# 
+# LDFLAGS.DragonFly=	-lintl
+# 
+# SUBST_CLASSES+=		paths
+# SUBST_FILES.paths=	audio_oss.c
+# SUBST_SED.paths+=	-e 's,@DEVOSSAUDIO@,${DEVOSSAUDIO},g'
+# SUBST_STAGE.paths=	post-patch
+# 
+# .include "../../x11/gtk/buildlink3.mk"
+# .include "../../mk/oss.buildlink3.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"

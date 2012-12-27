@@ -1,0 +1,72 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      qimageblitz-0.0.6.eb
+# Date::      Wed Dec 26 17:08:38 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'qimageblitz'
+version = '0.0.6'
+versionsuffix = '-20121226'
+
+description = "qimageblitz-0.0.6: Interm graphical effect and filter library for KDE4.0"
+
+# The following are automatically calculated - cross fingers
+sources = ['qimageblitz-0.0.6.tar.bz2']
+source_urls = ['http://sourceforge.net/projects/qimageblitz/files', 'download']
+homepage = 'http://sourceforge.net/projects/qimageblitz'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/qimageblitz/Makefile ######
+# # $NetBSD: Makefile,v 1.15.2.1 2012/10/03 12:08:12 spz Exp $
+# 
+# DISTNAME=	qimageblitz-0.0.6
+# PKGREVISION=	10
+# CATEGORIES=	graphics
+# MASTER_SITES=   ${MASTER_SITE_KDE:=qimageblitz/}
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://sourceforge.net/projects/qimageblitz
+# COMMENT=	Interm graphical effect and filter library for KDE4.0
+# 
+# USE_LANGUAGES+= c c++
+# USE_CMAKE= yes
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# #BUILD_MAKE_FLAGS+= VERBOSE=1
+# 
+# PKGCONFIG_OVERRIDE+=	blitz/qimageblitz.pc.cmake
+# 
+# pre-configure:
+# 	${LN} -sf ${QTDIR}/bin/qmake ${BUILDLINK_DIR}/bin/
+# 
+# .include "../../x11/qt4-libs/buildlink3.mk"
+# .include "../../x11/qt4-tools/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

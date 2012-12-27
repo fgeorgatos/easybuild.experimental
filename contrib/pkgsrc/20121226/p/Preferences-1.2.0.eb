@@ -1,0 +1,80 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Preferences-1.2.0.eb
+# Date::      Wed Dec 26 17:09:13 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'gnustep-'
+version = '1.2.0'
+versionsuffix = '-20121226'
+
+description = "Preferences-1.2.0: Application for setting preferences for the GNUstep system"
+
+# The following are automatically calculated - cross fingers
+sources = ['Preferences-1.2.0.tar.bz2']
+version = '${DISTNAME:S/P/p/}'
+name = 'gnustep'
+source_urls = ['http://sourceforge.net/projects/prefsapp/files', 'download']
+homepage = 'http://prefsapp.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/gnustep-preferences/Makefile ######
+# # $NetBSD: Makefile,v 1.36 2010/01/24 13:26:13 wiz Exp $
+# 
+# DISTNAME=	Preferences-1.2.0
+# PKGNAME=	gnustep-${DISTNAME:S/P/p/}
+# PKGREVISION=	20
+# CATEGORIES=	x11 gnustep
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=prefsapp/}
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	adam@NetBSD.org
+# HOMEPAGE=	http://prefsapp.sourceforge.net/
+# COMMENT=	Application for setting preferences for the GNUstep system
+# LICENSE=	gnu-gpl-v2
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=	objc
+# 
+# NO_CONFIGURE=	YES
+# USE_TOOLS+=	gmake
+# MAKE_FILE=	GNUmakefile
+# MAKE_JOBS_SAFE=	NO
+# MAKE_FLAGS+=	GNUSTEP_USER_DIR=${WRKDIR}/fake_home/GNUstep
+# 
+# FIX_GNUSTEP_INSTALLATION_DIR= yes
+# SUBST_FILES.gnustep_installation_dir+=	GNUmakefile.preamble
+# SUBST_FILES.gnustep_installation_dir+=	PrefsModule/GNUmakefile.preamble
+# SUBST_FILES.gnustep_installation_dir+=	Modules/Keyboard/GNUmakefile
+# SUBST_SED.gnustep_installation_dir+=	-e 's|\$$(GNUSTEP_SYSTEM_ROOT)/Library/Preferences|$${DESTDIR}${GNUSTEP_LIB_DIR}/Preferences|'
+# 
+# .include "../../x11/gnustep-back/buildlink3.mk"
+# .include "../../mk/pthread.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

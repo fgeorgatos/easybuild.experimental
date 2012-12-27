@@ -1,0 +1,72 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      engine_pkcs11-0.1.5.eb
+# Date::      Wed Dec 26 17:08:57 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'engine_pkcs11'
+version = '0.1.5'
+versionsuffix = '-20121226'
+
+description = "engine_pkcs11-0.1.5: PKCS#11 engine for OpenSSL"
+
+# The following are automatically calculated - cross fingers
+sources = ['engine_pkcs11-0.1.5.tar.gz']
+source_urls = ['http://www.opensc-project.org/files/engine_pkcs11/']
+homepage = 'http://www.opensc-project.org/engine_pkcs11/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/engine-pkcs11/Makefile ######
+# # $NetBSD: Makefile,v 1.5 2011/02/28 14:53:01 wiz Exp $
+# #
+# 
+# DISTNAME=		engine_pkcs11-0.1.5
+# PKGNAME=		${DISTNAME:S/_/-/}
+# PKGREVISION=		2
+# CATEGORIES=		security
+# MASTER_SITES=		http://www.opensc-project.org/files/engine_pkcs11/
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://www.opensc-project.org/engine_pkcs11/
+# COMMENT=		PKCS\#11 engine for OpenSSL
+# LICENSE=		original-bsd
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# BUILDLINK_API_DEPENDS.openssl+=	openssl>=0.9.7
+# 
+# USE_PKGLOCALEDIR=	yes
+# USE_LIBTOOL=		yes
+# GNU_CONFIGURE=		yes
+# USE_TOOLS+=		gmake pkg-config
+# CONFIGURE_ARGS+=	--with-openssl=${SSLBASE:Q}
+# 
+# .include "../../security/libp11/buildlink3.mk"
+# .include "../../security/openssl/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

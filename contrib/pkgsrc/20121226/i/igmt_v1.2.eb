@@ -1,0 +1,109 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      igmt_v1.2.eb
+# Date::      Wed Dec 26 17:08:36 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'iGMT-1.2'
+version = 'igmt_v1.2'
+versionsuffix = '-20121226'
+
+description = "igmt_v1.2: Interactive Mapping of Geoscientific Datasets"
+
+# The following are automatically calculated - cross fingers
+sources = ['igmt_v1.2.tar.gz']
+version = '1.2'
+name = 'iGMT'
+source_urls = ['http://www.gfz-potsdam.de/pb1/op/igmt/']
+homepage = 'http://www.gfz-potsdam.de/pb1/op/igmt/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/iGMT/Makefile ######
+# # $NetBSD: Makefile,v 1.32 2008/03/04 15:39:10 jlam Exp $
+# 
+# DISTNAME=		igmt_v1.2
+# PKGNAME=		iGMT-1.2
+# PKGREVISION=		5
+# CATEGORIES=		graphics
+# MASTER_SITES=		http://www.gfz-potsdam.de/pb1/op/igmt/
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://www.gfz-potsdam.de/pb1/op/igmt/
+# COMMENT=		Interactive Mapping of Geoscientific Datasets
+# 
+# DEPENDS+=		GMT>=3.3.6:../../graphics/GMT
+# DEPENDS+=		tcl>=8.0:../../lang/tcl
+# DEPENDS+=		tk>=8.0:../../x11/tk
+# DEPENDS+=		gv-[0-9]*:../../print/gv
+# DEPENDS+=		ImageMagick>=5.3.9nb1:../../graphics/ImageMagick
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=			${WRKDIR}/igmt_1.2
+# NO_BUILD=		yes
+# 
+# USE_TOOLS+=		gs:run ksh:run
+# GMT_PREFIX_DEFAULT=	${LOCALBASE}
+# EVAL_PREFIX+=		GMT_PREFIX=GMT
+# EVAL_PREFIX+=		TK_PREFIX=tk
+# 
+# REPLACE_KSH=		igmt igmt_helper* img2latlongrd.batch
+# 
+# INSTALLATION_DIRS=	bin
+# 
+# do-configure:
+# 	for i in ${WRKSRC}/igmt ${WRKSRC}/igmt_configure.tcl; do	\
+# 		${SED} -e 's:@PREFIX@:'${PREFIX}':g'			\
+# 		       -e 's:@GMT_PREFIX@:'${GMT_PREFIX}':g'		\
+# 		       -e 's:@TK_PREFIX@:'${TK_PREFIX}':g'		\
+# 		$$i > $$i.tmp && ${MV} -f $$i.tmp $$i;			\
+# 	done
+# 
+# do-install:
+# 	${INSTALL_SCRIPT} ${WRKSRC}/igmt ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/igmt
+# 	cd ${WRKSRC} && ${INSTALL_DATA} manual.ps README.TXT NOTES.TXT 	\
+# 		COPYING COPYRIGHT ${DESTDIR}${PREFIX}/share/igmt/
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/igmt/colormaps
+# 	${INSTALL_DATA} ${WRKSRC}/colormaps/*				\
+# 		${DESTDIR}${PREFIX}/share/igmt/colormaps/
+# 	cd ${WRKSRC} && ${INSTALL_SCRIPT} igmt*.tcl *.awk 		\
+# 		igmt_helper* *.batch ${DESTDIR}${PREFIX}/share/igmt/
+# 	cd ${WRKSRC} && ${INSTALL_DATA} 01_02-98.cmt			\
+# 		gps.vel hotspots.dat nuvel.yx igmt_def.gif		\
+# 		allslabs_rum.gmt volcanoes.dat wcity.dat		\
+# 		wcity_major.dat	igmt_gmtdefaults_3.0			\
+# 		igmt_gmtdefaults_3.1 igmt_gmtdefaults_3.2		\
+# 		igmt_gmtdefaults_3.3 ${DESTDIR}${PREFIX}/share/igmt/
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/examples/igmt
+# 	cd ${WRKSRC} && ${INSTALL_DATA} example*.ps.gz			\
+# 		${WRKSRC}/example*.dat					\
+# 		${DESTDIR}${PREFIX}/share/examples/igmt/
+# 
+# .include "../../mk/bsd.pkg.mk"

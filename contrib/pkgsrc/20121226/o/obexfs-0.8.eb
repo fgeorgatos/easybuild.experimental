@@ -1,0 +1,73 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      obexfs-0.8.eb
+# Date::      Wed Dec 26 17:08:31 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'fuse-'
+version = '0.8'
+versionsuffix = '-20121226'
+
+description = "obexfs-0.8: FUSE based filesystem using ObexFTP"
+
+# The following are automatically calculated - cross fingers
+sources = ['obexfs-0.8.tar.gz']
+version = '${DISTNAME}'
+name = 'fuse'
+source_urls = ['http://sourceforge.net/projects/openobex/files', 'download']
+homepage = 'http://www.openobex.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/filesystems/fuse-obexfs/Makefile ######
+# # $NetBSD: Makefile,v 1.5 2009/07/08 16:37:53 joerg Exp $
+# #
+# 
+# DISTNAME=	obexfs-0.8
+# PKGNAME=	fuse-${DISTNAME}
+# CATEGORIES=	filesystems
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=openobex/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.openobex.org/
+# COMMENT=	FUSE based filesystem using ObexFTP
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=	yes
+# USE_TOOLS+=	autoconf gmake pkg-config
+# 
+# BUILDLINK_API_DEPENDS.openobex+=	openobex>=1.3nb2
+# 
+# pre-configure:
+# 	cd ${WRKSRC} && autoconf
+# 
+# .include "../../comms/obexftp/buildlink3.mk"
+# .include "../../comms/openobex/buildlink3.mk"
+# .include "../../mk/fuse.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

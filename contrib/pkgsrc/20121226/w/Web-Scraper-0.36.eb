@@ -1,0 +1,78 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Web-Scraper-0.36.eb
+# Date::      Wed Dec 26 17:09:06 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'Scraper-0.36'
+versionsuffix = '-20121226'
+
+description = "Web-Scraper-0.36: Perl 5 Web Scraping Toolkit inspired by Scrapi"
+
+# The following are automatically calculated - cross fingers
+sources = ['Web-Scraper-0.36.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Web/']
+homepage = 'http://search.cpan.org/dist/Web-Scraper/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/p5-Web-Scraper/Makefile ######
+# # $NetBSD: Makefile,v 1.5 2012/01/22 19:14:26 abs Exp $
+# 
+# DISTNAME=	Web-Scraper-0.36
+# PKGNAME=	p5-${DISTNAME}
+# CATEGORIES=	www perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Web/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/Web-Scraper/
+# COMMENT=	Perl 5 Web Scraping Toolkit inspired by Scrapi
+# LICENSE=	${PERL5_LICENSE}
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=	# empty
+# PERL5_PACKLIST= auto/Web/Scraper/.packlist
+# 
+# DEPENDS+=	p5-HTML-Parser-[0-9]*:../../www/p5-HTML-Parser
+# DEPENDS+=	p5-HTML-Selector-XPath>=0.03:../../www/p5-HTML-Selector-XPath
+# DEPENDS+=	p5-HTML-Tagset-[0-9]*:../../www/p5-HTML-Tagset
+# DEPENDS+=	p5-HTML-Tree>=3.23:../../www/p5-HTML-Tree
+# DEPENDS+=	p5-HTML-TreeBuilder-XPath>=0.08:../../www/p5-HTML-TreeBuilder-XPath
+# DEPENDS+=	p5-libwww>=5.827:../../www/p5-libwww
+# DEPENDS+=	p5-UNIVERSAL-require-[0-9]*:../../devel/p5-UNIVERSAL-require
+# DEPENDS+=	p5-URI-[0-9]*:../../www/p5-URI
+# DEPENDS+=	p5-XML-XPathEngine>=0.08:../../textproc/p5-XML-XPathEngine
+# DEPENDS+=	p5-YAML-[0-9]*:../../textproc/p5-YAML
+# DEPENDS+=	p5-HTML-TreeBuilder-LibXML>=0.04:../../www/p5-HTML-TreeBuilder-LibXML
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

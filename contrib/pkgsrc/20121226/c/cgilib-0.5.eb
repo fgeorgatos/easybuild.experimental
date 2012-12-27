@@ -1,0 +1,64 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      cgilib-0.5.eb
+# Date::      Wed Dec 26 17:09:04 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'cgilib'
+version = '0.5'
+versionsuffix = '-20121226'
+
+description = "cgilib-0.5: Common gateway interface library"
+
+# The following are automatically calculated - cross fingers
+sources = ['cgilib-0.5.tar.gz']
+source_urls = ['http://www.infodrom.org/projects/cgilib/download/']
+homepage = 'http://www.infodrom.org/projects/cgilib/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/cgilib/Makefile ######
+# # $NetBSD: Makefile,v 1.17 2011/02/28 14:53:06 wiz Exp $
+# #
+# 
+# DISTNAME=	cgilib-0.5
+# PKGREVISION=	3
+# CATEGORIES=	www
+# MASTER_SITES=	http://www.infodrom.org/projects/cgilib/download/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.infodrom.org/projects/cgilib/
+# COMMENT=	Common gateway interface library
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# INSTALLATION_DIRS=	include lib ${PKGMANDIR}/man3 ${PKGMANDIR}/man5
+# USE_LIBTOOL=	yes
+# MAKE_ENV+=	MANDIR=${PREFIX}/${PKGMANDIR}
+# 
+# .include "../../mk/bsd.pkg.mk"

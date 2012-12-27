@@ -1,0 +1,81 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      exaile_0.2.14.eb
+# Date::      Wed Dec 26 17:08:11 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'exaile-0.2.14'
+version = 'exaile_0.2.14'
+versionsuffix = '-20121226'
+
+description = "exaile_0.2.14: Music player"
+
+# The following are automatically calculated - cross fingers
+sources = ['exaile_0.2.14.tar.gz']
+version = '0.2.14'
+name = 'exaile'
+source_urls = ['http://www.exaile.org/files/']
+homepage = 'http://www.exaile.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/exaile/Makefile ######
+# # $NetBSD: Makefile,v 1.33.2.1 2012/10/03 12:06:30 spz Exp $
+# #
+# 
+# DISTNAME=	exaile_0.2.14
+# PKGNAME=	exaile-0.2.14
+# PKGREVISION=	20
+# CATEGORIES=	audio
+# MASTER_SITES=	http://www.exaile.org/files/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.exaile.org/
+# COMMENT=	Music player
+# LICENSE=	gnu-gpl-v2 # or later
+# 
+# WRKSRC=		${WRKDIR}/exaile-0.2.14
+# 
+# USE_PKGLOCALEDIR=	yes
+# USE_TOOLS+=		pkg-config gmake intltool msgfmt
+# 
+# PYTHON_PATCH_SCRIPTS=	exaile.py
+# MAKE_ENV+=	PYTHONBIN=${PYTHONBIN}
+# MAKE_FLAGS+=	PKGLOCALEDIR=${PKGLOCALEDIR}
+# 
+# .include "../../sysutils/desktop-file-utils/desktopdb.mk"
+# .include "../../lang/python/application.mk"
+# .include "../../x11/py-gtk2/buildlink3.mk"
+# .include "../../sysutils/py-dbus/buildlink3.mk"
+# .include "../../audio/py-mutagen/buildlink3.mk"
+# .include "../../multimedia/py-gstreamer0.10/buildlink3.mk"
+# .include "../../textproc/py-elementtree/buildlink3.mk"
+# .include "../../databases/py-sqlite2/buildlink3.mk"
+# .include "../../sysutils/py-notify/buildlink3.mk"
+# .include "../../sysutils/desktop-file-utils/desktopdb.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,70 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      tinyscheme-1.40.eb
+# Date::      Wed Dec 26 17:08:41 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'tinyscheme'
+version = '1.40'
+versionsuffix = '-20121226'
+
+description = "tinyscheme-1.40: R5RS small embeddable scheme implementation"
+
+# The following are automatically calculated - cross fingers
+sources = ['tinyscheme-1.40.tar.gz']
+source_urls = ['$(MASTER_SITE_SOURCEFORGE:=tinyscheme/)']
+homepage = 'http://tinyscheme.sourceforge.net/home.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/lang/tinyscheme/Makefile ######
+# # $NetBSD: Makefile,v 1.15 2011/12/06 13:22:17 cheusov Exp $
+# 
+# DISTNAME=	tinyscheme-1.40
+# CATEGORIES=	lang
+# MASTER_SITES=	$(MASTER_SITE_SOURCEFORGE:=tinyscheme/)
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://tinyscheme.sourceforge.net/home.html
+# COMMENT=	R5RS small embeddable scheme implementation
+# LICENSE=	modified-bsd
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LIBTOOL=	yes
+# 
+# MAKE_FILE=	makefile
+# 
+# INSTALLATION_DIRS=	bin include lib share/tinyscheme
+# 
+# MAKE_FLAGS+=		SYS_LIBS=-lm\ ${BUILDLINK_LDADD.dl:Q}
+# MAKE_FLAGS+=		CC=${CC:Q} LDFLAGS=${LDFLAGS:Q} DEBUG=
+# MAKE_FLAGS+=		LD=${CC:Q}
+# 
+# .include "../../mk/dlopen.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

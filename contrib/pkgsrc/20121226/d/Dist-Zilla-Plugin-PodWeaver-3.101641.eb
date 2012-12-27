@@ -1,0 +1,79 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Dist-Zilla-Plugin-PodWeaver-3.101641.eb
+# Date::      Wed Dec 26 17:09:09 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'Zilla-Plugin-PodWeaver-3.101641'
+versionsuffix = '-20121226'
+
+description = "Dist-Zilla-Plugin-PodWeaver-3.101641: Weave your Pod together from configuration and Dist::Zilla"
+
+# The following are automatically calculated - cross fingers
+sources = ['Dist-Zilla-Plugin-PodWeaver-3.101641.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Dist/']
+homepage = 'http://search.cpan.org/dist/Dist-Zilla-Plugin-PodWeaver/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/p5-Dist-Zilla-Plugin-PodWeaver/Makefile ######
+# # $NetBSD: Makefile,v 1.1 2012/08/08 12:21:11 sno Exp $
+# 
+# DISTNAME=	Dist-Zilla-Plugin-PodWeaver-3.101641
+# PKGNAME=	p5-${DISTNAME}
+# CATEGORIES=	devel perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Dist/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/Dist-Zilla-Plugin-PodWeaver/
+# COMMENT=	Weave your Pod together from configuration and Dist::Zilla
+# LICENSE=	${PERL5_LICENSE}
+# 
+# DEPENDS+=	p5-Dist-Zilla>=4:../../devel/p5-Dist-Zilla
+# DEPENDS+=	p5-List-MoreUtils-[0-9]*:../../devel/p5-List-MoreUtils
+# DEPENDS+=	p5-Moose-[0-9]*:../../devel/p5-Moose
+# DEPENDS+=	p5-Moose-Autobox-[0-9]*:../../devel/p5-Moose-Autobox
+# DEPENDS+=	p5-PPI-[0-9]*:../../devel/p5-PPI
+# DEPENDS+=	p5-Pod-Elemental-[0-9]*:../../textproc/p5-Pod-Elemental
+# DEPENDS+=	p5-Pod-Elemental-PerlMunger-[0-9]*:../../textproc/p5-Pod-Elemental-PerlMunger
+# DEPENDS+=	p5-Pod-Weaver>=3.100710:../../textproc/p5-Pod-Weaver
+# DEPENDS+=	p5-namespace-autoclean-[0-9]*:../../devel/p5-namespace-autoclean
+# 
+# BUILD_DEPENDS+=	p5-File-Find-Rule-[0-9]*:../../devel/p5-File-Find-Rule
+# BUILD_DEPENDS+=	{perl>=5.10.1,p5-Test-Simple-[0-9]*}:../../devel/p5-Test-Simple
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# PERL5_PACKLIST=		auto/Dist/Zilla/Plugin/PodWeaver/.packlist
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

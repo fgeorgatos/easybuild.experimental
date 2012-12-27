@@ -1,0 +1,59 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      norasi-c90.eb
+# Date::      Wed Dec 26 17:08:33 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'tex--2011'
+version = 'c90'
+versionsuffix = '-20121226'
+
+description = "norasi-c90: TeX support from CJK for the norasi font in thailatex"
+
+# The following are automatically calculated - cross fingers
+sources = ['norasi-c90.tar.gz']
+version = '${DISTNAME}-2011'
+name = 'tex'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/fonts/tex-norasi-c90/Makefile ######
+# # $NetBSD: Makefile,v 1.2 2011/11/06 08:43:30 minskim Exp $
+# 
+# DISTNAME=	norasi-c90
+# PKGNAME=	tex-${DISTNAME}-2011
+# PKGREVISION=	1
+# TEXLIVE_REV=	15878
+# 
+# MAINTAINER=	minskim@NetBSD.org
+# COMMENT=	TeX support (from CJK) for the norasi font in thailatex
+# 
+# TEX_MAP_FILES+=	norasi-c90.map
+# 
+# .include "../../print/texlive/package.mk"
+# .include "../../mk/bsd.pkg.mk"

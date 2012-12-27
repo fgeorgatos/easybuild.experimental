@@ -1,0 +1,66 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      radeontool-1.5.eb
+# Date::      Wed Dec 26 17:09:02 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'radeontool'
+version = '1.5'
+versionsuffix = '-20121226'
+
+description = "radeontool-1.5: Toggle backlight and external video output on Radeon cards"
+
+# The following are automatically calculated - cross fingers
+sources = ['radeontool-1.5.tar.gz']
+source_urls = ['http://fdd.com/software/radeon/']
+homepage = 'http://fdd.com/software/radeon/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/radeontool/Makefile ######
+# # $NetBSD: Makefile,v 1.8 2009/01/12 16:20:54 jmcneill Exp $
+# 
+# DISTNAME=	radeontool-1.5
+# PKGREVISION=	4
+# CATEGORIES=	sysutils
+# MASTER_SITES=	http://fdd.com/software/radeon/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://fdd.com/software/radeon/
+# COMMENT=	Toggle backlight and external video output on Radeon cards
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# BUILD_TARGET=		radeontool
+# INSTALLATION_DIRS=	sbin
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/radeontool ${DESTDIR}${PREFIX}/sbin
+# 
+# .include "../../sysutils/pciutils/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

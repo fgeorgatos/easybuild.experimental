@@ -1,0 +1,82 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      nagi_src_-_2002-11-14.eb
+# Date::      Wed Dec 26 17:08:34 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'nagi-20021114'
+version = '_2002-11-14'
+versionsuffix = '-20121226'
+
+description = "nagi_src_-_2002-11-14: Clone of Sierra s AGI"
+
+# The following are automatically calculated - cross fingers
+sources = ['nagi_src_-_2002-11-14.tar.gz']
+version = '20021114'
+name = 'nagi'
+source_urls = ['http://www.agidev.com/dl_files/nagi/']
+homepage = 'http://www.agidev.com/projects/nagi/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/nagi/Makefile ######
+# # $NetBSD: Makefile,v 1.14 2008/03/04 06:59:05 jlam Exp $
+# #
+# 
+# DISTNAME=		nagi_src_-_2002-11-14
+# PKGNAME=		nagi-20021114
+# PKGREVISION=		5
+# CATEGORIES=		games
+# MASTER_SITES=		http://www.agidev.com/dl_files/nagi/
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://www.agidev.com/projects/nagi/
+# COMMENT=		Clone of Sierra's AGI
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=		${WRKDIR}/src
+# USE_TOOLS+=	gmake
+# MAKE_FILE=	Makefile.linux
+# 
+# NAGILIB=	${PREFIX}/lib/nagi
+# 
+# INSTALLATION_DIRS=	bin
+# 
+# post-build:
+# 	${SED} "s|@PREFIX@|${PREFIX}|" <${FILESDIR}/nagi.sh >${WRKDIR}/nagi.sh
+# 
+# do-install:
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${NAGILIB}
+# 	${INSTALL_PROGRAM} ${WRKDIR}/bin/nagi ${DESTDIR}${NAGILIB}
+# 	${INSTALL_DATA} ${WRKDIR}/bin/*.nbf ${WRKDIR}/bin/*.ini ${DESTDIR}${NAGILIB}
+# 	${INSTALL_SCRIPT} ${WRKDIR}/nagi.sh ${DESTDIR}${PREFIX}/bin/nagi
+# 
+# .include "../../devel/SDL/buildlink3.mk"
+# .include "../../mk/pthread.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

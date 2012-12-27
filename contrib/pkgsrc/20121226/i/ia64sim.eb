@@ -1,0 +1,73 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      ia64sim.eb
+# Date::      Wed Dec 26 17:08:30 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'ia64sim-0.5'
+version = 'ia64sim'
+versionsuffix = '-20121226'
+
+description = "ia64sim: IA64 simulator Intel R Architecture 64 "
+
+# The following are automatically calculated - cross fingers
+sources = ['ia64sim.zip']
+version = '0.5'
+name = 'ia64sim'
+source_urls = ['http://www.boo.net/~jasonp/']
+homepage = 'http://www.boo.net/~jasonp/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/emulators/ia64sim/Makefile ######
+# # $NetBSD: Makefile,v 1.17 2008/08/04 08:04:30 obache Exp $
+# 
+# DISTNAME=		ia64sim
+# PKGNAME=		ia64sim-0.5
+# CATEGORIES=		emulators
+# MASTER_SITES=		http://www.boo.net/~jasonp/
+# EXTRACT_SUFX=		.zip
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://www.boo.net/~jasonp/
+# COMMENT=		IA64 simulator (Intel(R) Architecture 64)
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_TOOLS+=		gmake
+# DIST_SUBDIR=		${PKGNAME_NOREV}
+# WRKSRC=			${WRKDIR}/home/chuck/ia64simcc
+# 
+# MAKE_FILE=		makefile.unx
+# INSTALLATION_DIRS=	bin share/doc/ia64sim
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/ia64sim ${DESTDIR}${PREFIX}/bin/ia64sim
+# 	${INSTALL_DATA} ${WRKSRC}/doc/ia64user.txt ${DESTDIR}${PREFIX}/share/doc/ia64sim
+# 
+# .include "../../mk/bsd.pkg.mk"

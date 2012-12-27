@@ -1,0 +1,63 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      networkx-1.7.eb
+# Date::      Wed Dec 26 17:08:44 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = '-'
+version = '1.7'
+versionsuffix = '-20121226'
+
+description = "networkx-1.7: Python package for creating and manipulating graphs and networks"
+
+# The following are automatically calculated - cross fingers
+sources = ['networkx-1.7.tar.gz']
+source_urls = ['http://pypi.python.org/packages/source/n/networkx/']
+homepage = 'http://networkx.lanl.gov/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/math/py-networkx/Makefile ######
+# # $NetBSD: Makefile,v 1.8 2012/09/11 23:04:31 asau Exp $
+# #
+# 
+# DISTNAME=	networkx-1.7
+# PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+# CATEGORIES=	math python
+# MASTER_SITES=	http://pypi.python.org/packages/source/n/networkx/ \
+# 		http://networkx.lanl.gov/download/networkx/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://networkx.lanl.gov/
+# COMMENT=	Python package for creating and manipulating graphs and networks
+# LICENSE=	modified-bsd
+# 
+# PYTHON_VERSIONS_INCOMPATIBLE=	25
+# 
+# .include "../../lang/python/distutils.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,111 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      q1source.eb
+# Date::      Wed Dec 26 17:08:34 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'quake-2.30'
+version = 'q1source'
+versionsuffix = '-20121226'
+
+description = "q1source: Legendary first person shoot em up game"
+
+# The following are automatically calculated - cross fingers
+sources = ['q1source.zip']
+version = '2.30'
+name = 'quake'
+source_urls = ['ftp://ftp.fu-berlin.de/pc/msdos/games/idgames/idstuff/source/']
+homepage = 'http://www.idsoftware.com/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/quake/Makefile ######
+# # $NetBSD: Makefile,v 1.46 2011/07/05 01:40:17 dholland Exp $
+# 
+# DISTNAME=	q1source
+# PKGNAME=	quake-2.30
+# PKGREVISION=	5
+# CATEGORIES=	games x11
+# MASTER_SITES=	ftp://ftp.fu-berlin.de/pc/msdos/games/idgames/idstuff/source/ \
+# 		ftp://ftp.idsoftware.com/idstuff/source/
+# EXTRACT_SUFX=	.zip
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.idsoftware.com/
+# COMMENT=	Legendary first person shoot'em up game
+# 
+# DEPENDS+=	quakedata-[0-9]*:../../games/quakedata
+# 
+# ONLY_FOR_PLATFORM=	*-*-i386
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=		${WRKDIR}
+# USE_TOOLS+=	gmake
+# MAKE_ENV+=	MAINDIR=${WRKSRC:Q}
+# 
+# 
+# MAKE_ENV+=	MESA_DIR=${BUILDLINK_PREFIX.Mesa}
+# MAKE_ENV+=	X11BASE=${X11BASE:Q}
+# 
+# LDFLAGS+=	${LIBOSSAUDIO}
+# 
+# INSTALLATION_DIRS=	bin
+# 
+# do-configure:
+# 	cd ${WRKSRC}/QW && ${LN} -fs Makefile.Linux ${MAKE_FILE}
+# 	cd ${WRKSRC}/WinQuake && ${LN} -fs Makefile.linuxi386 ${MAKE_FILE}
+# 
+# do-build:
+# 	( cd ${WRKSRC}/QW ; ${SETENV} ${MAKE_ENV} \
+# 	    ${GMAKE} MAINDIR=`pwd` CFLAGS="${CFLAGS}" all)
+# 	( cd ${WRKSRC}/WinQuake ; ${SETENV} ${MAKE_ENV} \
+# 	    ${GMAKE} MAINDIR=`pwd` CFLAGS="${CFLAGS}" \
+# 		WRKSRC="${WRKSRC}" all)
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/QW/release_version/qwsv \
+# 	    ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_PROGRAM} ${WRKSRC}/QW/release_version/qwcl.x11 \
+# 	    ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_PROGRAM} ${WRKSRC}/QW/release_version/glqwcl.glx \
+# 	    ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_PROGRAM} ${WRKSRC}/WinQuake/release_version/bin/glquake.glx \
+# 	    ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_PROGRAM} ${WRKSRC}/WinQuake/release_version/bin/quake.x11 \
+# 	    ${DESTDIR}${PREFIX}/bin
+# 
+# .include "../../graphics/MesaLib/buildlink3.mk"
+# .include "../../graphics/glu/buildlink3.mk"
+# .include "../../x11/libXext/buildlink3.mk"
+# .include "../../x11/libXxf86dga/buildlink3.mk"
+# .include "../../x11/libXxf86vm/buildlink3.mk"
+# .include "../../x11/xf86dgaproto/buildlink3.mk"
+# .include "../../x11/xextproto/buildlink3.mk"
+# .include "../../mk/oss.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

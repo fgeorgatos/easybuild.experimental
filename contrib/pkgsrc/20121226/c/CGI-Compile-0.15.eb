@@ -1,0 +1,70 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      CGI-Compile-0.15.eb
+# Date::      Wed Dec 26 17:09:04 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'Compile-0.15'
+versionsuffix = '-20121226'
+
+description = "CGI-Compile-0.15: Perl 5 module to compile .cgi scripts to a code reference"
+
+# The following are automatically calculated - cross fingers
+sources = ['CGI-Compile-0.15.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/CGI/']
+homepage = 'http://search.cpan.org/dist/CGI-Compile/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/p5-CGI-Compile/Makefile ######
+# # $NetBSD: Makefile,v 1.5 2011/10/17 08:53:21 hiramatsu Exp $
+# 
+# DISTNAME=	CGI-Compile-0.15
+# PKGNAME=	p5-${DISTNAME}
+# CATEGORIES=	www perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=CGI/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/CGI-Compile/
+# COMMENT=	Perl 5 module to compile .cgi scripts to a code reference
+# LICENSE=	${PERL5_LICENSE}
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=	# empty
+# PERL5_PACKLIST= auto/CGI/Compile/.packlist
+# 
+# BUILD_DEPENDS+=	p5-Test-NoWarnings-[0-9]*:../../devel/p5-Test-NoWarnings
+# BUILD_DEPENDS+=	p5-Test-Requires-[0-9]*:../../devel/p5-Test-Requires
+# DEPENDS+=	p5-File-pushd-[0-9]*:../../devel/p5-File-pushd
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

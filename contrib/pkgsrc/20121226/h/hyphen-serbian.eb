@@ -1,0 +1,71 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      hyphen-serbian.eb
+# Date::      Wed Dec 26 17:08:55 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'tex--1.0a'
+version = 'serbian'
+versionsuffix = '-20121226'
+
+description = "hyphen-serbian: Hyphenation patterns for Serbian Cyrillic"
+
+# The following are automatically calculated - cross fingers
+sources = ['hyphen-serbian.tar.gz']
+version = '${DISTNAME}-1.0a'
+name = 'tex'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/print/tex-hyphen-serbian/Makefile ######
+# # $NetBSD: Makefile,v 1.4 2010/11/10 17:55:34 minskim Exp $
+# 
+# DISTNAME=	hyphen-serbian
+# PKGNAME=	tex-${DISTNAME}-1.0a
+# PKGREVISION=	1
+# TEXLIVE_REV=	20144
+# 
+# MAINTAINER=	minskim@NetBSD.org
+# COMMENT=	Hyphenation patterns for Serbian Cyrillic
+# 
+# CONFLICTS+=	teTeX-texmf<=3.0nb12
+# DEPENDS+=	tex-hyph-utf8-[0-9]*:../../print/tex-hyph-utf8
+# 
+# TEX_HYPHEN_DAT+=	serbian loadhyph-sr-latn.tex
+# TEX_HYPHEN_DEF+=	\addlanguage{serbian}{loadhyph-sr-latn.tex}{}{2}{2}
+# TEX_HYPHEN_LUA+=	['serbian']={ \
+# 			  loader='loadhyph-sr-latn.tex', \
+# 			  lefthyphenmin=2, \
+# 			  righthyphenmin=2, \
+# 			  synonyms={}, \
+# 			  patterns='hyph-sr-latn.pat.txt', \
+# 			  hyphenation='hyph-sr-latn.hyp.txt', \
+# 			},
+# 
+# .include "../../print/texlive/package.mk"
+# .include "../../mk/bsd.pkg.mk"

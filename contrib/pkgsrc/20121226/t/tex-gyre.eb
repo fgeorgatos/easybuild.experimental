@@ -1,0 +1,69 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      tex-gyre.eb
+# Date::      Wed Dec 26 17:08:33 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'tex--2.004'
+version = 'gyre'
+versionsuffix = '-20121226'
+
+description = "tex-gyre: TeX Fonts extending freely available URW fonts"
+
+# The following are automatically calculated - cross fingers
+sources = ['tex-gyre.tar.gz']
+version = '${DISTNAME}-2.004'
+name = 'tex'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/fonts/tex-tex-gyre/Makefile ######
+# # $NetBSD: Makefile,v 1.2 2011/11/06 08:43:30 minskim Exp $
+# 
+# DISTNAME=	tex-gyre
+# PKGNAME=	tex-${DISTNAME}-2.004
+# PKGREVISION=	1
+# TEXLIVE_REV=	18651
+# 
+# MAINTAINER=	minskim@NetBSD.org
+# COMMENT=	TeX Fonts extending freely available URW fonts
+# 
+# DEPENDS+=	tex-latex-bin-[0-9]*:../../print/tex-latex-bin
+# DEPENDS+=	tex-oberdiek-[0-9]*:../../print/tex-oberdiek
+# 
+# TEX_MAP_FILES+=	qag.map
+# TEX_MAP_FILES+=	qbk.map
+# TEX_MAP_FILES+=	qcr.map
+# TEX_MAP_FILES+=	qcs.map
+# TEX_MAP_FILES+=	qhv.map
+# TEX_MAP_FILES+=	qpl.map
+# TEX_MAP_FILES+=	qtm.map
+# TEX_MAP_FILES+=	qzc.map
+# 
+# .include "../../print/texlive/package.mk"
+# .include "../../mk/bsd.pkg.mk"

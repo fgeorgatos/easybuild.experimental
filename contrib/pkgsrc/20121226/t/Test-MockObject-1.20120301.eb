@@ -1,0 +1,75 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Test-MockObject-1.20120301.eb
+# Date::      Wed Dec 26 17:08:26 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'MockObject-1.20120301'
+versionsuffix = '-20121226'
+
+description = "Test-MockObject-1.20120301: Tests remote URLs or local web files"
+
+# The following are automatically calculated - cross fingers
+sources = ['Test-MockObject-1.20120301.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Test/']
+homepage = 'http://search.cpan.org/dist/Test-MockObject/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Test-MockObject/Makefile ######
+# # $NetBSD: Makefile,v 1.8 2012/09/11 07:55:16 sno Exp $
+# 
+# DISTNAME=	Test-MockObject-1.20120301
+# PKGNAME=	p5-${DISTNAME}
+# CATEGORIES=	devel perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Test/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/Test-MockObject/
+# COMMENT=	Tests remote URLs or local web files
+# 
+# DEPENDS+=	p5-CGI-[0-9]*:../../www/p5-CGI
+# DEPENDS+=	{perl>=5.10,p5-Scalar-List-Utils-[0-9]*}:../../devel/p5-Scalar-List-Utils
+# DEPENDS+=	p5-Test-Exception>=0.31:../../devel/p5-Test-Exception
+# DEPENDS+=	{perl>=5.14.0,p5-Test-Simple>=0.98}:../../devel/p5-Test-Simple
+# DEPENDS+=	p5-Test-Warn>=0.23:../../devel/p5-Test-Warn
+# DEPENDS+=	p5-UNIVERSAL-can>=1.20110617:../../devel/p5-UNIVERSAL-can
+# DEPENDS+=	p5-UNIVERSAL-isa>=1.20110614:../../devel/p5-UNIVERSAL-isa
+# 
+# INSTALL_TARGET=	pure_install
+# 
+# USE_LANGUAGES=	# empty
+# PERL5_PACKLIST= auto/Test/MockObject/.packlist
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

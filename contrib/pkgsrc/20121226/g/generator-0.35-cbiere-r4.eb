@@ -1,0 +1,93 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      generator-0.35-cbiere-r4.eb
+# Date::      Wed Dec 26 17:08:30 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'generator-cbiere-0.35r4'
+version = '0.35-cbiere-r4'
+versionsuffix = '-20121226'
+
+description = "generator-0.35-cbiere-r4: Sega Mega drive genesis emulator Improved "
+
+# The following are automatically calculated - cross fingers
+sources = ['generator-0.35-cbiere-r4.tar.bz2']
+version = 'cbiere-0.35r4'
+name = 'generator'
+source_urls = ['http://www.squish.net/generator/cbiere/generator/']
+homepage = 'http://squish.net/generator/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/emulators/generator-cbiere/Makefile ######
+# # $NetBSD: Makefile,v 1.12 2011/11/16 09:22:25 sbd Exp $
+# #
+# 
+# DISTNAME=	generator-0.35-cbiere-r4
+# PKGNAME=	generator-cbiere-0.35r4
+# PKGREVISION=	2
+# CATEGORIES=	emulators
+# MASTER_SITES=	http://www.squish.net/generator/cbiere/generator/
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://squish.net/generator/
+# COMMENT=	Sega Mega drive genesis emulator (Improved)
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# MAKE_JOBS_SAFE=		no
+# 
+# GNU_CONFIGURE=		yes
+# 
+# .if (${MACHINE_ARCH} == "i386")
+# BUILD_DEPENDS+=		nasm-[0-9]*:../../devel/nasm
+# CONFIGURE_ARGS+=	--with-gtk --with-raze
+# .else
+# CONFIGURE_ARGS+=	--with-gtk --with-cmz80
+# .endif
+# 
+# CONFIGURE_ARGS+=	--with-sdl-audio
+# 
+# .include "../../mk/endian.mk"
+# 
+# .if ${MACHINE_ENDIAN} == "big"
+# CFLAGS+=	-DBYTES_HIGHFIRST
+# .endif
+# 
+# INSTALLATION_DIRS=	bin
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/main/generator-gtk \
+# 		${DESTDIR}${PREFIX}/bin/generator-cbiere-gtk
+# 
+# .include "../../archivers/bzip2/buildlink3.mk"
+# .include "../../devel/SDL/buildlink3.mk"
+# .include "../../devel/zlib/buildlink3.mk"
+# .include "../../x11/gtk/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

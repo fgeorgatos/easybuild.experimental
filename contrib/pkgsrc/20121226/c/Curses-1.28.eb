@@ -1,0 +1,80 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Curses-1.28.eb
+# Date::      Wed Dec 26 17:08:23 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = '1.28'
+versionsuffix = '-20121226'
+
+description = "Curses-1.28: Perl5 module for terminal screen handling and optimization"
+
+# The following are automatically calculated - cross fingers
+sources = ['Curses-1.28.tgz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Curses/']
+homepage = 'http://search.cpan.org/dist/Curses/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Curses/Makefile ######
+# # $NetBSD: Makefile,v 1.39 2011/08/11 17:05:19 adam Exp $
+# 
+# DISTNAME=	Curses-1.28
+# PKGNAME=	p5-${DISTNAME}
+# PKGREVISION=	2
+# SVR4_PKGNAME=	p5cur
+# CATEGORIES=	devel perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Curses/}
+# EXTRACT_SUFX=	.tgz
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/Curses/
+# COMMENT=	Perl5 module for terminal screen handling and optimization
+# # really it's gnu-gpl-v1+ OR artistic-1.0, but currently we don't have gplv1
+# LICENSE=	${PERL5_LICENSE}
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_NCURSES=		yes
+# PERL5_PACKLIST=		auto/Curses/.packlist
+# 
+# MAKE_PARAMS+=	PANELS
+# # does not compile on 2.0 because of conflicts between perl internal header
+# # files and stdbool.h
+# #MAKE_PARAMS+=	FORMS MENUS
+# 
+# pre-configure:
+# 	${LN} -sf ${WRKSRC}/hints/c-netbsd.ncurses.h ${WRKSRC}/c-config.h
+# 
+# .include "../../devel/ncurses/buildlink3.mk"
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

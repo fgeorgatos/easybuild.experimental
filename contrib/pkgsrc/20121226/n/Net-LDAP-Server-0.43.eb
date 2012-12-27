@@ -1,0 +1,69 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Net-LDAP-Server-0.43.eb
+# Date::      Wed Dec 26 17:08:50 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'LDAP-Server-0.43'
+versionsuffix = '-20121226'
+
+description = "Net-LDAP-Server-0.43: LDAP server side protocol handling"
+
+# The following are automatically calculated - cross fingers
+sources = ['Net-LDAP-Server-0.43.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Net/']
+homepage = 'http://search.cpan.org/dist/Net-LDAP-Server/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/p5-Net-LDAP-Server/Makefile ######
+# # $NetBSD: Makefile,v 1.9 2012/01/26 20:30:34 rhaen Exp $
+# #
+# 
+# DISTNAME=	Net-LDAP-Server-0.43
+# PKGNAME=	p5-${DISTNAME}
+# CATEGORIES=	net perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Net/}
+# 
+# MAINTAINER=	he@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/Net-LDAP-Server/
+# COMMENT=	LDAP server side protocol handling
+# LICENSE=	${PERL5_LICENSE}
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# DEPENDS+=	p5-Convert-ASN1-[0-9]*:../../textproc/p5-Convert-ASN1
+# DEPENDS+=	p5-perl-ldap-[0-9]*:../../databases/p5-perl-ldap
+# 
+# PERL5_PACKLIST=	auto/Net/LDAP/Server/.packlist
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

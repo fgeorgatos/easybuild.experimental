@@ -1,0 +1,82 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      lpe-1.2.6.eb
+# Date::      Wed Dec 26 17:08:29 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'lpe'
+version = '1.2.6'
+versionsuffix = '-20121226'
+
+description = "lpe-1.2.6: Small and efficient programmer s editor for UNIX systems"
+
+# The following are automatically calculated - cross fingers
+sources = ['lpe-1.2.6.tar.gz']
+source_urls = ['ftp://ftp.twu.net/users/cdsmith/lpe/']
+homepage = 'http://cdsmith.twu.net/professional/opensource/lpe.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/editors/lpe/Makefile ######
+# # $NetBSD: Makefile,v 1.23 2010/01/29 19:54:17 joerg Exp $
+# #
+# 
+# DISTNAME=	lpe-1.2.6
+# PKGREVISION=	3
+# CATEGORIES=	editors
+# MASTER_SITES=	ftp://ftp.twu.net/users/cdsmith/lpe/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://cdsmith.twu.net/professional/opensource/lpe.html
+# COMMENT=	Small and efficient programmer's editor for UNIX systems
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# MAKE_JOBS_SAFE=		no
+# 
+# USE_PKGLOCALEDIR=	YES
+# USE_LIBTOOL=		YES
+# USE_TOOLS+=		gmake msgfmt
+# GNU_CONFIGURE=		YES
+# 
+# SHLIBTOOL_OVERRIDE=	# empty
+# 
+# # Note: pkglint warns about the following three lines, but they must not
+# # be changed because this package uses autoconf2.13.
+# CONFIGURE_ENV=		EXPORT_SYMBOLS_LDFLAGS="${EXPORT_SYMBOLS_LDFLAGS}"
+# MAKE_ENV=		EXPORT_SYMBOLS_LDFLAGS="${EXPORT_SYMBOLS_LDFLAGS}"
+# CFLAGS=			-DPREFIX="\"${PREFIX}\""
+# 
+# SUBST_CLASSES+=		paths
+# SUBST_STAGE.paths=	post-patch
+# SUBST_FILES.paths=	man/lpe.1.cs man/lpe.1.de man/lpe.1.en man/lpe.1.es
+# SUBST_SED.paths=	-e 's,@PREFIX@,${PREFIX},'
+# 
+# .include "../../devel/libslang/buildlink3.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"

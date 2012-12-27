@@ -1,0 +1,56 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      journey-1.0.4.eb
+# Date::      Wed Dec 26 17:09:07 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'journey'
+version = '1.0.4'
+versionsuffix = '-20121226'
+
+description = "journey-1.0.4: Journey is a router"
+
+# The following are automatically calculated - cross fingers
+sources = ['journey-1.0.4.tar.gz']
+homepage = 'http://github.com/rails/journey'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/ruby-journey/Makefile ######
+# # $NetBSD: Makefile,v 1.2 2012/06/15 13:56:24 taca Exp $
+# 
+# DISTNAME=	journey-1.0.4
+# CATEGORIES=	www
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://github.com/rails/journey
+# COMMENT=	Journey is a router
+# LICENSE=	mit
+# 
+# .include "../../lang/ruby/gem.mk"
+# .include "../../mk/bsd.pkg.mk"

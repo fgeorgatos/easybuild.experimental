@@ -1,0 +1,83 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      phonon-4.5.1.eb
+# Date::      Wed Dec 26 17:08:47 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'phonon'
+version = '4.5.1'
+versionsuffix = '-20121226'
+
+description = "phonon-4.5.1: Multimedia API for KDE and QT"
+
+# The following are automatically calculated - cross fingers
+sources = ['phonon-4.5.1.tar.xz']
+source_urls = ['http://sourceforge.net/projects/phonon/4.5.1/src/files', 'download']
+homepage = 'http://phonon.kde.org'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/multimedia/phonon/Makefile ######
+# # $NetBSD: Makefile,v 1.24.2.1 2012/10/03 12:08:56 spz Exp $
+# 
+# DISTNAME=	phonon-4.5.1
+# PKGREVISION=	4
+# CATEGORIES=	multimedia
+# MASTER_SITES=	${MASTER_SITE_KDE:=phonon/4.5.1/src/}
+# EXTRACT_SUFX=	.tar.xz
+# 
+# MAINTAINER=	markd@NetBSD.org
+# HOMEPAGE=	http://phonon.kde.org
+# COMMENT=	Multimedia API for KDE and QT
+# LICENSE=	gnu-lgpl-v2.1
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# # BUILD_MAKE_FLAGS+= VERBOSE=1
+# 
+# BUILD_DEPENDS+=	automoc4>=0.9.83:../../devel/automoc4
+# 
+# USE_TOOLS+=	pkg-config
+# USE_LANGUAGES=	c c++
+# USE_CMAKE=	yes
+# CMAKE_ARG_PATH=	..
+# CONFIGURE_DIRS=	_build
+# CMAKE_ARGS+=	-DWITH_PulseAudio:BOOL=OFF
+# 
+# PKGCONFIG_OVERRIDE+=	phonon.pc.cmake
+# 
+# pre-configure:
+# 	${LN} -sf ${QTDIR}/bin/qmake ${BUILDLINK_DIR}/bin/
+# 	${MKDIR} ${WRKSRC}/_build
+# 
+# .include "../../x11/qt4-libs/buildlink3.mk"
+# BUILDLINK_DEPMETHOD.qt4-tools=	full
+# .include "../../x11/qt4-tools/buildlink3.mk"
+# .include "../../x11/qt4-qdbus/buildlink3.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"

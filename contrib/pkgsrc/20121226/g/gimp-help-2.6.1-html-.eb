@@ -1,0 +1,58 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      gimp-help-2.6.1-html-.eb
+# Date::      Wed Dec 26 17:08:36 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'gimp-docs--'
+version = 'help-2.6.1-html-'
+versionsuffix = '-20121226'
+
+description = "gimp-help-2.6.1-html-: Documentation package for The Gimp image manipulation software"
+
+# The following are automatically calculated - cross fingers
+sources = ['gimp-help-2.6.1-html-${HELPLANGUAGE}.tar.gz']
+version = 'docs-${HELPLANGUAGE}-${DISTNAME:S/gimp-help-//:S/-html-${HELPLANGUAGE}//}'
+name = 'gimp'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/gimp-docs-zh_CN/Makefile ######
+# # $NetBSD: Makefile,v 1.1.1.1 2011/02/20 08:03:55 ryoon Exp $
+# #
+# 
+# HELPLANGUAGE=		zh_CN
+# 
+# DISTNAME=		gimp-help-2.6.1-html-${HELPLANGUAGE}
+# PKGNAME=		gimp-docs-${HELPLANGUAGE}-${DISTNAME:S/gimp-help-//:S/-html-${HELPLANGUAGE}//}
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# .include "../../graphics/gimp-docs-en/Makefile.common"
+# 
+# COMMENT=		Documentation package for The Gimp image manipulation software

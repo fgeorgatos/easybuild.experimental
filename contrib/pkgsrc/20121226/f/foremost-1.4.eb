@@ -1,0 +1,63 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      foremost-1.4.eb
+# Date::      Wed Dec 26 17:09:01 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'foremost'
+version = '1.4'
+versionsuffix = '-20121226'
+
+description = "foremost-1.4: Recover various formats of files using typical data structures"
+
+# The following are automatically calculated - cross fingers
+sources = ['foremost-1.4.tar.gz']
+source_urls = ['http://foremost.sourceforge.net/pkg/']
+homepage = 'http://foremost.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/foremost/Makefile ######
+# # $NetBSD: Makefile,v 1.3 2010/06/28 10:18:58 joerg Exp $
+# 
+# DISTNAME=	foremost-1.4
+# CATEGORIES=	sysutils
+# MASTER_SITES=	http://foremost.sourceforge.net/pkg/
+# 
+# MAINTAINER=	lkundrak@skosi.org
+# HOMEPAGE=	http://foremost.sourceforge.net/
+# COMMENT=	Recover various formats of files using typical data structures
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# EGDIR=		${PREFIX}/share/examples/foremost
+# CONF_FILES=	${EGDIR}/foremost.conf ${PKG_SYSCONFDIR}/foremost.conf
+# 
+# INSTALLATION_DIRS+=	bin ${PKGMANDIR}/man1 ${EGDIR}
+# 
+# .include "../../mk/bsd.pkg.mk"

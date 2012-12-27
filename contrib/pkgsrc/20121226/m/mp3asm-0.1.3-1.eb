@@ -1,0 +1,76 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      mp3asm-0.1.3-1.eb
+# Date::      Wed Dec 26 17:08:12 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'mp3asm-0.1.3.1'
+version = '0.1.3-1'
+versionsuffix = '-20121226'
+
+description = "mp3asm-0.1.3-1: MPEG 1/2/2.5 audio layer 1,2,3 frame level editor"
+
+# The following are automatically calculated - cross fingers
+sources = ['mp3asm-0.1.3-1.tar.bz2']
+version = '0.1.3.1'
+name = 'mp3asm'
+source_urls = ['http://sourceforge.net/projects/mp3asm/files', 'download']
+homepage = 'http://mp3asm.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/mp3asm/Makefile ######
+# # $NetBSD: Makefile,v 1.10 2009/12/17 19:58:36 abs Exp $
+# #
+# 
+# DISTNAME=	mp3asm-0.1.3-1
+# PKGNAME=	mp3asm-0.1.3.1
+# CATEGORIES=	audio
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=mp3asm/}
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	rxg@NetBSD.org
+# HOMEPAGE=	http://mp3asm.sourceforge.net/
+# COMMENT=	MPEG 1/2/2.5 audio layer 1,2,3 frame level editor
+# 
+# WRKSRC=		${WRKDIR}/mp3asm-0.1
+# GNU_CONFIGURE=	yes
+# 
+# INSTALLATION_DIRS+= share/doc/mp3asm
+# PKG_DESTDIR_SUPPORT=user-destdir
+# 
+# post-patch:
+# 	${SED} "s/getprogname/_getprogname/g" ${WRKSRC}/src/mp3asm.c		\
+# 		> ${WRKSRC}/src/mp3asm.c.done
+# 	${MV} ${WRKSRC}/src/mp3asm.c.done ${WRKSRC}/src/mp3asm.c
+# 
+# post-install:
+# 	${INSTALL_DATA} ${WRKSRC}/README ${DESTDIR}${PREFIX}/share/doc/mp3asm
+# 
+# .include "../../devel/sysexits/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

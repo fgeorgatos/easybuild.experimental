@@ -1,0 +1,70 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      make-env-phases-1.0.eb
+# Date::      Wed Dec 26 17:08:57 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'make'
+version = 'env-phases-1.0'
+versionsuffix = '-20121226'
+
+description = "make-env-phases-1.0: Tests whether MAKE ENV changes between build and install phase"
+
+# The following are automatically calculated - cross fingers
+sources = ['make-env-phases-1.0.tar.gz']
+source_urls = ['#none']
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/regress/make-env-phases/Makefile ######
+# # $NetBSD: Makefile,v 1.4 2009/04/09 00:47:12 joerg Exp $
+# #
+# 
+# DISTNAME=	make-env-phases-1.0
+# CATEGORIES=	regress
+# MASTER_SITES=	# none
+# DISTFILES=	# none
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# COMMENT=	Tests whether MAKE_ENV changes between build and install phase
+# 
+# NO_CONFIGURE=	yes
+# WRKSRC=		${WRKDIR}
+# 
+# do-build:
+# 	@cd ${WRKDIR} && \
+# 		echo "${MAKE_ENV}" >build-make-env.txt
+# 
+# do-install:
+# 	@cd ${WRKDIR} && \
+# 		echo "${MAKE_ENV}" >install-make-env.txt && \
+#                 ${CMP} build-make-env.txt install-make-env.txt >/dev/null && \
+#                 echo "The variable MAKE_ENV remains unchanged."
+# 
+# .include "../../devel/zlib/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

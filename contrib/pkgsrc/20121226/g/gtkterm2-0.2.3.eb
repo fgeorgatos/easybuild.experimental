@@ -1,0 +1,67 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      gtkterm2-0.2.3.eb
+# Date::      Wed Dec 26 17:09:13 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'gtkterm2'
+version = '0.2.3'
+versionsuffix = '-20121226'
+
+description = "gtkterm2-0.2.3: Simple GTK-2 terminal with tabs"
+
+# The following are automatically calculated - cross fingers
+sources = ['gtkterm2-0.2.3.tar.gz']
+source_urls = ['http://sourceforge.net/projects/gtkterm/files', 'download']
+homepage = 'http://gtkterm.feige.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/gtkterm2/Makefile ######
+# # $NetBSD: Makefile,v 1.26.2.1 2012/10/03 12:09:54 spz Exp $
+# 
+# DISTNAME=	gtkterm2-0.2.3
+# PKGREVISION=	18
+# CATEGORIES=	x11
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=gtkterm/}
+# 
+# MAINTAINER=	yui@yui.pe.kr
+# HOMEPAGE=	http://gtkterm.feige.net/
+# COMMENT=	Simple GTK-2 terminal with tabs
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_TOOLS+=		pkg-config
+# USE_LIBTOOL=		YES
+# GNU_CONFIGURE=		YES
+# USE_PKGLOCALEDIR=	YES
+# 
+# .include "../../x11/gtk2/buildlink3.mk"
+# .include "../../x11/libSM/buildlink3.mk"
+# .include "../../x11/vte/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

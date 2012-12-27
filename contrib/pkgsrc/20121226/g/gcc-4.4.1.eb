@@ -1,0 +1,99 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      gcc-4.4.1.eb
+# Date::      Wed Dec 26 17:08:16 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'avr-gcc-4.4.1'
+version = '4.4.1'
+versionsuffix = '-20121226'
+
+description = "gcc-4.4.1: GNU gcc-4.4 for Atmel AVR 8-bit RISC microcontrollers"
+
+# The following are automatically calculated - cross fingers
+sources = ['gcc-4.4.1.tar.bz2']
+version = 'gcc-4.4.1'
+name = 'avr'
+source_urls = ['http://ftp.gnu.org/gnu/avr-gcc-4.4.1']
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/cross/avr-gcc/Makefile ######
+# # $NetBSD: Makefile,v 1.26 2012/01/12 15:29:12 hans Exp $
+# 
+# DISTNAME=		gcc-4.4.1
+# PKGNAME=		avr-gcc-4.4.1
+# PKGREVISION=		3
+# CATEGORIES=		cross
+# MASTER_SITES=		${MASTER_SITE_GNU:=gcc/releases/${DISTNAME}/}
+# EXTRACT_SUFX=		.tar.bz2
+# DISTFILES=		${DISTNAME:S/-/-core-/}${EXTRACT_SUFX} \
+# 			${DISTNAME:S/-/-g++-/}${EXTRACT_SUFX}
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# COMMENT=		GNU gcc-4.4 for Atmel AVR 8-bit RISC microcontrollers
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# DEPENDS+=		avr-binutils-[0-9]*:../../cross/avr-binutils
+# BUILD_DEPENDS+=		autoconf-[0-9]*:../../devel/autoconf
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# GNU_CONFIGURE=		yes
+# USE_TOOLS+=		bison gmake lex perl tar msgfmt pod2man
+# USE_PKGLOCALEDIR=	yes
+# USE_GNU_CONFIGURE_HOST=	no
+# 
+# CONFIGURE_ARGS+=	--target=avr --disable-nls
+# 
+# MAKE_ENV+=		MACHINE_ARCH=avr
+# MAKE_ENV+=		SHELL=${CONFIG_SHELL}
+# CFLAGS_FOR_BUILD:=	${CFLAGS}
+# MAVE_ENV+=		CFLAGS_FOR_BUILD=${CFLAGS_FOR_BUILD:Q}
+# CXXFLAGS_FOR_BUILD:=	${CXXFLAGS}
+# MAVE_ENV+=		CXXFLAGS_FOR_BUILD=${CXXFLAGS_FOR_BUILD:Q}
+# CFLAGS=			# empty
+# CXXFLAGS=		# empty
+# 
+# SUBST_CLASSES+=		sed
+# SUBST_FILES.sed=	fixincludes/fixincl.x
+# SUBST_SED.sed=		-e 's|@SED@|${TOOLS_PATH.sed}|g'
+# SUBST_STAGE.sed=	post-patch
+# 
+# pre-configure:
+# 	${MKDIR} ${WRKDIR}/obj
+# 
+# CONFIGURE_DIRS=		${WRKDIR}/obj
+# CONFIGURE_SCRIPT=	${WRKSRC}/configure
+# 
+# INSTALLATION_DIRS+=	avr/bin
+# 
+# .include "../../devel/gmp/buildlink3.mk"
+# .include "../../math/mpfr/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

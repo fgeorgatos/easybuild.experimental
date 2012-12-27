@@ -1,0 +1,68 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      pdbalign.eb
+# Date::      Wed Dec 26 17:08:14 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'pdbalign-20030812'
+version = 'pdbalign'
+versionsuffix = '-20121226'
+
+description = "pdbalign: Prediction of Protein Secondary Structure and Active Sites"
+
+# The following are automatically calculated - cross fingers
+sources = ['pdbalign.tar.gz']
+version = '20030812'
+name = 'pdbalign'
+source_urls = ['ftp://ftp.ebi.ac.uk/pub/software/unix/pdbalign/']
+homepage = '#empty'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/biology/pdbalign/Makefile ######
+# # $NetBSD: Makefile,v 1.6 2012/09/11 20:32:13 asau Exp $
+# #
+# 
+# DISTNAME=		pdbalign
+# PKGNAME=		pdbalign-20030812
+# CATEGORIES=		biology
+# MASTER_SITES=		ftp://ftp.ebi.ac.uk/pub/software/unix/pdbalign/
+# 
+# MAINTAINER=		hdp@cs.nmsu.edu
+# HOMEPAGE=		#empty
+# COMMENT=		Prediction of Protein Secondary Structure and Active Sites
+# 
+# WRKSRC=			${WRKDIR}
+# INSTALLATION_DIRS=	bin
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/pdbalign ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_PROGRAM} ${WRKSRC}/distalign ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_PROGRAM} ${WRKSRC}/pdbdist ${DESTDIR}${PREFIX}/bin
+# 
+# .include "../../mk/bsd.pkg.mk"

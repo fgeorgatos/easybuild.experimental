@@ -1,0 +1,84 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      grep-2.4.2.eb
+# Date::      Wed Dec 26 17:09:08 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'ja-grep-2.4.2'
+version = '2.4.2'
+versionsuffix = '-20121226'
+
+description = "grep-2.4.2: GNU grep + multi-byte extension"
+
+# The following are automatically calculated - cross fingers
+sources = ['grep-2.4.2.tar.gz']
+version = 'grep-2.4.2'
+name = 'ja'
+source_urls = ['http://ftp.gnu.org/gnu/ja-grep-2.4.2']
+homepage = 'http://www.gnu.org/software/grep/grep.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/ja-grep/Makefile ######
+# # $NetBSD: Makefile,v 1.11 2011/04/22 13:44:50 obache Exp $
+# 
+# DISTNAME=	grep-2.4.2
+# PKGNAME=	ja-grep-2.4.2
+# PKGREVISION=	1
+# CATEGORIES=	japanese textproc
+# MASTER_SITES=	${MASTER_SITE_GNU:=grep/}
+# 
+# PATCH_SITES=	http://www.hinadori.atnifty.com/~wills/program/
+# PATCHFILES=	grep-2.4.2-mlb2.patch.gz
+# PATCH_DIST_STRIP=	-p1
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# CONFLICTS+=	grep-[0-9]*
+# 
+# MAINTAINER=	tech-pkg-ja@jp.NetBSD.org
+# HOMEPAGE=	http://www.gnu.org/software/grep/grep.html
+# COMMENT=	GNU grep + multi-byte extension
+# 
+# GNU_CONFIGURE=	yes
+# USE_PKGLOCALEDIR=	yes
+# USE_TOOLS+=	msgfmt
+# CONFIGURE_ARGS+=	--program-transform-name='s,^,j,'
+# TEST_TARGET=	check
+# INFO_FILES=	# PLIST
+# 
+# INSTALLATION_DIRS=	share/doc/ja-grep
+# 
+# INSTALL_MAKE_FLAGS+=	gnulocaledir=${DESTDIR}${PREFIX}/${PKGLOCALEDIR}/locale \
+# 			datadir=${DESTDIR}${PREFIX}/share
+# 
+# post-install:
+# 	${INSTALL_DATA} ${WRKSRC}/README.MB ${DESTDIR}${PREFIX}/share/doc/ja-grep
+# 
+# .include "../../devel/gettext-lib/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,72 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      namespace-autoclean-0.13.eb
+# Date::      Wed Dec 26 17:08:26 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'autoclean-0.13'
+versionsuffix = '-20121226'
+
+description = "namespace-autoclean-0.13: Keep imports out of your namespace"
+
+# The following are automatically calculated - cross fingers
+sources = ['namespace-autoclean-0.13.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/namespace/']
+homepage = 'http://search.cpan.org/dist/namespace-autoclean/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-namespace-autoclean/Makefile ######
+# # $NetBSD: Makefile,v 1.8 2011/12/14 11:02:00 hiramatsu Exp $
+# 
+# DISTNAME=	namespace-autoclean-0.13
+# PKGNAME=	p5-${DISTNAME}
+# CATEGORIES=	devel perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=namespace/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/namespace-autoclean/
+# COMMENT=	Keep imports out of your namespace
+# LICENSE=	${PERL5_LICENSE}
+# 
+# DEPENDS+=	p5-Moose>2:../../devel/p5-Moose
+# DEPENDS+=	p5-B-Hooks-EndOfScope-[0-9]*:../../devel/p5-B-Hooks-EndOfScope
+# DEPENDS+=	p5-namespace-clean>=0.11:../../devel/p5-namespace-clean
+# 
+# BUILD_DEPENDS+=	p5-Sub-Name-[0-9]*:../../devel/p5-Sub-Name
+# 
+# USE_LANGUAGES=		# empty
+# PERL5_PACKLIST=		auto/namespace/autoclean/.packlist
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

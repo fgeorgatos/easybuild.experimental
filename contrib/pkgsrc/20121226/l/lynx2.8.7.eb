@@ -1,0 +1,128 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      lynx2.8.7.eb
+# Date::      Wed Dec 26 17:09:04 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'lynx-2.8.7'
+version = 'lynx2.8.7'
+versionsuffix = '-20121226'
+
+description = "lynx2.8.7: Alphanumeric display oriented World-Wide Web Client"
+
+# The following are automatically calculated - cross fingers
+sources = ['lynx2.8.7.tar.bz2']
+version = '2.8.7'
+name = 'lynx'
+source_urls = ['http://lynx.isc.org/${SUBDIR:Q}/']
+homepage = 'http://lynx.isc.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/lynx/Makefile ######
+# # $NetBSD: Makefile,v 1.110 2011/11/30 14:02:59 wiz Exp $
+# 
+# DISTNAME=	lynx2.8.7
+# PKGNAME=	lynx-2.8.7
+# PKGREVISION=	4
+# CATEGORIES=	www
+# MASTER_SITES=	http://lynx.isc.org/${SUBDIR:Q}/ \
+# 		ftp://ftp.cyf-kr.edu.pl/pub/unix/lynx/${SUBDIR:Q}/
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://lynx.isc.org/
+# COMMENT=	Alphanumeric display oriented World-Wide Web Client
+# LICENSE=	gnu-gpl-v2
+# 
+# # problem with WWW/Library/Implementation
+# MAKE_JOBS_SAFE=		no
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# # 2.8.7 was rereleased under the same name
+# # XXX: remove when updating!
+# DIST_SUBDIR=		lynx-2.8.7rel2
+# 
+# SUBDIR=			${DISTNAME}
+# WRKSRC=			${WRKDIR}/lynx2-8-7
+# USE_PKGLOCALEDIR=	yes
+# GNU_CONFIGURE=		yes
+# BROKEN_GETTEXT_DETECTION= yes
+# INSTALL_TARGET=		install-full
+# MAKE_FILE=		makefile
+# 
+# CONFIGURE_ENV+=		GZIP=${TOOLS_GZIP_CMD:Q}
+# CONFIGURE_ENV+=		UNZIP=${TOOLS_PATH.unzip:Q}
+# USE_TOOLS+=		gzip msgfmt unzip:run
+# 
+# CONF_FILES+=		share/examples/lynx/lynx.cfg ${PKG_SYSCONFDIR}/lynx.cfg
+# CONF_FILES+=		share/examples/lynx/lynx.lss ${PKG_SYSCONFDIR}/lynx.lss
+# 
+# # But no dependency on Perl.
+# REPLACE_PERL+=			samples/mailto-form.pl
+# CHECK_INTERPRETER_SKIP+=	share/lynx/lynx_doc/samples/mailto-form.pl
+# 
+# .include "options.mk"
+# 
+# # For nls/gettext
+# CONFIGURE_ARGS+=	--enable-nls
+# CONFIGURE_ARGS+=	--with-nls-datadir=${PREFIX}/${PKGLOCALEDIR}
+# CONFIGURE_ARGS+=	--without-included-gettext
+# 
+# # With SSL, lynx can get https:// and snews:// URL's.
+# CONFIGURE_ARGS+=	--with-ssl
+# 
+# # Note: --enable-{default-colors,scrollbar} are simply ignored
+# # for certain settings of --with-screen.
+# CONFIGURE_ARGS+=	--with-screen=${SCREENTYPE:Q}
+# CONFIGURE_ARGS+=	--enable-default-colors
+# CONFIGURE_ARGS+=	--enable-scrollbar
+# 
+# # Install gzip'ed help files to ${PREFIX}/share/lynx
+# CONFIGURE_ARGS+=	--datadir="${PREFIX}/share/lynx"
+# CONFIGURE_ARGS+=	--enable-gzip-help --with-zlib
+# 
+# # Miscellaneous
+# CONFIGURE_ARGS+=	--enable-externs
+# CONFIGURE_ARGS+=	--enable-source-cache
+# CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR}
+# 
+# # Experimental features
+# CONFIGURE_ARGS+=	--enable-file-upload
+# CONFIGURE_ARGS+=	--enable-justify-elts
+# CONFIGURE_ARGS+=	--enable-kbd-layout
+# CONFIGURE_ARGS+=	--enable-nested-tables
+# CONFIGURE_ARGS+=	--enable-prettysrc
+# CONFIGURE_ARGS+=	--enable-read-eta
+# 
+# .include "../../devel/gettext-lib/buildlink3.mk"
+# .include "../../devel/zlib/buildlink3.mk"
+# .include "../../security/openssl/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

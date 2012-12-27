@@ -1,0 +1,71 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Object-Pluggable-1.29.eb
+# Date::      Wed Dec 26 17:08:25 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'Pluggable-1.29'
+versionsuffix = '-20121226'
+
+description = "Object-Pluggable-1.29: Base class for creating plugin-enabled objects"
+
+# The following are automatically calculated - cross fingers
+sources = ['Object-Pluggable-1.29.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Object/']
+homepage = 'http://search.cpan.org/dist/Object-Pluggable/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Object-Pluggable/Makefile ######
+# # $NetBSD: Makefile,v 1.1.1.1 2011/10/15 17:31:38 hiramatsu Exp $
+# #
+# 
+# DISTNAME=	Object-Pluggable-1.29
+# PKGNAME=	p5-${DISTNAME}
+# CATEGORIES=	devel perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Object/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/Object-Pluggable/
+# COMMENT=	Base class for creating plugin-enabled objects
+# LICENSE=	${PERL5_LICENSE}
+# 
+# BUILD_DEPENDS+=	p5-Pod-Parser>=1.36:../../textproc/p5-Pod-Parser
+# 
+# DEPENDS+=	p5-Task-Weaken-[0-9]*:../../devel/p5-Task-Weaken
+# 
+# USE_LANGUAGES=	# empty
+# PERL5_PACKLIST=	auto/Object/Pluggable/.packlist
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

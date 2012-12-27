@@ -1,0 +1,79 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      dialog-1.1-20120706.eb
+# Date::      Wed Dec 26 17:08:45 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'dialog'
+version = '1.1-20120706'
+versionsuffix = '-20121226'
+
+description = "dialog-1.1-20120706: Display dialog boxes from shell scripts"
+
+# The following are automatically calculated - cross fingers
+sources = ['dialog-1.1-20120706.tgz']
+source_urls = ['ftp://invisible-island.net/dialog/']
+homepage = 'http://invisible-island.net/dialog/dialog.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/misc/dialog/Makefile ######
+# # $NetBSD: Makefile,v 1.59 2012/07/12 21:13:16 wiz Exp $
+# 
+# DISTNAME=	dialog-1.1-20120706
+# PKGNAME=	${DISTNAME:C/-2/.2/}
+# CATEGORIES=	misc
+# MASTER_SITES=	ftp://invisible-island.net/dialog/
+# EXTRACT_SUFX=	.tgz
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://invisible-island.net/dialog/dialog.html
+# COMMENT=	Display dialog boxes from shell scripts
+# LICENSE=	gnu-lgpl-v2.1
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=	yes
+# MAKE_FILE=	makefile
+# USE_LIBTOOL=	yes
+# CONFIGURE_ARGS+=	--with-libtool
+# 
+# INCOMPAT_CURSES=	NetBSD-1.5*-* NetBSD-1.6[-_.]*-* NetBSD-1.6[A-P]-*
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# 
+# INSTALLATION_DIRS=	bin ${PKGMANDIR}/man1
+# 
+# SUBST_CLASSES+=		rpath
+# SUBST_FILES.rpath=	dialog-config.in
+# SUBST_MESSAGE.rpath=	Fixing rpath in dialog-config
+# SUBST_SED.rpath=	-e 's;-L\(.\);${_COMPILER_RPATH_FLAG}\1\{exec_prefix\}/lib -L\1;'
+# SUBST_STAGE.rpath=	pre-configure
+# 
+# .include "../../devel/ncurses/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

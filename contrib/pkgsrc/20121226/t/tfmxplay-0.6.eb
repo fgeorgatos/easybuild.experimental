@@ -1,0 +1,71 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      tfmxplay-0.6.eb
+# Date::      Wed Dec 26 17:08:13 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'tfmxplay'
+version = '0.6'
+versionsuffix = '-20121226'
+
+description = "tfmxplay-0.6: Console TFMX amiga games sound file format player"
+
+# The following are automatically calculated - cross fingers
+sources = ['tfmxplay-0.6.tgz']
+source_urls = ['#http://darkstar.tabu.uni-bonn.de/~neo/tfmx/']
+homepage = 'http://darkstar.tabu.uni-bonn.de/~neo/audio.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/tfmxplay/Makefile ######
+# # $NetBSD: Makefile,v 1.14 2009/05/05 18:47:53 zafer Exp $
+# #
+# 
+# DISTNAME=	tfmxplay-0.6
+# CATEGORIES=	audio
+# MASTER_SITES=	# http://darkstar.tabu.uni-bonn.de/~neo/tfmx/
+# EXTRACT_SUFX=	.tgz
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://darkstar.tabu.uni-bonn.de/~neo/audio.html
+# COMMENT=	Console TFMX (amiga games sound file format) player
+# 
+# NOT_FOR_PLATFORM=	Interix-*-*
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# INSTALLATION_DIRS=	bin
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/tfmx-play ${DESTDIR}${PREFIX}/bin/tfmxplay
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/doc/tfmxplay
+# 	${INSTALL_DATA} ${WRKSRC}/README ${DESTDIR}${PREFIX}/share/doc/tfmxplay
+# 
+# .include "../../mk/oss.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,87 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      pciutils-3.1.10.eb
+# Date::      Wed Dec 26 17:09:02 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'pciutils'
+version = '3.1.10'
+versionsuffix = '-20121226'
+
+description = "pciutils-3.1.10: PCI bus manipulation utility similar to NetBSD pcictl 8 "
+
+# The following are automatically calculated - cross fingers
+sources = ['pciutils-3.1.10.tar.gz']
+source_urls = ['ftp://atrey.karlin.mff.cuni.cz/pub/linux/pci/']
+homepage = 'http://mj.ucw.cz/pciutils.shtml'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/pciutils/Makefile ######
+# # $NetBSD: Makefile,v 1.20 2012/07/01 15:49:14 wiz Exp $
+# 
+# DISTNAME=	pciutils-3.1.10
+# CATEGORIES=	sysutils
+# MASTER_SITES=	ftp://atrey.karlin.mff.cuni.cz/pub/linux/pci/ \
+# 		ftp://ftp.kernel.org/pub/software/utils/pciutils/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://mj.ucw.cz/pciutils.shtml
+# COMMENT=	PCI bus manipulation utility similar to NetBSD pcictl(8)
+# LICENSE=	gnu-gpl-v2
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# MAKE_JOBS_SAFE=		no
+# ONLY_FOR_PLATFORM=	AIX-*-* FreeBSD-*-* Linux-*-* NetBSD-*-*
+# ONLY_FOR_PLATFORM+=	DragonFly-*-* OpenBSD-*-*
+# 
+# INSTALL_TARGET=		install install-lib
+# USE_TOOLS+=		gmake pkg-config
+# REPLACE_SH=		*.sh
+# 
+# PKGCONFIG_OVERRIDE=	lib/libpci.pc.in
+# 
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# .if ${OPSYS} == "NetBSD"
+# PCIUTILS_LIBNAME=	pciutils
+# .else
+# PCIUTILS_LIBNAME=	pci
+# .endif
+# 
+# PLIST_SUBST+=		PCIUTILS_LIBNAME=${PCIUTILS_LIBNAME}
+# 
+# SUBST_CLASSES=		pc
+# SUBST_FILES.pc=		lib/libpci.pc.in
+# SUBST_MESSAGE.pc=	Fixing library link specification in pkg-config file.
+# SUBST_STAGE.pc=		pre-configure
+# SUBST_VARS.pc=		PCIUTILS_LIBNAME
+# 
+# .include "../../mk/bsd.pkg.mk"

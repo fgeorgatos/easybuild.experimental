@@ -1,0 +1,86 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      gnuchess-5.07.eb
+# Date::      Wed Dec 26 17:08:34 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'gnuchess'
+version = '5.07'
+versionsuffix = '-20121226'
+
+description = "gnuchess-5.07: GNU chess engine"
+
+# The following are automatically calculated - cross fingers
+sources = ['gnuchess-5.07.tar.gz']
+source_urls = ['http://ftp.gnu.org/gnu/gnuchess']
+homepage = 'http://www.gnu.org/software/chess/chess.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/gnuchess/Makefile ######
+# # $NetBSD: Makefile,v 1.35 2009/05/20 00:58:17 wiz Exp $
+# 
+# DISTNAME=	gnuchess-5.07
+# PKGREVISION=	4
+# CATEGORIES=	games
+# MASTER_SITES=	${MASTER_SITE_GNU:=chess/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.gnu.org/software/chess/chess.html
+# COMMENT=	GNU chess engine
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=	yes
+# USE_TOOLS+=	flex gmake
+# 
+# BOOKDIR=	${PREFIX}/lib/gnuchess
+# DOCDIR=		${PREFIX}/share/doc/gnuchess
+# 
+# # powerpc has problems with anything >= -O2 here
+# .if (${MACHINE_ARCH} == "powerpc")
+# CONFIGURE_ENV+=		CFLAGS="-O -Winline -Wmissing-prototypes -funroll-loops"
+# .else
+# CONFIGURE_ENV+=		CFLAGS="-O3 -Winline -Wmissing-prototypes -funroll-loops -fomit-frame-pointer"
+# .endif
+# 
+# SUBST_CLASSES+=		paths
+# SUBST_MESSAGE.paths=	Fixing hardcoded paths.
+# SUBST_STAGE.paths=	post-patch
+# SUBST_FILES.paths=	src/book.h
+# SUBST_SED.paths=	-e 's,/usr/lib/games/,${LOCALBASE}/lib/,g' \
+# 
+# INSTALLATION_DIRS=	${DOCDIR}
+# 
+# post-install:
+# 	${INSTALL_DATA} ${WRKDIR}/${DISTNAME}/doc/README ${DESTDIR}${DOCDIR}
+# 
+# .include "../../devel/readline/buildlink3.mk"
+# .include "../../mk/pthread.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

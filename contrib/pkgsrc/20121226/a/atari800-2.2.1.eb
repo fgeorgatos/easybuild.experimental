@@ -1,0 +1,90 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      atari800-2.2.1.eb
+# Date::      Wed Dec 26 17:08:29 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'atari800'
+version = '2.2.1'
+versionsuffix = '-20121226'
+
+description = "atari800-2.2.1: Atari 800, 800XL, 130XE and 5200 emulator"
+
+# The following are automatically calculated - cross fingers
+sources = ['atari800-2.2.1.tar.gz']
+source_urls = ['http://sourceforge.net/projects/atari800/files', 'download']
+homepage = 'http://atari800.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/emulators/atari800/Makefile ######
+# # $NetBSD: Makefile,v 1.47 2012/08/26 19:42:09 marino Exp $
+# 
+# DISTNAME=	atari800-2.2.1
+# CATEGORIES=	emulators
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=atari800/}
+# DISTFILES=	${DISTNAME}${EXTRACT_SUFX} xf25.zip
+# 
+# MAINTAINER=	adam@NetBSD.org
+# HOMEPAGE=	http://atari800.sourceforge.net/
+# COMMENT=	Atari 800, 800XL, 130XE and 5200 emulator
+# LICENSE=	gnu-gpl-v2
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# RESTRICTED=		copyrighted ROM images
+# NO_BIN_ON_CDROM=	${RESTRICTED}
+# NO_BIN_ON_FTP=		${RESTRICTED}
+# NO_SRC_ON_CDROM=	${RESTRICTED}
+# NO_SRC_ON_FTP=		${RESTRICTED}
+# 
+# WRKSRC=			${WRKDIR}/${DISTNAME}/src
+# USE_TOOLS+=		gmake unzip
+# GNU_CONFIGURE=		yes
+# 
+# INSTALLATION_DIRS+=	${PREFIX}/share/atari800
+# 
+# .include "options.mk"
+# 
+# # override HOME to avoid picking up a bad ${HOME}/.atari800 during the build
+# MAKE_FLAGS+=	HOME=${WRKSRC}
+# 
+# post-extract:
+# 	cd ${WRKDIR} && unzip -Lqo ${DISTDIR}/xf25.zip
+# 	sed -e 's,@PREFIX@,${PREFIX},g' <${FILESDIR}/atari800.cfg \
+# 		>${WRKSRC}/atari800.cfg
+# 
+# post-install:
+# 	${INSTALL_DATA} ${WRKDIR}/*.rom ${WRKDIR}/*.xfd ${WRKDIR}/*.atr \
+# 		${WRKSRC}/atari800.cfg ${DESTDIR}${PREFIX}/share/atari800/
+# 
+# .include "../../devel/readline/buildlink3.mk"
+# .include "../../graphics/png/buildlink3.mk"
+# .include "../../mk/oss.buildlink3.mk"
+# .include "../../mk/termcap.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

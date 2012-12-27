@@ -1,0 +1,70 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      xscript.tar.eb
+# Date::      Wed Dec 26 17:09:16 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'xscript-19930228'
+version = 'xscript.tar'
+versionsuffix = '-20121226'
+
+description = "xscript.tar: X Window system script recording and playback"
+
+# The following are automatically calculated - cross fingers
+sources = ['xscript.tar.Z']
+version = '19930228'
+name = 'xscript'
+source_urls = ['ftp://ftp.x.org/R5contrib/']
+homepage = 'http://www.ee.ryerson.ca/~elf/xapps/Q-XVIII.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/xscript/Makefile ######
+# # $NetBSD: Makefile,v 1.15 2008/07/14 12:56:20 joerg Exp $
+# #
+# 
+# DISTNAME=	xscript.tar
+# PKGNAME=	xscript-19930228
+# PKGREVISION=	2
+# CATEGORIES=	x11
+# MASTER_SITES=	ftp://ftp.x.org/R5contrib/ \
+# 		ftp://ftp.gwdg.de/pub/x11/x.org/R5contrib/
+# EXTRACT_SUFX=	.Z
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.ee.ryerson.ca/~elf/xapps/Q-XVIII.html
+# COMMENT=	X Window system script recording and playback
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=		${WRKDIR}/test-distrib/src
+# USE_IMAKE=	YES
+# 
+# .include "../../x11/libXext/buildlink3.mk"
+# .include "../../x11/libX11/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

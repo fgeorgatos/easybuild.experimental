@@ -1,0 +1,86 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      portaudio_v18_1.eb
+# Date::      Wed Dec 26 17:08:12 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'portaudio-18.1'
+version = 'portaudio_v18_1'
+versionsuffix = '-20121226'
+
+description = "portaudio_v18_1: Portable cross-platform Audio API"
+
+# The following are automatically calculated - cross fingers
+sources = ['portaudio_v18_1.zip']
+version = '18.1'
+name = 'portaudio'
+source_urls = ['http://www.portaudio.com/archives/']
+homepage = 'http://www.portaudio.com/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/portaudio/Makefile ######
+# # $NetBSD: Makefile,v 1.19 2010/10/12 21:50:49 joerg Exp $
+# 
+# DISTNAME=	portaudio_v18_1
+# PKGNAME=	portaudio-18.1
+# PKGREVISION=	3
+# CATEGORIES=	audio
+# MASTER_SITES=	http://www.portaudio.com/archives/
+# EXTRACT_SUFX=	.zip
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.portaudio.com/
+# COMMENT=	Portable cross-platform Audio API
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# NOT_FOR_PLATFORM=	Interix-*-*
+# 
+# USE_TOOLS+=		gmake
+# USE_LIBTOOL=		yes
+# GNU_CONFIGURE=		yes
+# 
+# CFLAGS.Darwin=		-Ipablio
+# 
+# INSTALLATION_DIRS+=	lib include
+# 
+# .include "../../mk/bsd.prefs.mk"
+# .if ${OPSYS} == "NetBSD" && exists(/usr/include/sys/pset.h)
+# RT_LIB_SCHED=		-lrt
+# .else
+# RT_LIB_SCHED=		# empty
+# .endif
+# MAKE_ENV+=		RT_LIB_SCHED=${RT_LIB_SCHED}
+# 
+# pre-configure:
+# 	${CHMOD} 755 ${WRKSRC:Q}/configure
+# 
+# .include "../../mk/pthread.buildlink3.mk"
+# .include "../../mk/oss.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

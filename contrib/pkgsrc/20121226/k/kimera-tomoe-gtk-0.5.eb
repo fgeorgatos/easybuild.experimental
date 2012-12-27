@@ -1,0 +1,74 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      kimera-tomoe-gtk-0.5.eb
+# Date::      Wed Dec 26 17:08:39 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'kimera'
+version = 'tomoe-gtk-0.5'
+versionsuffix = '-20121226'
+
+description = "kimera-tomoe-gtk-0.5: Kimera helper program for Tomoe"
+
+# The following are automatically calculated - cross fingers
+sources = ['kimera-tomoe-gtk-0.5.tar.gz']
+source_urls = ['http://sourceforge.net/projects/kimera/24906/files', 'download']
+homepage = 'http://kimera.sourceforge.jp/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/inputmethod/kimera-tomoe-gtk/Makefile ######
+# # $NetBSD: Makefile,v 1.13.2.1 2012/10/03 12:08:22 spz Exp $
+# #
+# 
+# DISTNAME=	kimera-tomoe-gtk-0.5
+# PKGREVISION=	12
+# CATEGORIES=	inputmethod japanese
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE_JP:=kimera/24906/}
+# 
+# MAINTAINER=	obache@NetBSD.org
+# HOMEPAGE=	http://kimera.sourceforge.jp/
+# COMMENT=	Kimera helper program for Tomoe
+# LICENSE=	gnu-lgpl-v2.1
+# 
+# DEPENDS+=	kimera-[0-9]*:../../inputmethod/kimera
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=		yes
+# USE_LIBTOOL=		yes
+# USE_PKGLOCALEDIR=	yes
+# USE_TOOLS+=		msgfmt pkg-config
+# 
+# SUBST_CLASSES+=		libtomoe
+# SUBST_STAGE.libtomoe=	pre-configure
+# SUBST_FILES.libtomoe=	configure
+# SUBST_SED.libtomoe=	-e 's/libtomoe-gtk/tomoe-gtk/g'
+# 
+# .include "../../inputmethod/tomoe-gtk/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

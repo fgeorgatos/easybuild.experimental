@@ -1,0 +1,60 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      suse_qt4-.eb
+# Date::      Wed Dec 26 17:08:31 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'suse_qt4'
+version = ''
+versionsuffix = '-20121226'
+
+description = "suse_qt4-: Linux compatibility package for QT4"
+
+# The following are automatically calculated - cross fingers
+sources = ['suse_qt4-${SUSE_VERSION}.tar.gz']
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/emulators/suse121_qt4/Makefile ######
+# # $NetBSD: Makefile,v 1.1.1.1 2012/03/21 13:40:53 obache Exp $
+# 
+# DISTNAME=	suse_qt4-${SUSE_VERSION}
+# CATEGORIES=	emulators
+# RPMUPDPKGS+=	libqt4-4.7.4-19.6.1.${SUSE_ARCH}
+# RPMUPDPKGS+=	libqt4-qt3support-4.7.4-19.6.1.${SUSE_ARCH}
+# RPMUPDPKGS+=	libqt4-x11-4.7.4-19.6.1.${SUSE_ARCH}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# COMMENT=	Linux compatibility package for QT4
+# 
+# EMUL_MODULES.linux=	x11 fontconfig png
+# 
+# PLIST_SRC=		${PKGDIR}/PLIST ${RPM2PKG_PLIST}
+# 
+# .include "../../emulators/suse121_linux/Makefile.common"
+# .include "../../mk/bsd.pkg.mk"

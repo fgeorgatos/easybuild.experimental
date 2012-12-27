@@ -1,0 +1,69 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Crypt-IDEA-1.08.eb
+# Date::      Wed Dec 26 17:08:58 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'IDEA-1.08'
+versionsuffix = '-20121226'
+
+description = "Crypt-IDEA-1.08: Perl5 module for the IDEA symmetric key algorithm"
+
+# The following are automatically calculated - cross fingers
+sources = ['Crypt-IDEA-1.08.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Crypt/']
+homepage = 'http://search.cpan.org/dist/Crypt-IDEA/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/p5-Crypt-IDEA/Makefile ######
+# # $NetBSD: Makefile,v 1.18 2011/08/14 14:42:48 obache Exp $
+# #
+# 
+# DISTNAME=		Crypt-IDEA-1.08
+# PKGNAME=		p5-${DISTNAME}
+# PKGREVISION=		3
+# CATEGORIES=		security perl5
+# MASTER_SITES=		${MASTER_SITE_PERL_CPAN:=Crypt/}
+# 
+# MAINTAINER=		heinz@NetBSD.org
+# HOMEPAGE=		http://search.cpan.org/dist/Crypt-IDEA/
+# COMMENT=		Perl5 module for the IDEA symmetric key algorithm
+# LICENSE=		idea-license
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# PKG_INSTALLATION_TYPES= overwrite pkgviews
+# 
+# USE_LANGUAGES=		c
+# PERL5_PACKLIST=		auto/Crypt/IDEA/.packlist
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

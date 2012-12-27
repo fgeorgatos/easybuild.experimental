@@ -1,0 +1,65 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      libxml-ruby-2.3.3.eb
+# Date::      Wed Dec 26 17:09:11 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = '-'
+version = 'ruby-2.3.3'
+versionsuffix = '-20121226'
+
+description = "libxml-ruby-2.3.3: Support module for libxml2 library"
+
+# The following are automatically calculated - cross fingers
+sources = ['libxml-ruby-2.3.3.tar.gz']
+homepage = 'http://libxml.rubyforge.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/ruby-libxml/Makefile ######
+# # $NetBSD: Makefile,v 1.15 2012/09/27 13:09:11 taca Exp $
+# 
+# DISTNAME=	libxml-ruby-2.3.3
+# PKGNAME=	${RUBY_PKGPREFIX}-${DISTNAME:C/ruby-//}
+# CATEGORIES=	textproc
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://libxml.rubyforge.org/
+# COMMENT=	Support module for libxml2 library
+# LICENSE=	mit
+# 
+# GEM_CLEANBUILD=	ext/libxml/*
+# CONFIGURE_ARGS+=	\
+# 	--with-xml2-include=${BUILDLINK_PREFIX.libxml2}/include/libxml2
+# 
+# .include "../../lang/ruby/gem.mk"
+# 
+# .include "../../converters/libiconv/buildlink3.mk"
+# .include "../../devel/zlib/buildlink3.mk"
+# .include "../../textproc/libxml2/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

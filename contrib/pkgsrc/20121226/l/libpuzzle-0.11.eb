@@ -1,0 +1,78 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      libpuzzle-0.11.eb
+# Date::      Wed Dec 26 17:08:37 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'libpuzzle'
+version = '0.11'
+versionsuffix = '-20121226'
+
+description = "libpuzzle-0.11: Libpuzzle is designed to quickly find visually similar images"
+
+# The following are automatically calculated - cross fingers
+sources = ['libpuzzle-0.11.tar.bz2']
+source_urls = ['ftp://ftp.pureftpd.org/pub/pure-ftpd/misc/libpuzzle/releases/']
+homepage = 'http://libpuzzle.pureftpd.org/project/libpuzzle'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/libpuzzle/Makefile ######
+# # $NetBSD: Makefile,v 1.8 2012/03/12 14:51:39 wiz Exp $
+# #
+# 
+# DISTNAME=	libpuzzle-0.11
+# PKGREVISION=	6
+# CATEGORIES=	graphics
+# MASTER_SITES=	ftp://ftp.pureftpd.org/pub/pure-ftpd/misc/libpuzzle/releases/
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	imil@gcu.info
+# HOMEPAGE=	http://libpuzzle.pureftpd.org/project/libpuzzle
+# COMMENT=	Libpuzzle is designed to quickly find visually similar images
+# LICENSE=	isc
+# 
+# GNU_CONFIGURE=	yes
+# USE_LIBTOOL=	yes
+# USE_LANGUAGES=	c c++
+# 
+# EGDIR=		${PREFIX}/share/doc/libpuzzle
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# INSTALLATION_DIRS=	${EGDIR} ${PKGMANDIR}/man3 ${PKGMANDIR}/man8
+# 
+# post-install:
+# 	${INSTALL_DATA} ${WRKSRC}/AUTHORS ${DESTDIR}${EGDIR}
+# 	${INSTALL_DATA} ${WRKSRC}/COPYING ${DESTDIR}${EGDIR}
+# 	${INSTALL_DATA} ${WRKSRC}/NEWS ${DESTDIR}${EGDIR}
+# 	${INSTALL_DATA} ${WRKSRC}/README ${DESTDIR}${EGDIR}
+# 	${INSTALL_DATA} ${WRKSRC}/THANKS ${DESTDIR}${EGDIR}
+# 
+# .include "../../graphics/gd/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

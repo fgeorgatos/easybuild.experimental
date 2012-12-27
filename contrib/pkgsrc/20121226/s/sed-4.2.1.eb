@@ -1,0 +1,81 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      sed-4.2.1.eb
+# Date::      Wed Dec 26 17:09:08 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'g'
+version = '4.2.1'
+versionsuffix = '-20121226'
+
+description = "sed-4.2.1: GNU implementation of sed, the POSIX stream editor"
+
+# The following are automatically calculated - cross fingers
+sources = ['sed-4.2.1.tar.gz']
+source_urls = ['http://ftp.gnu.org/gnu/g']
+homepage = 'http://www.gnu.org/software/sed/sed.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/gsed/Makefile ######
+# # $NetBSD: Makefile,v 1.40 2012/06/01 19:29:38 cheusov Exp $
+# #
+# 
+# DISTNAME=	sed-4.2.1
+# PKGNAME=	g${DISTNAME}
+# PKGREVISION=	4
+# CATEGORIES=	textproc editors
+# MASTER_SITES=	${MASTER_SITE_GNU:=sed/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.gnu.org/software/sed/sed.html
+# COMMENT=	GNU implementation of sed, the POSIX stream editor
+# LICENSE=	gnu-gpl-v3 AND gnu-fdl-v1.3
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_PKGLOCALEDIR=	YES
+# GNU_CONFIGURE=		YES
+# INFO_FILES=		YES
+# TEST_TARGET=		check
+# 
+# INSTALLATION_DIRS=	gnu/bin gnu/man/man1
+# 
+# # at least Solaris-2.9 has issues with grep/egrep
+# USE_TOOLS+=		grep makeinfo
+# 
+# CONFIGURE_ARGS+=	--program-prefix=g
+# 
+# post-install:
+# .for g n in bin/gsed gnu/bin/sed man/man1/gsed.1 gnu/man/man1/sed.1
+# 	${LN} -sf ${PREFIX}/${g} ${DESTDIR}${PREFIX}/${n}
+# .endfor
+# 
+# .include "../../devel/gettext-lib/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

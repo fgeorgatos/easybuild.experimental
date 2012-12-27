@@ -1,0 +1,66 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      xrestop-0.4.eb
+# Date::      Wed Dec 26 17:09:16 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'xrestop'
+version = '0.4'
+versionsuffix = '-20121226'
+
+description = "xrestop-0.4: X11 clients server-side resource usage monitor"
+
+# The following are automatically calculated - cross fingers
+sources = ['xrestop-0.4.tar.gz']
+source_urls = ['http://labs.o-hand.com/sources/xrestop/']
+homepage = 'http://www.freedesktop.org/wiki/Software/xrestop'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/xrestop/Makefile ######
+# # $NetBSD: Makefile,v 1.7 2009/05/12 21:25:25 zafer Exp $
+# #
+# 
+# DISTNAME=		xrestop-0.4
+# CATEGORIES=		x11
+# MASTER_SITES=		http://labs.o-hand.com/sources/xrestop/
+# 
+# MAINTAINER=		reed@reedmedia.net
+# HOMEPAGE=		http://www.freedesktop.org/wiki/Software/xrestop
+# COMMENT=		X11 clients' server-side resource usage monitor
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=		yes
+# USE_TOOLS+=		pkg-config
+# 
+# .include "../../devel/ncurses/buildlink3.mk"
+# .include "../../x11/libXext/buildlink3.mk"
+# .include "../../x11/libXres/buildlink3.mk"
+# .include "../../x11/xextproto/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,68 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Class-Method-Modifiers-1.09.eb
+# Date::      Wed Dec 26 17:08:22 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'Method-Modifiers-1.09'
+versionsuffix = '-20121226'
+
+description = "Class-Method-Modifiers-1.09: Perl module providing Moose-like method modifiers"
+
+# The following are automatically calculated - cross fingers
+sources = ['Class-Method-Modifiers-1.09.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Class/']
+homepage = 'http://search.cpan.org/dist/Class-Method-Modifiers/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Class-Method-Modifiers/Makefile ######
+# # $NetBSD: Makefile,v 1.8 2012/07/06 14:18:02 sno Exp $
+# 
+# DISTNAME=	Class-Method-Modifiers-1.09
+# PKGNAME=	p5-${DISTNAME}
+# CATEGORIES=	devel perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Class/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/Class-Method-Modifiers/
+# COMMENT=	Perl module providing Moose-like method modifiers
+# LICENSE=	${PERL5_LICENSE}
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# BUILD_DEPENDS+=	p5-Test-Fatal-[0-9]*:../../devel/p5-Test-Fatal
+# 
+# PERL5_PACKLIST=		auto/Class/Method/Modifiers/.packlist
+# PERL5_MODULE_TYPE=	Module::Install::Bundled
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

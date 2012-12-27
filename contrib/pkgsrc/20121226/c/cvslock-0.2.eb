@@ -1,0 +1,58 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      cvslock-0.2.eb
+# Date::      Wed Dec 26 17:08:20 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'cvslock'
+version = '0.2'
+versionsuffix = '-20121226'
+
+description = "cvslock-0.2: Safely manipulate and inspect CVS repositories"
+
+# The following are automatically calculated - cross fingers
+sources = ['cvslock-0.2.tar.gz']
+source_urls = ['ftp://riemann.iam.uni-bonn.de/pub/users/roessler/cvslock/']
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/cvslock/Makefile ######
+# # $NetBSD: Makefile,v 1.10 2008/06/12 02:14:22 joerg Exp $
+# 
+# DISTNAME=	cvslock-0.2
+# CATEGORIES=	devel scm
+# MASTER_SITES=	ftp://riemann.iam.uni-bonn.de/pub/users/roessler/cvslock/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# COMMENT=	Safely manipulate and inspect CVS repositories
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=	yes
+# 
+# .include "../../mk/bsd.pkg.mk"

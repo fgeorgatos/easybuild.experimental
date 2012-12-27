@@ -1,0 +1,73 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      libvisual-0.2.0.eb
+# Date::      Wed Dec 26 17:08:12 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'libvisual0.2-0.2.0'
+version = '0.2.0'
+versionsuffix = '-20121226'
+
+description = "libvisual-0.2.0: Abstraction library between applications and audio visualisation plugins 0.2 branch "
+
+# The following are automatically calculated - cross fingers
+sources = ['libvisual-0.2.0.tar.gz']
+source_urls = ['http://sourceforge.net/projects/libvisual/files', 'download']
+homepage = 'http://localhost.nl/~synap/libvisual-wiki/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/libvisual0.2/Makefile ######
+# # $NetBSD: Makefile,v 1.5 2012/09/12 00:24:45 asau Exp $
+# #
+# 
+# DISTNAME=		libvisual-0.2.0
+# PKGNAME=		libvisual0.2-0.2.0
+# PKGREVISION=		1
+# CATEGORIES=		audio graphics
+# MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=libvisual/}
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://localhost.nl/~synap/libvisual-wiki/
+# COMMENT=		Abstraction library between applications and audio visualisation plugins (0.2 branch)
+# 
+# CONFLICTS+=		libvisual<0.4.0
+# 
+# USE_LANGUAGES=		c c++
+# USE_LIBTOOL=		yes
+# PKGCONFIG_OVERRIDE+=	${WRKSRC}/libvisual.pc.in
+# GNU_CONFIGURE=		yes
+# USE_TOOLS+=		pkg-config
+# 
+# .include "../../mk/compiler.mk"
+# 
+# .if !empty(CC_VERSION:Mgcc*)
+# CPPFLAGS+=		-mmmx
+# .endif
+# 
+# .include "../../mk/bsd.pkg.mk"

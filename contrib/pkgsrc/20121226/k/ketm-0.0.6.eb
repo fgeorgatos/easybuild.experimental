@@ -1,0 +1,82 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      ketm-0.0.6.eb
+# Date::      Wed Dec 26 17:08:34 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'ketm'
+version = '0.0.6'
+versionsuffix = '-20121226'
+
+description = "ketm-0.0.6: Old-school 2d-scrolling shooter"
+
+# The following are automatically calculated - cross fingers
+sources = ['ketm-0.0.6.tar.bz2']
+source_urls = ['http://home.t-online.de/home/haslbeck/ketm/']
+homepage = 'http://home.t-online.de/home/haslbeck/ketm/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/ketm/Makefile ######
+# # $NetBSD: Makefile,v 1.27 2012/05/16 15:16:09 marino Exp $
+# #
+# 
+# DISTNAME=	ketm-0.0.6
+# PKGREVISION=	7
+# CATEGORIES=	games
+# MASTER_SITES=	http://home.t-online.de/home/haslbeck/ketm/
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://home.t-online.de/home/haslbeck/ketm/
+# COMMENT=	Old-school 2d-scrolling shooter
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# BUILD_TARGET=	ketm
+# 
+# USE_TOOLS+=	gmake
+# 
+# INSTALLATION_DIRS=	bin share/ketm/data
+# 
+# LDFLAGS.DragonFly=	-lm
+# 
+# SUBST_CLASSES+=		ketm
+# SUBST_STAGE.ketm=	pre-configure
+# SUBST_FILES.ketm=	*.c font.h
+# SUBST_SED.ketm=		-e "s,data/,${PREFIX}/share/ketm/data/,g"
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/ketm ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_DATA} ${WRKSRC}/README ${DESTDIR}${PREFIX}/share/ketm
+# 	cd ${WRKSRC}/data && 						\
+# 		${INSTALL_DATA} *.bmp *.dat ${DESTDIR}${PREFIX}/share/ketm/data
+# 
+# .include "../../devel/SDL/buildlink3.mk"
+# .include "../../mk/pthread.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

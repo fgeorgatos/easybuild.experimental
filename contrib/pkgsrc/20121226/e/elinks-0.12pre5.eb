@@ -1,0 +1,85 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      elinks-0.12pre5.eb
+# Date::      Wed Dec 26 17:09:04 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'elinks'
+version = '0.12pre5'
+versionsuffix = '-20121226'
+
+description = "elinks-0.12pre5: Extended/Enhanced Links"
+
+# The following are automatically calculated - cross fingers
+sources = ['elinks-0.12pre5.tar.bz2']
+source_urls = ['http://elinks.or.cz/download/']
+homepage = 'http://elinks.or.cz/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/elinks/Makefile ######
+# # $NetBSD: Makefile,v 1.48 2012/06/13 15:16:53 abs Exp $
+# 
+# DISTNAME=		elinks-0.12pre5
+# PKGNAME=		${DISTNAME:S/pre/rc/}
+# CATEGORIES=		www
+# MASTER_SITES=		http://elinks.or.cz/download/ \
+# 			http://ftp.icm.edu.pl/packages/elinks/
+# EXTRACT_SUFX=		.tar.bz2
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://elinks.or.cz/
+# COMMENT=		Extended/Enhanced Links
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=		yes
+# USE_PKGLOCALEDIR=	yes
+# USE_TOOLS+=		gmake pkg-config
+# 
+# CONFIGURE_ARGS+=	--datadir=${PREFIX}/share/${PKGBASE}
+# CONFIGURE_ARGS+=	--enable-256-colors
+# CONFIGURE_ARGS+=	--enable-utf-8
+# CONFIGURE_ARGS+=	--without-lzma
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# # for backtrace
+# .if ${OPSYS} == "NetBSD" && exists(/usr/include/execinfo.h)
+# LIBS+=	-lexecinfo
+# .endif
+# 
+# .include "options.mk"
+# 
+# .include "../../archivers/bzip2/buildlink3.mk"
+# .include "../../converters/libiconv/buildlink3.mk"
+# .include "../../devel/libidn/buildlink3.mk"
+# .include "../../devel/zlib/buildlink3.mk"
+# .include "../../lang/lua/buildlink3.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"

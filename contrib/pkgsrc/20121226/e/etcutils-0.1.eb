@@ -1,0 +1,79 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      etcutils-0.1.eb
+# Date::      Wed Dec 26 17:09:01 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'etcutils'
+version = '0.1'
+versionsuffix = '-20121226'
+
+description = "etcutils-0.1: Utilities to programmatically edit configuration files"
+
+# The following are automatically calculated - cross fingers
+sources = ['etcutils-0.1.tar.gz']
+source_urls = ['ftp://ftp.NetBSD.org/pub/NetBSD/misc/jmmv/etcutils/0.1/']
+homepage = 'http://www.NetBSD.org/~jmmv/etcutils/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/etcutils/Makefile ######
+# # $NetBSD: Makefile,v 1.2 2010/07/01 18:08:38 joerg Exp $
+# #
+# 
+# DISTNAME=	etcutils-0.1
+# PKGREVISION=	1
+# CATEGORIES=	sysutils
+# MASTER_SITES=	ftp://ftp.NetBSD.org/pub/NetBSD/misc/jmmv/etcutils/0.1/
+# 
+# MAINTAINER=	jmmv@NetBSD.org
+# HOMEPAGE=	http://www.NetBSD.org/~jmmv/etcutils/
+# COMMENT=	Utilities to programmatically edit configuration files
+# LICENSE=	2-clause-bsd
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=		yes
+# 
+# CONFIGURE_ARGS+=	--sysconfdir=/etc SH=${SH}
+# 
+# PKG_OPTIONS_VAR=	PKG_OPTIONS.etcutils
+# PKG_SUPPORTED_OPTIONS=	tests
+# 
+# .include "../../mk/bsd.options.mk"
+# 
+# .if !empty(PKG_OPTIONS:Mtests)
+# CONFIGURE_ARGS+=	--with-atf
+# DEPENDS+=		atf-[0-9]*:../../devel/atf
+# PLIST_SUBST+=		TESTS=
+# .else
+# CONFIGURE_ARGS+=	--without-atf
+# PLIST_SUBST+=		TESTS="@comment"
+# .endif
+# 
+# .include "../../mk/bsd.pkg.mk"

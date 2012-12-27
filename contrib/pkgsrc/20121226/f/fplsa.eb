@@ -1,0 +1,79 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      fplsa.eb
+# Date::      Wed Dec 26 17:08:43 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'gp-fplsa-1.0'
+version = 'fplsa'
+versionsuffix = '-20121226'
+
+description = "fplsa: GAP interface to FPLSA"
+
+# The following are automatically calculated - cross fingers
+sources = ['fplsa.zoo']
+version = 'fplsa-1.0'
+name = 'gp'
+source_urls = ['ftp://ftp-gap.dcs.st-and.ac.uk/pub/gap/gap4/share/']
+homepage = 'http://www.gap-system.org/Share/fplsa.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/math/gp-fplsa/Makefile ######
+# # $NetBSD: Makefile,v 1.14 2012/09/11 23:04:21 asau Exp $
+# #
+# 
+# DISTNAME=	fplsa
+# PKGNAME=	gp-fplsa-1.0
+# PKGREVISION=	2
+# SVR4_PKGNAME=	gpfpl
+# CATEGORIES=	math
+# MASTER_SITES=	ftp://ftp-gap.dcs.st-and.ac.uk/pub/gap/gap4/share/
+# EXTRACT_SUFX=	.zoo
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.gap-system.org/Share/fplsa.html
+# COMMENT=	GAP interface to FPLSA
+# 
+# WRKSRC=		${WRKDIR}/fplsa
+# GAP_PKG_NAME=	fplsa
+# BUILD_TARGET=	default
+# 
+# USE_TOOLS+=	pax
+# 
+# do-configure:
+# 	cd ${WRKSRC} && ${SH} configure ${GAP_DIRECTORY}
+# 
+# do-install:
+# 	${INSTALL_PROGRAM_DIR} ${DESTDIR}${GAP_PKG_DIRECTORY}
+# 	@for I in README.fplsa bin doc gap init.g lib; do		\
+# 		cd ${WRKSRC} && pax -rw $$I ${DESTDIR}${GAP_PKG_DIRECTORY};\
+# 	done
+# 
+# .include "../../math/gap/gap.package.mk"
+# .include "../../mk/bsd.pkg.mk"

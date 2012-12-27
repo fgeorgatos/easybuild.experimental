@@ -1,0 +1,81 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      devtodo-0.1.20.eb
+# Date::      Wed Dec 26 17:09:11 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'devtodo'
+version = '0.1.20'
+versionsuffix = '-20121226'
+
+description = "devtodo-0.1.20: Display and manage a list of items that are outstanding"
+
+# The following are automatically calculated - cross fingers
+sources = ['devtodo-0.1.20.tar.gz']
+source_urls = ['http://swapoff.org/files/devtodo/']
+homepage = 'http://swapoff.org/DevTodo'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/time/devtodo/Makefile ######
+# # $NetBSD: Makefile,v 1.29 2009/05/20 00:58:28 wiz Exp $
+# 
+# DISTNAME=	devtodo-0.1.20
+# PKGREVISION=	3
+# CATEGORIES=	time
+# MASTER_SITES=	http://swapoff.org/files/devtodo/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://swapoff.org/DevTodo
+# COMMENT=	Display and manage a list of items that are outstanding
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=		c c++
+# USE_LIBTOOL=		yes
+# USE_GNU_READLINE=	# uses rl_startup_hook()
+# GNU_CONFIGURE=		yes
+# 
+# EGDIR=			${PREFIX}/share/examples/devtodo
+# INSTALL_MAKE_FLAGS+=	sysconfdir=${EGDIR}
+# 
+# post-install:
+# .for CFILE in	changelog2html						\
+# 		changelog2todo						\
+# 		tdrec							\
+# 		todo-nodone-html.xslt					\
+# 		todo2html-2.xslt					\
+# 		todo2html.xslt						\
+# 		todo2pdf.README						\
+# 		todo2pdf.sh						\
+# 		todo2pdf.xslt
+# 	${INSTALL_DATA} ${WRKSRC}/contrib/${CFILE} ${DESTDIR}${EGDIR}
+# .endfor
+# 
+# .include "../../devel/readline/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

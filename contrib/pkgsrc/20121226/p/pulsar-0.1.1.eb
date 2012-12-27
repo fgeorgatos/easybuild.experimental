@@ -1,0 +1,74 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      pulsar-0.1.1.eb
+# Date::      Wed Dec 26 17:08:42 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'pulsar'
+version = '0.1.1'
+versionsuffix = '-20121226'
+
+description = "pulsar-0.1.1: Small, secure POP3 daemon, featuring native SSL support"
+
+# The following are automatically calculated - cross fingers
+sources = ['pulsar-0.1.1.tar.bz2']
+source_urls = ['http://sourceforge.net/projects/pulsar/files', 'download']
+homepage = 'http://pulsar.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/mail/pulsar/Makefile ######
+# # $NetBSD: Makefile,v 1.14 2010/01/17 12:02:25 wiz Exp $
+# #
+# 
+# DISTNAME=	pulsar-0.1.1
+# PKGREVISION=	6
+# CATEGORIES=	mail
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=pulsar/}
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	martin@NetBSD.org
+# HOMEPAGE=	http://pulsar.sourceforge.net/
+# COMMENT=	Small, secure POP3 daemon, featuring native SSL support
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# MAKE_JOBS_SAFE=		no
+# 
+# GNU_CONFIGURE=	yes
+# USE_TOOLS+=	autoconf gmake
+# 
+# MANCOMPRESSED=	yes
+# 
+# pre-configure:
+# 	cd ${WRKSRC}; autoconf
+# 
+# .include "../../devel/sysexits/buildlink3.mk"
+# .include "../../mk/pam.buildlink3.mk"
+# .include "../../security/openssl/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,78 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      numlockx-1.1.eb
+# Date::      Wed Dec 26 17:09:14 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'numlockx'
+version = '1.1'
+versionsuffix = '-20121226'
+
+description = "numlockx-1.1: Allows you to start X with numlock turned on"
+
+# The following are automatically calculated - cross fingers
+sources = ['numlockx-1.1.tar.gz']
+source_urls = ['http://ktown.kde.org/~seli/numlockx/']
+homepage = 'http://ktown.kde.org/~seli/numlockx/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/numlockx/Makefile ######
+# # $NetBSD: Makefile,v 1.9 2009/07/07 18:10:38 joerg Exp $
+# #
+# 
+# DISTNAME=		numlockx-1.1
+# PKGREVISION=		1
+# CATEGORIES=		x11
+# MASTER_SITES=		http://ktown.kde.org/~seli/numlockx/
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://ktown.kde.org/~seli/numlockx/
+# COMMENT=		Allows you to start X with numlock turned on
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=		yes
+# 
+# INSTALLATION_DIRS=	share/doc/numlockx
+# 
+# post-install:
+# 	${INSTALL_DATA} ${WRKSRC}/README ${DESTDIR}${PREFIX}/share/doc/numlockx
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# .if ${X11_TYPE} == "modular"
+# CONFIGURE_ARGS+=	--x-includes=${BUILDLINK_PREFIX.libX11:Q}/include
+# CONFIGURE_ARGS+=	--x-libraries=${BUILDLINK_PREFIX.libX11:Q}/lib${LIBABISUFFIX:Q}
+# .endif
+# 
+# .include "../../x11/libX11/buildlink3.mk"
+# .include "../../x11/libXext/buildlink3.mk"
+# .include "../../x11/libXtst/buildlink3.mk"
+# .include "../../x11/xextproto/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

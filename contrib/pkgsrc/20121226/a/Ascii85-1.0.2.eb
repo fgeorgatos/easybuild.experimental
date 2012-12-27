@@ -1,0 +1,58 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Ascii85-1.0.2.eb
+# Date::      Wed Dec 26 17:08:16 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'Ascii85'
+version = '1.0.2'
+versionsuffix = '-20121226'
+
+description = "Ascii85-1.0.2: Ascii85 encoder/decoder"
+
+# The following are automatically calculated - cross fingers
+sources = ['Ascii85-1.0.2.tar.gz']
+homepage = 'http://rubyforge.org/projects/ascii85/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/converters/ruby-Ascii85/Makefile ######
+# # $NetBSD: Makefile,v 1.2 2012/09/16 14:00:28 taca Exp $
+# 
+# DISTNAME=	Ascii85-1.0.2
+# CATEGORIES=	print
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://rubyforge.org/projects/ascii85/
+# COMMENT=	Ascii85 encoder/decoder
+# LICENSE=	mit
+# 
+# CONFLICTS+=	ruby[1-9][0-9]-Ascii85-[0-9]*
+# 
+# .include "../../lang/ruby/gem.mk"
+# .include "../../mk/bsd.pkg.mk"

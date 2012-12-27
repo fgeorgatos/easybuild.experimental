@@ -1,0 +1,66 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Math-BigInteger-1.0.eb
+# Date::      Wed Dec 26 17:08:44 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'BigInteger-1.0'
+versionsuffix = '-20121226'
+
+description = "Math-BigInteger-1.0: Arbitrary length integer extension module for Perl"
+
+# The following are automatically calculated - cross fingers
+sources = ['Math-BigInteger-1.0.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Math/']
+homepage = 'http://search.cpan.org/dist/Math-BigInteger/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/math/p5-Math-BigInteger/Makefile ######
+# # $NetBSD: Makefile,v 1.18 2012/09/11 23:04:26 asau Exp $
+# 
+# DISTNAME=	Math-BigInteger-1.0
+# PKGNAME=	p5-${DISTNAME}
+# PKGREVISION=	5
+# SVR4_PKGNAME=	p5mbi
+# CATEGORIES=	math perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Math/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# COMMENT=	Arbitrary length integer extension module for Perl
+# HOMEPAGE=	http://search.cpan.org/dist/Math-BigInteger/
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# 
+# PERL5_PACKLIST=		auto/Math/BigInteger/.packlist
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

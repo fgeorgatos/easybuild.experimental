@@ -1,0 +1,77 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      mod_python-.eb
+# Date::      Wed Dec 26 17:09:03 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = '--python-'
+version = ''
+versionsuffix = '-20121226'
+
+description = "mod_python-: Apache module that embeds the Python interpreter"
+
+# The following are automatically calculated - cross fingers
+sources = ['mod_python-${VERSION}.tgz']
+source_urls = ['http://sourceforge.net/projects/httpd/modpython/files', 'download']
+homepage = 'http://www.modpython.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/ap2-python/Makefile ######
+# # $NetBSD: Makefile,v 1.27 2012/05/16 06:12:46 obache Exp $
+# 
+# DISTNAME=	mod_python-${VERSION}
+# PKGNAME=	${APACHE_PKG_PREFIX}-${PYPKGPREFIX}-python-${VERSION}
+# CATEGORIES=	www python
+# MASTER_SITES=	${MASTER_SITE_APACHE:=httpd/modpython/}
+# EXTRACT_SUFX=	.tgz
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.modpython.org/
+# COMMENT=	Apache module that embeds the Python interpreter
+# LICENSE=	apache-2.0
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# MAKE_JOBS_SAFE=	no
+# 
+# USE_LIBTOOL=	YES
+# APACHE_MODULE=	YES
+# VERSION=	3.3.1
+# 
+# GNU_CONFIGURE=	yes
+# CONFIGURE_ARGS+=--with-apxs=${APXS:Q}
+# CONFIGURE_ARGS+=--with-python=${PYTHONBIN:Q}
+# 
+# PY_PATCHPLIST=	YES
+# 
+# PKG_APACHE_ACCEPTED=	apache2 apache22
+# 
+# .include "../../lang/python/extension.mk"
+# .include "../../mk/apache.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,53 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      da_DK.eb
+# Date::      Wed Dec 26 17:09:08 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'da_DK'
+version = 'da_DK'
+versionsuffix = '-20121226'
+
+description = "da_DK: Danish dictionary for hunspell"
+
+# The following are automatically calculated - cross fingers
+sources = ['da_DK.tar.gz']
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/hunspell-da_DK/Makefile ######
+# # $NetBSD: Makefile,v 1.1.1.1 2008/07/19 17:48:04 ahoka Exp $
+# 
+# VERSION=	20070106
+# DISTNAME=	da_DK
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# COMMENT=	Danish dictionary for hunspell
+# 
+# .include "../../textproc/hunspell/Makefile.common"      
+# 
+# .include "../../mk/bsd.pkg.mk"

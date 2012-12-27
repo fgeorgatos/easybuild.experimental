@@ -1,0 +1,71 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      gpa-0.7.0.eb
+# Date::      Wed Dec 26 17:08:58 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'gpa'
+version = '0.7.0'
+versionsuffix = '-20121226'
+
+description = "gpa-0.7.0: GUI frontend to gnupg"
+
+# The following are automatically calculated - cross fingers
+sources = ['gpa-0.7.0.tar.gz']
+source_urls = ['ftp://ftp.gnupg.org/gcrypt/alpha/gpa/']
+homepage = 'http://www.gnupg.org/related_software/gpa/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/gpa/Makefile ######
+# # $NetBSD: Makefile,v 1.35.2.1 2012/10/03 12:09:19 spz Exp $
+# #
+# 
+# DISTNAME=	gpa-0.7.0
+# PKGREVISION=	18
+# CATEGORIES=	x11 security
+# MASTER_SITES=	ftp://ftp.gnupg.org/gcrypt/alpha/gpa/
+# 
+# MAINTAINER=	pr@alles.prima.de
+# HOMEPAGE=	http://www.gnupg.org/related_software/gpa/
+# COMMENT=	GUI frontend to gnupg
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_TOOLS+=		pkg-config
+# GNU_CONFIGURE=		YES
+# USE_PKGLOCALEDIR=	YES
+# 
+# LIBS+=			${BUILDLINK_LDADD.getopt}
+# 
+# CONFIGURE_ENV+=		ac_cv_path_GPG=${GPGME_GPG:Q}
+# 
+# .include "../../devel/libgetopt/buildlink3.mk"
+# .include "../../security/gpgme/buildlink3.mk"
+# .include "../../x11/gtk2/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

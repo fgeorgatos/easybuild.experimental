@@ -1,0 +1,74 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Math-GMP-2.06.eb
+# Date::      Wed Dec 26 17:08:44 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'GMP-2.06'
+versionsuffix = '-20121226'
+
+description = "Math-GMP-2.06: Perl 5 module for high speed arbitrary size integer math"
+
+# The following are automatically calculated - cross fingers
+sources = ['Math-GMP-2.06.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Math/']
+homepage = 'http://search.cpan.org/dist/Math-GMP/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/math/p5-Math-GMP/Makefile ######
+# # $NetBSD: Makefile,v 1.11 2012/09/11 23:04:27 asau Exp $
+# #
+# 
+# DISTNAME=		Math-GMP-2.06
+# PKGNAME=		p5-${DISTNAME}
+# PKGREVISION=		3
+# SVR4_PKGNAME=		p5mgp
+# CATEGORIES=		math perl5
+# MASTER_SITES=		${MASTER_SITE_PERL_CPAN:=Math/}
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://search.cpan.org/dist/Math-GMP/
+# COMMENT=		Perl 5 module for high speed arbitrary size integer math
+# LICENSE=		gnu-gpl-v2
+# 
+# #BUILD_DEPENDS+= p5-Module-Signature>=0.50:../../security/p5-Module-Signature
+# #BUILD_DEPENDS+= p5-Text-SpellChecker>0:../../textproc/p5-Text-SpellChecker
+# #BUILD_DEPENDS+= p5-Perl-Critic>0:../../devel/p5-Perl-Critic
+# #BUILD_DEPENDS+= p5-Pod-Spell>0:../../textproc/p5-Pod-Spell
+# #BUILD_DEPENDS+= p5-Test-Pod>=0.95:../../devel/p5-Test-Pod
+# BUILD_DEPENDS+=	p5-Test-YAML-Meta>=0.03:../../devel/p5-Test-YAML-Meta
+# 
+# PERL5_PACKLIST=		auto/Math/GMP/.packlist
+# 
+# .include "../../devel/gmp/buildlink3.mk"
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

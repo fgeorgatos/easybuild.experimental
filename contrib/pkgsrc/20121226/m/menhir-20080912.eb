@@ -1,0 +1,75 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      menhir-20080912.eb
+# Date::      Wed Dec 26 17:08:21 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'menhir'
+version = '20080912'
+versionsuffix = '-20121226'
+
+description = "menhir-20080912: LR 1 parser generator in OCaml"
+
+# The following are automatically calculated - cross fingers
+sources = ['menhir-20080912.tar.gz']
+source_urls = ['http://cristal.inria.fr/~fpottier/menhir/']
+homepage = 'http://cristal.inria.fr/~fpottier/menhir/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/menhir/Makefile ######
+# # $NetBSD: Makefile,v 1.5 2011/12/06 00:19:23 sbd Exp $
+# #
+# 
+# DISTNAME=	menhir-20080912
+# PKGREVISION=	2
+# CATEGORIES=	devel
+# MASTER_SITES=	http://cristal.inria.fr/~fpottier/menhir/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://cristal.inria.fr/~fpottier/menhir/
+# COMMENT=	LR(1) parser generator in OCaml
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# MAKE_JOBS_SAFE=		no
+# 
+# BUILD_DEPENDS+=		ocaml-findlib-[0-9]*:../../devel/ocaml-findlib
+# 
+# USE_TOOLS+=		gmake
+# 
+# EGDIR=			${PREFIX}/share/examples/${PKGBASE}
+# MAKE_ENV=		EGDIR=${EGDIR:Q}
+# 
+# BUILDLINK_API_DEPENDS.ocaml+=	ocaml>=3.09
+# 
+# post-extract:
+# 	${RM} ${WRKSRC}/demos/calc/.omakedb*
+# 
+# .include "../../lang/ocaml/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,94 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      pure-ftpd-1.0.35.eb
+# Date::      Wed Dec 26 17:08:51 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'pure'
+version = 'ftpd-1.0.35'
+versionsuffix = '-20121226'
+
+description = "pure-ftpd-1.0.35: Secure FTP daemon with optional SQL support"
+
+# The following are automatically calculated - cross fingers
+sources = ['pure-ftpd-1.0.35.tar.bz2']
+source_urls = ['ftp://ftp.pureftpd.org/pub/pure-ftpd/releases/']
+homepage = 'http://www.pureftpd.org/project/pure-ftpd'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/pure-ftpd/Makefile ######
+# # $NetBSD: Makefile,v 1.28 2012/02/07 20:40:39 morr Exp $
+# 
+# DISTNAME=	pure-ftpd-1.0.35
+# CATEGORIES=	net
+# MASTER_SITES=	ftp://ftp.pureftpd.org/pub/pure-ftpd/releases/ \
+# 		http://download.pureftpd.org/pub/pure-ftpd/releases/ \
+# 		ftp://ftp2.fr.pureftpd.org/pub/mirrors/ftp.fr.pureftpd.org/pub/pure-ftpd/releases/ \
+# 		ftp://ftp3.fr.pureftpd.org/pure-ftpd/releases/ \
+# 		ftp://ftp.dk.pureftpd.org/mirrors/pure-ftpd/releases/ \
+# 		ftp://ftp.nl.pureftpd.org/pub/pure-ftpd/releases/ \
+# 		ftp://ftp.fr.pureftpd.org/pub/pure-ftpd/releases/ \
+# 		ftp://ftp.cn.pureftpd.org/pub/pureftpd/pure-ftpd/releases/ \
+# 		${MASTER_SITE_SOURCEFORGE:=pureftpd/}
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	dawszy@arhea.net
+# HOMEPAGE=	http://www.pureftpd.org/project/pure-ftpd
+# COMMENT=	Secure FTP daemon with optional SQL support
+# LICENSE=	modified-bsd
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=		yes
+# CONFIGURE_ARGS+=	--with-everything
+# CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR}
+# CONFIGURE_ARGS+=	--localstatedir=${VARBASE}
+# 
+# BUILD_DEFS+=		VARBASE
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# .if ${OPSYS} == "Interix"
+# CONFIGURE_ARGS+=	--without-privsep
+# .endif
+# 
+# .include "options.mk"
+# 
+# RCD_SCRIPTS=		pure_ftpd pure_uploadscript
+# INSTALLATION_DIRS=	share/doc/pure-ftpd
+# 
+# post-install:
+# 	cd ${WRKSRC} &&	\
+# 		${INSTALL_DATA} README README.Authentication-Modules	 \
+# 				README.Configuration-File README.Contrib \
+# 				README.TLS README.Virtual-Users		 \
+# 				README.MySQL README.PGSQL README.LDAP	 \
+# 			${DESTDIR}${PREFIX}/share/doc/pure-ftpd
+# 
+# .include "../../mk/bsd.pkg.mk"

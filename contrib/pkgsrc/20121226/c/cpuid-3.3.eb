@@ -1,0 +1,69 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      cpuid-3.3.eb
+# Date::      Wed Dec 26 17:09:00 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'cpuid'
+version = '3.3'
+versionsuffix = '-20121226'
+
+description = "cpuid-3.3: CPU identification feature"
+
+# The following are automatically calculated - cross fingers
+sources = ['cpuid-3.3.tar.gz']
+source_urls = ['http://www.ka9q.net/code/cpuid/']
+homepage = 'http://directory.fsf.org/project/cpuid/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/cpuid/Makefile ######
+# # $NetBSD: Makefile,v 1.8 2010/11/13 21:09:04 shattered Exp $
+# 
+# DISTNAME=	cpuid-3.3
+# CATEGORIES=	sysutils
+# MASTER_SITES=	http://www.ka9q.net/code/cpuid/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://directory.fsf.org/project/cpuid/
+# COMMENT=	CPU identification feature
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# ONLY_FOR_PLATFORM=	*-*-i386
+# ONLY_FOR_PLATFORM+=	*-*-x86_64
+# 
+# INSTALLATION_DIRS=	bin
+# 
+# do-build:
+# 	cd ${WRKSRC} && ${CC} ${CFLAGS} cpuid.c -o cpuid
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/cpuid ${DESTDIR}${PREFIX}/bin
+# 
+# .include "../../mk/bsd.pkg.mk"

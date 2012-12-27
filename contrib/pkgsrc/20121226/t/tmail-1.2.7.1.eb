@@ -1,0 +1,62 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      tmail-1.2.7.1.eb
+# Date::      Wed Dec 26 17:08:43 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'tmail'
+version = '1.2.7.1'
+versionsuffix = '-20121226'
+
+description = "tmail-1.2.7.1: Mail manipulating library for Ruby including MIME multipart support"
+
+# The following are automatically calculated - cross fingers
+sources = ['tmail-1.2.7.1.tar.gz']
+homepage = 'http://tmail.rubyforge.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/mail/ruby-tmail/Makefile ######
+# # $NetBSD: Makefile,v 1.20 2011/11/08 15:37:34 taca Exp $
+# 
+# DISTNAME=	tmail-1.2.7.1
+# PKGREVISION=	2
+# CATEGORIES=	mail
+# 
+# MAINTAINER=	taca@NetBSD.org
+# HOMEPAGE=	http://tmail.rubyforge.org/
+# COMMENT=	Mail manipulating library for Ruby including MIME multipart support
+# LICENSE=	mit
+# 
+# # Add a directory that would be created if the setup.rb script was run.
+# pre-configure:
+# 	cd ${WRKSRC} && mkdir doc
+# 	${FIND} ${WRKSRC} -type f -exec ${CHMOD} -x {} \;
+# 
+# .include "../../lang/ruby/gem.mk"
+# .include "../../mk/bsd.pkg.mk"

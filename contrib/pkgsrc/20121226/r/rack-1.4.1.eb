@@ -1,0 +1,59 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      rack-1.4.1.eb
+# Date::      Wed Dec 26 17:09:07 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'rack'
+version = '1.4.1'
+versionsuffix = '-20121226'
+
+description = "rack-1.4.1: Modular Ruby webserver interface"
+
+# The following are automatically calculated - cross fingers
+sources = ['rack-1.4.1.tar.gz']
+homepage = 'http://rack.rubyforge.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/ruby-rack/Makefile ######
+# # $NetBSD: Makefile,v 1.11 2012/03/17 16:42:00 taca Exp $
+# 
+# DISTNAME=	rack-1.4.1
+# CATEGORIES=	www
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://rack.rubyforge.org/
+# COMMENT=	Modular Ruby webserver interface
+# LICENSE=	mit
+# 
+# pre-configure:
+# 	${FIND} ${WRKSRC} -type f -exec ${CHMOD} g-w {} \;
+# 
+# .include "../../lang/ruby/gem.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,92 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      pdmenu_1.2.65.eb
+# Date::      Wed Dec 26 17:08:46 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'pdmenu_1.2.65'
+version = 'pdmenu_1.2.65'
+versionsuffix = '-20121226'
+
+description = "pdmenu_1.2.65: Simple console menu program"
+
+# The following are automatically calculated - cross fingers
+sources = ['pdmenu_1.2.65.tar.gz']
+source_urls = ['http://www.kitenet.net/programs/pdmenu/']
+homepage = 'http://www.kitenet.net/~joey/code/pdmenu.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/misc/pdmenu/Makefile ######
+# # $NetBSD: Makefile,v 1.27 2010/02/26 10:28:33 wiz Exp $
+# #
+# 
+# DISTNAME=	pdmenu_1.2.65
+# PKGNAME=	${DISTNAME:S/_/-/}
+# PKGREVISION=	3
+# CATEGORIES=	misc
+# MASTER_SITES=	http://www.kitenet.net/programs/pdmenu/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.kitenet.net/~joey/code/pdmenu.html
+# COMMENT=	Simple console menu program
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=		${WRKDIR}/pdmenu
+# GNU_CONFIGURE=	YES
+# USE_TOOLS+=	gmake perl:run
+# 
+# REPLACE_PERL=	examples/showdir.pl
+# 
+# 
+# CONFIGURE_ENV+=	SLANG_LIB_LOC=${BUILDLINK_PREFIX.libslang:Q}/lib
+# CONFIGURE_ENV+=	SLANG_H_LOC=${BUILDLINK_PREFIX.libslang:Q}/include/slang.h
+# 
+# INSTALLATION_DIRS=	lib/pdmenu share/doc/pdmenu \
+# 			share/examples/pdmenu/newbie
+# 
+# INSTALL_MAKE_FLAGS+=	INSTALL_PREFIX=${DESTDIR}
+# 
+# pre-install:
+# 	${SED} "s,.B /etc/pdmenurc,.B ${PREFIX}/etc/pdmenurc,g"		\
+# 		${WRKSRC}/doc/pdmenurc.man > ${WRKSRC}/doc/pdmenurc.man.done
+# 	${MV} ${WRKSRC}/doc/pdmenurc.man.done ${WRKSRC}/doc/pdmenurc.man
+# 
+# post-install:
+# 	cd ${WRKSRC}/doc && ${INSTALL_DATA} ANNOUNCE BUGS TODO \
+# 		${DESTDIR}${PREFIX}/share/doc/pdmenu
+# 	cd ${WRKSRC}/examples && ${INSTALL_DATA} README ba.lpd pdmenurc \
+# 		pdmenurc.complex pdmenurc.monitor showdir.pl \
+# 		${DESTDIR}${PREFIX}/share/examples/pdmenu
+# 	cd ${WRKSRC}/examples/newbie && ${INSTALL_DATA} modem-check \
+# 		pdmenurc.newbie	rpm-info-on-command \
+# 		${DESTDIR}${PREFIX}/share/examples/pdmenu/newbie
+# 
+# .include "../../devel/libslang/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

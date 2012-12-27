@@ -1,0 +1,73 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Text-Xslate-1.5007.eb
+# Date::      Wed Dec 26 17:09:10 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'Xslate-1.5007'
+versionsuffix = '-20121226'
+
+description = "Text-Xslate-1.5007: Scalable template engine for Perl5"
+
+# The following are automatically calculated - cross fingers
+sources = ['Text-Xslate-1.5007.tar.gz']
+version = '${DISTNAME:S/007/.7/}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Text/']
+homepage = 'http://search.cpan.org/dist/Text-Xslate/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/p5-Text-Xslate/Makefile ######
+# # $NetBSD: Makefile,v 1.2 2012/03/15 01:17:28 joerg Exp $
+# #
+# 
+# DISTNAME=	Text-Xslate-1.5007
+# PKGNAME=	p5-${DISTNAME:S/007/.7/}
+# CATEGORIES=	textproc
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Text/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/Text-Xslate/
+# COMMENT=	Scalable template engine for Perl5
+# LICENSE=	${PERL5_LICENSE}
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# MAKE_JOBS_SAFE=		no
+# 
+# DEPENDS+=	p5-Any-Moose>=0.13:../../devel/p5-Any-Moose
+# DEPENDS+=	p5-Data-MessagePack>=0.30:../../devel/p5-Data-MessagePack
+# DEPENDS+=	p5-Mouse>=0.61:../../devel/p5-Mouse
+# DEPENDS+=	p5-Test-Requires>=0:../../devel/p5-Test-Requires
+# 
+# PERL5_PACKLIST=	auto/Text/Xslate/.packlist
+# USE_LANGUAGES=	c
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

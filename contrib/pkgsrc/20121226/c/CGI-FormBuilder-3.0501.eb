@@ -1,0 +1,73 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      CGI-FormBuilder-3.0501.eb
+# Date::      Wed Dec 26 17:09:04 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'FormBuilder-3.0501'
+versionsuffix = '-20121226'
+
+description = "CGI-FormBuilder-3.0501: Perl5 module for building HTML forms"
+
+# The following are automatically calculated - cross fingers
+sources = ['CGI-FormBuilder-3.0501.tgz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/CGI/']
+homepage = 'http://www.formbuilder.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/p5-CGI-FormBuilder/Makefile ######
+# # $NetBSD: Makefile,v 1.17 2012/02/02 09:48:42 hans Exp $
+# 
+# DISTNAME=		CGI-FormBuilder-3.0501
+# PKGNAME=		p5-${DISTNAME}
+# PKGREVISION=		4
+# CATEGORIES=		www perl5
+# MASTER_SITES=		${MASTER_SITE_PERL_CPAN:=CGI/}
+# EXTRACT_SUFX=		.tgz
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# COMMENT=		Perl5 module for building HTML forms
+# HOMEPAGE=		http://www.formbuilder.org/
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# PERL5_PACKLIST=		auto/CGI/FormBuilder/.packlist
+# 
+# DEPENDS+=		p5-HTML-Template>=2.6:../../www/p5-HTML-Template
+# DEPENDS+=		p5-Text-Template>=1.43:../../textproc/p5-Text-Template
+# #DEPENDS+=		p5-Template-Toolkit>=2.08:../../www/p5-Template-Toolkit
+# 
+# pre-configure:
+# 	${FIND} ${WRKSRC} -name "*.orig" -type f | ${XARGS} ${RM} -f
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

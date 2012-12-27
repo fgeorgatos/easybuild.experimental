@@ -1,0 +1,81 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      liberation-fonts-ttf-1.07.1.eb
+# Date::      Wed Dec 26 17:08:32 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'liberation'
+version = 'fonts-ttf-1.07.1'
+versionsuffix = '-20121226'
+
+description = "liberation-fonts-ttf-1.07.1: TrueType fonts from RedHat"
+
+# The following are automatically calculated - cross fingers
+sources = ['liberation-fonts-ttf-1.07.1.tar.gz']
+source_urls = ['https://fedorahosted.org/releases/l/i/liberation-fonts/']
+homepage = 'http://www.redhat.com/promo/fonts/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/fonts/liberation-ttf/Makefile ######
+# # $NetBSD: Makefile,v 1.7 2011/12/07 10:30:32 joerg Exp $
+# #
+# 
+# DISTNAME=	liberation-fonts-ttf-1.07.1
+# PKGREVISION=	1
+# PKGNAME=	${DISTNAME:S/-fonts//}
+# CATEGORIES=	fonts
+# MASTER_SITES=	https://fedorahosted.org/releases/l/i/liberation-fonts/ \
+# 		${MASTER_SITE_LOCAL}
+# 
+# MAINTAINER=	bartosz.kuzma@gmail.com
+# HOMEPAGE=	http://www.redhat.com/promo/fonts/
+# COMMENT=	TrueType fonts from RedHat
+# LICENSE=	gnu-gpl-v2 # with some exception
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# NO_BUILD=	yes
+# NO_CONFIGURE=	yes
+# 
+# DOCDIR=		${PREFIX}/share/doc/${PKGBASE}
+# FONTDIR=	${PREFIX}/lib/X11/fonts/TTF
+# FONTS_DIRS.ttf=	${FONTDIR}
+# 
+# INSTALLATION_DIRS=	${DOCDIR} ${FONTDIR}
+# 
+# do-install:
+# 	set -e; \
+# 	cd ${WRKSRC} && for f in *.ttf ; do \
+# 		${INSTALL_DATA} $$f ${DESTDIR}${FONTDIR}/$$f ; \
+# 	done
+# 
+# 	${INSTALL_DATA} ${WRKSRC}/COPYING ${WRKSRC}/License.txt \
+# 		${DESTDIR}${DOCDIR}
+# 
+# .include "../../mk/bsd.pkg.mk"

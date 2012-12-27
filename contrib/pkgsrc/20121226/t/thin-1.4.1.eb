@@ -1,0 +1,62 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      thin-1.4.1.eb
+# Date::      Wed Dec 26 17:09:07 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'thin'
+version = '1.4.1'
+versionsuffix = '-20121226'
+
+description = "thin-1.4.1: Fast and very simple Ruby web server"
+
+# The following are automatically calculated - cross fingers
+sources = ['thin-1.4.1.tar.gz']
+homepage = 'http://code.macournoyer.com/thin/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/thin/Makefile ######
+# # $NetBSD: Makefile,v 1.11 2012/09/16 13:40:12 taca Exp $
+# 
+# DISTNAME=	thin-1.4.1
+# CATEGORIES=	www
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://code.macournoyer.com/thin/
+# COMMENT=	Fast and very simple Ruby web server
+# LICENSE=	mit
+# 
+# DEPENDS+=	${RUBY_PKGPREFIX}-rack>=1.0.0:../../www/ruby-rack
+# DEPENDS+=	${RUBY_PKGPREFIX}-daemons>=1.0.9:../../misc/ruby-daemons
+# DEPENDS+=	${RUBY_PKGPREFIX}-eventmachine>=0.12.6:../../devel/ruby-eventmachine
+# 
+# CONFLICTS+=	ruby[1-9][0-9]-thin-[0-9]* thin-[0-9]*
+# 
+# .include "../../lang/ruby/gem.mk"
+# .include "../../mk/bsd.pkg.mk"

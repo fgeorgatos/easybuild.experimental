@@ -1,0 +1,99 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      oo2c_-2.0.11.eb
+# Date::      Wed Dec 26 17:08:40 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'oo2c-2.0.11'
+version = '2.0.11'
+versionsuffix = '-20121226'
+
+description = "oo2c_-2.0.11: Optimizing Oberon-2 Compiler"
+
+# The following are automatically calculated - cross fingers
+sources = ['oo2c_${BITS}-2.0.11.tar.bz2']
+version = '2.0.11'
+name = 'oo2c'
+source_urls = ['http://sourceforge.net/projects/ooc/files', 'download']
+homepage = 'http://ooc.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/lang/oo2c/Makefile ######
+# # $NetBSD: Makefile,v 1.24 2011/05/27 13:16:04 obache Exp $
+# 
+# DISTNAME=		oo2c_${BITS}-2.0.11
+# PKGNAME=		oo2c-2.0.11
+# PKGREVISION=		8
+# CATEGORIES=		lang
+# MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=ooc/}
+# EXTRACT_SUFX=		.tar.bz2
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://ooc.sourceforge.net/
+# COMMENT=		Optimizing Oberon-2 Compiler
+# 
+# DEPENDS+=		libtool-base-[0-9]*:../../devel/libtool-base
+# DEPENDS+=		libxslt-[0-9]*:../../textproc/libxslt
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# .if ${MACHINE_ARCH} == alpha || ${MACHINE_ARCH} == sparc64 \
+# 	|| ${MACHINE_ARCH} == x86_64
+# BITS=64
+# .else
+# BITS=32
+# .endif
+# 
+# GNU_CONFIGURE=		yes
+# USE_TOOLS+=		gmake perl:run
+# USE_LIBTOOL=		yes
+# 
+# EVAL_PREFIX+=		LIBTOOL_PREFIX=libtool-base
+# LIBTOOL_PREFIX_DEFAULT=	${LOCALBASE}
+# 
+# INSTALLATION_DIRS=	share/doc/html share/emacs/site-lisp
+# 
+# SUBST_CLASSES+=		destdir
+# SUBST_STAGE.destdir=	pre-install
+# SUBST_FILES.destdir=	oo2crc-install.xml
+# SUBST_SED.destdir=	-e 's,>${PREFIX}/lib<,>${DESTDIR}${PREFIX}/lib<,g'
+# SUBST_SED.destdir+=	-e 's,>${PREFIX}/lib/oo2c<,>${DESTDIR}${PREFIX}/lib/oo2c<,g'
+# SUBST_SED.destdir+=	-e 's,>${PREFIX}/bin<,>${DESTDIR}${PREFIX}/bin<,g'
+# 
+# SUBST_CLASSES+=		pkg-unwrap
+# SUBST_STAGE.pkg-unwrap=	post-install
+# SUBST_FILES.pkg-unwrap=	${DESTDIR}${PREFIX}/lib/oo2c/oo2crc.xml
+# SUBST_SED.pkg-unwrap=	-e 's,${WRAPPER_DIR},${LIBTOOL_PREFIX},g'
+# 
+# post-install:
+# 	${LN} -sf ${PREFIX}/lib/oo2c/oocdoc/html ${DESTDIR}${PREFIX}/share/doc/html/oo2c
+# 	${LN} -sf ${PREFIX}/lib/oo2c/emacs ${DESTDIR}${PREFIX}/share/emacs/site-lisp/oo2c
+# 
+# .include "../../devel/boehm-gc/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

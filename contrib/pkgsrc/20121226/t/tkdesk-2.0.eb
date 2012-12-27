@@ -1,0 +1,83 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      tkdesk-2.0.eb
+# Date::      Wed Dec 26 17:09:02 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'tkdesk'
+version = '2.0'
+versionsuffix = '-20121226'
+
+description = "tkdesk-2.0: Graphical file manager"
+
+# The following are automatically calculated - cross fingers
+sources = ['tkdesk-2.0.tar.gz']
+source_urls = ['http://tkdesk.sourceforge.net/dist/']
+homepage = 'http://tkdesk.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/tkdesk/Makefile ######
+# # $NetBSD: Makefile,v 1.19 2012/08/21 23:49:26 marino Exp $
+# #
+# 
+# DISTNAME=	tkdesk-2.0
+# PKGREVISION=	2
+# CATEGORIES=	sysutils
+# MASTER_SITES=	http://tkdesk.sourceforge.net/dist/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://tkdesk.sourceforge.net/
+# COMMENT=	Graphical file manager
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_TOOLS+=	pax
+# 
+# GNU_CONFIGURE=	YES
+# CONFIGURE_ARGS+=--with-tcl=${BUILDLINK_PREFIX.tcl}/lib	\
+# 		--with-tk=${BUILDLINK_PREFIX.tk}/lib	\
+# 		--with-itcl=${BUILDLINK_PREFIX.tcl-itcl}/lib	\
+# 		--with-blt=${BUILDLINK_PREFIX.blt}/lib
+# MAKE_ENV+=	LIB_RUNTIME_DIR=${BUILDLINK_PREFIX.tcl-itcl:Q}/lib \
+# 		PAX=${PAX:Q}
+# 
+# INSTALL_MAKE_FLAGS+=	INSTALL_ROOT=${DESTDIR}
+# INSTALLATION_DIRS+=	bin ${PKGMANDIR}/man1
+# 
+# .include "../../lang/tcl/buildlink3.mk"
+# .include "../../lang/tcl-itcl/buildlink3.mk"
+# .include "../../x11/blt/buildlink3.mk"
+# .include "../../x11/tk/buildlink3.mk"
+# 
+# pre-install:
+# 	${RM} -Rf ${WRKSRC}/tcldesk/configs/.trash
+# 	${FIND} ${WRKSRC}/tcldesk -type f -name '*.orig' -print | ${XARGS} ${RM} -rf
+# 	${FIND} ${WRKSRC}/tcldesk -type f -print | ${XARGS} ${TOUCH}
+# 
+# .include "../../mk/bsd.pkg.mk"

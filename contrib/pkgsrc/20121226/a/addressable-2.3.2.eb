@@ -1,0 +1,56 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      addressable-2.3.2.eb
+# Date::      Wed Dec 26 17:08:51 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'addressable'
+version = '2.3.2'
+versionsuffix = '-20121226'
+
+description = "addressable-2.3.2: Replacement for the URI Implementation of standard librrary"
+
+# The following are automatically calculated - cross fingers
+sources = ['addressable-2.3.2.tar.gz']
+homepage = 'http://addressable.rubyforge.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/ruby-addressable/Makefile ######
+# # $NetBSD: Makefile,v 1.8 2012/07/31 12:01:22 taca Exp $
+# 
+# DISTNAME=	addressable-2.3.2
+# CATEGORIES=	net
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://addressable.rubyforge.org/
+# COMMENT=	Replacement for the URI Implementation of standard librrary
+# LICENSE=	mit
+# 
+# .include "../../lang/ruby/gem.mk"
+# .include "../../mk/bsd.pkg.mk"

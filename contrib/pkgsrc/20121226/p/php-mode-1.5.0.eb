@@ -1,0 +1,71 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      php-mode-1.5.0.eb
+# Date::      Wed Dec 26 17:08:26 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'php'
+version = 'mode-1.5.0'
+versionsuffix = '-20121226'
+
+description = "php-mode-1.5.0: PHP editing mode for Emacs"
+
+# The following are automatically calculated - cross fingers
+sources = ['php-mode-1.5.0.tar.gz']
+source_urls = ['http://sourceforge.net/projects/php-mode/files', 'download']
+homepage = 'http://sourceforge.net/projects/php-mode/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/php-mode/Makefile ######
+# # $NetBSD: Makefile,v 1.4 2012/06/16 16:05:53 taca Exp $
+# #
+# 
+# DISTNAME=	php-mode-1.5.0
+# PKGNAME=	${EMACS_PKGNAME_PREFIX}${DISTNAME}
+# CATEGORIES=	devel
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=php-mode/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://sourceforge.net/projects/php-mode/
+# COMMENT=	PHP editing mode for Emacs
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# NO_CONFIGURE=		yes
+# 
+# do-build:
+# 	cd ${WRKSRC} && ${EMACS_BIN} -batch -f batch-byte-compile php-mode.el
+# 
+# do-install:
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${EMACS_LISPPREFIX}/php-mode
+# 	${INSTALL_DATA} ${WRKSRC}/php-mode.e* \
+# 		${DESTDIR}${EMACS_LISPPREFIX}/php-mode
+# 
+# .include "../../editors/emacs/modules.mk"
+# .include "../../mk/bsd.pkg.mk"

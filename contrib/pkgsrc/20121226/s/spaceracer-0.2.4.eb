@@ -1,0 +1,73 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      spaceracer-0.2.4.eb
+# Date::      Wed Dec 26 17:08:34 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'spaceracer'
+version = '0.2.4'
+versionsuffix = '-20121226'
+
+description = "spaceracer-0.2.4: 3D car racing game"
+
+# The following are automatically calculated - cross fingers
+sources = ['spaceracer-0.2.4.tgz']
+source_urls = ['http://spaceracer.sourceforge.net/']
+homepage = 'http://spaceracer.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/spaceracer/Makefile ######
+# # $NetBSD: Makefile,v 1.10 2011/04/22 13:43:39 obache Exp $
+# #
+# 
+# DISTNAME=		spaceracer-0.2.4
+# PKGREVISION=		5
+# CATEGORIES=		games
+# MASTER_SITES=		http://spaceracer.sourceforge.net/
+# EXTRACT_SUFX=		.tgz
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://spaceracer.sourceforge.net/
+# COMMENT=		3D car racing game
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=		c c++
+# USE_PKGLOCALEDIR=	yes
+# GNU_CONFIGURE=		yes
+# USE_TOOLS+=		automake autoconf
+# 
+# pre-configure:
+# 	cd ${WRKSRC:Q} && autoreconf -i
+# 
+# .include "../../audio/SDL_mixer/buildlink3.mk"
+# .include "../../graphics/MesaLib/buildlink3.mk"
+# .include "../../multimedia/smpeg/buildlink3.mk"
+# .include "../../graphics/png/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

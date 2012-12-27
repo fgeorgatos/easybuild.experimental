@@ -1,0 +1,68 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      librsync-0.9.7.eb
+# Date::      Wed Dec 26 17:08:21 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'librsync'
+version = '0.9.7'
+versionsuffix = '-20121226'
+
+description = "librsync-0.9.7: Checksum-based differencing library"
+
+# The following are automatically calculated - cross fingers
+sources = ['librsync-0.9.7.tar.gz']
+source_urls = ['http://sourceforge.net/projects/librsync/files', 'download']
+homepage = 'http://librsync.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/librsync/Makefile ######
+# # $NetBSD: Makefile,v 1.18 2011/04/22 13:42:01 obache Exp $
+# 
+# DISTNAME=	librsync-0.9.7
+# PKGREVISION=	3
+# CATEGORIES=	devel net
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=librsync/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://librsync.sourceforge.net/
+# COMMENT=	Checksum-based differencing library
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LIBTOOL=		yes
+# GNU_CONFIGURE=		yes
+# CONFIGURE_ARGS+=	--without-included-popt
+# 
+# .include "../../archivers/bzip2/buildlink3.mk"
+# .include "../../devel/gettext-lib/buildlink3.mk"
+# .include "../../devel/popt/buildlink3.mk"
+# .include "../../devel/zlib/buildlink3.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"

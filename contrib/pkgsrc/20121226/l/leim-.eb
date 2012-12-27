@@ -1,0 +1,87 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      leim-.eb
+# Date::      Wed Dec 26 17:08:29 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'leim'
+version = ''
+versionsuffix = '-20121226'
+
+description = "leim-: Libraries of Emacs Input Methods"
+
+# The following are automatically calculated - cross fingers
+sources = ['leim-${VERSION}.tar.gz']
+source_urls = ['http://ftp.gnu.org/gnu/leim']
+homepage = 'http://www.gnu.org/software/emacs/emacs.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/editors/leim20/Makefile ######
+# # $NetBSD: Makefile,v 1.17 2011/12/19 00:52:51 dholland Exp $
+# 
+# DISTNAME=	leim-${VERSION}
+# PKGREVISION=	6
+# CATEGORIES=	editors
+# MASTER_SITES=	${MASTER_SITE_GNU:=emacs/}
+# DISTFILES=	emacs-${VERSION}${EXTRACT_SUFX} ${DISTNAME}${EXTRACT_SUFX}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.gnu.org/software/emacs/emacs.html
+# COMMENT=	Libraries of Emacs Input Methods
+# 
+# DEPENDS+=	emacs-${VERSION}{,nb[0-9]*}:../../editors/emacs20
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# MAKE_JOBS_SAFE=	no
+# 
+# WRKSRC=		${WRKDIR}/emacs-20.7
+# GNU_CONFIGURE=	yes
+# USE_TOOLS+=	gmake
+# 
+# VERSION=	20.7
+# 
+# BUILD_DIRS=	leim
+# 
+# INSTALL_MAKE_FLAGS+=	prefix=${DESTDIR}${PREFIX}
+# INSTALLATION_DIRS+=	share/emacs/20.7/leim
+# 
+# post-install:
+# 	@${CHOWN} -R ${ROOT_USER} ${DESTDIR}${PREFIX}/share/emacs/20.7/leim
+# 
+# .include "../../mk/bsd.pkg.mk"
+{CP} ${EMACS21_FILESDIR}/dragonfly.h ${WRKSRC}/src/s
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# post-install:
+# 	@${CHOWN} -R ${ROOT_USER} ${DESTDIR}${PREFIX}/share/emacs/${VERSION}/leim
+# 
+# .include "../../editors/emacs/modules.mk"
+# .include "../../mk/bsd.pkg.mk"

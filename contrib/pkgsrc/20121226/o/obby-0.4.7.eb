@@ -1,0 +1,70 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      obby-0.4.7.eb
+# Date::      Wed Dec 26 17:08:29 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'obby'
+version = '0.4.7'
+versionsuffix = '-20121226'
+
+description = "obby-0.4.7: Library for distributed editing"
+
+# The following are automatically calculated - cross fingers
+sources = ['obby-0.4.7.tar.gz']
+source_urls = ['http://releases.0x539.de/obby/']
+homepage = 'http://gobby.0x539.de/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/editors/obby/Makefile ######
+# # $NetBSD: Makefile,v 1.7 2012/09/23 10:47:46 obache Exp $
+# #
+# 
+# DISTNAME=	obby-0.4.7
+# PKGREVISION=	2
+# CATEGORIES=	editors
+# MASTER_SITES=	http://releases.0x539.de/obby/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://gobby.0x539.de/
+# COMMENT=	Library for distributed editing
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=		yes
+# USE_LIBTOOL=		yes
+# USE_TOOLS+=		pkg-config
+# USE_PKGLOCALEDIR=	yes
+# USE_LANGUAGES=		c c++
+# 
+# PKGCONFIG_OVERRIDE+=	obby-0.4.pc.in
+# 
+# .include "../../devel/libsigc++/buildlink3.mk"
+# .include "../../net/net6/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,74 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      gpredict-0.8.0.eb
+# Date::      Wed Dec 26 17:08:16 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'gpredict'
+version = '0.8.0'
+versionsuffix = '-20121226'
+
+description = "gpredict-0.8.0: Gnome satellite tracking program"
+
+# The following are automatically calculated - cross fingers
+sources = ['gpredict-0.8.0.tar.gz']
+source_urls = ['http://sourceforge.net/projects/groundstation/files', 'download']
+homepage = 'http://groundstation.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/ham/gpredict/Makefile ######
+# # $NetBSD: Makefile,v 1.28.2.1 2012/10/03 12:08:18 spz Exp $
+# 
+# DISTNAME=	gpredict-0.8.0
+# PKGREVISION=	14
+# CATEGORIES=	ham
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=groundstation/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://groundstation.sourceforge.net/
+# COMMENT=	Gnome satellite tracking program
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=	c c++
+# USE_TOOLS+=	gmake msgfmt pkg-config intltool
+# USE_PKGLOCALEDIR=yes
+# GNU_CONFIGURE=	yes
+# 
+# # needed for gpredict-0.8.0 and gtk2-2.20 -- remove on next update!
+# BUILDLINK_TRANSFORM+=	rm:-DG_DISABLE_DEPRECATED
+# BUILDLINK_TRANSFORM+=	rm:-DGDK_DISABLE_DEPRECATED
+# BUILDLINK_TRANSFORM+=	rm:-DGDK_PIXBUF_DISABLE_DEPRECATED
+# BUILDLINK_TRANSFORM+=	rm:-DGTK_DISABLE_DEPRECATED
+# 
+# .include "../../devel/GConf/buildlink3.mk"
+# .include "../../devel/gettext-lib/buildlink3.mk"
+# #.include "../../ham/hamlib/buildlink3.mk"
+# .include "../../x11/gtk2/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

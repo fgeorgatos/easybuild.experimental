@@ -1,0 +1,76 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      datadraw3.1.1.eb
+# Date::      Wed Dec 26 17:08:16 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'datadraw-3.1.1'
+version = 'datadraw3.1.1'
+versionsuffix = '-20121226'
+
+description = "datadraw3.1.1: Persistent database generator for high performance C applications"
+
+# The following are automatically calculated - cross fingers
+sources = ['datadraw3.1.1.tar.gz']
+version = '3.1.1'
+name = 'datadraw'
+source_urls = ['http://sourceforge.net/projects/datadraw/files', 'download']
+homepage = 'http://datadraw.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/databases/datadraw/Makefile ######
+# # $NetBSD: Makefile,v 1.2 2009/11/30 18:26:48 joerg Exp $
+# #
+# 
+# DISTNAME=	datadraw3.1.1
+# PKGNAME=	datadraw-3.1.1
+# CATEGORIES=	databases
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=datadraw/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://datadraw.sourceforge.net/
+# COMMENT=	Persistent database generator for high performance C applications
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# LICENSE=	gnu-lgpl-v2
+# 
+# HAS_CONFIGURE=		yes
+# CONFIGURE_ARGS+=	--prefix=${PREFIX}
+# CONFIGURE_ARGS+=	CFLAGS=${CFLAGS:Q}
+# CONFIGURE_ARGS+=	LDFLAGS=${LDFLAGS:Q}
+# USE_TOOLS+=		bash:build bison flex gmake
+# CONFIG_SHELL=		${TOOLS_PATH.bash}
+# 
+# BUILD_TARGET=	datadraw
+# 
+# INSTALL_MAKE_FLAGS+=	PREFIX=${DESTDIR}${PREFIX}
+# 
+# .include "../../mk/bsd.pkg.mk"

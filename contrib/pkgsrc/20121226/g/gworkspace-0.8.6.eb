@@ -1,0 +1,73 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      gworkspace-0.8.6.eb
+# Date::      Wed Dec 26 17:09:01 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'gworkspace'
+version = '0.8.6'
+versionsuffix = '-20121226'
+
+description = "gworkspace-0.8.6: GNUstep Workspace manager"
+
+# The following are automatically calculated - cross fingers
+sources = ['gworkspace-0.8.6.tar.gz']
+source_urls = ['http://www.gnustep.it/enrico/gworkspace/']
+homepage = 'http://www.gnustep.org/experience/GWorkspace.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/gworkspace/Makefile ######
+# # $NetBSD: Makefile,v 1.33 2010/11/28 07:42:19 dholland Exp $
+# #
+# 
+# DISTNAME=	gworkspace-0.8.6
+# PKGREVISION=	1
+# CATEGORIES=	sysutils gnustep
+# MASTER_SITES=	http://www.gnustep.it/enrico/gworkspace/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.gnustep.org/experience/GWorkspace.html
+# COMMENT=	GNUstep Workspace manager
+# LICENSE=	gnu-gpl-v2
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# CONFLICTS+=	GWLib-[0-9]*
+# 
+# WRKSRC=		${WRKDIR}/${DISTNAME:S/gw/GW/}
+# USE_TOOLS+=	gs:run file:run sh:run
+# USE_LANGUAGES=	objc
+# CONFIGURE_ARGS+=	--with-sh=${TOOLS_PATH.sh:Q}
+# CONFIGURE_ARGS+=	--with-file=${TOOLS_PATH.file:Q}
+# MAKE_FILE=	GNUmakefile
+# MAKE_JOBS_SAFE=	no
+# 
+# .include "../../x11/gnustep-back/buildlink3.mk"
+# .include "../../mk/pthread.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,71 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      dtpstree-1.0.3.eb
+# Date::      Wed Dec 26 17:09:00 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'dtpstree'
+version = '1.0.3'
+versionsuffix = '-20121226'
+
+description = "dtpstree-1.0.3: Display a tree of processes"
+
+# The following are automatically calculated - cross fingers
+sources = ['dtpstree-1.0.3.tar.xz']
+source_urls = ['http://code.douglasthrift.net/files/dtpstree/']
+homepage = 'http://code.douglasthrift.net/trac/dtpstree'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/dtpstree/Makefile ######
+# # $NetBSD: Makefile,v 1.1.1.1 2010/08/15 09:07:11 obache Exp $
+# #
+# 
+# DISTNAME=	dtpstree-1.0.3
+# CATEGORIES=	sysutils
+# MASTER_SITES=	http://code.douglasthrift.net/files/dtpstree/ \
+# 		http://apt.douglasthrift.net/files/dtpstree/
+# EXTRACT_SUFX=	.tar.xz
+# 
+# MAINTAINER=	douglas@douglasthrift.net
+# HOMEPAGE=	http://code.douglasthrift.net/trac/dtpstree
+# COMMENT=	Display a tree of processes
+# LICENSE=	apache-2.0
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# ONLY_FOR_PLATFORM=	DragonFly-*-* FreeBSD-*-* NetBSD-*-* OpenBSD-*-*
+# 
+# GNU_CONFIGURE=	yes
+# USE_LANGUAGES=	c c++
+# USE_TOOLS+=	gmake
+# MAKE_FILE=	GNUmakefile
+# 
+# .include "options.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"

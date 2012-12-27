@@ -1,0 +1,67 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Test-Weaken-3.020000.eb
+# Date::      Wed Dec 26 17:08:26 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'Weaken-3.020000'
+versionsuffix = '-20121226'
+
+description = "Test-Weaken-3.020000: Test that freed memory objects were, indeed, freed"
+
+# The following are automatically calculated - cross fingers
+sources = ['Test-Weaken-3.020000.tar.gz']
+version = '${DISTNAME:S/020000/020.000/}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Test/']
+homepage = 'http://search.cpan.org/dist/Test-Weaken/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Test-Weaken/Makefile ######
+# # $NetBSD: Makefile,v 1.7 2012/09/15 14:47:53 wen Exp $
+# #
+# 
+# DISTNAME=		Test-Weaken-3.020000
+# PKGNAME=		p5-${DISTNAME:S/020000/020.000/}
+# CATEGORIES=		devel perl5
+# MASTER_SITES=		${MASTER_SITE_PERL_CPAN:=Test/}
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://search.cpan.org/dist/Test-Weaken/
+# COMMENT=		Test that freed memory objects were, indeed, freed
+# LICENSE=		${PERL5_LICENSE}
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=		# empty
+# PERL5_PACKLIST=		auto/Test/Weaken/.packlist
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

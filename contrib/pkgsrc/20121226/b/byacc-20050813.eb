@@ -1,0 +1,64 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      byacc-20050813.eb
+# Date::      Wed Dec 26 17:08:19 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'byacc'
+version = '20050813'
+versionsuffix = '-20121226'
+
+description = "byacc-20050813: Berkeley Yacc"
+
+# The following are automatically calculated - cross fingers
+sources = ['byacc-20050813.tgz']
+source_urls = ['ftp://invisible-island.net/byacc/']
+homepage = 'http://invisible-island.net/byacc/byacc.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/byacc/Makefile ######
+# # $NetBSD: Makefile,v 1.10 2010/11/13 21:08:55 shattered Exp $
+# #
+# 
+# DISTNAME=	byacc-20050813
+# PKGREVISION=	1
+# CATEGORIES=	devel
+# MASTER_SITES=	ftp://invisible-island.net/byacc/
+# EXTRACT_SUFX=	.tgz
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://invisible-island.net/byacc/byacc.html
+# COMMENT=	Berkeley Yacc
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=	YES
+# MAKE_FILE=	makefile
+# 
+# .include "../../mk/bsd.pkg.mk"

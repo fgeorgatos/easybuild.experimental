@@ -1,0 +1,93 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      jbigkit-2.0.eb
+# Date::      Wed Dec 26 17:08:37 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'jbigkit'
+version = '2.0'
+versionsuffix = '-20121226'
+
+description = "jbigkit-2.0: JBIG-KIT lossless image compression library"
+
+# The following are automatically calculated - cross fingers
+sources = ['jbigkit-2.0.tar.gz']
+source_urls = ['http://www.cl.cam.ac.uk/~mgk25/download/']
+homepage = 'http://www.cl.cam.ac.uk/~mgk25/jbigkit/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/jbigkit/Makefile ######
+# # $NetBSD: Makefile,v 1.2 2010/05/17 03:08:21 obache Exp $
+# #
+# 
+# DISTNAME=	jbigkit-2.0
+# CATEGORIES=	graphics
+# MASTER_SITES=	http://www.cl.cam.ac.uk/~mgk25/download/
+# 
+# MAINTAINER=	obache@NetBSD.org
+# HOMEPAGE=	http://www.cl.cam.ac.uk/~mgk25/jbigkit/
+# COMMENT=	JBIG-KIT lossless image compression library
+# LICENSE=	gnu-gpl-v2
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_TOOLS+=	gmake
+# USE_LIBTOOL=	yes
+# 
+# WRKSRC=	${WRKDIR}/jbigkit
+# 
+# TEST_TARGET=	test
+# 
+# MAKE_JOBS_SAFE=	no
+# 
+# INSTALLATION_DIRS=	bin include lib ${PKGMANDIR}/man1 share/doc/jbig
+# 
+# do-install:
+# 	${RUN} \
+# 	cd ${WRKSRC}/libjbig; \
+# 	for h in *.h; do \
+# 		${INSTALL_DATA} "$${h}" ${DESTDIR}${PREFIX}/include; \
+# 	done; \
+# 	for l in *.la; do \
+# 		${LIBTOOL} --mode=install ${INSTALL_LIB} "$${l}" \
+# 			${DESTDIR}${PREFIX}/lib; \
+# 	done; \
+# 	for t in *.txt; do \
+# 		${INSTALL_DATA} "$${t}" ${DESTDIR}${PREFIX}/share/doc/jbig; \
+# 	done; \
+# 	cd ${WRKSRC}/pbmtools; \
+# 	for p in jbgtopbm jbgtopbm85 pbmtojbg pbmtojbg85; do \
+# 		${LIBTOOL} --mode=install ${INSTALL_PROGRAM} "$${p}" \
+# 			${DESTDIR}${PREFIX}/bin; \
+# 	done; \
+# 	for m in *.1; do \
+# 		${INSTALL_MAN} "$${m}" ${DESTDIR}${PREFIX}/${PKGMANDIR}/man1; \
+# 	done;
+# 
+# .include "../../mk/bsd.pkg.mk"

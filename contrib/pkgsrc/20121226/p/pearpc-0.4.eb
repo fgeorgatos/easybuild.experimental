@@ -1,0 +1,95 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      pearpc-0.4.eb
+# Date::      Wed Dec 26 17:08:30 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'pearpc'
+version = '0.4'
+versionsuffix = '-20121226'
+
+description = "pearpc-0.4: PowerPC emulator"
+
+# The following are automatically calculated - cross fingers
+sources = ['pearpc-0.4.tar.bz2']
+source_urls = ['http://sourceforge.net/projects/pearpc/files', 'download']
+homepage = 'http://pearpc.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/emulators/pearpc/Makefile ######
+# # $NetBSD: Makefile,v 1.15 2007/11/13 18:01:58 joerg Exp $
+# 
+# DISTNAME=		pearpc-0.4
+# PKGREVISION=		1
+# CATEGORIES=		emulators
+# MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=pearpc/}
+# EXTRACT_SUFX=		.tar.bz2
+# 
+# MAINTAINER=		ghen@NetBSD.org
+# HOMEPAGE=		http://pearpc.sourceforge.net/
+# COMMENT=		PowerPC emulator
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=		yes
+# USE_LANGUAGES=		c c++
+# 
+# EGDIR=			${PREFIX}/share/examples/${PKGBASE}
+# CONF_FILES=		${EGDIR}/ppccfg.example ${PKG_SYSCONFDIR}/ppccfg.conf
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# .if !empty(MACHINE_ARCH:Mi386)
+# BUILD_DEPENDS+=		nasm-[0-9]*:../../devel/nasm
+# CONFIGURE_ARGS+=	--enable-cpu=jitc_x86
+# .endif
+# 
+# CONFIGURE_ARGS+=	--disable-debug
+# 
+# INSTALLATION_DIRS=	share/${PKGBASE} ${EGDIR} bin
+# 
+# do-install:
+# 	${SED}	-e "s,@PREFIX@,${PREFIX}," \
+# 		-e "s,@PKG_SYSCONFDIR@,${PKG_SYSCONFDIR}," \
+# 		${FILESDIR}/pearpc.sh > ${WRKSRC}/pearpc.sh
+# 	${INSTALL_SCRIPT} ${WRKSRC}/pearpc.sh ${DESTDIR}${PREFIX}/bin/pearpc
+# 	${INSTALL_PROGRAM} ${WRKSRC}/src/ppc ${DESTDIR}${PREFIX}/share/${PKGBASE}
+# 	${INSTALL_DATA} ${WRKSRC}/video.x ${DESTDIR}${PREFIX}/share/${PKGBASE}
+# 	${INSTALL_DATA} ${WRKSRC}/ppccfg.example ${DESTDIR}${EGDIR}
+# 
+# SUBST_CLASSES+=		conf
+# SUBST_STAGE.conf=	post-patch
+# SUBST_FILES.conf=	ppccfg.example
+# SUBST_SED.conf=		-e "s|\"nvram\"|\"/tmp/nvram\"|"
+# SUBST_MESSAGE.conf=	Fixing configuration file.
+# 
+# .include "options.mk"
+# 
+# .include "../../mk/pthread.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

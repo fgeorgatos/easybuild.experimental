@@ -1,0 +1,70 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      ipv6calc-0.72.1.eb
+# Date::      Wed Dec 26 17:08:49 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'ipv6calc'
+version = '0.72.1'
+versionsuffix = '-20121226'
+
+description = "ipv6calc-0.72.1: Manipulates IPv6 addresses"
+
+# The following are automatically calculated - cross fingers
+sources = ['ipv6calc-0.72.1.tar.gz']
+source_urls = ['ftp://ftp.bieringer.de/pub/linux/IPv6/ipv6calc/']
+homepage = 'http://www.deepspace6.net/projects/ipv6calc.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/ipv6calc/Makefile ######
+# # $NetBSD: Makefile,v 1.35 2010/02/11 21:38:06 joerg Exp $
+# #
+# 
+# DISTNAME=	ipv6calc-0.72.1
+# CATEGORIES=	net
+# MASTER_SITES=	ftp://ftp.bieringer.de/pub/linux/IPv6/ipv6calc/ \
+# 		ftp://sunsite.icm.edu.pl/pub/Linux/ipv6/bipv6/ipv6calc/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.deepspace6.net/projects/ipv6calc.html
+# COMMENT=	Manipulates IPv6 addresses
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# # This package does not set or evaluate IPV6_READY, but it should still
+# # be listed in README-IPv6.html. Leave this comment here to make it so!
+# #
+# BUILD_DEFS+=	IPV6_READY
+# 
+# GNU_CONFIGURE=	YES
+# USE_TOOLS+=	gmake
+# 
+# INSTALL_TARGET=	install
+# 
+# .include "../../mk/bsd.pkg.mk"

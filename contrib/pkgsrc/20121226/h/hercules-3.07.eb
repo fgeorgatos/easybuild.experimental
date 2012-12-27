@@ -1,0 +1,86 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      hercules-3.07.eb
+# Date::      Wed Dec 26 17:08:30 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'hercules'
+version = '3.07'
+versionsuffix = '-20121226'
+
+description = "hercules-3.07: S370 emulator"
+
+# The following are automatically calculated - cross fingers
+sources = ['hercules-3.07.tar.gz']
+source_urls = ['http://www.hercules-390.org/']
+homepage = 'http://www.hercules-390.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/emulators/hercules/Makefile ######
+# # $NetBSD: Makefile,v 1.27 2012/03/25 05:27:42 ryoon Exp $
+# 
+# DISTNAME=		hercules-3.07
+# PKGREVISION=		1
+# CATEGORIES=		emulators
+# MASTER_SITES=		http://www.hercules-390.org/
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://www.hercules-390.org/
+# COMMENT=		S370 emulator
+# LICENSE=		qpl-v1.0
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# DEPENDS+=		hercules-images-[0-9]*:../../emulators/hercules-images
+# 
+# AUTOCONF_REQD=		2.50
+# USE_TOOLS+=		autoconf gmake bash:run
+# GNU_CONFIGURE=		YES
+# #MAKE_ENV+=		HOST_ARCH=${MACHINE_ARCH:Q}
+# USE_LIBTOOL=		YES
+# 
+# PTHREAD_OPTS+=		require
+# 
+# REPLACE_PERL+=		util/cvslvlck
+# USE_TOOLS+=		perl:run
+# 
+# INSTALLATION_DIRS+=	bin share/examples/hercules
+# #CONFIGURE_ARGS+=	--enable-setuid-hercifc=hercules
+# #SPECIAL_PERMS+=		${PREFIX}/bin/hercifc ${SETUID_ROOT_PERMS}
+# 
+# pre-configure:
+# 	${RM} ${WRKSRC}/ltdl.h ${WRKSRC}/ltdl.c
+# 	cd ${WRKSRC} && autoconf
+# pre-install:
+# 	${INSTALL_DATA} ${WRKSRC}/hercules.cnf ${DESTDIR}${PREFIX}/share/examples/hercules/
+# #	${INSTALL_DATA} ${WRKSRC}/zzsa.cnf ${DESTDIR}${PREFIX}/share/examples/hercules/
+# 
+# .include "../../mk/pthread.buildlink3.mk"
+# .include "../../devel/libltdl/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

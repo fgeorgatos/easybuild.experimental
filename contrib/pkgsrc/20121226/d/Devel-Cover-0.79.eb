@@ -1,0 +1,72 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Devel-Cover-0.79.eb
+# Date::      Wed Dec 26 17:08:23 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'Cover-0.79'
+versionsuffix = '-20121226'
+
+description = "Devel-Cover-0.79: Perl 5 module providing code coverage metrics"
+
+# The following are automatically calculated - cross fingers
+sources = ['Devel-Cover-0.79.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/../../authors/id/P/PJ/PJCJ/']
+homepage = 'http://search.cpan.org/dist/Devel-Cover/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Devel-Cover/Makefile ######
+# # $NetBSD: Makefile,v 1.10 2011/08/12 07:17:27 adam Exp $
+# 
+# DISTNAME=	Devel-Cover-0.79
+# PKGNAME=	p5-${DISTNAME}
+# CATEGORIES=	devel perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=../../authors/id/P/PJ/PJCJ/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/Devel-Cover/
+# COMMENT=	Perl 5 module providing code coverage metrics
+# LICENSE=	${PERL5_LICENSE}
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# DEPENDS+=	p5-PPI-HTML>=1.07:../../textproc/p5-PPI-HTML
+# DEPENDS+=	p5-Perl-Tidy>=20060719:../../devel/p5-Perl-Tidy
+# DEPENDS+=	p5-Pod-Coverage>=0.06:../../textproc/p5-Pod-Coverage
+# DEPENDS+=	p5-Template-Toolkit>=2.0:../../www/p5-Template-Toolkit
+# DEPENDS+=	p5-Test-Differences-[0-9]*:../../devel/p5-Test-Differences
+# 
+# USE_LANGUAGES=		c
+# PERL5_PACKLIST=		auto/Devel/Cover/.packlist
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

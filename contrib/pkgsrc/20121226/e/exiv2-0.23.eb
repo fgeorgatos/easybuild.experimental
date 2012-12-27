@@ -1,0 +1,89 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      exiv2-0.23.eb
+# Date::      Wed Dec 26 17:08:36 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'exiv2-organize-0.23'
+version = '0.23'
+versionsuffix = '-20121226'
+
+description = "exiv2-0.23: Image metadata manipulation"
+
+# The following are automatically calculated - cross fingers
+sources = ['exiv2-0.23.tar.gz']
+version = 'organize-0.23'
+name = 'exiv2'
+source_urls = ['http://www.exiv2.org/']
+homepage = 'http://www.exiv2.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/exiv2-organize/Makefile ######
+# # $NetBSD: Makefile,v 1.18 2012/08/29 11:22:14 obache Exp $
+# 
+# DISTNAME=	exiv2-0.23
+# PKGNAME=	exiv2-organize-0.23
+# PKGREVISION=	2
+# CATEGORIES=	graphics
+# MASTER_SITES=	http://www.exiv2.org/
+# 
+# MAINTAINER=	gdt@NetBSD.org
+# HOMEPAGE=	http://www.exiv2.org/
+# COMMENT=	Image metadata manipulation
+# LICENSE=	gnu-gpl-v2
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=		c c++
+# USE_LIBTOOL=		yes
+# USE_TOOLS+=		gmake pkg-config
+# GNU_CONFIGURE=		yes
+# # The visibility feature seems complicated and causes problems on DragonFly
+# # (reported by Matt Madden) and on Gentoo (http://bugs.gentoo.org/185907).
+# CONFIGURE_ARGS+=	--disable-visibility
+# 
+# GCC_REQD+=		3.3
+# BUILD_DIRS=		contrib/organize
+# INSTALLATION_DIRS=	bin
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/contrib/organize/organize \
+# 		${DESTDIR}${PREFIX}/bin/exiv2-organize
+# 
+# .include "../../mk/compiler.mk"
+# # GCC 4.4 and above needs this
+# .if !empty(PKGSRC_COMPILER:Mgcc) && !empty(CC_VERSION:Mgcc-4.[4-9]*)
+# _WRAP_EXTRA_ARGS.CXX+=	-std=c++0x
+# .endif
+# 
+# .include "../../graphics/exiv2/buildlink3.mk"
+# .include "../../devel/boost-headers/buildlink3.mk"
+# .include "../../devel/boost-libs/buildlink3.mk"
+# .include "../../textproc/expat/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,70 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      spiceprm-0.11.eb
+# Date::      Wed Dec 26 17:08:14 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'spiceprm'
+version = '0.11'
+versionsuffix = '-20121226'
+
+description = "spiceprm-0.11: Spice preprocessor for parameterized subcircuits"
+
+# The following are automatically calculated - cross fingers
+sources = ['spiceprm-0.11.tar.gz']
+source_urls = ['http://www.ibiblio.org/pub/Linux/apps/circuits/']
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/cad/spiceprm/Makefile ######
+# # $NetBSD: Makefile,v 1.17 2009/05/28 20:53:12 zafer Exp $
+# #
+# 
+# DISTNAME=	spiceprm-0.11
+# CATEGORIES=	cad
+# MASTER_SITES=	http://www.ibiblio.org/pub/Linux/apps/circuits/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# COMMENT=	Spice preprocessor for parameterized subcircuits
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=			${WRKDIR}/spiceprm
+# NO_BUILD=		YES
+# USE_TOOLS+=		perl:run
+# REPLACE_PERL=		spiceprm
+# INSTALLATION_DIRS=	bin
+# 
+# do-install:
+# 	${INSTALL_SCRIPT} ${WRKSRC}/spiceprm ${DESTDIR}${PREFIX}/bin/spiceprm
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/doc/spiceprm
+# 	${INSTALL_DATA} ${WRKSRC}/README ${DESTDIR}${PREFIX}/share/doc/spiceprm
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/examples/spiceprm
+# 	${INSTALL_DATA} ${WRKSRC}/EXAMPLES ${DESTDIR}${PREFIX}/share/examples/spiceprm
+# 
+# .include "../../mk/bsd.pkg.mk"

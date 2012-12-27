@@ -1,0 +1,97 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      spl-1.0pre3.eb
+# Date::      Wed Dec 26 17:08:41 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'spl'
+version = '1.0pre3'
+versionsuffix = '-20121226'
+
+description = "spl-1.0pre3: The SPL Programming Language"
+
+# The following are automatically calculated - cross fingers
+sources = ['spl-1.0pre3.tar.gz']
+source_urls = ['http://www.clifford.at/spl/releases/']
+homepage = 'http://www.clifford.at/spl/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/lang/spl/Makefile ######
+# # $NetBSD: Makefile,v 1.16 2012/05/23 03:02:26 dholland Exp $
+# #
+# 
+# DISTNAME=	spl-1.0pre3
+# PKGREVISION=	4
+# CATEGORIES=	lang
+# MASTER_SITES=	http://www.clifford.at/spl/releases/ \
+# 		http://www.clifford.at/spl/releases/OLD/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.clifford.at/spl/
+# COMMENT=	The SPL Programming Language
+# LICENSE=	gnu-gpl-v2
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=	c c++
+# USE_TOOLS+=	bash gmake gawk pax
+# 
+# SUBST_CLASSES+=		prefix
+# SUBST_STAGE.prefix=	pre-patch
+# SUBST_FILES.prefix=	GNUmakefile
+# SUBST_SED.prefix+=	-e 's,^  prefix.*,  prefix = ${PREFIX},g'
+# SUBST_SED.prefix+=	-e 's,^ENABLE_OPENGL_SUPPORT.*,ENABLE_OPENGL_SUPPORT=0,g'
+# SUBST_SED.prefix+=	-e 's,^  cgibin_libdir.*,  cgibin_libdir = ${PREFIX}/libexec/cgi-bin,g'
+# 
+# #subst.mk does not correctly detect GNUmakefile as text file
+# _SUBST_IS_TEXT_FILE=true
+# 
+# MAKE_ENV+=	ENABLE_OPENGL_SUPPORT=0
+# MAKE_FILE=	GNUmakefile
+# BUILD_TARGET=	all spldoc
+# EGDIR=		${PREFIX}/share/examples/spl
+# DOCDIR=		${PREFIX}/share/doc/spl
+# 
+# .include "options.mk"
+# 
+# INSTALLATION_DIRS+=	libexec/cgi-bin/webspl_cache
+# 
+# post-install:
+# 	${CHMOD} a+rwx ${DESTDIR}${PREFIX}/libexec/cgi-bin/webspl_cache
+# 	${LN} -sf ${PREFIX}/lib/spl_modules ${DESTDIR}${PREFIX}/libexec/cgi-bin/spl_modules
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${DOCDIR}
+# 	cd ${WRKSRC} && pax -rw -p am README* manual.tex spldoc webspl_demo webspltut qtdemo ${DESTDIR}${DOCDIR}
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${EGDIR}
+# 	cd ${WRKSRC}/examples && ${INSTALL_DATA} example* ${DESTDIR}${EGDIR}
+# 
+# .include "../../devel/ncurses/buildlink3.mk"
+# .include "../../textproc/expat/buildlink3.mk"
+# .include "../../devel/pcre/buildlink3.mk"
+# .include "../../devel/readline/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

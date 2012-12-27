@@ -1,0 +1,83 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Kappa20-0.394.eb
+# Date::      Wed Dec 26 17:08:32 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'ja-kappa20-0.394'
+version = '0.394'
+versionsuffix = '-20121226'
+
+description = "Kappa20-0.394: 20x20 dots X11 bitmap font for Japanese with several extra fonts"
+
+# The following are automatically calculated - cross fingers
+sources = ['Kappa20-0.394.tar.bz2']
+version = 'kappa20-0.394'
+name = 'ja'
+source_urls = ['${MASTER_SITE_LOCAL}']
+homepage = 'http://kappa.allnet.ne.jp/20dot.fonts/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/fonts/ja-kappa20/Makefile ######
+# # $NetBSD: Makefile,v 1.14 2008/03/03 20:17:12 jlam Exp $
+# 
+# DISTNAME=		Kappa20-0.394
+# PKGNAME=		ja-kappa20-0.394
+# PKGREVISION=		1
+# CATEGORIES=		fonts x11 japanese
+# MASTER_SITES=		${MASTER_SITE_LOCAL}
+# EXTRACT_SUFX=		.tar.bz2
+# 
+# MAINTAINER=		tech-pkg-ja@jp.NetBSD.org
+# HOMEPAGE=		http://kappa.allnet.ne.jp/20dot.fonts/
+# COMMENT=		20x20 dots X11 bitmap font for Japanese with several extra fonts
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_X11BASE=		YES
+# FONTDIR=		${PREFIX}/lib/X11/fonts/local
+# ALIAS_KAPPA=		${PREFIX}/share/examples/fonts.alias.Kappa20
+# 
+# USE_TOOLS+=		mkfontdir gzip
+# 
+# FILES_SUBST+=		FONTDIR=${FONTDIR:Q}
+# FILES_SUBST+=		ALIAS_KAPPA=${ALIAS_KAPPA:Q}
+# 
+# # do not build experimental JIS X 0213 font.
+# BUILD_TARGET=		default
+# 
+# INSTALLATION_DIRS=	lib/X11/fonts/local share/doc share/examples
+# 
+# do-install:
+# 	${INSTALL_DATA} ${WRKSRC}/README \
+# 		${DESTDIR}${PREFIX}/share/doc/README.Kappa20
+# 	${INSTALL_DATA} ${WRKSRC}/pcf/fonts.alias ${DESTDIR}${ALIAS_KAPPA}
+# 	${INSTALL_DATA} ${WRKSRC}/pcf/*.pcf.* ${DESTDIR}${FONTDIR}
+# 
+# .include "../../mk/bsd.pkg.mk"

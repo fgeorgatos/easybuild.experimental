@@ -1,0 +1,65 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      basicproperty-0.6.3a.eb
+# Date::      Wed Dec 26 17:08:40 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = '-basicproperty-0.6.3a'
+version = '0.6.3a'
+versionsuffix = '-20121226'
+
+description = "basicproperty-0.6.3a: Python RDBMS wrapper for various databases"
+
+# The following are automatically calculated - cross fingers
+sources = ['basicproperty-0.6.3a.tar.gz']
+source_urls = ['http://sourceforge.net/projects/basicproperty/files', 'download']
+homepage = 'http://basicproperty.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/lang/py-basicproperty/Makefile ######
+# # $NetBSD: Makefile,v 1.11 2011/12/13 23:13:28 joerg Exp $
+# #
+# 
+# DISTNAME=	basicproperty-0.6.3a
+# PKGNAME=	${PYPKGPREFIX}-basicproperty-0.6.3a
+# PKGREVISION=	3
+# CATEGORIES=	python
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=basicproperty/}
+# 
+# MAINTAINER=	darcy@NetBSD.org
+# HOMEPAGE=	http://basicproperty.sourceforge.net/
+# COMMENT=	Python RDBMS wrapper for various databases
+# LICENSE=	original-bsd
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=	# none
+# 
+# .include "../../lang/python/distutils.mk"
+# .include "../../mk/bsd.pkg.mk"

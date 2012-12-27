@@ -1,0 +1,82 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      rp-pppoe-3.8.eb
+# Date::      Wed Dec 26 17:08:51 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'rp'
+version = 'pppoe-3.8'
+versionsuffix = '-20121226'
+
+description = "rp-pppoe-3.8: Roaring Penguin s PPP over Ethernet client"
+
+# The following are automatically calculated - cross fingers
+sources = ['rp-pppoe-3.8.tar.gz']
+source_urls = ['http://www.roaringpenguin.com/files/download/']
+homepage = 'http://www.roaringpenguin.com/products/pppoe'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/rp-pppoe/Makefile ######
+# # $NetBSD: Makefile,v 1.40 2012/08/23 13:10:52 is Exp $
+# 
+# DISTNAME=	rp-pppoe-3.8
+# PKGREVISION=	2
+# CATEGORIES=	net
+# MASTER_SITES=	http://www.roaringpenguin.com/files/download/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.roaringpenguin.com/products/pppoe
+# COMMENT=	Roaring Penguin's PPP over Ethernet client
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# NOT_FOR_PLATFORM+=	Interix-*-* # no userland protocol stack support
+# 
+# CONFLICTS+=	mouse_pppoe<20000912nb1
+# 
+# USE_TOOLS+=	id
+# GNU_CONFIGURE=	YES
+# CONFIGURE_DIRS=	src
+# CONFIGURE_ENV+=	PPPD=${PPPD:Q}
+# CONFIGURE_ENV+=	ID=${TOOLS_ID:Q}
+# MAKE_ENV+=	OPSYS=${OPSYS}
+# BUILD_DIRS=	src
+# 
+# RCD_SCRIPTS=	pppoe
+# 
+# INSTALLATION_DIRS+=	share/examples/rp-pppoe
+# 
+# INSTALL_MAKE_FLAGS+=	RPM_INSTALL_ROOT=${DESTDIR}
+# 
+# post-install:
+# 	cd ${WRKSRC}/configs && \
+# 	${INSTALL_DATA} pppoe.conf pppoe-server-options \
+# 	    ${DESTDIR}${PREFIX}/share/examples/rp-pppoe
+# 
+# .include "../../mk/bsd.pkg.mk"

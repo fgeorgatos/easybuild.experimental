@@ -1,0 +1,96 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      xsokoban-3.3c.eb
+# Date::      Wed Dec 26 17:08:35 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'xsokoban'
+version = '3.3c'
+versionsuffix = '-20121226'
+
+description = "xsokoban-3.3c: Classic logical game"
+
+# The following are automatically calculated - cross fingers
+sources = ['xsokoban-3.3c.tar.gz']
+source_urls = ['http://www.cs.cornell.edu/andru/release/']
+homepage = 'http://www.cs.cornell.edu/andru/release/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/xsokoban/Makefile ######
+# # $NetBSD: Makefile,v 1.3 2011/10/09 10:02:46 cheusov Exp $
+# #
+# 
+# DISTNAME=	xsokoban-3.3c
+# PKGREVISION=	1
+# CATEGORIES=	games
+# MASTER_SITES=	http://www.cs.cornell.edu/andru/release/
+# 
+# MAINTAINER=	cheusov@NetBSD.org
+# HOMEPAGE=	http://www.cs.cornell.edu/andru/release/
+# COMMENT=	Classic logical game
+# 
+# WRKSRC=		${WRKDIR}/xsokoban
+# 
+# GNU_CONFIGURE=	yes
+# USE_TOOLS+=	autoconf
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# SAVEPATH=		${VARBASE}/games/xsokoban
+# SCOREFILE=		${SAVEPATH}/scores
+# 
+# CONFIGURE_ARGS+=	--datadir=${PREFIX}/share/xsokoban
+# CONFIGURE_ENV+=		X11BASE=${X11BASE}
+# 
+# # For removing setting SETGIDGAME from here pkgsrc should be fixed
+# SETGIDGAME=		yes
+# 
+# SPECIAL_PERMS=		bin/xsokoban ${SETGID_GAMES_PERMS}
+# OWN_DIRS_PERMS+=	${SAVEPATH} ${GAMES_USER} ${GAMES_GROUP} ${GAMEDIRMODE}
+# 
+# MAKE_FLAGS+=		INSTALL_PROGRAM=${INSTALL_PROGRAM:Q}
+# MAKE_FLAGS+=		INSTALL_DATA=${INSTALL_DATA:Q}
+# MAKE_FLAGS+=		INSTALL=${INSTALL:Q}
+# MAKE_FLAGS+=		INSTALL_MAN=${INSTALL_MAN:Q}
+# 
+# BUILD_TARGET=		xsokoban
+# 
+# CPPFLAGS+=		-DROOTDIR="\"${PREFIX}/share/xsokoban\""
+# CPPFLAGS+=		-DSAVEPATH="\"${SAVEPATH}\""
+# CPPFLAGS+=		-DSCOREPATH="\"${SCOREFILE}\""
+# 
+# AUTO_MKDIRS=		yes
+# 
+# AUTOCONF_REQD=		2.59
+# 
+# pre-configure:
+# 	cd ${WRKSRC} && autoconf
+# 
+# .include "../../x11/libXpm/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

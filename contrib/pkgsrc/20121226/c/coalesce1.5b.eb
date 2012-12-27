@@ -1,0 +1,81 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      coalesce1.5b.eb
+# Date::      Wed Dec 26 17:08:13 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'coalesce-1.5.0.2'
+version = 'coalesce1.5b'
+versionsuffix = '-20121226'
+
+description = "coalesce1.5b: Estimates effective population size and mutation rate"
+
+# The following are automatically calculated - cross fingers
+sources = ['coalesce1.5b.tar.gz']
+version = '1.5.0.2'
+name = 'coalesce'
+source_urls = ['http://evolution.genetics.washington.edu/lamarc/coalesce/']
+homepage = 'http://evolution.genetics.washington.edu/lamarc/coalesce.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/biology/coalesce/Makefile ######
+# # $NetBSD: Makefile,v 1.9 2012/09/11 20:32:11 asau Exp $
+# #
+# 
+# DISTNAME=	coalesce1.5b
+# PKGNAME=	coalesce-1.5.0.2
+# CATEGORIES=	biology
+# MASTER_SITES=	http://evolution.genetics.washington.edu/lamarc/coalesce/
+# 
+# MAINTAINER=	brook@nmsu.edu
+# HOMEPAGE=	http://evolution.genetics.washington.edu/lamarc/coalesce.html
+# COMMENT=	Estimates effective population size and mutation rate
+# 
+# WRKSRC=		${WRKDIR}/coalesce1.5beta
+# BUILD_TARGET=	coalesce
+# 
+# DOCDIR=		${PREFIX}/share/doc/coalesce
+# EXDIR=		${PREFIX}/share/examples/coalesce
+# DOCFILES=	coalesce.doc errors.doc readme
+# EXFILES=	bestree infile intree outfile parmfile seedfile
+# 
+# INSTALLATION_DIRS=	bin
+# 
+# do-install:
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${DOCDIR}
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${EXDIR}
+# 	${INSTALL_PROGRAM} ${WRKSRC}/coalesce ${DESTDIR}${PREFIX}/bin
+# 	for f in ${DOCFILES}; do 					\
+# 		${INSTALL_DATA} ${WRKSRC}/$$f ${DESTDIR}${DOCDIR}/$$f; 	\
+# 	done
+# 	for f in ${EXFILES}; do 					\
+# 		${INSTALL_DATA} ${WRKSRC}/$$f ${DESTDIR}${EXDIR}/$$f; 	\
+# 	done
+# 
+# .include "../../mk/bsd.pkg.mk"

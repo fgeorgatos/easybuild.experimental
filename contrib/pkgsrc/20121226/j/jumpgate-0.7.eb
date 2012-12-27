@@ -1,0 +1,67 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      jumpgate-0.7.eb
+# Date::      Wed Dec 26 17:08:49 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'jumpgate'
+version = '0.7'
+versionsuffix = '-20121226'
+
+description = "jumpgate-0.7: TCP connection forwarder with capture and syslog support"
+
+# The following are automatically calculated - cross fingers
+sources = ['jumpgate-0.7.tar.gz']
+source_urls = ['http://jumpgate.sourceforge.net/']
+homepage = '${MASTER_SITES}'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/jumpgate/Makefile ######
+# # $NetBSD: Makefile,v 1.5 2010/02/11 21:47:04 joerg Exp $
+# #
+# 
+# DISTNAME=	jumpgate-0.7
+# CATEGORIES=	net
+# MASTER_SITES=	http://jumpgate.sourceforge.net/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	${MASTER_SITES}
+# COMMENT=	TCP connection forwarder with capture and syslog support
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=	YES
+# 
+# INSTALLATION_DIRS=	${PKGMANDIR}/man8 sbin
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/jumpgate ${DESTDIR}${PREFIX}/sbin
+# 	${INSTALL_MAN} ${WRKSRC}/jumpgate.8 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man8
+# 
+# .include "../../mk/bsd.pkg.mk"

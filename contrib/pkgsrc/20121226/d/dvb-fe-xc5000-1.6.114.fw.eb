@@ -1,0 +1,72 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      dvb-fe-xc5000-1.6.114.fw.eb
+# Date::      Wed Dec 26 17:09:03 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'xc5k-firmware-1.6.114'
+version = 'fe-xc5000-1.6.114.fw'
+versionsuffix = '-20121226'
+
+description = "dvb-fe-xc5000-1.6.114.fw: Firmware binary image for Xceive XC5000 tuners"
+
+# The following are automatically calculated - cross fingers
+sources = ['dvb-fe-xc5000-1.6.114.fw#none']
+version = 'firmware-1.6.114'
+name = 'xc5k'
+source_urls = ['http://www.linuxtv.org/downloads/firmware/']
+homepage = 'http://www.linuxtv.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/xc5k-firmware/Makefile ######
+# # $NetBSD: Makefile,v 1.1.1.1 2010/12/27 16:28:45 jmcneill Exp $
+# #
+# 
+# DISTNAME=		dvb-fe-xc5000-1.6.114.fw
+# PKGNAME=		xc5k-firmware-1.6.114
+# CATEGORIES=		sysutils
+# MASTER_SITES=		http://www.linuxtv.org/downloads/firmware/
+# EXTRACT_SUFX=		# none
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://www.linuxtv.org/
+# COMMENT=		Firmware binary image for Xceive XC5000 tuners
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# NO_CONFIGURE=		yes
+# NO_BUILD=		yes
+# 
+# INSTALLATION_DIRS=	libdata/firmware/xc5k
+# 
+# do-install:
+# 	${INSTALL_DATA} ${WRKDIR}/${DISTNAME} \
+# 	    ${DESTDIR}${PREFIX}/libdata/firmware/xc5k
+# 
+# .include "../../mk/bsd.pkg.mk"

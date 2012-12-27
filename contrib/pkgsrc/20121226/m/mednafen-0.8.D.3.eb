@@ -1,0 +1,96 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      mednafen-0.8.D.3.eb
+# Date::      Wed Dec 26 17:08:30 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'mednafen-0.8.13.3'
+version = '0.8.D.3'
+versionsuffix = '-20121226'
+
+description = "mednafen-0.8.D.3: Portable multi-system emulator"
+
+# The following are automatically calculated - cross fingers
+sources = ['mednafen-0.8.D.3.tar.bz2']
+version = '0.8.13.3'
+name = 'mednafen'
+source_urls = ['http://sourceforge.net/projects/mednafen/files', 'download']
+homepage = 'http://mednafen.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/emulators/mednafen/Makefile ######
+# # $NetBSD: Makefile,v 1.18 2012/09/23 05:36:23 obache Exp $
+# #
+# 
+# DISTNAME=	mednafen-0.8.D.3
+# PKGNAME=	mednafen-0.8.13.3
+# PKGREVISION=	3
+# CATEGORIES=	emulators
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=mednafen/}
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	wiz@NetBSD.org
+# HOMEPAGE=	http://mednafen.sourceforge.net/
+# COMMENT=	Portable multi-system emulator
+# LICENSE=	gnu-gpl-v2
+# 
+# WRKSRC=			${WRKDIR}/mednafen
+# GNU_CONFIGURE=		yes
+# USE_TOOLS+=		intltool pkg-config
+# USE_LANGUAGES=		c c++
+# USE_LIBTOOL=		yes
+# USE_PKGLOCALEDIR=	yes
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# INSTALLATION_DIRS=	share/doc/mednafen
+# 
+# SUBST_CLASSES+=		dsp
+# SUBST_STAGE.dsp=	pre-configure
+# SUBST_MESSAGE.dsp=	Fixing path to audio device.
+# SUBST_FILES.dsp=	src/sexyal/drivers/oss.cpp src/sexyal/sexyal.cpp
+# SUBST_SED.dsp=		-e s,/dev/dsp,${DEVOSSAUDIO},
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# .if ${X11_TYPE} == "modular"
+# CONFIGURE_ARGS+=	--x-includes=${PREFIX:Q}/include
+# CONFIGURE_ARGS+=	--x-libraries=${PREFIX:Q}/lib
+# .endif
+# 
+# post-install:
+# 	${INSTALL_DATA} ${WRKSRC}/Documentation/*.html \
+# 		${DESTDIR}${PREFIX}/share/doc/mednafen
+# 
+# .include "../../audio/esound/buildlink3.mk"
+# .include "../../audio/libsndfile/buildlink3.mk"
+# .include "../../devel/SDL/buildlink3.mk"
+# .include "../../devel/gettext-lib/buildlink3.mk"
+# .include "../../misc/libcdio/buildlink3.mk"
+# .include "../../net/SDL_net/buildlink3.mk"
+# .include "../../mk/oss.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,71 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      galdata.eb
+# Date::      Wed Dec 26 17:08:44 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'pari-galdata-2.1'
+version = 'galdata'
+versionsuffix = '-20121226'
+
+description = "galdata: Galois group data for pari"
+
+# The following are automatically calculated - cross fingers
+sources = ['galdata.tar.gz']
+version = 'galdata-2.1'
+name = 'pari'
+source_urls = ['ftp://www.gn-50uma.de/gn/gn-50uma.de/pari/']
+homepage = 'http://www.parigp-home.de/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/math/pari-galdata/Makefile ######
+# # $NetBSD: Makefile,v 1.11 2012/09/11 23:04:29 asau Exp $
+# 
+# DISTNAME=		galdata
+# PKGNAME=		pari-galdata-2.1
+# PKGREVISION=		2
+# CATEGORIES=		math
+# MASTER_SITES=		ftp://www.gn-50uma.de/gn/gn-50uma.de/pari/
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://www.parigp-home.de/
+# COMMENT=		Galois group data for pari
+# 
+# DEPENDS+=		pari-[0-9]*:../../math/pari
+# 
+# WRKSRC=			${WRKDIR}
+# DIST_SUBDIR=		pari-2.1
+# 
+# NO_BUILD=		yes
+# INSTALLATION_DIRS=	share/pari/galdata
+# 
+# do-install:
+# 	${INSTALL_DATA} ${WRKSRC}/[CR]* ${DESTDIR}${PREFIX}/share/pari/galdata
+# 
+# .include "../../mk/bsd.pkg.mk"

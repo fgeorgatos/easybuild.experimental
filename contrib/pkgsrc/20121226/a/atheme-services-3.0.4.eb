@@ -1,0 +1,132 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      atheme-services-3.0.4.eb
+# Date::      Wed Dec 26 17:08:14 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'atheme'
+version = 'services-3.0.4'
+versionsuffix = '-20121226'
+
+description = "atheme-services-3.0.4: Flexible IRC services system with proven scalability"
+
+# The following are automatically calculated - cross fingers
+sources = ['atheme-services-3.0.4.tbz2']
+source_urls = ['http://distfiles.atheme.org/']
+homepage = 'http://www.atheme.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/chat/atheme/Makefile ######
+# # $NetBSD: Makefile,v 1.6 2012/02/16 13:46:52 hans Exp $
+# #
+# 
+# DISTNAME=	atheme-services-3.0.4
+# PKGNAME=	${DISTNAME:S/-services//}
+# PKGREVISION=	1
+# CATEGORIES=	chat
+# MASTER_SITES=	http://distfiles.atheme.org/
+# EXTRACT_SUFX=	.tbz2
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.atheme.org/
+# COMMENT=	Flexible IRC services system with proven scalability
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# GNU_CONFIGURE=		yes
+# USE_TOOLS+=		pkg-config
+# BUILD_DEFS+=		VARBASE
+# PKG_SYSCONFSUBDIR=	atheme
+# EGDIR=			${PREFIX}/share/examples/atheme
+# DOC_FILES=		INSTALL README
+# MAKE_JOBS_SAFE=		NO
+# ATHEME_USER?=		atheme
+# ATHEME_GROUP?=		atheme
+# 
+# RCD_SCRIPTS+=		atheme
+# 
+# PKG_USERS_VARS=		ATHEME_USER
+# PKG_GROUPS_VARS=	ATHEME_GROUP
+# PKG_GROUPS=		${ATHEME_GROUP}
+# PKG_USERS=		${ATHEME_USER}:${ATHEME_GROUP}
+# 
+# PKG_GECOS.${ATHEME_USER}=	atheme user
+# 
+# FILES_SUBST+=		ATHEME_USER=${ATHEME_USER}
+# FILES_SUBST+=		ATHEME_GROUP=${ATHEME_GROUP}
+# 
+# .include "options.mk"
+# 
+# CFLAGS.SunOS+=		-Dfaultcode_t=foo_faultcode_t -Dboolean_t=foo_boolean_t
+# 
+# CONFIGURE_ARGS+=	--localstatedir=${VARBASE}
+# CONFIGURE_ARGS+=	--enable-fhs-paths
+# CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR}
+# 
+# PKGCONFIG_OVERRIDE+=	libmowgli/libmowgli.pc.in
+# 
+# CONF_FILES_PERMS=	${EGDIR}/atheme.conf.example \
+# 			${PKG_SYSCONFDIR}/atheme.conf \
+# 			${ATHEME_USER} ${ATHEME_GROUP} 0660
+# CONF_FILES_PERMS+=	${EGDIR}/atheme.cron.example \
+# 			${PKG_SYSCONFDIR}/atheme.cron \
+# 			${ATHEME_USER} ${ATHEME_GROUP} 0660
+# CONF_FILES_PERMS+=	${EGDIR}/atheme.motd.example \
+# 			${PKG_SYSCONFDIR}/atheme.motd \
+# 			${ATHEME_USER} ${ATHEME_GROUP} 0660
+# CONF_FILES_PERMS+=	${EGDIR}/atheme.conf.userserv-example \
+# 			${PKG_SYSCONFDIR}/atheme.conf.userserv \
+# 			${ATHEME_USER} ${ATHEME_GROUP} 0660
+# 
+# MAKE_DIRS_PERMS+=	${VARBASE}/atheme \
+# 			${ATHEME_USER} ${ATHEME_GROUP} 0770
+# MAKE_DIRS_PERMS+=	${VARBASE}/log/atheme \
+# 			${ATHEME_USER} ${ATHEME_GROUP} 0770
+# MAKE_DIRS_PERMS+=	${VARBASE}/run/atheme \
+# 			${ATHEME_USER} ${ATHEME_GROUP} 0770
+# 
+# INSTALLATION_DIRS+=	${EGDIR}
+# 
+# post-install:
+# 	${INSTALL_DATA} ${WRKSRC}/dist/atheme.conf.example \
+# 	    ${DESTDIR}${EGDIR}/atheme.conf.example
+# 	${INSTALL_DATA} ${WRKSRC}/dist/atheme.conf.userserv-example \
+# 	    ${DESTDIR}${EGDIR}/atheme.conf.userserv-example
+# 	${INSTALL_DATA} ${WRKSRC}/dist/atheme.cron.example \
+# 	    ${DESTDIR}${EGDIR}/atheme.cron.example
+# 	${INSTALL_DATA} ${WRKSRC}/dist/atheme.motd.example \
+# 	    ${DESTDIR}${EGDIR}/atheme.motd.example
+# .	for i in ${DOC_FILES}
+# 		${INSTALL_DATA} ${WRKSRC}/${i} ${DESTDIR}${PREFIX}/share/doc/atheme/
+# .	endfor
+# 
+# .include "../../devel/libmowgli/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

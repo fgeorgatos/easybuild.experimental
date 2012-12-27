@@ -1,0 +1,71 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Server-Starter-0.11.eb
+# Date::      Wed Dec 26 17:09:02 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'Starter-0.11'
+versionsuffix = '-20121226'
+
+description = "Server-Starter-0.11: Perl 5 superdaemon for hot-deploying server programs"
+
+# The following are automatically calculated - cross fingers
+sources = ['Server-Starter-0.11.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Server/']
+homepage = 'http://search.cpan.org/dist/Server-Starter/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/p5-Server-Starter/Makefile ######
+# # $NetBSD: Makefile,v 1.6 2011/11/13 06:14:40 hiramatsu Exp $
+# 
+# DISTNAME=	Server-Starter-0.11
+# PKGNAME=	p5-${DISTNAME}
+# CATEGORIES=	sysutils perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Server/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/Server-Starter/
+# COMMENT=	Perl 5 superdaemon for hot-deploying server programs
+# LICENSE=	${PERL5_LICENSE}
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=	# empty
+# PERL5_PACKLIST= auto/Server/Starter/.packlist
+# 
+# BUILD_DEPENDS+=	p5-Test-TCP>=0.11:../../net/p5-Test-TCP
+# DEPENDS+=	p5-Proc-Wait3-[0-9]*:../../devel/p5-Proc-Wait3
+# DEPENDS+=	p5-List-MoreUtils-[0-9]*:../../devel/p5-List-MoreUtils
+# DEPENDS+=	p5-Scope-Guard-[0-9]*:../../devel/p5-Scope-Guard
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

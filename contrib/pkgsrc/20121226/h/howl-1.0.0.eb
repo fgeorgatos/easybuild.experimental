@@ -1,0 +1,75 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      howl-1.0.0.eb
+# Date::      Wed Dec 26 17:08:49 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'howl'
+version = '1.0.0'
+versionsuffix = '-20121226'
+
+description = "howl-1.0.0: Zeroconf Rendezvous implementation"
+
+# The following are automatically calculated - cross fingers
+sources = ['howl-1.0.0.tar.gz']
+source_urls = ['http://www.porchdogsoft.com/download/']
+homepage = 'http://www.porchdogsoft.com/products/howl/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/howl/Makefile ######
+# # $NetBSD: Makefile,v 1.17 2008/07/14 12:56:10 joerg Exp $
+# 
+# DISTNAME=		howl-1.0.0
+# CATEGORIES=		net
+# MASTER_SITES=		http://www.porchdogsoft.com/download/
+# 
+# MAINTAINER=		nathanw@NetBSD.org
+# HOMEPAGE=		http://www.porchdogsoft.com/products/howl/
+# COMMENT=		Zeroconf (Rendezvous) implementation
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_TOOLS+=		pkg-config
+# USE_LIBTOOL=		yes
+# GNU_CONFIGURE=		yes
+# PTHREAD_AUTO_VARS=	yes
+# 
+# RCD_SCRIPTS=		howl
+# PKG_GROUPS+=		${HOWL_GROUP}
+# PKG_USERS+=		${HOWL_USER:Q}:${HOWL_GROUP:Q}
+# PKG_GECOS.${HOWL_USER}=	Zeroconf user
+# 
+# PKG_GROUPS_VARS+=	HOWL_GROUP
+# PKG_USERS_VARS+=	HOWL_USER
+# 
+# FILES_SUBST+=		HOWL_GROUP=${HOWL_GROUP:Q}
+# FILES_SUBST+=		HOWL_USER=${HOWL_USER:Q}
+# 
+# .include "../../mk/pthread.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

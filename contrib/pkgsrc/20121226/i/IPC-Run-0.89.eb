@@ -1,0 +1,72 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      IPC-Run-0.89.eb
+# Date::      Wed Dec 26 17:08:24 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'Run-0.89'
+versionsuffix = '-20121226'
+
+description = "IPC-Run-0.89: Perl module for interacting with child processes"
+
+# The following are automatically calculated - cross fingers
+sources = ['IPC-Run-0.89.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/IPC/']
+homepage = 'http://search.cpan.org/dist/IPC-Run/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-IPC-Run/Makefile ######
+# # $NetBSD: Makefile,v 1.20 2011/08/14 12:26:12 obache Exp $
+# 
+# DISTNAME=	IPC-Run-0.89
+# PKGNAME=	p5-${DISTNAME}
+# PKGREVISION=	2
+# CATEGORIES=	devel perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=IPC/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/IPC-Run/
+# COMMENT=	Perl module for interacting with child processes
+# LICENSE=	gnu-gpl-v2 OR artistic
+# 
+# # XXX Win32 will need Win32::Process while all others IO::Pty
+# #     How about Interix?
+# DEPENDS+=	p5-IO-tty>=1.08:../../devel/p5-IO-Tty
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=		# empty
+# PERL5_PACKLIST=		auto/IPC/Run/.packlist
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

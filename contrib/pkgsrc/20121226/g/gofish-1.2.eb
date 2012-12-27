@@ -1,0 +1,100 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      gofish-1.2.eb
+# Date::      Wed Dec 26 17:08:49 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'gofish'
+version = '1.2'
+versionsuffix = '-20121226'
+
+description = "gofish-1.2: Gopher server"
+
+# The following are automatically calculated - cross fingers
+sources = ['gofish-1.2.tar.gz']
+source_urls = ['http://sourceforge.net/projects/gofish/files', 'download']
+homepage = 'http://gofish.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/gofish/Makefile ######
+# # $NetBSD: Makefile,v 1.13 2011/01/18 10:27:30 wiz Exp $
+# 
+# DISTNAME=		gofish-1.2
+# CATEGORIES=		net
+# MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=gofish/}
+# 
+# MAINTAINER=		esg@sdf.lonestar.org
+# HOMEPAGE=		http://gofish.sourceforge.net/
+# COMMENT=		Gopher server
+# LICENSE=		gnu-gpl-v2
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=			${WRKDIR}/gofish
+# USE_PKGLOCALEDIR=	yes
+# GNU_CONFIGURE=		yes
+# 
+# CONFIGURE_ARGS+=	--with-gopheruser=${GOPHER_USER:Q}
+# CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR:Q}
+# CONFIGURE_ARGS+=	--localstatedir=${VARBASE:Q}
+# 
+# EGDIR=			${PREFIX}/share/examples/gofish
+# RUNTIMEDIR=		${VARBASE}/gopher
+# 
+# GOPHER_USER?=		gopher
+# GOPHER_GROUP?=		gopher
+# PKG_GROUPS=		${GOPHER_GROUP}
+# PKG_USERS=		${GOPHER_USER}:${GOPHER_GROUP}
+# PKG_GROUPS_VARS+=	GOPHER_GROUP
+# PKG_USERS_VARS+=	GOPHER_USER
+# 
+# RCD_SCRIPTS=		gopherd
+# 
+# OWN_DIRS_PERMS=		${RUNTIMEDIR} ${GOPHER_USER} ${GOPHER_GROUP} 0750
+# 
+# .for FILE in gofish.conf gofish-www.conf
+# CONF_FILES+=		${EGDIR}/${FILE} ${PKG_SYSCONFDIR}/${FILE}
+# .endfor
+# 
+# FILES_SUBST+=		RUNTIMEDIR=${RUNTIMEDIR:Q}
+# FILES_SUBST+=		PKG_USERS=${PKG_USERS:Q}
+# 
+# SUBST_CLASSES+=		user
+# SUBST_MESSAGE.user=	Fixing name of gopher user in files.
+# SUBST_FILES.user=	gofish.conf
+# SUBST_SED.user=		-e "s/;user = gopher/user = ${GOPHER_USER}/g"
+# 
+# INSTALLATION_DIRS=	share/examples/gofish share/doc/gofish
+# 
+# post-install:
+# 	${INSTALL_DATA} ${WRKSRC}/gofish.conf ${DESTDIR}${EGDIR}
+# 	${INSTALL_DATA} ${WRKSRC}/gofish-www.conf ${DESTDIR}${EGDIR}
+# 	${INSTALL_DATA} ${WRKSRC}/Configure_GoFish ${DESTDIR}${PREFIX}/share/doc/gofish
+# 
+# .include "../../mk/bsd.pkg.mk"

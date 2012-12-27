@@ -1,0 +1,72 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      protobuf-2.4.1.eb
+# Date::      Wed Dec 26 17:08:26 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'protobuf'
+version = '2.4.1'
+versionsuffix = '-20121226'
+
+description = "protobuf-2.4.1: Google protocol buffers"
+
+# The following are automatically calculated - cross fingers
+sources = ['protobuf-2.4.1.tar.gz']
+source_urls = ['http://protobuf.googlecode.com/files/']
+homepage = 'http://code.google.com/p/protobuf/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/protobuf/Makefile ######
+# # $NetBSD: Makefile,v 1.2 2012/06/04 13:31:23 obache Exp $
+# #
+# 
+# DISTNAME=	protobuf-2.4.1
+# CATEGORIES=	devel
+# MASTER_SITES=	http://protobuf.googlecode.com/files/
+# 
+# MAINTAINER=	aran@100acres.us
+# HOMEPAGE=	http://code.google.com/p/protobuf/
+# COMMENT=	Google protocol buffers
+# LICENSE=	modified-bsd
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=	yes
+# USE_LIBTOOL=	yes
+# USE_LANGUAGES=	c++ c
+# 
+# PKGCONFIG_OVERRIDE+=	protobuf-lite.pc.in
+# PKGCONFIG_OVERRIDE+=	protobuf.pc.in
+# 
+# TEST_TARGET=	check
+# 
+# BUILDLINK_API_DEPENDS.zlib+=	zlib>=1.2.0.4
+# .include "../../devel/zlib/buildlink3.mk"
+# .include "../../mk/pthread.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

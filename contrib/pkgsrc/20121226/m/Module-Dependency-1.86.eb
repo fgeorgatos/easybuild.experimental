@@ -1,0 +1,71 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Module-Dependency-1.86.eb
+# Date::      Wed Dec 26 17:08:24 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'Dependency-1.86'
+versionsuffix = '-20121226'
+
+description = "Module-Dependency-1.86: Build perl program/module dependency graph"
+
+# The following are automatically calculated - cross fingers
+sources = ['Module-Dependency-1.86.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Module/']
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Module-Dependency/Makefile ######
+# # $NetBSD: Makefile,v 1.17 2011/08/14 12:26:18 obache Exp $
+# #
+# 
+# DISTNAME=	Module-Dependency-1.86
+# PKGNAME=	p5-${DISTNAME}
+# PKGREVISION=	2
+# CATEGORIES=	devel perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Module/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# COMMENT=	Build perl program/module dependency graph
+# LICENSE=	gnu-gpl-v2 # OR artistic
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# DEPENDS+=	p5-GD>=1.32nb1:../../graphics/p5-GD
+# DEPENDS+=	p5-PostScript-Simple-[0-9]*:../../print/p5-PostScript-Simple
+# DEPENDS+=	p5-SVG-[0-9]*:../../graphics/p5-SVG
+# 
+# REPLACE_PERL+=	pmd_dump.pl pmd_indexer.plx pmd_grapher.plx
+# 
+# PERL5_PACKLIST=		auto/Module/Dependency/.packlist
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,68 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      kttcp-20020711.eb
+# Date::      Wed Dec 26 17:08:13 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'kttcp'
+version = '20020711'
+versionsuffix = '-20121226'
+
+description = "kttcp-20020711: Kernel network throughput benchmark"
+
+# The following are automatically calculated - cross fingers
+sources = ['kttcp-20020711.tar.gz']
+source_urls = ['#empty']
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/benchmarks/kttcp/Makefile ######
+# # $NetBSD: Makefile,v 1.20 2012/09/11 22:37:13 asau Exp $
+# 
+# DISTNAME=	kttcp-20020711
+# CATEGORIES=	benchmarks net
+# PKGREVISION=	2
+# MASTER_SITES=	# empty
+# DISTFILES=	# empty
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# COMMENT=	Kernel network throughput benchmark
+# 
+# ONLY_FOR_PLATFORM=	NetBSD-1.6[B-Z]*-* NetBSD-[2-9]*-*
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# 
+# USE_BSD_MAKEFILE=	yes
+# WRKSRC=			${WRKDIR}
+# 
+# INSTALLATION_DIRS=	bin
+# 
+# post-extract:
+# 	cd files && cp Makefile kttcp.c ${WRKSRC}
+# 
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,76 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      gtkam-0.1.18.eb
+# Date::      Wed Dec 26 17:08:36 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'gtkam'
+version = '0.1.18'
+versionsuffix = '-20121226'
+
+description = "gtkam-0.1.18: Digital camera access graphical client GTK2 "
+
+# The following are automatically calculated - cross fingers
+sources = ['gtkam-0.1.18.tar.gz']
+source_urls = ['http://sourceforge.net/projects/gphoto/files', 'download']
+homepage = 'http://gphoto.sourceforge.net/proj/gtkam/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/gtkam/Makefile ######
+# # $NetBSD: Makefile,v 1.54.2.1 2012/10/03 12:08:04 spz Exp $
+# #
+# 
+# DISTNAME=	gtkam-0.1.18
+# PKGREVISION=	4
+# CATEGORIES=	graphics
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=gphoto/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://gphoto.sourceforge.net/proj/gtkam/
+# COMMENT=	Digital camera access graphical client (GTK2)
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LIBTOOL=		YES
+# USE_PKGLOCALEDIR=	YES
+# USE_TOOLS+=		intltool pkg-config perl msgfmt
+# GNU_CONFIGURE=		YES
+# 
+# CONFIGURE_ARGS+=	--without-bonobo
+# CONFIGURE_ARGS+=	--without-bonobo-activation
+# CONFIGURE_ARGS+=	--without-gnome
+# CONFIGURE_ARGS+=	--without-gimp
+# 
+# .include "../../sysutils/desktop-file-utils/desktopdb.mk"
+# .include "../../devel/libgphoto2/buildlink3.mk"
+# .include "../../devel/libltdl/buildlink3.mk"
+# .include "../../graphics/libexif-gtk/buildlink3.mk"
+# .include "../../mk/omf-scrollkeeper.mk"
+# .include "../../x11/gtk2/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

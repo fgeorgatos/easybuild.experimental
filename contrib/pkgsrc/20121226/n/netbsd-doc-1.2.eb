@@ -1,0 +1,68 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      netbsd-doc-1.2.eb
+# Date::      Wed Dec 26 17:08:45 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'netbsd'
+version = 'doc-1.2'
+versionsuffix = '-20121226'
+
+description = "netbsd-doc-1.2: Meta-package including all packages to convert SGML-"
+
+# The following are automatically calculated - cross fingers
+sources = ['netbsd-doc-1.2.tar.gz']
+source_urls = ['#empty']
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/meta-pkgs/netbsd-doc/Makefile ######
+# # $NetBSD: Makefile,v 1.17 2007/12/19 12:27:29 rillig Exp $
+# #
+# 
+# DISTNAME=	netbsd-doc-1.2
+# PKGREVISION=	1
+# CATEGORIES=	meta-pkgs
+# MASTER_SITES=	# empty
+# DISTFILES=	# empty
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# COMMENT=	Meta-package including all packages to convert SGML->HTML
+# 
+# DEPENDS+=	opensp>=1.4:../../textproc/opensp
+# DEPENDS+=	jade>=1.2.1nb3:../../textproc/jade
+# DEPENDS+=	docbook>=4.0:../../textproc/docbook
+# DEPENDS+=	iso8879>=1986:../../textproc/iso8879
+# DEPENDS+=	iso12083>=1993:../../textproc/iso12083
+# DEPENDS+=	dsssl-docbook-modular>=1.54:../../textproc/dsssl-docbook-modular
+# DEPENDS+=	html>=4.0:../../textproc/html
+# DEPENDS+=	tidy>=20031002:../../www/tidy
+# 
+# META_PACKAGE=	yes
+# 
+# .include "../../mk/bsd.pkg.mk"

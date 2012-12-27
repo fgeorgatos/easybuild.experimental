@@ -1,0 +1,91 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      frameworks-0.3.7.eb
+# Date::      Wed Dec 26 17:08:36 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'frameworks'
+version = '0.3.7'
+versionsuffix = '-20121226'
+
+description = "frameworks-0.3.7: Stop-motion animation frame capture software"
+
+# The following are automatically calculated - cross fingers
+sources = ['frameworks-0.3.7.tar.gz']
+source_urls = ['http://frameworks.polycrystal.org/release/']
+homepage = 'http://frameworks.polycrystal.org/release/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/frameworks/Makefile ######
+# # $NetBSD: Makefile,v 1.18.2.1 2012/10/03 12:07:59 spz Exp $
+# #
+# 
+# DISTNAME=	frameworks-0.3.7
+# PKGREVISION=	14
+# CATEGORIES=	graphics
+# MASTER_SITES=	http://frameworks.polycrystal.org/release/
+# SITES.frameworks.png=	http://frameworks.polycrystal.org/images/
+# DISTFILES=	${DISTNAME}${EXTRACT_SUFX} frameworks.png
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://frameworks.polycrystal.org/release/
+# COMMENT=	Stop-motion animation frame capture software
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=	yes
+# USE_TOOLS+=	pkg-config gmake autoconf
+# LDFLAGS+=	-lm    # Explicit for binutils 2.22 linker
+# 
+# SUBST_CLASSES=		xdg
+# SUBST_STAGE.xdg=	pre-configure
+# SUBST_MESSAGE.xdg=	Fixing paths in xdg menu entries.
+# SUBST_FILES.xdg=	frameworks.desktop
+# SUBST_SED.xdg=		-e 's,@PREFIX@,${PREFIX},g'
+# 
+# INSTALLATION_DIRS=	share/applications share/icons/hicolor/48x48/apps
+# 
+# post-extract:
+# 	cp ${FILESDIR}/frameworks.desktop.in ${WRKSRC}/frameworks.desktop
+# 
+# pre-configure:
+# 	cd ${WRKSRC} && autoconf
+# 
+# post-install:
+# 	${INSTALL_DATA} ${DISTDIR}/frameworks.png \
+# 	    ${DESTDIR}${PREFIX}/share/icons/hicolor/48x48/apps/frameworks.png
+# 	${INSTALL_DATA} ${WRKSRC}/frameworks.desktop \
+# 	    ${DESTDIR}${PREFIX}/share/applications/frameworks.desktop
+# 
+# .include "../../devel/libglade/buildlink3.mk"
+# .include "../../graphics/hicolor-icon-theme/buildlink3.mk"
+# .include "../../graphics/libv4l/buildlink3.mk"
+# .include "../../x11/gtk2/buildlink3.mk"
+# .include "../../sysutils/desktop-file-utils/desktopdb.mk"
+# .include "../../mk/bsd.pkg.mk"

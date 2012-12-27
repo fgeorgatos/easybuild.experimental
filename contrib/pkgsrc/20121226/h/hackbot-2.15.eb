@@ -1,0 +1,76 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      hackbot-2.15.eb
+# Date::      Wed Dec 26 17:08:58 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'hackbot'
+version = '2.15'
+versionsuffix = '-20121226'
+
+description = "hackbot-2.15: Vulnerability scanner written in Perl"
+
+# The following are automatically calculated - cross fingers
+sources = ['hackbot-2.15.tgz']
+source_urls = ['http://www.xs4all.nl/~mvberkum/hackbot/']
+homepage = 'http://ws.obit.nl/hackbot/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/hackbot/Makefile ######
+# # $NetBSD: Makefile,v 1.8 2010/01/27 17:17:27 joerg Exp $
+# 
+# DISTNAME=		hackbot-2.15
+# CATEGORIES=		security net
+# MASTER_SITES=		http://www.xs4all.nl/~mvberkum/hackbot/
+# EXTRACT_SUFX=		.tgz
+# 
+# MAINTAINER=		nk@atki.net
+# HOMEPAGE=		http://ws.obit.nl/hackbot/
+# COMMENT=		Vulnerability scanner written in Perl
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=			${WRKDIR}/hackbot
+# MANCOMPRESSED=		YES
+# USE_TOOLS+=		perl:run
+# REPLACE_PERL=		hackbot.pl
+# 
+# INSTALLATION_DIRS=	bin ${PKGMANDIR}/man1 share/hackbot
+# 
+# do-build:
+# 	${SED} "s,/usr/local/etc,${PREFIX}/share/hackbot,g" ${WRKSRC}/hackbot.pl > ${WRKSRC}/hackbot.pl.done
+# 	${MV} ${WRKSRC}/hackbot.pl.done ${WRKSRC}/hackbot.pl
+# 
+# do-install:
+# 	${INSTALL_SCRIPT} ${WRKSRC}/hackbot.pl ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_DATA} ${WRKSRC}/cgi.db ${WRKSRC}/fingerprint.db \
+# 	    ${DESTDIR}${PREFIX}/share/hackbot
+# 	${INSTALL_MAN} ${WRKSRC}/hackbot.1.gz ${DESTDIR}${PREFIX}/${PKGMANDIR}/man1
+# 
+# .include "../../mk/bsd.pkg.mk"

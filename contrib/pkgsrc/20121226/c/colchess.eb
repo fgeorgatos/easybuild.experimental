@@ -1,0 +1,82 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      colchess.eb
+# Date::      Wed Dec 26 17:08:33 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = '-book-'
+version = 'colchess'
+versionsuffix = '-20121226'
+
+description = "colchess: Chess opening book for ColChess default "
+
+# The following are automatically calculsources = ['colchess.sources = ['colchess.tgz']
+source_urls = ['http://www.ast.cam.ac.uk/~cmf/chess/']
+homepage = 'http://www.ast.cam.ac.uk/~cmf/chess/colchess/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/colchess-book-colchess/Makefile ######
+# # $NetBSD: Makefile,v 1.13 2008/03/04 06:59:03 jlam Exp $
+# 
+# DISTNAME=		colchess
+# PKGNAME=		${CHESS_ENGINE}-book-${DIST_SUBDIR}
+# CATEGORIES=		games
+# MASTER_SITES=		http://www.ast.cam.ac.uk/~cmf/chess/
+# EXTRACT_SUFX=		.tgz
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://www.ast.cam.ac.uk/~cmf/chess/colchess/
+# COMMENT=		Chess opening book for ColChess (default)
+# 
+# DEPENDS+=		colchess>=7.0:../../games/colchess
+# 
+# CONFLICTS+=		colchess-book-[0-9]*
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=			${WRKDIR}/ColChess
+# CHESS_ENGINE=		colchess
+# DIST_SUBDIR=		colchess-7.0
+# NO_CONFIGURE=		yes
+# NO_BUILD=		yes
+# 
+# PLIST_SUBST+=		CHESS_ENGINE=${CHESS_ENGINE:Q}
+# PLIST_SUBST+=		BOOK_FILE=${BOOK_FILE:Q}
+# 
+# BOOKDIR=		${PREFIX}/share/${CHESS_ENGINE}
+# BOOK_FILE=		book.dat
+# 
+# do-install:
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${BOOKDIR}
+# 	${INSTALL_DATA} ${WRKSRC}/${BOOK_FILE} ${DESTDIR}${BOOKDIR}
+# 
+# .include "../../mk/bsd.pkg.mk"
+DESTDIR}${DOCDIR}
+# 
+# .include "../../mk/bsd.pkg.mk"

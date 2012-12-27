@@ -1,0 +1,82 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      ocaml-mysql-1.1.1.eb
+# Date::      Wed Dec 26 17:08:17 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'ocaml'
+version = 'mysql-1.1.1'
+versionsuffix = '-20121226'
+
+description = "ocaml-mysql-1.1.1: Ocaml library for MySQL database access"
+
+# The following are automatically calculated - cross fingers
+sources = ['ocaml-mysql-1.1.1.tar.gz']
+source_urls = ['http://forge.ocamlcore.org/frs/download.php/870/']
+homepage = 'http://ocaml-mysql.forge.ocamlcore.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/databases/ocaml-mysql/Makefile ######
+# # $NetBSD: Makefile,v 1.10 2012/09/17 11:45:43 jaapb Exp $
+# #
+# 
+# DISTNAME=		ocaml-mysql-1.1.1
+# CATEGORIES=		databases
+# MASTER_SITES=		http://forge.ocamlcore.org/frs/download.php/870/
+# 
+# MAINTAINER=		jaapb@NetBSD.org
+# HOMEPAGE=		http://ocaml-mysql.forge.ocamlcore.org/
+# COMMENT=		Ocaml library for MySQL database access
+# LICENSE=		gnu-lgpl-v2.1
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_PKGLOCALEDIR=	yes
+# GNU_CONFIGURE=		yes
+# USE_TOOLS+=		gmake
+# 
+# DOCDIR=			${PREFIX}/share/doc/ocaml-mysql
+# INSTALLATION_DIRS=	${DOCDIR}
+# 
+# BUILD_TARGET=	all htdoc
+# PLIST_VARS=	opt
+# .if (${MACHINE_ARCH} == "i386") || (${MACHINE_ARCH} == "powerpc") || \
+#     (${MACHINE_ARCH} == "sparc") || (${MACHINE_ARCH} == "x86_64") || \
+#     (${MACHINE_ARCH} == "arm")
+# BUILD_TARGET+=	opt
+# PLIST.opt=	yes
+# .endif
+# 
+# post-install:
+# 	cd ${WRKSRC}/doc/mysql/html && ${INSTALL_DATA} *.html ${DESTDIR}${DOCDIR}
+# 
+# .include "../../lang/ocaml/buildlink3.mk"
+# .include "../../devel/ocaml-findlib/buildlink3.mk"
+# .include "../../databases/mysql5-client/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

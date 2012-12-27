@@ -1,0 +1,66 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      IPy-0.75.eb
+# Date::      Wed Dec 26 17:08:51 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = '-'
+version = '0.75'
+versionsuffix = '-20121226'
+
+description = "IPy-0.75: Python module to handle IPv4 and IPv6 address"
+
+# The following are automatically calculated - cross fingers
+sources = ['IPy-0.75.tar.gz']
+source_urls = ['http://pypi.python.org/packages/source/I/IPy/']
+homepage = 'https://github.com/haypo/python-ipy/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/py-IP/Makefile ######
+# # $NetBSD: Makefile,v 1.17 2012/04/08 19:09:09 wiz Exp $
+# 
+# DISTNAME=	IPy-0.75
+# PKGNAME=	${PYPKGPREFIX}-${DISTNAME:S/IPy/IP/}
+# CATEGORIES=	net python
+# MASTER_SITES=	http://pypi.python.org/packages/source/I/IPy/
+# 
+# MAINTAINER=	wenheping@gmail.com
+# HOMEPAGE=	https://github.com/haypo/python-ipy/
+# COMMENT=	Python module to handle IPv4 and IPv6 address
+# LICENSE=	modified-bsd
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# PYTHON_VERSIONS_INCLUDE_3X=	yes
+# 
+# do-test:
+# 	${RUN}cd ${WRKSRC}/test; ${SETENV} ${TEST_ENV} ${PYTHONBIN} test_IPy.py
+# 
+# .include "../../lang/python/distutils.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,63 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      py-smbpasswd-1.0.1.eb
+# Date::      Wed Dec 26 17:08:59 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = '-'
+version = 'smbpasswd-1.0.1'
+versionsuffix = '-20121226'
+
+description = "py-smbpasswd-1.0.1: Python SMB Password Hash Generator"
+
+# The following are automatically calculated - cross fingers
+sources = ['py-smbpasswd-1.0.1.tar.gz']
+source_urls = ['http://barryp.org/static/software/download/py-smbpasswd/1.0.1/']
+homepage = 'http://barryp.org/software/py-smbpasswd/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/py-smbpasswd/Makefile ######
+# # $NetBSD: Makefile,v 1.8 2012/04/08 19:09:12 wiz Exp $
+# #
+# 
+# DISTNAME=	py-smbpasswd-1.0.1
+# PKGNAME=	${PYPKGPREFIX}-${DISTNAME:S/py-//}
+# CATEGORIES=	security
+# MASTER_SITES=	http://barryp.org/static/software/download/py-smbpasswd/1.0.1/
+# 
+# MAINTAINER=	bouyer@NetBSD.org
+# HOMEPAGE=	http://barryp.org/software/py-smbpasswd/
+# COMMENT=	Python SMB Password Hash Generator
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# PYDISTUTILSPKG= yes
+# 
+# .include "../../lang/python/extension.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,75 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      pkg_regress-0.2.eb
+# Date::      Wed Dec 26 17:08:52 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'pkg_regress'
+version = '0.2'
+versionsuffix = '-20121226'
+
+description = "pkg_regress-0.2: Run pkgsrc infrastructure regression test suite"
+
+# The following are automatically calculated - cross fingers
+sources = ['pkg_regress-0.2.tar.gz']
+source_urls = ['#empty']
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/pkgtools/pkg_regress/Makefile ######
+# # $NetBSD: Makefile,v 1.11 2012/09/11 23:19:37 asau Exp $
+# 
+# DISTNAME=	pkg_regress-0.2
+# CATEGORIES=	pkgtools
+# MASTER_SITES=	# empty
+# DISTFILES=	# empty
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# COMMENT=	Run pkgsrc infrastructure regression test suite
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# 
+# WRKSRC=		${WRKDIR}
+# USE_LANGUAGES=	# empty
+# 
+# INSTALLATION_DIRS=	sbin
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# do-build:
+# 	${SED} -e 's#@MAKE@#${MAKE}#g' \
+# 	  -e 's#@PKGSRCDIR@#${PKGSRCDIR}#g' \
+# 	  -e 's#@SH@#${SH}#g' \
+# 	  -e 's#@EGREP@#${EGREP}#g' \
+# 	  ${FILESDIR}/pkg_regress.sh >${WRKSRC}/pkg_regress.sh
+# 
+# do-install:
+# 	${INSTALL_SCRIPT} ${WRKSRC}/pkg_regress.sh \
+# 		${DESTDIR}${PREFIX}/sbin/pkg_regress
+# 
+# .include "../../mk/bsd.pkg.mk"

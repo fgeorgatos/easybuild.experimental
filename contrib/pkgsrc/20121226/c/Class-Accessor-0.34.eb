@@ -1,0 +1,68 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Class-Accessor-0.34.eb
+# Date::      Wed Dec 26 17:08:22 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'Accessor-0.34'
+versionsuffix = '-20121226'
+
+description = "Class-Accessor-0.34: Automated accessor generation"
+
+# The following are automatically calculated - cross fingers
+sources = ['Class-Accessor-0.34.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Class/']
+homepage = 'http://search.cpan.org/dist/Class-Accessor/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Class-Accessor/Makefile ######
+# # $NetBSD: Makefile,v 1.16 2011/08/09 09:38:04 adam Exp $
+# 
+# DISTNAME=	Class-Accessor-0.34
+# PKGNAME=	p5-${DISTNAME}
+# PKGREVISION=	2
+# SVR4_PKGNAME=	p5cac
+# CATEGORIES=	devel perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Class/}
+# 
+# MAINTAINER=	hiramatu@boreas.dti.ne.jp
+# HOMEPAGE=	http://search.cpan.org/dist/Class-Accessor/
+# COMMENT=	Automated accessor generation
+# LICENSE=	${PERL5_LICENSE}
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# PERL5_PACKLIST=		auto/Class/Accessor/.packlist
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

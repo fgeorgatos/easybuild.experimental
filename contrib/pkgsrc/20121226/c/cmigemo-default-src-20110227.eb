@@ -1,0 +1,92 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      cmigemo-default-src-20110227.eb
+# Date::      Wed Dec 26 17:09:07 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'cmigemo'
+version = 'default-src-20110227'
+versionsuffix = '-20121226'
+
+description = "cmigemo-default-src-20110227: Migemo library implemented in C"
+
+# The following are automatically calculated - cross fingers
+sources = ['cmigemo-default-src-20110227.zip']
+source_urls = ['http://cmigemo.googlecode.com/files/']
+homepage = 'http://www.kaoriya.net/software/cmigemo'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/cmigemo/Makefile ######
+# # $NetBSD: Makefile,v 1.1.1.1 2012/01/21 13:38:41 obache Exp $
+# #
+# 
+# DISTNAME=	cmigemo-default-src-20110227
+# PKGNAME=	${DISTNAME:S/-default-src-/-1.3e./}
+# CATEGORIES=	textproc
+# MASTER_SITES=	http://cmigemo.googlecode.com/files/
+# EXTRACT_SUFX=	.zip
+# DISTFILES=	${DEFAULT_DISTFILES} ${JISYOFILE}
+# 
+# MAINTAINER=	goro@venus.dti.ne.jp
+# HOMEPAGE=	http://www.kaoriya.net/software/cmigemo
+# COMMENT=	Migemo library implemented in C
+# LICENSE=	mit
+# 
+# # sync with inputmethod/skk-jisyo-cdb
+# SKKJISYO_VERS=	201102
+# JISYOFILE=	SKK-JISYO.L.${SKKJISYO_VERS}.bz2
+# SITES.${SKKJISYO_FILE}=	${MASTER_SITE_FREEBSD_LOCAL:=matusita/skk-jisyo/}
+# 
+# BUILD_DEPENDS+= nkf>=2.06:../../converters/nkf
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# HAS_CONFIGURE=	yes
+# USE_TOOLS+=	perl gzip gmake
+# USE_LIBTOOL=	yes
+# WRKSRC=		${WRKDIR}/cmigemo-default-src
+# 
+# CONFIGURE_ARGS+=	--prefix=${PREFIX}
+# INSTALL_MAKE_FLAGS+=	prefix=${DESTDIR}${PREFIX}
+# 
+# SUBST_CLASSES+=	prefix
+# SUBST_STAGE.prefix=	post-configure
+# SUBST_FILES.prefix=	compile/config_default.mk compile/Make_gcc.mak compile/Make_sun.mak doc/README* tools/migemo.vim
+# SUBST_SED.prefix=	-e 's,/usr/local,${PREFIX},g'
+# 
+# BUILD_TARGET=	gcc-all
+# INSTALL_TARGET=	gcc-install
+# 
+# post-extract:
+# 	${MV} ${WRKDIR}/${JISYOFILE:R} ${WRKSRC}/dict/SKK-JISYO.L
+# 
+# # no need to fetch SKK dictionaly file
+# TOOLS_NOOP+=	curl
+# 
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,114 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      enma-1.2.0.eb
+# Date::      Wed Dec 26 17:08:41 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'enma'
+version = '1.2.0'
+versionsuffix = '-20121226'
+
+description = "enma-1.2.0: Sender authentication milter supporting SPF and Sender ID"
+
+# The following are automatically calculated - cross fingers
+sources = ['enma-1.2.0.tar.gz']
+source_urls = ['http://sourceforge.net/projects/enma/files', 'download']
+homepage = 'http://enma.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/mail/enma/Makefile ######
+# # $NetBSD: Makefile,v 1.7 2012/02/01 10:38:18 obache Exp $
+# #
+# 
+# DISTNAME=	enma-1.2.0
+# CATEGORIES=	mail
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=enma/}
+# 
+# MAINTAINER=	obache@NetBSD.org
+# HOMEPAGE=	http://enma.sourceforge.net/
+# COMMENT=	Sender authentication milter supporting SPF and Sender ID
+# LICENSE=	2-clause-bsd
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=	yes
+# USE_LIBTOOL=	yes
+# USE_TOOLS+=	gmake
+# 
+# CONFIGURE_ARGS+=	--with-libmilter=${BUILDLINK_PREFIX.libmilter}
+# CONFIGURE_ARGS+=	--with-ldns=${BUILDLINK_PREFIX.ldns}
+# CONFIGURE_ARGS+=	--with-ssl=${SSLBASE}
+# CONFIGURE_ARGS+=	--with-resolver=ldns
+# CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR}
+# 
+# BUILD_DEFS+=	VARBASE
+# 
+# CONF_FILES+=	share/examples/enma/enma.conf.sample ${PKG_SYSCONFDIR}/enma.conf
+# RCD_SCRIPTS=	enma
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# ENMA_USER?=	daemon
+# ENMA_GROUP?=	daemon
+# 
+# PKG_GROUPS_VARS=	ENMA_GROUP
+# PKG_USERS_VARS=		ENMA_USER
+# 
+# PKG_GROUPS=	${ENMA_GROUP}
+# PKG_USERS=	${ENMA_USER}:${ENMA_GROUP}
+# 
+# SUBST_CLASSES+=		varbase
+# SUBST_STAGE.varbase=	post-configure
+# SUBST_FILES.varbase=	enma/etc/enma.conf.sample
+# SUBST_FILES.varbase+=	enma/man/enma.1 enma/man/enma.ja.1
+# SUBST_FILES.varbase+=	enma/src/enma_config.c
+# SUBST_SED.varbase=	-e 's;/var/;${VARBASE}/;g'
+# 
+# SUBST_CLASSES+=		daemon
+# SUBST_STAGE.daemon=	post-configure
+# SUBST_FILES.daemon=	enma/etc/enma.conf.sample
+# SUBST_SED.daemon=	-e 's;daemon;${ENMA_USER};g'
+# 
+# FILES_SUBST+=		ENMA_USER=${ENMA_USER:Q}
+# FILES_SUBST+=		ENMA_GROUP=${ENMA_GROUP:Q}
+# 
+# OWN_DIRS_PERMS+=	${VARBASE}/run/enma ${ENMA_USER} ${ENMA_GROUP} 0700
+# 
+# INSTALLATION_DIRS+=	share/examples/enma
+# 
+# post-install:
+# 	${INSTALL_DATA} ${WRKSRC}/enma/etc/enma.conf.sample \
+# 		${DESTDIR}${PREFIX}/share/examples/enma/enma.conf.sample
+# 
+# .include "../../mail/libmilter/buildlink3.mk"
+# BUILDLINK_API_DEPENDS.ldns+=	ldns>=1.6.0
+# .include "../../net/ldns/buildlink3.mk"
+# .include "../../security/openssl/buildlink3.mk"
+# .include "../../mk/pthread.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

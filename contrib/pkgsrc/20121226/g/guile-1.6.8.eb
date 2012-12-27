@@ -1,0 +1,101 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      guile-1.6.8.eb
+# Date::      Wed Dec 26 17:08:40 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'guile16-1.6.8'
+version = '1.6.8'
+versionsuffix = '-20121226'
+
+description = "guile-1.6.8: GNU s Ubiquitous Intelligent Language for Extension 1.6.x series "
+
+# The following are automatically calculated - cross fingers
+sources = ['guile-1.6.8.tar.gz']
+version = '1.6.8'
+name = 'guile16'
+source_urls = ['http://ftp.gnu.org/gnu/guile16-1.6.8']
+homepage = 'http://www.gnu.org/software/guile/guile.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/lang/guile16/Makefile ######
+# # $NetBSD: Makefile,v 1.7.24.2 2012/12/05 23:38:47 gdt Exp $
+# 
+# DISTNAME=		guile-1.6.8
+# PKGREVISION=		4
+# PKGNAME=		guile16-1.6.8
+# CATEGORIES=		lang
+# MASTER_SITES=		${MASTER_SITE_GNU:=guile/}
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://www.gnu.org/software/guile/guile.html
+# COMMENT=		GNU's Ubiquitous Intelligent Language for Extension (1.6.x series)
+# 
+# # Purposely not defining PREV_PKGPATH
+# SUPERSEDES=		guile-1.6.*
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=		YES
+# GNU_CONFIGURE_PREFIX=	${PREFIX}/guile/1.6
+# USE_TOOLS+=		gmake makeinfo
+# USE_LIBTOOL=		YES
+# USE_GNU_READLINE=	YES
+# PTHREAD_AUTO_VARS=	YES
+# INFO_FILES=		# PLIST
+# 
+# TEST_DIRS=		${WRKSRC}
+# TEST_TARGET=		check
+# OWN_DIRS=		${PREFIX}/share/guile/site
+# 
+# BUILDLINK_PASSTHRU_DIRS+=	${GNU_CONFIGURE_PREFIX}
+# 
+# # Without doing this, guile is unable to load its shared modules on
+# # at least SunOS-5.9/sparc and maybe others.
+# # Loading of modules can be verified by running
+# # ${GNU_CONFIGURE_PREFIX}/bin/guile
+# # and at the guile> prompt:
+# # (load-extension "libguile-srfi-srfi-13-14-v-1" "scm_init_srfi_13")
+# LDFLAGS+=			${COMPILER_RPATH_FLAG}${GNU_CONFIGURE_PREFIX}/lib
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# .if ${OPSYS} == "Darwin"
+# CPPFLAGS+=		-Dmacosx
+# 
+# post-patch:
+# 	@${MV} ${WRKSRC}/guile-config/guile-config.in.orig \
+# 	    ${WRKSRC}/guile-config/guile-config.in
+# .endif
+# 
+# .include "../../devel/libltdl/buildlink3.mk"
+# .include "../../devel/ncurses/buildlink3.mk"
+# .include "../../devel/readline/buildlink3.mk"
+# .include "../../mk/pthread.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

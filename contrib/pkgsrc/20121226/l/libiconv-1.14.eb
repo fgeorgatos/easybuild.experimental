@@ -1,0 +1,111 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      libiconv-1.14.eb
+# Date::      Wed Dec 26 17:08:15 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'libiconv'
+version = '1.14'
+versionsuffix = '-20121226'
+
+description = "libiconv-1.14: Character set conversion library"
+
+# The following are automatically calculated - cross fingers
+sources = ['libiconv-1.14.tar.gz']
+source_urls = ['http://ftp.gnu.org/gnu/libiconv']
+homepage = 'http://www.gnu.org/software/libiconv/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/converters/libiconv/Makefile ######
+# # $NetBSD: Makefile,v 1.61 2012/05/12 07:37:50 wiz Exp $
+# 
+# DISTNAME=	libiconv-1.14
+# PKGREVISION=	2
+# CATEGORIES=	converters
+# MASTER_SITES=	${MASTER_SITE_GNU:=libiconv/}
+# 
+# MAINTAINER=	rh@NetBSD.org
+# HOMEPAGE=	http://www.gnu.org/software/libiconv/
+# COMMENT=	Character set conversion library
+# LICENSE=	gnu-gpl-v3 AND gnu-lgpl-v2
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES+=		c c++
+# USE_LIBTOOL=		yes
+# USE_TOOLS+=	pax
+# GNU_CONFIGURE=		yes
+# 
+# CONFLICTS=	man-pages-[0-9]*
+# 
+# # Explicitly disable NLS since libiconv is a dependency for gettext-lib
+# # and we don't want libiconv to pick up any NLS functions from libc
+# # if they exist.
+# #
+# CONFIGURE_ARGS+=	--disable-nls
+# 
+# CONFIGURE_ARGS+=	--htmldir=${PREFIX}/share/doc/libiconv
+# 
+# TEST_TARGET=		check
+# 
+# EGDIR=			${PREFIX}/share/examples/libiconv
+# REQD_FILES=		${EGDIR}/charset.alias ${PREFIX}/lib/charset.alias
+# 
+# MAKE_ENV+=		PAX=${PAX:Q}
+# MAKE_JOBS_SAFE=		no		# ENOENT(srclib)
+# 
+# .include "../../mk/compiler.mk"
+# 
+# .if !empty(PKGSRC_COMPILER:Mmipspro*)
+# CFLAGS+=		-c99
+# .endif
+# 
+# # no patch for libiconv-1.14 available yet
+# #.include "options.mk"
+# 
+# PLIST_VARS+=		preload
+# 
+# .if ${OPSYS} == "SunOS" || ${OPSYS} == "Linux" || ${OPSYS} == "OSF1"
+# PLIST.preload=		yes
+# .endif
+# 
+# # remove any existing charset.alias; if it already exists, libiconv does
+# # not overwrite it, and older versions of libiconv wrote incorrect
+# # charset.alias files, which were not removed during deinstall since
+# # other packages touched them.
+# pre-install:
+# 	${RM} -f ${DESTDIR}${PREFIX}/lib/charset.alias
+# 
+# # be sure to install a new charset.alias
+# post-install:
+# 	cd ${WRKSRC}/libcharset/lib && \
+# 		${MAKE} libdir=${EGDIR} DESTDIR=${DESTDIR} install-charset-alias
+# 
+# .include "../../mk/bsd.pkg.mk"

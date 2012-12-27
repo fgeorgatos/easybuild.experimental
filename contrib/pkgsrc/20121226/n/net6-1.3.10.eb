@@ -1,0 +1,70 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      net6-1.3.10.eb
+# Date::      Wed Dec 26 17:08:49 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'net6'
+version = '1.3.10'
+versionsuffix = '-20121226'
+
+description = "net6-1.3.10: Networking library for C++"
+
+# The following are automatically calculated - cross fingers
+sources = ['net6-1.3.10.tar.gz']
+source_urls = ['http://releases.0x539.de/net6/']
+homepage = 'http://gobby.0x539.de/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/net6/Makefile ######
+# # $NetBSD: Makefile,v 1.10 2012/07/18 10:22:23 marino Exp $
+# #
+# 
+# DISTNAME=	net6-1.3.10
+# PKGREVISION=	2
+# CATEGORIES=	net
+# MASTER_SITES=	http://releases.0x539.de/net6/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://gobby.0x539.de/
+# COMMENT=	Networking library for C++
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=		yes
+# USE_LIBTOOL=		yes
+# USE_TOOLS+=		pkg-config
+# USE_PKGLOCALEDIR=	yes
+# USE_LANGUAGES=		c c++
+# 
+# PKGCONFIG_OVERRIDE+=	net6-1.3.pc.in
+# 
+# .include "../../devel/libsigc++/buildlink3.mk"
+# .include "../../security/gnutls/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

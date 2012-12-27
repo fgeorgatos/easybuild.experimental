@@ -1,0 +1,75 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      sigscheme-0.8.5.eb
+# Date::      Wed Dec 26 17:08:41 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'sigscheme'
+version = '0.8.5'
+versionsuffix = '-20121226'
+
+description = "sigscheme-0.8.5: R5RS Scheme interpreter for embedded use"
+
+# The following are automatically calculated - cross fingers
+sources = ['sigscheme-0.8.5.tar.gz']
+source_urls = ['http://sigscheme.googlecode.com/files/']
+homepage = 'http://code.google.com/p/sigscheme/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/lang/sigscheme/Makefile ######
+# # $NetBSD: Makefile,v 1.6 2011/04/14 20:06:49 hans Exp $
+# #
+# 
+# DISTNAME=	sigscheme-0.8.5
+# CATEGORIES=	lang
+# MASTER_SITES=	http://sigscheme.googlecode.com/files/
+# 
+# MAINTAINER=	obache@NetBSD.org
+# HOMEPAGE=	http://code.google.com/p/sigscheme/
+# COMMENT=	R5RS Scheme interpreter for embedded use
+# #LICENSE=	# See ${WRKSRC}/COPYING
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=	yes
+# USE_LIBTOOL=	yes
+# USE_TOOLS+=	gmake pkg-config
+# 
+# PKGCONFIG_OVERRIDE+=	libgcroots/gcroots.pc.in
+# PKGCONFIG_OVERRIDE+=	sigscheme.pc.in
+# 
+# CONFIGURE_ARGS+=	--enable-conf=full
+# CONFIGURE_ARGS+=	--with-libgcroots=installed
+# 
+# TEST_TARGET=	check
+# 
+# CFLAGS+=		--std=c99
+# 
+# .include "../../devel/libgcroots/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

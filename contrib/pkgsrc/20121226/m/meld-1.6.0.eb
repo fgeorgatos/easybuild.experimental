@@ -1,0 +1,78 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      meld-1.6.0.eb
+# Date::      Wed Dec 26 17:08:21 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'meld'
+version = '1.6.0'
+versionsuffix = '-20121226'
+
+description = "meld-1.6.0: Visual diff and merge tool"
+
+# The following are automatically calculated - cross fingers
+sources = ['meld-1.6.0.tar.xz']
+source_urls = ['http://sourceforge.net/projects/sources/meld/1.6/files', 'download']
+homepage = 'http://meldmerge.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/meld/Makefile ######
+# # $NetBSD: Makefile,v 1.33 2012/05/03 22:58:01 wiz Exp $
+# #
+# 
+# DISTNAME=		meld-1.6.0
+# CATEGORIES=		devel
+# MASTER_SITES=		${MASTER_SITE_GNOME:=sources/meld/1.6/}
+# EXTRACT_SUFX=		.tar.xz
+# 
+# MAINTAINER=		dieter.NetBSD@pandora.be
+# HOMEPAGE=		http://meldmerge.org/
+# COMMENT=		Visual diff and merge tool
+# LICENSE=		gnu-gpl-v2
+# 
+# DEPENDS+=		${PYPKGPREFIX}-gtk2>=2.14.0:../../x11/py-gtk2
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_PKGLOCALEDIR=		YES
+# USE_TOOLS+=			gmake msgfmt intltool
+# MAKE_FLAGS+=			prefix=${PREFIX}
+# MAKE_FLAGS+=			localedir=${PREFIX}/${PKGLOCALEDIR}/locale
+# MAKE_FLAGS+=			PYTHON=${PYTHONBIN}
+# PYTHON_PATCH_SCRIPTS=		bin/meld
+# 
+# # remove unnecessarily created empty dirs
+# post-install:
+# 	${RMDIR} ${DESTDIR}${PREFIX}/share/doc/meld
+# 	${RMDIR} ${DESTDIR}${PREFIX}/share/pixmaps
+# 
+# .include "../../sysutils/desktop-file-utils/desktopdb.mk"
+# .include "../../lang/python/application.mk"
+# .include "../../mk/omf-scrollkeeper.mk"
+# .include "../../mk/bsd.pkg.mk"

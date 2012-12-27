@@ -1,0 +1,81 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      xcalib-source-0.8.eb
+# Date::      Wed Dec 26 17:09:15 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'xcalib'
+version = 'source-0.8'
+versionsuffix = '-20121226'
+
+description = "xcalib-source-0.8: Loads VCGT tag of monitor ICC profile into X server LUT"
+
+# The following are automatically calculated - cross fingers
+sources = ['xcalib-source-0.8.tar.gz']
+source_urls = ['http://sourceforge.net/projects/xcalib/files', 'download']
+homepage = 'http://xcalib.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/xcalib/Makefile ######
+# # $NetBSD: Makefile,v 1.2 2012/03/18 21:23:13 jakllsch Exp $
+# #
+# 
+# DISTNAME=	xcalib-source-0.8
+# PKGREVISION=	1
+# PKGNAME=	${DISTNAME:C/-source//}
+# CATEGORIES=	x11
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=xcalib/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://xcalib.sourceforge.net/
+# COMMENT=	Loads VCGT tag of monitor ICC profile into X server LUT
+# LICENSE=	gnu-gpl-v2
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=			${WRKDIR}/${DISTNAME:C/-source//}
+# 
+# USE_LIBTOOL=		yes
+# INSTALLATION_DIRS=	bin
+# 
+# do-build:
+# 	cd ${WRKSRC} && ${LIBTOOL} --mode=compile ${CC} -c xcalib.c
+# 	cd ${WRKSRC} && ${LIBTOOL} --mode=link ${CC} \
+# 		${LINKER_RPATH_FLAG}${BUILDLINK_PREFIX.libX11}/lib \
+# 		${LINKER_RPATH_FLAG}${BUILDLINK_PREFIX.libXxf86vm}/lib \
+# 		-lm -lX11 -lXxf86vm \
+# 		-o xcalib xcalib.lo
+# 
+# do-install:
+# 	${SETENV} ${MAKE_ENV} ${LIBTOOL} --tag=CC --mode=install ${INSTALL_PROGRAM} ${WRKSRC}/xcalib ${DESTDIR}${PREFIX}/bin/
+# 
+# .include "../../x11/xproto/buildlink3.mk"
+# .include "../../x11/libX11/buildlink3.mk"
+# .include "../../x11/libXxf86vm/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

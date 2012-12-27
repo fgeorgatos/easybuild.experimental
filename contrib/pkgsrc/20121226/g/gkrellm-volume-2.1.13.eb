@@ -1,0 +1,71 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      gkrellm-volume-2.1.13.eb
+# Date::      Wed Dec 26 17:08:11 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'gkrellm'
+version = 'volume-2.1.13'
+versionsuffix = '-20121226'
+
+description = "gkrellm-volume-2.1.13: Gkrellm2 volume mixer plugin"
+
+# The following are automatically calculated - cross fingers
+sources = ['gkrellm-volume-2.1.13.tar.gz']
+source_urls = ['http://gkrellm.luon.net/files/']
+homepage = 'http://gkrellm.luon.net/volume.phtml'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/gkrellm-volume/Makefile ######
+# # $NetBSD: Makefile,v 1.40.2.1 2012/10/03 12:06:31 spz Exp $
+# 
+# DISTNAME=	gkrellm-volume-2.1.13
+# PKGREVISION=	17
+# CATEGORIES=	audio
+# MASTER_SITES=	http://gkrellm.luon.net/files/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://gkrellm.luon.net/volume.phtml
+# COMMENT=	Gkrellm2 volume mixer plugin
+# 
+# USE_TOOLS+=		gmake msgfmt pkg-config
+# USE_PKGLOCALEDIR=	YES
+# WRKSRC=			${WRKDIR}/gkrellm-volume
+# 
+# MAKE_ENV+=	LOCALEDIR=${PREFIX}/${PKGLOCALEDIR}/locale \
+# 		enable_nls=1
+# 
+# INSTALLATION_DIRS+=	lib/gkrellm2/plugins
+# INSTALL_MAKE_FLAGS+=	PREFIX=${DESTDIR}${PREFIX} \
+# 			LOCALEDIR=${DESTDIR}${PREFIX}/${PKGLOCALEDIR}/locale
+# 
+# .include "../../sysutils/gkrellm/buildlink3.mk"
+# .include "../../x11/gtk2/buildlink3.mk"
+# .include "../../mk/oss.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

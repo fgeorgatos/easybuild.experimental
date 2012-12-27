@@ -1,0 +1,80 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      cdplayer-0.5.eb
+# Date::      Wed Dec 26 17:08:11 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'cdplayer'
+version = '0.5'
+versionsuffix = '-20121226'
+
+description = "cdplayer-0.5: GNUstep CD player with CDDB support"
+
+# The following are automatically calculated - cross fingers
+sources = ['cdplayer-0.5.tar.bz2']
+source_urls = ['http://sourceforge.net/projects/gsburn/files', 'download']
+homepage = 'http://gsburn.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/cdplayer/Makefile ######
+# # $NetBSD: Makefile,v 1.19 2012/09/11 23:59:28 asau Exp $
+# #
+# 
+# DISTNAME=	cdplayer-0.5
+# PKGREVISION=	1
+# CATEGORIES=	audio gnustep
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=gsburn/}
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://gsburn.sourceforge.net/
+# COMMENT=	GNUstep CD player with CDDB support
+# LICENSE=	gnu-gpl-v2
+# 
+# WRKSRC=		${WRKDIR}/CDPlayer-${PKGVERSION_NOREV}
+# USE_LANGUAGES=	objc
+# USE_TOOLS+=	gmake
+# NO_CONFIGURE=	yes
+# MAKE_JOBS_SAFE=	no
+# MAKE_FILE=	GNUmakefile
+# MAKE_ENV+=	ADDITIONAL_CPPFLAGS="-Wno-import"
+# MAKE_ENV+=	GNUSTEP_LIB_DIR=${GNUSTEP_LIB_DIR:Q}
+# 
+# INSTALLATION_DIRS+=include/CDPlayer
+# 
+# post-install:
+# 	${INSTALL_DATA} ${WRKSRC}/CDPlayer/AudioCDProtocol.h		\
+# 			${DESTDIR}${PREFIX}/include/CDPlayer
+# 
+# .include "../../audio/libcdaudio/buildlink3.mk"
+# .include "../../audio/cddb-bundle/buildlink3.mk"
+# .include "../../x11/gnustep-back/buildlink3.mk"
+# .include "../../x11/gnustep-preferences/buildlink3.mk"
+# .include "../../mk/pthread.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,56 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      boxedminipage.doc.eb
+# Date::      Wed Dec 26 17:08:54 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'tex--2009'
+version = 'boxedminipage.doc'
+versionsuffix = '-20121226'
+
+description = "boxedminipage.doc: Documentation for tex-boxedminipage"
+
+# The following are automatically calculated - cross fingers
+sources = ['boxedminipage.doc.tar.gz']
+version = '${DISTNAME:S/./-/}-2009'
+name = 'tex'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/print/tex-boxedminipage-doc/Makefile ######
+# # $NetBSD: Makefile,v 1.1.1.1 2010/04/11 20:46:45 minskim Exp $
+# # TeX Live Revision 17087
+# 
+# DISTNAME=	boxedminipage.doc
+# PKGNAME=	tex-${DISTNAME:S/./-/}-2009
+# 
+# MAINTAINER=	minskim@NetBSD.org
+# COMMENT=	Documentation for tex-boxedminipage
+# 
+# .include "../../print/texlive/package.mk"
+# .include "../../mk/bsd.pkg.mk"

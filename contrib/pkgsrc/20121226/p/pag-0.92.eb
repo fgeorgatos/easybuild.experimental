@@ -1,0 +1,68 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      pag-0.92.eb
+# Date::      Wed Dec 26 17:08:34 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'pag'
+version = '0.92'
+versionsuffix = '-20121226'
+
+description = "pag-0.92: Platform Arcade Game"
+
+# The following are automatically calculated - cross fingers
+sources = ['pag-0.92.tar.gz']
+source_urls = ['${MASTER_SITE_BACKUP}']
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/pag/Makefile ######
+# # $NetBSD: Makefile,v 1.15 2010/07/06 10:17:13 jmmv Exp $
+# #
+# 
+# DISTNAME=	pag-0.92
+# PKGREVISION=	1
+# CATEGORIES=	games
+# MASTER_SITES=	${MASTER_SITE_BACKUP}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# #HOMEPAGE=	http://pancake.host.sk/
+# COMMENT=	Platform Arcade Game
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_TOOLS+=	gmake
+# USE_NCURSES=	yes # missing function stdscr
+# 
+# GNU_CONFIGURE=	yes
+# 
+# INSTALL_MAKE_FLAGS+=	PREFIX=${DESTDIR}${PREFIX}
+# 
+# .include "../../devel/ncurses/buildlink3.mk"
+# .include "../../graphics/aalib/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

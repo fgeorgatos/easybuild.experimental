@@ -1,0 +1,73 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      libvideogfx-1.0.3.eb
+# Date::      Wed Dec 26 17:08:37 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'libvideogfx'
+version = '1.0.3'
+versionsuffix = '-20121226'
+
+description = "libvideogfx-1.0.3: C++ library for low-level video processing"
+
+# The following are automatically calculated - cross fingers
+sources = ['libvideogfx-1.0.3.tar.gz']
+source_urls = ['http://rachmaninoff.informatik.uni-mannheim.de/libvideogfx/data/']
+homepage = 'http://rachmaninoff.informatik.uni-mannheim.de/libvideogfx/index.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/libvideogfx/Makefile ######
+# # $NetBSD: Makefile,v 1.22 2011/03/28 08:01:14 wiz Exp $
+# #
+# 
+# DISTNAME=	libvideogfx-1.0.3
+# PKGREVISION=	7
+# CATEGORIES=	graphics
+# MASTER_SITES=	http://rachmaninoff.informatik.uni-mannheim.de/libvideogfx/data/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://rachmaninoff.informatik.uni-mannheim.de/libvideogfx/index.html
+# COMMENT=	C++ library for low-level video processing
+# LICENSE=	gnu-lgpl-v2.1
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=	c c++
+# USE_LIBTOOL=	YES
+# GNU_CONFIGURE=	YES
+# 
+# BUILDLINK_DEPMETHOD.libXt?=	build
+# 
+# .include "../../mk/jpeg.buildlink3.mk"
+# .include "../../graphics/png/buildlink3.mk"
+# .include "../../x11/libX11/buildlink3.mk"
+# .include "../../x11/libXext/buildlink3.mk"
+# .include "../../x11/libXt/buildlink3.mk"
+# .include "../../x11/libXv/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

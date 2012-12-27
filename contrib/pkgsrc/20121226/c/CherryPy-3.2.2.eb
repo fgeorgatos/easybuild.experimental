@@ -1,0 +1,68 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      CherryPy-3.2.2.eb
+# Date::      Wed Dec 26 17:09:06 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = '-'
+version = '3.2.2'
+versionsuffix = '-20121226'
+
+description = "CherryPy-3.2.2: CherryPy is a pythonic, object-oriented HTTP framework"
+
+# The following are automatically calculated - cross fingers
+sources = ['CherryPy-3.2.2.tar.gz']
+source_urls = ['http://download.cherrypy.org/cherrypy/3.2.2/']
+homepage = 'http://www.cherrypy.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/py-cherrypy/Makefile ######
+# # $NetBSD: Makefile,v 1.6 2012/04/08 19:09:15 wiz Exp $
+# 
+# DISTNAME=	CherryPy-3.2.2
+# PKGNAME=	${PYPKGPREFIX}-${DISTNAME:tl}
+# CATEGORIES=	www python
+# MASTER_SITES=	http://download.cherrypy.org/cherrypy/${PKGVERSION_NOREV}/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.cherrypy.org/
+# COMMENT=	CherryPy is a pythonic, object-oriented HTTP framework
+# LICENSE=	modified-bsd
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=		# none
+# EGG_NAME=		${DISTNAME}
+# 
+# REPLACE_PYTHON=		cherrypy/cherryd
+# REPLACE_PYTHON+=	cherrypy/test/sessiondemo.py
+# 
+# .include "../../lang/python/application.mk"
+# .include "../../lang/python/egg.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,81 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      runawk-1.4.3.eb
+# Date::      Wed Dec 26 17:08:41 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'runawk'
+version = '1.4.3'
+versionsuffix = '-20121226'
+
+description = "runawk-1.4.3: AWK wrapper that provides support for modules"
+
+# The following are automatically calculated - cross fingers
+sources = ['runawk-1.4.3.tar.gz']
+source_urls = ['http://sourceforge.net/projects/runawk/files', 'download']
+homepage = 'http://sourceforge.net/projects/runawk'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/lang/runawk/Makefile ######
+# # $NetBSD: Makefile,v 1.12 2012/09/09 23:27:51 cheusov Exp $
+# #
+# 
+# DISTNAME=	runawk-1.4.3
+# CATEGORIES=	lang devel
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=runawk/} \
+# 		http://mova.org/~cheusov/pub/runawk/
+# 
+# MAINTAINER=	cheusov@NetBSD.org
+# HOMEPAGE=	http://sourceforge.net/projects/runawk
+# COMMENT=	AWK wrapper that provides support for modules
+# 
+# BUILD_DEPENDS+=		mk-configure>=0.23.0:../../devel/mk-configure
+# 
+# LICENSE=		mit
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=		c
+# TEST_TARGET=		test
+# 
+# SUBST_CLASSES+=		runawk
+# SUBST_SED.runawk=	-e "s,/usr/bin/env runawk,${PREFIX}/bin/runawk,"
+# SUBST_FILES.runawk=	a_getopt/alt_getopt
+# SUBST_STAGE.runawk=	pre-build
+# SUBST_MESSAGE.runawk=	Fixing path to runawk.
+# 
+# EGDIR=		${PREFIX}/share/examples/runawk
+# 
+# MAKE_ENV+=	MANDIR=${PREFIX}/${PKGMANDIR}
+# MAKE_ENV+=	EGDIR=${EGDIR}
+# MAKE_ENV+=	SUBPRJ_DFLT='runawk modules a_getopt doc examples'
+# MAKE_ENV+=	AWK_PROG=${AWK:Q}
+# 
+# .include "../../devel/mk-configure/mk-c.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,81 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      bmpanel2-2.1pre1.eb
+# Date::      Wed Dec 26 17:09:12 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'bmpanel2'
+version = '2.1pre1'
+versionsuffix = '-20121226'
+
+description = "bmpanel2-2.1pre1: NETWM-compatible panel for X11"
+
+# The following are automatically calculated - cross fingers
+sources = ['bmpanel2-2.1pre1.tar.gz']
+source_urls = ['http://bmpanel2.googlecode.com/files/']
+homepage = 'http://code.google.com/p/bmpanel2/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/wm/bmpanel2/Makefile ######
+# # $NetBSD: Makefile,v 1.9.2.1 2012/10/03 12:09:39 spz Exp $
+# #
+# 
+# DISTNAME=	bmpanel2-2.1pre1
+# PKGREVISION=	8
+# CATEGORIES=	sysutils
+# MASTER_SITES=	http://bmpanel2.googlecode.com/files/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://code.google.com/p/bmpanel2/
+# COMMENT=	NETWM-compatible panel for X11
+# LICENSE=	mit
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# USE_CMAKE=	yes
+# USE_LANGUAGES=	c c++
+# USE_TOOLS+=	pkg-config gzip
+# 
+# PY_PATCHPLIST=	yes
+# REPLACE_PYTHON=	extra/py/bmpanel2.py
+# 
+# SUBST_CLASSES+=		prefix
+# SUBST_SED.prefix=	-e "s,/usr/local,${PREFIX},g"
+# SUBST_FILES.prefix=	xdg.c
+# SUBST_STAGE.prefix=	post-extract
+# SUBST_MESSAGE.prefix=	Fixing path to themes.
+# 
+# BUILD_DEPENDS+=	asciidoc-[0-9]*:../../textproc/asciidoc
+# 
+# .include "../../devel/glib2/buildlink3.mk"
+# .include "../../devel/pango/buildlink3.mk"
+# .include "../../lang/python/application.mk"
+# .include "../../lang/python/extension.mk"
+# .include "../../graphics/cairo/buildlink3.mk"
+# .include "../../x11/libX11/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,70 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      xmascot2.6a.eb
+# Date::      Wed Dec 26 17:09:16 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'xmascot-2.6a'
+version = 'xmascot2.6a'
+versionsuffix = '-20121226'
+
+description = "xmascot2.6a: Moving mascot on your X-Window screen"
+
+# The following are automatically calculated - cross fingers
+sources = ['xmascot2.6a.tar.gz']
+version = '2.6a'
+name = 'xmascot'
+source_urls = ['http://cclub-flying.dsl.gr.jp/products/xmascot/']
+homepage = 'http://cclub-flying.dsl.gr.jp/products/xmascot/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/xmascot/Makefile ######
+# # $NetBSD: Makefile,v 1.25 2012/05/03 09:55:33 obache Exp $
+# 
+# DISTNAME=	xmascot2.6a
+# PKGNAME=	xmascot-2.6a
+# PKGREVISION=	2
+# CATEGORIES=	x11
+# MASTER_SITES=	http://cclub-flying.dsl.gr.jp/products/xmascot/
+# 
+# MAINTAINER=	Nakai@Mlab.t.u-tokyo.ac.jp
+# HOMEPAGE=	http://cclub-flying.dsl.gr.jp/products/xmascot/
+# COMMENT=	Moving mascot on your X-Window screen
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# MAKE_JOBS_SAFE=		no
+# 
+# USE_IMAKE=	yes
+# 
+# INSTALL_MAKE_FLAGS+=	LANG=ja_JP.eucJP
+# 
+# .include "../../x11/libXaw/buildlink3.mk"
+# .include "../../x11/libXt/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

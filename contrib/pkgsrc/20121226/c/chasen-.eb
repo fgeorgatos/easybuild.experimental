@@ -1,0 +1,75 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      chasen-.eb
+# Date::      Wed Dec 26 17:09:07 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'chasen-base-'
+version = ''
+versionsuffix = '-20121descridescription = "chasen-: ChaSen, Japanese Morphological Analysis System"
+
+# The following are automatically calculated - cross fingers
+sources = ['chasen-${CHASEN_VERSION}.tar.gz']
+version = 'base-${CHASEN_VERSION}'
+name = 'chasen'
+source_urls = ['http://sourceforge
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                     
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/chasen-base/Makefile ######
+# # $NetBSD: Makefile,v 1.21 2011/12/11 14:26:27 taca Exp $
+# #
+# 
+# DISTNAME=		chasen-${CHASEN_VERSION}
+# PKGNAME=		chasen-base-${CHASEN_VERSION}
+# PKGREVISION=		2
+# CATEGORIES=		japanese textproc
+# MASTER_SITES=		${MASTER_SITE_SOURCEFORGE_JP:=chasen-legacy/32224/}
+# 
+# PATCHFILES=		chasen244-secfix.diff
+# PATCH_SITES=		${MASTER_SITE_SOURCEFORGE_JP:=chasen-legacy/54111/}
+# PATCH_DIST_STRIP=	-p1
+# 
+# MAINTAINER=		tech-pkg-ja@jp.NetBSD.org
+# HOMEPAGE=		http://chasen-legacy.sourceforge.jp/
+# COMMENT=		ChaSen, Japanese Morphological Analysis System
+# 
+# GNU_CONFIGURE=		yes
+# USE_LANGUAGES=		c c++
+# USE_LIBTOOL=		yes
+# OWN_DIRS=		${PREFIX}/${CHASEN_DICDIR}
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# .include "../../textproc/chasen/Makefile.common"
+# .include "../../converters/libiconv/buildlink3.mk"
+# .include "../../devel/darts/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

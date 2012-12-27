@@ -1,0 +1,60 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      tilt-1.3.3.eb
+# Date::      Wed Dec 26 17:09:11 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'tilt'
+version = '1.3.3'
+versionsuffix = '-20121226'
+
+description = "tilt-1.3.3: Generic interface to multiple Ruby template engines"
+
+# The following are automatically calculated - cross fingers
+sources = ['tilt-1.3.3.tar.gz']
+homepage = 'http://github.com/rtomayko/tilt/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/ruby-tilt/Makefile ######
+# # $NetBSD: Makefile,v 1.2 2011/08/25 11:30:44 obache Exp $
+# 
+# DISTNAME=	tilt-1.3.3
+# CATEGORIES=	textproc
+# 
+# MAINTAINER=	obache@NetBSD.org
+# HOMEPAGE=	http://github.com/rtomayko/tilt/
+# COMMENT=	Generic interface to multiple Ruby template engines
+# LICENSE=	mit
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# RUBYGEM_OPTIONS+=	--format-executable
+# 
+# .include "../../lang/ruby/gem.mk"
+# .include "../../mk/bsd.pkg.mk"

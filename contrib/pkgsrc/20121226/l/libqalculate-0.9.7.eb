@@ -1,0 +1,86 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      libqalculate-0.9.7.eb
+# Date::      Wed Dec 26 17:08:44 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'qalculate-0.9.7'
+version = '0.9.7'
+versionsuffix = '-20121226'
+
+description = "libqalculate-0.9.7: Modern multi-purpose desktop calculator console version "
+
+# The following are automatically calculated - cross fingers
+sources = ['libqalculate-0.9.7.tar.gz']
+version = '0.9.7'
+name = 'qalculate'
+source_urls = ['http://sourceforge.net/projects/qalculate/files', 'download']
+homepage = 'http://qalculate.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/math/qalculate/Makefile ######
+# # $NetBSD: Makefile,v 1.42 2012/09/15 10:05:32 obache Exp $
+# 
+# DISTNAME=	libqalculate-0.9.7
+# PKGNAME=	qalculate-0.9.7
+# PKGREVISION=	6
+# CATEGORIES=	math
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=qalculate/}
+# 
+# MAINTAINER=	adam@NetBSD.org
+# HOMEPAGE=	http://qalculate.sourceforge.net/
+# COMMENT=	Modern multi-purpose desktop calculator (console version)
+# 
+# USE_GNU_READLINE=	yes
+# USE_LANGUAGES=		c c++
+# USE_LIBTOOL=		yes
+# USE_PKGLOCALEDIR=	yes
+# USE_TOOLS+=		autoconf gmake intltool msgfmt pkg-config
+# GNU_CONFIGURE=		yes
+# PKGCONFIG_OVERRIDE=	${WRKSRC}/libqalculate.pc.in
+# 
+# UNLIMIT_RESOURCES=	datasize
+# 
+# SUBST_CLASSES+=		pthread
+# SUBST_FILES.pthread=	libqalculate.pc.in
+# SUBST_SED.pthread+=	-e 's,@PTHREAD_LIBS@,${PTHREAD_LDFLAGS} ${PTHREAD_LIBS},g'
+# SUBST_STAGE.pthread=	post-patch
+# 
+# PTHREAD_AUTO_VARS=	yes
+# 
+# pre-configure:
+# 	${RUN} cd ${WRKSRC}; autoconf
+# 
+# .include "../../devel/glib2/buildlink3.mk"
+# .include "../../devel/readline/buildlink3.mk"
+# .include "../../math/cln/buildlink3.mk"
+# .include "../../textproc/libxml2/buildlink3.mk"
+# .include "../../mk/pthread.buildlink3.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,72 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      cook-2.26.eb
+# Date::      Wed Dec 26 17:08:19 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'cook'
+version = '2.26'
+versionsuffix = '-20121226'
+
+description = "cook-2.26: More powerful replacement for the traditional make 1 tool"
+
+# The following are automatically calculated - cross fingers
+sources = ['cook-2.26.tar.gz']
+source_urls = ['http://miller.emu.id.au/pmiller/software/cook/']
+homepage = 'http://miller.emu.id.au/pmiller/software/cook/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/cook/Makefile ######
+# # $NetBSD: Makefile,v 1.22 2011/04/22 13:43:16 obache Exp $
+# 
+# DISTNAME=	cook-2.26
+# PKGREVISION=	2
+# CATEGORIES=	devel
+# MASTER_SITES=	http://miller.emu.id.au/pmiller/software/cook/
+# 
+# MAINTAINER=	groo@NetBSD.org
+# HOMEPAGE=	http://miller.emu.id.au/pmiller/software/cook/
+# COMMENT=	More powerful replacement for the traditional make(1) tool
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_TOOLS+=	msgfmt yacc perl:run
+# GNU_CONFIGURE=	yes
+# MAKE_JOBS_SAFE=	no
+# 
+# LIBS.SunOS+=	-lintl
+# 
+# INSTALLATION_DIRS=	${PKGMANDIR}/man1
+# INSTALL_MAKE_FLAGS+=	bindir=${DESTDIR}${PREFIX}/bin \
+# 			datadir=${DESTDIR}${PREFIX}/share/cook \
+# 			libdir=${DESTDIR}${PREFIX}/lib/cook \
+# 			mandir=${DESTDIR}${PREFIX}/${PKGMANDIR}
+# 
+# .include "../../devel/gettext-lib/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

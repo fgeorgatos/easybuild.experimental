@@ -1,0 +1,116 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      sip-4.13.3.eb
+# Date::      Wed Dec 26 17:09:15 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = '-'
+version = '4.13.3'
+versionsuffix = '-20121226'
+
+description = "sip-4.13.3: Tool to create Python bindings for C++ libraries"
+
+# The following are automatically calculated - cross fingers
+sources = ['sip-4.13.3.tar.gz']
+source_urls = ['http://www.riverbankcomputing.com/static/Downloads/sip4/']
+homepage = 'http://www.riverbankcomputing.com/software/sip/intro'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/py-sip/Makefile ######
+# # $NetBSD: Makefile,v 1.33 2012/07/03 18:12:00 drochner Exp $
+# 
+# DISTNAME=	sip-4.13.3
+# PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+# CATEGORIES=	x11 devel python
+# MASTER_SITES=	http://www.riverbankcomputing.com/static/Downloads/sip4/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.riverbankcomputing.com/software/sip/intro
+# COMMENT=	Tool to create Python bindings for C++ libraries
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# PYTHON_VERSIONS_INCLUDE_3X=	yes
+# 
+# CONFLICTS+=	${PYPKGPREFIX}-qt2-sip-* ${PYPKGPREFIX}-qt3-sip-*
+# 
+# USE_LIBTOOL=	yes
+# USE_TOOLS+=	gmake
+# USE_LANGUAGES=	c c++
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# CONFIGURE_ARGS+=	-b ${PREFIX}/bin
+# CONFIGURE_ARGS+=	-d ${PREFIX}/${PYSITELIB}
+# CONFIGURE_ARGS+=	-e ${PREFIX}/${PYINC}
+# CONFIGURE_ARGS+=	-v ${PREFIX}/share/sip${PYVERSSUFFIX}
+# .if ${OPSYS} == "DragonFly"
+# CONFIGURE_ARGS+=	-p freebsd-g++
+# .endif
+# CONFIGURE_ARGS+=	INCDIR=${PREFIX}/include
+# CONFIGURE_ARGS+=	LIBDIR=${PREFIX}/lib
+# 
+# PY_PATCHPLIST=	yes
+# PLIST_SUBST+=	PYVERSSUFFIX=${PYVERSSUFFIX:Q}
+# 
+# .include "../../mk/compiler.mk"
+# 
+# .if ${OPSYS} == "Darwin"
+# CONFIGURE_ARGS+=	CFLAGS_SHLIB=-fno-common
+# CONFIGURE_ARGS+=	LFLAGS_PLUGIN="-bundle -flat_namespace -undefined suppress"
+# .else
+# CONFIGURE_ARGS+=	CFLAGS_SHLIB=-fPIC
+# CONFIGURE_ARGS+=	CXXFLAGS_SHLIB=-fPIC
+# .  if ${OPSYS} == "SunOS" && !empty(CC_VERSION:Mgcc*)
+# CONFIGURE_ARGS+=	-p solaris-g++
+# # gcc3 uses -mimpure-text to not pass -assert pure-text to the linker
+# CONFIGURE_ARGS+=	LFLAGS_SHLIB="-shared -mimpure-text"
+# .  else
+# CONFIGURE_ARGS+=	LFLAGS_SHLIB="-shared"
+# .  endif
+# .endif
+# 
+# # Hack: gcc on sparc64 miscompiles sipgen/parser.c at -O2
+# .if ${MACHINE_ARCH} == "sparc64" && !empty(CC_VERSION:Mgcc*)
+# BUILDLINK_TRANSFORM+=	rm:-O2
+# .endif
+# 
+# 
+# SUBST_CLASSES+=		pyversfx
+# SUBST_STAGE.pyversfx=	pre-configure
+# SUBST_FILES.pyversfx=	sipgen/sipgen.sbf
+# SUBST_SED.pyversfx=	-e "s|@PYVERSSUFFIX@|${PYVERSSUFFIX}|g"
+# 
+# do-configure:
+# 	(cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} \
+# 		${PYTHONBIN} configure.py ${CONFIGURE_ARGS})
+# 
+# .include "../../lang/python/application.mk"
+# .include "../../lang/python/extension.mk"
+# .include "../../mk/bsd.pkg.mk"

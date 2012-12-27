@@ -1,0 +1,82 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      bozohttpd-20111118.eb
+# Date::      Wed Dec 26 17:09:04 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'bozohttpd'
+version = '20111118'
+versionsuffix = '-20121226'
+
+description = "bozohttpd-20111118: Bozotic HTTP server"
+
+# The following are automatically calculated - cross fingers
+sources = ['bozohttpd-20111118.tar.bz2']
+source_urls = ['${MASTER_SITE_LOCAL}']
+homepage = 'http://www.eterna.com.au/bozohttpd/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/bozohttpd/Makefile ######
+# # $NetBSD: Makefile,v 1.74 2011/11/18 09:37:21 mrg Exp $
+# #
+# 
+# DISTNAME=	bozohttpd-20111118
+# CATEGORIES=	www
+# MASTER_SITES=	${MASTER_SITE_LOCAL}
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	mrg@eterna.com.au
+# HOMEPAGE=	http://www.eterna.com.au/bozohttpd/
+# COMMENT=	Bozotic HTTP server; small and secure
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# .include "options.mk"
+# 
+# # This package is IP family agnostic.
+# BUILD_DEFS+=		IPV6_READY
+# 
+# MAKE_FILE=		Makefile.boot
+# 
+# SUBST_CLASSES+=		paths
+# SUBST_MESSAGE.paths=	Fixing paths in manual page.
+# SUBST_STAGE.paths=	pre-build
+# SUBST_FILES.paths=	bozohttpd.8
+# SUBST_SED.paths=	-e "s|/usr/pkg/|"${PREFIX:Q}"/|g"
+# 
+# INSTALLATION_DIRS=	libexec ${PKGMANDIR}/man8
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/bozohttpd ${DESTDIR}${PREFIX}/libexec
+# 	${INSTALL_MAN} ${WRKSRC}/bozohttpd.8 \
+# 		${DESTDIR}${PREFIX}/${PKGMANDIR}/man8
+# 
+# .include "../../security/openssl/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

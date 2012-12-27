@@ -1,0 +1,70 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      Crypt-Twofish-2.14.eb
+# Date::      Wed Dec 26 17:08:59 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'Twofish-2.14'
+versionsuffix = '-20121226'
+
+description = "Crypt-Twofish-2.14: Perl5 module for the Twofish symmetric key algorithm"
+
+# The following are automatically calculated - cross fingers
+sources = ['Crypt-Twofish-2.14.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Crypt/']
+homepage = 'http://search.cpan.org/dist/Crypt-Twofish/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/p5-Crypt-Twofish/Makefile ######
+# # $NetBSD: Makefile,v 1.19 2011/08/14 14:42:49 obache Exp $
+# #
+# 
+# DISTNAME=		Crypt-Twofish-2.14
+# PKGNAME=		p5-${DISTNAME}
+# PKGREVISION=		2
+# SVR4_PKGNAME=		p5ctw
+# CATEGORIES=		security perl5
+# MASTER_SITES=		${MASTER_SITE_PERL_CPAN:=Crypt/}
+# 
+# MAINTAINER=		rhaen@NetBSD.org
+# HOMEPAGE=		http://search.cpan.org/dist/Crypt-Twofish/
+# COMMENT=		Perl5 module for the Twofish symmetric key algorithm
+# LICENSE=		${PERL5_LICENSE}
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# USE_TOOLS+=		perl
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# PERL5_PACKLIST=		auto/Crypt/Twofish/.packlist
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

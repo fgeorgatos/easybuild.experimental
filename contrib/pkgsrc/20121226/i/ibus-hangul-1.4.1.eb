@@ -1,0 +1,79 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      ibus-hangul-1.4.1.eb
+# Date::      Wed Dec 26 17:08:39 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'ibus'
+version = 'hangul-1.4.1'
+versionsuffix = '-20121226'
+
+description = "ibus-hangul-1.4.1: Hangul engine for IBus input platform"
+
+# The following are automatically calculated - cross fingers
+sources = ['ibus-hangul-1.4.1.tar.gz']
+source_urls = ['http://ibus.googlecode.com/files/']
+homepage = 'http://code.google.com/p/ibus/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/inputmethod/ibus-hangul/Makefile ######
+# # $NetBSD: Makefile,v 1.10 2012/09/15 10:05:12 obache Exp $
+# #
+# 
+# DISTNAME=	ibus-hangul-1.4.1
+# PKGREVISION=	1
+# CATEGORIES=	inputmethod korean
+# MASTER_SITES=	http://ibus.googlecode.com/files/
+# 
+# MAINTAINER=	obache@NetBSD.org
+# HOMEPAGE=	http://code.google.com/p/ibus/
+# COMMENT=	Hangul engine for IBus input platform
+# LICENSE=	gnu-gpl-v2
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=		yes
+# USE_LIBTOOL=		yes
+# USE_PKGLOCALEDIR=	yes
+# USE_TOOLS+=		pkg-config gmake msgfmt intltool
+# 
+# SUBST_CLASSES+=		epython
+# SUBST_STAGE.epython=	pre-configure
+# SUBST_FILES.epython=	setup/ibus-setup-hangul.in
+# SUBST_SED.epython=	-e 's;exec python;exec ${PYTHONBIN};g'
+# 
+# .include "../../inputmethod/ibus/bad-env-usage.mk"
+# 
+# .include "../../graphics/hicolor-icon-theme/buildlink3.mk"
+# BUILDLINK_API_DEPENDS.libhangul+=	libhangul>=0.1.0
+# .include "../../inputmethod/libhangul/buildlink3.mk"
+# .include "../../inputmethod/ibus/buildlink3.mk"
+# .include "../../lang/python/application.mk"
+# .include "../../sysutils/desktop-file-utils/desktopdb.mk"
+# .include "../../mk/bsd.pkg.mk"

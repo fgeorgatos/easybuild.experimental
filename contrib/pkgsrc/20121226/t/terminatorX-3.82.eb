@@ -1,0 +1,92 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      terminatorX-3.82.eb
+# Date::      Wed Dec 26 17:08:13 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'terminatorX'
+version = '3.82'
+versionsuffix = '-20121226'
+
+description = "terminatorX-3.82: Realtime audio synthesizer"
+
+# The following are automatically calculated - cross fingers
+sources = ['terminatorX-3.82.tar.bz2']
+source_urls = ['http://terminatorx.org/dist/']
+homepage = 'http://terminatorx.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/terminatorx/Makefile ######
+# # $NetBSD: Makefile,v 1.31.2.1 2012/10/03 12:06:42 spz Exp $
+# #
+# 
+# DISTNAME=	terminatorX-3.82
+# PKGNAME=	${DISTNAME:S/X/x/}
+# PKGREVISION=	18
+# CATEGORIES=	audio
+# MASTER_SITES=	http://terminatorx.org/dist/
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://terminatorx.org/
+# COMMENT=	Realtime audio synthesizer
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# DEPENDS+=	mpg123-[0-9]*:../../audio/mpg123
+# DEPENDS+=	sox-[0-9]*:../../audio/sox
+# DEPENDS+=	vorbis-tools-[0-9]*:../../audio/vorbis-tools
+# 
+# USE_LANGUAGES=		c c++
+# USE_LIBTOOL=		yes
+# USE_TOOLS+=		pkg-config
+# GNU_CONFIGURE=		yes
+# 
+# LIBS+=			${LIBOSSAUDIO}
+# CONFIGURE_ARGS+=	--disable-alsa
+# 
+# SUBST_CLASSES+=		oss
+# SUBST_STAGE.oss=	post-patch
+# SUBST_FILES.oss=	src/tX_global.c
+# SUBST_SED.oss=		-e "s,/dev/dsp,${DEVOSSAUDIO},g"
+# SUBST_MESSAGE.oss=	Fixing hardcoded audio device.
+# 
+# .include "../../audio/ladspa/buildlink3.mk"
+# .include "../../audio/libaudiofile/buildlink3.mk"
+# .include "../../audio/libvorbis/buildlink3.mk"
+# .include "../../audio/libmad/buildlink3.mk"
+# .include "../../textproc/libxml2/buildlink3.mk"
+# .include "../../mk/omf-scrollkeeper.mk"
+# .include "../../x11/gtk2/buildlink3.mk"
+# .include "../../x11/libXxf86dga/buildlink3.mk"
+# .include "../../x11/xf86dgaproto/buildlink3.mk"
+# 
+# .include "../../mk/oss.buildlink3.mk"
+# .include "../../mk/pthread.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

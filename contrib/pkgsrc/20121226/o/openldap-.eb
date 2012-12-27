@@ -1,0 +1,84 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      openldap-.eb
+# Date::      Wed Dec 26 17:08:17 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'openldap'
+version = ''
+versionsuffix = '-20121226'
+
+description = "openldap-: Lightweight Directory Access Protocol documentation"
+
+# The following are automatically calculated - cross fingers
+sources = ['openldap-${OPENLDAP_VERSION}.tgz']
+source_urls = ['ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/']
+homepage = 'http://www.openldap.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/databases/openldap-doc/Makefile ######
+# # $NetBSD: Makefile,v 1.24 2012/08/06 13:33:38 adam Exp $
+# 
+# .include "../../databases/openldap/Makefile.version"
+# 
+# DISTNAME=	openldap-${OPENLDAP_VERSION}
+# PKGNAME=	${DISTNAME:S/-/-doc-/}
+# CATEGORIES=	databases
+# MASTER_SITES=	ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/ \
+# 		http://ftp.openldap.org/pub/OpenLDAP/openldap-release/ \
+# 		ftp://gd.tuwien.ac.at/infosys/network/OpenLDAP/openldap-release/ \
+# 		ftp://ftp.ntua.gr/mirror/OpenLDAP/openldap-release/ \
+# 		ftp://ftp.dti.ad.jp/pub/net/OpenLDAP/openldap-release/ \
+# 		ftp://ftp.u-aizu.ac.jp/pub/net/openldap/openldap-release/ \
+# 		ftp://ftp.nl.uu.net/pub/unix/db/openldap/openldap-release/ \
+# 		ftp://ftp.linux.pt/pub/mirrors/OpenLDAP/openldap-release/ \
+# 		ftp://sunsite.cnlab-switch.ch/mirror/OpenLDAP/openldap-release/
+# EXTRACT_SUFX=	.tgz
+# 
+# MAINTAINER=	ghen@NetBSD.org
+# HOMEPAGE=	http://www.openldap.org/
+# COMMENT=	Lightweight Directory Access Protocol documentation
+# LICENSE=	modified-bsd
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# NO_CONFIGURE=		yes
+# NO_BUILD=		yes
+# 
+# DOCDIR=			${PREFIX}/share/doc/openldap
+# 
+# do-install:
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${DOCDIR}
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${DOCDIR}/admin
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${DOCDIR}/images
+# 	${INSTALL_DATA} ${WRKSRC}/doc/guide/admin/guide.html ${DESTDIR}${DOCDIR}/admin/
+# 	${INSTALL_DATA} ${WRKSRC}/doc/guide/admin/*.png ${DESTDIR}${DOCDIR}/admin/
+# 	${INSTALL_DATA} ${WRKSRC}/doc/guide/images/*.gif ${DESTDIR}${DOCDIR}/images/
+# 
+# .include "../../mk/bsd.pkg.mk"

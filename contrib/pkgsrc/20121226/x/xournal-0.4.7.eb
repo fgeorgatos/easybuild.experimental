@@ -1,0 +1,71 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      xournal-0.4.7.eb
+# Date::      Wed Dec 26 17:08:29 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'xournal'
+version = '0.4.7'
+versionsuffix = '-20121226'
+
+description = "xournal-0.4.7: Take notes, sketch and annotate PDFs"
+
+# The following are automatically calculated - cross fingers
+sources = ['xournal-0.4.7.tar.gz']
+source_urls = ['http://sourceforge.net/projects/xournal/files', 'download']
+homepage = 'http://xournal.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/editors/xournal/Makefile ######
+# # $NetBSD: Makefile,v 1.17.2.1 2012/10/03 12:07:35 spz Exp $
+# 
+# DISTNAME=	xournal-0.4.7
+# PKGREVISION=	5
+# CATEGORIES=	editors
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=xournal/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://xournal.sourceforge.net/
+# COMMENT=	Take notes, sketch and annotate PDFs
+# LICENSE=	gnu-gpl-v2
+# 
+# GNU_CONFIGURE=	yes
+# USE_LIBTOOL=	yes
+# USE_LANGUAGES=	c
+# USE_TOOLS+=	pkg-config msgfmt
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# LDFLAGS.DragonFly=	-lX11 -lz -lm
+# LDFLAGS.SunOS=		-lX11 -lz -lm
+# 
+# .include "../../graphics/libgnomecanvas/buildlink3.mk"
+# .include "../../print/poppler-glib/buildlink3.mk"
+# .include "../../x11/gtk2/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

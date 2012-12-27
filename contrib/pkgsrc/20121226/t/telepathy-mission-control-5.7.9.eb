@@ -1,0 +1,89 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      telepathy-mission-control-5.7.9.eb
+# Date::      Wed Dec 26 17:08:15 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'telepathy-mission-control5-5.7.9'
+version = 'mission-control-5.7.9'
+versionsuffix = '-20121226'
+
+description = "telepathy-mission-control-5.7.9: Telepathy component providing abstractions for end-user applications"
+
+# The following are automatically calculated - cross fingers
+sources = ['telepathy-mission-control-5.7.9.tar.gz']
+version = 'mission-control5-5.7.9'
+name = 'telepathy'
+source_urls = ['http://telepathy.freedesktop.org/releases/telepathy-mission-control/']
+homepage = 'http://mission-control.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/chat/telepathy-mission-control5/Makefile ######
+# # $NetBSD: Makefile,v 1.11 2012/09/15 10:03:56 obache Exp $
+# #
+# 
+# DISTNAME=	telepathy-mission-control-5.7.9
+# PKGNAME=	telepathy-mission-control5-5.7.9
+# PKGREVISION=	6
+# CATEGORIES=	chat
+# #MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=mission-control/}
+# MASTER_SITES=	http://telepathy.freedesktop.org/releases/telepathy-mission-control/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://mission-control.sourceforge.net/
+# COMMENT=	Telepathy component providing abstractions for "end-user" applications
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=	yes
+# USE_LIBTOOL=	yes
+# USE_TOOLS+=	gmake pkg-config
+# 
+# PKGCONFIG_OVERRIDE+=	mission-control-plugins.pc.in
+# #PKGCONFIG_OVERRIDE+=	libmcclient.pc.in
+# #PKGCONFIG_OVERRIDE+=	mission-control.pc.in
+# 
+# #.include "../../lang/python/pyversion.mk"
+# CONFIGURE_ENV+=		ac_cv_prog_PYTHON=${PYTHONBIN}
+# 
+# CONFIGURE_ARGS+= --enable-gnome-keyring
+# .include "../../security/libgnome-keyring/buildlink3.mk"
+# 
+# # needs py-twisted
+# # TEST_TARGET= check
+# 
+# BUILD_DEPENDS+=	${PYPKGPREFIX}-expat-[0-9]*:../../textproc/py-expat
+# 
+# .include "../../chat/telepathy-glib/buildlink3.mk"
+# .include "../../devel/glib2/buildlink3.mk"
+# .include "../../lang/python/application.mk"
+# .include "../../sysutils/dbus/buildlink3.mk"
+# .include "../../sysutils/dbus-glib/buildlink3.mk"
+# .include "../../textproc/libxslt/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

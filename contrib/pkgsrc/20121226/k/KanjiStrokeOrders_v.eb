@@ -1,0 +1,93 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      KanjiStrokeOrders_v.eb
+# Date::      Wed Dec 26 17:08:32 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'KanjiStrokeOrders_v'
+version = 'KanjiStrokeOrders_v'
+versionsuffix = '-20121226'
+
+description = "KanjiStrokeOrders_v: Japanese Kanji characters stroke order font"
+
+# The following are automatically calculated - cross fingers
+sources = ['KanjiStrokeOrders_v${KSOVER}.zip']
+source_urls = ['http://sites.google.com/site/nihilistorguk/Home/']
+homepage = 'http://sites.google.com/site/nihilistorguk/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/fonts/kanjistrokeorders-ttf/Makefile ######
+# # $NetBSD: Makefile,v 1.2 2011/07/30 12:32:14 ryoon Exp $
+# #
+# 
+# DISTNAME=	KanjiStrokeOrders_v${KSOVER}
+# PKGNAME=	${DISTNAME:tl:S/_v/-ttf-/}
+# CATEGORIES=	fonts japanese
+# MASTER_SITES=	http://sites.google.com/site/nihilistorguk/Home/
+# EXTRACT_SUFX=	.zip
+# 
+# MAINTAINER=	ryoon@NetBSD.org
+# HOMEPAGE=	http://sites.google.com/site/nihilistorguk/
+# COMMENT=	Japanese Kanji characters stroke order font
+# LICENSE=	modified-bsd
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_X11BASE=	YES
+# NO_CONFIGURE=	YES
+# NO_BUILD=	YES
+# 
+# KSOVER=		2.016
+# 
+# DOCSDIR=	${PREFIX}/share/doc/${PKGBASE}
+# 
+# INSTALLATION_DIRS=	lib/X11/fonts/TTF \
+# 			${DOCSDIR}
+# 
+# FONTDIR=	${PREFIX}/lib/X11/fonts/TTF
+# FONTS_DIRS.ttf=	${FONTDIR}
+# 
+# INSTALL_FONTS=	KanjiStrokeOrders_v${KSOVER}.ttf
+# INSTALL_DOCS=	KSO_Excel_Sample.pdf \
+# 		KSO_PPT_Sample.pdf \
+# 		copyright.txt \
+# 		readme_en_v${KSOVER}.txt
+# 
+# WRKSRC=		${WRKDIR}
+# USE_LANGUAGES=	# none
+# 
+# do-install:
+# .for f in ${INSTALL_FONTS}
+# 	${INSTALL_DATA} ${WRKSRC}/${f} ${DESTDIR}${FONTDIR}
+# .endfor
+# .for f in ${INSTALL_DOCS}
+# 	${INSTALL_DATA} ${WRKSRC}/${f} ${DESTDIR}${DOCSDIR}
+# .endfor
+# 
+# .include "../../mk/bsd.pkg.mk"

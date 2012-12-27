@@ -1,0 +1,100 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      libXpm-3.5.10.eb
+# Date::      Wed Dec 26 17:09:14 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'libXpm'
+version = '3.5.10'
+versionsuffix = '-20121226'
+
+description = "libXpm-3.5.10: X PixMap Library from modular Xorg X11"
+
+# The following are automatically calculated - cross fingers
+sources = ['libXpm-3.5.10.tar.bz2']
+source_urls = ['http://sourceforge.net/projects/lib/files', 'download']
+homepage = 'http://xorg.freedesktop.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/libXpm/Makefile ######
+# # $NetBSD: Makefile,v 1.13 2012/06/09 07:00:48 obache Exp $
+# #
+# 
+# DISTNAME=		libXpm-3.5.10
+# CATEGORIES=		graphics x11
+# MASTER_SITES=		${MASTER_SITE_XORG:=lib/}
+# EXTRACT_SUFX=		.tar.bz2
+# 
+# MAINTAINER=		joerg@NetBSD.org
+# HOMEPAGE=		http://xorg.freedesktop.org/
+# COMMENT=		X PixMap Library from modular Xorg X11
+# 
+# CONFLICTS+=		xpm-[0-9]*
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LIBTOOL=		yes
+# USE_TOOLS+=		pkg-config xgettext
+# PKGCONFIG_OVERRIDE+=	xpm.pc.in
+# GNU_CONFIGURE=		yes
+# CONFIGURE_ENV+=		APP_MAN_SUFFIX=1
+# 
+# # Don't allow the configure script to find libintl.so or else the resulting
+# # libXpm will be linked against it, which is not necessary.  Instead, just
+# # pass down INTLLIBS in the build environment for use by the [cs]xpm
+# # Makefiles.
+# #
+# CONFIGURE_ENV+=		ac_cv_search_gettext=no
+# MAKE_ENV+=		INTLLIBS=${BUILDLINK_LDADD.gettext:Q}
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# .if ${X11_TYPE} == "native"
+# XPM_CFLAGS=	-I${X11BASE}/include
+# XPM_LIBS=	-Wl,-rpath,${X11BASE}/lib -L${X11BASE}/lib -lX11
+# 
+# SXPM_CFLAGS=	-I${X11BASE}/include
+# SXPM_LIBS=	-Wl,-rpath,${X11BASE}/lib -L${X11BASE}/lib -lXt -lXext
+# 
+# CONFIGURE_ARGS+=	XPM_CFLAGS=${XPM_CFLAGS:Q} \
+# 			XPM_LIBS=${XPM_LIBS:Q} \
+# 			SXPM_CFLAGS=${SXPM_CFLAGS:Q} \
+# 			SXPM_LIBS=${SXPM_LIBS:Q}
+# .endif
+# 
+# .include "../../meta-pkgs/modular-xorg/hacks.mk"
+# 
+# .include "../../devel/gettext-lib/buildlink3.mk"
+# .include "../../x11/libX11/buildlink3.mk"
+# .include "../../x11/libXext/buildlink3.mk"
+# .include "../../x11/libXt/buildlink3.mk"
+# .include "../../x11/xextproto/buildlink3.mk"
+# .include "../../x11/xproto/buildlink3.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"

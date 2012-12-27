@@ -1,0 +1,63 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      hot-babe-0.2.2.eb
+# Date::      Wed Dec 26 17:09:13 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'hot'
+version = 'babe-0.2.2'
+versionsuffix = '-20121226'
+
+description = "hot-babe-0.2.2: System load monitor"
+
+# The following are automatically calculated - cross fingers
+sources = ['hot-babe-0.2.2.tar.gz']
+source_urls = ['http://dindinx.net/hotbabe/downloads/']
+homepage = 'http://dindinx.net/hotbabe/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/hot-babe/Makefile ######
+# # $NetBSD: Makefile,v 1.32.2.1 2012/10/03 12:09:55 spz Exp $
+# 
+# DISTNAME=	hot-babe-0.2.2
+# PKGREVISION=	13
+# CATEGORIES=	x11
+# MASTER_SITES=	http://dindinx.net/hotbabe/downloads/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://dindinx.net/hotbabe/
+# COMMENT=	System load monitor
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_TOOLS+=	pkg-config
+# 
+# .include "../../x11/gtk2/buildlink3.mk"
+# .include "../../graphics/tiff/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

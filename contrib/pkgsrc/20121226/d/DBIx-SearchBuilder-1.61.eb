@@ -1,0 +1,84 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      DBIx-SearchBuilder-1.61.eb
+# Date::      Wed Dec 26 17:08:17 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'SearchBuilder-1.61'
+versionsuffix = '-20121226'
+
+description = "DBIx-SearchBuilder-1.61: Extension for easy SQL SELECT Statement generation"
+
+# The following are automatically calculated - cross fingers
+sources = ['DBIx-SearchBuilder-1.61.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/DBIx/']
+homepage = 'http://search.cpan.org/dist/DBIx-SearchBuilder/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/databases/p5-DBIx-SearchBuilder/Makefile ######
+# # $NetBSD: Makefile,v 1.42 2012/09/03 11:16:27 sno Exp $
+# #
+# 
+# DISTNAME=	DBIx-SearchBuilder-1.61
+# PKGNAME=	p5-${DISTNAME}
+# PKGREVISION=	1
+# SVR4_PKGNAME=	p5dxs
+# CATEGORIES=	databases perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=DBIx/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/dist/DBIx-SearchBuilder/
+# COMMENT=	Extension for easy SQL SELECT Statement generation
+# LICENSE=	${PERL5_LICENSE}
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# BUILD_DEPENDS+=	p5-DBD-SQLite-[0-9]*:../../databases/p5-DBD-SQLite
+# 
+# DEPENDS+=	p5-Cache-Simple-TimedExpiry>=0.21:../../devel/p5-Cache-Simple-TimedExpiry
+# DEPENDS+=	p5-Class-ReturnValue>=0.40:../../devel/p5-Class-ReturnValue
+# DEPENDS+=	p5-Clone-[0-9]*:../../devel/p5-Clone
+# DEPENDS+=	p5-Encode>=1.99:../../textproc/p5-Encode
+# DEPENDS+=	p5-Want-[0-9]*:../../devel/p5-Want
+# 
+# # Recommented dependencies
+# DEPENDS+=	p5-capitalization>=0.03nb1:../../devel/p5-capitalization
+# DEPENDS+=	p5-Class-Accessor-[0-9]*:../../devel/p5-Class-Accessor
+# DEPENDS+=	p5-DBIx-DBSchema-[0-9]*:../../databases/p5-DBIx-DBSchema
+# 
+# PERL5_PACKLIST=		auto/DBIx/SearchBuilder/.packlist
+# PERL5_MODULE_TYPE=	Module::Install::Bundled
+# 
+# .include "../../databases/p5-DBI/buildlink3.mk"
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

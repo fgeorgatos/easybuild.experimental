@@ -1,0 +1,74 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      cddb.bundle-0.2.eb
+# Date::      Wed Dec 26 17:08:11 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'cddb.bundle'
+version = '0.2'
+versionsuffix = '-20121226'
+
+description = "cddb.bundle-0.2: CDDB client bundle"
+
+# The following are automatically calculated - cross fingers
+sources = ['cddb.bundle-0.2.tar.gz']
+source_urls = ['http://sourceforge.net/projects/gsburn/files', 'download']
+homepage = 'http://gsburn.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/cddb-bundle/Makefile ######
+# # $NetBSD: Makefile,v 1.13 2012/09/11 23:59:28 asau Exp $
+# #
+# 
+# DISTNAME=	cddb.bundle-0.2
+# PKGNAME=	${DISTNAME:S/./-/}
+# PKGREVISION=	3
+# CATEGORIES=	audio gnustep
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=gsburn/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://gsburn.sourceforge.net/
+# COMMENT=	CDDB client bundle
+# LICENSE=	gnu-gpl-v2
+# 
+# WRKSRC=		${WRKDIR}/cddb.bundle
+# NO_CONFIGURE=	yes
+# USE_LANGUAGES=	objc
+# MAKE_ENV+=	ADDITIONAL_CPPFLAGS="-Wno-import"
+# MAKE_FILE=	GNUmakefile
+# 
+# INSTALL_MAKE_FLAGS=	INSTALL_PROGRAM=${INSTALL_PROGRAM:Q} \
+# 			INSTALL_DATA=${INSTALL_DATA:Q}
+# 
+# FIX_GNUSTEP_INSTALLATION_DIR= yes
+# SUBST_FILES.gnustep_installation_dir+=	Cddb/GNUmakefile
+# 
+# .include "../../devel/gnustep-base/buildlink3.mk"
+# .include "../../x11/gnustep-gui/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

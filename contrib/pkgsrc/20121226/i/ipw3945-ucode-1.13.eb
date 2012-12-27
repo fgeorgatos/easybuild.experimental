@@ -1,0 +1,73 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      ipw3945-ucode-1.13.eb
+# Date::      Wed Dec 26 17:09:03 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'wpi-firmware-1.13'
+version = 'ucode-1.13'
+versionsuffix = '-20121226'
+
+description = "ipw3945-ucode-1.13: Firmware binary images for wpi 4 driver"
+
+# The following are automatically calculated - cross fingers
+sources = ['ipw3945-ucode-1.13.tgz']
+version = 'firmware-1.13'
+name = 'wpi'
+source_urls = ['http://bughost.org/ipw3945/ucode/']
+homepage = 'http://bughost.org/ipw3945/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/wpi-firmware/Makefile ######
+# # $NetBSD: Makefile,v 1.2 2008/09/08 13:37:33 joerg Exp $
+# #
+# 
+# DISTNAME=		ipw3945-ucode-1.13
+# PKGNAME=		wpi-firmware-1.13
+# CATEGORIES=		sysutils
+# MASTER_SITES=		http://bughost.org/ipw3945/ucode/
+# EXTRACT_SUFX=		.tgz
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://bughost.org/ipw3945/
+# COMMENT=		Firmware binary images for wpi(4) driver
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# NO_CONFIGURE=		yes
+# NO_BUILD=		yes
+# 
+# INSTALLATION_DIRS=	libdata/if_wpi
+# 
+# do-install:
+# 	${INSTALL_DATA} ${WRKSRC}/LICENSE.ipw3945-ucode ${DESTDIR}${PREFIX}/libdata/if_wpi
+# 	${INSTALL_DATA} ${WRKSRC}/README.ipw3945-ucode ${DESTDIR}${PREFIX}/libdata/if_wpi
+# 	${INSTALL_DATA} ${WRKSRC}/ipw3945.ucode ${DESTDIR}${PREFIX}/libdata/if_wpi
+# 
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,73 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      tuxpaint-config-0.0.8.eb
+# Date::      Wed Dec 26 17:08:38 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'tuxpaint'
+version = 'config-0.0.8'
+versionsuffix = '-20121226'
+
+description = "tuxpaint-config-0.0.8: Configuration program for tuxpaint"
+
+# The following are automatically calculated - cross fingers
+sources = ['tuxpaint-config-0.0.8.tar.gz']
+source_urls = ['ftp://ftp.billsgames.com/unix/x/tuxpaint/config/']
+homepage = 'ftp://ftp.billsgames.com/unix/x/tuxpaint/config/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/tuxpaint-config/Makefile ######
+# # $NetBSD: Makefile,v 1.13 2011/04/22 13:43:52 obache Exp $
+# #
+# 
+# DISTNAME=		tuxpaint-config-0.0.8
+# PKGREVISION=		3
+# CATEGORIES=		graphics
+# MASTER_SITES=		ftp://ftp.billsgames.com/unix/x/tuxpaint/config/
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		ftp://ftp.billsgames.com/unix/x/tuxpaint/config/
+# COMMENT=		Configuration program for tuxpaint
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=		c++
+# USE_TOOLS+=		gmake
+# 
+# INSTALL_MAKE_FLAGS+=	PREFIX=${DESTDIR}${PREFIX}
+# INSTALLATION_DIRS+=	bin ${PKGMANDIR}/man1
+# 
+# post-install:
+# 	-${FIND} ${DESTDIR}${PREFIX}/share/tuxpaint-config -name CVS -exec ${RM} -r {} \; 2>/dev/null
+# 	-${FIND} ${DESTDIR}${PREFIX}/share/tuxpaint-config -name .xvpics -exec ${RM} -r {} \; 2>/dev/null
+# 
+# .include "../../devel/gettext-lib/buildlink3.mk"
+# .include "../../x11/fltk/buildlink3.mk"
+# .include "../../print/libpaper/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

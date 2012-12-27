@@ -1,0 +1,85 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      tcptraceroute-1.4.eb
+# Date::      Wed Dec 26 17:08:51 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'tcptraceroute'
+version = '1.4'
+versionsuffix = '-20121226'
+
+description = "tcptraceroute-1.4: Traceroute implementation using TCP packets"
+
+# The following are automatically calculated - cross fingers
+sources = ['tcptraceroute-1.4.tar.gz']
+source_urls = ['http://michael.toren.net/code/tcptraceroute/']
+homepage = 'http://michael.toren.net/code/tcptraceroute/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/tcptraceroute/Makefile ######
+# # $NetBSD: Makefile,v 1.16 2011/12/22 19:06:22 is Exp $
+# #
+# 
+# DISTNAME=		tcptraceroute-1.4
+# PKGREVISION=		4
+# CATEGORIES=		net
+# MASTER_SITES=		http://michael.toren.net/code/tcptraceroute/
+# 
+# MAINTAINER=		kim@tac.nyc.ny.us
+# HOMEPAGE=		http://michael.toren.net/code/tcptraceroute/
+# COMMENT=		Traceroute implementation using TCP packets
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# BUILD_TARGET=		tcptraceroute
+# BUILDLINK_API_DEPENDS.libnet10+=	libnet10>=1.0.2anb1
+# 
+# DOCDIR=			${PREFIX}/share/doc/tcptraceroute
+# 
+# SPECIAL_PERMS+=		sbin/tcptraceroute ${SETUID_ROOT_PERMS}
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# SUBST_CLASSES+=		conf
+# SUBST_STAGE.conf=	pre-build
+# SUBST_FILES.conf=	Makefile
+# SUBST_SED.conf=		-e "s|libnet-config|libnet10-config|g"
+# SUBST_MESSAGE.conf=	Fixing configuration script.
+# 
+# INSTALLATION_DIRS=	${PKGMANDIR}/man8 sbin ${DOCDIR}
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/tcptraceroute ${DESTDIR}${PREFIX}/sbin
+# 	${INSTALL_MAN} ${WRKSRC}/tcptraceroute.8 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man8
+# 	${INSTALL_DATA} ${WRKSRC}/examples.txt ${DESTDIR}${DOCDIR}
+# 
+# .include "../../devel/libnet10/buildlink3.mk"
+# .include "../../net/libpcap/buildlink3.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"

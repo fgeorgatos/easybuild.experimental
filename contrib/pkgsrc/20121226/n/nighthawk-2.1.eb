@@ -1,0 +1,98 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      nighthawk-2.1.eb
+# Date::      Wed Dec 26 17:08:34 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'nighthawk'
+version = '2.1'
+versionsuffix = '-20121226'
+
+description = "nighthawk-2.1: C64 Paradroid clone"
+
+# The following are automatically calculated - cross fingers
+sources = ['nighthawk-2.1.tgz']
+source_urls = ['${MASTER_SITE_BACKUP}']
+homepage = 'http://jsno.arafuraconnect.com.au/proj_linux/nighthawk.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/nighthawk/Makefile ######
+# # $NetBSD: Makefile,v 1.38 2009/06/14 20:31:11 rillig Exp $
+# #
+# 
+# DISTNAME=		nighthawk-2.1
+# PKGREVISION=		4
+# CATEGORIES=		x11 games
+# MASTER_SITES=		${MASTER_SITE_BACKUP}
+# EXTRACT_SUFX=		.tgz
+# 
+# PATCH_SITES=		${MASTER_SITES}
+# PATCHFILES=		nighthawk-2.1a.patch
+# PATCH_DIST_STRIP=	-p1
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://jsno.arafuraconnect.com.au/proj_linux/nighthawk.html
+# COMMENT=		C64 Paradroid clone
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=			${WRKDIR}/nighthawk
+# USE_TOOLS+=		gmake pax
+# USE_LANGUAGES=		c c++
+# 
+# MAKE_ENV+=		OSTYPE=${OPSYS}
+# CPPFLAGS+=		-DPREFIX="\"${PREFIX}\"" \
+# 			-DDEVOSSAUDIO="\"${DEVOSSAUDIO}\"" \
+# 			-DVARBASE="\"${VARBASE}\""
+# 
+# SETGIDGAME=		yes
+# CONF_FILES_PERMS=	/dev/null ${VARBASE}/games/nighthawk.scores	\
+# 			${GAMES_USER} ${GAMES_GROUP} ${GAMEDATAMODE}
+# SPECIAL_PERMS=		bin/nighthawk ${SETGID_GAMES_PERMS}
+# BUILD_DEFS+=		VARBASE GAMEDATAMODE
+# 
+# AUTO_MKDIRS=		yes
+# MAKE_DIRS=		${VARBASE}/games
+# 
+# .include "../../x11/libXpm/buildlink3.mk"
+# .include "../../mk/oss.buildlink3.mk"
+# 
+# post-build:
+# 	cd ${WRKSRC}/src_sound && \
+# 		${SETENV} ${MAKE_ENV} ${MAKE_PROGRAM} nighthawk_sound
+# 
+# do-install:
+# 	cd ${WRKSRC}/data && pax -rw . ${DESTDIR}${PREFIX}/share/nighthawk/data
+# 	${FIND} ${DESTDIR}${PREFIX}/share/nighthawk -type f -print | ${XARGS} ${CHMOD} ${SHAREMODE}
+# 	${FIND} ${DESTDIR}${PREFIX}/share/nighthawk -type d -print | ${XARGS} ${CHMOD} ${PKGDIRMODE}
+# 	${INSTALL_PROGRAM} ${WRKSRC}/src/nighthawk ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_PROGRAM} ${WRKSRC}/src_sound/nighthawk_sound ${DESTDIR}${PREFIX}/bin
+# 	${INSTALL_MAN} ${WRKSRC}/INSTALL ${DESTDIR}${PREFIX}/share/doc/nighthawk/README
+# 
+# .include "../../mk/bsd.pkg.mk"

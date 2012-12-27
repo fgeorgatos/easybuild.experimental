@@ -1,0 +1,102 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      gnome-settings-daemon-2.32.1.eb
+# Date::      Wed Dec 26 17:09:01 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'gnome'
+version = 'settings-daemon-2.32.1'
+versionsuffix = '-20121226'
+
+description = "gnome-settings-daemon-2.32.1: GNOME settings daemon"
+
+# The following are automatically calculated - cross fingers
+sources = ['gnome-settings-daemon-2.32.1.tar.bz2']
+source_urls = ['http://sourceforge.net/projects/sources/gnome-settings-daemon/2.32/files', 'download']
+homepage = 'http://www.gnome.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/gnome-settings-daemon/Makefile ######
+# # $NetBSD: Makefile,v 1.35.2.1 2012/10/03 12:09:28 spz Exp $
+# #
+# 
+# DISTNAME=	gnome-settings-daemon-2.32.1
+# PKGREVISION=	14
+# CATEGORIES=	sysutils
+# MASTER_SITES=	${MASTER_SITE_GNOME:=sources/gnome-settings-daemon/2.32/}
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.gnome.org/
+# COMMENT=	GNOME settings daemon
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# GNU_CONFIGURE=	yes
+# USE_LIBTOOL=	yes
+# USE_TOOLS+=	pkg-config intltool gmake msgfmt
+# 
+# CONFLICTS+=	gnome-control-center<2.22.0
+# 
+# GCONF_SCHEMAS+=	gnome-settings-daemon.schemas
+# GCONF_SCHEMAS+=	desktop_gnome_font_rendering.schemas
+# GCONF_SCHEMAS+=	desktop_gnome_keybindings.schemas
+# GCONF_SCHEMAS+=	apps_gnome_settings_daemon_keybindings.schemas
+# GCONF_SCHEMAS+=	apps_gnome_settings_daemon_xrandr.schemas
+# GCONF_SCHEMAS+=	apps_gnome_settings_daemon_housekeeping.schemas
+# GCONF_SCHEMAS+=	desktop_gnome_peripherals_touchpad.schemas
+# GCONF_SCHEMAS+=	desktop_gnome_peripherals_smartcard.schemas
+# PKGCONFIG_OVERRIDE+=	data/gnome-settings-daemon.pc.in
+# 
+# PKG_OPTIONS_VAR=	PKG_OPTIONS.gnome-settings-daemon
+# PKG_SUPPORTED_OPTIONS=	pulseaudio
+# .include "../../mk/bsd.options.mk"
+# PLIST_VARS+=		pulseaudio
+# 
+# .if !empty(PKG_OPTIONS:Mpulseaudio)
+# PLIST.pulseaudio=	yes
+# BUILDLINK_API_DEPENDS.pulseaudio+=	pulseaudio>=0.9.15
+# .include "../../audio/pulseaudio/buildlink3.mk"
+# .include "../../audio/libcanberra/buildlink3.mk"
+# .endif
+# .include "../../devel/GConf/schemas.mk"
+# .include "../../graphics/hicolor-icon-theme/buildlink3.mk"
+# BUILDLINK_API_DEPENDS.dbus-glib+=	dbus-glib>=0.74
+# .include "../../sysutils/dbus-glib/buildlink3.mk"
+# .include "../../sysutils/desktop-file-utils/desktopdb.mk"
+# .include "../../sysutils/libnotify/buildlink3.mk"
+# .include "../../x11/gnome-desktop/buildlink3.mk"
+# BUILDLINK_API_DEPENDS.gtk2+=		gtk2+>=2.21.2
+# .include "../../x11/gtk2/buildlink3.mk"
+# BUILDLINK_API_DEPENDS.libgnomekbd+=	libgnomekbd>=2.31.2
+# .include "../../x11/libgnomekbd/buildlink3.mk"
+# BUILDLINK_API_DEPENDS.libxklavier+=	libxklavier>=5.0
+# .include "../../x11/libxklavier/buildlink3.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"

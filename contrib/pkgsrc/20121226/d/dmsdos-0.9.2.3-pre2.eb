@@ -1,0 +1,83 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      dmsdos-0.9.2.3-pre2.eb
+# Date::      Wed Dec 26 17:09:00 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'dmsdos-0.9.2.3pre2'
+version = '0.9.2.3-pre2'
+versionsuffix = '-20121226'
+
+description = "dmsdos-0.9.2.3-pre2: Program to access DBLSPACE/DRVSPACE containers"
+
+# The following are automatically calculated - cross fingers
+sources = ['dmsdos-0.9.2.3-pre2.tgz']
+version = '0.9.2.3pre2'
+name = 'dmsdos'
+source_urls = ['http://cmp.felk.cvut.cz/~pisa/dmsdos/sources/']
+homepage = 'http://cmp.felk.cvut.cz/~pisa/dmsdos/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/dmsdos/Makefile ######
+# # $NetBSD: Makefile,v 1.2 2010/01/27 18:46:39 joerg Exp $
+# #
+# 
+# DISTNAME=	dmsdos-0.9.2.3-pre2
+# PKGNAME=	dmsdos-0.9.2.3pre2
+# CATEGORIES=	sysutils
+# MASTER_SITES=	http://cmp.felk.cvut.cz/~pisa/dmsdos/sources/
+# EXTRACT_SUFX=	.tgz
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://cmp.felk.cvut.cz/~pisa/dmsdos/
+# COMMENT=	Program to access DBLSPACE/DRVSPACE containers
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=		${WRKDIR}/dmsdos-0.9.2.3-pre2/src
+# 
+# F=	mcdmsdos.c dblspace_dec.c lib_interface.c dblspace_interface.c \
+# 	dblspace_chk.c dblspace_tables.c dstacker_alloc.c dblspace_alloc.c \
+# 	dblspace_compr.c dstacker_compr.c dstacker_dec.c dblspace_methsq.c
+# 
+# INSTALLATION_DIRS=	bin
+# 
+# post-extract:
+# 	find ${WRKDIR}/dmsdos-0.9.2.3-pre2 -type d -exec chmod +x {} \;
+# 
+# do-configure:
+# 	${CP} ${WRKSRC}/dmsdos-config.h.default ${WRKSRC}/dmsdos-config.h
+# 
+# do-build:
+# 	cd ${WRKSRC} && ${CC} -D__DMSDOS_LIB__ ${F} -o mcdmsdos
+# 
+# do-install:
+# 	${INSTALL_PROGRAM} ${WRKSRC}/mcdmsdos ${DESTDIR}${PREFIX}/bin
+# 
+# .include "../../mk/bsd.pkg.mk"

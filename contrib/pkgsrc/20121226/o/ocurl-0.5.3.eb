@@ -1,0 +1,87 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      ocurl-0.5.3.eb
+# Date::      Wed Dec 26 17:09:04 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'ocaml-curl-0.5.3'
+version = '0.5.3'
+versionsuffix = '-20121226'
+
+description = "ocurl-0.5.3: OCaml bindings to the CURL library"
+
+# The following are automatically calculated - cross fingers
+sources = ['ocurl-0.5.3.tgz']
+version = 'curl-0.5.3'
+name = 'ocaml'
+source_urls = ['http://sourceforge.net/projects/ocurl/files', 'download']
+homepage = 'http://sourceforge.net/projects/ocurl/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/ocaml-curl/Makefile ######
+# # $NetBSD: Makefile,v 1.1 2012/09/16 12:38:44 jaapb Exp $
+# #
+# 
+# DISTNAME=		ocurl-0.5.3
+# PKGNAME=		ocaml-curl-0.5.3
+# EXTRACT_SUFX=		.tgz
+# CATEGORIES=		www net devel
+# MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=ocurl/}
+# 
+# MAINTAINER=		rich.neswold@gmail.com
+# HOMEPAGE=		http://sourceforge.net/projects/ocurl/
+# COMMENT=		OCaml bindings to the CURL library
+# LICENSE=		mit
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# MAKE_JOBS_SAFE=         no
+# 
+# DEPENDS+=               ocaml-findlib-[0-9]*:../../devel/ocaml-findlib
+# 
+# USE_TOOLS=		gmake
+# GNU_CONFIGURE=		yes
+# CONFIGURE_ARGS+=	--with-findlib
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# PLIST_VARS+=	opt
+# .if (${MACHINE_ARCH} == "i386") || (${MACHINE_ARCH} == "powerpc") || \
+#     (${MACHINE_ARCH} == "sparc") || (${MACHINE_ARCH} == "x86_64")
+# PLIST.opt=	yes
+# .endif
+# 
+# WRKSRC=			${WRKDIR}/ocurl
+# USE_LANGUAGES=		c
+# 
+# INSTALLATION_DIRS+=     lib/ocaml/site-lib
+# 
+# .include "../../lang/ocaml/buildlink3.mk"
+# .include "../../www/curl/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

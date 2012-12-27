@@ -1,0 +1,65 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      XML-Clean-1.06.eb
+# Date::      Wed Dec 26 17:09:10 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'p5-'
+version = 'Clean-1.06'
+versionsuffix = '-20121226'
+
+description = "XML-Clean-1.06: Ensure, that =_6.8.0 HTML Makefile OLD OLD2 go.sh logdir new_to_accept_single,_non-hashref_arguments outdir_v3 outdir_v4 outdir_v4.OLD pkg2eb_v3.sh pkg2eb_v4.sh pkgsrc pkgsrc.tar.bz2 HTML =_6.8.0 HTML Makefile OLD OLD2 go.sh logdir new_to_accept_single,_non-hashref_arguments outdir_v3 outdir_v4 outdir_v4.OLD pkg2eb_v3.sh pkg2eb_v4.sh pkgsrc pkgsrc.tar.bz2 text pass throught an XML parser"
+
+# The following are automatically calculated - cross fingers
+sources = ['XML-Clean-1.06.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/../../authors/id/P/PK/PKUBANEK/']
+homepage = 'http://search.cpan.org/~pkubanek/XML-Clean/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/p5-XML-Clean/Makefile ######
+# # $NetBSD: Makefile,v 1.6 2011/08/14 15:14:16 obache Exp $
+# 
+# DISTNAME=	XML-Clean-1.06
+# PKGNAME=	p5-${DISTNAME}
+# PKGREVISION=	3
+# CATEGORIES=	textproc perl5
+# MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=../../authors/id/P/PK/PKUBANEK/}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://search.cpan.org/~pkubanek/XML-Clean/
+# COMMENT=	Ensure, that *(HTML)* text pass throught an XML parser
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# PERL5_PACKLIST= auto/XML/Clean/.packlist
+# 
+# .include "../../lang/perl5/module.mk"
+# .include "../../mk/bsd.pkg.mk"

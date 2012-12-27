@@ -1,0 +1,81 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      xpdf-thai-2002-jan-16.eb
+# Date::      Wed Dec 26 17:08:57 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'xpdf-thai-20020116'
+version = 'thai-2002-jan-16'
+versionsuffix = '-20121226'
+
+description = "xpdf-thai-2002-jan-16: Xpdf support files for Thai"
+
+# The following are automatically calculated - cross fingers
+sources = ['xpdf-thai-2002-jan-16.tar.gz']
+version = 'thai-20020116'
+name = 'xpdf'
+source_urls = ['ftp://ftp.foolabs.com/pub/xpdf/']
+homepage = 'http://www.foolabs.com/xpdf/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/print/xpdf-thai/Makefile ######
+# # $NetBSD: Makefile,v 1.19 2010/01/27 15:14:01 joerg Exp $
+# #
+# 
+# DISTNAME=	xpdf-thai-2002-jan-16
+# PKGNAME=	xpdf-thai-20020116
+# PKGREVISION=	2
+# CATEGORIES=	print
+# MASTER_SITES=	ftp://ftp.foolabs.com/pub/xpdf/ \
+# 		http://gd.tuwien.ac.at/publishing/xpdf/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://www.foolabs.com/xpdf/
+# COMMENT=	Xpdf support files for Thai
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# DEPENDS+=	xpdf>=2.02:../../print/xpdf
+# 
+# WRKSRC=		${WRKDIR}/xpdf-thai
+# NO_CONFIGURE=	yes
+# NO_BUILD=	yes
+# 
+# INSTALLATION_DIRS+=	share/xpdf/thai
+# 
+# post-patch:
+# 	${MV} ${WRKSRC}/add-to-xpdfrc ${WRKSRC}/add-to-xpdfrc.orig
+# 	${SED} -e 's:/usr/local:'${PREFIX}':g' < ${WRKSRC}/add-to-xpdfrc.orig > ${WRKSRC}/add-to-xpdfrc
+# 
+# do-install:
+# 	${INSTALL_DATA} ${WRKSRC}/TIS-620.unicodeMap \
+# 	    ${WRKSRC}/Thai.nameToUnicode ${WRKSRC}/add-to-xpdfrc \
+# 	    ${DESTDIR}${PREFIX}/share/xpdf/thai
+# 
+# .include "../../mk/bsd.pkg.mk"

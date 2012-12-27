@@ -1,0 +1,72 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      virtinst-0.600.3.eb
+# Date::      Wed Dec 26 17:09:02 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'virtinst'
+version = '0.600.3'
+versionsuffix = '-20121226'
+
+description = "virtinst-0.600.3: Module to help in starting installations inside of virtual machines"
+
+# The following are automatically calculated - cross fingers
+sources = ['virtinst-0.600.3.tar.gz']
+source_urls = ['http://virt-manager.org/download/sources/virtinst/']
+homepage = 'http://virt-manager.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/virtinst/Makefile ######
+# # $NetBSD: Makefile,v 1.4 2012/09/26 19:35:02 gls Exp $
+# #
+# 
+# DISTNAME=	virtinst-0.600.3
+# CATEGORIES=	sysutils
+# MASTER_SITES=	http://virt-manager.org/download/sources/virtinst/
+# 
+# MAINTAINER=	gls@NetBSD.org
+# HOMEPAGE=	http://virt-manager.org/
+# COMMENT=	Module to help in starting installations inside of virtual machines
+# LICENSE=	gnu-gpl-v2
+# 
+# USE_TOOLS+=	msgfmt xgettext
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=	# none
+# PYDISTUTILSPKG=	yes
+# 
+# SUBST_CLASSES+=		man
+# SUBST_STAGE.man=	pre-configure
+# SUBST_MESSAGE.man=	Fixing man pages installation path
+# SUBST_FILES.man=	setup.py
+# SUBST_SED.man=		-e 's,@@PKGMANDIR@@,${PKGMANDIR},'
+# 
+# .include "../../lang/python/application.mk"
+# .include "../../lang/python/extension.mk"
+# .include "../../mk/bsd.pkg.mk"

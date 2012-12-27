@@ -1,0 +1,66 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      defendguin-0.0.10.eb
+# Date::      Wed Dec 26 17:08:33 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'defendguin'
+version = '0.0.10'
+versionsuffix = '-20121226'
+
+description = "defendguin-0.0.10: Clone of the arcade game Defender"
+
+# The following are automatically calculated - cross fingers
+sources = ['defendguin-0.0.10.tar.gz']
+source_urls = ['ftp://ftp.billsgames.com/unix/x/defendguin/src/']
+homepage = 'http://www.newbreedsoftware.com/defendguin/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/defendguin/Makefile ######
+# # $NetBSD: Makefile,v 1.17 2010/01/29 20:24:16 joerg Exp $
+# 
+# DISTNAME=	defendguin-0.0.10
+# PKGREVISION=	7
+# CATEGORIES=	games
+# MASTER_SITES=	ftp://ftp.billsgames.com/unix/x/defendguin/src/
+# 
+# MAINTAINER=	reed@reedmedia.net
+# HOMEPAGE=	http://www.newbreedsoftware.com/defendguin/
+# COMMENT=	Clone of the arcade game Defender
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_TOOLS+=	gmake
+# 
+# INSTALLATION_DIRS=	bin ${PKGMANDIR}/man6
+# 
+# INSTALL_MAKE_FLAGS+=	PREFIX=${DESTDIR}${PREFIX}
+# 
+# .include "../../audio/SDL_mixer/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,94 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      libkver-.eb
+# Date::      Wed Dec 26 17:08:52 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'libkver'
+version = ''
+versionsuffix = '-20121226'
+
+description = "libkver-: Shared library and sysctl 1 replacement to override system version"
+
+# The following are automatically calculated - cross fingers
+sources = ['libkver-${VERSION}.tar.gz']
+source_urls = ['#empty']
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/pkgtools/libkver/Makefile ######
+# # $NetBSD: Makefile,v 1.31 2012/09/11 23:19:35 asau Exp $
+# 
+# DISTNAME=		libkver-${VERSION}
+# CATEGORIES=		pkgtools
+# MASTER_SITES=		# empty
+# DISTFILES=		# empty
+# 
+# MAINTAINER=	seb@NetBSD.org
+# #HOMEPAGE=
+# COMMENT=	Shared library and sysctl(1) replacement to override system version
+# 
+# PKG_INSTALLATION_TYPES=	overwrite pkgviews
+# 
+# .include "../../mk/bsd.prefs.mk"
+# 
+# CHECK_PERMS=		no
+# 
+# NO_PKGTOOLS_REQD_CHECK=	yes
+# USE_BSD_MAKEFILE=	yes
+# 
+# VERSION=		0.6
+# 
+# ONLY_FOR_PLATFORM=	NetBSD-*-*
+# 
+# BUILDLINK_PASSTHRU_DIRS=	${BSDSRCDIR}/sys
+# 
+# PLIST_VARS=	sysctl
+# LDD_SYSCTL!=	ldd /sbin/sysctl 2>&1 || ${TRUE}
+# MAKE_ENV+=	LDD_SYSCTL=${LDD_SYSCTL:Q} # save another ldd run
+# .if empty(LDD_SYSCTL:M*libc*)
+# PLIST.sysctl=		yes
+# FILES_SUBST+=		HAS_SYSCTL=true
+# .else
+# FILES_SUBST+=		HAS_SYSCTL=false
+# .endif
+# 
+# INSTALLATION_DIRS+=	lib man/man3 man/cat3
+# .if empty(LDD_SYSCTL:M*libc*)
+# INSTALLATION_DIRS+=	sbin
+# .endif
+# 
+# do-extract:
+# 	${CP} -R ${FILESDIR} ${WRKSRC}
+# 
+# LIBKVER_STANDALONE_PREFIX?=	/libkver
+# standalone-install:
+# 	${MAKE} ${MAKEFLAGS} PKG_DBDIR=${LIBKVER_STANDALONE_PREFIX:Q}/pkg \
+# 	  PREFIX=${LIBKVER_STANDALONE_PREFIX:Q} install
+# 
+# .include "../../mk/bsd.pkg.mk"

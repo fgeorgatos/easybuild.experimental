@@ -1,0 +1,60 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      thor-0.14.6.eb
+# Date::      Wed Dec 26 17:08:28 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'thor'
+version = '0.14.6'
+versionsuffix = '-20121226'
+
+description = "thor-0.14.6: Scripting framework that replaces rake, sake and rubigen"
+
+# The following are automatically calculated - cross fingers
+sources = ['thor-0.14.6.tar.gz']
+homepage = 'http://yehudakatz.com/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/ruby-thor/Makefile ######
+# # $NetBSD: Makefile,v 1.4 2012/06/16 15:55:49 taca Exp $
+# 
+# DISTNAME=	thor-0.14.6
+# CATEGORIES=	devel
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://yehudakatz.com/
+# COMMENT=	Scripting framework that replaces rake, sake and rubigen
+# LICENSE=	mit
+# 
+# CONFLICTS+=	ruby[1-9][0-9]-thor-[0-9]*
+# 
+# # Ruby on Rails 3.2 require thor<0.15.
+# 
+# .include "../../lang/ruby/gem.mk"
+# .include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,93 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      fontforge_full-.eb
+# Date::      Wed Dec 26 17:08:32 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'fontforge-'
+version = ''
+versionsuffix = '-20121226'
+
+description = "fontforge_full-: Postscript font editor"
+
+# The following are automatically calculated - cross fingers
+sources = ['fontforge_full-${VERSION}.tar.bz2']
+version = '${VERSION}'
+name = 'fontforge'
+source_urls = ['http://sourceforge.net/projects/fontforge/files', 'download']
+homepage = 'http://fontforge.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/fonts/fontforge/Makefile ######
+# # $NetBSD: Makefile,v 1.79.2.1 2012/10/03 12:07:40 spz Exp $
+# 
+# DISTNAME=	fontforge_full-${VERSION}
+# PKGNAME=	fontforge-${VERSION}
+# PKGREVISION=	7
+# CATEGORIES=	fonts editors
+# MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=fontforge/}
+# EXTRACT_SUFX=	.tar.bz2
+# 
+# MAINTAINER=	adam@NetBSD.org
+# HOMEPAGE=	http://fontforge.sourceforge.net/
+# COMMENT=	Postscript font editor
+# LICENSE=	modified-bsd
+# 
+# VERSION=	20110222
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=			${WRKDIR}/${PKGNAME_NOREV}
+# 
+# USE_LANGUAGES=		c
+# USE_LIBTOOL=		yes
+# USE_PKGLOCALEDIR=	yes
+# USE_TOOLS+=		gmake msgfmt
+# GNU_CONFIGURE=		yes
+# CONFIGURE_ARGS+=	--without-freetype-src
+# CONFIGURE_ARGS+=	--without-python
+# 
+# MAKE_ENV+=		PKGLOCALEDIR=${PKGLOCALEDIR}
+# LDFLAGS.SunOS+=		-lrt
+# 
+# BROKEN_GETTEXT_DETECTION=	yes
+# 
+# .include "options.mk"
+# 
+# .include "../../converters/libiconv/buildlink3.mk"
+# .include "../../devel/gettext-lib/buildlink3.mk"
+# .include "../../devel/pango/buildlink3.mk"
+# .include "../../graphics/cairo/buildlink3.mk"
+# .include "../../graphics/freetype2/buildlink3.mk"
+# .include "../../graphics/png/buildlink3.mk"
+# .include "../../graphics/tiff/buildlink3.mk"
+# .include "../../textproc/libxml2/buildlink3.mk"
+# .include "../../mk/giflib.buildlink3.mk"
+# .include "../../mk/jpeg.buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

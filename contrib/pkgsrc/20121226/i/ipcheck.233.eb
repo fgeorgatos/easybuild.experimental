@@ -1,0 +1,76 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      ipcheck.233.eb
+# Date::      Wed Dec 26 17:08:49 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'ipcheck-0.233'
+version = 'ipcheck.233'
+versionsuffix = '-20121226'
+
+description = "ipcheck.233: Python client for the dyndns service"
+
+# The following are automatically calculated - cross fingers
+sources = ['ipcheck.233#none']
+version = '0.233'
+name = 'ipcheck'
+source_urls = ['http://ipcheck.sourceforge.net/releases/']
+homepage = 'http://ipcheck.sourceforge.net/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/ipcheck/Makefile ######
+# # $NetBSD: Makefile,v 1.19 2012/03/15 11:53:35 obache Exp $
+# #
+# 
+# DISTNAME=	ipcheck.233
+# PKGNAME=	ipcheck-0.233
+# PKGREVISION=	3
+# CATEGORIES=	net
+# MASTER_SITES=	http://ipcheck.sourceforge.net/releases/
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://ipcheck.sourceforge.net/
+# COMMENT=	Python client for the dyndns service
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=		${WRKDIR}
+# DIST_SUBDIR=	${PKGNAME_NOREV}
+# EXTRACT_SUFX=	#none
+# EXTRACT_CMD=	${CP} "$${extract_file}" ipcheck.py
+# NO_BUILD=	yes
+# 
+# PYTHON_PATCH_SCRIPTS=	ipcheck.py
+# INSTALLATION_DIRS=	bin
+# 
+# do-install:
+# 	${INSTALL_SCRIPT} ${WRKSRC}/ipcheck.py ${DESTDIR}${PREFIX}/bin
+# 
+# .include "../../lang/python/application.mk"
+# .include "../../mk/bsd.pkg.mk"

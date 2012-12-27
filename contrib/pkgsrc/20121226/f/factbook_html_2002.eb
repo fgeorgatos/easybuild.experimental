@@ -1,0 +1,75 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      factbook_html_2002.eb
+# Date::      Wed Dec 26 17:08:35 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'xrmap-factbook_html-2002'
+version = 'factbook_html_2002'
+versionsuffix = '-20121226'
+
+description = "factbook_html_2002: CIA factbook for xrmap HTML "
+
+# The following are automatically calculated - cross fingers
+sources = ['factbook_html_2002.tar.bz2']
+version = 'factbook_html-2002'
+name = 'xrmap'
+source_urls = ['ftp://ftp.ac-grenoble.fr/ge/geosciences/xrmap/data/']
+homepage = 'http://frmas.free.fr/li_1.htm'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/geography/xrmap-factbook_html/Makefile ######
+# # $NetBSD: Makefile,v 1.7 2008/05/26 02:13:20 joerg Exp $
+# #
+# 
+# DISTNAME=		factbook_html_2002
+# PKGNAME=		xrmap-factbook_html-2002
+# PKGREVISION=		1
+# CATEGORIES=		geography
+# MASTER_SITES=		ftp://ftp.ac-grenoble.fr/ge/geosciences/xrmap/data/
+# EXTRACT_SUFX=		.tar.bz2
+# 
+# MAINTAINER=		pkgsrc-users@NetBSD.org
+# HOMEPAGE=		http://frmas.free.fr/li_1.htm
+# COMMENT=		CIA factbook for xrmap (HTML)
+# 
+# DEPENDS+=		xrmap-base>=2.29:../../geography/xrmap-base
+# 
+# USE_TOOLS+=	pax
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=			${WRKDIR}
+# NO_BUILD=		yes
+# INSTALLATION_DIRS=	share/rmap
+# 
+# do-install:
+# 	cd ${WRKSRC} && pax -rw -pe factbook ${DESTDIR}${PREFIX}/share/rmap
+# 
+# .include "../../mk/bsd.pkg.mk"

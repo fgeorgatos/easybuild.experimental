@@ -1,0 +1,61 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      kotex-base.doc.eb
+# Date::      Wed Dec 26 17:08:32 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'tex--0.3'
+version = 'base.doc'
+versionsuffix = '-20121226'
+
+description = "kotex-base.doc: Documentation for tex-kotex-base"
+
+# The following are automatically calculated - cross fingers
+sources = ['kotex-base.doc.tar.gz']
+version = '${DISTNAME:S/./-/}-0.3'
+name = 'tex'
+source_urls = ['http://ftp.ktug.or.kr/KTUG/texlive/2011/archive/']
+homepage = 'http://project.ktug.or.kr/ko.TeX/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/fonts/tex-kotex-base-doc/Makefile ######
+# # $NetBSD: Makefile,v 1.4 2011/11/29 20:35:32 minskim Exp $
+# 
+# DISTNAME=	kotex-base.doc
+# PKGNAME=	tex-${DISTNAME:S/./-/}-0.3
+# MASTER_SITES=	http://ftp.ktug.or.kr/KTUG/texlive/2011/archive/
+# DIST_SUBDIR=	${PKGNAME:S/-doc//}-${TEXLIVE_REV}
+# TEXLIVE_REV=	1
+# 
+# MAINTAINER=	minskim@NetBSD.org
+# HOMEPAGE=	http://project.ktug.or.kr/ko.TeX/
+# COMMENT=	Documentation for tex-kotex-base
+# 
+# .include "../../print/texlive/package.mk"
+# .include "../../mk/bsd.pkg.mk"

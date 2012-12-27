@@ -1,0 +1,80 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      pyatspi-2.5.4.eb
+# Date::      Wed Dec 26 17:08:26 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = '-'
+version = '2.5.4'
+versionsuffix = '-20121226'
+
+description = "pyatspi-2.5.4: Python Assistive Technology Service Provider Interface"
+
+# The following are automatically calculated - cross fingers
+sources = ['pyatspi-2.5.4.tar.xz']
+source_urls = ['http://sourceforge.net/projects/sources/pyatspi/2.5/files', 'download']
+homepage = 'http://www.linuxfoundation.org/collaborate/workgroups/accessibility/atk/at-spi/at-spi_on_d-bus'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/py-at-spi2/Makefile ######
+# # $NetBSD: Makefile,v 1.4 2012/09/15 10:04:19 obache Exp $
+# #
+# 
+# DISTNAME=	pyatspi-2.5.4
+# PKGNAME=	${PYPKGPREFIX}-${DISTNAME:S/pyatspi/at-spi2/}
+# PKGREVISION=	1
+# CATEGORIES=	devel
+# MASTER_SITES=	${MASTER_SITE_GNOME:=sources/pyatspi/2.5/}
+# EXTRACT_SUFX=	.tar.xz
+# 
+# MAINTAINER=	prlw1@cam.ac.uk
+# HOMEPAGE=	http://www.linuxfoundation.org/collaborate/workgroups/accessibility/atk/at-spi/at-spi_on_d-bus
+# COMMENT=	Python Assistive Technology Service Provider Interface
+# # GPLv2 for pasytest, but tests are not built by default
+# LICENSE=	gnu-lgpl-v2
+# 
+# DEPENDS+=	at-spi2-core>=2.3.90:../../devel/at-spi2-core
+# DEPENDS+=	at-spi2-atk-[0-9]*:../../devel/at-spi2-atk
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# PYTHON_VERSIONS_INCOMPATIBLE=	25
+# 
+# USE_LIBTOOL=	yes
+# USE_TOOLS+=	pkg-config
+# GNU_CONFIGURE=	yes
+# CONFIGURE_ENV+=	PYTHON=${PYTHONBIN}
+# PY_PATCHPLIST=	yes
+# 
+# CONFLICTS=	${PYPKGPREFIX}-at-spi-[0-9]*
+# 
+# .include "../../devel/py-gobject3/buildlink3.mk"
+# 
+# .include "../../lang/python/extension.mk"
+# .include "../../mk/bsd.pkg.mk"

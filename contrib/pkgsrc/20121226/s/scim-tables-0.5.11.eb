@@ -1,0 +1,71 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      scim-tables-0.5.11.eb
+# Date::      Wed Dec 26 17:08:39 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'scim'
+version = 'tables-0.5.11'
+versionsuffix = '-20121226'
+
+description = "scim-tables-0.5.11: Data files for SCIM Generic Table Input Method module"
+
+# The following are automatically calculated - cross fingers
+sources = ['scim-tables-0.5.11.tar.gz']
+source_urls = ['http://sourceforge.net/projects/scim/files', 'download']
+homepage = 'http://www.scim-im.org/'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/inputmethod/scim-tables/Makefile ######
+# # $NetBSD: Makefile,v 1.14.2.1 2012/10/03 12:08:26 spz Exp $
+# #
+# 
+# DISTNAME=		scim-tables-0.5.11
+# PKGREVISION=		3
+# CATEGORIES=		inputmethod
+# MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=scim/}
+# 
+# MAINTAINER=		obache@NetBSD.org
+# HOMEPAGE=		http://www.scim-im.org/
+# COMMENT=		Data files for SCIM Generic Table Input Method module
+# LICENSE=		gnu-gpl-v2
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_LANGUAGES=		c c++
+# USE_PKGLOCALEDIR=	yes
+# USE_LIBTOOL=		yes
+# USE_TOOLS+=		msgfmt pkg-config
+# GNU_CONFIGURE=		yes
+# 
+# USE_SCIM_GTKUTILS=	yes
+# 
+# .include "../../devel/gettext-lib/buildlink3.mk"
+# .include "../../inputmethod/scim/buildlink3.mk"
+# .include "../../mk/bsd.pkg.mk"

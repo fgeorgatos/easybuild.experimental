@@ -1,0 +1,72 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      htmlsplit102.eb
+# Date::      Wed Dec 26 17:09:06 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = '-htmlsplit-1.0.2'
+version = 'htmlsplit102'
+versionsuffix = '-20121226'
+
+description = "htmlsplit102: Ruby HTML split/join library"
+
+# The following are automatically calculated - cross fingers
+sources = ['htmlsplit102.zip']
+source_urls = ['http://www.moonwolf.com/ruby/archive/']
+homepage = 'http://www.moonwolf.com/ruby/htmlsplit.html'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/ruby-htmlsplit/Makefile ######
+# # $NetBSD: Makefile,v 1.14 2008/07/14 12:56:14 joerg Exp $
+# 
+# DISTNAME=	htmlsplit102
+# PKGNAME=	${RUBY_PKGPREFIX}-htmlsplit-1.0.2
+# PKGREVISION=	3
+# CATEGORIES=	www ruby
+# MASTER_SITES=	http://www.moonwolf.com/ruby/archive/
+# EXTRACT_SUFX=	.zip
+# 
+# MAINTAINER=	taca@NetBSD.org
+# HOMEPAGE=	http://www.moonwolf.com/ruby/htmlsplit.html
+# COMMENT=	Ruby HTML split/join library
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# WRKSRC=		${WRKDIR}
+# NO_CONFIGURE=	yes
+# NO_BUILD=	yes
+# 
+# INSTALLATION_DIRS=	${RUBY_VENDORLIB} ${RUBY_EG}/htmlsplit
+# 
+# do-install:
+# 	${INSTALL_DATA} ${WRKSRC}/htmlsplit.rb ${DESTDIR}${PREFIX}/${RUBY_VENDORLIB}
+# 	${INSTALL_DATA} ${WRKSRC}/splittest.rb ${DESTDIR}${PREFIX}/${RUBY_EG}/htmlsplit
+# 
+# .include "../../lang/ruby/modules.mk"
+# .include "../../mk/bsd.pkg.mk"

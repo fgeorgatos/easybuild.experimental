@@ -1,0 +1,62 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      claws-mail-pgp-.eb
+# Date::      Wed Dec 26 17:08:41 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'claws'
+version = 'mail-pgp-'
+versionsuffix = '-20121226'
+
+description = "claws-mail-pgp-: Metapackage for the PGP plug-in for Claws-mail"
+
+# The following are automatically calculated - cross fingers
+sources = ['claws-mail-pgp-${CLAWS_VERSION}.tar.gz']
+source_urls = ['#none']
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/mail/claws-mail-pgp/Makefile ######
+# # $NetBSD: Makefile,v 1.15 2010/11/29 17:58:37 drochner Exp $
+# #
+# META_PACKAGE=	yes
+# 
+# .include "../../mail/claws-mail/Makefile.vers"
+# 
+# DISTNAME=	claws-mail-pgp-${CLAWS_VERSION}
+# CATEGORIES=	mail security
+# MASTER_SITES=	# none
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# COMMENT=	Metapackage for the PGP plug-in for Claws-mail
+# 
+# DEPENDS+=	claws-mail-pgpcore-${CLAWS_VERSION}{,nb[0-9]*}:../../mail/claws-mail-pgpcore
+# DEPENDS+=	claws-mail-pgpmime-${CLAWS_VERSION}{,nb[0-9]*}:../../mail/claws-mail-pgpmime
+# DEPENDS+=	claws-mail-pgpinline-${CLAWS_VERSION}{,nb[0-9]*}:../../mail/claws-mail-pgpinline
+# 
+# .include "../../mk/bsd.pkg.mk"

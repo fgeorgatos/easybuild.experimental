@@ -1,0 +1,95 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# It has been automatically produced by /home/users/fgeorgatos/arena/pkg2eb/pkg2eb_v4.sh ;
+# ie. there is no warranty, provided AS-IS, the known yada yada, etc
+#  
+#  #######                     ######                                    ### 
+#  #         ##    ####  #   # #     # #    # # #      #####     # ##### ### 
+#  #        #  #  #       # #  #     # #    # # #      #    #    #   #   ### 
+#  #####   #    #  ####    #   ######  #    # # #      #    #    #   #    #  
+#  #       ######      #   #   #     # #    # # #      #    #    #   #       
+#  #       #    # #    #   #   #     # #    # # #      #    #    #   #   ### 
+#  ####### #    #  ####    #   ######   ####  # ###### #####     #   #   ###
+#  
+# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+#
+# File::      driconf-0.9.1.eb
+# Date::      Wed Dec 26 17:09:13 CET 2012
+
+# The following values are best-guess, which may have to be further overriden on
+name = 'driconf'
+version = '0.9.1'
+versionsuffix = '-20121226'
+
+description = "driconf-0.9.1: Configuration applet for DRI drivers"
+
+# The following are automatically calculated - cross fingers
+sources = ['driconf-0.9.1.tar.gz']
+source_urls = ['${MASTER_SITE_LOCAL}']
+homepage = 'http://dri.freedesktop.org/wiki/DriConf'
+
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.'] # fixme when the compilation is successful
+                     }
+
+parallel = 1 	# this is a conservative choice
+maxparallel = 1 # this is a conservative choice
+
+moduleclass = 'base'
+
+###### The appended information is simply the pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/driconf/Makefile ######
+# # $NetBSD: Makefile,v 1.19 2012/06/15 23:06:02 dholland Exp $
+# #
+# 
+# DISTNAME=	driconf-0.9.1
+# PKGREVISION=	9
+# CATEGORIES=	x11
+# MASTER_SITES=	${MASTER_SITE_LOCAL}
+# 
+# MAINTAINER=	pkgsrc-users@NetBSD.org
+# HOMEPAGE=	http://dri.freedesktop.org/wiki/DriConf
+# COMMENT=	Configuration applet for DRI drivers
+# LICENSE=	gnu-gpl-v2 # or later
+# 
+# DEPENDS+=	${PYPKGPREFIX}-expat-[0-9]*:../../textproc/py-expat
+# DEPENDS+=	${PYPKGPREFIX}-gtk2>=2.4:../../x11/py-gtk2
+# DEPENDS+=	xdriinfo>=1.0.2:../../x11/xdriinfo
+# 
+# PKG_DESTDIR_SUPPORT=	user-destdir
+# 
+# USE_PKGLOCALEDIR=	yes
+# USE_TOOLS+=		msgfmt msgmerge xgettext
+# 
+# CONFIGURE_ARGS+=	--prefix=${PREFIX:Q}
+# PYDISTUTILSPKG=		yes
+# REPLACE_PYTHON=		*.py
+# 
+# SUBST_CLASSES+=		fix-paths
+# SUBST_FILES.fix-paths=	driconf driconf.desktop
+# SUBST_FILES.fix-paths+=	driconf.py driconf_com*ui.py
+# SUBST_FILES.fix-paths+=	setup.cfg setup.py
+# SUBST_MESSAGE.fix-paths=Fixing hard-coded pathnames.
+# SUBST_STAGE.fix-paths=	pre-configure
+# SUBST_VARS.fix-paths=	PKGBASE PKGLOCALEDIR PKG_SYSCONFDIR PREFIX PYSITELIB
+# ###
+# ###	NOTE: this is only to build the .mo files.
+# ###
+# pre-build:
+# 	${RUN} cd ${WRKSRC} && \
+# 	${BUILD_MAKE_CMD} all
+# 
+# post-install:
+# 	${RUN} cd ${WRKSRC} && \
+# 	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/applications && \
+# 	${INSTALL_DATA} ${WRKSRC}/driconf.desktop \
+# 		${DESTDIR}${PREFIX}/share/applications/
+# 
+# .include "../../lang/python/extension.mk"
+# .include "../../sysutils/desktop-file-utils/desktopdb.mk"
+# 
+# .include "../../mk/bsd.pkg.mk"
