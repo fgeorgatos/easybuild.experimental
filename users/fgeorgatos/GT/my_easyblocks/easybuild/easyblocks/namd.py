@@ -3,7 +3,7 @@
 # Copyright:: Copyright (c) 2012 Cyprus Institute / CaSToRC, University of Luxembourg / LCSB
 #
 # This work is part of HPCBIOS project and is a component of policy:
-# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-95.html
+# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-93.html
 #
 # Author::    George Tsouloupas <g.tsouloupas@cyi.ac.cy>, Fotis Georgatos <fotis.georgatos@uni.lu>
 # License::   MIT/GPL
