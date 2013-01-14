@@ -1,3 +1,13 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 Cyprus Institute / CaSToRC, University of Luxembourg / LCSB
+#
+# This work is part of HPCBIOS project and is a component of policy:
+# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-99.html
+#
+# Author::    George Tsouloupas <g.tsouloupas@cyi.ac.cy>, Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+
 """
 EasyBuild support for CUDA, implemented as an easyblock
 """
