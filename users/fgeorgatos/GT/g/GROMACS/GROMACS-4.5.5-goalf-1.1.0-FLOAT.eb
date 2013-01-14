@@ -1,0 +1,26 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 Cyprus Institute / CaSToRC, University of Luxembourg / LCSB
+#
+# This work is part of HPCBIOS project and is a component of policy: 
+# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-93.html 
+#
+# Author::    George Tsouloupas <g.tsouloupas@cyi.ac.cy>, Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+
+name = 'GROMACS'
+version = '4.5.5'
+versionsuffix = '-FLOAT'
+
+homepage = 'http://www.gromacs.org'
+description = """GROMACS is a versatile package to perform molecular dynamics,
+  i.e. simulate the Newtonian equations of motion for systems with hundreds to millions of particles."""
+
+toolchain = {'name': 'gompi', 'version': '1.1.0'}
+
+# eg. ftp://ftp.gromacs.org/pub/gromacs/gromacs-4.5.5.tar.gz
+sources = ['%s-%s.tar.gz' % (name.lower(), version)]
+source_urls = ['ftp://ftp.gromacs.org/pub/gromacs/']
+
+tcver = '1.1.0'
+builddependencies = [('FFTW', '3.3.1', '-gompi-%s-FLOAT' % tcver, True)]

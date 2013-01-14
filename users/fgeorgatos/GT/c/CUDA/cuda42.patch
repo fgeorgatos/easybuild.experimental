@@ -1,0 +1,30 @@
+--- install-linux.pl	2012-11-23 11:03:46.535825000 +0200
++++ install-linux.pl	2012-11-23 18:17:07.888793000 +0200
+@@ -91,8 +91,8 @@
+ 		    exit(1);
+ 		}
+ 	
+-		## add cuda to path
+-		$line = $line . "/cuda" ;
++		## DO NOT add cuda to path
++		#$line = $line . "/cuda" ;
+ 	    }
+ 	
+ 	    $prefix = $line;
+@@ -122,6 +122,7 @@
+ ### also push the requested path
+ push(@paths, $prefix);
+ 
++if (0){
+ foreach $pathdir (@paths) {
+ 
+     opendir(DIR, $pathdir);
+@@ -154,7 +155,7 @@
+ 
+     closedir(DIR);
+ }
+-
++}
+ 
+ ## make sure we can write the file
+ system("mkdir -p $prefix && chmod 0755 $prefix") unless (-d "$prefix");

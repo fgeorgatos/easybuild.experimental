@@ -1,0 +1,10 @@
+name = 'BLCR'
+version = '0.8.4'
+
+homepage = 'https://ftg.lbl.gov/projects/CheckpointRestart'
+description = """Berkeley Lab Checkpoint/Restart (BLCR)"""
+
+toolchain = {'name': 'GCC', 'version': '4.6.3'}
+
+source_urls = ['https://ftg.lbl.gov/assets/projects/CheckpointRestart/downloads/']
+sources = ['%s-%s.tar.gz' % (name, version)]

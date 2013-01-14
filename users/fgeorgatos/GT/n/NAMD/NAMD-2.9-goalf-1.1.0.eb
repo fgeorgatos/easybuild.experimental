@@ -1,0 +1,37 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 Cyprus Institute / CaSToRC, University of Luxembourg / LCSB
+#
+# This work is part of HPCBIOS project and is a component of policy: 
+# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-93.html
+# 
+# Author::    George Tsouloupas <g.tsouloupas@cyi.ac.cy>, Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+
+name = 'NAMD'
+version = '2.9'
+versionsuffix = '-mpi
+
+homepage = 'http://www.ks.uiuc.edu/Research/namd/'
+description = """NAMD is a parallel molecular dynamics code designed
+  for high-performance simulation of large biomolecular systems."""
+
+toolchain = {'name': 'gompi', 'version': '1.1.0'}
+toolchainopts = {'opt': True, 'pic': True, 'usempi': True}
+
+#charm_opts = 'charm++ net-linux-x86_64 ibverbs'
+charm_opts = 'mpi-linux-x86_64'
+namd_arch = 'Linux-x86_64-g++'
+
+dependencies = [
+                ('FFTW', '2.1.5', '-gompi-1.1.0-FLOAT', True),
+                ('Tcl', '8.5.12')
+               ]
+
+sources = ['NAMD_%s_Source.tar.gz' % (version)]
+
+sanity_check_paths = {
+                      'files' : ['namd2'],
+                      'dirs': [] 
+                     }
+

@@ -1,0 +1,45 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 Cyprus Institute / CaSToRC, University of Luxembourg / LCSB
+#
+# This work is part of HPCBIOS project and is a component of policy: 
+# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-93.html
+# 
+# Author::    George Tsouloupas <g.tsouloupas@cyi.ac.cy>, Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+
+name = 'NAMD'
+version = '2.9'
+versionsuffix = '-MVAPICH181-CUDA'
+
+homepage = 'http://www.ks.uiuc.edu/Research/namd/'
+description = """NAMD is a parallel molecular dynamics code designed 
+  for high-performance simulation of large biomolecular systems."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+#toolchainopts = {'opt': True, 'pic': True, 'usempi': True}
+
+charm_opts = 'net-linux-x86_64 ibverbs charmdebug '
+
+namd_charm_opts = 'net-linux-x86_64-ibverbs '
+namd_arch = 'Linux-x86_64-g++'
+
+## cudapath
+# import os
+# cuda_prefix = os.getenv('EBROOTCUDA')
+cuda_prefix = '/home/users/fgeorgatos/.local/easybuild/software/CUDA/4.2.9'
+
+dependencies = [
+                ('MVAPICH2', '1.8.1', '-GCC-4.6.3'),
+                ('FFTW', '2.1.5', '-GCC-4.6.3-FLOAT', True),
+                ('CUDA', '4.2.9'),
+                ('Tcl', '8.5.12')
+               ]
+
+sources = ['NAMD_%s_Source.tar.gz' % (version)]
+
+sanity_check_paths = {
+                      'files' : ['namd2'],
+                      'dirs': [] 
+                     }
+

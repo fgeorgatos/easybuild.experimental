@@ -1,0 +1,19 @@
+name = 'espresso'
+version = '5.0.1'
+tcver = '1.1.0'
+
+homepage = 'http://www.gromacs.org'
+description = """GROMACS is a versatile package to perform molecular dynamics, i.e. simulate the Newtonian equations of motion for systems with hundreds to millions of particles."""
+
+toolchain = {'name': 'goalf', 'version': '1.1.0'}
+
+
+#http://qe-forge.org/gf/download/frsrelease/116/347/espresso-5.0.1.tar.gz
+
+sources = ['%s-%s.tar.gz' % (name.lower(), version)]
+source_urls = ['http://qe-forge.org/gf/download/frsrelease/116/347/']
+
+makeopts = " all links"
+builddependencies = [('FFTW', '3.3.1', '-gompi-%s' % tcver, True)]
+
+parallel = 1
