@@ -6,6 +6,9 @@
 # Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
 # License::   MIT/GPL
 
+# N.B. This is nearly ready; only thing missing is the buildininstalldir feature
+easyblock = "EB_BuildInInstallDir"
+
 name = 'ScalaBLAST'
 version = '2.0.2'
 
@@ -16,14 +19,17 @@ description = """ScalaBLAST is a high-performance multiprocessor implementation 
   installed, and can run over a wide variety of interconnects including infiniband, quadrics, and ethernet."""
 
 toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'pic': True, 'usempi': True}
 
 # eg. http://omics.pnl.gov/installers/scalablast_source.tar.gz
 sources = ['scalablast_source.tar.gz']
 source_urls = ['http://omics.pnl.gov/installers/']
 
+parallel = 1 # play conservative in build capabilities of the makefile
+
 sanity_check_paths = {
-                      'files': [], #"bin/blastn", "bin/blastp", "bin/blastx"],
-                      'dirs': ["."]
+                      'files': ["Scalablastall"],
+                      'dirs': []
                      }
 
 moduleclass = 'bio'

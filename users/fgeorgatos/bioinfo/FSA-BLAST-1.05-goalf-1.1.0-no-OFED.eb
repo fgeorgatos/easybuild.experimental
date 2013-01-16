@@ -6,7 +6,7 @@
 # Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
 # License::   MIT/GPL
 
-easyblock = "BuildInInstallDir"
+easyblock = 'EB_BuildInInstallDir'
 
 name = 'FSA-BLAST'
 version = '1.05'
@@ -26,11 +26,13 @@ patches = ['FSA-BLAST-1.05-goalf-1.1.0.patch']
 
 preconfigopts = '/bin/true'
 build_in_installdir = 'True'
-sourceinstall = 'True'
-preinstallopts = '/bin/true'
+# sourceinstall = 'True'
+# preinstallopts = '/bin/true'
+
+parallel = 1 # play conservative in build capabilities of the makefile
 
 sanity_check_paths = {
-                      'files': [], #"bin/blastn", "bin/blastp", "bin/blastx"],
+                      'files': ["blast"], #"bin/blastn", "bin/blastp", "bin/blastx"],
                       'dirs': ["."]
                      }
 

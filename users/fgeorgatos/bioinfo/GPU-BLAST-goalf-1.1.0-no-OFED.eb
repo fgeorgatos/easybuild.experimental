@@ -6,7 +6,7 @@
 # Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
 # License::   MIT/GPL
 
-name = 'NCBI-Toolkit'
+name = 'GPU-BLAST'
 version = '2.2.26'
 
 homepage = 'http://eudoxus.cheme.cmu.edu/gpublast/gpublast.html'
@@ -20,6 +20,12 @@ toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
 # eg. http://eudoxus.cheme.cmu.edu/gpublast/gpu-blast-1.1_ncbi-blast-2.2.26.tar.gz
 sources = ['gpu-blast-1.1_ncbi-blast-2.2.26.tar.gz']
 source_urls = ['http://eudoxus.cheme.cmu.edu/gpublast/']
+
+preconfigopts = '/bin/true'
+
+dependencies = ['CUDA', '5.0.35']
+
+parallel = 1 # play conservative in build capabilities of the makefile
 
 sanity_check_paths = {
                       'files': [], #"bin/blastn","bin/blastp","bin/blastx"],

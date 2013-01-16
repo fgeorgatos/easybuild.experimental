@@ -16,10 +16,15 @@ description = """mpiCUDA-BLASTP 1.0 is freely available under the BSD license ag
   tested on a GPU cluster with four nodes and a Tesla S1060 quad-GPU system."""
 
 toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'pic': True, 'usempi': True}
+
+configopts = '/bin/true'
 
 # eg. https://sites.google.com/site/liuweiguohome/mpicuda-blastp/mpiCUDA-BLASTP1.0-source.tar.gz?attredirects=0&d=1
 sources = ['mpiCUDA-BLASTP1.0-source.tar.gz']
 source_urls = ['https://sites.google.com/site/liuweiguohome/software','?attredirects=0&d=1']
+
+parallel = 1 # play conservative in build capabilities of the makefile
 
 sanity_check_paths = {
                       'files': [], #"bin/blastn","bin/blastp","bin/blastx"],
