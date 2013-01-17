@@ -18,11 +18,15 @@ description = """mpiCUDA-BLASTP 1.0 is freely available under the BSD license ag
 toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
 toolchainopts = {'pic': True, 'usempi': True}
 
-configopts = '/bin/true'
-
 # eg. https://sites.google.com/site/liuweiguohome/mpicuda-blastp/mpiCUDA-BLASTP1.0-source.tar.gz?attredirects=0&d=1
-sources = ['mpiCUDA-BLASTP1.0-source.tar.gz']
+sources = ['%s%s-source.tar.gz' % (name, version)]
 source_urls = ['https://sites.google.com/site/liuweiguohome/software','?attredirects=0&d=1']
+
+## dependencies = [('CUDA', '5.0.35', '')]
+
+preconfigopts = '/bin/true'
+
+makeopts = 'all'
 
 parallel = 1 # play conservative in build capabilities of the makefile
 

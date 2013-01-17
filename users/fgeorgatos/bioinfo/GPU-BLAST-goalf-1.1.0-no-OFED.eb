@@ -23,7 +23,7 @@ source_urls = ['http://eudoxus.cheme.cmu.edu/gpublast/']
 
 preconfigopts = '/bin/true'
 
-dependencies = ['CUDA', '5.0.35']
+## dependencies = [('CUDA', '5.0.35', '')]
 
 parallel = 1 # play conservative in build capabilities of the makefile
 
