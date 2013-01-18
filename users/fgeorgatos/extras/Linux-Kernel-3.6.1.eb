@@ -1,0 +1,44 @@
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2012 University of Luxembourg / Luxembourg Center for Systems Biomedicine
+# This work is part of HPCBIOS project
+#
+# Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+
+name = 'Linux'
+version = '3.7.1'
+
+homepage = 'http://www.kernel.org/'
+description = """Linux is a clone of the operating system Unix, written from scratch by Linus Torvalds
+  with assistance from a loosely-knit team of hackers across the Net. It aims towards POSIX and
+  Single UNIX Specification compliance. It has all the features you would expect in a modern fully-fledged Unix,
+  including true multitasking, virtual memory, shared libraries, demand loading, shared copy-on-write executables,
+  proper memory management, and multistack networking including IPv4 and IPv6. Although originally developed
+  first for 32-bit x86-based PCs (386 or higher), today Linux also runs on (at least) the Alpha AXP, Sun SPARC,
+  Motorola 68000, PowerPC, ARM, Hitachi SuperH, IBM S/390, MIPS, HP PA-RISC, Intel IA-64, AMD x86-64, AXIS CRIS,
+  Renesas M32R, Atmel AVR32, Renesas H8/300, NEC V850, Tensilica Xtensa, and Analog Devices Blackfin architectures;
+  for many of these architectures in both 32- and 64-bit variants. Linux is easily portable to most general-purpose
+  32- or 64-bit architectures as long as they have a paged memory management unit (PMMU) and a port of the GNU C
+  compiler (gcc) (part of The GNU Compiler Collection, GCC). Linux has also been ported to a number of architectures
+  without a PMMU, although functionality is then obviously somewhat limited. See m-Clinux project for more info."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+# eg. http://www.kernel.org/pub/linux/kernel/v3.0/linux-3.7.1.tar.bz2
+sources = ['linux-%s.tar.bz2' % version]
+source_urls = ['http://www.kernel.org/pub/linux/kernel/v%s.0/' % version.split('.')[0]]
+
+preconfigopts = "make defconfig && /bin/true"
+makeopts = "bzImage modules"
+preinstallopts = "INSTALL_MOD_PATH=/tmp/modules INSTALL_PATH=/tmp"
+installopts = "modules_install"
+
+sanity_check_paths = {
+                      'files': ["/tmp/vmlinuz-3.7.1"], 
+                      'dirs': []
+                     }
+
+# runtest = 'installcheck' # the current Makefile is placeholder and empty - so leaving this for future plumping
+
+moduleclass = 'base'
