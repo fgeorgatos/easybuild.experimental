@@ -5,28 +5,22 @@
 # License::   MIT/GPL ; ie. no warranty, AS-IS, recycle as needed with other Open Source licenses
 # Date::      Tue Sep  4 12:40:28 CEST 2012
 
-name='octave'
-version='3.6.2'
+name = 'octave'
+version = '3.6.2'
 
-versionsuffix='-20120724'
+homepage = 'http://www.octave.org/'
+description = "octave- description: High-level language, intended for numerical computations"
 
-#homepage='http://www.gnu.org/software/octave/'
-homepage='http://www.octave.org/'
-description="octave- description: High-level_language,_intended_for_numerical_computations"
+sources = ['%s-%s.tar.bz2' % (name, version)]
+sourceURLs = ['ftp://ftp.gnu.org/gnu/octave']
 
-#toolkit={'name':'goalf','version':'1.1.0-no-OFED'}
-#toolkitopts={'optarch':True, 'pic':True}
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'opt': False, 'optarch': False} # don't use agressive optimization, stick to -O2
+#toolchainopts = {'optarch': True, 'pic': True}
 
-toolkit={'name':'goalf','version':'1.1.0-no-OFED'}
-toolkitopts={'opt':False, 'optarch':False} # don't use agressive optimization, stick to -O2
+sanityCheckPaths = {
+                    'files': [],
+                    'dirs': ['.']
+                   }
 
-sanityCheckPaths={
-                  'files':[],
-                  'dirs':['.']
-                 }
-
-sources=['%s-%s.tar.bz2'%(name,version)]
-sourceURLs=['ftp://ftp.gnu.org/gnu/octave']
-
-# limit parallel build to 12
-maxparallel=12
+parallel = 1

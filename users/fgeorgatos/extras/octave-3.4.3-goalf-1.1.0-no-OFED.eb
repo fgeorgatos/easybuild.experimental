@@ -5,22 +5,21 @@
 # License::   MIT/GPL ; ie. no warranty, AS-IS, recycle as needed with other Open Source licenses
 # Date::      Tue Sep  4 12:40:28 CEST 2012
 
-name='octave'
-version='3.4.3'
+name = 'octave'
+version = '3.4.3'
 
-homepage='http://www.gnu.org/software/octave/'
-description="""octave"""
+homepage = 'http://www.gnu.org/software/octave/'
+description = """octave"""
 
-toolkit={'name':'goalf','version':'1.1.0-no-OFED'}
-toolkitopts={'opt':False, 'optarch':False} # don't use agressive optimization, stick to -O2
+sources = ['%s-%s.tar.bz2' % (name, version)]
+sourceURLs = ['ftp://ftp.gnu.org/gnu/octave']
 
-sources=['%s-%s.tar.bz2'%(name,version)]
-sourceURLs=['ftp://ftp.gnu.org/gnu/octave']
+toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchainopts = {'opt': False, 'optarch': False} # don't use agressive optimization, stick to -O2
 
-sanityCheckPaths={
-                  'files':[],
-                  'dirs':['.']
-                 }
+sanityCheckPaths = {
+                    'files': [],
+                    'dirs': ['.']
+                   }
 
-# limit parallel build to 20
-maxparallel=12
+parallel = 1
