@@ -1,9 +1,9 @@
 # This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
 #
-# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
+# Copyright:: Copyright (c) 2012 University of Luxembourg / Luxembourg Centre for Systems Biomedicine
 # Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
-# License::   MIT/GPL ; ie. no warranty, AS-IS, recycle as needed with other Open Source licenses
-# Date::      Tue Sep  4 12:40:28 CEST 2012
+# License::   MIT/GPL # ie. no warranty, AS-IS, recycle as needed with other Open Source licenses
+# $Id$
 
 name = 'octave'
 version = '3.4.3'
