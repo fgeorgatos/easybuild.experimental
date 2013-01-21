@@ -1,10 +1,11 @@
 # This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
 #
-# Copyright:: Copyright (c) 2012 University of Luxembourg / Luxembourg Center for Systems Biomedicine
-# This work is part of HPCBIOS project
-#
+# Copyright:: Copyright (c) 2012 University of Luxembourg / Luxembourg Centre for Systems Biomedicine
 # Author::    Fotis Georgatos <fotis.georgatos@uni.lu>
 # License::   MIT/GPL
+# $Id$
+#
+# This work is part of HPCBIOS project
 
 ## Resulting modulefile misses PATH variable
 
