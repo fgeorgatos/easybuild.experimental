@@ -41,6 +41,6 @@ sanity_check_paths = {
                       'dirs': []
                      }
 
-# runtest = 'installcheck' # left as future work :-)
+# runtest = 'installcheck' # future work :-)
 
 moduleclass = 'base'
