@@ -1,0 +1,11 @@
+# copied from https://github.com/turon/git-rcs-keywords
+#
+# remember to add the following 3 lines to your .git/config:
+# [filter "rcs-keywords"]
+#         clean  = .git_filters/rcs-keywords.clean
+#         smudge = .git_filters/rcs-keywords.smudge %f
+#
+#
+# == List of files to process for rcs keyword substition ==
+*.eb filter=rcs-keywords
+*.py filter=rcs-keywords
