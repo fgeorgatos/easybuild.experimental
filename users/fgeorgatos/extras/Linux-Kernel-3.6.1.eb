@@ -5,7 +5,8 @@
 # License::   MIT/GPL
 # $Id$
 #
-# This work is part of HPCBIOS project
+# This work is part of HPCBIOS project and implements policy:
+# 007 - well, "short of"
 
 name = 'Linux'
 version = '3.7.1'
@@ -40,6 +41,6 @@ sanity_check_paths = {
                       'dirs': []
                      }
 
-# runtest = 'installcheck' # the current Makefile is placeholder and empty - so leaving this for future plumping
+# runtest = 'installcheck' # future work :-)
 
 moduleclass = 'base'
