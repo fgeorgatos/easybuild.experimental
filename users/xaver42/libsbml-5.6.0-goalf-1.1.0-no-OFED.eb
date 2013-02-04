@@ -1,17 +1,18 @@
+##
 # This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
 #
-# Copyright:: Copyright (c) 2012 University of Luxembourg / LCSB
-# Author:: Nils Christian <nils.christian@uni.lu>
-# License:: MIT/GPL ; ie. no warranty, AS-IS, recycle as needed with other Open Source licenses
-# File:: $File$
-# Date:: $Date$
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Nils Christian <nils.christian@uni.lu>
+# License::   MIT/GPL
+# $Id$
+##
 
 name = 'libsbml'
 version = '5.6.0'
 
 homepage = 'http://sbml.org/Software/libSBML'
 description = """LibSBML is a free, open-source programming library to help 
-you read, write, manipulate, translate, and validate SBML files and data streams."""
+  you read, write, manipulate, translate, and validate SBML files and data streams."""
 
 sources = ['%s-%s-src.tar.gz' % (name.lower(),version)]
 source_urls = [('http://sourceforge.net/projects/sbml/files/libsbml/%s/stable/' % version, 'download')]
