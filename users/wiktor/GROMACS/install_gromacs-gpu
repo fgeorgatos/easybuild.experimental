@@ -1,0 +1,32 @@
+tar -zxf gromacs-4.5.5.tar.gz 
+cd gromacs-4.5.5/
+export OPENMM_ROOT_DIR=/home/users/wjurkowski/openmm
+mkdir build_gromacs_gpu
+cd build_gromacs_gpu
+cmake .. -DGMX_OPENMM=ON -DCMAKE_INSTALL_PREFIX=/home/users/wjurkowski/gromacs
+make mdrun
+make install-mdrun
+
+#with mpi
+wget ftp://ftp.gromacs.org/pub/gromacs/gromacs-4.6.tar.gz
+tar -zxf gromacs-4.6.tar.gz
+cd gromacs-4.6
+mkdir build_gromacs_gpu-mpi
+cd build_gromacs_gpu-mpi
+module load OpenMPI/1.4.5-GCC-4.6.3-no-OFED
+CC=mpicc CXX=mpiCC
+cmake .. -DGMX_OPENMP=ON -DGMX_GPU=ON -DGMX_MPI=ON -DGMX_PREFER_STATIC_LIBS=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/users/wjurkowski/gromacs
+make mdrun
+make install-mdrun
+
+#with mpi and intel without gpu
+cd gromacs-4.6
+mkdir build_gromacs_gpu_mpi
+module load ictce
+CC=mpiicc CXX=mpicxx
+cmake .. -DGMX_OPENMP=OFF -DGMX_GPU=OFF -DGMX_MPI=ON -DGMX_PREFER_STATIC_LIBS=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/users/wjurkowski/gromacs
+make
+make install
+
+
+
