@@ -12,6 +12,7 @@
 
 name = 'GROMACS'
 version = '4.5.5'
+versionsuffix = '-parallel'
 
 homepage = 'http://www.gromacs.org/'
 description = """GROMACS is a versatile package to perform molecular dynamics, i.e. simulate
@@ -23,8 +24,10 @@ source_urls = ['ftp://ftp.gromacs.org/pub/gromacs/']
 toolchain = {'name': 'goalf','version': '1.1.0-no-OFED'}
 toolchainopts = {'optarch': True, 'pic': True, 'usempi': True}
 
+configopts    =  '--with-mpi'
+
 sanity_check_paths = {
-                      'files': ['bin/mdrun'],
+                      'files': ['bin/mdrun_mpi'],
                       'dirs': []
                      }
 
