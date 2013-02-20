@@ -1,8 +1,8 @@
 ##
-# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
 #
 # Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
-# Authors::   Wiktor Jurkowski <wiktor.jurkowski@uni.lu> and Fotis Georgatos <fotis.georgatos@uni.lu> 
+# Authors::   Wiktor Jurkowski <wiktor.jurkowski@uni.lu>, Fotis Georgatos <fotis.georgatos@uni.lu> 
 # License::   MIT/GPL
 # $Id$
 #
@@ -14,11 +14,13 @@ name = 'Dock'
 version = '6.6'
 
 homepage = 'http://dock.compbio.ucsf.edu/'
-description = """DOCK addresses the problem of docking molecules to each other. In general, docking is the identification of the low-energy
-binding modes of a small molecule, or ligand, within the active site of a macromolecule, or receptor, whose structure is known.
-A compound that interacts strongly with, or binds, a receptor associated with a disease may inhibit its function and thus act as a drug.
-Solving the docking problem computationally requires an accurate representation of the molecular energetics as well as an efficient algorithm
-to search the potential binding modes."""
+description = """DOCK addresses the problem of docking molecules to each other. In general,
+  docking is the identification of the low-energy binding modes of a small molecule, or ligand,
+  within the active site of a macromolecule, or receptor, whose structure is known.  A compound
+  that interacts strongly with, or binds, a receptor associated with a disease may inhibit its
+  function and thus act as a drug.  Solving the docking problem computationally requires an
+  accurate representation of the molecular energetics as well as an efficient algorithm
+  to search the potential binding modes."""
 
 sources = ['%s.%s_source.tar.gz' % (name.lower(), version)]
 
