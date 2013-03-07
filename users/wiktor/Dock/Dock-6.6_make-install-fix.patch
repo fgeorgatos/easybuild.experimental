@@ -1,5 +1,5 @@
-diff -ur Makefile-oryg Makefile > Dock-6.6_make-install-fix.patch
---- Makefile-oryg	2013-02-04 10:19:15.918563930 +0100
+diff -ur Makefile.orig Makefile > Dock-6.6_make-install-fix.patch
+--- Makefile.orig	2013-02-04 10:19:15.918563930 +0100
 +++ Makefile	2013-02-04 10:21:07.503563314 +0100
 @@ -222,3 +222,7 @@
  	cp anchor_and_grow.in rigid.in \

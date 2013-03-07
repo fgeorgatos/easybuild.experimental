@@ -1,0 +1,32 @@
+
+# go to the build area and prepare the environment
+cd /home/users/fgeorgatos/easybuild.experimental/users/fgeorgatos/extras/
+module load EasyBuild/1.2.0 
+
+# Build PRACE prerequisites
+eb --try-software-name=Tcl --software-version=8.5.12 --try-toolchain=ictce,5.2.0
+eb --try-software-name=Tk --software-version=8.5.12 --try-toolchain=ictce,5.2.0
+eb --try-software-name=Szip --software-version=2.1 --try-toolchain=ictce,5.2.0
+eb --try-software-name=zlib --software-version=1.2.7 --try-toolchain=ictce,5.2.0
+eb --try-software-name=HDF5 --software-version=1.8.9 --try-toolchain=ictce,5.2.0
+eb --try-software-name=flex --software-version=2.5.35 --try-toolchain=ictce,5.2.0
+eb --try-software-name=M4 --software-version=1.4.16 --try-toolchain=ictce,5.2.0
+eb --try-software-name=Bison --software-version=2.5 --try-toolchain=ictce,5.2.0
+eb --try-software-name=Doxygen --software-version=1.8.1.1 --try-toolchain=ictce,5.2.0
+eb --try-software-name=netCDF --software-version=4.1.3 --try-toolchain=ictce,5.2.0
+
+eb ~/easybuild-easyconfigs/easybuild/easyconfigs/b/Bash/Bash-4.2-goalf-1.1.0-no-OFED.eb     --try-toolchain=ictce,5.2.0
+eb ~/easybuild-easyconfigs/easybuild/easyconfigs/t/tcsh/tcsh-6.18.01-goalf-1.1.0-no-OFED.eb --try-toolchain=ictce,5.2.0
+
+# now do the same for an alternative ictce toolchain:
+cat how_to_build_PRACE_easyconfig_and_vars.txt |sed s/5.2.0/4.1.13/g|grep ^eb|bash
+
+# vo PRACE*.eb 
+# eb PRACE*.eb 
+
+module av PRACE
+module load PRACE/20130306-ictce-5.2.0
+echo $EBDEVELPRACE 
+less $EBDEVELPRACE
+module load $EBDEVELPRACE
+echo $CC
