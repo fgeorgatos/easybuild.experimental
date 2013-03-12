@@ -8,6 +8,16 @@
 # Author::    George Tsouloupas <g.tsouloupas@cyi.ac.cy>, Fotis Georgatos <fotis.georgatos@uni.lu>
 # License::   MIT/GPL
 
+
+### TODO:
+### * ensure modulefile adds also CUDA_HOME: . 
+### * ensure modulefile adds also CPATH: include
+### * ensure modulefile adds also PATH: open64/bin 
+### * ensure modulefile adds also LD_LIBRARY_PATH: lib64/bin 
+### * propose a default value for CUDA_NVCC_FLAGS, if not already defined???
+### ** CUDA_NVCC_FLAGS='-gencode;arch=compute_20,code=sm_20;-use_fast_math;'
+### * Verify with: https://speakerdeck.com/ajdecon/introduction-to-the-cuda-toolkit-for-building-applications
+
 """
 EasyBuild support for CUDA, implemented as an easyblock
 """
