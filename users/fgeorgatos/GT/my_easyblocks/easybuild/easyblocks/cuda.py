@@ -87,6 +87,8 @@ class EB_CUDA(Binary):
                           'CPATH': ['toolkit/include'],
                           'CUDA_HOME': ['toolkit'],
                          })
+                         
+        guesses.update({'CUDA_NVCC_FLAGS': ['-gencode;arch=compute_20,code=sm_20;-use_fast_math']})
 
         return guesses
                        
