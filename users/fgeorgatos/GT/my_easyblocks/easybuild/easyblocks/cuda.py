@@ -15,7 +15,7 @@
 ### * ensure modulefile adds also PATH: open64/bin 
 ### * ensure modulefile adds also LD_LIBRARY_PATH: lib64/bin 
 ### * propose a default value for CUDA_NVCC_FLAGS, if not already defined???
-### ** CUDA_NVCC_FLAGS='-gencode;arch=compute_20,code=sm_20;-use_fast_math;'
+### ** CUDA_NVCC_FLAGS='-gencode;arch=compute_20,code=sm_20;-use_fast_math;' # conservative, to permit TV debugging
 ### * Verify with: https://speakerdeck.com/ajdecon/introduction-to-the-cuda-toolkit-for-building-applications
 
 """
