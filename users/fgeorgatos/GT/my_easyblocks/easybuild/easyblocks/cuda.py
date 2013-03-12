@@ -25,7 +25,7 @@ import glob
 import os
 import stat
 
-import easybuild.tools.environment as env
+#import easybuild.tools.environment as env
 from easybuild.easyblocks.generic.binary import Binary
 from easybuild.tools.filetools import run_cmd_qa, run_cmd
 from distutils.version import LooseVersion
@@ -35,10 +35,6 @@ class EB_CUDA(Binary):
     """
     Support for installing CUDA.
     """
-
-    def __init__(self, *args, **kwargs):
-        super(EB_CUDA, self).__init__(*args, **kwargs)
-        self.bindir = None
 
     def extract_step(self):
         cmd = self.src[0]['path']
@@ -78,7 +74,7 @@ class EB_CUDA(Binary):
                           'PATH': ['bin', 'open64/bin'],
                           'LD_LIBRARY_PATH': ['lib64'],
                           'CPATH': ['include'],
-                          'CUDA_HOME': ['.'] # or, self.rootpack_dir?
+                          'CUDA_HOME': [''],
                          })
         else:
           guesses.update({
@@ -87,18 +83,6 @@ class EB_CUDA(Binary):
                           'CPATH': ['toolkit/include'],
                           'CUDA_HOME': ['toolkit'],
                          })
-                         
-        #guesses.update({'CUDA_NVCC_FLAGS': ['-gencode;arch=compute_20,code=sm_20;-use_fast_math']})
 
         return guesses
-                       
-#    def make_module_extra(self):
-#        """Add extra environment variables for CUDA_HOME and anything else."""
-#
-#        txt = super(EB_CUDA, self).make_module_extra()
-#        txt += "prepend-path\t%s\t\t%s\n" % ('CUDA_HOME', self.rootpack_dir)
-#        self.log.debug("make_module_extra added %s" % txt)
-#        return txt
-
-
 
