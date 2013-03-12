@@ -24,4 +24,4 @@ sources = ['%s-%s.tar.gz' % (name.lower(), version)]
 source_urls = ['ftp://ftp.gromacs.org/pub/gromacs/']
 
 tcver = '1.1.0-no-OFED'
-builddependencies = [('FFTW', '3.3.1', '-gompi-%s' % tcver, True)]
+dependencies = [('FFTW', '3.3.3', '-gompi-%s' % tcver, True)]
