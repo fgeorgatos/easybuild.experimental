@@ -37,9 +37,8 @@ class EB_CUDA(Binary):
     """
 
     def extract_step(self):
-        cmd = self.src[0]['path']
-        run_cmd("chmod +x " + cmd)
-        run_cmd(cmd + " --noexec --nox11 --target " + self.builddir)
+        execpath = self.src[0]['path']
+        run_cmd("/bin/sh " + execpath + " --noexec --nox11 --target " + self.builddir)
         self.src[0]['finalpath'] = self.builddir
 
     def install_step(self):
