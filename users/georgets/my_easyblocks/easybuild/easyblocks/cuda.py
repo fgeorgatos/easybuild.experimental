@@ -69,20 +69,12 @@ class EB_CUDA(Binary):
 
         guesses = super(EB_CUDA, self).make_module_req_guess()
 
-        if LooseVersion(self.version) <= LooseVersion("5"):
-          guesses.update({
-                          'PATH': ['bin', 'open64/bin'],
-                          'LD_LIBRARY_PATH': ['lib64'],
-                          'CPATH': ['include'],
-                          'CUDA_HOME': [''],
-                         })
-        else:
-          guesses.update({
-                          'PATH': ['toolkit/bin', 'toolkit/open64/bin'],
-                          'LD_LIBRARY_PATH': ['toolkit/lib64'],
-                          'CPATH': ['toolkit/include'],
-                          'CUDA_HOME': ['toolkit'],
-                         })
+        guesses.update({
+                        'PATH': ['bin', 'open64/bin'],
+                        'LD_LIBRARY_PATH': ['lib64'],
+                        'CPATH': ['include'],
+                        'CUDA_HOME': [''],
+                       })
 
         return guesses
 
