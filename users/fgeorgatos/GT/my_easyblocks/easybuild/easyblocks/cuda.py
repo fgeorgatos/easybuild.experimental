@@ -13,7 +13,7 @@
 ### * ensure modulefile adds also CUDA_HOME: . 
 ### * ensure modulefile adds also CPATH: include
 ### * ensure modulefile adds also PATH: open64/bin 
-### * ensure modulefile adds also LD_LIBRARY_PATH: lib64/bin 
+### * ensure modulefile adds also LD_LIBRARY_PATH: lib64
 ### * propose a default value for CUDA_NVCC_FLAGS, if not already defined???
 ### ** CUDA_NVCC_FLAGS='-gencode;arch=compute_20,code=sm_20;-use_fast_math;' # conservative, to permit TV debugging
 ### * Verify with: https://speakerdeck.com/ajdecon/introduction-to-the-cuda-toolkit-for-building-applications
@@ -68,9 +68,35 @@ class EB_CUDA(Binary):
         except OSError, err:
             self.log.exception("Can't set permissions on %s: %s" % (self.installdir, err))
 
-    def make_module_extra(self):
+    def make_module_req_guess(self):
+        """Specify CUDA TotalView custom values for PATH etc."""
 
-        txt = super(EB_CUDA, self).make_module_extra()
-        self.log.debug("make_module_extra added %s" % txt)
-        return txt
+        guesses = super(EB_CUDA, self).make_module_req_guess()
+
+        if LooseVersion(self.version) <= LooseVersion("5"):
+          guesses.update({
+                          'PATH': ['bin', 'open64/bin'],
+                          'LD_LIBRARY_PATH': ['lib64'],
+                          'CPATH': ['include'],
+                          'CUDA_HOME': ['.'] # or, self.rootpack_dir?
+                         })
+        else:
+          guesses.update({
+                          'PATH': ['toolkit/bin', 'toolkit/open64/bin'],
+                          'LD_LIBRARY_PATH': ['toolkit/lib64'],
+                          'CPATH': ['toolkit/include'],
+                          'CUDA_HOME': ['toolkit'],
+                         })
+
+        return guesses
+                       
+#    def make_module_extra(self):
+#        """Add extra environment variables for CUDA_HOME and anything else."""
+#
+#        txt = super(EB_CUDA, self).make_module_extra()
+#        txt += "prepend-path\t%s\t\t%s\n" % ('CUDA_HOME', self.rootpack_dir)
+#        self.log.debug("make_module_extra added %s" % txt)
+#        return txt
+
+
 
