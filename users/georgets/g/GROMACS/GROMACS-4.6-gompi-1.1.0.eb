@@ -19,6 +19,8 @@ description = """GROMACS is a versatile package to perform molecular dynamics,
 
 toolchain = {'name': 'gompi', 'version': '1.1.0'}
 
+configopts=' -DCUDA_TOOLKIT_ROOT_DIR=""'
+
 # eg. ftp://ftp.gromacs.org/pub/gromacs/gromacs-4.6.tar.gz
 sources = ['%s-%s.tar.gz' % (name.lower(), version)]
 source_urls = ['ftp://ftp.gromacs.org/pub/gromacs/']
