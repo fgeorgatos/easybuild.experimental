@@ -1,31 +1,24 @@
+##
 # This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
 #
-# Copyright:: Copyright (c) 2012 Cyprus Institute / CaSToRC, University of Luxembourg / LCSB
-#
-# This work is part of HPCBIOS project and is a component of policy:
-# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-99.html
-#
+# Copyright:: Copyright (c) 2012-2013 Cyprus Institute / CaSToRC, University of Luxembourg / LCSB
 # Author::    George Tsouloupas <g.tsouloupas@cyi.ac.cy>, Fotis Georgatos <fotis.georgatos@uni.lu>
 # License::   MIT/GPL
-
-
-### TODO:
-### * ensure modulefile adds also CUDA_HOME: . 
-### * ensure modulefile adds also CPATH: include
-### * ensure modulefile adds also PATH: open64/bin 
-### * ensure modulefile adds also LD_LIBRARY_PATH: lib64
-### # propose a default value for CUDA_NVCC_FLAGS, if not already defined???
-### # CUDA_NVCC_FLAGS='-gencode;arch=compute_20,code=sm_20;-use_fast_math;' # conservative, to permit TV debugging
-### * Verify with: https://speakerdeck.com/ajdecon/introduction-to-the-cuda-toolkit-for-building-applications
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-99.html
+##
 
 """
 EasyBuild support for CUDA, implemented as an easyblock
+
+Ref: https://speakerdeck.com/ajdecon/introduction-to-the-cuda-toolkit-for-building-applications
 """
 import glob
 import os
 import stat
 
-#import easybuild.tools.environment as env
 from easybuild.easyblocks.generic.binary import Binary
 from easybuild.tools.filetools import run_cmd_qa, run_cmd
 from distutils.version import LooseVersion
@@ -49,10 +42,14 @@ class EB_CUDA(Binary):
         if LooseVersion(self.version) <= LooseVersion("5"):
           cmd = os.path.join(self.builddir, "install-linux.pl --prefix=" + self.installdir)
         else:
-          cmd = os.path.join(self.builddir, "cuda-installer.pl -verbose -silent -samplespath=%s/samples/ -toolkitpath=%s -samples -toolkit" % (self.installdir, self.installdir))
+	      ## The following would require to setup: osdependencies = 'libglut'
+	      ## installparams = "-samplespath=%s/samples/ -toolkitpath=%s -samples -toolkit" % (self.installdir, self.installdir))
+	      installparams = "-toolkitpath=%s -toolkit" % self.installdir)
+          cmd = os.path.join(self.builddir, "cuda-installer.pl -verbose -silent " + installparams)
 
         qanda = {
-                 "A previous version of CUDA was found in /usr/local/cuda\nWould you like to remove all CUDA files under /usr/local/cuda? (yes/no/abort): ": "no",
+                 "".join("A previous version of CUDA was found in /usr/local/cuda\n", 
+		 "Would you like to remove all CUDA files under /usr/local/cuda? (yes/no/abort): "): "no",
                  }
         noqanda = [r"Installation Complete"]
 
@@ -69,10 +66,11 @@ class EB_CUDA(Binary):
         guesses = super(EB_CUDA, self).make_module_req_guess()
 
         guesses.update({
-                        'PATH': ['bin', 'open64/bin'],
+                        'PATH': ['open64/bin', 'bin'],
                         'LD_LIBRARY_PATH': ['lib64'],
                         'CPATH': ['include'],
                         'CUDA_HOME': [''],
+                        'CUDA_PATH': [''],
                        })
 
         return guesses
