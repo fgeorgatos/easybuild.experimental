@@ -23,7 +23,7 @@ toolchain = {'name': 'dummy', 'version': 'dummy'}
 # eg. http://developer.download.nvidia.com/compute/cuda/5_0/rel-update-1/installers/cuda_5.0.35_linux_64_rhel5.x-1.run
 source_urls = ['http://developer.download.nvidia.com/compute/cuda/5_0/rel-update-1/installers/']
 
-# exhaustive list of all known versions
+# exhaustive list of all known Linux packages for CUDA v5.0.35
 if SYSTEM_NAME in ['fedora', 'centos', 'redhat']:
     system = 'fedora16'
 elif SYSTEM_NAME in ["RHEL", "SL"]:
@@ -41,10 +41,5 @@ else:
     system = 'UNKNOWN'
 
 sources = ['%s_%s_linux_64_%s%s.run' % (name.lower(), version, system, versionsuffix)]
-
-sanity_check_paths = {
-                      'files': ["bin/nvcc"],
-                      'dirs': []
-                     }
 
 moduleclass = 'base'

@@ -52,21 +52,35 @@ class EB_CUDA(Binary):
           install_script = os.path.join(self.builddir, "cuda-installer.pl")
           cmd = install_script + " -verbose -silent " + installparams
 
+        qanda = {}
         stdqa = {
-                 "Would you like to remove all CUDA files under .*? (yes/no/abort): "]): "no",
+                 "Would you like to remove all CUDA files under .*? (yes/no/abort): ": "no",
                  }
         noqanda = [r"Installation Complete"]
 
         # patch install script to handle Q&A autonomously
         patch_perl_script_autoflush(install_script)
 
-        run_cmd_qa(cmd, qanda, std_qa=stdqa, log_all=True, simple=True)
+        run_cmd_qa(cmd, qanda, std_qa=stdqa, no_qa=noqanda, log_all=True, simple=True)
 
         # FIXME (kehoste): what is this about? why chmod the installdir?!?
         try:
             os.chmod(self.installdir, stat.S_IRWXU | stat.S_IXOTH | stat.S_IXGRP | stat.S_IROTH | stat.S_IRGRP)
         except OSError, err:
             self.log.exception("Can't set permissions on %s: %s" % (self.installdir, err))
+
+    def sanity_check_step(self):
+        """Custom sanity check for CUDA."""
+
+        custom_paths = {
+            'files': ["bin/%s" % x for x in ["fatbinary", "nvcc", "nvlink", "ptxas"]] +
+                     ["%s/lib%s.so" % (x, y) for x in ["lib", "lib64"] for y in ["cublas", "cudart", "cufft",
+                                                                                 "curand", "cusparse", "npp"]] +
+                     ["open64/bin/nvopencc"],
+            'dirs': ["include"],
+        }
+
+        super(EB_CUDA, self).sanity_check_step(custom_paths=custom_paths)
 
     def make_module_req_guess(self):
         """Specify CUDA custom values for PATH etc."""
@@ -82,4 +96,3 @@ class EB_CUDA(Binary):
                        })
 
         return guesses
-
