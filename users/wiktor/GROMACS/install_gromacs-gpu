@@ -1,0 +1,89 @@
+
+## GROMACS 4.5.5
+
+```
+tar -zxf gromacs-4.5.5.tar.gz 
+cd gromacs-4.5.5/
+
+[4.5.5-goalf-CUDA]
+
+module load goalf
+
+export OPENMM_ROOT_DIR=/home/users/wjurkowski/openmm
+mkdir build_gromacs_gpu
+cd build_gromacs_gpu
+cmake .. -DGMX_OPENMM=ON -DCMAKE_INSTALL_PREFIX=/home/users/wjurkowski/gromacs
+make mdrun
+make install-mdrun
+```
+
+## GROMACS 4.6
+
+```
+wget ftp://ftp.gromacs.org/pub/gromacs/gromacs-4.6.tar.gz
+tar -zxf gromacs-4.6.tar.gz
+cd gromacs-4.6
+
+[4.6-parallel-goalf]
+
+module load goalf
+CC=mpicc CXX=mpiCC
+
+mkdir build_gromacs_mpi
+cd build_gromacs_mpi
+
+cmake .. -DGMX_OPENMP=ON -DGMX_MPI=ON -DGMX_PREFER_STATIC_LIBS=ON -DCMAKE_BUILD_TYPE=Release  -DCMAKE_INSTALL_PREFIX=/home/users/wjurkowski/gromacs_mpi
+make mdrun
+make install-mdrun
+cd ..
+mkdir build_gromacs
+cd build_gromacs
+cmake .. -DGMX_PREFER_STATIC_LIBS=ON -DCMAKE_BUILD_TYPE=Release  -DCMAKE_INSTALL_PREFIX=/home/users/wjurkowski/gromacs_mpi
+make
+make install
+
+[4.6-parallel-goalf-CUDA]
+
+module load goalf
+module load CUDA
+CC=mpicc CXX=mpiCC
+
+mkdir build_gromacs_gpu-mpi
+cd build_gromacs_gpu-mpi
+
+cmake .. -DGMX_OPENMP=ON -DGMX_GPU=ON -DGMX_MPI=ON -DGMX_PREFER_STATIC_LIBS=ON -DCMAKE_BUILD_TYPE=Release -DFFTW_INCLUDE_DIR=/opt/apps/HPCBIOS.20130301/software/FFTW/3.3.1-gompi-1.1.0-no-OFED/include \
+ -DFFTW_LIBRARY=/opt/apps/HPCBIOS.20130301/software/FFTW/3.3.1-gompi-1.1.0-no-OFED/lib/libfftw3_mpi.a -DCMAKE_INSTALL_PREFIX=/home/users/wjurkowski/gromacs-gpu
+make mdrun
+make install-mdrun
+mkdir build_gromacs
+cd build_gromacs
+cmake .. -DGMX_PREFER_STATIC_LIBS=ON -DCMAKE_BUILD_TYPE=Release  -DCMAKE_INSTALL_PREFIX=/home/users/wjurkowski/gromacs-gpu
+make
+make install
+
+[4.6-parallel-ictce-CUDA]
+
+module load ictce	#loads intelFFTW intelMPI intelMKL and compilers
+module load CUDA
+CC=mpiicc CXX=mpicxx
+
+cd gromacs-4.6
+mkdir build_gromacs_gpu_mpi
+cd build_gromacs_gpu-mpi
+
+cmake .. -DGMX_OPENMP=OFF -DGMX_GPU=OFF -DGMX_MPI=ON -DGMX_PREFER_STATIC_LIBS=ON -DCMAKE_BUILD_TYPE=Release \ 
+-DCMAKE_INSTALL_PREFIX=/home/users/wjurkowski/gromacs-gpu \
+-DGMX_FFT_LIBRARY=mkl -DMKL_LIBRARIES="/opt/apps/HPCBIOS.20130301/software/imkl/11.0.2.146/mkl/lib/intel64/libmkl_intel_thread.a; \
+/opt/apps/HPCBIOS.20130301/software/imkl/11.0.2.146/mkl/lib/intel64/libmkl_core.so; \
+/opt/apps/HPCBIOS.20130301/software/imkl/11.0.2.146/mkl/lib/intel64/libmkl_em64t.a;/usr/lib64/libpthread.so" \
+-DMKL_INCLUDE_DIR=/opt/apps/HPCBIOS.20130301/software/imkl/11.0.2.146/mkl/include
+make mdrun
+make install-mdrun
+cd ..
+mkdir build_gromacs
+cd build_gromacs
+cmake .. -DGMX_PREFER_STATIC_LIBS=ON -DCMAKE_BUILD_TYPE=Release  -DCMAKE_INSTALL_PREFIX=/home/users/wjurkowski/gromacs-gpu
+make
+make install
+
+```

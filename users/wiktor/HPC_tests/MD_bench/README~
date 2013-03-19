@@ -1,0 +1,6 @@
+System:
+    Small protein in water solution (25767 atoms)
+
+Runs:
+    prot_solv_em - energy minimisation (number of calc. steps may vary)
+    

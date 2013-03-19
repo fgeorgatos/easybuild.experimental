@@ -1,0 +1,25 @@
+name = 'FFTWsp'
+version = '2.1.5'
+
+homepage = 'http://www.fftw.org'
+description = """FFTW is a C subroutine library for computing the discrete Fourier transform (DFT)
+  in one or more dimensions, of arbitrary input size, and of both real and complex data."""
+
+toolchain = {'name': 'gompi', 'version': '1.1.0'}
+toolchainopts = {'optarch': True, 'pic': True}
+
+sources = ['fftw-%s.tar.gz' % version]
+source_urls = [homepage]
+
+configopts = "--enable-sse2 --enable-single "
+
+# the MPI opts from FFTW2 are valid options but unused until FFTW3.3 
+configopts += " --enable-openmp --with-pic "
+
+sanity_check_paths = {
+                      'files': ['lib/libfftw.a','lib/librfftw.a',
+				'lib/libfftw.la','lib/librfftw.la'],
+                      'dirs': []
+                     }
+
+moduleclass = 'lib'

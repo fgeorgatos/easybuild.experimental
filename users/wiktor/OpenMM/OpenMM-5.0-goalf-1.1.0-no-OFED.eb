@@ -1,0 +1,32 @@
+##
+# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Wiktor Jurkowski <wiktor.jurkowski@uni.lu>; Fotis Georgatos <fotis.georgatos@uni.lu> 
+# License::   MIT/GPL
+# $Id$
+#
+##
+
+name='OpenMM'
+version='5.0'
+
+homepage='https://simtk.org/home/openmm'
+description=""" OpenMM is a toolkit for molecular simulation. It can be used either as a stand-alone application for running simulations, or as a library you call from your own code. It 
+provides a combination of extreme flexibility (through custom forces and integrators), openness, and high performance (especially on recent GPUs) that make it truly unique among simulation codes. """
+
+sources=['%s%s-Source.zip' % (name.lower(), version)]
+
+toolchain={'name':'goalf','version':'1.1.0-no-OFED'}
+toolchainopts={'optarch':True, 'pic':True, 'usempi': False}
+
+sanity_check_paths={
+                  'files':['bin/'],
+                  'dirs':[]
+                 }
+
+#parallel=1
+
+moduleclass='bio'
+
+
