@@ -1,0 +1,14 @@
+name = 'LAPACK'
+version = "3.4.2"
+
+homepage = 'http://www.netlib.org/lapack/'
+description = """LAPACK is written in Fortran90 and provides routines for solving systems of
+  simultaneous linear equations, least-squares solutions of linear systems of equations, eigenvalue
+  problems, and singular value problems."""
+toolchain = {'version': '1.6.10', 'name': 'gompi'} # tweaked by EasyBuild (was: {'name': 'gompi', 'version': '1.5.10'})
+toolchainopts = {'pic': True}
+
+sources = ['%s-%s.tgz' % (name.lower(), version)]
+source_urls = [homepage]
+
+moduleclass = 'lib'

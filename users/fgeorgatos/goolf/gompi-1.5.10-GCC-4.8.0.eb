@@ -6,8 +6,7 @@ version = '1.5.10'
 homepage = '(none)'
 description = """GNU Compiler Collection (GCC) based compiler toolchain,
   including OpenMPI for MPI support."""
-
-toolchain = {'name': 'dummy', 'version': 'dummy'}
+toolchain = {'version': '4.8.0', 'name': 'GCC'} # tweaked by EasyBuild (was: {'name': 'dummy', 'version': 'dummy'})
 
 compname = 'GCC'
 compver = '4.7.2'
@@ -21,5 +20,4 @@ dependencies = [
                 (compname, compver),
                 (mpilib, mpiver, '-%s' % comp)
                ]
-
-moduleclass = 'toolchain'
+moduleclass = "compiler" # tweaked by EasyBuild (was: 'toolchain')
