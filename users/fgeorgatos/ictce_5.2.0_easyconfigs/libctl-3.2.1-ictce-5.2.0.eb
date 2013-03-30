@@ -1,0 +1,15 @@
+name = 'libctl'
+version = '3.2.1'
+
+homepage = 'http://ab-initio.mit.edu/libctl'
+description = """libctl is a free Guile-based library implementing flexible control files for scientific simulations."""
+
+toolchain = {'name': 'ictce', 'version': '5.2.0'}
+toolchainopts = {'optarch': True}
+
+source_urls = ['http://ab-initio.mit.edu/libctl/']
+sources = ['%s-%s.tar.gz' % (name.lower(), version)]
+
+dependencies = [('guile', '1.8.8')]
+
+moduleclass = 'chem'
