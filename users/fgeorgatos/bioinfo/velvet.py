@@ -1,13 +1,3 @@
-## 
-# This file is an EasyBuild recipy as per https://github.com/hpcugent/easybuild
-#
-# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
-# Authors::   Cedric Laczny <cedric.laczny@uni.lu>, Fotis Georgatos <fotis.georgatos@uni.lu>
-# License::   MIT/GPL
-# $Id$
-#
-# This work implements a part of HPCBIOS project and is component of policy:
-# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-94.html
 ##
 """
 EasyBuild support for building and installing Velvet, implemented as an easyblock
