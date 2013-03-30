@@ -15,4 +15,4 @@ dependencies = [('zlib', '1.2.7')]
 
 configopts = "--with-pic"
 
-moduleclass = 'devel'
+moduleclass = 'lib'
