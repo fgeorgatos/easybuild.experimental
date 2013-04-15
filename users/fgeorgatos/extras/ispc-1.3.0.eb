@@ -15,10 +15,8 @@ toolchain = {'name': 'dummy', 'version': 'dummy'}
 
 # eg. https://github.com/downloads/ispc/ispc/ispc-v1.3.0-linux.tar.gz
 # or better for later: https://github.com/ispc/ispc/tarball/v1.3.0
-sources = ['ispc-v%s-linux.tar.gz' % version, 'tar xzf %s;mkdir bin;mv ispc bin']
+sources = [('ispc-v%s-linux.tar.gz' % version, 'tar xzf %s --strip-components=1;mkdir bin;mv ispc bin')]
 source_urls = ['https://github.com/downloads/ispc/ispc/']
-
-unpack_options = '--strip-components=1'
 
 sanity_check_paths = {
                       'files': ["bin/ispc"], 
