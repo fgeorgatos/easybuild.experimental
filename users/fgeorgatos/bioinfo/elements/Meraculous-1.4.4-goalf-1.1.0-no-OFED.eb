@@ -1,0 +1,27 @@
+# Note:
+# This is an easyconfig file for EasyBuild, see https://github.com/hpcugent/easybuild
+# It was auto-generated based on a template easyconfig, so it should be used with care.
+
+easyblock = "Tarball"
+
+name = "Meraculous" # tweaked by EasyBuild (was: 'NAME')
+version = "1.4.4" # tweaked by EasyBuild (was: 'VERSION')
+homepage = "ftp://ftp.jgi-psf.org/pub/JGI_data/meraculous/" # tweaked by EasyBuild (was: 'http://www.example.com')
+description = """TEMPLATE DESCRIPTION"""
+
+# toolchain name should be 'TEMPLATE' if this is a template, so EasyBuild knows and is willing to use it as a template
+toolchain = {'version': '1.1.0-no-OFED', 'name': 'goalf'} # tweaked by EasyBuild (was: {'name': 'TEMPLATE', 'version': 'TK_VERSION'})
+toolchainopts = {}  # toolchain options, e.g. opt, pic, usempi, optarch, ...
+source_urls = [homepage] # tweaked by EasyBuild (was: ['http://www.example.com'])
+sources = [("Meraculous-1.4.4-rel.tar", "tar xvf %s --strip-components=1 && ln -s MERACULOUS bin")] # tweaked by EasyBuild (was: ['%s-%s.tar.gz' % (name, version)])
+
+patches = []
+
+dependencies = []
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ["."]
+                     }
+
+moduleclass = 'bio'

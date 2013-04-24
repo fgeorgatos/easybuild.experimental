@@ -1,0 +1,46 @@
+name = 'MATLAB'
+version = "2013a"
+
+homepage = 'http://www.mathworks.com/products/matlab'
+description = """MATLAB is a high-level language and interactive environment
+ that enables you to perform computationally intensive tasks faster than with
+ traditional programming languages such as C, C++, and Fortran."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+sources = [
+    'p7zip_9.20.1_x86_linux_bin.tar.bz2',
+    ('R%s_UNIX_MAC.iso' % version, './p7zip_9.20.1/bin/7z x %s && chmod -R u+rx . && ln -s . 2013a'), # && cp /tmp/install ./p7zip_9.20.1 && ln -s . 2013a'),
+    ]
+source_urls = ['http://downloads.sourceforge.net/project/p7zip/p7zip/9.20.1']
+
+dependencies = [('Java', '1.7.0_10')]
+
+# preinstallopts = 'touch install ; chmod a+x install ; export _JAVA_OPTIONS="-Xmx512m";' # for testing purposes only
+start_dir = '..' # this hack is needed because the called ./install is the one from 1st package (p7zip)
+preinstallopts = 'export _JAVA_OPTIONS="-Xmx512m";'
+
+installopts = ' -javadir /opt/apps/HPCBIOS.20130301/software/Java/1.7.0_10/jre' # how to fix this?
+installopts += ' ; mkdir /home/users/fgeorgatos/.local/easybuild/software/MATLABNG/2013a/sbin' # how to fix this?
+#installopts = ' -javadir $EBROOTJAVA/jre ' # does not function, because this is meant for configure time
+ 
+sanity_check_paths = {
+#    'files': ['sbin'],
+#    'dirs': [],
+    'files': ["bin/matlab", "bin/mcc", "bin/glnxa64/MATLAB", "bin/glnxa64/mcc",
+              "runtime/glnxa64/libmwmclmcrrt.so", "toolbox/local/classpath.txt"],
+    'dirs': ["java/jar", "toolbox/compiler"],
+    }
+
+modextravars = {
+    '_JAVA_OPTIONS': '-Xmx512m',
+#    'PATH': 'sbin', this is picked up automatically, not really needed
+    }
+
+#        txt += self.moduleGenerator.prepend_paths('PATH', ['sbin'], allow_abs=True)
+#        txt += self.moduleGenerator.set_environment('_JAVA_OPTIONS', "-Xmx128M")
+
+import os
+license_server = os.getenv('EB_MATLAB_LICENSE_SERVER', 'kojak.uni.lux')
+license_server_port = os.getenv('EB_MATLAB_LICENSE_SERVER_PORT', '27002')
+key = os.getenv('EB_MATLAB_KEY', '02820-57256-56423-05877-38686-31133-35388-40265-43096-14208-09182-48781-47816-53801-20495-27008-62915')

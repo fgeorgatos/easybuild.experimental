@@ -1,0 +1,31 @@
+# Note:
+# This is an easyconfig file for EasyBuild, see https://github.com/hpcugent/easybuild
+# It was auto-generated based on a template easyconfig, so it should be used with care.
+
+easyblock = "Tarball"
+
+name = "PRANK" # tweaked by EasyBuild (was: 'NAME')
+version = "130410" # tweaked by EasyBuild (was: 'VERSION')
+
+homepage = "http://code.google.com/p/prank-msa/" # tweaked by EasyBuild (was: 'http://www.example.com')
+description = """TEMPLATE DESCRIPTION"""
+
+# toolchain name should be 'TEMPLATE' if this is a template, so EasyBuild knows and is willing to use it as a template
+toolchain = {'version': '1.1.0-no-OFED', 'name': 'goalf'} # tweaked by EasyBuild (was: {'name': 'TEMPLATE', 'version': 'TK_VERSION'})
+toolchainopts = {}  # toolchain options, e.g. opt, pic, usempi, optarch, ...
+source_urls = ["http://prank-msa.googlecode.com/files"] # tweaked by EasyBuild (was: ['http://www.example.com'])
+## sources = ["prank.src.130410.tgz"] # tweaked by EasyBuild (was: ['%s-%s.tar.gz' % (name, version)])
+sources = ["prank.linux64.130410.tgz"]
+
+patches = []
+
+dependencies = []
+
+## skipsteps = ['configure']
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ["."]
+                     }
+
+moduleclass = 'bio'

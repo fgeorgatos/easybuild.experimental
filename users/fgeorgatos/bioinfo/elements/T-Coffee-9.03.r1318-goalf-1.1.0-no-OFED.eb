@@ -1,0 +1,20 @@
+# Note:
+# This is an easyconfig file for EasyBuild, see https://github.com/hpcugent/easybuild
+# It was auto-generated based on a template easyconfig, so it should be used with care.
+
+easyblock = "Binary"
+
+name = "T-Coffee" # tweaked by EasyBuild (was: 'NAME')
+version = "9.03.r1318" # tweaked by EasyBuild (was: 'VERSION')
+homepage = "http://tcoffee.org" # tweaked by EasyBuild (was: 'http://www.example.com')
+description = """TEMPLATE DESCRIPTION"""
+
+# toolchain name should be 'TEMPLATE' if this is a template, so EasyBuild knows and is willing to use it as a template
+toolchain = {'version': '1.1.0-no-OFED', 'name': 'goalf'} # tweaked by EasyBuild (was: {'name': 'TEMPLATE', 'version': 'TK_VERSION'})
+toolchainopts = {}  # toolchain options, e.g. opt, pic, usempi, optarch, ...
+source_urls = ["http://tcoffee.org/Packages/Stable/Latest/linux"] # tweaked by EasyBuild (was: ['http://www.example.com'])
+sources = ["T-COFFEE_installer_Version_9.03.r1318_linux_x64.bin"] # tweaked by EasyBuild (was: ['%s-%s.tar.gz' % (name, version)])
+
+patches = []
+
+dependencies = []

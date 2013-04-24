@@ -1,0 +1,24 @@
+# Note:
+# This is an easyconfig file for EasyBuild, see https://github.com/hpcugent/easybuild
+# It was auto-generated based on a template easyconfig, so it should be used with care.
+name = "FSA" # tweaked by EasyBuild (was: 'NAME')
+version = "1.15.7" # tweaked by EasyBuild (was: 'VERSION')
+homepage = "http://fsa.sourceforge.net" # tweaked by EasyBuild (was: 'http://www.example.com')
+description = """TEMPLATE DESCRIPTION"""
+
+# toolchain name should be 'TEMPLATE' if this is a template, so EasyBuild knows and is willing to use it as a template
+toolchain = {'version': '1.1.0-no-OFED', 'name': 'goalf'} # tweaked by EasyBuild (was: {'name': 'TEMPLATE', 'version': 'TK_VERSION'})
+toolchainopts = {}  # toolchain options, e.g. opt, pic, usempi, optarch, ...
+source_urls = ["http://downloads.sourceforge.net/project/fsa/"] # tweaked by EasyBuild (was: ['http://www.example.com'])
+sources = ["fsa-1.15.7.tar.gz"] # tweaked by EasyBuild (was: ['%s-%s.tar.gz' % (name, version)])
+
+patches = []
+
+dependencies = []
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ["."]
+                     }
+
+moduleclass = 'bio'
