@@ -1,0 +1,65 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'vbetool-0.7.1'
+version = '1'
+versionsuffix = '-20130506'
+
+description = "vbetool_0.7-1: Run real-mode video BIOS code to alter hardware state"
+
+sources = ['vbetool_0.7-1.tar.gz']
+version = '0.7.1'
+name = 'vbetool'
+source_urls = ['http://www.codon.org.uk/~mjg59/vbetool/download/']
+homepage = 'http://www.codon.org.uk/~mjg59/vbetool/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/vbetool/Makefile ######
+## $NetBSD: Makefile,v 1.10 2012/10/23 19:51:28 asau Exp $
+##
+#
+#DISTNAME=	vbetool_0.7-1
+#PKGNAME=	vbetool-0.7.1
+#PKGREVISION=	2
+#CATEGORIES=	sysutils
+#MASTER_SITES=	http://www.codon.org.uk/~mjg59/vbetool/download/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.codon.org.uk/~mjg59/vbetool/
+#COMMENT=	Run real-mode video BIOS code to alter hardware state
+#
+#ONLY_FOR_PLATFORM+=	Linux-*-i386 NetBSD-*-i386 NetBSD-*-x86_64
+#
+#CONFLICTS+=	vbetool-0.7-[0-9]*
+#
+#WRKSRC=		${WRKDIR}/vbetool-0.7
+#USE_TOOLS+=	gmake
+#GNU_CONFIGURE=	yes
+#CONFIGURE_ARGS=	--with-x86emu
+#
+#.include "../../mk/bsd.prefs.mk"
+#
+## This gives us libi386 and libx86_64.
+#LIBS.NetBSD+=	-l${MACHINE_ARCH}
+#
+#.include "../../sysutils/pciutils/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

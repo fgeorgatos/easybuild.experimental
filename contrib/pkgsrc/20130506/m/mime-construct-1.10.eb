@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'mime'
+version = 'construct-1.10'
+versionsuffix = '-20130506'
+
+description = "mime-construct-1.10: Constructs and emails MIME messages"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.argon.org/~roderick/']
+homepage = 'http://www.argon.org/~roderick/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/mail/mime-construct/Makefile ######
+## $NetBSD: Makefile,v 1.5 2012/10/08 12:19:17 asau Exp $
+##
+#
+#DISTNAME=	mime-construct-1.10
+#PKGREVISION=	3
+#CATEGORIES=	mail
+#MASTER_SITES=	http://www.argon.org/~roderick/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#COMMENT=	Constructs and emails MIME messages
+#HOMEPAGE=	http://www.argon.org/~roderick/
+#LICENSE=	gnu-gpl-v2 OR gnu-gpl-v3 # OR newer
+#
+#DEPENDS+=	p5-Proc-WaitStat-[0-9]*:../../devel/p5-Proc-WaitStat
+#DEPENDS+=	p5-MIME-Types-[0-9]*:../../mail/p5-MIME-Types
+#
+#USE_TOOLS+=	perl:run
+#
+#PERL5_PACKLIST=	auto/mime-construct/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

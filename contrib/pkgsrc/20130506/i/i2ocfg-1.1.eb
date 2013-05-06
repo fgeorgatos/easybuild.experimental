@@ -1,0 +1,55 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'i2ocfg'
+version = '1.1'
+versionsuffix = '-20130506'
+
+description = "i2ocfg-1.1: I2O configuration dialog gateway"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.hairylemon.org/~ad/software/download/i2ocfg/']
+homepage = 'http://www.hairylemon.org/~ad/software/i2ocfg/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/i2ocfg/Makefile ######
+## $NetBSD: Makefile,v 1.15 2012/10/23 19:51:07 asau Exp $
+#
+#DISTNAME=		i2ocfg-1.1
+#CATEGORIES=		sysutils
+#MASTER_SITES=		http://www.hairylemon.org/~ad/software/download/i2ocfg/
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://www.hairylemon.org/~ad/software/i2ocfg/
+#COMMENT=		I2O configuration dialog gateway
+#
+#ONLY_FOR_PLATFORM=	NetBSD-1.5[J-Z]-* NetBSD-1.6*-* NetBSD-[2-9]*-*
+#
+#USE_BSD_MAKEFILE=	YES
+#USE_TOOLS+=		groff nroff
+#INSTALL_MAKE_FLAGS=	MANDIR=${PREFIX}/${PKGMANDIR}
+#
+#INSTALLATION_DIRS=	libexec/cgi-bin ${PKGMANDIR}/cat8 ${PKGMANDIR}/man8
+#
+#MANCOMPRESSED_IF_MANZ=	YES
+#
+#.include "../../mk/bsd.pkg.mk"

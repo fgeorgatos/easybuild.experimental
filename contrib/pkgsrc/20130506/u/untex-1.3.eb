@@ -1,0 +1,53 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'untex'
+version = '1.3'
+versionsuffix = '-20130506'
+
+description = "untex-1.3: Remove LaTeX commands"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['ftp://hal6000.uni-duisburg.de/pub/source/']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/untex/Makefile ######
+## $NetBSD: Makefile,v 1.13 2012/10/25 06:57:05 asau Exp $
+##
+#
+#DISTNAME=	untex-1.3
+#CATEGORIES=	textproc
+#MASTER_SITES=	ftp://hal6000.uni-duisburg.de/pub/source/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#COMMENT=	Remove LaTeX commands
+#
+#WRKSRC=		${WRKDIR}
+#
+#INSTALLATION_DIRS=	bin ${PKGMANDIR}/man1
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKDIR}/untex ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_MAN} ${WRKDIR}/untex.man ${DESTDIR}${PREFIX}/${PKGMANDIR}/man1/untex.1
+#
+#.include "../../mk/bsd.pkg.mk"
+homepage = ["no default homepage provided"]

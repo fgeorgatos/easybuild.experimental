@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'deforaos-editor-0.2.1'
+version = '0.2.1'
+versionsuffix = '-20130506'
+
+description = "Editor-0.2.1: DeforaOS desktop text editor"
+
+sources = ['Editor-0.2.1.tar.gz']
+version = 'editor-0.2.1'
+name = 'deforaos'
+source_urls = ['http://www.defora.org/os/download/download/3702/']
+homepage = 'http://www.defora.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/editors/deforaos-editor/Makefile ######
+## $NetBSD: Makefile,v 1.2 2013/02/16 11:20:53 wiz Exp $
+##
+#
+#DISTNAME=	Editor-0.2.1
+#PKGNAME=	deforaos-editor-0.2.1
+#PKGREVISION=	1
+#CATEGORIES=	editors
+#MASTER_SITES=	http://www.defora.org/os/download/download/3702/
+#
+#MAINTAINER=	khorben@defora.org
+#HOMEPAGE=	http://www.defora.org/
+#COMMENT=	DeforaOS desktop text editor
+#
+#LICENSE=	gnu-gpl-v3
+#
+#USE_TOOLS+=	pkg-config
+#USE_TOOLS+=	xgettext
+#
+#MAKE_FLAGS+=	DESTDIR=${DESTDIR}
+#MAKE_FLAGS+=	PREFIX=${PREFIX}
+#
+#.include "options.mk"
+#
+#.include "../../x11/deforaos-libdesktop/buildlink3.mk"
+#.include "../../sysutils/desktop-file-utils/desktopdb.mk"
+#.include "../../mk/bsd.pkg.mk"

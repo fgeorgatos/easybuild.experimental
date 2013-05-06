@@ -1,0 +1,71 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'c_icap'
+version = '0.2.1'
+versionsuffix = '-20130506'
+
+description = "c_icap-0.2.1: Implementation of an ICAP server"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/c-icap/files', 'download']
+homepage = 'http://c-icap.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/c-icap/Makefile ######
+## $NetBSD: Makefile,v 1.8 2013/02/06 23:23:58 jperkin Exp $
+#
+#DISTNAME=	c_icap-0.2.1
+#PKGNAME=	${DISTNAME:S/_/-/}
+#PKGREVISION=	3
+#CATEGORIES=	www
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=c-icap/}
+#
+#MAINTAINER=	adam@NetBSD.org
+#HOMEPAGE=	http://c-icap.sourceforge.net/
+#COMMENT=	Implementation of an ICAP server
+#LICENSE=	gnu-lgpl-v2.1
+#
+#USE_LANGUAGES=		c
+#USE_LIBTOOL=		yes
+#USE_TOOLS+=		gmake
+#GNU_CONFIGURE=		yes
+#CONFIGURE_ARGS+=	--enable-large-files
+#
+#EGDIR=		${PREFIX}/share/c-icap
+#CONF_FILES=	${EGDIR}/c-icap.conf.default ${PKG_SYSCONFDIR}/c-icap.conf
+#CONF_FILES+=	${EGDIR}/c-icap.magic.default ${PKG_SYSCONFDIR}/c-icap.magic
+#
+#BUILD_DEFS+=		VARBASE
+#
+#SUBST_CLASSES+=		fix-path
+#SUBST_STAGE.fix-path=	pre-configure
+#SUBST_MESSAGE.fix-path=	Fixing paths.
+#SUBST_FILES.fix-path=	c-icap.conf.in
+#SUBST_SED.fix-path=	-e 's, @prefix@/var, ${VARBASE},g'
+#SUBST_SED.fix-path+=	-e 's, /var, ${VARBASE},g'
+#
+#.include "options.mk"
+#
+#.include "../../devel/zlib/buildlink3.mk"
+#.include "../../mk/dlopen.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

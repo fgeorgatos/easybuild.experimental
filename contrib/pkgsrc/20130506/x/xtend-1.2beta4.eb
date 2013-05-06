@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'xtend'
+version = '1.2beta4'
+versionsuffix = '-20130506'
+
+description = "xtend-1.2beta4: Monitors X10 commands using heyu to automate UNIX functions"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['ftp://ftp.jabberwocky.com/pub/xtend/']
+homepage = 'http://www.jabberwocky.com/software/xtend/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/misc/xtend/Makefile ######
+## $NetBSD: Makefile,v 1.7 2012/10/08 09:57:42 asau Exp $
+##
+#
+#DISTNAME=	xtend-1.2beta4
+#CATEGORIES=	misc
+#MASTER_SITES=	ftp://ftp.jabberwocky.com/pub/xtend/
+#
+#MAINTAINER=	damon@brodiefamily.org
+#HOMEPAGE=	http://www.jabberwocky.com/software/xtend/
+#COMMENT=	Monitors X10 commands using heyu to automate UNIX functions
+#
+#DEPENDS+=	heyu>=1.35:../../misc/heyu
+#
+#GNU_CONFIGURE=	yes
+#
+#INSTALLATION_DIRS+=	bin ${PKGMANDIR}/man1
+#
+#SPECIAL_PERMS+=	bin/xtend ${SETUID_ROOT_PERMS}
+#
+#.include "../../mk/bsd.pkg.mk"

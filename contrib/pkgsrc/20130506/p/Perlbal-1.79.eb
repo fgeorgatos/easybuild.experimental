@@ -1,0 +1,68 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = '1.79'
+versionsuffix = '-20130506'
+
+description = "Perlbal-1.79: Very configurable load balancer in perl"
+
+sources = ['Perlbal-1.79.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://search.cpan.org/CPAN/authors/id/D/DO/DORMANDO/']
+homepage = 'http://danga.com/perlbal/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/perlbal/Makefile ######
+## $NetBSD: Makefile,v 1.4 2012/10/23 17:18:57 asau Exp $
+##
+#
+#DISTNAME=	Perlbal-1.79
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	1
+#CATEGORIES=	net
+#MASTER_SITES=	http://search.cpan.org/CPAN/authors/id/D/DO/DORMANDO/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://danga.com/perlbal/
+#COMMENT=	Very configurable load balancer in perl
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	p5-IO-Socket-SSL>=0:../../security/p5-IO-Socket-SSL
+#DEPENDS+=	p5-IO-AIO>=0:../../devel/p5-IO-AIO
+#DEPENDS+=	p5-BSD-Resource>=0:../../devel/p5-BSD-Resource
+#DEPENDS+=	p5-HTTP-Date>=0:../../www/p5-HTTP-Date
+#DEPENDS+=	p5-HTTP-Message>=0:../../www/p5-HTTP-Message
+#DEPENDS+=	p5-Danga-Socket>=0:../../net/p5-Danga-Socket
+#
+#DEPENDS+=	p5-BSD-Resource>=0:../../devel/p5-BSD-Resource
+#DEPENDS+=	p5-Danga-Socket>=1.44:../../net/p5-Danga-Socket
+#DEPENDS+=	p5-HTTP-Date>=0:../../www/p5-HTTP-Date
+#DEPENDS+=	p5-Sys-Syscall>=0:../../devel/p5-Sys-Syscall
+#DEPENDS+=	p5-Time-HiRes>=0:../../time/p5-Time-HiRes
+#
+#PERL5_PACKLIST=	auto/Perlbal/.packlist
+#USE_LANGUAGES=	# none
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

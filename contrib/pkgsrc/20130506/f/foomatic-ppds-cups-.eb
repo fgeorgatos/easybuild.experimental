@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'foomatic'
+version = 'ppds-cups-'
+versionsuffix = '-20130506'
+
+description = "foomatic-ppds-cups-: Foomatic PPD collection for CUPS servers"
+
+sources = ['foomatic-ppds-cups-${FOOMATIC_PPDS_VERSION}.tar.gz']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/print/foomatic-ppds-cups/Makefile ######
+## $NetBSD: Makefile,v 1.11 2010/03/21 16:29:42 wiz Exp $
+#
+#META_PACKAGE=	yes
+#
+#.include "../../print/foomatic-ppds/Makefile.common"
+#
+#DISTNAME=	foomatic-ppds-cups-${FOOMATIC_PPDS_VERSION}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#COMMENT=	Foomatic PPD collection for CUPS servers
+#
+#DEPENDS+=	cups>=1.0:../../print/cups
+#DEPENDS+=	foomatic-ppds-${FOOMATIC_PPDS_VERSION}{,nb[0-9]*}:../../print/foomatic-ppds
+#
+#WRKSRC=		${WRKDIR}
+#
+#EVAL_PREFIX+=		CUPS_PREFIX=cups
+#CUPS_DATADIR=		${CUPS_PREFIX:Q}/share/cups/model
+#FILES_SUBST+=		CUPS_DATADIR=${CUPS_DATADIR}
+#
+#.include "../../mk/bsd.pkg.mk"
+homepage = ["no default homepage provided"]

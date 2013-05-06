@@ -1,0 +1,55 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'Format-1.16'
+versionsuffix = '-20130506'
+
+description = "String-Format-1.16: Perl module for sprintf-like string formatting capabilities"
+
+sources = ['String-Format-1.16.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/String/']
+homepage = 'http://search.cpan.org/dist/String-Format/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-String-Format/Makefile ######
+## $NetBSD: Makefile,v 1.13 2012/10/31 11:18:57 asau Exp $
+#
+#DISTNAME=	String-Format-1.16
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	3
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=String/}
+#
+#HOMEPAGE=	http://search.cpan.org/dist/String-Format/
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#COMMENT=	Perl module for sprintf-like string formatting capabilities
+#LICENSE=	gnu-gpl-v2
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#PERL5_PACKLIST=		auto/String/Format/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

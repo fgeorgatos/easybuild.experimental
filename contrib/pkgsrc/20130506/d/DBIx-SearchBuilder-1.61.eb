@@ -1,0 +1,72 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'SearchBuilder-1.61'
+versionsuffix = '-20130506'
+
+description = "DBIx-SearchBuilder-1.61: Extension for easy SQL SELECT Statement generation"
+
+sources = ['DBIx-SearchBuilder-1.61.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/DBIx/']
+homepage = 'http://search.cpan.org/dist/DBIx-SearchBuilder/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/databases/p5-DBIx-SearchBuilder/Makefile ######
+## $NetBSD: Makefile,v 1.44 2012/10/03 21:54:20 wiz Exp $
+##
+#
+#DISTNAME=	DBIx-SearchBuilder-1.61
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	2
+#SVR4_PKGNAME=	p5dxs
+#CATEGORIES=	databases perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=DBIx/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/DBIx-SearchBuilder/
+#COMMENT=	Extension for easy SQL SELECT Statement generation
+#LICENSE=	${PERL5_LICENSE}
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#BUILD_DEPENDS+=	p5-DBD-SQLite-[0-9]*:../../databases/p5-DBD-SQLite
+#
+#DEPENDS+=	p5-Cache-Simple-TimedExpiry>=0.21:../../devel/p5-Cache-Simple-TimedExpiry
+#DEPENDS+=	p5-Class-ReturnValue>=0.40:../../devel/p5-Class-ReturnValue
+#DEPENDS+=	p5-Clone-[0-9]*:../../devel/p5-Clone
+#DEPENDS+=	p5-Encode>=1.99:../../textproc/p5-Encode
+#DEPENDS+=	p5-Want-[0-9]*:../../devel/p5-Want
+#
+## Recommented dependencies
+#DEPENDS+=	p5-capitalization>=0.03nb1:../../devel/p5-capitalization
+#DEPENDS+=	p5-Class-Accessor-[0-9]*:../../devel/p5-Class-Accessor
+#DEPENDS+=	p5-DBIx-DBSchema-[0-9]*:../../databases/p5-DBIx-DBSchema
+#
+#PERL5_PACKLIST=		auto/DBIx/SearchBuilder/.packlist
+#PERL5_MODULE_TYPE=	Module::Install::Bundled
+#
+#.include "../../databases/p5-DBI/buildlink3.mk"
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

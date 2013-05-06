@@ -1,0 +1,49 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'ramaze'
+version = '2012.12.08'
+versionsuffix = '-20130506'
+
+description = "ramaze-2012.12.08: Ruby lightweight, modular, web application framework"
+
+sources = [SOURCE_TAR_GZ]
+homepage = 'http://ramaze.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/ramaze/Makefile ######
+## $NetBSD: Makefile,v 1.11 2012/12/17 15:10:57 taca Exp $
+#
+#DISTNAME=	ramaze-2012.12.08
+#CATEGORIES=	www
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://ramaze.net/
+#COMMENT=	Ruby lightweight, modular, web application framework
+#LICENSE=	ruby-license
+#
+#DEPENDS+=	${RUBY_PKGPREFIX}-innate>=2012.12:../../www/ruby-innate
+#
+#CONFLICTS+=	ruby[1-9][0-9]-ramaze-[0-9]* ramaze-[0-9]*
+#
+#.include "../../lang/ruby/gem.mk"
+#.include "../../mk/bsd.pkg.mk"

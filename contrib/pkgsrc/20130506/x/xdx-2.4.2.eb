@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'xdx'
+version = '2.4.2'
+versionsuffix = '-20130506'
+
+description = "xdx-2.4.2: Amateur Radio tcp/ip DX-cluster client"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.qsl.net/pg4i/download/']
+homepage = 'http://www.qsl.net/pg4i/linux/xdx.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/ham/xdx/Makefile ######
+## $NetBSD: Makefile,v 1.36 2013/02/16 11:22:39 wiz Exp $
+##
+#
+#DISTNAME=	xdx-2.4.2
+#PKGREVISION=	15
+#CATEGORIES=	ham
+#MASTER_SITES=	http://www.qsl.net/pg4i/download/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.qsl.net/pg4i/linux/xdx.html
+#COMMENT=	Amateur Radio tcp/ip DX-cluster client
+#LICENSE=	gnu-gpl-v2
+#
+#USE_TOOLS+=	gmake pkg-config
+#GNU_CONFIGURE=	yes
+#USE_PKGLOCALEDIR=yes
+#
+#BUILDLINK_TRANSFORM+=	rm:-DGTK_DISABLE_DEPRECATED
+#
+#.include "../../sysutils/desktop-file-utils/desktopdb.mk"
+#.include "../../x11/gtk2/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

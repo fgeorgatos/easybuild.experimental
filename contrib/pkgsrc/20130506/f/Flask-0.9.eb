@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = '-'
+version = '0.9'
+versionsuffix = '-20130506'
+
+description = "Flask-0.9: Python web microframework"
+
+sources = ['Flask-0.9.tar.gz']
+source_urls = ['http://pypi.python.org/packages/source/F/Flask/']
+homepage = 'http://flask.pocoo.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/py-flask/Makefile ######
+## $NetBSD: Makefile,v 1.3 2013/01/18 11:02:58 kleink Exp $
+#
+#DISTNAME=	Flask-0.9
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME:tl}
+#PKGREVISION=	1
+#CATEGORIES=	www python
+#MASTER_SITES=	http://pypi.python.org/packages/source/F/Flask/
+#
+#MAINTAINER=	kleink@NetBSD.org
+#HOMEPAGE=	http://flask.pocoo.org/
+#COMMENT=	Python web microframework
+#LICENSE=	modified-bsd
+#
+#USE_LANGUAGES=	# empty
+#
+#DEPENDS+=	${PYPKGPREFIX}-jinja2-[0-9]*:../../textproc/py-jinja2
+#DEPENDS+=	${PYPKGPREFIX}-werkzeug-[0-9]*:../../www/py-werkzeug
+#
+#.include "../../lang/python/egg.mk"
+#.include "../../mk/bsd.pkg.mk"

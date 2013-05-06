@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'Balanced-2.02'
+versionsuffix = '-20130506'
+
+description = "Text-Balanced-2.02: Extract delimited text sequences from strings"
+
+sources = ['Text-Balanced-2.02.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Text/']
+homepage = 'http://search.cpan.org/dist/Text-Balanced/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/p5-Text-Balanced/Makefile ######
+## $NetBSD: Makefile,v 1.24 2012/10/25 06:56:23 asau Exp $
+##
+#
+#DISTNAME=	Text-Balanced-2.02
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	3
+#SVR4_PKGNAME=	p5tba
+#CATEGORIES=	textproc perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Text/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Text-Balanced/
+#COMMENT=	Extract delimited text sequences from strings
+#LICENSE=	${PERL5_LICENSE}
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#USE_LANGUAGES=	# empty
+#PERL5_PACKLIST=	auto/Text/Balanced/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

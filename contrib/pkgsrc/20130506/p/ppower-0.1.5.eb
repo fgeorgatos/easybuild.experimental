@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'ppower'
+version = '0.1.5'
+versionsuffix = '-20130506'
+
+description = "ppower-0.1.5: X10 controller software for the CM11A interface"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/ppower/files', 'download']
+homepage = 'http://ppower.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/misc/ppower/Makefile ######
+## $NetBSD: Makefile,v 1.10 2012/10/08 09:57:35 asau Exp $
+##
+#
+#DISTNAME=	ppower-0.1.5
+#PKGREVISION=	1
+#CATEGORIES=	misc
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=ppower/}
+#
+#MAINTAINER=	dsainty@NetBSD.org
+#HOMEPAGE=	http://ppower.sourceforge.net/
+#COMMENT=	X10 controller software for the CM11A interface
+##LICENSE=       	GPL
+#
+#GNU_CONFIGURE=		YES
+#USE_TOOLS+=		lex
+#
+#CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR:Q}
+#
+#EGDIR=			${PREFIX}/share/examples/ppower
+#CONF_FILES+=		${EGDIR}/ppower.conf ${PKG_SYSCONFDIR}/ppower.conf
+#
+#INSTALLATION_DIRS=	share/examples/ppower
+#
+#post-install:
+#	${INSTALL_DATA} \
+#		${WRKSRC}/etc/ppower.conf ${DESTDIR}${PREFIX}/share/examples/ppower
+#
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,72 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'mserv'
+version = '0.39a'
+versionsuffix = '-20130506'
+
+description = "mserv-0.39a: Local centralised music server environment"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/mserv/files', 'download']
+homepage = 'http://www.mserv.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/mserv-devel/Makefile ######
+## $NetBSD: Makefile,v 1.11 2012/10/03 21:53:55 wiz Exp $
+##
+#
+#DISTNAME=	mserv-0.39a
+#PKGREVISION=	4
+#CATEGORIES=	audio
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=mserv/}
+#
+#MAINTAINER=	kim@tac.nyc.ny.us
+#HOMEPAGE=	http://www.mserv.org/
+#COMMENT=	Local centralised music server environment
+#
+#GNU_CONFIGURE=		yes
+#CONFIGURE_ARGS+=	--with-engine-icecast
+#CONFIGURE_ARGS+=	--datadir=${PREFIX}/share/mserv
+#USE_LIBTOOL=		yes
+#
+#REPLACE_PERL=		support/mservedit webclient/main.cgi \
+#			webclient/margin.cgi webclient/mserv.cgi
+#USE_TOOLS+=		perl:run pkg-config
+#
+#INSTALLATION_DIRS+= share/doc/mserv share/mserv/webclient
+#
+#post-configure:
+#	${MV} ${WRKSRC}/mserv/soundcard.h ${WRKSRC}/mserv/mservsoundcard.h
+#
+#post-install:
+#	${INSTALL_SCRIPT} ${WRKSRC}/support/mservedit ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_DATA} \
+#		${WRKSRC}/INSTALL \
+#		${WRKSRC}/LICENSE \
+#		${DESTDIR}${PREFIX}/share/doc/mserv
+#	${INSTALL_DATA} \
+#		${WRKSRC}/webclient/* \
+#		${DESTDIR}${PREFIX}/share/mserv/webclient
+#
+#.include "../../audio/libshout/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

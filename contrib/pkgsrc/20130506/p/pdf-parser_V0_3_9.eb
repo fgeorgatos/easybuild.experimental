@@ -1,0 +1,64 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = '-'
+version = 'parser_V0_3_9'
+versionsuffix = '-20130506'
+
+description = "pdf-parser_V0_3_9: Parse PDF document to identify the fundamental elements"
+
+sources = ['pdf-parser_V0_3_9.zip']
+source_urls = ['http://www.didierstevens.com/files/software/']
+homepage = 'http://blog.didierstevens.com/programs/pdf-tools/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/py-pdf-parser/Makefile ######
+## $NetBSD: Makefile,v 1.6 2012/10/25 06:56:51 asau Exp $
+##
+#
+#DISTNAME=	pdf-parser_V0_3_9
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME:S/_V/-/:S/_/./g}
+#CATEGORIES=	textproc
+#MASTER_SITES=	http://www.didierstevens.com/files/software/
+#EXTRACT_SUFX=	.zip
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://blog.didierstevens.com/programs/pdf-tools/
+#COMMENT=	Parse PDF document to identify the fundamental elements
+#LICENSE=	public-domain
+#
+#WRKSRC=		${WRKDIR}
+#USE_LANGUAGES=	# none
+#
+#REPLACE_PYTHON=	pdf-parser.py
+#
+#INSTALLATION_DIRS=	bin
+#
+#PYTHON_SELF_CONFLICT=	yes
+#
+#do-build:
+#
+#do-install:
+#	${INSTALL_SCRIPT} ${WRKSRC}/pdf-parser.py ${DESTDIR}${PREFIX}/bin
+#
+#.include "../../lang/python/application.mk"
+#.include "../../mk/bsd.pkg.mk"

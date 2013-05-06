@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'png2html'
+version = '1.1'
+versionsuffix = '-20130506'
+
+description = "png2html-1.1: Takes a PNG image and transforms it to a web page"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.engr.mun.ca/~holden/']
+homepage = 'http://www.engr.mun.ca/~holden/png2html.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/png2html/Makefile ######
+## $NetBSD: Makefile,v 1.28 2013/02/16 11:22:22 wiz Exp $
+##
+#
+#DISTNAME=	png2html-1.1
+#PKGREVISION=	13
+#CATEGORIES=	graphics www
+#MASTER_SITES=	http://www.engr.mun.ca/~holden/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.engr.mun.ca/~holden/png2html.html
+#COMMENT=	Takes a PNG image and transforms it to a web page
+#
+#FIX_RPATH+=	CFLAGS
+#CFLAGS+=	-L${BUILDLINK_PREFIX.gd}/lib \
+#		${COMPILER_RPATH_FLAG}${BUILDLINK_PREFIX.gd}/lib
+#
+#INSTALLATION_DIRS=	bin
+#
+#do-install:
+#	${INSTALL_MAN_DIR} ${DESTDIR}${PREFIX}/share/doc/png2html
+#	${INSTALL_MAN} ${WRKSRC}/COPYING ${DESTDIR}${PREFIX}/share/doc/png2html
+#	${INSTALL_MAN} ${WRKSRC}/README ${DESTDIR}${PREFIX}/share/doc/png2html
+#	${INSTALL_MAN} ${WRKSRC}/CHANGES ${DESTDIR}${PREFIX}/share/doc/png2html
+#	${INSTALL_PROGRAM} ${WRKSRC}/png2html ${DESTDIR}${PREFIX}/bin
+#
+#.include "../../graphics/gd/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

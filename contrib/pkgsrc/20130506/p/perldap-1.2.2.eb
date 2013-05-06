@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-LDAP-1.2.2'
+version = '1.2.2'
+versionsuffix = '-20130506'
+
+description = "perldap-1.2.2: Perl5 module to build LDAP clients with perl"
+
+sources = ['perldap-1.2.2.tgz']
+version = 'LDAP-1.2.2'
+name = 'p5'
+source_urls = ['http://sourceforge.net/projects/directory/perldap/ancient/files', 'download']
+homepage = 'http://www.mozilla.org/directory/perldap.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-LDAP/Makefile ######
+## $NetBSD: Makefile,v 1.24 2012/10/31 11:18:24 asau Exp $
+##
+#
+#DISTNAME=	perldap-1.2.2
+#PKGNAME=	p5-LDAP-1.2.2
+#PKGREVISION=	7
+#SVR4_PKGNAME=	p5lda
+#CATEGORIES=	devel perl5 databases
+#MASTER_SITES=	${MASTER_SITE_MOZILLA_ALL:=directory/perldap/ancient/}
+#EXTRACT_SUFX=	.tgz
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.mozilla.org/directory/perldap.html
+#COMMENT=	Perl5 module to build LDAP clients with perl
+#LICENSE=	mpl-1.0
+#
+#WRKSRC=		${WRKDIR}/perldap
+#PERL5_PACKLIST=	auto/Mozilla/LDAP/API/.packlist
+#
+#MAKE_ENV+=	LDAPSDKDIR=${BUILDLINK_PREFIX.ldapsdk}
+#MAKE_ENV+=	LDAPSDKSSL="no"
+#MAKE_ENV+=	LDAPV3ON="yes"
+#
+#.include "../../devel/ldapsdk/buildlink3.mk"
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

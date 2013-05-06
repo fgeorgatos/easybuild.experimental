@@ -1,0 +1,59 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'diction'
+version = '1.11'
+versionsuffix = '-20130506'
+
+description = "diction-1.11: GNU version of diction and style"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.moria.de/~michael/diction/']
+homepage = 'http://www.gnu.org/software/diction/diction.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/diction/Makefile ######
+## $NetBSD: Makefile,v 1.15 2012/10/25 06:55:46 asau Exp $
+#
+#DISTNAME=	diction-1.11
+#PKGREVISION=	3
+#CATEGORIES=	textproc
+#MASTER_SITES=	http://www.moria.de/~michael/diction/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.gnu.org/software/diction/diction.html
+#COMMENT=	GNU version of diction and style
+#
+#USE_PKGLOCALEDIR=	YES
+#GNU_CONFIGURE=		YES
+#USE_LIBTOOL=		yes
+#USE_TOOLS+=		gmake msgfmt
+#
+#USE_FEATURES+=		getopt_long regcomp snprintf
+#
+#LIBS.SunOS+=		-lintl
+#
+#.include "options.mk"
+#
+#.include "../../devel/gettext-lib/buildlink3.mk"
+#
+#.include "../../mk/bsd.pkg.mk"

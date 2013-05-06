@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'hg'
+version = 'git-0.3.3'
+versionsuffix = '-20130506'
+
+description = "hg-git-0.3.3: Git plugin for Mercurial"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['${MASTER_SITE_LOCAL}']
+homepage = 'http://hg-git.github.com'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/hg-git/Makefile ######
+## $NetBSD: Makefile,v 1.13 2012/10/31 11:17:05 asau Exp $
+##
+#
+#DISTNAME=		hg-git-0.3.3
+##PKGREVISION=		1
+#EGG_NAME=		hg_git-0.3.3
+#CATEGORIES=		devel python
+#MASTER_SITES=		${MASTER_SITE_LOCAL}
+#
+#MAINTAINER=		joerg@NetBSD.org
+#HOMEPAGE=		http://hg-git.github.com
+#COMMENT=		Git plugin for Mercurial
+#
+#DEPENDS+=	${PYPKGPREFIX}-dulwich>=0.8.0:../../devel/py-dulwich
+#DEPENDS+=	mercurial>=1.7.0:../../devel/mercurial
+#
+#USE_LANGUAGES=	#none
+#
+#.include "../../lang/python/egg.mk"
+#.include "../../mk/bsd.pkg.mk"

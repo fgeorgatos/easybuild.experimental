@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'windowlab'
+version = '1.33'
+versionsuffix = '-20130506'
+
+description = "windowlab-1.33: Small and simple window manager"
+
+sources = ['windowlab-1.33.tar']
+source_urls = ['http://nickgravgaard.com/windowlab/']
+homepage = 'http://nickgravgaard.com/windowlab/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/wm/windowlab/Makefile ######
+## $NetBSD: Makefile,v 1.23 2012/10/23 10:24:15 wiz Exp $
+##
+#
+#DISTNAME=	windowlab-1.33
+#PKGREVISION=	3
+#CATEGORIES=	wm
+#MASTER_SITES=	http://nickgravgaard.com/windowlab/
+#EXTRACT_SUFX=	.tar
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://nickgravgaard.com/windowlab/
+#COMMENT=	Small and simple window manager
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#USE_TOOLS+=	gmake pkg-config
+#
+#EGDIR=		${PREFIX}/share/examples/windowlab
+#CONF_FILES=	${EGDIR}/windowlab.menurc ${PKG_SYSCONFDIR}/windowlab.menurc
+#
+#INSTALLATION_DIRS=	share/examples/windowlab
+#
+#post-install:
+#	${INSTALL_DATA} ${WRKSRC}/windowlab.menurc ${DESTDIR}${EGDIR}
+#
+#.include "../../x11/libXext/buildlink3.mk"
+#.include "../../x11/libXft/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

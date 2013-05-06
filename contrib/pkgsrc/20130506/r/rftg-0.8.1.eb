@@ -1,0 +1,68 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'rftg'
+version = '0.8.1'
+versionsuffix = '-20130506'
+
+description = "rftg-0.8.1: AI opponent s for the card game Race for the Galaxy"
+
+sources = ['rftg-0.8.1.tar.bz2']
+source_urls = ['http://warpcore.org/rftg/']
+homepage = 'http://keldon.net/rftg/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/rftg/Makefile ######
+## $NetBSD: Makefile,v 1.24 2013/02/16 11:21:27 wiz Exp $
+##
+#
+#DISTNAME=	rftg-0.8.1
+#PKGREVISION=	9
+#CATEGORIES=	games
+#MASTER_SITES=	http://warpcore.org/rftg/ \
+#		http://keldon.net/rftg/
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	wiz@NetBSD.org
+#HOMEPAGE=	http://keldon.net/rftg/
+#COMMENT=	AI opponent(s) for the card game Race for the Galaxy
+##LICENSE=	gnu-gpl-v2 AND ??? (but allowed)
+#
+#GNU_CONFIGURE=	yes
+#USE_TOOLS+=	pkg-config
+#
+#LIBS.SunOS+=	-lsocket -lnsl
+#
+#INSTALLATION_DIRS+=	libexec share/doc/rftg
+#
+#post-build:
+#	${ECHO} '#!/bin/sh' > ${WRKSRC}/rftg.sh
+#	${ECHO} 'cd ${PREFIX}/share/rftg && ${PREFIX}/libexec/rftg' \
+#		>> ${WRKSRC}/rftg.sh
+#
+#post-install:
+#	${MV} ${DESTDIR}${PREFIX}/bin/rftg ${DESTDIR}${PREFIX}/libexec/rftg
+#	${INSTALL_SCRIPT} ${WRKSRC}/rftg.sh ${DESTDIR}${PREFIX}/bin/rftg
+#	${INSTALL_DATA} ${WRKSRC}/README ${DESTDIR}${PREFIX}/share/doc/rftg
+#
+#.include "../../x11/gtk2/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

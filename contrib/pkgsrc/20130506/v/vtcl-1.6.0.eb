@@ -1,0 +1,71 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'vtcl'
+version = '1.6.0'
+versionsuffix = '-20130506'
+
+description = "vtcl-1.6.0: Visual Tcl/Tk application development environment"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/vtcl/files', 'download']
+homepage = 'http://vtcl.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/vtcl/Makefile ######
+## $NetBSD: Makefile,v 1.9 2012/10/31 11:19:53 asau Exp $
+#
+#DISTNAME=		vtcl-1.6.0
+#PKGREVISION=		4
+#CATEGORIES=		devel
+#MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=vtcl/}
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://vtcl.sourceforge.net/
+#COMMENT=		Visual Tcl/Tk application development environment
+#
+#USE_TOOLS+=	pax wish:run
+#HAS_CONFIGURE=		yes
+#NO_BUILD=		yes
+#
+#VTCLDIR=		${PREFIX}/lib/vtcl
+#VTCLDOCDIR=		${PREFIX}/share/doc/vtcl
+#VTCLEGDIR=		${PREFIX}/share/examples/vtcl
+#
+#CONFIGURE_ARGS+=	--libdir ${VTCLDIR}
+#CONFIGURE_ENV+=		WISH=${TOOLS_PATH.wish}
+#
+#do-install:
+#	${INSTALL_SCRIPT_DIR} ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_SCRIPT_DIR} ${DESTDIR}${VTCLDIR}
+#	${INSTALL_SCRIPT_DIR} ${DESTDIR}${VTCLDOCDIR}
+#	${INSTALL_SCRIPT_DIR} ${DESTDIR}${VTCLEGDIR}
+#	${INSTALL_SCRIPT} ${WRKSRC}/vtcl ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_SCRIPT} ${WRKSRC}/vtcl.tcl ${DESTDIR}${VTCLDIR}
+#	cd ${WRKSRC} && pax -rwpam lib ${DESTDIR}${VTCLDIR}
+#	cd ${WRKSRC} && pax -rwpam images ${DESTDIR}${VTCLDIR}
+#	cd ${WRKSRC} && pax -rwpam doc ${DESTDIR}${VTCLDOCDIR}
+#	cd ${WRKSRC} && pax -rwpam demo ${DESTDIR}${VTCLEGDIR}
+#	cd ${WRKSRC} && pax -rwpam sample ${DESTDIR}${VTCLEGDIR}
+#
+#.include "../../x11/tk/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

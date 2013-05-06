@@ -1,0 +1,53 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'python'
+version = 'biggles-1.6.3'
+versionsuffix = '-20130506'
+
+description = "python-biggles-1.6.3: Python module for creating 2D scientific plots"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/biggles/files', 'download']
+homepage = 'http://biggles.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/py-biggles/Makefile ######
+## $NetBSD: Makefile,v 1.17 2013/02/16 11:22:23 wiz Exp $
+##
+#
+#DISTNAME=	python-biggles-1.6.3
+#PKGNAME=	${PYPKGPREFIX}${DISTNAME:S/python//}
+#PKGREVISION=	6
+#CATEGORIES=	graphics python
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=biggles/}
+#
+#MAINTAINER=	Kai.Puolamaki@iki.fi
+#HOMEPAGE=	http://biggles.sourceforge.net/
+#COMMENT=	Python module for creating 2D scientific plots
+#
+#PYDISTUTILSPKG= yes
+#
+#.include "../../lang/python/extension.mk"
+#.include "../../math/py-Numeric/buildlink3.mk"
+#.include "../../graphics/plotutils/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

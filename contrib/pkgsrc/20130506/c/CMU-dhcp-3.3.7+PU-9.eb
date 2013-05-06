@@ -1,0 +1,65 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'cmu-dhcpd-3.3.7.9'
+version = 'dhcp-3.3.7+PU-9'
+versionsuffix = '-20130506'
+
+description = "CMU-dhcp-3.3.7+PU-9: CMU BootP and DHCP server, plus Princeton patches"
+
+sources = ['CMU-dhcp-3.3.7+PU-9.tar.Z']
+version = 'dhcpd-3.3.7.9'
+name = 'cmu'
+source_urls = ['http://www.net.princeton.edu/software/dhcpd/']
+homepage = 'http://www.net.princeton.edu/software/dhcpd/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/cmu-dhcpd/Makefile ######
+## $NetBSD: Makefile,v 1.13 2012/10/23 17:18:14 asau Exp $
+##
+#
+#DISTNAME=	CMU-dhcp-3.3.7+PU-9
+#PKGNAME=	cmu-dhcpd-3.3.7.9
+#CATEGORIES=	net
+#MASTER_SITES=	http://www.net.princeton.edu/software/dhcpd/
+#EXTRACT_SUFX=	.tar.Z
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.net.princeton.edu/software/dhcpd/
+#COMMENT=	CMU BootP and DHCP server, plus Princeton patches
+#
+#NOT_FOR_PLATFORM=	Interix-*-* # no userland routing table support
+#
+#WRKSRC=		${WRKDIR}/CMU-dhcp-3.3.7+PU-9
+#GNU_CONFIGURE=	YES
+#
+#INSTALLATION_DIRS=	${PKGMANDIR}/man5 ${PKGMANDIR}/man8 sbin
+#
+#REQD_DIRS+=	/var/db/bindings
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/dhcpd ${DESTDIR}${PREFIX}/sbin/cmu-dhcpd
+#	${INSTALL_MAN} ${WRKSRC}/man/bootptab.5 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man5/bootptab.5
+#	${INSTALL_MAN} ${WRKSRC}/man/dhcpd.8 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man8/dhcpd.8
+#	${INSTALL_MAN} ${WRKSRC}/man/dhcpd.conf.5 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man5/dhcpd.conf.5
+#
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,64 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'openag-1.1.1'
+version = '1.1.1'
+versionsuffix = '-20130506'
+
+description = "OpenAG-1.1.1: Open Audio Galaxy client"
+
+sources = ['OpenAG-1.1.1.tar.gz']
+version = '1.1.1'
+name = 'openag'
+source_urls = ['http://sourceforge.net/projects/openags/files', 'download']
+homepage = 'http://sourceforge.net/projects/openags/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/openag/Makefile ######
+## $NetBSD: Makefile,v 1.12 2012/10/23 17:18:44 asau Exp $
+##
+#
+#DISTNAME=	OpenAG-1.1.1
+#PKGNAME=	openag-1.1.1
+#PKGREVISION=	2
+#CATEGORIES=	net audio
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=openags/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://sourceforge.net/projects/openags/
+#COMMENT=	Open Audio Galaxy client
+#
+#DEPENDS+=	wget-[0-9]*:../../net/wget
+#
+#GNU_CONFIGURE=	yes
+#USE_LANGUAGES=	c c++
+#
+#.include "../../devel/zlib/buildlink3.mk"
+#
+#INSTALLATION_DIRS+=	share/doc/OpenAG
+#
+#post-install:
+#.for i in AUTHORS ChangeLog INSTALL NEWS README
+#		${INSTALL_MAN} ${WRKSRC}/${i} ${DESTDIR}${PREFIX}/share/doc/OpenAG/${i}
+#.endfor
+#
+#.include "../../mk/bsd.pkg.mk"

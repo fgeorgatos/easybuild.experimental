@@ -1,0 +1,50 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'iat'
+version = '0.1.7'
+versionsuffix = '-20130506'
+
+description = "iat-0.1.7: ISO9660 analyzer tool"
+
+sources = ['iat-0.1.7.tar.lzma']
+source_urls = ['http://download.berlios.de/iat/']
+homepage = 'http://iat.berlios.de/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/iat/Makefile ######
+## $NetBSD: Makefile,v 1.2 2012/10/23 19:51:07 asau Exp $
+##
+#
+#DISTNAME=	iat-0.1.7
+#CATEGORIES=	sysutils
+#MASTER_SITES=	http://download.berlios.de/iat/
+#EXTRACT_SUFX=	.tar.lzma
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://iat.berlios.de/
+#COMMENT=	ISO9660 analyzer tool
+#LICENSE=	gnu-gpl-v3
+#
+#GNU_CONFIGURE=	yes
+#
+#.include "../../mk/bsd.pkg.mk"

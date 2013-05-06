@@ -1,0 +1,53 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'rcorder'
+version = '20120310'
+versionsuffix = '-20130506'
+
+description = "rcorder-20120310: Print a dependency ordering of interdependent files"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['#empty']
+homepage = 'http://www.NetBSD.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/pkgtools/rcorder/Makefile ######
+## $NetBSD: Makefile,v 1.15 2012/09/11 23:19:39 asau Exp $
+##
+#
+#DISTNAME=		rcorder-20120310
+#CATEGORIES=		pkgtools sysutils
+#MASTER_SITES=		# empty
+#DISTFILES=		# empty
+#
+#MAINTAINER=		schmonz@NetBSD.org
+#HOMEPAGE=		http://www.NetBSD.org/
+#COMMENT=		Print a dependency ordering of interdependent files
+#
+#GNU_CONFIGURE=		yes
+#USE_FEATURES=		nbcompat
+#
+#do-extract:
+#	${CP} -R ${FILESDIR} ${WRKSRC}
+#
+#.include "../../mk/bsd.pkg.mk"

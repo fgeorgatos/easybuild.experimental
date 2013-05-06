@@ -1,0 +1,51 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'emacs'
+version = 'nox11-'
+versionsuffix = '-20130506'
+
+description = "emacs-nox11-: "
+
+sources = ['emacs-nox11-${MY_EMACS_VERSION}.tar.gz']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/editors/emacs-nox11/Makefile ######
+#DISTNAME=	emacs-nox11-${MY_EMACS_VERSION}
+#MYPKGREVISION=	0	# Do not remove this when zero
+#
+## XXX: must set this before including bsd.prefs.mk or it doesn't work.
+#META_PACKAGE=	yes
+#
+#.include "../../mk/bsd.prefs.mk"
+#
+##
+## Force a nox11 EMACS_TYPE. This way a bulk build will generate
+## emacs meta-packages for use both with and without X.
+##
+#
+#.if empty(EMACS_TYPE:M*nox)
+#MY_EMACS_TYPE=	${EMACS_TYPE}nox
+#.endif
+#
+#.include "../../editors/emacs/Makefile.common"
+homepage = ["no default homepage provided"]

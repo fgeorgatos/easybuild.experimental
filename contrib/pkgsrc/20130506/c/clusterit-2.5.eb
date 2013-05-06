@@ -1,0 +1,53 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'clusterit'
+version = '2.5'
+versionsuffix = '-20130506'
+
+description = "clusterit-2.5: Clustering package for unix"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/clusterit/files', 'download']
+homepage = 'http://clusterit.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/parallel/clusterit/Makefile ######
+## $NetBSD: Makefile,v 1.20 2012/09/11 20:36:17 asau Exp $
+#
+#DISTNAME=		clusterit-2.5
+#PKGREVISION=		1
+#CATEGORIES=		parallel
+#MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=clusterit/}
+#
+#MAINTAINER=		root@garbled.net
+#HOMEPAGE=		http://clusterit.sourceforge.net/
+#COMMENT=		Clustering package for unix
+#
+#GNU_CONFIGURE=		YES
+#
+#BUILDLINK_DEPMETHOD.libXt?=	build
+#
+#.include "../../x11/libX11/buildlink3.mk"
+#.include "../../x11/libXt/buildlink3.mk"
+#.include "../../mk/curses.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

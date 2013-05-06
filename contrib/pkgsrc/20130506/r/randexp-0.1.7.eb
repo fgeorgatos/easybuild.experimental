@@ -1,0 +1,45 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'randexp'
+version = '0.1.7'
+versionsuffix = '-20130506'
+
+description = "randexp-0.1.7: Library for generating random strings"
+
+sources = [SOURCE_TAR_GZ]
+homepage = 'http://github.com/benburkert/randexp'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/ruby-randexp/Makefile ######
+## $NetBSD: Makefile,v 1.2 2012/03/17 14:41:08 taca Exp $
+#
+#DISTNAME=	randexp-0.1.7
+#CATEGORIES=	devel
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://github.com/benburkert/randexp
+#COMMENT=	Library for generating random strings
+#LICENSE=	mit
+#
+#.include "../../lang/ruby/gem.mk"
+#.include "../../mk/bsd.pkg.mk"

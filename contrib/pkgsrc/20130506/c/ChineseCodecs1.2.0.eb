@@ -1,0 +1,55 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = '-zhCodecs-1.2.0'
+version = 'ChineseCodecs1.2.0'
+versionsuffix = '-20130506'
+
+description = "ChineseCodecs1.2.0: Python Unicode codecs for Chinese charsets"
+
+sources = ['ChineseCodecs1.2.0.tar.gz']
+source_urls = ['ftp://ftp.shellhung.org/pub/OpenBSD/packages/chinese/']
+homepage = 'http://sourceforge.net/projects/python-codecs/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/converters/py-zhCodecs/Makefile ######
+## $NetBSD: Makefile,v 1.16 2012/10/03 00:20:16 asau Exp $
+#
+#DISTNAME=	ChineseCodecs1.2.0
+#PKGNAME=	${PYPKGPREFIX}-zhCodecs-1.2.0
+#PKGREVISION=	1
+#CATEGORIES=	converters devel python
+#MASTER_SITES=	ftp://ftp.shellhung.org/pub/OpenBSD/packages/chinese/ \
+#		ftp://ftp2.python.or.kr/pub/FreeBSD/ports/distfiles/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://sourceforge.net/projects/python-codecs/
+#COMMENT=	Python Unicode codecs for Chinese charsets
+#
+#WRKSRC=		${WRKDIR}/${DISTNAME}/Python
+#PYDISTUTILSPKG=	# defined
+#
+#post-extract:
+#	@${CHMOD} 711 ${WRKSRC}/chinesetw
+#
+#.include "../../lang/python/extension.mk"
+#.include "../../mk/bsd.pkg.mk"

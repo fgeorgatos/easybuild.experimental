@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'xmascot-2.6a'
+version = 'xmascot2.6a'
+versionsuffix = '-20130506'
+
+description = "xmascot2.6a: Moving mascot on your X-Window screen"
+
+sources = ['xmascot2.6a.tar.gz']
+version = '2.6a'
+name = 'xmascot'
+source_urls = ['http://cclub-flying.dsl.gr.jp/products/xmascot/']
+homepage = 'http://cclub-flying.dsl.gr.jp/products/xmascot/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/xmascot/Makefile ######
+## $NetBSD: Makefile,v 1.26 2012/10/29 05:07:15 asau Exp $
+#
+#DISTNAME=	xmascot2.6a
+#PKGNAME=	xmascot-2.6a
+#PKGREVISION=	2
+#CATEGORIES=	x11
+#MASTER_SITES=	http://cclub-flying.dsl.gr.jp/products/xmascot/
+#
+#MAINTAINER=	Nakai@Mlab.t.u-tokyo.ac.jp
+#HOMEPAGE=	http://cclub-flying.dsl.gr.jp/products/xmascot/
+#COMMENT=	Moving mascot on your X-Window screen
+#
+#MAKE_JOBS_SAFE=		no
+#
+#USE_IMAKE=	yes
+#
+#INSTALL_MAKE_FLAGS+=	LANG=ja_JP.eucJP
+#
+#.include "../../x11/libXaw/buildlink3.mk"
+#.include "../../x11/libXt/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

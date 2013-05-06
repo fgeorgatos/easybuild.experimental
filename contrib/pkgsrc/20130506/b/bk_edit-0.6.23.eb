@@ -1,0 +1,60 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'bk_edit'
+version = '0.6.23'
+versionsuffix = '-20130506'
+
+description = "bk_edit-0.6.23: Bookmark manager and editor"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.vakuumverpackt.de/nettools/bk_edit/']
+homepage = 'http://www.vakuumverpackt.de/nettools/bk_edit/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/bkedit/Makefile ######
+## $NetBSD: Makefile,v 1.22 2012/10/28 06:30:11 asau Exp $
+##
+#
+#DISTNAME=		bk_edit-0.6.23
+#PKGNAME=		${DISTNAME:S/_//}
+#PKGREVISION=		4
+#CATEGORIES=		www
+#MASTER_SITES=		http://www.vakuumverpackt.de/nettools/bk_edit/
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://www.vakuumverpackt.de/nettools/bk_edit/
+#COMMENT=		Bookmark manager and editor
+#
+#MAKE_JOBS_SAFE=		no
+#
+#USE_TOOLS+=		bison lex
+#
+#HAS_CONFIGURE=		yes
+#CONFIGURE_ARGS+=	--prefix=${PREFIX}
+#
+#MAKE_ENV+=		PKG_CFLAGS=${CFLAGS:Q}
+#MAKE_ENV+=		PKG_LDFLAGS=${LDFLAGS:Q}
+#
+#.include "../../textproc/libxml2/buildlink3.mk"
+#.include "../../x11/gtk/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

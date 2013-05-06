@@ -1,0 +1,68 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'pkgfind'
+version = '20111022'
+versionsuffix = '-20130506'
+
+description = "pkgfind-20111022: Find packages by package name in pkgsrc"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['#empty']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/pkgtools/pkgfind/Makefile ######
+## $NetBSD: Makefile,v 1.24 2012/09/11 23:19:38 asau Exp $
+#
+#DISTNAME=	pkgfind-20111022
+#CATEGORIES=	pkgtools
+#MASTER_SITES=	# empty
+#DISTFILES=	# empty
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#COMMENT=	Find packages by package name in pkgsrc
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#USE_FEATURES=	err getprogname setprogname snprintf warn
+#
+#INSTALLATION_DIRS=	bin ${PKGMANDIR}/man1
+#
+#do-extract:
+#	${CP} -R ${FILESDIR} ${WRKSRC}
+#
+#do-build:
+#	${CC} ${CFLAGS} ${CPPFLAGS} ${LDFLAGS} -o ${WRKSRC}/pkgfind	\
+#		${WRKSRC}/pkgfind.c ${LIBS}
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/pkgfind ${DESTDIR}${PREFIX}/bin/pkgfind
+#	${INSTALL_MAN} ${WRKSRC}/pkgfind.1 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man1/pkgfind.1
+#
+#SUBST_CLASSES+=		path
+#SUBST_STAGE.path=	post-patch
+#SUBST_FILES.path=	pkgfind.c pkgfind.1
+#SUBST_SED.path=		-e "s,/usr/pkgsrc,${PKGSRCDIR},g"
+#SUBST_MESSAGE.path=	Adjusting pkgsrc directory.
+#
+#.include "../../mk/bsd.pkg.mk"
+homepage = ["no default homepage provided"]

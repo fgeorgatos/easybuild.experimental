@@ -1,0 +1,64 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'WWW-Selenium-1.33'
+versionsuffix = '-20130506'
+
+description = "Test-WWW-Selenium-1.33: Perl 5 module to test applications using Selenium Remote Control"
+
+sources = ['Test-WWW-Selenium-1.33.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Test/']
+homepage = 'http://search.cpan.org/dist/Test-WWW-Selenium/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Test-WWW-Selenium/Makefile ######
+## $NetBSD: Makefile,v 1.12 2012/10/31 11:19:11 asau Exp $
+##
+#
+#DISTNAME=	Test-WWW-Selenium-1.33
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	1
+#CATEGORIES=	devel perl5 www
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Test/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Test-WWW-Selenium/
+#COMMENT=	Perl 5 module to test applications using Selenium Remote Control
+#LICENSE=	${PERL5_LICENSE}
+#
+#USE_LANGUAGES=		# empty
+#PERL5_PACKLIST=		auto/Test/WWW/Selenium/.packlist
+#PERL5_MODULE_TYPE=	Module::Install::Bundled
+#
+#DEPENDS+=	p5-libwww-[0-9]*:../../www/p5-libwww
+## contains URI::Escape 3.30
+#DEPENDS+=	p5-URI>=1.54:../../www/p5-URI
+#
+#BUILD_DEPENDS+=	p5-Test-Exception-[0-9]*:../../devel/p5-Test-Exception
+#BUILD_DEPENDS+=	p5-Test-Mock-LWP-[0-9]*:../../devel/p5-Test-Mock-LWP
+#BUILD_DEPENDS+=	p5-Test-Pod-[0-9]*:../../devel/p5-Test-Pod
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

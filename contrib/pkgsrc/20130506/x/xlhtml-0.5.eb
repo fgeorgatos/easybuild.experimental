@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'xlhtml'
+version = '0.5'
+versionsuffix = '-20130506'
+
+description = "xlhtml-0.5: Microsoft xls/ppt to HTML converter"
+
+sources = ['xlhtml-0.5.tgz']
+source_urls = ['http://sourceforge.net/projects/chicago/files', 'download']
+homepage = 'http://chicago.sourceforge.net/xlhtml/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/converters/xlhtml/Makefile ######
+## $NetBSD: Makefile,v 1.16 2012/10/03 00:20:18 asau Exp $
+##
+#
+#DISTNAME=		xlhtml-0.5
+#PKGREVISION=		2
+#CATEGORIES=		converters
+#MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=chicago/}
+#EXTRACT_SUFX=		.tgz
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://chicago.sourceforge.net/xlhtml/
+#COMMENT=		Microsoft xls/ppt to HTML converter
+#
+#GNU_CONFIGURE=		YES
+#USE_TOOLS+=		gmake csh:run
+#
+#REPLACE_CSH=		xlhtml/nsxlview xlhtml/nsopen xlhtml/gpdemo
+#REPLACE_CSH+=		ppthtml/nspptview
+#
+## fabs
+#LIBS.SunOS+=		-lm
+#
+#.include "../../mk/bsd.pkg.mk"

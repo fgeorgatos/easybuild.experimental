@@ -1,0 +1,64 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'gimp--1.4'
+version = 'sharp'
+versionsuffix = '-20130506'
+
+description = "warp-sharp: Image sharpening script for GIMP"
+
+sources = ['warp-sharp.scm']
+version = '${DISTNAME}-1.4'
+name = 'gimp'
+source_urls = ['http://www.home.unix-ag.org/simon/gimp/']
+homepage = 'http://www.home.unix-ag.org/simon/gimp/warp-sharp.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/gimp-warp-sharp/Makefile ######
+## $NetBSD: Makefile,v 1.9 2012/10/06 14:10:54 asau Exp $
+#
+#DISTNAME=	warp-sharp
+#PKGNAME=	gimp-${DISTNAME}-1.4
+#PKGREVISION=	3
+#CATEGORIES=	graphics
+#MASTER_SITES=	http://www.home.unix-ag.org/simon/gimp/
+#EXTRACT_SUFX=	.scm
+#
+#MAINTAINER=	minskim@NetBSD.org
+#HOMEPAGE=	http://www.home.unix-ag.org/simon/gimp/warp-sharp.html
+#COMMENT=	Image sharpening script for GIMP
+#
+#DEPENDS+=	gimp>=2.0:../../graphics/gimp
+#
+#WRKSRC=		${WRKDIR}
+#NO_CONFIGURE=	yes
+#NO_BUILD=	yes
+#
+#DIST_SUBDIR=	${PKGNAME_NOREV}
+#
+#INSTALLATION_DIRS=	share/gimp/2.0/scripts
+#
+#do-install:
+#	${INSTALL_DATA} ${WRKSRC}/${DISTNAME}${EXTRACT_SUFX} \
+#		${DESTDIR}${PREFIX}/share/gimp/2.0/scripts
+#
+#.include "../../mk/bsd.pkg.mk"

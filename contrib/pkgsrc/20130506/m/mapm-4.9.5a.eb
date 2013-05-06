@@ -1,0 +1,65 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'mapm'
+version = '4.9.5a'
+versionsuffix = '-20130506'
+
+description = "mapm-4.9.5a: Arbitrary Precision Math library"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.tc.umn.edu/~ringx004/']
+homepage = 'http://www.tc.umn.edu/~ringx004/mapm-main.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/math/mapm/Makefile ######
+## $NetBSD: Makefile,v 1.10 2012/09/13 16:56:17 asau Exp $
+##
+#
+#DISTNAME=		mapm-4.9.5a
+#CATEGORIES=		math
+#MASTER_SITES=		http://www.tc.umn.edu/~ringx004/
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://www.tc.umn.edu/~ringx004/mapm-main.html
+#COMMENT=		Arbitrary Precision Math library
+#
+#WRKSRC=		${WRKDIR}/${DISTNAME:S/-/_/}
+#
+#DOCS=	README algorithms.used function.ref article.pdf
+#
+#USE_LANGUAGES=	c c++
+#
+#INSTALLATION_DIRS=	bin include lib share/doc/mapm
+#
+#do-install:
+#	${INSTALL_DATA} ${WRKSRC}/m_apm.h ${DESTDIR}${PREFIX}/include
+#	${INSTALL_DATA} ${WRKSRC}/libmapm.a ${DESTDIR}${PREFIX}/lib
+#	${INSTALL_PROGRAM} ${WRKSRC}/calc ${DESTDIR}${PREFIX}/bin/mapm-calc
+#	cd ${WRKSRC}/DOCS; for f in ${DOCS}; do \
+#		${INSTALL_DATA} $$f ${DESTDIR}${PREFIX}/share/doc/mapm; \
+#	done
+#
+#do-test:
+#	cd ${WRKSRC} && ./validate
+#
+#.include "../../mk/bsd.pkg.mk"

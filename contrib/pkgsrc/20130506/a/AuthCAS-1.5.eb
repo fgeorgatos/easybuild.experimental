@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = '1.5'
+versionsuffix = '-20130506'
+
+description = "AuthCAS-1.5: AuthCAS - Client library for CAS 2.0 authentication server"
+
+sources = ['AuthCAS-1.5.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/../../authors/id/O/OS/OSALAUN/']
+homepage = 'http://search.cpan.org/dist/AuthCAS/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/p5-AuthCAS/Makefile ######
+## $NetBSD: Makefile,v 1.6 2012/10/23 18:16:39 asau Exp $
+#
+#DISTNAME=	AuthCAS-1.5
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	2
+#CATEGORIES=	security perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=../../authors/id/O/OS/OSALAUN/}
+#
+#MAINTAINER=	bouyer@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/AuthCAS/
+#COMMENT=	AuthCAS - Client library for CAS 2.0 authentication server
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	p5-IO-Socket-SSL-[0-9]*:../../security/p5-IO-Socket-SSL
+#DEPENDS+=	p5-libwww-[0-9]*:../../www/p5-libwww
+#
+#USE_LANGUAGES=		#
+#
+#PERL5_PACKLIST=	auto/AuthCAS/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

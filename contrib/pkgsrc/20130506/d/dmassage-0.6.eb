@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'dmassage'
+version = '0.6'
+versionsuffix = '-20130506'
+
+description = "dmassage-0.6: dmesg 8 parser"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.sentia.org/downloads/']
+homepage = 'http://www.sentia.org/projects/dmassage/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/dmassage/Makefile ######
+## $NetBSD: Makefile,v 1.7 2012/10/23 19:50:58 asau Exp $
+##
+#
+#DISTNAME=	dmassage-0.6
+#PKGREVISION=	1
+#CATEGORIES=	sysutils
+#MASTER_SITES=	http://www.sentia.org/downloads/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.sentia.org/projects/dmassage/
+#COMMENT=	dmesg(8) parser
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#ONLY_FOR_PLATFORM=	NetBSD-*-* OpenBSD-*-*
+#
+#NO_BUILD=	yes
+#USE_TOOLS+=	perl:run
+#REPLACE_PERL=	dmassage
+#
+#INSTALLATION_DIRS=	bin share/doc/${PKGBASE}
+#
+#do-install:
+#	${INSTALL_SCRIPT} ${WRKSRC}/dmassage ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_DATA} ${WRKSRC}/README ${DESTDIR}${PREFIX}/share/doc/${PKGBASE}
+#
+#.include "../../mk/bsd.pkg.mk"

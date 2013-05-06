@@ -1,0 +1,67 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'chef'
+version = '19920415'
+versionsuffix = '-20130506'
+
+description = "chef-19920415: Convert from English to mock Swedish - Bork Bork Bork!"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.evolutionzone.com/kulturezone/c-g.writing/']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/converters/chef/Makefile ######
+## $NetBSD: Makefile,v 1.16 2012/10/03 00:20:10 asau Exp $
+##
+#
+#DISTNAME=	chef-19920415
+#CATEGORIES=	converters
+#MASTER_SITES=	http://www.evolutionzone.com/kulturezone/c-g.writing/
+#DISTFILES=	chef.l.txt
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+##HOMEPAGE=	none
+#COMMENT=	Convert from English to (mock) Swedish - Bork Bork Bork!
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#NO_CONFIGURE=	yes
+#USE_TOOLS+=	lex
+#WRKSRC=		${WRKDIR}
+#DIST_SUBDIR=	${PKGNAME_NOREV}
+#
+#INSTALLATION_DIRS=	bin
+#
+#do-extract:
+#	# deal with the dos encoding of the file
+#	cd ${WRKSRC} && tr '\r' '\n' < ${DISTDIR}/${DIST_SUBDIR}/${DISTFILES} > chef.l
+#
+#do-build:
+#	cd ${WRKSRC} && lex chef.l
+#	${LINK.c} -o ${WRKSRC}/chef ${WRKSRC}/lex.yy.c -ll
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/chef ${DESTDIR}${PREFIX}/bin
+#
+#.include "../../mk/bsd.pkg.mk"
+homepage = ["no default homepage provided"]

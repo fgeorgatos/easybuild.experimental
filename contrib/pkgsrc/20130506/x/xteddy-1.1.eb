@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'xteddy'
+version = '1.1'
+versionsuffix = '-20130506'
+
+description = "xteddy-1.1: Cuddly teddy bear for your desktop"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://staffwww.itn.liu.se/~stegu/xteddy/']
+homepage = 'http://staffwww.itn.liu.se/~stegu/xteddy/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/xteddy/Makefile ######
+## $NetBSD: Makefile,v 1.23 2012/10/29 05:07:22 asau Exp $
+#
+#DISTNAME=	xteddy-1.1
+#PKGREVISION=	1
+#CATEGORIES=	x11 games
+#MASTER_SITES=	http://staffwww.itn.liu.se/~stegu/xteddy/
+#
+#MAINTAINER=	johnam@mail.kemper.org
+#HOMEPAGE=	http://staffwww.itn.liu.se/~stegu/xteddy/
+#COMMENT=	Cuddly teddy bear for your desktop
+#
+#GNU_CONFIGURE=	YES
+#
+#INSTALLATION_DIRS=	share/xteddy/pixmaps
+#
+#BUILDLINK_DEPMETHOD.libXt?=	build
+#
+#.include "../../x11/libSM/buildlink3.mk"
+#.include "../../x11/libXext/buildlink3.mk"
+#.include "../../x11/libXpm/buildlink3.mk"
+#.include "../../x11/libXt/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

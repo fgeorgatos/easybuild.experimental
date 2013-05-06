@@ -1,0 +1,52 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5'
+version = 'Palm-1.012'
+versionsuffix = '-20130506'
+
+description = "p5-Palm-1.012: Access Palm .pdb and .prc database files"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/../../authors/id/B/BD/BDFOY/']
+homepage = 'http://www.coldsync.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/databases/p5-Palm/Makefile ######
+## $NetBSD: Makefile,v 1.16 2012/10/03 21:54:22 wiz Exp $
+#
+#DISTNAME=	p5-Palm-1.012
+#PKGNAME=	${DISTNAME:S/012/12.0/}
+#PKGREVISION=	3
+#SVR4_PKGNAME=	p5plm
+#CATEGORIES=	databases perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=../../authors/id/B/BD/BDFOY/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.coldsync.org/
+#COMMENT=	Access Palm .pdb and .prc database files
+#LICENSE=	${PERL5_LICENSE}
+#
+#PERL5_PACKLIST=	auto/Palm/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

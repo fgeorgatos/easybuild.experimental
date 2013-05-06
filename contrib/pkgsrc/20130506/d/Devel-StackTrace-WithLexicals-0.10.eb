@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'StackTrace-WithLexicals-0.10'
+versionsuffix = '-20130506'
+
+description = "Devel-StackTrace-WithLexicals-0.10: Perl 5 module combining Devel::StackTrace and PadWalker"
+
+sources = ['Devel-StackTrace-WithLexicals-0.10.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Devel/']
+homepage = 'http://search.cpan.org/dist/Devel-StackTrace-WithLexicals/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Devel-StackTrace-WithLexicals/Makefile ######
+## $NetBSD: Makefile,v 1.7 2012/10/31 11:18:03 asau Exp $
+#
+#DISTNAME=	Devel-StackTrace-WithLexicals-0.10
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	1
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Devel/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Devel-StackTrace-WithLexicals/
+#COMMENT=	Perl 5 module combining Devel::StackTrace and PadWalker
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	p5-Devel-StackTrace>=1.2200:../../devel/p5-Devel-StackTrace
+#DEPENDS+=	p5-PadWalker>=1.9.2:../../devel/p5-PadWalker
+#
+#USE_LANGUAGES=		# empty
+#PERL5_PACKLIST=		auto/Devel/StackTrace/WithLexicals/.packlist
+#PERL5_MODULE_TYPE=	Module::Install::Bundled
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

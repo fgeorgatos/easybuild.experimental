@@ -1,0 +1,82 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'hydrogen'
+version = '0.9.5.1'
+versionsuffix = '-20130506'
+
+description = "hydrogen-0.9.5.1: Real time drum machine/sequencer"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/hydrogen/files', 'download']
+homepage = 'http://www.hydrogen-music.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/hydrogen/Makefile ######
+## $NetBSD: Makefile,v 1.37 2013/02/16 11:20:12 wiz Exp $
+#
+#DISTNAME=	hydrogen-0.9.5.1
+#PKGREVISION=	4
+#CATEGORIES=	audio
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=hydrogen/}
+#
+#MAINTAINER=	mrg@eterna.com.au
+#HOMEPAGE=	http://www.hydrogen-music.org/
+#COMMENT=	Real time drum machine/sequencer
+#
+#USE_LANGUAGES=	c c++
+#USE_LIBTOOL=	yes
+#USE_TOOLS+=	pkg-config
+#
+#BUILD_DEPENDS+=		scons>=0.98:../../devel/scons
+#BUILD_DEPENDS+=		subversion-base>=1.0:../../devel/subversion-base
+#
+#MAKE_ENV+=	QTDIR=${PREFIX}/qt4 PATH=$$PATH:${PREFIX}/qt4/bin
+#SCONS_ARGS=	libarchive=1 jack=0 lrdf=0 QTDIR=${QTDIR}
+#
+#.include "../../mk/bsd.prefs.mk"
+#
+#.if ${OPSYS} == "Linux"
+#SCONS_ARGS+=	alsa=1
+#.else
+#SCONS_ARGS+=	alsa=0
+#.endif
+#
+#do-build:
+#	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${PREFIX}/bin/scons DESTDIR=${DESTDIR} prefix=${PREFIX} ${SCONS_ARGS}
+#
+#do-install:
+#	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${PREFIX}/bin/scons DESTDIR=${DESTDIR} prefix=${PREFIX} ${SCONS_ARGS} install
+#
+#
+#.include "../../archivers/libarchive/buildlink3.mk"
+#.if ${OPSYS} == "Linux"
+#.  include "../../audio/alsa-lib/buildlink3.mk"
+#.endif
+#.include "../../audio/libsndfile/buildlink3.mk"
+#.include "../../sysutils/desktop-file-utils/desktopdb.mk"
+#.include "../../x11/libSM/buildlink3.mk"
+#.include "../../x11/libXext/buildlink3.mk"
+#.include "../../x11/libXt/buildlink3.mk"
+#.include "../../x11/qt4-libs/buildlink3.mk"
+#.include "../../x11/qt4-tools/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

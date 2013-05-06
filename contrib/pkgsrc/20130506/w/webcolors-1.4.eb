@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = '-'
+version = '1.4'
+versionsuffix = '-20130506'
+
+description = "webcolors-1.4: Library for working with color specifications for HTML and CSS"
+
+sources = ['webcolors-1.4.tar.gz']
+source_urls = ['http://bitbucket.org/ubernostrum/webcolors/downloads/']
+homepage = 'http://www.bitbucket.org/ubernostrum/webcolors/overview/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/py-webcolors/Makefile ######
+## $NetBSD: Makefile,v 1.4 2012/10/28 06:31:02 asau Exp $
+##
+#
+#DISTNAME=	webcolors-1.4
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+#CATEGORIES=	www
+#MASTER_SITES=	http://bitbucket.org/ubernostrum/webcolors/downloads/ \
+#		http://pypi.python.org/packages/source/w/webcolors/
+#
+#MAINTAINER=	obache@NetBSD.org
+#HOMEPAGE=	http://www.bitbucket.org/ubernostrum/webcolors/overview/
+#COMMENT=	Library for working with color specifications for HTML and CSS
+#LICENSE=	modified-bsd
+#
+#PYTHON_VERSIONS_INCLUDE_3X=	yes
+#
+#USE_LANGUAGES=	# none
+#
+#.include "../../lang/python/distutils.mk"
+#.include "../../mk/bsd.pkg.mk"

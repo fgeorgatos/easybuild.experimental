@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'imm-3.6a1'
+version = 'imm36a1'
+versionsuffix = '-20130506'
+
+description = "imm36a1: Internet Image or other data Multicaster and receiver "
+
+sources = ['imm36a1.tar.Z']
+version = '3.6a1'
+name = 'imm'
+source_urls = ['ftp://ftp.hawaii.edu/paccom/imm/']
+homepage = 'http://tang.itd.nrl.navy.mil/5522/ntm/imm.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/mbone/imm/Makefile ######
+## $NetBSD: Makefile,v 1.28 2010/08/21 09:07:17 seb Exp $
+#
+#DISTNAME=	imm36a1
+#PKGNAME=	imm-3.6a1
+#PKGREVISION=	1
+#CATEGORIES=	mbone tk
+#MASTER_SITES=	ftp://ftp.hawaii.edu/paccom/imm/
+#EXTRACT_SUFX=	.tar.Z
+#
+#MAINTAINER=	is@NetBSD.org
+#HOMEPAGE=	http://tang.itd.nrl.navy.mil/5522/ntm/imm.html
+#COMMENT=	Internet Image(or other data) Multicaster (and receiver)
+#
+#BROKEN=		Depends on TCL/TK 8.3
+#
+#DEPENDS+=	xv>=3.10:../../graphics/xv
+#
+#WRKSRC=		${WRKDIR}/${DISTNAME}.src
+#BUILD_TARGET=	netbsd
+#
+##.include "../../x11/tk83/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

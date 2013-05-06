@@ -1,0 +1,68 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'skampi-5.0.4.355'
+version = 'skampi'
+versionsuffix = '-20130506'
+
+description = "skampi: MPI Message Passing Interface benchmarks"
+
+sources = ['skampi.tar.gz']
+version = '5.0.4.355'
+name = 'skampi'
+source_urls = ['http://liinwww.ira.uka.de/~skampi/download/']
+homepage = 'http://liinwww.ira.uka.de/~skampi/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/benchmarks/skampi/Makefile ######
+## $NetBSD: Makefile,v 1.26 2012/10/18 16:58:18 asau Exp $
+##
+#
+#DISTNAME=	skampi
+#PKGNAME=	skampi-5.0.4.355
+#CATEGORIES=	benchmarks parallel
+#MASTER_SITES=	http://liinwww.ira.uka.de/~skampi/download/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://liinwww.ira.uka.de/~skampi/
+#COMMENT=	MPI (Message Passing Interface) benchmarks
+#LICENSE=	gnu-gpl-v2
+#
+#DIST_SUBDIR=	${PKGNAME_NOREV}
+#WRKSRC=		${WRKDIR}/skampi-5.0.4-r0355
+#
+#USE_TOOLS+=	gmake pax
+#BUILD_TARGET=	skampi
+#INSTALLATION_DIRS=	bin
+#
+## Force file regeneration:
+#post-extract:
+#	rm $(WRKSRC)/Makefile.dep
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/skampi ${DESTDIR}${PREFIX}/bin/skampi
+#	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/skampi
+#	(cd ${WRKSRC} && pax -rw ski ${DESTDIR}${PREFIX}/share/skampi)
+#	(cd ${WRKSRC} && pax -rw doc ${DESTDIR}${PREFIX}/share/skampi)
+#
+#.include "../../mk/mpi.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

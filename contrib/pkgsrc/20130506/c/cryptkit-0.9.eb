@@ -1,0 +1,48 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = '-'
+version = '0.9'
+versionsuffix = '-20130506'
+
+description = "cryptkit-0.9: Python Cryptographic Toolkit"
+
+sources = ['cryptkit-0.9.tar.gz']
+source_urls = ['http://sourceforge.net/projects/cryptkit/files', 'download']
+homepage = 'http://cryptkit.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/py-cryptkit/Makefile ######
+## $NetBSD: Makefile,v 1.15 2012/10/23 18:16:53 asau Exp $
+#
+#DISTNAME=	cryptkit-0.9
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+#PKGREVISION=	2
+#CATEGORIES=	security python
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=cryptkit/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://cryptkit.sourceforge.net/
+#COMMENT=	Python Cryptographic Toolkit
+#
+#.include "../../lang/python/distutils.mk"
+#.include "../../mk/bsd.pkg.mk"

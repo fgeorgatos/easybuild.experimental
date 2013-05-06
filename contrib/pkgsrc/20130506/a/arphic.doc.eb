@@ -1,0 +1,46 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'tex--2.11'
+version = 'arphic.doc'
+versionsuffix = '-20130506'
+
+description = "arphic.doc: Documentation for tex-arphic"
+
+sources = ['arphic.doc.tar.gz']
+version = '${DISTNAME:S/./-/}-2.11'
+name = 'tex'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/fonts/tex-arphic-doc/Makefile ######
+## $NetBSD: Makefile,v 1.1.1.1 2011/03/21 16:52:39 minskim Exp $
+#
+#DISTNAME=	arphic.doc
+#PKGNAME=	tex-${DISTNAME:S/./-/}-2.11
+#TEXLIVE_REV=	15878
+#
+#MAINTAINER=	rxg@NetBSD.org
+#COMMENT=	Documentation for tex-arphic
+#
+#.include "../../print/texlive/package.mk"
+#.include "../../mk/bsd.pkg.mk"
+homepage = ["no default homepage provided"]

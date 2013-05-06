@@ -1,0 +1,64 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'mergeant'
+version = '0.66'
+versionsuffix = '-20130506'
+
+description = "mergeant-0.66: GNOME2 GNOME-DB database front-end"
+
+sources = ['mergeant-0.66.tar.bz2']
+source_urls = ['http://sourceforge.net/projects/sources/mergeant/0.66/files', 'download']
+homepage = 'http://www.gnome-db.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/databases/mergeant/Makefile ######
+## $NetBSD: Makefile,v 1.85 2013/02/16 11:20:39 wiz Exp $
+##
+#
+#DISTNAME=		mergeant-0.66
+#PKGREVISION=		29
+#CATEGORIES=		databases gnome
+#MASTER_SITES=		${MASTER_SITE_GNOME:=sources/mergeant/0.66/}
+#EXTRACT_SUFX=		.tar.bz2
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://www.gnome-db.org/
+#COMMENT=		GNOME2 GNOME-DB database front-end
+#
+#USE_TOOLS+=		gmake intltool perl pkg-config msgfmt
+#USE_PKGLOCALEDIR=	YES
+#GNU_CONFIGURE=		YES
+#CONFIGURE_ARGS+=	--disable-gtk-doc
+#USE_LIBTOOL=		YES
+#
+#.include "../../databases/libgda/buildlink3.mk"
+#.include "../../databases/libgnomedb/buildlink3.mk"
+#.include "../../devel/GConf/buildlink3.mk"
+#.include "../../devel/gettext-lib/buildlink3.mk"
+#.include "../../devel/libglade/buildlink3.mk"
+#.include "../../devel/libgnomeui/buildlink3.mk"
+#.include "../../textproc/libxml2/buildlink3.mk"
+#.include "../../mk/omf-scrollkeeper.mk"
+#.include "../../x11/gtk2/buildlink3.mk"
+#.include "../../sysutils/desktop-file-utils/desktopdb.mk"
+#.include "../../mk/bsd.pkg.mk"

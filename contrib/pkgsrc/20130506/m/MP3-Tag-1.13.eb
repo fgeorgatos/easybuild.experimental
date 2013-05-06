@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'Tag-1.13'
+versionsuffix = '-20130506'
+
+description = "MP3-Tag-1.13: This is a perl module to read/write tags of mp3-files"
+
+sources = ['MP3-Tag-1.13.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/MP3/']
+homepage = 'http://search.cpan.org/dist/MP3-Tag/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/p5-MP3-Tag/Makefile ######
+## $NetBSD: Makefile,v 1.23 2012/10/03 21:53:57 wiz Exp $
+#
+#DISTNAME=	MP3-Tag-1.13
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	2
+#SVR4_PKGNAME=	p5mp3
+#CATEGORIES=	audio perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=MP3/}
+#
+#MAINTAINER=	damon@brodiefamily.org
+#HOMEPAGE=	http://search.cpan.org/dist/MP3-Tag/
+#COMMENT=	This is a perl module to read/write tags of mp3-files
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	p5-IO-Compress>=2.017:../../devel/p5-IO-Compress
+#
+#PERL5_PACKLIST=		auto/MP3/Tag/.packlist
+#
+#REPLACE_PERL+=	lib/Encode/transliterate_win1251.pm
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

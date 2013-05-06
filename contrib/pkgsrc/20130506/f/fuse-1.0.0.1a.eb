@@ -1,0 +1,59 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'fuse'
+version = '1.0.0.1a'
+versionsuffix = '-20130506'
+
+description = "fuse-1.0.0.1a: ZX Spectrum Emulator"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/fuse-emulator/files', 'download']
+homepage = 'http://fuse-emulator.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/emulators/fuse/Makefile ######
+## $NetBSD: Makefile,v 1.50 2013/02/16 11:21:04 wiz Exp $
+#
+#DISTNAME=	fuse-1.0.0.1a
+#PKGREVISION=	10
+#CATEGORIES=	emulators
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=fuse-emulator/}
+#
+#MAINTAINER=	adam@NetBSD.org
+#HOMEPAGE=	http://fuse-emulator.sourceforge.net/
+#COMMENT=	ZX Spectrum Emulator
+#LICENSE=	gnu-gpl-v2
+#
+#USE_TOOLS+=		perl pkg-config
+#GNU_CONFIGURE=		yes
+#
+#CPPFLAGS+=		-DDEVOSSAUDIO=\"${DEVOSSAUDIO}\"
+#LIBS+=			${LIBOSSAUDIO}
+#
+#.include "options.mk"
+#
+#.include "../../emulators/libspectrum/buildlink3.mk"
+#.include "../../graphics/png/buildlink3.mk"
+#.include "../../textproc/libxml2/buildlink3.mk"
+#.include "../../mk/oss.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

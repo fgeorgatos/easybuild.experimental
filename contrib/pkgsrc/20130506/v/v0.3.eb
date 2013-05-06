@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = '-musicbrainz-ngs-0.3'
+version = 'v0.3'
+versionsuffix = '-20130506'
+
+description = "v0.3: Python bindings for Musicbrainz NGS service"
+
+sources = ['v0.3.tar.gz']
+source_urls = ['https://github.com/alastair/python-musicbrainz-ngs/archive/']
+homepage = 'https://github.com/alastair/python-musicbrainz-ngs'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/py-musicbrainz-ngs/Makefile ######
+## $NetBSD: Makefile,v 1.1 2013/03/14 13:42:06 wiz Exp $
+#
+#DISTNAME=	v0.3
+#PKGNAME=	${PYPKGPREFIX}-musicbrainz-ngs-0.3
+#CATEGORIES=	audio net
+#MASTER_SITES=	https://github.com/alastair/python-musicbrainz-ngs/archive/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	https://github.com/alastair/python-musicbrainz-ngs
+#COMMENT=	Python bindings for Musicbrainz' NGS service
+#LICENSE=	2-clause-bsd
+#
+#DEPENDS+=	${PYPKGPREFIX}-expat-[0-9]*:../../textproc/py-expat
+#
+#WRKSRC=		${WRKDIR}/python-musicbrainz-ngs-0.3
+#DIST_SUBDIR=	py-musicbrainz-ngs
+#
+#PYTHON_VERSIONS_INCLUDE_3X=	yes
+#EGG_NAME=			musicbrainzngs-0.3
+#
+#.include "../../lang/python/distutils.mk"
+#.include "../../mk/bsd.pkg.mk"

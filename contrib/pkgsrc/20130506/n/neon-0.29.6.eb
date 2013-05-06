@@ -1,0 +1,75 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'neon'
+version = '0.29.6'
+versionsuffix = '-20130506'
+
+description = "neon-0.29.6: HTTP and WebDAV client library"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.webdav.org/neon/']
+homepage = 'http://www.webdav.org/neon/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/neon/Makefile ######
+## $NetBSD: Makefile,v 1.58 2013/02/06 23:20:54 jperkin Exp $
+#
+#DISTNAME=	neon-0.29.6
+#PKGREVISION=	3
+#CATEGORIES=	www
+#MASTER_SITES=	http://www.webdav.org/neon/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.webdav.org/neon/
+#COMMENT=	HTTP and WebDAV client library
+#LICENSE=	gnu-gpl-v2 AND gnu-lgpl-v2
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#USE_LIBTOOL=		yes
+#USE_TOOLS+=		pkg-config msgfmt
+#GNU_CONFIGURE=		yes
+#CONFIGURE_ARGS+=	--enable-shared
+#CONFIGURE_ARGS+=	--with-expat
+#CONFIGURE_ARGS+=	--with-ssl=yes
+#
+#PKGCONFIG_OVERRIDE=	neon.pc.in
+#TEST_TARGET=		check
+##selftest needs perl
+#USE_TOOLS+=		perl
+#
+#post-build:
+#	cd ${WRKSRC}/doc/man && \
+#	for i in ne_*3; do \
+#		if grep -q '^.so ' $$i >/dev/null; then \
+#			sed -e "s_.so _.so man3/_" $$i > $$i.new && mv $$i.new $$i; \
+#		fi; \
+#	done
+#
+#.include "options.mk"
+#
+#.include "../../devel/gettext-lib/buildlink3.mk"
+#.include "../../devel/zlib/buildlink3.mk"
+#.include "../../security/openssl/buildlink3.mk"
+#.include "../../textproc/expat/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

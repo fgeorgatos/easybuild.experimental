@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'dmalloc'
+version = '5.5.2'
+versionsuffix = '-20130506'
+
+description = "dmalloc-5.5.2: Run-time configurable debugging malloc library"
+
+sources = ['dmalloc-5.5.2.tgz']
+source_urls = ['http://dmalloc.com/releases/']
+homepage = 'http://dmalloc.com/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/dmalloc/Makefile ######
+## $NetBSD: Makefile,v 1.22 2012/10/31 11:16:53 asau Exp $
+#
+#DISTNAME=		dmalloc-5.5.2
+#CATEGORIES=		devel
+##MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=dmalloc/}
+#MASTER_SITES=		http://dmalloc.com/releases/
+#EXTRACT_SUFX=		.tgz
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://dmalloc.com/
+#COMMENT=		Run-time configurable debugging malloc library
+#
+#MAKE_JOBS_SAFE=		no
+#
+#USE_LANGUAGES=		c c++
+#GNU_CONFIGURE=		yes
+#CONFIGURE_ARGS+=	--enable-shlib
+#CFLAGS+=		-fPIC -DPIC
+#CONFIGURE_ARGS+=	--enable-threads
+#CONFIGURE_ARGS+=	--enable-cxx
+#
+#INSTALL_MAKE_FLAGS+=	prefix=${DESTDIR}${PREFIX}
+#INSTALL_TARGET=	install installcxx
+#TEST_TARGET=	heavy
+#
+#.include "../../mk/pthread.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

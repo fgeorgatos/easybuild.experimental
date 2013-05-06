@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = '-'
+version = '0.12'
+versionsuffix = '-20130506'
+
+description = "ipython-0.12: Interactive computing environment for Python"
+
+sources = ['ipython-0.12.tar.gz']
+source_urls = ['http://archive.ipython.org/release/0.12/']
+homepage = 'http://ipython.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/py-ipython012/Makefile ######
+## $NetBSD: Makefile,v 1.6 2012/10/31 11:19:31 asau Exp $
+##
+#
+#DISTNAME=	ipython-0.12
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+#PKGREVISION=	1
+#CATEGORIES=	devel lang
+#MASTER_SITES=	http://archive.ipython.org/release/0.12/
+#
+#MAINTAINER=	obache@NetBSD.org
+#HOMEPAGE=	http://ipython.org/
+#COMMENT=	Interactive computing environment for Python
+#LICENSE=	modified-bsd
+#
+#DEPENDS+=	${PYPKGPREFIX}-readline-[0-9]*:../../devel/py-readline
+#DEPENDS+=	${PYPKGPREFIX}-pexpect-[0-9]*:../../devel/py-pexpect
+#
+#PYTHON_SELF_CONFLICT=	yes
+#
+#USE_LANGUAGES=	# none
+#USE_TOOLS+=	gunzip
+#
+## let not to install compressed man pages.
+#pre-configure:
+#	${RUN}cd ${WRKSRC}/docs/man; gunzip *.1.gz
+#
+#.include "../../lang/python/distutils.mk"
+#.include "../../mk/bsd.pkg.mk"

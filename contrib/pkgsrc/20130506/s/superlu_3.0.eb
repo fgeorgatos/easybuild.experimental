@@ -1,0 +1,68 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'superlu-3.0.1'
+version = 'superlu_3.0'
+versionsuffix = '-20130506'
+
+description = "superlu_3.0: ANSI C routine library for the solution of sparse linear systems"
+
+sources = ['superlu_3.0.tar.gz']
+version = '3.0.1'
+name = 'superlu'
+source_urls = ['http://crd.lbl.gov/~xiaoye/SuperLU/']
+homepage = 'http://crd.lbl.gov/~xiaoye/SuperLU/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/math/superlu/Makefile ######
+## $NetBSD: Makefile,v 1.19 2012/10/03 21:56:41 wiz Exp $
+#
+#DISTNAME=		superlu_3.0
+#PKGNAME=		superlu-3.0.1
+#PKGREVISION=		1
+#CATEGORIES=		math
+#MASTER_SITES=		http://crd.lbl.gov/~xiaoye/SuperLU/
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://crd.lbl.gov/~xiaoye/SuperLU/
+#COMMENT=		ANSI C routine library for the solution of sparse linear systems
+#
+#DEPENDS+=		blas-[0-9]*:../../math/blas
+#
+#BLAS_PREFIX_DEFAULT=	${LOCALBASE}
+#EVAL_PREFIX+=		BLAS_PREFIX=blas
+#
+#DIST_SUBDIR=		${PKGNAME_NOREV}
+#WRKSRC=			${WRKDIR}/SuperLU_3.0
+#BUILD_TARGET=		superlulib
+#TEST_DIRS=		${WRKSRC}/TESTING/MATGEN ${WRKSRC}/TESTING
+#TEST_TARGET=		all
+#INSTALLATION_DIRS=	lib
+#
+#do-install:
+#	${INSTALL_DATA} ${WRKSRC}/libsuperlu.a ${DESTDIR}${PREFIX}/lib
+#	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/include/superlu
+#	${INSTALL_DATA} ${WRKSRC}/SRC/*.h ${DESTDIR}${PREFIX}/include/superlu
+#	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/doc/superlu
+#	${INSTALL_DATA} ${WRKSRC}/INSTALL/ug.ps ${DESTDIR}${PREFIX}/share/doc/superlu
+#
+#.include "../../mk/bsd.pkg.mk"

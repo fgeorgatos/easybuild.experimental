@@ -1,0 +1,59 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'xc3028l-firmware-3.6'
+version = 'v36.fw'
+versionsuffix = '-20130506'
+
+description = "xc3028L-v36.fw: Firmware binary image for Xceive XC3028L tuners"
+
+sources = ['xc3028L-v36.fw#none']
+version = 'firmware-3.6'
+name = 'xc3028l'
+source_urls = ['http://steventoth.net/linux/hvr1400/']
+homepage = '${MASTER_SITES}'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/xc3028l-firmware/Makefile ######
+## $NetBSD: Makefile,v 1.2 2012/10/23 19:51:35 asau Exp $
+##
+#
+#DISTNAME=		xc3028L-v36.fw
+#PKGNAME=		xc3028l-firmware-3.6
+#CATEGORIES=		sysutils
+#MASTER_SITES=		http://steventoth.net/linux/hvr1400/
+#EXTRACT_SUFX=		# none
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		${MASTER_SITES}
+#COMMENT=		Firmware binary image for Xceive XC3028L tuners
+#
+#NO_CONFIGURE=		yes
+#NO_BUILD=		yes
+#
+#INSTALLATION_DIRS=	libdata/firmware/xc3028
+#
+#do-install:
+#	${INSTALL_DATA} ${WRKDIR}/${DISTNAME} \
+#	    ${DESTDIR}${PREFIX}/libdata/firmware/xc3028
+#
+#.include "../../mk/bsd.pkg.mk"

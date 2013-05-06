@@ -1,0 +1,73 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'xboing-2.4'
+version = 'xboing2.4'
+versionsuffix = '-20130506'
+
+description = "xboing2.4: Breakout style game for X11"
+
+sources = ['xboing2.4.tar.gz']
+version = '2.4'
+name = 'xboing'
+source_urls = ['http://sourceforge.net/projects/games/files', 'download']
+homepage = 'http://www.techrescue.org/xboing/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/xboing/Makefile ######
+## $NetBSD: Makefile,v 1.28 2012/10/06 11:54:59 asau Exp $
+##
+#
+#DISTNAME=		xboing2.4
+#PKGNAME=		xboing-2.4
+#PKGREVISION=		4
+#CATEGORIES=		games x11
+#MASTER_SITES=		${MASTER_SITE_XCONTRIB:=games/}
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://www.techrescue.org/xboing/
+#COMMENT=		Breakout style game for X11
+#
+#WRKSRC=			${WRKDIR}/xboing
+#USE_IMAKE=		YES
+#
+#NO_INSTALL_MANPAGES=	YES
+#AUTO_MKDIRS=		yes
+#MAKE_DIRS=		${VARBASE}/games
+#
+#MAKE_ENV+=		VARBASE=${VARBASE}
+#BUILD_DEFS+=		VARBASE
+#
+#SETGIDGAME=		yes
+#SPECIAL_PERMS+=		bin/xboing ${SETGID_GAMES_PERMS}
+#
+#CONF_FILES_PERMS+=		/dev/null ${VARBASE}/games/xboing.scr \
+#			${GAMES_USER} ${GAMES_GROUP} ${GAMEDATAMODE}
+#
+#post-install:
+#	${INSTALL_MAN} ${WRKSRC}/xboing.man ${DESTDIR}${PREFIX}/${PKGMANDIR}/man6/xboing.6
+#
+#.include "../../x11/libXext/buildlink3.mk"
+#.include "../../x11/libXpm/buildlink3.mk"
+#.include "../../mk/oss.buildlink3.mk"
+#
+#.include "../../mk/bsd.pkg.mk"

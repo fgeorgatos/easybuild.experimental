@@ -1,0 +1,46 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'tex--4.1beta'
+version = 'index.doc'
+versionsuffix = '-20130506'
+
+description = "index.doc: Documentation for tex-index"
+
+sources = ['index.doc.tar.gz']
+version = '${DISTNAME:S/./-/}-4.1beta'
+name = 'tex'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/print/tex-index-doc/Makefile ######
+## $NetBSD: Makefile,v 1.1 2012/11/16 14:37:24 jaapb Exp $
+#
+#DISTNAME=	index.doc
+#PKGNAME=	tex-${DISTNAME:S/./-/}-4.1beta
+#TEXLIVE_REV=	24099
+#
+#MAINTAINER=	jaapb@NetBSD.org
+#COMMENT=	Documentation for tex-index
+#
+#.include "../../print/texlive/package.mk"
+#.include "../../mk/bsd.pkg.mk"
+homepage = ["no default homepage provided"]

@@ -1,0 +1,71 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'hping3-3a2'
+version = 'alpha-2'
+versionsuffix = '-20130506'
+
+description = "hping3-alpha-2: Command-line oriented TCP/IP packet assembler/analyzer"
+
+sources = ['hping3-alpha-2.tar.gz']
+version = '3a2'
+name = 'hping3'
+source_urls = ['http://wiki.hping.org/uploadedfiles/101/']
+homepage = 'http://wiki.hping.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/hping3/Makefile ######
+## $NetBSD: Makefile,v 1.5 2012/10/23 17:18:27 asau Exp $
+##
+#
+#DISTNAME=		hping3-alpha-2
+#PKGNAME=		hping3-3a2
+#PKGREVISION=		1
+#CATEGORIES=		net
+#MASTER_SITES=		http://wiki.hping.org/uploadedfiles/101/
+#
+#MAINTAINER=		pettai@NetBSD.org
+#HOMEPAGE=		http://wiki.hping.org/
+#COMMENT=		Command-line oriented TCP/IP packet assembler/analyzer
+#LICENSE=		gnu-gpl-v2 AND original-bsd
+#
+#SUBST_CLASSES+=		paths
+#SUBST_FILES.paths=	${WRKSRC}/configure
+#SUBST_FILES.paths+=	${WRKSRC}/Makefile.in
+#SUBST_STAGE.paths=      post-patch
+#SUBST_SED.paths=	-e 's,@PREFIX@,${PREFIX},g'
+#
+#USE_TOOLS=		gmake
+#USE_PKGLOCALEDIR=	yes
+#HAS_CONFIGURE=		yes
+#
+#CONFIGURE_ENV+=		INSTALL_MANPATH=${PKGMANDIR}
+#
+#INSTALLATION_DIRS=	sbin ${PKGMANDIR}/man8
+#
+#.include "options.mk"
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/hping3 ${DESTDIR}${PREFIX}/sbin/
+#	${INSTALL_MAN} ${WRKSRC}/docs/hping3.8 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man8/
+#
+#.include "../../mk/bsd.pkg.mk"

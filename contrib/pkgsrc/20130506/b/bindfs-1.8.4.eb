@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'fuse-'
+version = '1.8.4'
+versionsuffix = '-20130506'
+
+description = "bindfs-1.8.4: Remounts file system subtrees in arbitrary locations"
+
+sources = ['bindfs-1.8.4.tar.gz']
+version = '${DISTNAME}'
+name = 'fuse'
+source_urls = ['http://bindfs.googlecode.com/files/']
+homepage = 'http://code.google.com/p/bindfs/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/filesystems/fuse-bindfs/Makefile ######
+## $NetBSD: Makefile,v 1.2 2012/10/03 16:08:30 asau Exp $
+##
+#
+#DISTNAME=	bindfs-1.8.4
+#PKGNAME=	fuse-${DISTNAME}
+#CATEGORIES=	filesystems
+#MASTER_SITES=	http://bindfs.googlecode.com/files/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://code.google.com/p/bindfs/
+#COMMENT=	Remounts file system subtrees in arbitrary locations
+#LICENSE=	gnu-gpl-v2
+#
+#GNU_CONFIGURE=	yes
+#USE_LANGUAGES=	c c++
+#USE_TOOLS+=	autoconf gmake pkg-config
+#
+#CPPFLAGS.NetBSD+=	-D_NETBSD_SOURCE
+#
+#.include "../../mk/fuse.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

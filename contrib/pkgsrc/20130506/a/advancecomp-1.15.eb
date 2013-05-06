@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'advancecomp'
+version = '1.15'
+versionsuffix = '-20130506'
+
+description = "advancecomp-1.15: Recompression utilities for .zip, .png, .mng and .gz files"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/advancemame/files', 'download']
+homepage = 'http://advancemame.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/archivers/advancecomp/Makefile ######
+## $NetBSD: Makefile,v 1.14 2012/09/11 19:46:52 asau Exp $
+#
+#DISTNAME=	advancecomp-1.15
+#CATEGORIES=	archivers
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=advancemame/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://advancemame.sourceforge.net/
+#COMMENT=	Recompression utilities for .zip, .png, .mng and .gz files
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#GNU_CONFIGURE=		yes
+#USE_LANGUAGES=		c c++
+#
+#.include "../../mk/compiler.mk"
+#
+#.if !empty(PKGSRC_COMPILER:Msunpro)
+#CFLAGS+=	-features=extensions
+#.endif
+#
+#.include "../../devel/zlib/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

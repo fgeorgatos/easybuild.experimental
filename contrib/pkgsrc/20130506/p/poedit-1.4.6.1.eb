@@ -1,0 +1,60 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'poedit'
+version = '1.4.6.1'
+versionsuffix = '-20130506'
+
+description = "poedit-1.4.6.1: Cross-platform gettext catalogs .po files editor"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/poedit/files', 'download']
+homepage = 'http://www.poedit.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/editors/poedit/Makefile ######
+## $NetBSD: Makefile,v 1.47 2013/02/16 11:21:00 wiz Exp $
+#
+#DISTNAME=	poedit-1.4.6.1
+#PKGREVISION=	16
+#CATEGORIES=	editors
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=poedit/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.poedit.net/
+#COMMENT=	Cross-platform gettext catalogs (.po files) editor
+#LICENSE=	mit
+#
+#BDB_ACCEPTED=		db4 db5
+#USE_LANGUAGES=		c c++
+#USE_PKGLOCALEDIR=	yes
+#USE_TOOLS+=		gmake pkg-config zip:run
+#GNU_CONFIGURE=		yes
+#CONFIGURE_ENV+=		BDB_TYPE="${BDB_TYPE}"
+#CONFIGURE_ENV+=		WX_CONFIG_NAME=${BUILDLINK_PREFIX.wxGTK28}/bin/wx-config
+#
+#.include "../../textproc/gtkspell/buildlink3.mk"
+#.include "../../x11/wxGTK28/buildlink3.mk"
+#.include "../../sysutils/desktop-file-utils/desktopdb.mk"
+#.include "../../mk/bdb.buildlink3.mk"
+#.include "../../mk/pthread.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

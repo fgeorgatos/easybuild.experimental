@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'netname'
+version = '2.2'
+versionsuffix = '-20130506'
+
+description = "netname-2.2: Return the canonical network name of a host"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://oss.gw.com/people/kim/']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/netname/Makefile ######
+## $NetBSD: Makefile,v 1.15 2013/03/14 14:20:58 kim Exp $
+##
+#
+#DISTNAME=	netname-2.2
+#CATEGORIES=	net
+#MASTER_SITES=	http://oss.gw.com/people/kim/
+#
+#MAINTAINER=	kim@tac.nyc.ny.us
+#COMMENT=	Return the canonical network name of a host
+#
+#.include "../../mk/bsd.prefs.mk"
+#
+#.if ${OPSYS} == "SunOS"
+#BUILD_TARGET=	svr4
+#.else
+#BUILD_TARGET=	netname
+#.endif
+#INSTALL_TARGET=	inst-all
+#
+#INSTALLATION_DIRS=	bin ${PKGMANDIR}/man1
+#
+#MAKE_ENV+=	INSTALL=${TOOLS_PATH.install:Q}
+#
+#.include "../../mk/bsd.pkg.mk"
+homepage = ["no default homepage provided"]

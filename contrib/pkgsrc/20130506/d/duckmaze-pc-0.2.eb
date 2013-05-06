@@ -1,0 +1,72 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'duckmaze-0.2'
+version = 'pc-0.2'
+versionsuffix = '-20130506'
+
+description = "duckmaze-pc-0.2: Puzzle game"
+
+sources = ['duckmaze-pc-0.2.zip']
+version = '0.2'
+name = 'duckmaze'
+source_urls = ['http://sourceforge.net/projects/duckmaze/files', 'download']
+homepage = 'http://duckmaze.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/duckmaze/Makefile ######
+## $NetBSD: Makefile,v 1.14 2012/10/06 11:54:35 asau Exp $
+##
+#
+#DISTNAME=	duckmaze-pc-0.2
+#PKGNAME=	duckmaze-0.2
+#PKGREVISION=	11
+#CATEGORIES=	games
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=duckmaze/}
+#EXTRACT_SUFX=	.zip
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://duckmaze.sourceforge.net/
+#COMMENT=	Puzzle game
+#
+#USE_LANGUAGES=	# none
+#USE_TOOLS+=	pax
+#
+#DM= ${WRKDIR}/duckmaze
+#
+#REPLACE_PYTHON=level.py level_editor.py mopelib/mopelib.py duckmaze.py
+#
+#do-build:
+#	${ECHO} "#!/bin/sh" >${DM}
+#	${ECHO} "cd ${PREFIX}/share/duckmaze" >>${DM}
+#	${ECHO} "exec ${PYTHONBIN} duckmaze.py" >>${DM}
+#	${CHMOD} a-x ${WRKSRC}/levels/level_*
+#
+#do-install:
+#	${INSTALL_PROGRAM_DIR} ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/duckmaze
+#	cd ${WRKSRC} && ${PAX} -rw . ${DESTDIR}${PREFIX}/share/duckmaze
+#	${INSTALL_SCRIPT} ${DM} ${DESTDIR}${PREFIX}/bin
+#
+#.include "../../lang/python/application.mk"
+#.include "../../devel/py-game/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

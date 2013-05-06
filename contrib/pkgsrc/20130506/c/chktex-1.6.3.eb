@@ -1,0 +1,64 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'chktex'
+version = '1.6.3'
+versionsuffix = '-20130506'
+
+description = "chktex-1.6.3: LaTeX semantic checker"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://baruch.ev-en.org/proj/chktex/']
+homepage = 'http://baruch.ev-en.org/proj/chktex/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/print/chktex/Makefile ######
+## $NetBSD: Makefile,v 1.23 2012/10/08 13:45:36 asau Exp $
+##
+#
+#DISTNAME=	chktex-1.6.3
+#PKGREVISION=	3
+#CATEGORIES=	print
+#MASTER_SITES=	http://baruch.ev-en.org/proj/chktex/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://baruch.ev-en.org/proj/chktex/
+#COMMENT=	LaTeX semantic checker
+#LICENSE=	gnu-gpl-v2
+#
+#BUILD_DEPENDS+=	tex-latex-bin-[0-9]*:../../print/tex-latex-bin
+#BUILD_DEPENDS+=	tex-ntgclass-[0-9]*:../../print/tex-ntgclass
+#BUILD_DEPENDS+=	tex-tools-[0-9]*:../../print/tex-tools
+#DEPENDS+=	lynx-[0-9]*:../../www/lynx
+#
+#EGDIR=		${PREFIX}/share/examples/chktex
+#CONF_FILES=	${EGDIR}/chktexrc ${PKG_SYSCONFDIR}/chktexrc
+#
+#USE_TOOLS+=	gmake perl:run
+#GNU_CONFIGURE=	YES
+#CFLAGS+=	-D__unix__
+#CONFIGURE_ENV+=	PERL5=${PERL5:Q}
+#MAKE_ENV+=	INSTALL_SCRIPT=${INSTALL_SCRIPT:Q} EGDIR=${EGDIR:Q}
+#
+#INSTALLATION_DIRS+=	${EGDIR}
+#
+#.include "../../mk/bsd.pkg.mk"

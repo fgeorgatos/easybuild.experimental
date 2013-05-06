@@ -1,0 +1,69 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'glitz'
+version = '0.5.6'
+versionsuffix = '-20130506'
+
+description = "glitz-0.5.6: OpenGL 2D graphics library and a backend for gl output in cairo"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://cairographics.org/snapshots/']
+homepage = 'http://freedesktop.org/Software/glitz'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/glitz/Makefile ######
+## $NetBSD: Makefile,v 1.26 2012/10/06 14:10:55 asau Exp $
+#
+#DISTNAME=	glitz-0.5.6
+#PKGREVISION=	2
+#CATEGORIES=	graphics
+#MASTER_SITES=	http://cairographics.org/snapshots/
+#
+#MAINTAINER=	adam@NetBSD.org
+#HOMEPAGE=	http://freedesktop.org/Software/glitz
+#COMMENT=	OpenGL 2D graphics library and a backend for gl output in cairo
+#
+#USE_LANGUAGES+=		c99
+#USE_LIBTOOL=		yes
+#GNU_CONFIGURE=		yes
+#PKGCONFIG_OVERRIDE=	src/agl/glitz-agl.pc.in src/glx/glitz-glx.pc.in \
+#			src/glitz.pc.in
+#
+#PLIST_VARS+=		agl
+#.if exists(/System/Library/Frameworks/AGL.framework)
+#PLIST.agl=		yes
+#CONFIGURE_ENV+=		AGL_LIBS="-framework AGL"
+#.endif
+#
+#.include "../../mk/bsd.prefs.mk"
+#
+## This is for the benefit of the configure test; libglitz-glx already
+## links against libpthread.
+#.if ${OPSYS} == "IRIX"
+#BUILDLINK_TRANSFORM+=	l:GL:GL:pthread
+#.endif
+#
+#.include "options.mk"
+#
+#.include "../../mk/pthread.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'Filter-IRCD-2.42'
+versionsuffix = '-20130506'
+
+description = "POE-Filter-IRCD-2.42: POE-based parser for the IRC protocol"
+
+sources = ['POE-Filter-IRCD-2.42.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/POE/']
+homepage = 'http://search.cpan.org/dist/POE-Filter-IRCD/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/chat/p5-POE-Filter-IRCD/Makefile ######
+## $NetBSD: Makefile,v 1.12 2012/10/03 21:54:03 wiz Exp $
+##
+#
+#DISTNAME=	POE-Filter-IRCD-2.42
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	3
+#CATEGORIES=	chat perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=POE/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/POE-Filter-IRCD/
+#COMMENT=	POE-based parser for the IRC protocol
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	p5-POE>=0.3202:../../devel/p5-POE
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#PERL5_PACKLIST=		auto/POE/Filter/IRCD/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'Graph3d-0.63'
+versionsuffix = '-20130506'
+
+description = "GD-Graph3d-0.63: GDGraph3d is a pkg to generate charts, using Lincoln Stein s GD.pm"
+
+sources = ['GD-Graph3d-0.63.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/GD/']
+homepage = 'http://search.cpan.org/dist/GD-Graph3d/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/p5-GD-Graph3d/Makefile ######
+## $NetBSD: Makefile,v 1.5 2012/10/06 14:11:10 asau Exp $
+#
+#DISTNAME=	GD-Graph3d-0.63
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	3
+#SVR4_PKGNAME=	p5gd3
+#CATEGORIES=	graphics perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=GD/}
+#
+#MAINTAINER=	damon@brodiefamily.org
+#COMMENT=	GDGraph3d is a pkg to generate charts, using Lincoln Stein's GD.pm
+#HOMEPAGE=	http://search.cpan.org/dist/GD-Graph3d/
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	p5-GD>=1.18:../../graphics/p5-GD
+#DEPENDS+=	p5-GDGraph>=1.30:../../graphics/p5-GDGraph
+#DEPENDS+=	p5-GDTextUtil-[0-9]*:../../graphics/p5-GDTextUtil
+#
+#CONFLICTS+=	p5-GDGraph3d-[0-9]*
+#SUPERSEDES=	p5-GDGraph3d<=0.63
+#
+#USE_LANGUAGES=		# empty
+#PERL5_PACKLIST=		auto/GD/Graph3d/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

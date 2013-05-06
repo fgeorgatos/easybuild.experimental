@@ -1,0 +1,48 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = '-'
+version = '0.95'
+versionsuffix = '-20130506'
+
+description = "html5lib-0.95: HTML5 parser and tokenizer"
+
+sources = ['html5lib-0.95.tar.gz']
+source_urls = ['http://html5lib.googlecode.com/files/']
+homepage = 'http://code.google.com/p/html5lib/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/py-html5lib/Makefile ######
+## $NetBSD: Makefile,v 1.6 2012/12/01 18:37:51 adam Exp $
+#
+#DISTNAME=	html5lib-0.95
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+#CATEGORIES=	textproc www python
+#MASTER_SITES=	http://html5lib.googlecode.com/files/
+#
+#MAINTAINER=	joerg@NetBSD.org
+#HOMEPAGE=	http://code.google.com/p/html5lib/
+#COMMENT=	HTML5 parser and tokenizer
+#LICENSE=	mit
+#
+#.include "../../lang/python/egg.mk"
+#.include "../../mk/bsd.pkg.mk"

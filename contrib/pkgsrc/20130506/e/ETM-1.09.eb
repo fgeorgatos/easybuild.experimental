@@ -1,0 +1,68 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'libetm-1.09'
+version = '1.09'
+versionsuffix = '-20130506'
+
+description = "ETM-1.09: Exception and termination manager"
+
+sources = ['ETM-1.09.tar.gz']
+version = '1.09'
+name = 'libetm'
+source_urls = ['http://www.snake.net/software/ETM/']
+homepage = '${MASTER_SITES}'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/libetm/Makefile ######
+## $NetBSD: Makefile,v 1.17 2012/10/31 11:17:12 asau Exp $
+##
+#
+#DISTNAME=		ETM-1.09
+#PKGNAME=		libetm-1.09
+#CATEGORIES=		devel
+#MASTER_SITES=		http://www.snake.net/software/ETM/
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		${MASTER_SITES}
+#COMMENT=		Exception and termination manager
+#
+#MAKE_JOBS_SAFE=		no
+#
+#WRKSRC=			${WRKDIR}/etm
+#INSTALLATION_DIRS=	include lib
+#
+#USE_TOOLS+=		nroff
+#
+#post-patch:
+#	${MV} ${WRKSRC}/Makefile ${WRKSRC}/Makefile.bak
+#	${SED} <${WRKSRC}/Makefile.bak >${WRKSRC}/Makefile \
+#		-e 's|/usr/local|${PREFIX}|'
+#
+#do-install:
+#	${INSTALL_DATA} ${WRKSRC}/libetm.a ${DESTDIR}${PREFIX}/lib
+#	${INSTALL_DATA} ${WRKSRC}/etm.h ${DESTDIR}${PREFIX}/include
+#	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/doc/libetm
+#	${NROFF} -ms ${WRKSRC}/etm.ms \
+#		>${DESTDIR}${PREFIX}/share/doc/libetm/etm.txt
+#
+#.include "../../mk/bsd.pkg.mk"

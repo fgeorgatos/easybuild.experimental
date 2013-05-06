@@ -1,0 +1,77 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'qpdfview'
+version = ''
+versionsuffix = '-20130506'
+
+description = "qpdfview-: Tabbed PDF viewer"
+
+sources = ['qpdfview-${VER}.tar.gz']
+source_urls = ['https://launchpad.net/qpdfview/trunk/${VER}/+download/']
+homepage = 'https://launchpad.net/qpdfview'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/print/qpdfview/Makefile ######
+## $NetBSD: Makefile,v 1.7 2013/03/31 08:13:32 obache Exp $
+##
+#
+#VER=		0.4
+#DISTNAME=	qpdfview-${VER}
+#PKGREVISION=	1
+#CATEGORIES=	print
+#MASTER_SITES=	https://launchpad.net/qpdfview/trunk/${VER}/+download/
+#
+#MAINTAINER=	ryoon@NetBSD.org
+#HOMEPAGE=	https://launchpad.net/qpdfview
+#COMMENT=	Tabbed PDF viewer
+#LICENSE=	gnu-gpl-v2
+#
+## Force using "curl" for fetching the distribution file. It is only available
+## over HTTPS and "curl" is the only fetch program which always supports HTTPS.
+#FETCH_USING=	curl
+#
+#DEPENDS+=	poppler-data-[0-9]*:../../print/poppler-data
+#DEPENDS+=	qt4-sqlite3-[0-9]*:../../x11/qt4-sqlite3
+#
+#SUBST_CLASSES+=		prefix
+#SUBST_STAGE.prefix=	pre-configure
+#SUBST_MESSAGE.prefix=	Fix install path
+#SUBST_FILES.prefix+=	qpdfview.pri
+#SUBST_VARS.prefix+=	DESTDIR PREFIX PKGMANDIR
+#
+#USE_LANGUAGES=	c c++
+#USE_TOOLS+=	pkg-config
+#
+#do-configure:
+#	cd ${WRKSRC} && QTDIR=${QTDIR} \
+#		${QTDIR}/bin/qmake qpdfview.pro
+#
+#.include "../../graphics/djvulibre-lib/buildlink3.mk"
+#.include "../../print/cups/buildlink3.mk"
+#.include "../../print/libspectre/buildlink3.mk"
+#.include "../../print/poppler-qt4/buildlink3.mk"
+#.include "../../x11/qt4-libs/buildlink3.mk"
+#.include "../../x11/qt4-qdbus/buildlink3.mk"
+#.include "../../x11/qt4-tools/buildlink3.mk"
+#.include "../../sysutils/desktop-file-utils/desktopdb.mk"
+#.include "../../mk/bsd.pkg.mk"

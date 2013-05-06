@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'RFC822-Address-0.3'
+versionsuffix = '-20130506'
+
+description = "Mail-RFC822-Address-0.3: Perl extension for validating email addresses according to RFC822"
+
+sources = ['Mail-RFC822-Address-0.3.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Mail/']
+homepage = 'http://search.cpan.org/~pdwarren/Mail-RFC822-Address-0.3/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/mail/p5-Mail-RFC822-Address/Makefile ######
+## $NetBSD: Makefile,v 1.6 2012/10/08 12:19:23 asau Exp $
+##
+#
+#DISTNAME=	Mail-RFC822-Address-0.3
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	3
+#CATEGORIES=	mail perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Mail/}
+#
+#MAINTAINER=	pettai@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/~pdwarren/Mail-RFC822-Address-0.3/
+#COMMENT=	Perl extension for validating email addresses according to RFC822
+#LICENSE=	mit
+#
+#DEPENDS+=	p5-ExtUtils-MakeMaker-[0-9]*:../../devel/p5-ExtUtils-MakeMaker
+#
+#PERL5_PACKLIST=	auto/Mail/RFC822/Address/.packlist
+#USE_LANGUAGES=	# none
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

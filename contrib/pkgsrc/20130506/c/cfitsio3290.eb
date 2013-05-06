@@ -1,0 +1,73 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'cfitsio3290'
+version = 'cfitsio3290'
+versionsuffix = '-20130506'
+
+description = "cfitsio3290: FITS flexible image transport system file input and output"
+
+sources = ['cfitsio3290.tar.gz']
+source_urls = ['http://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/']
+homepage = 'http://heasarc.gsfc.nasa.gov/docs/software/fitsio/fitsio.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/cfitsio/Makefile ######
+## $NetBSD: Makefile,v 1.28 2012/10/31 11:16:45 asau Exp $
+#
+#DISTNAME=	cfitsio3290
+#PKGNAME=	${DISTNAME:S/o3/o-3./}
+#CATEGORIES=	devel
+#MASTER_SITES=	http://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://heasarc.gsfc.nasa.gov/docs/software/fitsio/fitsio.html
+#COMMENT=	FITS (flexible image transport system) file input and output
+## similar; no copyright claim.
+#LICENSE=	isc
+#
+#WRKSRC=		${WRKDIR}/${PKGNAME_NOREV:C/-.*//}
+#GNU_CONFIGURE=	YES
+#USE_LANGUAGES=	c # fortran
+#USE_LIBTOOL=	YES
+#
+#MAKE_JOBS_SAFE=	NO
+#
+#PKGCONFIG_OVERRIDE+=	cfitsio.pc.in
+#
+#BUILD_TARGET=	all testprog
+#
+#INSTALLATION_DIRS=	include lib lib/pkgconfig share/doc/cfitsio
+#
+#post-build:
+#	cd ${WRKSRC}; \
+#	./testprog > /dev/null; \
+#	${CMP} testprog.fit testprog.std
+#
+#do-install:
+#	cd ${WRKSRC}; \
+#	${LIBTOOL} --mode=install ${INSTALL_DATA} libcfitsio.la ${DESTDIR}${PREFIX}/lib; \
+#	${INSTALL_DATA} fitsio.h fitsio2.h longnam.h drvrsmem.h ${DESTDIR}${PREFIX}/include; \
+#	${INSTALL_DATA} cfitsio.pc ${DESTDIR}${PREFIX}/lib/pkgconfig; \
+#	${INSTALL_DATA} fitsio.doc ${DESTDIR}${PREFIX}/share/doc/cfitsio
+#
+#.include "../../mk/bsd.pkg.mk"

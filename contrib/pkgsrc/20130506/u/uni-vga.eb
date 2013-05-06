@@ -1,0 +1,64 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = '-1'
+version = 'vga'
+versionsuffix = '-20130506'
+
+description = "uni-vga: Monospaced Unicode font based on the original IBM VGA font"
+
+sources = ['uni-vga.tgz']
+source_urls = ['http://www.inp.nsk.su/~bolkhov/files/fonts/univga/']
+homepage = 'http://www.inp.nsk.su/~bolkhov/files/fonts/univga/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/fonts/uni-vga/Makefile ######
+## $NetBSD: Makefile,v 1.4 2012/10/03 18:28:32 asau Exp $
+##
+#
+#DISTNAME=	uni-vga
+#PKGNAME=	${DISTNAME}-1
+#CATEGORIES=	fonts x11
+#MASTER_SITES=	http://www.inp.nsk.su/~bolkhov/files/fonts/univga/
+#EXTRACT_SUFX=	.tgz
+#
+#MAINTAINER=	mw+pkgsrc@wzff.de
+#HOMEPAGE=	http://www.inp.nsk.su/~bolkhov/files/fonts/univga/
+#COMMENT=	Monospaced Unicode font based on the original IBM VGA font
+#LICENSE=	mit
+#
+#USE_TOOLS+=		bdftopcf gzip
+#
+#FONTDIR=		${PREFIX}/lib/X11/fonts/uni-vga
+#FONTS_DIRS.x11+=	${FONTDIR}
+#WRKSRC=			${WRKDIR}/uni_vga
+#
+#INSTALLATION_DIRS=	${FONTDIR}
+#
+#do-build:
+#	${TOOLS_PATH.bdftopcf} -o ${WRKSRC}/u_vga16.pcf ${WRKSRC}/u_vga16.bdf
+#	${TOOLS_PATH.gzip} -9 ${WRKSRC}/u_vga16.pcf
+#
+#do-install:
+#	${INSTALL_DATA} ${WRKSRC}/u_vga16.pcf.gz ${DESTDIR}${FONTDIR}
+#
+#.include "../../mk/bsd.pkg.mk"

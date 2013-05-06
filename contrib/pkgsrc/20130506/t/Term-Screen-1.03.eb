@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-Term-Screen-1.03'
+version = 'Screen-1.03'
+versionsuffix = '-20130506'
+
+description = "Term-Screen-1.03: Term::Cap based screen positioning module"
+
+sources = ['Term-Screen-1.03.tar.gz']
+version = 'Term-Screen-1.03'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Term/']
+homepage = 'http://search.cpan.org/dist/Term-Screen/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Term-Screen/Makefile ######
+## $NetBSD: Makefile,v 1.9 2012/10/31 11:19:01 asau Exp $
+#
+#DISTNAME=	Term-Screen-1.03
+#PKGNAME=	p5-Term-Screen-1.03
+#PKGREVISION=	4
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Term/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Term-Screen/
+#COMMENT=	Term::Cap based screen positioning module
+#
+#PKG_INSTALLATION_TYPES= overwrite pkgviews
+#
+#PERL5_PACKLIST=		auto/Term/Screen/.packlist
+#
+## Asks the user to first don't press a key and then to press a key.
+#INTERACTIVE_STAGE=	test
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

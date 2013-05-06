@@ -1,0 +1,60 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'ipmitool'
+version = '1.8.11'
+versionsuffix = '-20130506'
+
+description = "ipmitool-1.8.11: Command-line utility for managing IPMI devices"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/ipmitool/files', 'download']
+homepage = 'http://ipmitool.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/ipmitool/Makefile ######
+## $NetBSD: Makefile,v 1.12 2013/03/02 10:44:43 tron Exp $
+##
+#
+#DISTNAME=		ipmitool-1.8.11
+#PKGREVISION=		2
+#CATEGORIES=		sysutils
+#MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=ipmitool/}
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://ipmitool.sourceforge.net/
+#COMMENT=		Command-line utility for managing IPMI devices
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#GNU_CONFIGURE=		yes
+#USE_GNU_READLINE=	yes # ipmitool uses rl_event_hook
+#INSTALLATION_DIRS+=	share/examples/ipmitool share/doc/ipmitool
+#
+#OPSYSVARS+=		CONFIGURE_ARGS
+#CONFIGURE_ARGS.NetBSD+=	--disable-intf-open --disable-intf-imb
+#CONFIGURE_ARGS.DragonFly+= --disable-intf-open --disable-intf-imb
+#CONFIGURE_ARGS.SunOS+=	--enable-solaris-opt
+#
+#.include "../../devel/readline/buildlink3.mk"
+#.include "../../security/openssl/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,81 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'pdns'
+version = 'recursor-3.3'
+versionsuffix = '-20130506'
+
+description = "pdns-recursor-3.3: PowerDNS resolver/recursing nameserver"
+
+sources = ['pdns-recursor-3.3.tar.bz2']
+source_urls = ['http://downloads.powerdns.com/releases/']
+homepage = 'http://www.powerdns.com/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/powerdns-recursor/Makefile ######
+## $NetBSD: Makefile,v 1.9 2013/02/19 22:35:15 joerg Exp $
+##
+#
+#DISTNAME=		pdns-recursor-3.3
+#CATEGORIES=		net
+#MASTER_SITES=		http://downloads.powerdns.com/releases/
+#EXTRACT_SUFX=		.tar.bz2
+#
+#MAINTAINER=		roy@NetBSD.org
+#HOMEPAGE=		http://www.powerdns.com/
+#COMMENT=		PowerDNS resolver/recursing nameserver
+#LICENSE=		gnu-gpl-v2
+#
+#MAKE_JOBS_SAFE=		no
+#
+#USE_TOOLS=		gmake
+#USE_LANGUAGES=		c c++
+#
+#RCD_SCRIPTS+=		pdns_recursor
+#
+#EGDIR=			${PREFIX}/share/examples/pdns-recursor
+#
+#BUILD_MAKE_FLAGS+=	CONFIGDIR=${PKG_SYSCONFDIR} OPTFLAGS=
+#
+#INSTALL_MAKE_FLAGS+=	BINDIR=${PREFIX}/bin SBINDIR=${PREFIX}/sbin
+#INSTALL_MAKE_FLAGS+=	CONFIGDIR=${EGDIR} MANDIR=${PREFIX}/${PKGMANDIR}
+#
+#CONF_FILES+=		${EGDIR}/recursor.conf-dist \
+#			${PKG_SYSCONFDIR}/recursor.conf
+#
+#.include "../../mk/compiler.mk"
+#.if !empty(PKGSRC_COMPILER:Mclang)
+#CXXFLAGS+=	-std=c++11
+#.endif
+#
+#.include "options.mk"
+#
+#post-patch:
+#	${SED} -e "s:/etc/powerdns:${PKG_SYSCONFDIR}:" \
+#		${WRKSRC}/config.h >${WRKSRC}/config.h.new
+#	${MV} ${WRKSRC}/config.h.new ${WRKSRC}/config.h
+#	${LN} -s FreeBSD.inc ${WRKSRC}/sysdeps/NetBSD.inc
+#	${MV} ${WRKSRC}/pdns_recursor.1 ${WRKSRC}/pdns_recursor.8
+#	${MV} ${WRKSRC}/rec_control.1 ${WRKSRC}/rec_control.8
+#
+#.include "../../devel/boost-headers/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

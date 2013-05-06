@@ -1,0 +1,68 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'team'
+version = '3.1'
+versionsuffix = '-20130506'
+
+description = "team-3.1: Portable multi-buffered tape streaming utility"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['${MASTER_SITE_LOCAL}']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/misc/team/Makefile ######
+## $NetBSD: Makefile,v 1.26 2012/10/08 09:57:38 asau Exp $
+#
+#DISTNAME=	team-3.1
+#PKGREVISION=	1
+#CATEGORIES=	misc
+#MASTER_SITES=	${MASTER_SITE_LOCAL}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#COMMENT=	Portable multi-buffered tape streaming utility
+#
+#INSTALLATION_DIRS=	bin ${PKGMANDIR}/cat1 ${PKGMANDIR}/man1
+#
+#USE_BSD_MAKEFILE=	yes
+#
+#PLIST_SRC=	${WRKDIR}/PLIST
+#
+#.include "../../mk/bsd.prefs.mk"
+#
+#BUILD_DEFS+=	MANINSTALL
+#
+#post-install:
+#	@${CP} ${PKGDIR}/PLIST ${PLIST_SRC}
+#	@for OPT in ${MANINSTALL} broken-solaris-needs-this; do \
+#	  case $$OPT in \
+#	    catinstall) \
+#		${ECHO} man/cat1/team.0 >>${PLIST_SRC}; \
+#		;; \
+#	    maninstall) \
+#		${ECHO} man/man1/team.1 >>${PLIST_SRC}; \
+#		;; \
+#	  esac; \
+#	done
+#
+#.include "../../mk/bsd.pkg.mk"
+homepage = ["no default homepage provided"]

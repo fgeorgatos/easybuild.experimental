@@ -1,0 +1,60 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'gst123'
+version = '0.3.1'
+versionsuffix = '-20130506'
+
+description = "gst123-0.3.1: The gst123 is designed to be a more flexible command line player"
+
+sources = ['gst123-0.3.1.tar.bz2']
+source_urls = ['http://space.twc.de/~stefan/gst123/']
+homepage = 'http://space.twc.de/~stefan/gst123.php'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/multimedia/gst123/Makefile ######
+## $NetBSD: Makefile,v 1.18 2013/02/16 11:23:35 wiz Exp $
+##
+#
+#DISTNAME=	gst123-0.3.1
+#PKGREVISION=	5
+#CATEGORIES=	multimedia
+#MASTER_SITES=	http://space.twc.de/~stefan/gst123/
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	ryoon@NetBSD.org
+#HOMEPAGE=	http://space.twc.de/~stefan/gst123.php
+#COMMENT=	The gst123 is designed to be a more flexible command line player
+#LICENSE=	gnu-lgpl-v2
+#
+#GNU_CONFIGURE=	yes
+#USE_LANGUAGES=	c c++
+#
+#USE_TOOLS+=	pkg-config gmake
+#
+#USE_NCURSES=	yes
+#
+#.include "../../multimedia/gstreamer0.10/buildlink3.mk"
+#.include "../../x11/gtk2/buildlink3.mk"
+#.include "../../multimedia/gst-plugins0.10-base/buildlink3.mk"
+#.include "../../devel/ncurses/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

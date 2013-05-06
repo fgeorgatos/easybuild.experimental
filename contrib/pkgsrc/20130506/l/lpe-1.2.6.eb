@@ -1,0 +1,69 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'lpe'
+version = '1.2.6'
+versionsuffix = '-20130506'
+
+description = "lpe-1.2.6: Small and efficient programmer s editor for UNIX systems"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['ftp://ftp.twu.net/users/cdsmith/lpe/']
+homepage = 'http://cdsmith.twu.net/professional/opensource/lpe.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/editors/lpe/Makefile ######
+## $NetBSD: Makefile,v 1.24 2012/10/03 11:43:36 asau Exp $
+##
+#
+#DISTNAME=	lpe-1.2.6
+#PKGREVISION=	3
+#CATEGORIES=	editors
+#MASTER_SITES=	ftp://ftp.twu.net/users/cdsmith/lpe/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://cdsmith.twu.net/professional/opensource/lpe.html
+#COMMENT=	Small and efficient programmer's editor for UNIX systems
+#
+#MAKE_JOBS_SAFE=		no
+#
+#USE_PKGLOCALEDIR=	YES
+#USE_LIBTOOL=		YES
+#USE_TOOLS+=		gmake msgfmt
+#GNU_CONFIGURE=		YES
+#
+#SHLIBTOOL_OVERRIDE=	# empty
+#
+## Note: pkglint warns about the following three lines, but they must not
+## be changed because this package uses autoconf2.13.
+#CONFIGURE_ENV=		EXPORT_SYMBOLS_LDFLAGS="${EXPORT_SYMBOLS_LDFLAGS}"
+#MAKE_ENV=		EXPORT_SYMBOLS_LDFLAGS="${EXPORT_SYMBOLS_LDFLAGS}"
+#CFLAGS=			-DPREFIX="\"${PREFIX}\""
+#
+#SUBST_CLASSES+=		paths
+#SUBST_STAGE.paths=	post-patch
+#SUBST_FILES.paths=	man/lpe.1.cs man/lpe.1.de man/lpe.1.en man/lpe.1.es
+#SUBST_SED.paths=	-e 's,@PREFIX@,${PREFIX},'
+#
+#.include "../../devel/libslang/buildlink3.mk"
+#
+#.include "../../mk/bsd.pkg.mk"

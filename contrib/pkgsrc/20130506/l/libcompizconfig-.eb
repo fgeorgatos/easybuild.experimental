@@ -1,0 +1,64 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'libcompizconfig'
+version = ''
+versionsuffix = '-20130506'
+
+description = "libcompizconfig-: Configuration backend for compiz"
+
+sources = ['libcompizconfig-${PKGVER}.tar.gz']
+source_urls = ['http://releases.compiz.org/${PKGVER}/']
+homepage = 'http://compiz.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/libcompizconfig/Makefile ######
+## $NetBSD: Makefile,v 1.24 2013/02/16 11:20:48 wiz Exp $
+##
+#
+#PKGVER=		0.8.4
+#DISTNAME=	libcompizconfig-${PKGVER}
+#PKGREVISION=	16
+#CATEGORIES=	devel gnome
+#MASTER_SITES=	http://releases.compiz.org/${PKGVER}/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://compiz.org/
+#COMMENT=	Configuration backend for compiz
+#LICENSE=	gnu-gpl-v2
+#
+#GNU_CONFIGURE=	yes
+#USE_LIBTOOL=	yes
+#USE_TOOLS+=	pkg-config perl intltool gmake xgettext msgmerge msgfmt
+#USE_LANGUAGES+=	c c++
+#
+#PKG_SYSCONFSUBDIR?=	compizconfig
+#EGDIR=		${PREFIX}/share/examples/compizconfig
+#CONF_FILES+=	${EGDIR}/config ${PKG_SYSCONFDIR}/config
+#
+#PKGCONFIG_OVERRIDE=	libcompizconfig.pc.in
+#
+#INSTALLATION_DIRS=	${EGDIR}
+#
+#.include "../../textproc/libxml2/buildlink3.mk"
+#.include "../../wm/compiz/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

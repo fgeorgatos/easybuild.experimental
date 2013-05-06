@@ -1,0 +1,64 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'eukleides-1.0.3'
+version = 'eukleides.1.0.3'
+versionsuffix = '-20130506'
+
+description = "eukleides.1.0.3: Euclidean geometry drawing language"
+
+sources = ['eukleides.1.0.3.tar.gz']
+version = '1.0.3'
+name = 'eukleides'
+source_urls = ['http://www.eukleides.org/download/']
+homepage = 'http://www.eukleides.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/math/eukleides/Makefile ######
+## $NetBSD: Makefile,v 1.19 2012/09/11 23:04:18 asau Exp $
+#
+#DISTNAME=	eukleides.1.0.3
+#PKGNAME=	eukleides-1.0.3
+#CATEGORIES=	math
+#MASTER_SITES=	http://www.eukleides.org/download/
+#
+#MAINTAINER=	tsadowski@gmx.net
+#HOMEPAGE=	http://www.eukleides.org/
+#COMMENT=	Euclidean geometry drawing language
+#
+#MAKE_JOBS_SAFE=	no
+#
+#DEPENDS+=	pstoedit>=3.31:../../graphics/pstoedit
+#
+#BUILD_TARGET=	eukleides
+#USE_TOOLS+=	bash:run bison gmake makeinfo lex
+#INFO_FILES=	yes
+#
+#REPLACE_BASH=	euk2edit euk2eps
+#
+#INSTALL_MAKE_FLAGS=	${MAKE_FLAGS}					\
+#			PREFIX=${DESTDIR}${PREFIX}			\
+#			BINPATH=${DESTDIR}${PREFIX}/bin			\
+#			INFODIR=${DESTDIR}${PREFIX}/${PKGINFODIR}	\
+#			MANDIR=${DESTDIR}${PREFIX}/${PKGMANDIR}/man1
+#
+#.include "../../mk/bsd.pkg.mk"

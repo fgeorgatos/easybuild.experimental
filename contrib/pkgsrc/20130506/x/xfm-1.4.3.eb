@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'xfm'
+version = '1.4.3'
+versionsuffix = '-20130506'
+
+description = "xfm-1.4.3: The X File Manager"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.musikwissenschaft.uni-mainz.de/~ag/xfm/']
+homepage = 'http://www.musikwissenschaft.uni-mainz.de/~ag/xfm/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/xfm/Makefile ######
+## $NetBSD: Makefile,v 1.18 2012/10/23 19:51:38 asau Exp $
+#
+#DISTNAME=	xfm-1.4.3
+#PKGREVISION=	3
+#CATEGORIES=	sysutils x11
+#MASTER_SITES=	http://www.musikwissenschaft.uni-mainz.de/~ag/xfm/
+#
+#MAINTAINER=	rxg@NetBSD.org
+#HOMEPAGE=	http://www.musikwissenschaft.uni-mainz.de/~ag/xfm/
+#COMMENT=	The X File Manager
+#LICENSE=	gnu-gpl-v2
+#
+#BUILD_TARGET+=	all xfm.install.script Xfm.ad
+#
+#WRKSRC=		${WRKDIR}/xfm-1.4.3
+#USE_IMAKE=	YES
+#
+#.include "../../x11/Xaw3d/buildlink3.mk"
+#.include "../../x11/libXpm/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

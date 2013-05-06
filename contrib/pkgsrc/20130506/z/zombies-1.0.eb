@@ -1,0 +1,60 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'zombies'
+version = '1.0'
+versionsuffix = '-20130506'
+
+description = "zombies-1.0: Simple robots-like game where you destroy the zombies"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.thistledown.com.au/software/']
+homepage = 'http://www.thistledown.com.au/software/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/zombies/Makefile ######
+## $NetBSD: Makefile,v 1.19 2012/10/06 11:55:04 asau Exp $
+#
+#DISTNAME=	zombies-1.0
+#PKGREVISION=	5
+#CATEGORIES=	games
+#MASTER_SITES=	http://www.thistledown.com.au/software/
+#
+#MAINTAINER=	simonb@NetBSD.org
+#HOMEPAGE=	http://www.thistledown.com.au/software/
+#COMMENT=	Simple robots-like game where you destroy the zombies
+#LICENSE=	2-clause-bsd
+#
+#USE_GAMESGROUP=		yes
+#
+#SAVEPATH=		${VARBASE}/games/zombies
+#SCOREFILE=		${SAVEPATH}/scores
+#
+#SPECIAL_PERMS=		bin/zombies ${SETGID_GAMES_PERMS}
+#OWN_DIRS_PERMS+=	${SAVEPATH} ${GAMES_USER} ${GAMES_GROUP} ${GAMEDIRMODE}
+#
+#AUTO_MKDIRS=	yes
+#BUILD_DEFS+=	VARBASE SCOREFILE
+#MAKE_ENV+=	INSTALL_SCORE=echo SCOREFILE=${SCOREFILE}
+#
+#.include "../../mk/curses.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

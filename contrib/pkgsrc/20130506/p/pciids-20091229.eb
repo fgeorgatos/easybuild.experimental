@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'pciids'
+version = '20091229'
+versionsuffix = '-20130506'
+
+description = "pciids-20091229: Repository of PCI IDs pci.ids database "
+
+sources = ['pciids-20091229.tar.bz2']
+source_urls = ['http://people.freebsd.org/~ahze/distfiles/']
+homepage = 'http://pciids.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/misc/pciids/Makefile ######
+## $NetBSD: Makefile,v 1.9 2012/10/08 09:57:34 asau Exp $
+##
+#
+#DISTNAME=	pciids-20091229
+#CATEGORIES=	misc
+#MASTER_SITES=	http://people.freebsd.org/~ahze/distfiles/
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	mark@coris.org.uk
+#HOMEPAGE=	http://pciids.sourceforge.net/
+#COMMENT=	Repository of PCI IDs (pci.ids database)
+#LICENSE=	modified-bsd OR gnu-gpl-v2
+#
+#NO_BUILD=		yes
+#
+#do-install:
+#	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/pciids
+#	${INSTALL_DATA} ${WRKSRC}/pci.ids ${DESTDIR}${PREFIX}/share/pciids
+#
+#.include "../../mk/bsd.pkg.mk"

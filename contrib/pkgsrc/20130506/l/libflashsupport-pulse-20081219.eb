@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'libflashsupport'
+version = 'pulse-20081219'
+versionsuffix = '-20130506'
+
+description = "libflashsupport-pulse-20081219: PulseAudio support for Adobe Flash"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.invisible.ca/~jmcneill/netbsd/libflashsupport/']
+homepage = 'http://www.pulseaudio.org/wiki/FlashPlayer9Solution'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/multimedia/libflashsupport-pulse/Makefile ######
+## $NetBSD: Makefile,v 1.5 2012/10/08 09:21:06 asau Exp $
+#
+#DISTNAME=	libflashsupport-pulse-20081219
+#PKGREVISION=	2
+#CATEGORIES=	multimedia
+#MASTER_SITES=	http://www.invisible.ca/~jmcneill/netbsd/libflashsupport/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.pulseaudio.org/wiki/FlashPlayer9Solution
+#COMMENT=	PulseAudio support for Adobe Flash
+#
+#CONFLICTS=	libflashsupport-[0-9]*
+#
+#EMUL_PLATFORMS=		linux-i386
+#EMUL_MODULES.linux=	base openssl x11 gtk2
+#EMUL_REQD=		suse>=11.0
+#
+#WRKSRC=			${WRKDIR}
+#BUILD_DIRS=		# empty
+#
+#INSTALLATION_DIRS=	${EMULSUBDIR}/usr/lib
+#
+#do-install:
+#	${INSTALL_LIB} ${WRKDIR}/usr/lib/libflashsupport.so \
+#		${DESTDIR}${PREFIX}/${EMULSUBDIR}/usr/lib
+#
+#.include "../../mk/bsd.pkg.mk"

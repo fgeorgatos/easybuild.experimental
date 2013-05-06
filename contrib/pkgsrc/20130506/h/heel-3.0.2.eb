@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'heel'
+version = '3.0.2'
+versionsuffix = '-20130506'
+
+description = "heel-3.0.2: Static file web server based on Rack and Thin"
+
+sources = [SOURCE_TAR_GZ]
+homepage = 'https://github.com/copiousfreetime/heel/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/heel/Makefile ######
+## $NetBSD: Makefile,v 1.8 2013/03/17 15:57:46 taca Exp $
+#
+#DISTNAME=	heel-3.0.2
+#CATEGORIES=	www
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	https://github.com/copiousfreetime/heel/
+#COMMENT=	Static file web server based on Rack and Thin
+#LICENSE=	modified-bsd
+#
+#DEPENDS+=	${RUBY_PKGPREFIX}-puma>=1.0<2:../../www/ruby-puma
+#DEPENDS+=	${RUBY_PKGPREFIX}-coderay>=1.0.7<1.1:../../textproc/ruby-coderay
+#DEPENDS+=	${RUBY_PKGPREFIX}-launchy>=2.2<3:../../misc/ruby-launchy
+#DEPENDS+=	${RUBY_PKGPREFIX}-mime-types>=1.19<2:../../mail/ruby-mime-types
+#
+#CONFLICTS+=	ruby[1-9][0-9][0-9]-heel-[0-9]* heel-[0-9]*
+#
+#OVERRIDE_GEMSPEC+=	coderay>=0.8.260 launchy>=0.3.2 thin>=1.2
+#
+#.include "../../lang/ruby/gem.mk"
+#.include "../../mk/bsd.pkg.mk"

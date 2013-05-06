@@ -1,0 +1,67 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'tscp-1.81'
+version = 'tscp181'
+versionsuffix = '-20130506'
+
+description = "tscp181: Tom Kerrigan s Simple Chess Program"
+
+sources = ['tscp181.zip']
+version = '1.81'
+name = 'tscp'
+source_urls = ['http://www.tckerrigan.com/Chess/TSCP/attachments/']
+homepage = 'http://www.tckerrigan.com/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/tscp/Makefile ######
+## $NetBSD: Makefile,v 1.19 2012/10/06 11:54:57 asau Exp $
+##
+#
+#DISTNAME=	tscp181
+#PKGNAME=	tscp-1.81
+#PKGREVISION=	3
+#CATEGORIES=	games benchmarks
+#MASTER_SITES=	http://www.tckerrigan.com/Chess/TSCP/attachments/
+#EXTRACT_SUFX=	.zip
+#
+#MAINTAINER=	abs@NetBSD.org
+#HOMEPAGE=	http://www.tckerrigan.com/
+#COMMENT=	Tom Kerrigan's Simple Chess Program
+#LICENSE=	generic-nonlicense
+#
+#RESTRICTED=	No distribution without authorisation from Tom Kerrigan
+#NO_BIN_ON_CDROM= ${RESTRICTED}
+#NO_BIN_ON_FTP= ${RESTRICTED}
+#NO_SRC_ON_CDROM= ${RESTRICTED}
+#NO_SRC_ON_FTP= ${RESTRICTED}
+#
+#INSTALLATION_DIRS=	bin share/doc
+#
+#do-build:
+#	cd ${WRKSRC} && ${CC} ${CFLAGS} ${LDFLAGS} -o tscp *.c
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/tscp ${DESTDIR}${PREFIX}/bin/tscp
+#	${INSTALL_DATA} ${WRKSRC}/readme.txt ${DESTDIR}${PREFIX}/share/doc/tscp.txt
+#
+#.include "../../mk/bsd.pkg.mk"

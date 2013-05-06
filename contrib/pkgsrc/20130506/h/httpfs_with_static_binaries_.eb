@@ -1,0 +1,69 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'fuse-httpfs-'
+version = 'httpfs_with_static_binaries_'
+versionsuffix = '-20130506'
+
+description = "httpfs_with_static_binaries_: FUSE HTTP filesystem"
+
+sources = ['httpfs_with_static_binaries_${DIST_VER}.tar.gz']
+version = 'httpfs-${DIST_VER}'
+name = 'fuse'
+source_urls = ['http://sourceforge.net/projects/httpfs/files', 'download']
+homepage = 'http://httpfs.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/filesystems/fuse-httpfs/Makefile ######
+## $NetBSD: Makefile,v 1.4 2012/10/03 16:08:32 asau Exp $
+##
+#
+#DISTNAME=	httpfs_with_static_binaries_${DIST_VER}
+#PKGNAME=	fuse-httpfs-${DIST_VER}
+#CATEGORIES=	filesystems
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=httpfs/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://httpfs.sourceforge.net/
+#COMMENT=	FUSE HTTP filesystem
+#
+#DIST_VER=	2.06.08.26
+#
+#NO_CONFIGURE=	yes
+#WRKSRC=		${WRKDIR}
+#
+#LIBS+=		-lfuse
+#
+#INSTALLATION_DIRS=	bin
+#
+#post-extract:
+#	${RM} ${WRKSRC}/httpfs
+#
+#do-build:
+#	${CC} ${CPPFLAGS} ${CFLAGS} ${LDFLAGS} ${LIBS} \
+#		${WRKSRC}/httpfs.c -o ${WRKSRC}/httpfs
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/httpfs ${DESTDIR}${PREFIX}/bin
+#
+#.include "../../mk/fuse.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

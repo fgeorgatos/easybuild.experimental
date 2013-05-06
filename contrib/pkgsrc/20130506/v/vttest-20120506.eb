@@ -1,0 +1,50 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'vttest'
+version = '20120506'
+versionsuffix = '-20130506'
+
+description = "vttest-20120506: vt100/vt220/xterm test utility"
+
+sources = ['vttest-20120506.tgz']
+source_urls = ['ftp://dickey.his.com/vttest/']
+homepage = 'http://invisible-island.net/vttest/vttest.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/misc/vttest/Makefile ######
+## $NetBSD: Makefile,v 1.10 2012/10/30 20:45:06 shattered Exp $
+##
+#
+#DISTNAME=	vttest-20120506
+#CATEGORIES=	misc benchmarks
+#MASTER_SITES=	ftp://dickey.his.com/vttest/
+#EXTRACT_SUFX=	.tgz
+#
+#MAINTAINER=	drochner@NetBSD.org
+#HOMEPAGE=	http://invisible-island.net/vttest/vttest.html
+#COMMENT=	vt100/vt220/xterm test utility
+#
+#GNU_CONFIGURE=	YES
+#MAKE_FILE=	makefile
+#
+#.include "../../mk/bsd.pkg.mk"

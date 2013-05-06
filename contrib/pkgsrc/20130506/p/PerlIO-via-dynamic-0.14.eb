@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'via-dynamic-0.14'
+versionsuffix = '-20130506'
+
+description = "PerlIO-via-dynamic-0.14: Perl module for dynamic PerlIO layers"
+
+sources = ['PerlIO-via-dynamic-0.14.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/../../authors/id/A/AL/ALEXMV/']
+homepage = 'http://search.cpan.org/dist/PerlIO-via-dynamic/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-PerlIO-via-dynamic/Makefile ######
+## $NetBSD: Makefile,v 1.14 2013/03/05 16:17:36 apb Exp $
+#
+#DISTNAME=	PerlIO-via-dynamic-0.14
+#PKGNAME=	p5-${DISTNAME}
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=../../authors/id/A/AL/ALEXMV/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/PerlIO-via-dynamic/
+#COMMENT=	Perl module for dynamic PerlIO layers
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#PERL5_PACKLIST=		auto/PerlIO/via/dynamic/.packlist
+#
+## The following DEPENDS applies only if the perl version is 5.10,
+## but there's no way to specify that kind of condition, and it's
+## probably safe to make the dependency unconditional.
+#DEPENDS+= p5-Internals>=1.1:../../devel/p5-Internals
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

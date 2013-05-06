@@ -1,0 +1,78 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'DHCP-0.693'
+versionsuffix = '-20130506'
+
+description = "Net-DHCP-0.693: Object methods to create a DHCP packet"
+
+sources = ['Net-DHCP-0.693.tar.gz']
+version = '${DISTNAME:S/693/69.3/}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Net/']
+homepage = 'http://search.cpan.org/dist/Net-DHCP/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/p5-Net-DHCP/Makefile ######
+## $NetBSD: Makefile,v 1.4 2013/03/08 12:34:08 wiz Exp $
+##
+#
+#DISTNAME=	Net-DHCP-0.693
+#PKGNAME=	p5-${DISTNAME:S/693/69.3/}
+#CATEGORIES=	net perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Net/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Net-DHCP/
+#COMMENT=	Object methods to create a DHCP packet
+#LICENSE=	${PERL5_LICENSE}
+#
+#EGSUBDIR=       share/examples/p5-Net-DHCP
+#INSTALLATION_DIRS+=     ${EGSUBDIR}
+#
+#EGFILES=	examples/dhcp_sniffer.pl
+#EGFILES+=	examples/dhcpd.pl
+#EGFILES+=	examples/dhcpd_test.pl
+#EGFILES+=	examples/dumpianatoxml.pl
+#EGFILES+=	examples/l2tp-dhcp-inform
+#EGFILES+=	examples/lease_query.pl
+#EGFILES+=	examples/list_dho.pl
+#EGFILES+=	examples/send_packet.pl
+#
+#PERL5_REQD+=		5.8.0
+#PERL5_MODULE_TYPE=	Module::Build
+#
+#REPLACE_PERL+=	${EGFILES}
+## has /bin/false as shebang argument
+#CHECK_INTERPRETER_SKIP+=	lib/perl5/vendor_perl/5.16.0/Net/DHCP/Constants.pm
+#CHECK_INTERPRETER_SKIP+=	lib/perl5/vendor_perl/5.16.0/Net/DHCP/Packet.pm
+#
+#post-install:
+#.for i in ${EGFILES}
+#	${INSTALL_SCRIPT} ${WRKSRC}/${i} ${DESTDIR:Q}${PREFIX:Q}/${EGSUBDIR}
+#.endfor
+#
+#PERL5_PACKLIST=		auto/Net/DHCP/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

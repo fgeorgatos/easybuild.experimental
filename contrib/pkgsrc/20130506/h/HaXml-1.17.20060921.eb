@@ -1,0 +1,45 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'HaXml'
+version = '1.17.20060921'
+versionsuffix = '-20130506'
+
+description = "HaXml-1.17.20060921: Haskell utilities for managing and generating XML documents"
+
+sources = [SOURCE_TAR_GZ]
+homepage = 'http://www.cs.york.ac.uk/fp/HaXml/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/hugs-HaXml/Makefile ######
+## $NetBSD: Makefile,v 1.4 2012/10/25 06:55:54 asau Exp $
+##
+#
+#DISTNAME=	HaXml-1.17.20060921
+#CATEGORIES=	textproc
+#
+#MAINTAINER=	jmmv@NetBSD.org
+#COMMENT=	Haskell utilities for managing and generating XML documents
+#HOMEPAGE=	http://www.cs.york.ac.uk/fp/HaXml/
+#
+#.include "../../lang/hugs/package.mk"
+#.include "../../mk/bsd.pkg.mk"

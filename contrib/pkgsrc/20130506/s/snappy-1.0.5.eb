@@ -1,0 +1,51 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'snappy'
+version = '1.0.5'
+versionsuffix = '-20130506'
+
+description = "snappy-1.0.5: General purpose data compression library"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://snappy.googlecode.com/files/']
+homepage = 'http://code.google.com/p/snappy/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/snappy/Makefile ######
+## $NetBSD: Makefile,v 1.4 2012/10/31 11:19:46 asau Exp $
+#
+#DISTNAME=	snappy-1.0.5
+#CATEGORIES=	devel
+#MASTER_SITES=	http://snappy.googlecode.com/files/
+#
+#MAINTAINER=	agc@NetBSD.org
+#HOMEPAGE=	http://code.google.com/p/snappy/
+#COMMENT=	General purpose data compression library
+#LICENSE=	apache-2.0
+#
+#GNU_CONFIGURE=	yes
+#USE_LIBTOOL=	yes
+#USE_LANGUAGES+=	c c++
+#
+#.include "../../devel/zlib/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

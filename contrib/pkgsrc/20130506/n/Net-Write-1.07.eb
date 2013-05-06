@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'Write-1.07'
+versionsuffix = '-20130506'
+
+description = "Net-Write-1.07: Portable interface to open and send raw data to network"
+
+sources = ['Net-Write-1.07.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Net/']
+homepage = 'http://search.cpan.org/dist/Net-Write/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/p5-Net-Write/Makefile ######
+## $NetBSD: Makefile,v 1.12 2013/03/08 12:37:22 wiz Exp $
+##
+#
+#DISTNAME=	Net-Write-1.07
+#PKGNAME=	p5-${DISTNAME}
+#CATEGORIES=	net
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Net/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Net-Write/
+#COMMENT=	Portable interface to open and send raw data to network
+#LICENSE=	artistic
+#
+#DEPENDS+=	p5-Class-Gomor-[0-9]*:../../devel/p5-Class-Gomor
+#DEPENDS+=	p5-Net-Pcap>=0.12:../../net/p5-Net-Pcap
+#DEPENDS+=	p5-Socket6-[0-9]*:../../net/p5-Socket6
+#
+#PERL5_PACKLIST=	auto/Net/Write/.packlist
+#USE_LANGUAGES=	# none
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

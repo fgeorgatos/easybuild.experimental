@@ -1,0 +1,71 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'gnome'
+version = 'commander-1.2.8.15'
+versionsuffix = '-20130506'
+
+description = "gnome-commander-1.2.8.15: GNOME Commander is a fast and powerful graphical filemanager"
+
+sources = ['gnome-commander-1.2.8.15.tar.xz']
+source_urls = ['http://sourceforge.net/projects/sources/gnome-commander/1.2/files', 'download']
+homepage = 'http://www.nongnu.org/gcmd/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/gnome-commander/Makefile ######
+## $NetBSD: Makefile,v 1.43 2013/03/31 08:13:32 obache Exp $
+##
+#
+#DISTNAME=		gnome-commander-1.2.8.15
+#PKGREVISION=		15
+#CATEGORIES=		sysutils
+#MASTER_SITES=		${MASTER_SITE_GNOME:=sources/gnome-commander/1.2/}
+#EXTRACT_SUFX=		.tar.xz
+#
+#MAINTAINER=		pkgsrc@blackmouse.biz
+#HOMEPAGE=		http://www.nongnu.org/gcmd/
+#COMMENT=	GNOME Commander is a fast and powerful graphical filemanager
+#
+#USE_LANGUAGES=		c c++
+#USE_PKGLOCALEDIR=	yes
+#USE_LIBTOOL=		yes
+#GNU_CONFIGURE=		yes
+#USE_TOOLS+=		gmake intltool msgfmt pkg-config perl
+#
+##Problem with heimdal, on which this package depends via another packages.
+##Simple solution is delete link to fnmatch.h from work directory of package
+##after make configure like this:
+#pre-build:
+#	${RM} -f ${WRKDIR}/.buildlink/include/krb5/fnmatch.h
+#
+#PLIST_SRC+=		${PKGDIR}/PLIST
+#
+#.include "options.mk"
+#
+#.include "../../x11/gtk2/buildlink3.mk"
+#.include "../../sysutils/gnome-vfs/buildlink3.mk"
+#.include "../../devel/libgnome/buildlink3.mk"
+#.include "../../devel/libgnomeui/buildlink3.mk"
+#.include "../../textproc/gnome-doc-utils/buildlink3.mk"
+#.include "../../mk/omf-scrollkeeper.mk"
+#.include "../../sysutils/desktop-file-utils/desktopdb.mk"
+#.include "../../mk/bsd.pkg.mk"

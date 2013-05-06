@@ -1,0 +1,63 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'Coin'
+version = '2.4.4'
+versionsuffix = '-20130506'
+
+description = "Coin-2.4.4: Free, portable, Open Inventor API implementation"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://ftp.coin3d.org/coin/src/all/']
+homepage = 'http://www.coin3d.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/Coin/Makefile ######
+## $NetBSD: Makefile,v 1.22 2013/02/16 11:19:41 wiz Exp $
+#
+#DISTNAME=		Coin-2.4.4
+#PKGREVISION=		11
+#CATEGORIES=		graphics
+#MASTER_SITES=		http://ftp.coin3d.org/coin/src/all/
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://www.coin3d.org/
+#COMMENT=		Free, portable, Open Inventor API implementation
+#
+#USE_LANGUAGES=		c c++
+#USE_LIBTOOL=		yes
+#GNU_CONFIGURE=		yes
+#CONFIGURE_ARGS+=	--enable-3ds-import
+#CONFIGURE_ARGS+=	--disable-debug
+#
+#.include "../../mk/pthread.buildlink3.mk"
+#
+#.if defined(PTHREAD_TYPE) && ${PTHREAD_TYPE} != "none"
+#CONFIGURE_ARGS+=	--with-pthreads=yes
+#CONFIGURE_ARGS+=	--enable-threadsafe
+#.endif
+#
+#.include "../../graphics/simage/buildlink3.mk"
+#.include "../../graphics/freetype2/buildlink3.mk"
+#.include "../../graphics/glu/buildlink3.mk"
+#.include "../../x11/libSM/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'scim'
+version = 'array-1.0.1'
+versionsuffix = '-20130506'
+
+description = "scim-array-1.0.1: Array 30 Input Method Engine for SCIM"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://of.openfoundry.org/download/scimarray/1.0.1/']
+homepage = 'http://scimarray.openfoundry.org/index_en.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/inputmethod/scim-array/Makefile ######
+## $NetBSD: Makefile,v 1.16 2013/02/16 11:22:46 wiz Exp $
+##
+#
+#DISTNAME=	scim-array-1.0.1
+#PKGREVISION=	14
+#CATEGORIES=	inputmethod chinese
+#MASTER_SITES=	http://of.openfoundry.org/download/scimarray/1.0.1/
+#
+#MAINTAINER=	obache@NetBSD.org
+#HOMEPAGE=	http://scimarray.openfoundry.org/index_en.html
+#COMMENT=	Array 30 Input Method Engine for SCIM
+#LICENSE=	gnu-gpl-v2
+#
+#GNU_CONFIGURE=		yes
+#USE_LIBTOOL=		yes
+#USE_PKGLOCALEDIR=	yes
+#USE_LANGUAGES=		c c++
+#USE_TOOLS+=		msgfmt pkg-config
+#
+#USE_SCIM_GTKUTILS=	yes
+#
+#.include "../../devel/gettext-lib/buildlink3.mk"
+#.include "../../inputmethod/scim/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

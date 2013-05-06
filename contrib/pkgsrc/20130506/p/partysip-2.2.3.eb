@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'partysip'
+version = '2.2.3'
+versionsuffix = '-20130506'
+
+description = "partysip-2.2.3: SIP proxy server"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://savannah.gnu.org/download/partysip/']
+homepage = 'http://www.nongnu.org/partysip/partysip.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/partysip/Makefile ######
+## $NetBSD: Makefile,v 1.9 2012/10/23 17:18:56 asau Exp $
+##
+#
+#DISTNAME=		partysip-2.2.3
+#PKGREVISION=		1
+#CATEGORIES=		net
+#MASTER_SITES=		http://savannah.gnu.org/download/partysip/
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://www.nongnu.org/partysip/partysip.html
+#COMMENT=		SIP proxy server
+#
+#GNU_CONFIGURE=		yes
+#CONFIGURE_ARGS+=	--with-config-dir=/etc
+#USE_LIBTOOL=		yes
+#
+#INSTALLATION_DIRS=	share/examples
+#
+#post-install:
+#	${INSTALL_DATA} ${WRKSRC}/conf/partysip.conf ${DESTDIR}${PREFIX}/share/examples
+#
+#.include "../../devel/libosip/buildlink3.mk"
+#.include "../../mk/pthread.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

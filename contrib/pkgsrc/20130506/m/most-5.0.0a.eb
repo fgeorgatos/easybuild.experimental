@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'most'
+version = '5.0.0a'
+versionsuffix = '-20130506'
+
+description = "most-5.0.0a: Pager like less which has support for windows and binary files"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['ftp://space.mit.edu/pub/davis/most/']
+homepage = 'http://www.jedsoft.org/most/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/misc/most/Makefile ######
+## $NetBSD: Makefile,v 1.29 2013/02/16 11:23:25 wiz Exp $
+#
+#DISTNAME=	most-5.0.0a
+#PKGREVISION=	5
+#CATEGORIES=	misc
+#MASTER_SITES=	ftp://space.mit.edu/pub/davis/most/
+#
+#MAINTAINER=	rhwang@bigpanda.com
+#HOMEPAGE=	http://www.jedsoft.org/most/
+#COMMENT=	Pager (like less) which has support for windows and binary files
+#
+#MAKE_JOBS_SAFE=		no
+#
+#GNU_CONFIGURE=		yes
+#CONFIGURE_ARGS+=	--without-x
+#
+#CONFIGURE_ARGS+=	--with-slang=${BUILDLINK_PREFIX.libslang2}
+#
+#.include "../../mk/bsd.prefs.mk"
+#
+#.if ${OPSYS} == "Darwin"
+## prevent duplicate definition of zopen
+#CFLAGS+= -D_POSIX_C_SOURCE
+#.endif
+#
+#.include "../../devel/libslang2/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

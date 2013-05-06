@@ -1,0 +1,67 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'festlex-oald-1.4.0'
+version = 'festlex_OALD'
+versionsuffix = '-20130506'
+
+description = "festlex_OALD: Oxford Advanced Learner s pronunciation dictionary for Festival"
+
+sources = ['festlex_OALD.tar.gz']
+version = 'oald-1.4.0'
+name = 'festlex'
+source_urls = ['http://www.speech.cs.cmu.edu/festival/cstr/festival/1.4.1/']
+homepage = 'http://www.cstr.ed.ac.uk/projects/festival/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/festlex-oald/Makefile ######
+## $NetBSD: Makefile,v 1.24 2012/09/11 23:59:32 asau Exp $
+#
+#DISTNAME=	festlex_OALD
+#PKGNAME=	festlex-oald-1.4.0
+#PKGREVISION=	1
+#CATEGORIES=	audio
+#MASTER_SITES=	http://www.speech.cs.cmu.edu/festival/cstr/festival/1.4.1/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.cstr.ed.ac.uk/projects/festival/
+#COMMENT=	Oxford Advanced Learner's pronunciation dictionary for Festival
+#LICENSE=	no-commercial-use
+#
+#DEPENDS+=	festival>=1.4.0:../../audio/festival
+#
+#USE_TOOLS+=	pax
+#
+#WRKSRC=		${WRKDIR}/festival
+#NO_BUILD=	yes
+#
+#FHOME=		${PREFIX}/share/festival
+#
+#post-extract:
+#	${CHMOD} -R a+r ${WRKSRC}
+#	${FIND} ${WRKSRC} -type d -print | ${XARGS} ${CHMOD} 755
+#
+#do-install:
+#	${INSTALL_DATA_DIR} ${DESTDIR}${FHOME}
+#	cd ${WRKSRC} && pax -rw * ${DESTDIR}${FHOME}
+#
+#.include "../../mk/bsd.pkg.mk"

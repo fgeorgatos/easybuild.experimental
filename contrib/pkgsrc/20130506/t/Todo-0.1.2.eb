@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'deforaos-todo-0.1.2'
+version = '0.1.2'
+versionsuffix = '-20130506'
+
+description = "Todo-0.1.2: DeforaOS desktop todo list"
+
+sources = ['Todo-0.1.2.tar.gz']
+version = 'todo-0.1.2'
+name = 'deforaos'
+source_urls = ['http://www.defora.org/os/download/download/3506/']
+homepage = 'http://www.defora.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/time/deforaos-todo/Makefile ######
+## $NetBSD: Makefile,v 1.2 2013/02/16 11:24:41 wiz Exp $
+##
+#
+#DISTNAME=	Todo-0.1.2
+#PKGNAME=	deforaos-todo-0.1.2
+#PKGREVISION=	1
+#CATEGORIES=	time
+#MASTER_SITES=	http://www.defora.org/os/download/download/3506/
+#
+#MAINTAINER=	khorben@defora.org
+#HOMEPAGE=	http://www.defora.org/
+#COMMENT=	DeforaOS desktop todo list
+#
+#LICENSE=	gnu-gpl-v3
+#
+#USE_TOOLS+=	pkg-config
+#
+#MAKE_FLAGS+=	DESTDIR=${DESTDIR}
+#MAKE_FLAGS+=	PREFIX=${PREFIX}
+#
+#.include "options.mk"
+#
+#.include "../../x11/gtk2/buildlink3.mk"
+#.include "../../x11/deforaos-libdesktop/buildlink3.mk"
+#.include "../../sysutils/desktop-file-utils/desktopdb.mk"
+#.include "../../mk/bsd.pkg.mk"

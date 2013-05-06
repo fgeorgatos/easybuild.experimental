@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'hairyeyeball'
+version = '1.1'
+versionsuffix = '-20130506'
+
+description = "hairyeyeball-1.1: Systrace policy examples"
+
+sources = ['hairyeyeball-1.1.tgz']
+source_urls = ['http://www.blafasel.org/~floh/he/releases/']
+homepage = 'http://blafasel.org/~floh/he/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/systrace-policies/Makefile ######
+## $NetBSD: Makefile,v 1.5 2012/10/23 18:17:00 asau Exp $
+#
+#DISTNAME=	hairyeyeball-1.1
+#PKGREVISION=	1
+#CATEGORIES=	security sysutils
+#MASTER_SITES=	http://www.blafasel.org/~floh/he/releases/
+#EXTRACT_SUFX=	.tgz
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://blafasel.org/~floh/he/
+#COMMENT=	Systrace policy examples
+#
+#WRKSRC=		${WRKDIR}/1.1
+#
+#NO_BUILD=	YES
+#
+#INSTALLATION_DIRS+=	share/examples/systrace-policies
+#
+#do-install:
+#	${INSTALL_DATA} ${WRKSRC}/* ${DESTDIR}${PREFIX}/share/examples/systrace-policies
+#
+#.include "../../mk/bsd.pkg.mk"

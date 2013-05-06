@@ -1,0 +1,46 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'tex--2010.21086'
+version = 'ly1.doc'
+versionsuffix = '-20130506'
+
+description = "ly1.doc: Documentation for tex-ly1"
+
+sources = ['ly1.doc.tar.gz']
+version = '${DISTNAME:S/./-/}-2010.21086'
+name = 'tex'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/fonts/tex-ly1-doc/Makefile ######
+## $NetBSD: Makefile,v 1.2 2011/01/21 18:42:04 minskim Exp $
+#
+#DISTNAME=	ly1.doc
+#PKGNAME=	tex-${DISTNAME:S/./-/}-2010.21086
+#TEXLIVE_REV=	21086
+#
+#MAINTAINER=	minskim@NetBSD.org
+#COMMENT=	Documentation for tex-ly1
+#
+#.include "../../print/texlive/package.mk"
+#.include "../../mk/bsd.pkg.mk"
+homepage = ["no default homepage provided"]

@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'spamprobe'
+version = '1.4d'
+versionsuffix = '-20130506'
+
+description = "spamprobe-1.4d: Spam detector using Bayesian analysis of word counts"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/spamprobe/files', 'download']
+homepage = 'http://spamprobe.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/mail/spamprobe/Makefile ######
+## $NetBSD: Makefile,v 1.27 2013/02/16 11:23:01 wiz Exp $
+#
+#DISTNAME=	spamprobe-1.4d
+#PKGREVISION=	7
+#CATEGORIES=	mail
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=spamprobe/}
+#
+#MAINTAINER=	ghen@NetBSD.org
+#HOMEPAGE=	http://spamprobe.sourceforge.net/
+#COMMENT=	Spam detector using Bayesian analysis of word counts
+#
+#PKG_INSTALLATION_TYPES= overwrite pkgviews
+#
+#USE_LANGUAGES=		c c++
+#GNU_CONFIGURE=		yes
+#CONFIGURE_ARGS+=	--enable-default-8bit
+#
+#.include "options.mk"
+#
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,59 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'xpp'
+version = '1.5'
+versionsuffix = '-20130506'
+
+description = "xpp-1.5: X Printing Panel"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/cups/files', 'download']
+homepage = 'http://cups.sourceforge.net/xpp/index.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/print/xpp/Makefile ######
+## $NetBSD: Makefile,v 1.48 2013/02/16 11:24:16 wiz Exp $
+#
+#DISTNAME=	xpp-1.5
+#PKGREVISION=	10
+#CATEGORIES=	print x11
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=cups/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://cups.sourceforge.net/xpp/index.html
+#COMMENT=	X Printing Panel
+#
+#USE_TOOLS+=	gmake
+#GNU_CONFIGURE=	yes
+#USE_LANGUAGES=	c c++
+#
+#DOCDIR=		${PREFIX}/share/doc/xpp
+#
+#INSTALLATION_DIRS+=	${DOCDIR}
+#
+#post-install:
+#	cd ${WRKSRC} && ${INSTALL_DATA} LICENSE README ${DESTDIR}${DOCDIR}
+#
+#.include "../../print/cups/buildlink3.mk"
+#.include "../../x11/fltk/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

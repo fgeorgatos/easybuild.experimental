@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'Dependency-1.110'
+versionsuffix = '-20130506'
+
+description = "Algorithm-Dependency-1.110: Algorithmic framework for implementing dependency tree"
+
+sources = ['Algorithm-Dependency-1.110.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Algorithm/']
+homepage = 'http://search.cpan.org/dist/Algorithm-Dependency/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Algorithm-Dependency/Makefile ######
+## $NetBSD: Makefile,v 1.16 2012/10/31 11:17:36 asau Exp $
+#
+#DISTNAME=	Algorithm-Dependency-1.110
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	3
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Algorithm/}
+#
+#MAINTAINER=	rhaen@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Algorithm-Dependency/
+#COMMENT=	Algorithmic framework for implementing dependency tree
+#LICENSE=	${PERL5_LICENSE}
+#
+#BUILD_DEPENDS+=	p5-Test-ClassAPI>=0.6:../../devel/p5-Test-ClassAPI
+#DEPENDS+=	p5-Params-Util>=0.31:../../devel/p5-Params-Util
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#PERL5_PACKLIST=		auto/Algorithm/Dependency/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

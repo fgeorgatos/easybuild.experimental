@@ -1,0 +1,94 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'ns-2.35'
+version = 'src-2.35'
+versionsuffix = '-20130506'
+
+description = "ns-src-2.35: The UCB/LBNL Network Simulator Version 2"
+
+sources = ['ns-src-2.35.tar.gz']
+version = '2.35'
+name = 'ns'
+source_urls = ['http://sourceforge.net/projects/nsnam/files', 'download']
+homepage = 'http://nsnam.isi.edu/nsnam/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/ns/Makefile ######
+## $NetBSD: Makefile,v 1.38 2013/02/06 19:30:59 jperkin Exp $
+#
+#DISTNAME=	ns-src-2.35
+#PKGNAME=	ns-2.35
+#PKGREVISION=	1
+#CATEGORIES=	net
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=nsnam/}
+#
+#MAINTAINER=	minskim@NetBSD.org
+#HOMEPAGE=	http://nsnam.isi.edu/nsnam/
+#COMMENT=	The UCB/LBNL Network Simulator Version 2
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#WRKSRC=		${WRKDIR}/${PKGNAME_NOREV}
+#USE_LANGUAGES=	c99 c++
+#USE_TOOLS+=	gmake
+#GNU_CONFIGURE=	yes
+#PTHREAD_OPTS+=	require
+## Perl is only needed if you want to run the validation tests.
+##USE_TOOLS+=		perl
+#
+#CONFIGURE_ARGS+=	LIBS="`${CONFIG_SHELL} -c '. ${TCLCONFIG_SH}; ${ECHO} $$TCL_LIBS'`"
+#CONFIGURE_ARGS+=	--with-tcl=${BUILDLINK_PREFIX.tcl}
+#CONFIGURE_ARGS+=	--with-tcl-ver=8.5
+#CONFIGURE_ARGS+=	--with-tk=${BUILDLINK_PREFIX.tk}
+#CONFIGURE_ARGS+=	--with-tk-ver=8.5
+#CONFIGURE_ARGS+=	--with-otcl=${BUILDLINK_PREFIX.tcl-otcl}
+#CONFIGURE_ARGS+=	--with-tclcl=${BUILDLINK_PREFIX.tcl-tclcl}
+#CONFIGURE_ENV+=		X11LIBDIR=${X11PREFIX}/lib${LIBABISUFFIX}
+#CONFIGURE_ENV+=		X11INCDIR=${X11PREFIX}/include
+#
+#MESSAGE_SUBST+=		HOMEPAGE=${HOMEPAGE}
+#
+#INSTALLATION_DIRS=	bin ${PKGMANDIR}/man1 share/doc/ns
+#
+#post-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/indep-utils/cmu-scen-gen/setdest/calcdest ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_PROGRAM} ${WRKSRC}/indep-utils/webtrace-conv/dec/dec-tr-stat ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_PROGRAM} ${WRKSRC}/indep-utils/webtrace-conv/epa/epa-tr-stat ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_PROGRAM} ${WRKSRC}/indep-utils/webtrace-conv/nlanr/nlanr-tr-stat ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_PROGRAM} ${WRKSRC}/indep-utils/cmu-scen-gen/setdest/setdest ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_PROGRAM} ${WRKSRC}/indep-utils/webtrace-conv/ucb/ucb-tr-stat ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_DATA} ${WRKSRC}/CHANGES.html ${DESTDIR}${PREFIX}/share/doc/ns
+#
+#BUILDLINK_DEPMETHOD.libXt?=	build
+#
+#.include "../../devel/tcl-tclcl/buildlink3.mk"
+#.include "../../lang/tcl/buildlink3.mk"
+#.include "../../lang/tcl-otcl/buildlink3.mk"
+#.include "../../net/libpcap/buildlink3.mk"
+#.include "../../x11/libX11/buildlink3.mk"
+#.include "../../x11/libXext/buildlink3.mk"
+#.include "../../x11/libXt/buildlink3.mk"
+#.include "../../x11/tk/buildlink3.mk"
+#.include "../../mk/pthread.buildlink3.mk"
+#
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'evolution'
+version = 'sharp-0.20.0'
+versionsuffix = '-20130506'
+
+description = "evolution-sharp-0.20.0: .NET language binding for various Evolution libraries"
+
+sources = ['evolution-sharp-0.20.0.tar.bz2']
+source_urls = ['http://sourceforge.net/projects/sources/evolution-sharp/0.20/files', 'download']
+homepage = 'http://www.go-evolution.org/EvolutionSharp'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/mail/evolution-sharp/Makefile ######
+## $NetBSD: Makefile,v 1.19 2013/01/26 21:38:07 adam Exp $
+##
+#
+#DISTNAME=	evolution-sharp-0.20.0
+#PKGREVISION=	12
+#CATEGORIES=	mail
+#MASTER_SITES=	${MASTER_SITE_GNOME:=sources/evolution-sharp/0.20/}
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.go-evolution.org/EvolutionSharp
+#COMMENT=	.NET language binding for various Evolution libraries
+#LICENSE=	gnu-gpl-v2
+#
+#BROKEN=		Doesn't work with newer versions of evolution-data-server
+#
+#GNU_CONFIGURE=		yes
+#USE_LIBTOOL=		yes
+#USE_PKGLOCALEDIR=	yes
+#PKGCONFIG_OVERRIDE+=	evolution-sharp.pc.in
+#USE_TOOLS+=		gmake pkg-config
+#
+#.include "../../lang/mono/buildlink3.mk"
+#BUILDLINK_API_DEPENDS.evolution-data-server+=	evolution-data-server>=2.24.0
+#.include "../../mail/evolution-data-server/buildlink3.mk"
+#.include "../../x11/gtk-sharp/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,53 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'tex--0.13.2d'
+version = 'dvipdfm'
+versionsuffix = '-20130506'
+
+description = "dvipdfm: Supplementary files for dvipdfm"
+
+sources = ['dvipdfm.tar.gz']
+version = '${DISTNAME}-0.13.2d'
+name = 'tex'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/print/tex-dvipdfm/Makefile ######
+## $NetBSD: Makefile,v 1.5 2011/03/06 22:30:16 minskim Exp $
+#
+#DISTNAME=	dvipdfm
+#PKGNAME=	tex-${DISTNAME}-0.13.2d
+#PKGREVISION=	4
+#TEXLIVE_REV=	21369
+#
+#MAINTAINER=	minskim@NetBSD.org
+#COMMENT=	Supplementary files for dvipdfm
+#
+#CONFLICTS+=	tex-bin-dvipdfm-[0-9]*
+#
+#TEX_TEXMF_DIRS+=	${PREFIX}/share/texmf
+#
+#TEXLIVE_IGNORE_PATTERNS=	texmf/fonts
+#
+#.include "../../print/texlive/package.mk"
+#.include "../../mk/bsd.pkg.mk"
+homepage = ["no default homepage provided"]

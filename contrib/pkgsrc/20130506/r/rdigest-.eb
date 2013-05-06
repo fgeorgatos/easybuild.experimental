@@ -1,0 +1,49 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'rdigest'
+version = ''
+versionsuffix = '-20130506'
+
+description = "rdigest-: Recursive message digest wrapper utility"
+
+sources = ['rdigest-${VERSION}.tar.gz']
+source_urls = ['#bequietpkglint']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/pkgtools/rdigest/Makefile ######
+## $NetBSD: Makefile,v 1.4 2010/03/21 16:29:42 wiz Exp $
+#
+#DISTNAME=	rdigest-${VERSION}
+#CATEGORIES=	# be quiet pkglint
+#MASTER_SITES=	# be quiet pkglint
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#COMMENT=	Recursive message digest wrapper utility
+#
+#DIGESTDIR=	${.CURDIR}/../../pkgtools/digest
+#FILESDIR=	${DIGESTDIR}/files
+#
+#USE_FEATURES=		nbcompat
+#
+#.include "${DIGESTDIR}/Makefile"
+homepage = ["no default homepage provided"]

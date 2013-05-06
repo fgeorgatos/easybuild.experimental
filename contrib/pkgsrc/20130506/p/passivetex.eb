@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'tex--1.25'
+version = 'passivetex'
+versionsuffix = '-20130506'
+
+description = "passivetex: Support package for XML/SGML typesetting"
+
+sources = ['passivetex.tar.gz']
+version = '${DISTNAME}-1.25'
+name = 'tex'
+homepage = 'http://www.tei-c.org.uk/Software/passivetex/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/print/tex-passivetex/Makefile ######
+## $NetBSD: Makefile,v 1.8 2011/03/17 18:06:49 minskim Exp $
+#
+#DISTNAME=	passivetex
+#PKGNAME=	tex-${DISTNAME}-1.25
+#PKGREVISION=	2
+#TEXLIVE_REV=	15878
+#
+#MAINTAINER=	minskim@NetBSD.org
+#HOMEPAGE=	http://www.tei-c.org.uk/Software/passivetex/
+#COMMENT=	Support package for XML/SGML typesetting
+#
+#DEPENDS+=	tex-amsfonts-[0-9]*:../../fonts/tex-amsfonts
+#DEPENDS+=	tex-amsmath-[0-9]*:../../print/tex-amsmath
+#DEPENDS+=	tex-graphics-[0-9]*:../../print/tex-graphics
+#DEPENDS+=	tex-hyph-utf8-[0-9]*:../../print/tex-hyph-utf8
+#DEPENDS+=	tex-hyperref-[0-9]*:../../print/tex-hyperref
+#DEPENDS+=	tex-latex-[0-9]*:../../print/tex-latex
+#DEPENDS+=	tex-marvosym-[0-9]*:../../fonts/tex-marvosym
+#DEPENDS+=	tex-psnfss-[0-9]*:../../fonts/tex-psnfss
+#DEPENDS+=	tex-rotating-[0-9]*:../../print/tex-rotating
+#DEPENDS+=	tex-tipa-[0-9]*:../../fonts/tex-tipa
+#DEPENDS+=	tex-tools-[0-9]*:../../print/tex-tools
+#DEPENDS+=	tex-url>=3.2:../../print/tex-url
+#DEPENDS+=	tex-xmltex-[0-9]*:../../textproc/tex-xmltex
+#
+#.include "../../print/texlive/package.mk"
+#.include "../../mk/bsd.pkg.mk"

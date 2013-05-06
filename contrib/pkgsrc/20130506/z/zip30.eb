@@ -1,0 +1,93 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'zip-3.0'
+version = 'zip30'
+versionsuffix = '-20130506'
+
+description = "zip30: Create/update ZIP files compatible with pkzip"
+
+sources = ['zip30.tgz']
+version = '3.0'
+name = 'zip'
+source_urls = ['ftp://ftp.info-zip.org/pub/infozip/src/']
+homepage = 'http://www.info-zip.org/Zip.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/archivers/zip/Makefile ######
+## $NetBSD: Makefile,v 1.62 2012/09/11 19:47:03 asau Exp $
+#
+#DISTNAME=	zip30
+#PKGNAME=	zip-3.0
+#PKGREVISION=	2
+#CATEGORIES=	archivers
+#MASTER_SITES=	ftp://ftp.info-zip.org/pub/infozip/src/
+#EXTRACT_SUFX=	.tgz
+#
+#MAINTAINER=	wiz@NetBSD.org
+#HOMEPAGE=	http://www.info-zip.org/Zip.html
+#COMMENT=	Create/update ZIP files compatible with pkzip
+#LICENSE=	info-zip
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#MAKE_FILE=	unix/Makefile
+#
+#.include "../../mk/bsd.prefs.mk"
+#
+#MAKE_FLAGS+=	LOCAL_ZIP=${CFLAGS:Q}
+#MAKE_FLAGS+=	LFLAGS1=${_STRIPFLAG_CC:Q}
+#MAKE_FLAGS+=	-DUNICODE_SUPPORT
+#.if ${OPSYS} == "NetBSD" && ${MACHINE_ARCH} == "powerpc"
+#CFLAGS+=	-O0
+#.endif
+#
+#.include "../../mk/compiler.mk"
+#
+#.if !empty(PKGSRC_COMPILER:Mgcc) || !empty(PKGSRC_COMPILER:Mclang)
+#BUILD_TARGET=	generic_gcc
+#.else
+#BUILD_TARGET=	generic
+#CFLAGS+=	-O
+#.endif
+#
+#.if !empty(PKGSRC_COMPILER:Msunpro) || ${OPSYS} == "SunOS"
+#MAKE_FLAGS+=	DISABLE_ASM=YES
+#.endif
+#
+#.if ${OPSYS} == "Linux"
+#CFLAGS+=	-DHAVE_DIRENT_H
+#.endif
+#
+#INSTALLATION_DIRS=	bin ${PKGMANDIR}/man1
+#
+#do-install:
+#	cd ${WRKSRC} && \
+#	    ${INSTALL_PROGRAM} zip zipnote zipsplit zipcloak ${DESTDIR}${PREFIX}/bin
+#	cd ${WRKSRC}/man && \
+#	    ${INSTALL_MAN} zip.1 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man1
+#	${LN} -f -s zip.1 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man1/zipcloak.1
+#	${LN} -f -s zip.1 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man1/zipnote.1
+#	${LN} -f -s zip.1 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man1/zipsplit.1
+#
+#.include "../../archivers/bzip2/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

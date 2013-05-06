@@ -1,0 +1,66 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'scummvm-fotaq-0'
+version = 'FOTAQ_Floppy'
+versionsuffix = '-20130506'
+
+description = "FOTAQ_Floppy: Flight Of The Amazon Queen"
+
+sources = ['FOTAQ_Floppy.zip']
+version = 'fotaq-0'
+name = 'scummvm'
+source_urls = ['http://sourceforge.net/projects/scummvm/files', 'download']
+homepage = 'http://www.scummvm.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/scummvm-fotaq/Makefile ######
+## $NetBSD: Makefile,v 1.7 2012/10/06 11:54:53 asau Exp $
+##
+#
+#DISTNAME=		FOTAQ_Floppy
+#PKGNAME=		scummvm-fotaq-0
+#PKGREVISION=		1
+#CATEGORIES=		games
+#MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=scummvm/}
+#EXTRACT_SUFX=		.zip
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://www.scummvm.org/
+#COMMENT=		Flight Of The Amazon Queen
+#
+#WRKSRC=			${WRKDIR}/FOTAQ_Floppy
+#
+#FOTAQDIR=	${PREFIX}/share/games/fotaq
+#
+#INSTALLATION_DIRS=	bin
+#
+#do-build:
+#	${SED} "s|@FOTAQDIR@|${FOTAQDIR}|" <${FILESDIR}/fotaq.sh \
+#		>${WRKDIR}/fotaq.sh
+#
+#do-install:
+#	${INSTALL_DATA_DIR} ${DESTDIR}${FOTAQDIR}
+#	${INSTALL_DATA} ${WRKSRC}/queen.1 ${DESTDIR}${FOTAQDIR}
+#	${INSTALL_SCRIPT} ${WRKDIR}/fotaq.sh ${DESTDIR}${PREFIX}/bin/fotaq
+#
+#.include "../../mk/bsd.pkg.mk"

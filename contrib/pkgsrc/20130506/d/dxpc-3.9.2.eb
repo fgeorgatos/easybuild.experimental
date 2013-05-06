@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'dxpc'
+version = '3.9.2'
+versionsuffix = '-20130506'
+
+description = "dxpc-3.9.2: Differential X Protocol Compressor"
+
+sources = ['dxpc-3.9.2.tgz']
+source_urls = ['http://www.vigor.nu/dxpc/']
+homepage = 'http://www.vigor.nu/dxpc/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/dxpc/Makefile ######
+## $NetBSD: Makefile,v 1.32 2012/12/27 20:19:35 ryoon Exp $
+#
+#DISTNAME=	dxpc-3.9.2
+#CATEGORIES=	x11
+#MASTER_SITES=	http://www.vigor.nu/dxpc/
+#EXTRACT_SUFX=	.tgz
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.vigor.nu/dxpc/
+#COMMENT=	Differential X Protocol Compressor
+#LICENSE=	2-clause-bsd
+#
+#USE_LANGUAGES=		c c++
+#USE_TOOLS+=		gmake
+#GNU_CONFIGURE=		yes
+#
+#INSTALL_MAKE_FLAGS+=	bindir=${DESTDIR}${PREFIX}/bin
+#INSTALL_MAKE_FLAGS+=	man1dir=${DESTDIR}${PREFIX}/${PKGMANDIR}/man1
+#
+#LIBS.SunOS+=		-lsocket -lnsl
+#
+#.include "../../archivers/lzo/buildlink3.mk"
+#.include "../../x11/xproto/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

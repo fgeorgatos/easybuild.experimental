@@ -1,0 +1,51 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'activeresource'
+version = ''
+versionsuffix = '-20130506'
+
+description = "activeresource-: REST modeling framework part of Rails 3.2 "
+
+sources = ['activeresource-${RUBY_RAILS_VERSION}.tar.gz']
+homepage = 'http://www.rubyonrails.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/ruby-activeresource32/Makefile ######
+## $NetBSD: Makefile,v 1.2 2012/06/14 15:12:15 taca Exp $
+#
+#DISTNAME=	activeresource-${RUBY_RAILS_VERSION}
+#CATEGORIES=	www
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.rubyonrails.org/
+#COMMENT=	REST modeling framework (part of Rails 3.2)
+#LICENSE=	mit
+#
+#DEPENDS+=	${RUBY_ACTIVESUPPORT_DEPENDS}
+#DEPENDS+=	${RUBY_ACTIVEMODEL_DEPENDS}
+#
+#RUBY_RAILS_SUPPORTED=	32
+#RUBY_RAILS_STRICT_DEP=	yes
+#
+#.include "../../lang/ruby/gem.mk"
+#.include "../../mk/bsd.pkg.mk"

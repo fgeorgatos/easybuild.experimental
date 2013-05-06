@@ -1,0 +1,68 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'tlf'
+version = '0.9.30'
+versionsuffix = '-20130506'
+
+description = "tlf-0.9.30: Advanced hamradio logging and contest program"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sharon.pi8zaa.ampr.org/pub/linux/ham/tlf/']
+homepage = 'http://home.iae.nl/users/reinc/TLF-0.2.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/ham/tlf/Makefile ######
+## $NetBSD: Makefile,v 1.17 2012/10/03 13:01:45 asau Exp $
+##
+#
+#DISTNAME=	tlf-0.9.30
+#CATEGORIES=	ham
+#MASTER_SITES=	http://sharon.pi8zaa.ampr.org/pub/linux/ham/tlf/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://home.iae.nl/users/reinc/TLF-0.2.html
+#COMMENT=	Advanced hamradio logging and contest program
+#
+#USE_NCURSES=	yes
+#USE_TOOLS+=	gmake msgfmt
+#GNU_CONFIGURE=	yes
+#PTHREAD_OPTS+=	require
+#PTHREAD_AUTO_VARS=	yes
+#
+#CONFIGURE_ARGS+=	--enable-hamlib
+#
+#INSTALLATION_DIRS+=	share/tlf
+#
+#post-patch:
+#	${ECHO} SC_DEVICE=/dev/tty00 >> ${WRKSRC:Q}/share/logcfg.dat
+#
+#.include "../../mk/bsd.prefs.mk"
+#
+#LIBS+=		${LIBOSSAUDIO}
+#
+#.include "../../mk/curses.buildlink3.mk"
+#.include "../../mk/oss.buildlink3.mk"
+#.include "../../ham/hamlib/buildlink3.mk"
+#.include "../../devel/ncurses/buildlink3.mk"
+#.include "../../mk/pthread.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

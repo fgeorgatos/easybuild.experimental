@@ -1,0 +1,84 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'xapian'
+version = 'omega-1.2.8'
+versionsuffix = '-20130506'
+
+description = "xapian-omega-1.2.8: Search engine application for websites using Xapian"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://oligarchy.co.uk/xapian/1.2.8/']
+homepage = 'http://xapian.org/docs/omega/overview.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/xapian-omega/Makefile ######
+## $NetBSD: Makefile,v 1.19 2012/10/25 06:57:06 asau Exp $
+##
+#
+#DISTNAME=		xapian-omega-1.2.8
+#PKGREVISION=		3
+#CATEGORIES=		textproc
+#MASTER_SITES=		http://oligarchy.co.uk/xapian/1.2.8/
+#
+#MAINTAINER=		schmonz@NetBSD.org
+#HOMEPAGE=		http://xapian.org/docs/omega/overview.html
+#COMMENT=		Search engine application for websites using Xapian
+#LICENSE=		gnu-gpl-v2
+#
+#GNU_CONFIGURE=		yes
+#CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR:Q}
+#USE_LIBTOOL=		yes
+#USE_LANGUAGES=		c c++
+#USE_TOOLS+=		perl:run
+#
+#TEST_TARGET=		check
+#
+#REPLACE_PERL=		dbi2omega htdig2omega mbox2omega
+#
+#SUBST_CLASSES+=		files
+#SUBST_STAGE.files=	do-configure
+#SUBST_FILES.files=	omega.conf
+#SUBST_SED.files=	-e "s|@VARBASE@|${VARBASE}|g"
+#SUBST_MESSAGE.files=	Fixing configuration files.
+#
+#OWN_DIRS+=		${VARBASE}/log/${PKGBASE}
+#OWN_DIRS+=		${VARBASE}/${PKGBASE}/cdb
+#OWN_DIRS+=		${VARBASE}/${PKGBASE}/data
+#OWN_DIRS+=		${VARBASE}/${PKGBASE}/templates
+#
+#EGDIR=			${PREFIX}/share/examples/${PKGBASE}
+#
+#CONF_FILES+=		${EGDIR}/omega.conf ${PKG_SYSCONFDIR}/omega.conf
+#
+#INSTALLATION_DIRS=	${EGDIR}
+#
+#INSTALL_TARGET=		install install-dist_sysconfDATA
+#INSTALL_MAKE_FLAGS+=	${MAKE_FLAGS} sysconfdir=${EGDIR:Q}
+#
+#BUILD_DEFS+=		VARBASE
+#
+#.include "../../sysutils/file/buildlink3.mk"
+#.include "../../textproc/xapian/buildlink3.mk"
+#.include "../../devel/pcre/buildlink3.mk"
+#.include "../../devel/zlib/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,52 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'kcfonts'
+version = '1.05'
+versionsuffix = '-20130506'
+
+description = "kcfonts-1.05: Kuo Chauo Chinese Fonts collection"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/distfiles/files', 'download']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/fonts/kcfonts/Makefile ######
+## $NetBSD: Makefile,v 1.13 2012/10/03 18:28:25 asau Exp $
+#
+#DISTNAME=	kcfonts-1.05
+#PKGREVISION=	3
+#CATEGORIES=	fonts
+#MASTER_SITES=	${MASTER_SITE_GENTOO:=distfiles/}
+#
+#MAINTAINER=	kevlo@midassol.com
+#COMMENT=	Kuo Chauo Chinese Fonts collection
+#
+#WRKSRC=		${WRKDIR}
+#USE_X11BASE=	yes
+#FONTS_DIRS.x11=	${PREFIX}/lib/X11/fonts/local
+#REQD_DIRS+=	${PREFIX}/lib/X11/fonts/local
+#
+#USE_TOOLS+=	gzip ucs2any
+#
+#.include "../../mk/bsd.pkg.mk"
+homepage = ["no default homepage provided"]

@@ -1,0 +1,78 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'smpeg'
+version = '0.4.4'
+versionsuffix = '-20130506'
+
+description = "smpeg-0.4.4: SDL MPEG Player Library"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['#']
+homepage = 'http://www.lokigames.com/development/smpeg.php3'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/multimedia/smpeg/Makefile ######
+## $NetBSD: Makefile,v 1.26 2012/10/08 09:21:12 asau Exp $
+##
+#
+#DISTNAME=	smpeg-0.4.4
+#PKGREVISION=	15
+#CATEGORIES=	devel multimedia
+#MASTER_SITES=	#
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.lokigames.com/development/smpeg.php3
+#COMMENT=	SDL MPEG Player Library
+#LICENSE=	gnu-lgpl-v2
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#USE_TOOLS+=	gmake
+#GNU_CONFIGURE=	yes
+#USE_LANGUAGES=	c c++
+#USE_LIBTOOL=	yes
+#
+#CPPFLAGS+=	-Dunix=1
+#
+## smpeg sources (glmovie.c & glmovie-tile.c) assume <malloc.h> exists.
+## Create a fake one for platforms that don't have it.
+##
+#post-wrapper:
+#	if ${TEST} ! -f /usr/include/malloc.h; then			\
+#		${ECHO} "#include <stdlib.h>"				\
+#			> ${BUILDLINK_DIR}/include/malloc.h;		\
+#	fi
+#
+#.include "../../mk/bsd.prefs.mk"
+#
+#.if ${MACHINE_ARCH} == "i386" && ${OPSYS} != "Darwin"
+#CONFIGURE_ARGS+=	--enable-mmx
+#.endif
+#
+#.if ${OPSYS} == "SunOS"
+#MAKE_ENV+=	SunOS_LDFLAGS="-shared -mimpure-text"
+#.endif
+#
+#.include "options.mk"
+#.include "../../devel/SDL/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

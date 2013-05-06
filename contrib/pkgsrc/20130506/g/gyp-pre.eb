@@ -1,0 +1,59 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = '-'
+version = 'pre'
+versionsuffix = '-20130506'
+
+description = "gyp-pre: GYP can Generate Your Projects"
+
+sources = ['gyp-${DIST_VERSION}pre${SVN_REVISION}.tar.bz2']
+source_urls = ['${MASTER_SITE_LOCAL}']
+homepage = 'http://code.google.com/p/gyp/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/gyp/Makefile ######
+## $NetBSD: Makefile,v 1.1 2013/01/18 11:32:45 ryoon Exp $
+#
+#SVN_REVISION=	1559
+#DIST_VERSION=	0.1
+#DISTNAME=	gyp-${DIST_VERSION}pre${SVN_REVISION}
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+#CATEGORIES=	devel
+#MASTER_SITES=	${MASTER_SITE_LOCAL}
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	obache@NetBSD.org
+#HOMEPAGE=	http://code.google.com/p/gyp/
+#COMMENT=	GYP can Generate Your Projects
+#LICENSE=	modified-bsd
+#
+#EGG_NAME=	gyp-${DIST_VERSION}
+#
+## for test
+#USE_TOOLS+=	gmake
+#USE_LANGUAGES=	c c++
+#do-test:
+#	${RUN}cd ${WRKSRC}; LANG=C ${SETENV} ${TEST_ENV} ${PYTHONBIN} gyptest.py -a -f make --passed
+#
+#.include "../../lang/python/distutils.mk"
+#.include "../../mk/bsd.pkg.mk"

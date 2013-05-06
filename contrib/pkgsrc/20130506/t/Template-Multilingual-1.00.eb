@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'Multilingual-1.00'
+versionsuffix = '-20130506'
+
+description = "Template-Multilingual-1.00: Subclass of Template Toolkit supporting multilingual templates"
+
+sources = ['Template-Multilingual-1.00.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Template/']
+homepage = 'http://search.cpan.org/dist/Template-Multilingual/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/p5-Template-Multilingual/Makefile ######
+## $NetBSD: Makefile,v 1.8 2012/10/28 06:30:52 asau Exp $
+#
+#DISTNAME=	Template-Multilingual-1.00
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	3
+#SVR4_PKGNAME=	p5tml
+#CATEGORIES=	www perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Template/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Template-Multilingual/
+#COMMENT=	Subclass of Template Toolkit supporting multilingual templates
+#LICENSE=	gnu-gpl-v2 # OR artistic
+#
+#DEPENDS+=	p5-Template-Toolkit>=2.0:../../www/p5-Template-Toolkit
+#
+#PERL5_MODULE_TYPE=	Module::Build
+#PERL5_PACKLIST=		auto/Template/Multilingual/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

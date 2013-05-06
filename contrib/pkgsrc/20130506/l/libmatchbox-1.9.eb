@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'libmatchbox'
+version = '1.9'
+versionsuffix = '-20130506'
+
+description = "libmatchbox-1.9: Library for matchbox window manager for computers with small displays"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://matchbox-project.org/sources/libmatchbox/1.9/']
+homepage = 'http://matchbox-project.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/libmatchbox/Makefile ######
+## $NetBSD: Makefile,v 1.26 2013/02/16 11:18:15 wiz Exp $
+##
+#
+#DISTNAME=	libmatchbox-1.9
+#PKGREVISION=	4
+#CATEGORIES=	devel
+#MASTER_SITES=	http://matchbox-project.org/sources/libmatchbox/1.9/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://matchbox-project.org/
+#COMMENT=	Library for matchbox window manager for computers with small displays
+#
+#USE_LIBTOOL=	yes
+#GNU_CONFIGURE=	yes
+#USE_TOOLS+=	pkg-config
+#
+#.include "../../graphics/png/buildlink3.mk"
+#.include "../../x11/libX11/buildlink3.mk"
+#.include "../../x11/libXext/buildlink3.mk"
+#.include "../../x11/libXft/buildlink3.mk"
+#.include "../../x11/libXpm/buildlink3.mk"
+#
+#.include "../../mk/bsd.pkg.mk"

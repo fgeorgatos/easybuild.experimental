@@ -1,0 +1,65 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'libnetpgpverify'
+version = ''
+versionsuffix = '-20130506'
+
+description = "libnetpgpverify-: PGP signature verification library"
+
+sources = ['libnetpgpverify-${VERSION}.tar.gz']
+source_urls = ['#empty']
+homepage = 'http://www.NetBSD.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/libnetpgpverify/Makefile ######
+## $NetBSD: Makefile,v 1.1.1.1 2013/02/23 21:04:26 agc Exp $
+#
+#DISTNAME=	libnetpgpverify-${VERSION}
+#CATEGORIES=	security
+#MASTER_SITES=	# empty
+#DISTFILES=	# empty
+#
+#MAINTAINER=	agc@NetBSD.org
+#HOMEPAGE=	http://www.NetBSD.org/
+#COMMENT=	PGP signature verification library
+#LICENSE=	modified-bsd
+#
+#USE_LIBTOOL=	yes
+#AUTO_MKDIRS=	yes
+#
+#.include "../../mk/bsd.prefs.mk"
+#
+#VERSION!=	${AWK} '/\#define.*NETPGP_VERIFY_H_/ {print $$3}' ${FILESDIR}/src/libverify/verify.h
+#
+#do-extract:
+#	@${CP} -R ${FILESDIR} ${WRKSRC}
+#
+#do-install:
+#	libtool --mode=install ${INSTALL_LIB} ${WRKSRC}/libnetpgpverify.la ${DESTDIR}${PREFIX}/lib
+#	${INSTALL_DATA} ${WRKSRC}/src/libverify/verify.h ${DESTDIR}${PREFIX}/include/netpgp
+#	${INSTALL_DATA} ${WRKSRC}/src/libverify/libnetpgpverify.3 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man3
+#
+#.include "../../archivers/bzip2/buildlink3.mk"
+#.include "../../devel/zlib/buildlink3.mk"
+#
+#.include "../../mk/bsd.pkg.mk"

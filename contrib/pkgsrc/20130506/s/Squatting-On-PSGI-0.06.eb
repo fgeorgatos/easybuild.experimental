@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'On-PSGI-0.06'
+versionsuffix = '-20130506'
+
+description = "Squatting-On-PSGI-0.06: Perl 5 module to run Squatting applications on PSGI"
+
+sources = ['Squatting-On-PSGI-0.06.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/../../authors/id/B/BE/BEPPU/']
+homepage = 'http://search.cpan.org/dist/Squatting-On-PSGI/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/p5-Squatting-On-PSGI/Makefile ######
+## $NetBSD: Makefile,v 1.6 2012/10/28 06:30:51 asau Exp $
+#
+#DISTNAME=	Squatting-On-PSGI-0.06
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	1
+#CATEGORIES=	www perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=../../authors/id/B/BE/BEPPU/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Squatting-On-PSGI/
+#COMMENT=	Perl 5 module to run Squatting applications on PSGI
+#LICENSE=	${PERL5_LICENSE}
+#
+#USE_LANGUAGES=	# empty
+#PERL5_PACKLIST= auto/Squatting/On/PSGI/.packlist
+#
+#BUILD_DEPENDS+=	p5-Test-Requires-[0-9]*:../../devel/p5-Test-Requires
+#DEPENDS+=	p5-Plack-[0-9]*:../../www/p5-Plack
+#DEPENDS+=	p5-Squatting-[0-9]*:../../www/p5-Squatting
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

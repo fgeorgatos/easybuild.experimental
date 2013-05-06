@@ -1,0 +1,66 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'BibTeX-0.66'
+versionsuffix = '-20130506'
+
+description = "Text-BibTeX-0.66: Perl library for reading, parsing, and processing BibTeX files"
+
+sources = ['Text-BibTeX-0.66.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Text/']
+homepage = 'http://www.gerg.ca/software/btOOL/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/p5-Text-BibTeX/Makefile ######
+## $NetBSD: Makefile,v 1.30 2012/12/03 14:46:02 wen Exp $
+#
+#DISTNAME=	Text-BibTeX-0.66
+#PKGNAME=	p5-${DISTNAME}
+#SVR4_PKGNAME=	p5tbt
+#CATEGORIES=	textproc perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Text/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.gerg.ca/software/btOOL/
+##HOMEPAGE=	http://search.cpan.org/dist/Text-BibTeX/
+#COMMENT=	Perl library for reading, parsing, and processing BibTeX files
+#LICENSE=	${PERL5_LICENSE}
+#
+#BUILD_DEPENDS+=		p5-Capture-Tiny>=0.06:../../devel/p5-Capture-Tiny
+#BUILD_DEPENDS+=		p5-Config-AutoConf>=0.14:../../devel/p5-Config-AutoConf
+#BUILD_DEPENDS+=		p5-ExtUtils-LibBuilder>=0.01:../../devel/p5-ExtUtils-LibBuilder
+#BUILD_DEPENDS+=		{perl>=5.14.1,p5-ExtUtils-CBuilder>=0.27}:../../devel/p5-ExtUtils-CBuilder
+#
+#USE_LANGUAGES+=		c
+#PERL5_PACKLIST=		auto/Text/BibTeX/.packlist
+#PERL5_MODULE_TYPE=	Module::Build
+#
+#ALL_ENV+=	TMPDIR=${WRKDIR}/tmp
+#
+#pre-configure:
+#	${MKDIR} ${WRKDIR}/tmp
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

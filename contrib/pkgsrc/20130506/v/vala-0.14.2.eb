@@ -1,0 +1,80 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'vala014-0.14.2'
+version = '0.14.2'
+versionsuffix = '-20130506'
+
+description = "vala-0.14.2: Compiler for the GObject type system 0.14 branch "
+
+sources = ['vala-0.14.2.tar.xz']
+version = '0.14.2'
+name = 'vala014'
+source_urls = ['http://sourceforge.net/projects/sources/vala/0.14/files', 'download']
+homepage = 'http://live.gnome.org/Vala'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/lang/vala014/Makefile ######
+## $NetBSD: Makefile,v 1.6 2012/10/02 20:11:56 asau Exp $
+##
+#
+#DISTNAME=	vala-0.14.2
+#PKGNAME=	vala014-0.14.2
+#PKGREVISION=	3
+#CATEGORIES=	lang gnome
+#MASTER_SITES=	${MASTER_SITE_GNOME:=sources/vala/0.14/}
+#EXTRACT_SUFX=	.tar.xz
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://live.gnome.org/Vala
+#COMMENT=	Compiler for the GObject type system (0.14 branch)
+#LICENSE=	gnu-lgpl-v2.1
+#
+#CONFLICTS+=	vala<0.12.1nb1
+#
+#GNU_CONFIGURE=	yes
+#CONFIGURE_ARGS+= --enable-vapigen
+#USE_LIBTOOL=	yes
+#USE_TOOLS+=		bison flex gmake pkg-config
+#
+#PKGCONFIG_OVERRIDE+=	libvala.pc.in
+#
+#BUILDLINK_API_DEPENDS.glib2+=	glib2>=2.16.0
+#BUILDLINK_DEPMETHOD.libxslt=			build
+#
+#INSTALLATION_DIRS=		share/doc/vala
+#
+#SUBST_CLASSES+=			bookdir
+#SUBST_STAGE.bookdir=	post-patch
+#SUBST_MESSAGE.bookdir=	Fixing doc path
+#SUBST_FILES.bookdir=	doc/vala/Makefile.in doc/vala/Makefile.am
+#SUBST_SED.bookdir=		-e 's,@@BOOKDIR@@,${PREFIX}/share/doc/vala/devhelp/books,'
+#
+#post-install:
+#.for file in AUTHORS COPYING ChangeLog ChangeLog.pre-0-4 ChangeLog.pre-0-5-7 INSTALL MAINTAINERS NEWS README THANKS
+#	${INSTALL_DATA} ${WRKSRC}/${file} \
+#		${DESTDIR}${PREFIX}/share/doc/vala
+#.endfor
+#
+#.include "../../devel/glib2/buildlink3.mk"
+#.include "../../textproc/libxslt/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

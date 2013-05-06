@@ -1,0 +1,76 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'gfract'
+version = '0.32'
+versionsuffix = '-20130506'
+
+description = "gfract-0.32: Gtk-based fractal program"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.oskusoft.com/osku/gfract/']
+homepage = 'http://www.oskusoft.com/osku/gfract/index.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/gfract/Makefile ######
+## $NetBSD: Makefile,v 1.49 2013/02/16 11:21:53 wiz Exp $
+##
+#
+#DISTNAME=		gfract-0.32
+#PKGREVISION=		16
+#CATEGORIES=		graphics x11
+#MASTER_SITES=		http://www.oskusoft.com/osku/gfract/
+#DISTFILES=		${DISTNAME}${EXTRACT_SUFX} gfract-palettes-0.1.tar.gz
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://www.oskusoft.com/osku/gfract/index.html
+#COMMENT=		Gtk-based fractal program
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#USE_LANGUAGES=		c++
+#USE_TOOLS+=		gmake pkg-config
+#BUILD_TARGET=		gfract
+#
+#SUBST_CLASSES+=		prefix
+#SUBST_MESSAGE.prefix=	Fixing prefix.
+#SUBST_STAGE.prefix=	post-extract
+#SUBST_FILES.prefix=	main.cpp
+#SUBST_SED.prefix=	-e "s,/usr/local,${PREFIX},g"
+#
+#INSTALLATION_DIRS=	bin
+#
+#.include "../../graphics/png/buildlink3.mk"
+#.include "../../x11/gtk2/buildlink3.mk"
+#
+#post-extract:
+#	${MV} ${WRKDIR}/monk2\'.map ${WRKDIR}/monk2.map
+#
+#do-install:
+#	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/gfract
+#	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/gfract/palettes
+#	${INSTALL_DATA} ${WRKDIR}/*.map \
+#		${DESTDIR}${PREFIX}/share/gfract/palettes/
+#	${INSTALL_DATA} ${WRKSRC}/gfract.xpm ${DESTDIR}${PREFIX}/share/gfract/
+#	${INSTALL_PROGRAM} ${WRKSRC}/gfract ${DESTDIR}${PREFIX}/bin/
+#
+#.include "../../mk/bsd.pkg.mk"

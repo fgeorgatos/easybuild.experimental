@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'ap13-xslt-1.1'
+version = '1.1'
+versionsuffix = '-20130506'
+
+description = "modxslt-1.1: Simple, fast XSLT transformations for apache"
+
+sources = ['modxslt-1.1.tar.gz']
+version = 'xslt-1.1'
+name = 'ap13'
+source_urls = ['http://sourceforge.net/projects/modxslt/files', 'download']
+homepage = 'http://www.mod-xslt2.com/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/ap-xslt/Makefile ######
+## $NetBSD: Makefile,v 1.39 2013/02/06 23:23:57 jperkin Exp $
+#
+#DISTNAME=	modxslt-1.1
+#PKGNAME=	ap13-xslt-1.1
+#PKGREVISION=	3
+#CATEGORIES=	www
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=modxslt/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.mod-xslt2.com/
+#COMMENT=	Simple, fast XSLT transformations for apache
+#
+#CONFLICTS=	ap-xslt-[0-9]*
+#
+#WRKSRC=		${WRKDIR}/modxslt
+#
+#APACHE_MODULE_NAME=	mod_xslt.so
+#LDFLAGS+=		-lsablot
+#
+#.include "../../www/apache/module.mk"
+#
+#.include "../../textproc/sablotron/buildlink3.mk"
+#.include "../../www/libwww/buildlink3.mk"
+#
+#.include "../../mk/bsd.pkg.mk"

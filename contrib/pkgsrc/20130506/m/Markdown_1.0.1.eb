@@ -1,0 +1,70 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'Markdown-1.0.1'
+version = 'Markdown_1.0.1'
+versionsuffix = '-20130506'
+
+description = "Markdown_1.0.1: Text-to-HTML conversion tool for web writers"
+
+sources = ['Markdown_1.0.1.zip']
+version = '1.0.1'
+name = 'Markdown'
+source_urls = ['http://daringfireball.net/projects/downloads/']
+homepage = 'http://daringfireball.net/projects/markdown/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/Markdown/Makefile ######
+## $NetBSD: Makefile,v 1.7 2012/10/25 06:55:38 asau Exp $
+##
+#
+#DISTNAME=	Markdown_1.0.1
+#PKGNAME=	Markdown-1.0.1
+#PKGREVISION=	1
+#CATEGORIES=	textproc
+#MASTER_SITES=	http://daringfireball.net/projects/downloads/
+#EXTRACT_SUFX=	.zip
+#DIST_SUBDIR=	${PKGNAME_NOREV}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://daringfireball.net/projects/markdown/
+#COMMENT=	Text-to-HTML conversion tool for web writers
+#
+#USE_LANGUAGES=	# none
+#NO_BUILD=	yes
+#USE_TOOLS+=	perl:run
+#
+#REPLACE_PERL+=	Markdown.pl
+#
+#PERL5_SITELIB=	${PERL5_SUB_INSTALLVENDORLIB:Q}
+#PLIST_SUBST+=	PERL5_SITELIB=${PERL5_SITELIB:Q}
+#INSTALLATION_DIRS=	bin ${PERL5_INSTALLVENDORLIB} share/doc/Markdown
+#
+#.include "../../mk/bsd.prefs.mk"
+#
+#do-install:
+#	${INSTALL_SCRIPT} ${WRKSRC}/Markdown.pl ${DESTDIR}${PREFIX}/bin/Markdown
+#	${INSTALL_SCRIPT} ${WRKSRC}/Markdown.pl ${DESTDIR}${PREFIX}/${PERL5_SITELIB}/Markdown.pm
+#	${INSTALL_DATA} ${WRKSRC}/"Markdown Readme.text" ${DESTDIR}${PREFIX}/share/doc/Markdown
+#	${INSTALL_DATA} ${WRKSRC}/License.text ${DESTDIR}${PREFIX}/share/doc/Markdown
+#
+#.include "../../mk/bsd.pkg.mk"

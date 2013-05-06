@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'Template-2.94'
+versionsuffix = '-20130506'
+
+description = "HTML-Template-2.94: Perl5 module to create HTML templates with simple tags"
+
+sources = ['HTML-Template-2.94.tar.gz']
+version = '${DISTNAME:S/91/9.1/}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/HTML/']
+homepage = 'http://html-template.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/p5-HTML-Template/Makefile ######
+## $NetBSD: Makefile,v 1.27 2013/01/18 15:16:21 wen Exp $
+#
+#DISTNAME=		HTML-Template-2.94
+#PKGNAME=		p5-${DISTNAME:S/91/9.1/}
+#SVR4_PKGNAME=		p5htm
+#CATEGORIES=		www perl5
+#MASTER_SITES=		${MASTER_SITE_PERL_CPAN:=HTML/} \
+#			${MASTER_SITE_SOURCEFORGE:=html-template/}
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://html-template.sourceforge.net/
+#COMMENT=		Perl5 module to create HTML templates with simple tags
+#LICENSE=		${PERL5_LICENSE}
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#PERL5_PACKLIST=		auto/HTML/Template/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

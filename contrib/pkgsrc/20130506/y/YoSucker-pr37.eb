@@ -1,0 +1,70 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'YoSucker'
+version = 'pr37'
+versionsuffix = '-20130506'
+
+description = "YoSucker-pr37: Download mails from Yahoo webmail into mbox"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/yosucker/files', 'download']
+homepage = 'http://yosucker.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/mail/YoSucker/Makefile ######
+## $NetBSD: Makefile,v 1.9 2012/10/08 12:19:01 asau Exp $
+##
+#
+#DISTNAME=		YoSucker-pr37
+#PKGNAME=		${DISTNAME:S/pr//}
+#PKGREVISION=		2
+#CATEGORIES=		mail
+#MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=yosucker/}
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://yosucker.sourceforge.net/
+#COMMENT=		Download mails from Yahoo webmail into mbox
+#
+#DEPENDS+=		p5-Term-ReadKey-[0-9]*:../../devel/p5-Term-ReadKey
+#DEPENDS+=		p5-Digest-MD5-[0-9]*:../../security/p5-Digest-MD5
+#DEPENDS+=		p5-IO-Socket-SSL-[0-9]*:../../security/p5-IO-Socket-SSL
+#DEPENDS+=		p5-MIME-Base64-[0-9]*:../../converters/p5-MIME-Base64
+#
+#USE_TOOLS+=		perl:run
+#REPLACE_PERL=		bin/EncProxyPasswd bin/EncPasswd bin/YoSucker
+#
+#NO_BUILD=		yes
+#
+#EGDIR=			${PREFIX}/share/examples/YoSucker
+#DOCDIR=			${PREFIX}/share/doc/YoSucker
+#INSTALLATION_DIRS=	bin lib
+#
+#do-install:
+#	${INSTALL_SCRIPT} ${WRKSRC}/bin/* ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_DATA} ${WRKSRC}/lib/* ${DESTDIR}${PREFIX}/lib
+#	${INSTALL_DATA_DIR} ${DESTDIR}${EGDIR}
+#	${INSTALL_DATA} ${WRKSRC}/conf/* ${DESTDIR}${EGDIR}
+#	${INSTALL_DATA_DIR} ${DESTDIR}${DOCDIR}
+#	${INSTALL_DATA} ${WRKSRC}/docs/* ${DESTDIR}${DOCDIR}
+#
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'Format-Pg-0.16005'
+versionsuffix = '-20130506'
+
+description = "DateTime-Format-Pg-0.16005: Parse and format PostgreSQL dates and times"
+
+sources = ['DateTime-Format-Pg-0.16005.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/DateTime/']
+homepage = 'http://search.cpan.org/dist/DateTime-Format-Pg/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/time/p5-DateTime-Format-Pg/Makefile ######
+## $NetBSD: Makefile,v 1.11 2012/10/08 13:04:23 asau Exp $
+#
+#DISTNAME=	DateTime-Format-Pg-0.16005
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	3
+#CATEGORIES=	time perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=DateTime/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/DateTime-Format-Pg/
+#COMMENT=	Parse and format PostgreSQL dates and times
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	p5-DateTime>=0.1000:../../time/p5-DateTime
+#DEPENDS+=	p5-DateTime-Format-Builder>=0.72:../../time/p5-DateTime-Format-Builder
+#DEPENDS+=	p5-DateTime-TimeZone>=0.05:../../time/p5-DateTime-TimeZone
+#
+#PERL5_PACKLIST=		auto/DateTime/Format/Pg/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

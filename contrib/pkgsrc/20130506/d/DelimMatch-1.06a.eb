@@ -1,0 +1,55 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-Text-'
+version = '1.06a'
+versionsuffix = '-20130506'
+
+description = "DelimMatch-1.06a: Find regexp delimited strings with proper nesting"
+
+sources = ['DelimMatch-1.06a.tar.gz']
+version = 'Text-${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Text/']
+homepage = 'http://theory.uwinnipeg.ca/CPAN/data/DelimMatch/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/p5-Text-DelimMatch/Makefile ######
+## $NetBSD: Makefile,v 1.21 2012/10/25 06:56:25 asau Exp $
+##
+#
+#DISTNAME=	DelimMatch-1.06a
+#PKGNAME=	p5-Text-${DISTNAME}
+#PKGREVISION=	6
+#SVR4_PKGNAME=	p5tdm
+#CATEGORIES=	textproc perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Text/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://theory.uwinnipeg.ca/CPAN/data/DelimMatch/
+#COMMENT=	Find regexp delimited strings with proper nesting
+#
+#WRKSRC=			${WRKDIR}/${DISTNAME:S/a$//}
+#PERL5_PACKLIST=		auto/Text/DelimMatch/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

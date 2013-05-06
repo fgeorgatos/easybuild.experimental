@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'latd'
+version = '1.18'
+versionsuffix = '-20130506'
+
+description = "latd-1.18: The linux-decnet project s LAT protocol suite"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/linux-decnet/files', 'download']
+homepage = 'http://theory.lcs.mit.edu/~fredette/latd/index.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/latd/Makefile ######
+## $NetBSD: Makefile,v 1.11 2012/10/23 17:18:32 asau Exp $
+##
+#
+#DISTNAME=	latd-1.18
+#CATEGORIES=	net
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=linux-decnet/}
+#
+#MAINTAINER=	fredette@theory.lcs.mit.edu
+#HOMEPAGE=	http://theory.lcs.mit.edu/~fredette/latd/index.html
+#COMMENT=	The linux-decnet project's LAT protocol suite
+#
+#NOT_FOR_PLATFORM=	Interix-*-* # no direct ethernet support
+#
+#GNU_CONFIGURE=	yes
+#
+#USE_LANGUAGES=	c c++
+#
+#CPPFLAGS+=	-DPREFIX="\"${PREFIX}\""
+#
+#EGDIR=		${PREFIX}/share/examples/latd
+#CONF_FILES=	${EGDIR}/latd.conf ${PKG_SYSCONFDIR}/latd.conf
+#
+#.include "../../mk/bsd.pkg.mk"

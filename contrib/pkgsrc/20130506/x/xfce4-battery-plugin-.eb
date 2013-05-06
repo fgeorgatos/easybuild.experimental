@@ -1,0 +1,60 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'xfce4'
+version = 'battery-plugin-'
+versionsuffix = '-20130506'
+
+description = "xfce4-battery-plugin-: Xfce battey monitor plugin"
+
+sources = ['xfce4-battery-plugin-${XFCE4_VERSION}.tar.gz']
+source_urls = ['http://goodies.xfce.org/releases/xfce4-battery-plugin/']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/xfce4-battery-plugin/Makefile ######
+## $NetBSD: Makefile,v 1.26 2013/02/16 11:18:28 wiz Exp $
+#
+#.include "../../meta-pkgs/xfce4/Makefile.common"
+#
+#XFCE4_VERSION=	0.5.1
+#
+#DISTNAME=	xfce4-battery-plugin-${XFCE4_VERSION}
+#PKGREVISION=	17
+#CATEGORIES=	sysutils
+#MASTER_SITES=	http://goodies.xfce.org/releases/xfce4-battery-plugin/
+#COMMENT=	Xfce battey monitor plugin
+#
+## On NetBSD/sparc64, apmvar.h is not exist in /usr/include/machine.
+## Reported in PR port-sparc64/36735.
+#.if ${OPSYS} == "NetBSD" &&			\
+#    (!exists(/usr/include/machine/apmvar.h) &&	\
+#     !exists(/usr/include/dev/apm/apmio.h) && \
+#     !exists(/usr/include/sparc/apmio.h))
+#PKG_FAIL_REASON+=	"APM is not available on ${MACHINE_PLATFORM}."
+#.endif
+#
+#USE_TOOLS+=	perl:run
+#
+#.include "../../graphics/hicolor-icon-theme/buildlink3.mk"
+#.include "../../x11/xfce4-panel/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"
+homepage = ["no default homepage provided"]

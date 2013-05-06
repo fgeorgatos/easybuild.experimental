@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'gnome'
+version = 'spell-1.0.8'
+versionsuffix = '-20130506'
+
+description = "gnome-spell-1.0.8: Spell checking as you type like gtkspell"
+
+sources = ['gnome-spell-1.0.8.tar.bz2']
+source_urls = ['http://sourceforge.net/projects/sources/gnome-spell/1.0/files', 'download']
+homepage = 'http://www.gnome.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/gnome-spell/Makefile ######
+## $NetBSD: Makefile,v 1.55 2013/02/16 11:18:59 wiz Exp $
+#
+#DISTNAME=	gnome-spell-1.0.8
+#PKGREVISION=	22
+#CATEGORIES=	textproc gnome
+#MASTER_SITES=	${MASTER_SITE_GNOME:=sources/gnome-spell/1.0/}
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.gnome.org/
+#COMMENT=	Spell checking as you type like gtkspell
+#
+#GNU_CONFIGURE=		YES
+#USE_PKGLOCALEDIR=	YES
+#USE_TOOLS+=		gmake intltool msgfmt pkg-config
+#USE_LIBTOOL=		YES
+#
+#BUILDLINK_API_DEPENDS.libgnomeui+=	libgnomeui>=2.8.0nb3
+#
+#.include "../../devel/gettext-lib/buildlink3.mk"
+#.include "../../devel/libbonobo/buildlink3.mk"
+#.include "../../devel/libbonoboui/buildlink3.mk"
+#.include "../../devel/libglade/buildlink3.mk"
+#.include "../../devel/libgnomeui/buildlink3.mk"
+#.include "../../net/ORBit2/buildlink3.mk"
+#.include "../../textproc/aspell/buildlink3.mk"
+#.include "../../x11/gtk2/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

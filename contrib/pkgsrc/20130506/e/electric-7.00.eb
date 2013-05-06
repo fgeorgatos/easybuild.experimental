@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'electric'
+version = '7.00'
+versionsuffix = '-20130506'
+
+description = "electric-7.00: Electrical CAD system"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://ftp.gnu.org/gnu/electric']
+homepage = 'http://www.gnu.org/software/electric/electric.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/cad/electric/Makefile ######
+## $NetBSD: Makefile,v 1.20 2012/10/08 13:25:12 asau Exp $
+##
+#
+#DISTNAME=	electric-7.00
+#PKGREVISION=	4
+#CATEGORIES=	cad
+#MASTER_SITES=	${MASTER_SITE_GNU:=electric/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.gnu.org/software/electric/electric.html
+#COMMENT=	Electrical CAD system
+#
+#GNU_CONFIGURE=		YES
+#USE_LANGUAGES=		c c++
+#
+#post-patch:
+#	${MV} ${WRKSRC}/src/include/config.h ${WRKSRC}/src/include/config.h.bak
+#	${SED}  -e 's;@prefix@;${PREFIX};g' \
+#		-e 's;@localbase@;${LOCALBASE};g' \
+#		< ${WRKSRC}/src/include/config.h.bak \
+#		> ${WRKSRC}/src/include/config.h
+#
+#INSTALL_TARGET=	install install.html
+#INSTALLATION_DIRS=	bin
+#
+#.include "../../mk/motif.buildlink3.mk"
+#.include "../../mk/pthread.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

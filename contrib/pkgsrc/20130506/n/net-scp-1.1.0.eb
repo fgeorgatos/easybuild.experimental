@@ -1,0 +1,47 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'net'
+version = 'scp-1.1.0'
+versionsuffix = '-20130506'
+
+description = "net-scp-1.1.0: Secure copy for Ruby"
+
+sources = [SOURCE_TAR_GZ]
+homepage = 'http://rubyforge.org/projects/net-ssh/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/ruby-net-scp/Makefile ######
+## $NetBSD: Makefile,v 1.5 2013/02/11 02:07:09 taca Exp $
+#
+#DISTNAME=	net-scp-1.1.0
+#CATEGORIES=	net security
+#
+#MAINTAINER=	filip@joyent.com
+#HOMEPAGE=	http://rubyforge.org/projects/net-ssh/
+#COMMENT=	Secure copy for Ruby
+#LICENSE=	mit
+#
+#DEPENDS+=	${RUBY_PKGPREFIX}-net-ssh>=2.6.5:../../security/ruby-net-ssh
+#
+#.include "../../lang/ruby/gem.mk"
+#.include "../../mk/bsd.pkg.mk"

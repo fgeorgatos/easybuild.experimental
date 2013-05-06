@@ -1,0 +1,74 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'gdk-pixbuf2-xlib-'
+version = 'pixbuf-'
+versionsuffix = '-20130506'
+
+description = "gdk-pixbuf-: Image loaders for gtk2"
+
+sources = ['gdk-pixbuf-${PIXBUF2_VERSION}.tar.xz']
+version = 'pixbuf2-xlib-${PIXBUF2_VERSION}'
+name = 'gdk'
+source_urls = ['http://sourceforge.net/projects/sources/gdk-pixbuf/${MSITE_VERSION}/files', 'download']
+homepage = 'http://www.gnome.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/gdk-pixbuf2-xlib/Makefile ######
+## $NetBSD: Makefile,v 1.15 2013/02/16 11:18:17 wiz Exp $
+#
+#DISTNAME=	gdk-pixbuf-${PIXBUF2_VERSION}
+#PKGNAME=	gdk-pixbuf2-xlib-${PIXBUF2_VERSION}
+#PKGREVISION=	1
+#CATEGORIES=	graphics
+#MASTER_SITES=	${MASTER_SITE_GNOME:=sources/gdk-pixbuf/${MSITE_VERSION}/}
+#EXTRACT_SUFX=	.tar.xz
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.gnome.org/
+#COMMENT=	Image loaders for gtk2
+#LICENSE=	gnu-gpl-v2
+#
+#PATCHDIR=	${.CURDIR}/../../graphics/gdk-pixbuf2/patches
+#DISTINFO_FILE=	${.CURDIR}/../../graphics/gdk-pixbuf2/distinfo
+#BUILD_DIRS=	contrib/gdk-pixbuf-xlib
+#INSTALL_DIRS=	contrib/gdk-pixbuf-xlib
+#
+#CONFLICTS+=	gtk2+<2.22
+#
+#.include "../../graphics/gdk-pixbuf2/Makefile.version"
+#
+#GNU_CONFIGURE=		yes
+#CONFIGURE_ARGS+=	--without-libtiff --without-libjpeg --without-libpng
+#CONFIGURE_ARGS+=	--with-x11
+#USE_LIBTOOL=		yes
+#USE_TOOLS+=		pkg-config
+#USE_PKGLOCALEDIR=	yes
+#
+#PKGCONFIG_OVERRIDE+=	contrib/gdk-pixbuf-xlib/gdk-pixbuf-xlib-2.0.pc.in
+#PKGCONFIG_OVERRIDE+=	gdk-pixbuf-2.0.pc.in
+#
+#.include "../../graphics/gdk-pixbuf2/buildlink3.mk"
+#BUILDLINK_API_DEPENDS.glib2+= glib2>=2.26.0
+#.include "../../devel/glib2/buildlink3.mk"
+#.include "../../x11/libX11/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

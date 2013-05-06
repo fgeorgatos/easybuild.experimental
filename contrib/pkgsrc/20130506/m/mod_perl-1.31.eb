@@ -1,0 +1,76 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'ap13-perl-1.31'
+version = '1.31'
+versionsuffix = '-20130506'
+
+description = "mod_perl-1.31: Module that embeds a Perl interpreter into Apache"
+
+sources = ['mod_perl-1.31.tar.gz']
+version = 'perl-1.31'
+name = 'ap13'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Apache/']
+homepage = 'http://perl.apache.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/ap-perl/Makefile ######
+## $NetBSD: Makefile,v 1.51 2012/10/28 06:30:05 asau Exp $
+##
+#
+#DISTNAME=		mod_perl-1.31
+#PKGNAME=		ap13-perl-1.31
+#PKGREVISION=		1
+#CATEGORIES=		www perl5
+#MASTER_SITES=		${MASTER_SITE_PERL_CPAN:=Apache/} \
+#			http://perl.apache.org/dist/
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://perl.apache.org/
+#COMMENT=		Module that embeds a Perl interpreter into Apache
+#LICENSE=		apache-1.1
+#
+#CONFLICTS=		ap-perl-[0-9]*
+#CONFLICTS+=		ap2-perl-[0-9]*
+#
+#DEPENDS+=		${BUILDLINK_API_DEPENDS.apache}:../../www/apache
+#DEPENDS+=		p5-BSD-Resource>=1.10:../../devel/p5-BSD-Resource
+#
+#APACHE_MODULE=		YES
+#PERL5_PACKLIST=		auto/mod_perl/.packlist
+#
+#MAKE_PARAMS+=		USE_APXS=1
+#MAKE_PARAMS+=		WITH_APXS=${APXS}
+#MAKE_PARAMS+=		EVERYTHING=1
+#
+#INSTALLATION_DIRS+=	lib/httpd share/httpd/htdocs/manual/mod
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../www/apache/buildlink3.mk"
+#
+#post-install:
+#	${INSTALL_LIB} ${WRKSRC}/apaci/libperl.so \
+#	    ${DESTDIR}${PREFIX}/lib/httpd/mod_perl.so
+#	${INSTALL_DATA} ${WRKSRC}/htdocs/manual/mod/mod_perl.html \
+#	    ${DESTDIR}${PREFIX}/share/httpd/htdocs/manual/mod
+#
+#.include "../../mk/bsd.pkg.mk"

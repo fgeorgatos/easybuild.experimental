@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'gama'
+version = '1.13'
+versionsuffix = '-20130506'
+
+description = "gama-1.13: Geodetic network adjustment surveying "
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://ftp.gnu.org/gnu/gama']
+homepage = 'http://www.gnu.org/s/gama/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/geography/gama/Makefile ######
+## $NetBSD: Makefile,v 1.6 2013/01/26 21:37:38 adam Exp $
+##
+#
+#DISTNAME=	gama-1.13
+#PKGREVISION=	1
+#CATEGORIES=	geography
+#MASTER_SITES=	${MASTER_SITE_GNU:=gama/}
+#
+#MAINTAINER=	gdt@NetBSD.org
+#HOMEPAGE=	http://www.gnu.org/s/gama/
+#COMMENT=	Geodetic network adjustment (surveying)
+#LICENSE=	gnu-gpl-v2 # or later
+#
+#USE_LANGUAGES=	c c++
+#
+#GNU_CONFIGURE=	yes
+#CONFIGURE_ARGS+=	--infodir=${PREFIX}/info
+#
+#INFO_FILES=	yes
+#
+#.include "../../databases/sqlite3/buildlink3.mk"
+#.include "../../textproc/expat/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,52 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'xwatchwin-1.1.1'
+version = 'xwatchwin'
+versionsuffix = '-20130506'
+
+description = "xwatchwin: Watch a window on another X server"
+
+sources = ['xwatchwin.tar.gz']
+version = '1.1.1'
+name = 'xwatchwin'
+source_urls = ['ftp://sunsite.uio.no/pub/X11/contrib/utilities/']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/xwatchwin/Makefile ######
+## $NetBSD: Makefile,v 1.16 2012/10/29 05:07:24 asau Exp $
+#
+#DISTNAME=	xwatchwin
+#PKGNAME=	xwatchwin-1.1.1
+#PKGREVISION=	2
+#CATEGORIES=	x11
+#MASTER_SITES=	ftp://sunsite.uio.no/pub/X11/contrib/utilities/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#COMMENT=	Watch a window on another X server
+#
+#USE_IMAKE=	yes
+#
+#.include "../../x11/libXext/buildlink3.mk"
+#.include "../../x11/libX11/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"
+homepage = ["no default homepage provided"]

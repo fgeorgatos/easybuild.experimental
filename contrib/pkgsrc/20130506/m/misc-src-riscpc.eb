@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'vidc-tools-1.0'
+version = 'src-riscpc'
+versionsuffix = '-20130506'
+
+description = "misc-src-riscpc: Tools for the VIDC console used by NetBSD/arm32 on RiscPC"
+
+sources = ['misc-src-riscpc.tar.gz']
+version = 'tools-1.0'
+name = 'vidc'
+source_urls = ['ftp://ftp.NetBSD.org/pub/NetBSD/arch/arm32/misc/']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/vidc-tools/Makefile ######
+## $NetBSD: Makefile,v 1.9 2012/10/23 19:51:29 asau Exp $
+##
+#
+#DISTNAME=	misc-src-riscpc
+#PKGNAME=	vidc-tools-1.0
+#CATEGORIES=	sysutils
+#MASTER_SITES=	ftp://ftp.NetBSD.org/pub/NetBSD/arch/arm32/misc/
+#
+#MAINTAINER=	abs@NetBSD.org
+#COMMENT=	Tools for the VIDC console used by NetBSD/arm32 on RiscPC
+#
+#WRKSRC=		${WRKDIR}/misc-src
+#
+#ONLY_FOR_PLATFORM= NetBSD-*-arm NetBSD-*-arm32
+#
+#INSTALLATION_DIRS = bin ${PKGMANDIR}/cat1 ${PKGMANDIR}/html1 ${PKGMANDIR}/man1
+#
+#.include "../../mk/bsd.pkg.mk"
+homepage = ["no default homepage provided"]

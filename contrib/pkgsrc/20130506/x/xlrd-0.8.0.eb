@@ -1,0 +1,53 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = '-'
+version = '0.8.0'
+versionsuffix = '-20130506'
+
+description = "xlrd-0.8.0: Python library to extract data from Microsoft Excel spread sheet files"
+
+sources = ['xlrd-0.8.0.tar.gz']
+source_urls = ['http://pypi.python.org/packages/source/x/xlrd/']
+homepage = 'http://www.lexicon.net/sjmachin/xlrd.htm'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/py-xlrd/Makefile ######
+## $NetBSD: Makefile,v 1.7 2013/01/19 09:22:36 obache Exp $
+##
+#
+#DISTNAME=		xlrd-0.8.0
+#PKGNAME=		${PYPKGPREFIX}-${DISTNAME}
+#CATEGORIES=		textproc python
+#MASTER_SITES=		http://pypi.python.org/packages/source/x/xlrd/
+#
+#MAINTAINER=		obache@NetBSD.org
+#HOMEPAGE=		http://www.lexicon.net/sjmachin/xlrd.htm
+#COMMENT=		Python library to extract data from Microsoft Excel spread sheet files
+#LICENSE=		modified-bsd
+#
+#USE_LANGUAGES=		#none
+#
+#PYTHON_SELF_CONFLICT=	yes
+#
+#.include "../../lang/python/distutils.mk"
+#.include "../../mk/bsd.pkg.mk"

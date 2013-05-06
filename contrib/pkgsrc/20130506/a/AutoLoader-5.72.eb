@@ -1,0 +1,55 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = '5.72'
+versionsuffix = '-20130506'
+
+description = "AutoLoader-5.72: Perl automatic module loader"
+
+sources = ['AutoLoader-5.72.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/AutoLoader/']
+homepage = 'http://search.cpan.org/dist/AutoLoader/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-AutoLoader/Makefile ######
+## $NetBSD: Makefile,v 1.11 2012/10/31 11:17:40 asau Exp $
+#
+#DISTNAME=	AutoLoader-5.72
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	1
+#SVR4_PKGNAME=	p5aul
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=AutoLoader/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/AutoLoader/
+#COMMENT=	Perl automatic module loader
+#LICENSE=	${PERL5_LICENSE}
+#
+#USE_LANGUAGES=		# empty
+#PERL5_PACKLIST=		auto/AutoLoader/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

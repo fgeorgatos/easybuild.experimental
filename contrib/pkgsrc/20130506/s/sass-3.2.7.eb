@@ -1,0 +1,47 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'sass'
+version = '3.2.7'
+versionsuffix = '-20130506'
+
+description = "sass-3.2.7: powerful but elegant CSS compiler that makes CSS fun again"
+
+sources = [SOURCE_TAR_GZ]
+homepage = 'http://sass-lang.com/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/ruby-sass/Makefile ######
+## $NetBSD: Makefile,v 1.12 2013/03/14 16:23:19 taca Exp $
+#
+#DISTNAME=	sass-3.2.7
+#CATEGORIES=	www
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://sass-lang.com/
+#COMMENT=	powerful but elegant CSS compiler that makes CSS fun again
+#LICENSE=	mit
+#
+#CONFLICTS+=	ruby[1-9][0-9]-sass-[0-9]*
+#
+#.include "../../lang/ruby/gem.mk"
+#.include "../../mk/bsd.pkg.mk"

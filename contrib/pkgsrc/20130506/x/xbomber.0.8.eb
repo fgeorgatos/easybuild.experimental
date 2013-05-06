@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'xbomber-0.8'
+version = 'xbomber.0.8'
+versionsuffix = '-20130506'
+
+description = "xbomber.0.8: Colorful game where you blow other people/robots up"
+
+sources = ['xbomber.0.8.tar.gz']
+version = '0.8'
+name = 'xbomber'
+source_urls = ['ftp://ftp.billsgames.com/unix/x/xbomber/']
+homepage = 'http://www.newbreedsoftware.com/xbomber/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/xbomber/Makefile ######
+## $NetBSD: Makefile,v 1.19 2012/10/06 11:54:59 asau Exp $
+##
+#
+#DISTNAME=	xbomber.0.8
+#PKGNAME=	xbomber-0.8
+#PKGREVISION=	2
+#CATEGORIES=	games x11
+#MASTER_SITES=	ftp://ftp.billsgames.com/unix/x/xbomber/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.newbreedsoftware.com/xbomber/
+#COMMENT=	Colorful game where you blow other people/robots up
+#
+#WRKSRC=		${WRKDIR}/xbomber
+#MAKE_FILE=	makefile
+#
+#pre-install:
+#	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/doc/xbomber
+#	${INSTALL_DATA} ${WRKSRC}/README.txt ${DESTDIR}${PREFIX}/share/doc/xbomber
+#
+#.include "../../x11/libX11/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

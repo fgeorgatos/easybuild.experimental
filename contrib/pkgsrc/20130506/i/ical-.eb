@@ -1,0 +1,70 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'ical'
+version = ''
+versionsuffix = '-20130506'
+
+description = "ical-: Calendar application"
+
+sources = ['ical-${VER}.tar.gz']
+source_urls = ['https://launchpad.net/ical-tcl/3.x/${VER}/+download/']
+homepage = 'https://launchpad.net/ical-tcl/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/time/ical/Makefile ######
+## $NetBSD: Makefile,v 1.25 2013/01/09 17:22:14 is Exp $
+#
+#VER=		3.0.2
+#DISTNAME=	ical-${VER}
+#EXTRACT_SUFFIX=	.tar.gz
+##PKGREVISION=	1
+#CATEGORIES=	time
+#MASTER_SITES=	https://launchpad.net/ical-tcl/3.x/${VER}/+download/
+#FETCH_USING=	curl
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	https://launchpad.net/ical-tcl/
+#COMMENT=	Calendar application
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#USE_LANGUAGES=	c c++
+#GNU_CONFIGURE=	yes
+#CONFIGURE_ARGS+= --prefix=${PREFIX:Q} \
+#		--with-tclconfig=${BUILDLINK_PREFIX.tcl}/lib \
+#		--with-tclsh=${BUILDLINK_PREFIX.tcl}/bin/tclsh \
+#		--with-tkconfig=${BUILDLINK_PREFIX.tk}/lib
+#
+#USE_TOOLS+=	gmake gsed
+#
+#PLIST_SUBS+=	"PKGVERSION=${VER}"
+#
+#post-configure:
+#	${TOUCH} ${WRKDIR}/${DISTNAME}/Makefile \
+#	         ${WRKDIR}/${DISTNAME}/calendar/Makefile \
+#	         ${WRKDIR}/${DISTNAME}/time/Makefile
+#
+#.include "../../lang/tcl/buildlink3.mk"
+#.include "../../x11/tk/buildlink3.mk"
+#.include "../../mk/pthread.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

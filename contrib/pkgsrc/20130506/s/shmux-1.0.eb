@@ -1,0 +1,53 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'shmux'
+version = '1.0'
+versionsuffix = '-20130506'
+
+description = "shmux-1.0: Shell Multiplexor"
+
+sources = ['shmux-1.0.tgz']
+source_urls = ['http://web.taranis.org/shmux/dist/']
+homepage = 'http://web.taranis.org/shmux/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/shmux/Makefile ######
+## $NetBSD: Makefile,v 1.13 2012/10/23 19:51:23 asau Exp $
+#
+#DISTNAME=	shmux-1.0
+#PKGREVISION=	2
+#CATEGORIES=	sysutils
+#MASTER_SITES=	http://web.taranis.org/shmux/dist/
+#EXTRACT_SUFX=	.tgz
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://web.taranis.org/shmux/
+#COMMENT=	Shell Multiplexor
+#
+#GNU_CONFIGURE=	yes
+#BUILD_TARGET=	shmux
+#TEST_TARGET=	test
+#
+#.include "../../devel/pcre/buildlink3.mk"
+#.include "../../mk/termcap.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

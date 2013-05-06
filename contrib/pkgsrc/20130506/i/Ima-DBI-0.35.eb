@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'DBI-0.35'
+versionsuffix = '-20130506'
+
+description = "Ima-DBI-0.35: Perl5 module for DB connection caching and organization"
+
+sources = ['Ima-DBI-0.35.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/../by-authors/id/P/PE/PERRIN/']
+homepage = 'http://search.cpan.org/dist/Ima-DBI/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/databases/p5-Ima-DBI/Makefile ######
+## $NetBSD: Makefile,v 1.14 2012/10/03 21:54:20 wiz Exp $
+##
+#
+#DISTNAME=		Ima-DBI-0.35
+#PKGNAME=		p5-${DISTNAME}
+#PKGREVISION=		4
+#SVR4_PKGNAME=		p5idi
+#CATEGORIES=		perl5
+#MASTER_SITES=		${MASTER_SITE_PERL_CPAN:=../by-authors/id/P/PE/PERRIN/}
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://search.cpan.org/dist/Ima-DBI/
+#COMMENT=		Perl5 module for DB connection caching and organization
+#
+#DEPENDS+=		p5-DBI>=1.20:../../databases/p5-DBI
+#DEPENDS+=		p5-DBIx-ContextualFetch>=1.00:../../databases/p5-DBIx-ContextualFetch
+#DEPENDS+=		p5-Class-Data-Inheritable>=0.02:../../devel/p5-Class-Data-Inheritable
+#
+#PERL5_PACKLIST=		auto/Ima/DBI/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

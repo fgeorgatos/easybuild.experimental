@@ -1,0 +1,52 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'libquantum'
+version = '1.0.0'
+versionsuffix = '-20130506'
+
+description = "libquantum-1.0.0: Quantum computing simulation library"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.libquantum.de/files/']
+homepage = 'http://www.libquantum.de/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/misc/libquantum/Makefile ######
+## $NetBSD: Makefile,v 1.4 2012/10/08 09:57:28 asau Exp $
+##
+#
+#DISTNAME=	libquantum-1.0.0
+#CATEGORIES=	misc
+#MASTER_SITES=	http://www.libquantum.de/files/
+#
+#MAINTAINER=	lennart@augustsson.net
+#HOMEPAGE=	http://www.libquantum.de/
+#COMMENT=	Quantum computing simulation library
+#LICENSE=	gnu-gpl-v3
+#
+#GNU_CONFIGURE=	yes
+#USE_LIBTOOL=	yes
+#
+#INSTALL_TARGET=	install quobtools_install
+#
+#.include "../../mk/bsd.pkg.mk"

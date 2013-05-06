@@ -1,0 +1,64 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'libtecla'
+version = '1.6.1'
+versionsuffix = '-20130506'
+
+description = "libtecla-1.6.1: Interactive command line editing facilities"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.astro.caltech.edu/~mcs/tecla/']
+homepage = 'http://www.astro.caltech.edu/~mcs/tecla/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/libtecla/Makefile ######
+## $NetBSD: Makefile,v 1.16 2012/10/31 11:17:22 asau Exp $
+#
+#DISTNAME=	libtecla-1.6.1
+#PKGREVISION=	3
+#CATEGORIES=	devel
+#MASTER_SITES=	http://www.astro.caltech.edu/~mcs/tecla/
+#
+#MAINTAINER=	kristerw@NetBSD.org
+#HOMEPAGE=	http://www.astro.caltech.edu/~mcs/tecla/
+#COMMENT=	Interactive command line editing facilities
+#
+#MAKE_JOBS_SAFE=		no
+#
+#WRKSRC=			${WRKDIR}/${PKGBASE}
+#USE_TOOLS+=		gmake
+#GNU_CONFIGURE=		yes
+#BUILD_TARGET=		default
+#
+#INSTALL_MAKE_FLAGS+=	prefix=${DESTDIR:Q}${PREFIX}
+#INSTALL_MAKE_FLAGS+=	MANDIR=${DESTDIR}${PREFIX}/${PKGMANDIR}
+#
+#.include "../../mk/bsd.prefs.mk"
+#
+## reentrant causes compilation problems
+#.if ${OPSYS} != "SunOS"
+#CONFIGURE_ENV+=		tecla_cv_reentrant=no
+#.endif
+#
+#.include "../../mk/termcap.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

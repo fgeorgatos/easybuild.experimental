@@ -1,0 +1,63 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'makeself'
+version = '2.1.4'
+versionsuffix = '-20130506'
+
+description = "makeself-2.1.4: Neat script to make self-extracting archives"
+
+sources = ['makeself-2.1.4.run']
+source_urls = ['http://www.megastep.org/makeself/']
+homepage = 'http://www.megastep.org/makeself/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/archivers/makeself/Makefile ######
+## $NetBSD: Makefile,v 1.14 2012/09/11 19:46:57 asau Exp $
+#
+#DISTNAME=	makeself-2.1.4
+#CATEGORIES=	archivers
+#MASTER_SITES=	http://www.megastep.org/makeself/
+#EXTRACT_SUFX=	.run
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.megastep.org/makeself/
+#COMMENT=	Neat script to make self-extracting archives
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#REPLACE_SH=	makeself.sh
+#
+#NO_BUILD=	yes
+#
+#INSTALLATION_DIRS=	bin
+#
+## The DISPLAY thing is to prevent the script from trying to launch a xterm
+## just to extract the source.
+#pre-patch:
+#	cd ${WRKDIR} && ${SETENV} DISPLAY="" ${SH} ${DISTFILES}
+#
+#do-install:
+#	${INSTALL_SCRIPT} ${WRKSRC}/makeself.sh \
+#		${DESTDIR}${PREFIX}/bin/makeself
+#
+#.include "../../mk/bsd.pkg.mk"

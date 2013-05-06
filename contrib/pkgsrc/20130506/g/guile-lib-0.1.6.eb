@@ -1,0 +1,77 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'guile'
+version = 'lib-0.1.6'
+versionsuffix = '-20130506'
+
+description = "guile-lib-0.1.6: Library functions for Guile, implemented in Scheme"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://download.gna.org/guile-lib/']
+homepage = 'http://www.nongnu.org/guile-lib/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/guile-lib/Makefile ######
+## $NetBSD: Makefile,v 1.22 2012/10/31 11:17:05 asau Exp $
+#
+#DISTNAME=	guile-lib-0.1.6
+#PKGREVISION=	3
+#CATEGORIES=	devel
+#MASTER_SITES=	http://download.gna.org/guile-lib/
+## http://download.savannah.nongnu.org/releases/guile-lib/
+#
+#MAINTAINER=	gdt@NetBSD.org
+#HOMEPAGE=	http://www.nongnu.org/guile-lib/
+#COMMENT=	Library functions for Guile, implemented in Scheme
+#
+#GNU_CONFIGURE=	yes
+#
+#USE_TOOLS+=	gmake makeinfo
+#TEXINFO_REQD=	4.2
+#INFO_FILES=	yes
+#TEST_TARGET=	check
+#
+## guile-lib uses the install(1) feature that missing intermediate
+## directories are created automatically, which e.g. NetBSD's doesn't
+## support, so we have to precreate the directories
+#INSTALLATION_DIRS+=	share/guile/site/config
+#INSTALLATION_DIRS+=	share/guile/site/container
+#INSTALLATION_DIRS+=	share/guile/site/debugging
+#INSTALLATION_DIRS+=	share/guile/site/graph
+#INSTALLATION_DIRS+=	share/guile/site/io
+#INSTALLATION_DIRS+=	share/guile/site/logging
+#INSTALLATION_DIRS+=	share/guile/site/math
+#INSTALLATION_DIRS+=	share/guile/site/os
+#INSTALLATION_DIRS+=	share/guile/site/scheme
+#INSTALLATION_DIRS+=	share/guile/site/search
+#INSTALLATION_DIRS+=	share/guile/site/srfi
+#INSTALLATION_DIRS+=	share/guile/site/string
+#INSTALLATION_DIRS+=	share/guile/site/sxml
+#INSTALLATION_DIRS+=	share/guile/site/sxml/ssax
+#INSTALLATION_DIRS+=	share/guile/site/sxml/upstream
+#INSTALLATION_DIRS+=	share/guile/site/term
+#INSTALLATION_DIRS+=	share/guile/site/texinfo
+#INSTALLATION_DIRS+=	share/guile/site/text
+#
+#.include "../../lang/guile/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

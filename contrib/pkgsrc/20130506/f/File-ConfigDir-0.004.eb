@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'ConfigDir-0.004'
+versionsuffix = '-20130506'
+
+description = "File-ConfigDir-0.004: Get directories of configuration files"
+
+sources = ['File-ConfigDir-0.004.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/File/']
+homepage = 'http://search.cpan.org/dist/File-ConfigDir/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-File-ConfigDir/Makefile ######
+## $NetBSD: Makefile,v 1.5 2012/10/31 11:18:09 asau Exp $
+#
+#DISTNAME=	File-ConfigDir-0.004
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	2
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=File/}
+#
+#MAINTAINER=	pkgsrc-p5-people@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/File-ConfigDir/
+#COMMENT=	Get directories of configuration files
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	p5-File-HomeDir>=0.50:../../devel/p5-File-HomeDir
+#DEPENDS+=	p5-List-MoreUtils>=0.22:../../devel/p5-List-MoreUtils
+#
+#USE_LANGUAGES=		# empty
+#PERL5_PACKLIST=		auto/File/ConfigDir/.packlist
+#PERL5_MODULE_TYPE=	Module::Build
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

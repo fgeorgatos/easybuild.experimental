@@ -1,0 +1,45 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'tzinfo'
+version = '0.3.33'
+versionsuffix = '-20130506'
+
+description = "tzinfo-0.3.33: Daylight-savings-aware timezone library"
+
+sources = [SOURCE_TAR_GZ]
+homepage = 'http://tzinfo.rubyforge.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/time/ruby-tzinfo/Makefile ######
+## $NetBSD: Makefile,v 1.28 2012/06/02 01:48:35 taca Exp $
+#
+#DISTNAME=	tzinfo-0.3.33
+#CATEGORIES=	time
+#
+#MAINTAINER=	minskim@NetBSD.org
+#HOMEPAGE=	http://tzinfo.rubyforge.org/
+#COMMENT=	Daylight-savings-aware timezone library
+#LICENSE=	mit
+#
+#.include "../../lang/ruby/gem.mk"
+#.include "../../mk/bsd.pkg.mk"

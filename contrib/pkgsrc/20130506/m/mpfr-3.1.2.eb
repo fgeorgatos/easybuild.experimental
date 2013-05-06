@@ -1,0 +1,60 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'mpfr'
+version = '3.1.2'
+versionsuffix = '-20130506'
+
+description = "mpfr-3.1.2: GMP-based library for multiple-precision floating-point computations"
+
+sources = ['mpfr-3.1.2.tar.bz2']
+source_urls = ['http://www.mpfr.org/mpfr-3.1.2/']
+homepage = 'http://www.mpfr.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/math/mpfr/Makefile ######
+## $NetBSD: Makefile,v 1.26 2013/03/15 19:09:06 drochner Exp $
+##
+#
+#DISTNAME=		mpfr-3.1.2
+##PKGNAME=		${DISTNAME}p2	# append patch level
+#CATEGORIES=		math
+#MASTER_SITES=		http://www.mpfr.org/mpfr-3.1.2/
+#EXTRACT_SUFX=		.tar.bz2
+#
+##DIST_SUBDIR=		${DISTNAME}
+##PATCH_SITES=		${MASTER_SITES}
+##PATCHFILES=		patch01 patch02
+##PATCH_DIST_STRIP=	-p1
+#
+#MAINTAINER=		rh@NetBSD.org
+#HOMEPAGE=		http://www.mpfr.org/
+#COMMENT=		GMP-based library for multiple-precision floating-point computations
+#LICENSE=		gnu-lgpl-v3
+#
+#GNU_CONFIGURE=		yes
+#USE_LIBTOOL=		yes
+#TEST_TARGET=		check # needs the package installed
+#INFO_FILES=		yes
+#
+#.include "../../devel/gmp/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

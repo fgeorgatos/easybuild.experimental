@@ -1,0 +1,64 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'jcode.pl'
+version = '2.13'
+versionsuffix = '-20130506'
+
+description = "jcode.pl-2.13: Perl library for Japanese character code conversion"
+
+sources = ['jcode.pl-2.13#empty']
+source_urls = ['ftp://ftp.iij.ad.jp/pub/IIJ/dist/utashiro/perl/']
+homepage = 'http://www.srekcah.org/jcode/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/converters/jcode-perl/Makefile ######
+## $NetBSD: Makefile,v 1.9 2012/10/03 21:54:07 wiz Exp $
+#
+#DISTNAME=	jcode.pl-2.13
+#PKGNAME=	${DISTNAME:S/jcode.pl/jcode-perl/}
+#PKGREVISION=	5
+#SVR4_PKGNAME=	jcopl
+#CATEGORIES=	japanese converters perl5
+#MASTER_SITES=	ftp://ftp.iij.ad.jp/pub/IIJ/dist/utashiro/perl/ \
+#		ftp://ftp.sra.co.jp/pub/lang/perl/sra-scripts/
+#EXTRACT_SUFX=	# empty
+#
+#MAINTAINER=	tech-pkg-ja@jp.NetBSD.org
+#HOMEPAGE=	http://www.srekcah.org/jcode/
+#COMMENT=	Perl library for Japanese character code conversion
+#
+#CONFLICTS+=	p5-jcode-[0-9]*
+#
+#WRKSRC=			${WRKDIR}
+#
+#NO_BUILD=		yes
+#NO_CONFIGURE=		yes
+#PERL5_CONFIGURE=	NO
+#
+#do-install:
+#	${INSTALL_DATA_DIR} ${DESTDIR}${PERL5_INSTALLVENDORLIB}
+#	${INSTALL_DATA} ${WRKDIR}/${DISTNAME} \
+#		${DESTDIR}${PERL5_INSTALLVENDORLIB}/jcode.pl
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

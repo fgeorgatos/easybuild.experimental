@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'LinkExtractor-0.13'
+versionsuffix = '-20130506'
+
+description = "HTML-LinkExtractor-0.13: Extract links from an HTML document"
+
+sources = ['HTML-LinkExtractor-0.13.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/HTML/']
+homepage = 'http://search.cpan.org/dist/HTML-LinkExtractor/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/p5-HTML-LinkExtractor/Makefile ######
+## $NetBSD: Makefile,v 1.17 2012/10/28 06:30:37 asau Exp $
+#
+#DISTNAME=	HTML-LinkExtractor-0.13
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	4
+#CATEGORIES=	www perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=HTML/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/HTML-LinkExtractor/
+#COMMENT=	Extract links from an HTML document
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#DEPENDS+=	p5-HTML-Parser-[0-9]*:../../www/p5-HTML-Parser
+#
+#PERL5_PACKLIST=	auto/HTML/LinkExtractor/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

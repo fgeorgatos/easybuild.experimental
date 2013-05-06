@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'harfbuzz'
+version = '0.9.13'
+versionsuffix = '-20130506'
+
+description = "harfbuzz-0.9.13: OpenType text shaping engine"
+
+sources = ['harfbuzz-0.9.13.tar.bz2']
+source_urls = ['http://www.freedesktop.org/software/harfbuzz/release/']
+homepage = 'http://harfbuzz.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/fonts/harfbuzz/Makefile ######
+## $NetBSD: Makefile,v 1.10 2013/03/15 22:56:46 wiz Exp $
+#
+#DISTNAME=	harfbuzz-0.9.13
+#CATEGORIES=	fonts
+#MASTER_SITES=	http://www.freedesktop.org/software/harfbuzz/release/
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://harfbuzz.org/
+#COMMENT=	OpenType text shaping engine
+#LICENSE=	mit
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#USE_LANGUAGES=		c c++
+#USE_LIBTOOL=		yes
+#USE_TOOLS+=		gmake pkg-config
+#GNU_CONFIGURE=		yes
+#PKGCONFIG_OVERRIDE=	harfbuzz.pc.in
+#
+#LDFLAGS.OpenBSD+=	-lz
+#
+#.include "../../devel/glib2/buildlink3.mk"
+#.include "../../devel/zlib/buildlink3.mk"
+##cairo is only needed for some cmd line utility
+##.include "../../graphics/cairo/buildlink3.mk"
+#.include "../../graphics/freetype2/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

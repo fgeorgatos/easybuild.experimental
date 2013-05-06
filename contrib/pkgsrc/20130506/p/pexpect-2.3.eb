@@ -1,0 +1,53 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = '-'
+version = '2.3'
+versionsuffix = '-20130506'
+
+description = "pexpect-2.3: Pure Python Expect-like module"
+
+sources = ['pexpect-2.3.tar.gz']
+source_urls = ['http://sourceforge.net/projects/pexpect/files', 'download']
+homepage = 'http://pexpect.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/py-pexpect/Makefile ######
+## $NetBSD: Makefile,v 1.15 2012/10/31 11:19:33 asau Exp $
+#
+#DISTNAME=	pexpect-2.3
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+#PKGREVISION=	1
+#CATEGORIES=	devel python
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=pexpect/}
+#
+#MAINTAINER=	minskim@NetBSD.org
+#HOMEPAGE=	http://pexpect.sourceforge.net/
+#COMMENT=	Pure Python Expect-like module
+#LICENSE=	mit
+#
+#NO_CONFIGURE=	yes
+#
+#USE_LANGUAGES=	#none
+#
+#.include "../../lang/python/distutils.mk"
+#.include "../../mk/bsd.pkg.mk"

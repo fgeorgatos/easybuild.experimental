@@ -1,0 +1,70 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5'
+version = 'pkgsrc-Dewey-1.1'
+versionsuffix = '-20130506'
+
+description = "p5-pkgsrc-Dewey-1.1: Perl module to compare pkgsrc Dewey numbers"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['#empty']
+homepage = 'http://www.NetBSD.org/docs/pkgsrc/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/pkgtools/p5-pkgsrc-Dewey/Makefile ######
+## $NetBSD: Makefile,v 1.21 2012/10/03 21:57:15 wiz Exp $
+#
+#DISTNAME=	p5-pkgsrc-Dewey-1.1
+#PKGREVISION=	3
+#CATEGORIES=	pkgtools perl5
+#MASTER_SITES=	# empty
+#DISTFILES=	# empty
+#
+#MAINTAINER=	wiz@NetBSD.org
+#HOMEPAGE=	http://www.NetBSD.org/docs/pkgsrc/
+#COMMENT=	Perl module to compare pkgsrc Dewey numbers
+#LICENSE=	${PERL5_LICENSE} OR 2-clause-bsd
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#CPPFLAGS+=	-DHAVE_CTYPE_H -DHAVE_STDLIB_H -DHAVE_STRING_H
+#CPPFLAGS.NetBSD+=	-DHAVE_ERR_H
+#
+#USE_LANGUAGES=		c
+#
+#PERL5_PACKLIST=		auto/pkgsrc/Dewey/.packlist
+#
+#PKG_INSTALL_FILESDIR=	${PKGSRCDIR}/pkgtools/pkg_install/files
+#PKG_INSTALL_FILES=	lib/dewey.c lib/dewey.h lib/defs.h
+#
+#do-extract:
+#	${MKDIR} ${WRKSRC}
+#	${CP} -r ${FILESDIR}/* ${WRKSRC}
+#	for f in ${PKG_INSTALL_FILES}; do \
+#		${CP} ${PKG_INSTALL_FILESDIR}/$$f ${WRKSRC}; \
+#	done
+#	${MV} ${WRKSRC}/dewey.c ${WRKSRC}/lib_dewey.c
+#	${TOUCH} ${WRKSRC}/nbcompat.h
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

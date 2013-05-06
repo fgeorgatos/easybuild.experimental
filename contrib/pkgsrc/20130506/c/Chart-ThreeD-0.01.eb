@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'ThreeD-0.01'
+versionsuffix = '-20130506'
+
+description = "Chart-ThreeD-0.01: Three-Dimentional pie chart plotting"
+
+sources = ['Chart-ThreeD-0.01.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Chart/']
+homepage = 'http://search.cpan.org/dist/Chart-ThreeD/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/p5-Chart-ThreeD/Makefile ######
+## $NetBSD: Makefile,v 1.14 2012/10/06 14:11:09 asau Exp $
+#
+#DISTNAME=	Chart-ThreeD-0.01
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	8
+#SVR4_PKGNAME=	p5c3d
+#CATEGORIES=	graphics perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Chart/}
+#
+#MAINTAINER=	he@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Chart-ThreeD/
+#COMMENT=	Three-Dimentional pie chart plotting
+#
+#DEPENDS+=	p5-GD>=2.16:../../graphics/p5-GD
+#
+#PERL5_PACKLIST=		auto/Chart-ThreeD/.packlist
+#
+#REPLACE_PERL+=	pie.pl
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

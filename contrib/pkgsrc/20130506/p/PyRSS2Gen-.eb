@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = '-rss2gen-'
+version = ''
+versionsuffix = '-20130506'
+
+description = "PyRSS2Gen-: Python module to generate RSS feeds"
+
+sources = ['PyRSS2Gen-${PYRSS2GENVER}.tar.gz']
+source_urls = ['http://www.dalkescientific.com/Python/']
+homepage = 'http://www.dalkescientific.com/Python/PyRSS2Gen.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/py-rss2gen/Makefile ######
+## $NetBSD: Makefile,v 1.7 2012/10/28 06:31:02 asau Exp $
+#
+#PYRSS2GENVER=	1.0.0
+#DISTNAME=	PyRSS2Gen-${PYRSS2GENVER}
+#PKGNAME=	${PYPKGPREFIX}-rss2gen-${PYRSS2GENVER}
+#PKGREVISION=	1
+#CATEGORIES=	www python
+#MASTER_SITES=	http://www.dalkescientific.com/Python/
+#
+#MAINTAINER=	tonnerre@NetBSD.org
+#HOMEPAGE=	http://www.dalkescientific.com/Python/PyRSS2Gen.html
+#COMMENT=	Python module to generate RSS feeds
+#LICENSE=	modified-bsd
+#
+#USE_LANGUAGES=	#none
+#
+#PYTHON_VERSIONS_INCLUDE_3X=	yes
+#
+#.include "../../lang/python/distutils.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = '2.28'
+versionsuffix = '-20130506'
+
+description = "CDDB_get-2.28: Perl interface to query for CDDB information"
+
+sources = ['CDDB_get-2.28.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/../by-authors/id/F/FO/FONKIE/']
+homepage = 'http://armin.emx.at/cddb/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/p5-CDDB_get/Makefile ######
+## $NetBSD: Makefile,v 1.18 2012/10/03 21:53:57 wiz Exp $
+#
+#DISTNAME=	CDDB_get-2.28
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	1
+#CATEGORIES=	audio perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=../by-authors/id/F/FO/FONKIE/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://armin.emx.at/cddb/
+#COMMENT=	Perl interface to query for CDDB information
+#LICENSE=	${PERL5_LICENSE}
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#PERL5_PACKLIST=		auto/CDDB_get/.packlist
+#
+#USE_LANGUAGES=		# empty
+#REPLACE_PERL+=		cddb.pl
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

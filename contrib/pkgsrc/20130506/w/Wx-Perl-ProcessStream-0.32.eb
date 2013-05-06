@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'Perl-ProcessStream-0.32'
+versionsuffix = '-20130506'
+
+description = "Wx-Perl-ProcessStream-0.32: Access IO of external processes via events from WxWidgets"
+
+sources = ['Wx-Perl-ProcessStream-0.32.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Wx/']
+homepage = 'http://search.cpan.org/dist/Wx-Perl-ProcessStream/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/p5-Wx-Perl-ProcessStream/Makefile ######
+## $NetBSD: Makefile,v 1.24 2013/02/16 11:25:23 wiz Exp $
+#
+#DISTNAME=	Wx-Perl-ProcessStream-0.32
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	6
+#CATEGORIES=	x11 perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Wx/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Wx-Perl-ProcessStream/
+#COMMENT=	Access IO of external processes via events from WxWidgets
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	p5-Wx>=0.50:../../x11/p5-Wx
+#
+#USE_TOOLS+=	perl
+#
+#PERL5_PACKLIST=		auto/Wx/Perl/ProcessStream/.packlist
+#
+#.include "../../x11/p5-Wx/buildlink3.mk"
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

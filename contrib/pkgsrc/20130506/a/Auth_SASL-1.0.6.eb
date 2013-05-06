@@ -1,0 +1,45 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'Auth_SASL'
+version = '1.0.6'
+versionsuffix = '-20130506'
+
+description = "Auth_SASL-1.0.6: Abstraction of various SASL mechanism responses"
+
+sources = [SOURCE_TAR_GZ]
+homepage = 'http://pear.php.net/package/Auth_SASL'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/mail/pear-Auth_SASL/Makefile ######
+## $NetBSD: Makefile,v 1.7 2012/10/08 12:19:25 asau Exp $
+#
+#DISTNAME=	Auth_SASL-1.0.6
+#CATEGORIES=	mail
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://pear.php.net/package/Auth_SASL
+#COMMENT=	Abstraction of various SASL mechanism responses
+#LICENSE=	modified-bsd
+#
+#.include "../../lang/php/pear.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'Singleton-0.27'
+versionsuffix = '-20130506'
+
+description = "MooseX-Singleton-0.27: Perl 5 module to turn Moose class into a singleton"
+
+sources = ['MooseX-Singleton-0.27.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/MooseX/']
+homepage = 'http://search.cpan.org/dist/MooseX-Singleton/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-MooseX-Singleton/Makefile ######
+## $NetBSD: Makefile,v 1.13 2012/10/31 11:18:38 asau Exp $
+##
+#
+#DISTNAME=	MooseX-Singleton-0.27
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	1
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=MooseX/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/MooseX-Singleton/
+#COMMENT=	Perl 5 module to turn Moose class into a singleton
+#LICENSE=	${PERL5_LICENSE}
+#
+#USE_LANGUAGES=	# empty
+#PERL5_PACKLIST=	auto/MooseX/Singleton/.packlist
+#PERL5_MODULE_TYPE=	Module::Install::Bundled
+#
+#DEPENDS+=	p5-Moose>=1.10:../../devel/p5-Moose
+#
+#BUILD_DEPENDS+=	p5-Test-Exception-[0-9]*:../../devel/p5-Test-Exception
+#BUILD_DEPENDS+=	p5-Test-Requires-[0-9]*:../../devel/p5-Test-Requires
+#BUILD_DEPENDS+=	{perl>=5.10.1,p5-Test-Simple>=0.88}:../../devel/p5-Test-Simple
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

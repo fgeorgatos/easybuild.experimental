@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'libfirm'
+version = '1.17.0'
+versionsuffix = '-20130506'
+
+description = "libfirm-1.17.0: Provides a graph-based SSA representation of programs"
+
+sources = ['libfirm-1.17.0.tar.bz2']
+source_urls = ['http://sourceforge.net/projects/libfirm/files', 'download']
+homepage = 'http://libfirm.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/libfirm/Makefile ######
+## $NetBSD: Makefile,v 1.4 2012/10/31 11:17:13 asau Exp $
+##
+#
+#DISTNAME=	libfirm-1.17.0
+#CATEGORIES=	devel
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=libfirm/}
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://libfirm.sourceforge.net/
+#COMMENT=	Provides a graph-based SSA representation of programs
+#
+#GNU_CONFIGURE=	yes
+#USE_LIBTOOL=	yes
+#USE_TOOLS+=	pkg-config
+#
+#PKGCONFIG_OVERRIDE+=	libfirm.pc.in
+#
+#.if exists(/usr/include/wchar.h)
+#CONFIGURE_ARGS+=	--enable-wchar-support
+#.endif
+#
+##
+## NOTE: jvm support requires dlopen/dlsym
+##.include "../../mk/dlopen.buildlink3.mk"
+##
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'lv-4.51'
+version = 'lv451'
+versionsuffix = '-20130506'
+
+description = "lv451: Powerful Multilingual File Viewer"
+
+sources = ['lv451.tar.gz']
+version = '4.51'
+name = 'lv'
+source_urls = ['http://www.ff.iij4u.or.jp/~nrt/freeware/']
+homepage = 'http://www.ff.iij4u.or.jp/~nrt/lv/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/misc/lv/Makefile ######
+## $NetBSD: Makefile,v 1.19 2012/10/08 09:57:29 asau Exp $
+#
+#DISTNAME=	lv451
+#PKGNAME=	lv-4.51
+#PKGREVISION=	1
+#CATEGORIES=	misc
+#MASTER_SITES=	http://www.ff.iij4u.or.jp/~nrt/freeware/
+#
+#MAINTAINER=	tech-pkg-ja@jp.NetBSD.org
+#HOMEPAGE=	http://www.ff.iij4u.or.jp/~nrt/lv/
+#COMMENT=	Powerful Multilingual File Viewer
+#LICENSE=	gnu-gpl-v2
+#
+#CONFIGURE_DIRS=	build
+#GNU_CONFIGURE=	yes
+#CONFIGURE_SCRIPT= ../src/configure
+#
+#MAKE_ENV+=	LN=${LN:Q}
+#INSTALLATION_DIRS=	bin ${PKGMANDIR}/man1 lib/lv
+#
+#.include "../../mk/termcap.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

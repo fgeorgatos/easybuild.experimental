@@ -1,0 +1,55 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'giFT'
+version = 'FastTrack-0.8.9'
+versionsuffix = '-20130506'
+
+description = "giFT-FastTrack-0.8.9: Fasttrack plugin for giFT"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://download.berlios.de/gift-fasttrack/']
+homepage = 'http://gift-fasttrack.berlios.de/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/gift-fasttrack/Makefile ######
+## $NetBSD: Makefile,v 1.11 2012/10/23 17:18:22 asau Exp $
+##
+#
+#DISTNAME=	giFT-FastTrack-0.8.9
+#PKGREVISION=	1
+#PKGNAME=	${DISTNAME:S/giFT-FastTrack/gift-fasttrack/}
+#CATEGORIES=	net
+#MASTER_SITES=	http://download.berlios.de/gift-fasttrack/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://gift-fasttrack.berlios.de/
+#COMMENT=	Fasttrack plugin for giFT
+#
+#WRKSRC=			${WRKDIR}/${DISTNAME}
+#USE_PKGLOCALEDIR=	yes
+#USE_LIBTOOL=		yes
+#USE_TOOLS+=		pkg-config
+#GNU_CONFIGURE=		yes
+#
+#.include "../../net/gift/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

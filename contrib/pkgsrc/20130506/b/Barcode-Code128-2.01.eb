@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'Code128-2.01'
+versionsuffix = '-20130506'
+
+description = "Barcode-Code128-2.01: Generate CODE 128 bar codes"
+
+sources = ['Barcode-Code128-2.01.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/../../authors/id/W/WR/WRW/']
+homepage = 'http://search.cpan.org/dist/Barcode-Code128'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/p5-Barcode-Code128/Makefile ######
+## $NetBSD: Makefile,v 1.4 2012/10/06 14:11:09 asau Exp $
+#
+#DISTNAME=	Barcode-Code128-2.01
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	2
+#CATEGORIES=	graphics perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=../../authors/id/W/WR/WRW/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Barcode-Code128
+#COMMENT=	Generate CODE 128 bar codes
+#LICENSE=	${PERL5_LICENSE}
+#
+#USE_LANGUAGES=	# empty
+#PERL5_PACKLIST=	auto/Barcode/Code128/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,72 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'menhir'
+version = '20120123'
+versionsuffix = '-20130506'
+
+description = "menhir-20120123: LR 1 parser generator in OCaml"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://cristal.inria.fr/~fpottier/menhir/']
+homepage = 'http://cristal.inria.fr/~fpottier/menhir/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/menhir/Makefile ######
+## $NetBSD: Makefile,v 1.8 2012/10/31 11:17:28 asau Exp $
+##
+#
+#DISTNAME=	menhir-20120123
+#PKGREVISION=	1
+#CATEGORIES=	devel
+#MASTER_SITES=	http://cristal.inria.fr/~fpottier/menhir/
+#
+#MAINTAINER=	jaapb@NetBSD.org
+#HOMEPAGE=	http://cristal.inria.fr/~fpottier/menhir/
+#COMMENT=	LR(1) parser generator in OCaml
+#LICENSE=	qpl-v1.0
+#
+#MAKE_JOBS_SAFE=		no
+#
+#USE_TOOLS+=		gmake
+#
+#BUILD_DEPENDS+=	ocaml-findlib-[0-9]*:../../devel/ocaml-findlib
+#
+#EGDIR=			${PREFIX}/share/examples/${PKGBASE}
+#MAKE_ENV=		EGDIR=${EGDIR:Q}
+#
+#PLIST_VARS=	opt
+#.if (${MACHINE_ARCH} == "i386") || (${MACHINE_ARCH} == "powerpc") || \
+#    (${MACHINE_ARCH} == "sparc") || (${MACHINE_ARCH} == "x86_64") || \
+#    (${MACHINE_ARCH} == "arm")
+#PLIST.opt=	yes
+#.else
+#MAKE_ENV+=	TARGET=byte
+#.endif
+#
+#INSTALLATION_DIRS=	lib/ocaml/site-lib/menhirLib
+#
+#post-extract:
+#	${RM} ${WRKSRC}/demos/calc/.omakedb*
+#
+#.include "../../lang/ocaml/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

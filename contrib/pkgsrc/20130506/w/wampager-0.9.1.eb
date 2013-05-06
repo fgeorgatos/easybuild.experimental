@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'wampager'
+version = '0.9.1'
+versionsuffix = '-20130506'
+
+description = "wampager-0.9.1: Virtual pager dockapp for the Waimea Window Manager"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/waimea/files', 'download']
+homepage = 'http://waimea.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/wm/wampager/Makefile ######
+## $NetBSD: Makefile,v 1.18 2012/10/23 10:24:15 wiz Exp $
+##
+#
+#DISTNAME=	wampager-0.9.1
+#PKGREVISION=	2
+#CATEGORIES=	wm
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=waimea/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://waimea.sourceforge.net/
+#COMMENT=	Virtual pager dockapp for the Waimea Window Manager
+#
+#DEPENDS+=	waimea>=0.4.0:../../wm/waimea
+#
+#INSTALLATION_DIRS=	bin
+#
+#do-build:
+#	@${ECHO} "${CC} ${CFLAGS} wampager.c -o wampager ${LDFLAGS} \
+#	    -lX11 -lXpm -lXext"
+#	@cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${CC} ${CFLAGS} \
+#	    wampager.c -o wampager ${LDFLAGS} -lX11 -lXpm -lXext
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/wampager ${DESTDIR}${PREFIX}/bin
+#
+#.include "../../x11/libXext/buildlink3.mk"
+#.include "../../x11/libXpm/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

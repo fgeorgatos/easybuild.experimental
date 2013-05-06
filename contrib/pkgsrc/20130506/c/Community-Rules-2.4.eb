@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'snort-rules-2.4'
+version = 'Rules-2.4'
+versionsuffix = '-20130506'
+
+description = "Community-Rules-2.4: Network Intrusion Detection System Community Rules "
+
+sources = ['Community-Rules-2.4.tar.gz']
+version = 'rules-2.4'
+name = 'snort'
+source_urls = ['http://www.snort.org/pub-bin/downloads.cgi/Download/comm_rules/']
+homepage = 'http://www.snort.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/snort-rules/Makefile ######
+## $NetBSD: Makefile,v 1.6 2012/10/23 17:19:09 asau Exp $
+#
+#DISTNAME=	Community-Rules-2.4
+#PKGNAME=	snort-rules-2.4
+#CATEGORIES=	net security
+#MASTER_SITES=	http://www.snort.org/pub-bin/downloads.cgi/Download/comm_rules/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.snort.org/
+#COMMENT=	Network Intrusion Detection System (Community Rules)
+#
+#DEPENDS+=	snort{,-mysql,-pgsql}>=2.4.0:../../net/snort
+#
+#NO_BUILD=	YES
+#NO_CONFIGURE=	YES
+#
+#INSTALLATION_DIRS+=	share/snort/rules share/doc/snort/signatures
+#
+#do-install:
+#	${INSTALL_DATA} ${WRKDIR}/rules/*.rules ${DESTDIR}${PREFIX}/share/snort/rules
+#	${INSTALL_DATA} ${WRKDIR}/rules/*.map ${DESTDIR}${PREFIX}/share/snort/rules
+#	${INSTALL_DATA} ${WRKDIR}/docs/*.txt \
+#		${DESTDIR}${PREFIX}/share/doc/snort/signatures
+#
+#.include "../../mk/bsd.pkg.mk"

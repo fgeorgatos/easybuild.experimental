@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'p5-'
+version = 'ECB-1.45'
+versionsuffix = '-20130506'
+
+description = "Crypt-ECB-1.45: Perl5 Electronic Codebook mode for various crypto algorithms"
+
+sources = ['Crypt-ECB-1.45.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Crypt/']
+homepage = 'http://search.cpan.org/dist/Crypt-ECB/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/p5-Crypt-ECB/Makefile ######
+## $NetBSD: Makefile,v 1.5 2012/10/23 18:16:41 asau Exp $
+#
+#DISTNAME=		Crypt-ECB-1.45
+#PKGNAME=		p5-${DISTNAME}
+#PKGREVISION=		3
+#CATEGORIES=		security perl5
+#MASTER_SITES=		${MASTER_SITE_PERL_CPAN:=Crypt/}
+#
+#MAINTAINER=		dsainty@NetBSD.org
+#HOMEPAGE=		http://search.cpan.org/dist/Crypt-ECB/
+#COMMENT=		Perl5 Electronic Codebook mode for various crypto algorithms
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#USE_LANGUAGES=		# empty
+#PERL5_PACKLIST=		auto/Crypt/ECB/.packlist
+#
+#LICENSE=		gnu-gpl-v2 # OR any later version
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

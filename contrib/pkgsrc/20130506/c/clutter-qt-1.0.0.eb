@@ -1,0 +1,64 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'clutter'
+version = 'qt-1.0.0'
+versionsuffix = '-20130506'
+
+description = "clutter-qt-1.0.0: Qt Integratin Library for Clutter"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.clutter-project.org/sources/clutter-qt/1.0/']
+homepage = 'http://www.clutter-project.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/clutter-qt/Makefile ######
+## $NetBSD: Makefile,v 1.21 2013/02/16 11:21:41 wiz Exp $
+##
+#
+#DISTNAME=	clutter-qt-1.0.0
+#PKGREVISION=	17
+#CATEGORIES=	graphics
+#MASTER_SITES=	http://www.clutter-project.org/sources/clutter-qt/1.0/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.clutter-project.org/
+#COMMENT=	Qt Integratin Library for Clutter
+#LICENSE=	gnu-lgpl-v2.1
+#
+#GNU_CONFIGURE=	yes
+#USE_LIBTOOL=	yes
+#USE_TOOLS+=	gmake pkg-config
+#USE_LANGUAGES=	c c++
+#
+#PKGCONFIG_OVERRIDE+=	clutter-qt.pc.in
+#
+#CONFIGURE_ARGS+=	--with-moc=${QTDIR}/bin/moc
+#
+#post-extract:
+#	rm -f ${WRKSRC}/clutter-qt/moc_clutter-qt.cc
+#	rm -f ${WRKSRC}/examples/moc_testqt.cc
+#
+#.include "../../graphics/clutter/buildlink3.mk"
+#BUILDLINK_API_DEPENDS.qt4-libs+=	qt4-libs>=4.2.0
+#.include "../../x11/qt4-libs/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

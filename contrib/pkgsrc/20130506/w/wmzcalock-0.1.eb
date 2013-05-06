@@ -1,0 +1,67 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Fotis Georgatos <fotis.georgatos@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+name = 'wmzcalock'
+version = '0.1'
+versionsuffix = '-20130506'
+
+description = "wmzcalock-0.1: Dockapp calendar clock"
+
+sources = ['wmzcalock-0.1.tgz']
+source_urls = ['http://zapatopi.net/zapatoware/']
+homepage = 'http://zapatopi.net/zapatoware/wmzcalock.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+                      'files': [],
+                      'dirs': ['.']
+                     }
+
+parallel = 1 	# this is a very conservative choice
+
+moduleclass = 'base' # please change this from base to right category
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/time/wmzcalock/Makefile ######
+## $NetBSD: Makefile,v 1.6 2012/11/01 19:28:26 joerg Exp $
+##
+#
+#DISTNAME=		wmzcalock-0.1
+#PKGREVISION=		1
+#CATEGORIES=		time x11
+#MASTER_SITES=		http://zapatopi.net/zapatoware/
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://zapatopi.net/zapatoware/wmzcalock.html
+#COMMENT=		Dockapp calendar clock
+#LICENSE=		gnu-gpl-v2
+#
+#EXTRACT_SUFX=		.tgz
+#
+#USE_TOOLS+=		pax
+#INSTALLATION_DIRS=	bin share/wmzcalock/theme
+#
+#.include "../../mk/bsd.prefs.mk"
+#
+#do-build:
+#	cd ${WRKSRC} && ${CC} -c ${CFLAGS} wmzcalock.c && \
+#		${CC} -o wmzcalock wmzcalock.o -lc ${LIBS} ${X11_LDFLAGS} \
+#		    -lX11 -lXext -lm -lXpm
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC:Q}/wmzcalock ${DESTDIR}${PREFIX:Q}/bin
+#	cd ${WRKSRC}/theme; ${PAX} -rw . \
+#	    ${DESTDIR}${PREFIX}/share/wmzcalock/theme
+#
+#.include "../../x11/libXext/buildlink3.mk"
+#.include "../../x11/libXpm/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"
