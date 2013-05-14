@@ -6,7 +6,7 @@ versionsuffix = ''
 
 homepage = '(none)'
 description = """GNU Compiler Collection (GCC) based compiler toolchain, including
-  OpenMPI for MPI support, OpenBLAS (BLAS and LAPACK support), FFTW and ScaLAPACK."""
+ OpenMPI for MPI support, OpenBLAS (BLAS and LAPACK support), FFTW and ScaLAPACK."""
 
 toolchain = {'name': 'dummy', 'version': 'dummy'}
 
@@ -18,7 +18,6 @@ blaslib = 'OpenBLAS'
 blasver = '0.2.6'
 blas = '%s-%s' % (blaslib, blasver)
 blassuff = 'LAPACK-3.4.2'
-##blacsver = '1.1'
 
 # toolchain used to build goolf dependencies
 comp_mpi_tc_name = 'gompi'
@@ -27,15 +26,12 @@ comp_mpi_tc = "%s-%s" % (comp_mpi_tc_name, comp_mpi_tc_ver)
 
 # compiler toolchain depencies
 # we need GCC and OpenMPI as explicit dependencies instead of gompi toolchain
-# because of toolchain preperation functions
+# because of toolchain preparation functions
 dependencies = [
-                ('GCC', '4.8.0'),
+                (comp_name, comp_version),
                 ('OpenMPI', '1.7-%s%s' % (comp, versionsuffix)),  # part of gompi-1.1.0
-                ##(blaslib, blasver, '-%s-%s' % (comp_mpi_tc, blassuff)),
                 (blaslib, blasver, '-%s' % comp_mpi_tc),
                 ('FFTW', '3.3.3', "-%s" % comp_mpi_tc),
-                #('BLACS', blacsver, "-%s" % comp_mpi_tc),
-                ('ScaLAPACK', '2.0.2', '-%s-%s-%s' % (comp_mpi_tc, blas, blassuff)) ##, blacsver))
-                #('ScaLAPACK', '1.8.0', '-%s-%s-%s-BLACS-%s' % (comp_mpi_tc, blas, blassuff, blacsver))
+                ('ScaLAPACK', '2.0.2', '-%s-%s-%s' % (comp_mpi_tc, blas, blassuff)),
                ]
-moduleclass = "compiler" # tweaked by EasyBuild (was: 'toolchain')
+moduleclass = "compiler"
