@@ -13,8 +13,8 @@ toolchain = {'name': 'goolf', 'version': '1.4.10'}
 
 dependencies = [
     ('PRACE', '20130605'),
+#   ('PRACE', 'ENV-20130605'), not yet ready
     ('PRACE', 'DEVEL-20130605'),
-#    ('PRACE', 'ENV-20130605'), not yet ready
 ]
 # the above is really: ln -s $EBDEVELPRACE /home/users/fgeorgatos/.local/easybuild/modules/all/PRACE/DEVEL-20130605-goolf-1.4.10
 
