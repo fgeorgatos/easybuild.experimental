@@ -1,0 +1,20 @@
+
+easyblock = "Toolchain"
+
+name = 'PrgEnv-intel'
+version = '20130605'
+
+homepage = 'http://www.prace-ri.eu/PRACE-Common-Production'
+description = """The PRACE Common Production Environment (PCPE) is a set of software tools and libraries
+ that planned to be available on all PRACE execution sites. The PCPE also defines a set of environment
+ variables that try to make compilation on all sites as homogeneous and simple as possible."""
+
+toolchain = {'name': 'intel', 'version': '5.3.0'}
+
+dependencies = [
+    ('PRACE', '20130605'),
+    ('PRACE', 'DEVEL-20130605'),
+]
+# the above is really: ln -s $EBDEVELPRACE /home/users/fgeorgatos/.local/easybuild/modules/all/PRACE/DEVEL-20130605-ictce-5.3.0
+
+moduleclass = 'toolchain'
