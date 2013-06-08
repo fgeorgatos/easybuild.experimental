@@ -1,0 +1,97 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2013 University of Luxembourg/Luxembourg Centre for Systems Biomedicine
+# Authors::   Nils Christian <nils.christian@uni.lu>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-94.html
+##
+
+easyblock = 'CMakeMake'
+
+name = 'libsbml'
+shortversion = '5.8.0'
+version = '%s-with-experimental' % (shortversion)
+
+homepage = 'http://sbml.org/Software/libSBML'
+description = """LibSBML is a free, open-source programming library to help
+  you read, write, manipulate, translate, and validate SBML files and data streams."""
+
+sources = [('libSBML-%s-Source.tar.gz' % (shortversion), 'tar zxvf %s && mkdir build')]# FIXME this is a requirement for a cmake out-of tree build of libsbml
+source_urls = [('http://sourceforge.net/projects/sbml/files/libsbml/%s/experimental/src/' % shortversion, 'download')]
+
+start_dir = 'build'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+# FIXME we might want to add octave and ruby to the builddependencies to get those language bindings too
+# FIXME add '-DWITH_DOXYGEN:BOOL=ON '?
+
+builddependencies = [
+    ('MATLAB', '2013a',    '', True),
+    ('Java',   '1.7.0_10', '', True),
+    ('Perl',   '5.16.3',   '-bare'),
+    ('Python', '2.7.3'),
+    ('R',      '2.15.2'),
+    ('SWIG',   '2.0.4',    '-Python-2.7.3'),
+    ('CMake',  '2.8.4')
+]
+dependencies = [
+    ('bzip2',   '1.0.6'),
+    ('zlib',    '1.2.7'),
+    ('libxml2', '2.9.0'),
+]
+
+configopts =  ''
+# libsbml "packages" or "plug-ins"
+configopts += ' -DENABLE_COMP:BOOL=ON '
+configopts += ' -DENABLE_FBC:BOOL=ON '
+configopts += ' -DENABLE_QUAL:BOOL=ON '
+configopts += ' -DENABLE_GROUPS:BOOL=ON '
+configopts += ' -DENABLE_LAYOUT:BOOL=ON '
+configopts += ' -DENABLE_RENDER:BOOL=ON '
+configopts += ' -DENABLE_REQUIREDELEMENTS:BOOL=ON '
+configopts += ' -DENABLE_SPATIAL:BOOL=ON '
+
+deps = map(lambda x:x[0], dependencies + builddependencies)
+
+# language bindings configuration switches
+cmake_prefix_path = ''
+libdirs = ''
+for depname in deps:
+    if depname == 'CMake':
+        continue
+    cmake_prefix_path += '${EBROOT' + depname.upper() + '};'
+    if depname != 'libxml2':
+        # all (build)dependencies but libxml2 and CMake require a '-DWITH_FEATURE:BOOL=ON'
+        configopts += ' -DWITH_' + depname.upper() + ':BOOL=ON '
+
+# libsbml brings its own FindMatlab.cmake that requires us to set MATLAB_ROOT_PATH
+if 'MATLAB' in deps:
+    configopts += ' -DMATLAB_ROOT_PATH=$EBROOTMATLAB '
+
+configopts += ' -DCMAKE_PREFIX_PATH:PATH="' + cmake_prefix_path + '" '
+# libxml2 needs special handling because cmake searches for 'libxml/parser.h' which is in the sub-directory 'include/libxml2'
+configopts += ' -DCMAKE_INCLUDE_PATH:PATH="${EBROOTLIBXML2}/include/libxml2" '
+
+configopts += ' ../libSBML-%s-Source' % (shortversion) # back-ref is needed to get out-of-tree build working
+
+# FIXME modulefile should provide for PERL5LIB and variables of the related family (python, java, what have you)
+sanity_check_paths = {
+    'files': [
+        "lib/libsbml-static.a",
+        "lib/libsbml.so.%s" % shortversion,
+#        "lib/perl/5.10.1/LibSBML.pm"  # now this is lib/perl5/site_perl/5.16.3/x86_64-linux-thread-multi/LibSBML.pm
+    ],
+    'dirs': [
+        "include",
+#        "lib/python2.7/site-packages/libsbml"
+    ]
+}
+
+parallel = 1
+
+# consider using modextravars, if needed
