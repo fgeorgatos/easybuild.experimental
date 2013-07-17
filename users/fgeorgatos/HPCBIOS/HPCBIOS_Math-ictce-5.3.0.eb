@@ -7,24 +7,28 @@
 # $Id$
 #
 # This work implements a part of the HPCBIOS project and is a component of the policy:
-# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-94.html
+# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_06-01.html
 ##
 
 easyblock = "Toolchain"
 
-name = 'HPCBIOS_06-01'
-version = '20121225'
+name = 'HPCBIOS_Math'
+version = '20130717'
 
 homepage = 'http://hpcbios.readthedocs.org/en/latest/HPCBIOS_06-01.html'
 description = """Common Set of Open Source Math Libraries includes a set of HPC tools which are needed for scientific computing in multiple occasions"""
 
-toolchain = {'name': 'goalf', 'version': '1.1.0-no-OFED'}
+toolchain = {'name': 'ictce', 'version': '5.3.0'}
+
+# As of May 2013, ictce/5.3.0 loads all of:
+# * icc/2013.4.183 
+# * ifort/2013.4.183 
+# * impi/4.1.0.030 
+# * imkl/11.0.4.183 
 
 dependencies = [
-##  ('goalf', '1.1.0'),   # goalf module automatically loads as of Nov. 12 all of: ATLAS/3.8.4, FFTW/3.3.1, LAPACK/3.4.0, ScaLAPACK/1.8.0, BLACS/1.1 - INCLUSION IS AUTOMATIC
-                ('PETSc', '3.3-p2'),  # Unfortunately, an exact version must be provided
-                # ('PETSc', '3.3-p2-goalf-1.1.0-no-OFED-Python-2.7.3'),
-                ('GSL', '1.15'),
-             ]
+  ('PETSc', '3.3-p2', '-Python-2.7.3'),
+  ('GSL', '1.15')
+]
 
-moduleclass = 'base'
+moduleclass = 'toolchain'
