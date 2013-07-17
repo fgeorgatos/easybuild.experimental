@@ -7,7 +7,7 @@
 # $Id$
 #
 # This work implements a part of the HPCBIOS project and is a component of the policy:
-# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-94.html
+# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-93.html
 ##
 
 easyblock = "Toolchain"
@@ -15,7 +15,7 @@ easyblock = "Toolchain"
 name = 'HPCBIOS_LifeSciences'
 version = '20130717'
 
-homepage = 'http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-94.html'
+homepage = 'http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-93.html'
 description = """Life Sciences productivity environment includes a set of HPC tools,
  which are needed for scientific computing and visualization in the respective domain. """
 
