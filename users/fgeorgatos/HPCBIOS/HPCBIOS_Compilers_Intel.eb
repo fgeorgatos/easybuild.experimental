@@ -7,19 +7,22 @@
 # $Id$
 #
 # This work implements a part of the HPCBIOS project and is a component of the policy:
-# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-94.html
+# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-96.html
 ##
 
 easyblock = "Toolchain"
 
-name = 'HPCBIOS_2012-96'
-version = '20121225'
+name = 'HPCBIOS_Compilers_Intel'
+version = '20130717'
 
 homepage = 'http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-96.html'
 description = """Common Set of Commercial Compilers includes a set of commercial compilers, notably the default version of Intel compiler icc."""
 
 toolchain = {'name': 'dummy', 'version': 'dummy'}
 
-dependencies = [('ictce', '4.0.6')] # This automagically loads: icc/2011.6.233, ifort/2011.6.233, impi/4.0.2.003, imkl/10.3.6.233
+# This automagically loads: icc/2011.6.233, ifort/2011.6.233, impi/4.0.2.003, imkl/10.3.6.233
+dependencies = [
+    ('ictce', '5.3.0')
+]
 
-moduleclass = 'base'
+moduleclass = 'toolchain'
