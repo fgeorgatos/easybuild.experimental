@@ -12,7 +12,7 @@
 
 easyblock = "Toolchain"
 
-name = 'HPCBIOS_2012-94'
+name = 'HPCBIOS_Bioinfo'
 version = '20130717'
 
 homepage = 'http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-94.html'
@@ -49,8 +49,8 @@ dependencies = [
     ('MUMmer', '3.23'),
     ('MetaVelvet', '1.2.01'),
     ('Mothur', '1.30.2'),
-##    ('MrBayes', '3.1.2'),                   # TODO: decide if 3.1.2 or 3.2.0 remains
-    ('MrBayes', '3.2.0'),
+    ('MrBayes', '3.1.2'),
+##    ('MrBayes', '3.2.0'), # depends on beagle-lib -> Java/1.7.0_15
     ('mpiBLAST', '1.6.0'),
 ##    ('orthomcl', '2.0.8', '-Perl-5.16.3'),  # TODO: weird build issue, investigate
     ('PAML', '4.7'),
