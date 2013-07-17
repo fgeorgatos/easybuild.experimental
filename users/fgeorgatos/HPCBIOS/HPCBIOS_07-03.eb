@@ -7,13 +7,13 @@
 # $Id$
 #
 # This work implements a part of the HPCBIOS project and is a component of the policy:
-# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_2012-94.html
+# http://hpcbios.readthedocs.org/en/latest/HPCBIOS_07-03.html
 ##
 
 easyblock = "Toolchain"
 
 name = 'HPCBIOS_07_03'
-version = '20121225'
+version = '20130717'
 
 homepage = 'http://hpcbios.readthedocs.org/en/latest/HPCBIOS_07_03.html'
 description = """Common Set of Open Source Compilers includes a set of free compilers, notably the default version of GCC"""
@@ -21,13 +21,13 @@ description = """Common Set of Open Source Compilers includes a set of free comp
 toolchain = {'name': 'dummy', 'version': 'dummy'}
 
 dependencies = [
-                ('GCC', '4.6.3'), # version which is selected as default, as per issue #400
-                ('GCC', '4.7.1'), # this version includes support for GO v1.0 plus many improvements
+    ('GCC', '4.6.4'), # version which is selected as default, as per issue #400
+    ('GCC', '4.7.2'), # this version includes support for GO v1.0 plus many improvements
 # Possible future extension on dependencies requirement level?
 #               ('GCC', '4.1.2', 'SHOULD') # needed by unknown software
 #               ('GCC', '4.3.5', 'SHOULD') # CUDA on Debian requires this, in relation to kernel compatibility issues
 #               ('GCC', '4.4.3', 'SHOULD') # Debian Squeeze and other Linux distros still rely on this one
-#               ('GCC', '4.7.2', 'SHOULD') # latest and greatest
+#               ('GCC', '4.8.1', 'SHOULD') # latest and greatest
                ]
 
 moduleclass = 'base'
