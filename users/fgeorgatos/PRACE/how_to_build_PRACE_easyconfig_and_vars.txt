@@ -1,12 +1,8 @@
 
-module load EasyBuild/1.5.0 
+module load EasyBuild
 
 # go to the build area and prepare the environment
 cd /home/users/fgeorgatos/easybuild.experimental/users/fgeorgatos/extras/
-
-# Build PRACE prerequisites
-eb `eb --search /Bash|grep goolf|cut -c6-` --try-toolchain=ictce,5.3.0
-eb `eb --search /tcsh|grep goolf|cut -c6-` --try-toolchain=ictce,5.3.0
 
 # Do the thing
 time eb PRACE-20130605-goolf-1.4.10.eb PRACE-20130605-ictce-5.3.0.eb
