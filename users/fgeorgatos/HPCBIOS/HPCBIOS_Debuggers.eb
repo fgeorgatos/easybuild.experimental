@@ -22,11 +22,9 @@ toolchain = {'name': 'dummy', 'version': 'dummy'}
 
 dependencies = [
     ('GDB', '7.5.1', '-goolf-1.4.10'),
-    #('TotalView', '8.12.0-0', '-linux-x86-64'), # includes MemoryScape
-    ('TotalView', '8.11.0-2', '-linux-x86-64'), # includes MemoryScape
-    ## ('DDT', '4.0'), # includes Allinea MAP
-    ('icc', '2013.5.192', ''), # includes IDB
-    ('VTune', '2013_update10', ''),
+    ('TotalView', '8.12.0-0', '-linux-x86-64'), # includes MemoryScape
+    # ('DDT', '4.1'), # includes Allinea MAP
+    ('icc', '2013.5.192'), # includes IDB
 ]
 
 moduleclass = 'toolchain'
