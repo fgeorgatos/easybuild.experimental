@@ -1,0 +1,31 @@
+
+easyblock = "Toolchain"
+
+name = 'PRACE'
+version = '20130605'
+
+homepage = 'http://www.prace-ri.eu/PRACE-Common-Production'
+description = """The PRACE Common Production Environment (PCPE) is a set of software tools and libraries
+ that are planned to be available on all PRACE execution sites. The PCPE also defines a set of environment
+ variables that try to make compilation on all sites as homogeneous and simple as possible."""
+
+toolchain = {'name': 'dummy', 'version': 'dummy'}
+
+
+### Descriptive
+
+# $PRACE_ARCH String describing the architecture of the current execution site (for example, "Cray_XE6_Interlagos").
+
+### Compilation Described in the Compiling section below.
+# $PRACE_FFLAGS	Compiler flags for Fortran compilation (most often setting of include paths with the -I option).
+# $PRACE_CFLAGS	Compiler flags for C/C++ compilation (most often setting of include paths with the -I option).
+# $PRACE_LDFLAGS	Compiler flags for linking (most often setting of library paths, -L option, and library names, -l option).
+
+### File locations	
+# $PRACE_STORE	Location of long-term (archived or backed-up) storage for your username (if it exists on the execution site).
+# $PRACE_SCRATCH	Storage for temporary files produced during a job. These files are not guaranteed to be accessible once the job has finished.
+# PRACE GPFS Filesystem	Not available on all execution sites
+# $PRACE_HOME Location of your PRACE GPFS home directory.
+# $PRACE_DATA Location of your PRACE GPFS data directory.
+
+moduleclass = 'toolchain'

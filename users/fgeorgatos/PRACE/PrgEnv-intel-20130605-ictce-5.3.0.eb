@@ -6,7 +6,7 @@ version = '20130605'
 
 homepage = 'http://www.prace-ri.eu/PRACE-Common-Production'
 description = """The PRACE Common Production Environment (PCPE) is a set of software tools and libraries
- that planned to be available on all PRACE execution sites. The PCPE also defines a set of environment
+ that are planned to be available on all PRACE execution sites. The PCPE also defines a set of environment
  variables that try to make compilation on all sites as homogeneous and simple as possible."""
 
 toolchain = {'name': 'ictce', 'version': '5.3.0'}
