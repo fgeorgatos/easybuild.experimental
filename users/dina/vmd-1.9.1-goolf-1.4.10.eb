@@ -1,0 +1,49 @@
+#
+# auhor: Dina Mahmoud Ibrahim (Cairo University)
+#
+
+name = 'vmd'
+version = '1.9.1'
+
+homepage = 'http://www.ks.uiuc.edu/Research/vmd'
+description = "VMD is a molecular visualization program for displaying, animating, and analyzing large biomolecular systems using 3-D graphics and built-in scripting."
+
+toolchain= { 'name': 'goolf' , 'version': '1.4.10'}
+
+sources = ['%(name)s-%(version)s.src.tar.gz']
+
+patches = ['1.patch']
+
+dependencies = [
+        ('Tcl', '8.5.12'),
+        ('Tk', '8.5.12'),
+	('Mesa', '7.11.2', '-Python-2.7.3'),
+	('fltk', '1.3.2')
+]
+
+start_dir="%(name)s-%(version)s"
+
+
+
+preconfigopts = "VMDINSTALLBINDIR=%(installdir)s/bin "
+preconfigopts += "VMDINSTALLLIBRARYDIR=%(installdir)s/lib/%(name)s "
+preconfigopts += " && mkdir plugins "
+preconfigopts += " && cd %(builddir)s/plugins "
+preconfigopts += " && make LINUXMAD64 && make distrib PLUGINDIR=%(builddir)s/%s/plugins " % start_dir
+preconfigopts += " && cd %(builddir)s/%s " % start_dir
+
+# doesn't like --prefix
+configopts = "LINUX MESA FLTK TK IMD VRPN SILENT TCL PTHREADS ACTC LIBTACHYON"
+
+# still missing:  -lactc  -ltachyon -lvrpn -lquat
+# Makefile should be updated to point to EB install lib dirs ($EBROOT...)
+# edit Makefile, delete -m32 flags ($CFLAGS, $CPPFLAGS)
+premakeopts = "cd ./src && make depend && "
+
+sanity_check_paths = {
+    'files': ['bin/vmd'],
+    'dirs': []
+}
+
+moduleclass = 'chem'
+
