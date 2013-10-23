@@ -29,6 +29,7 @@ preconfigopts = "VMDINSTALLBINDIR=%(installdir)s/bin "
 preconfigopts += "VMDINSTALLLIBRARYDIR=%(installdir)s/lib/%(name)s "
 preconfigopts += " && mkdir plugins "
 preconfigopts += " && cd %(builddir)s/plugins "
+# the PLUGINDIR should point to the installation dorectory not the build directory 
 preconfigopts += " && make LINUXMAD64 && make distrib PLUGINDIR=%(builddir)s/%s/plugins " % start_dir
 preconfigopts += " && cd %(builddir)s/%s " % start_dir
 
