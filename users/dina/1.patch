@@ -1,0 +1,11 @@
+--- Make-arch.orig	2013-10-23 14:40:55.684315000 +0300
++++ Make-arch	2013-10-23 14:42:55.889085456 +0300
+@@ -366,7 +366,7 @@
+ 	"CCFLAGS = -m64 -O2 -fPIC -Wall" \
+ 	"CXXFLAGS = -m64 -O2 -fPIC -Wall" \
+ 	"TCLLDFLAGS = -ltcl8.5 -ldl" \
+-	"NETCDFLDFLAGS = -lnetcdf " \
++	"NETCDFLDFLAGS = -L$(EBROOTNETCDF)/lib -lnetcdf " \
+ 	"AR = ar" \
+ 	"NM = nm -p" \
+ 	"RANLIB = touch" \
