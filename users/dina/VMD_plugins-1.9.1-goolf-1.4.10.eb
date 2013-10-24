@@ -1,0 +1,33 @@
+#
+# author: Dina Mahmoud Ibrahim
+#
+
+name = 'VMD_Plugins'
+version='1.9.1'
+
+homepage = 'http://www.ks.uiuc.edu/Research/vmd'
+description = "Plugins for VMD "
+
+toolchain= { 'name': 'goolf' , 'version': '1.4.10'}
+
+sources = ['vmd-%(version)s.src.tar.gz']
+patches = ['plugins_fix.patch']
+dependencies = [
+    ('Tcl', '8.5.12'),
+]
+
+start_dir = 'plugins'
+
+skipsteps = ['configure', 'install']
+
+premakeopts = "export TCLINC=$EBROOTTCL/include && export TCLLIB=$EBROOTTCL/lib && "
+premakeopts += "export PLUGINDIR='%(installdir)s' && "
+
+makeopts = " TCLINC=$TCLINC TCLLIB=$TCLLIB && make distrib"
+
+
+sanity_check_paths = {
+    'files': ['include/molfile_plugin.h','include/vmdconio.h' ,'include/vmdplugin.h'],
+    'dirs': ['include','noarch']
+}
+~
