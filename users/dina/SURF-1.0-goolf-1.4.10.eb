@@ -1,0 +1,32 @@
+#
+# author: Dina Mahmoud Ibrahim
+#
+easyblock='MakeCp'
+
+name = "SURF"
+version = "1.0"
+ARCH = "LINUXAMD64"
+
+homepage = ''
+description = ""
+
+dependencies = [
+    ('makedepend','1.0.4')
+]
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sources = [('%(namelower)s.tar.Z', 'tar -xzf %s')]
+source_urls = ['http://www.ks.uiuc.edu/Research/vmd/extsrcs']
+
+premakeopts = ' make depend && '
+makeopts = ' && mv surf surf_LINUXAMD64'
+
+files_to_copy = [(['surf_LINUXAMD64'],"bin")]
+
+sanity_check_paths = {
+    'files': ["bin/surf_LINUXAMD64"],
+    'dirs': []
+}
+
+moduleclass = 'bio'
