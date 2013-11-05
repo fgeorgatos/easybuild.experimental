@@ -1,0 +1,35 @@
+# This is an easyconfig file for EasyBuild, see https://github.com/hpcugent/easybuild
+# Copyright:: Copyright 2013 Juelich Supercomputing Centre, Germany
+# Authors::   Bernd Mohr <b.mohr@fz-juelich.de>
+# License::   New BSD
+#
+# This work is based from experiences from the UNITE project
+# http://apps.fz-juelich.de/unite/
+##
+
+easyblock = "Toolchain"
+
+name = 'UNITE'
+version = '0.9'
+
+homepage = 'http://apps.fz-juelich.de/unite/'
+description = """The goal of UNITE (UNiform Integrated Tool Environment) is to provide a robust,
+ portable, and integrated environment for the debugging and performance analysis of parallel MPI,
+ OpenMP, and hybrid MPI/OpenMP programs on high-performance compute clusters. It consists of a set
+ of well-accepted portable, mostly open-source tools. [MISSING: Support for UNITE-style module environment]"""
+
+toolchain = {'name': 'gompi', 'version': '1.5.12-no-OFED'}
+
+dependencies = [
+    ('Extrae', '2.4.1'), 
+    ('MUST', '1.2.0'), 
+    ('Paraver', '4.4.5', '', ('GCC', '4.7.3')), 
+    ('Scalasca', '1.4.3'), 
+    ('Scalasca', '2.0'), 
+    ('Score-P', '1.2.1'), 
+    ('TAU', '2.22.2'), 
+    ('Vampir', '8.1.0-linux-x86_64', '', True), 
+    ('VampirTrace', '5.14.4'), 
+]
+
+moduleclass = 'toolchain'
