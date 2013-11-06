@@ -6,7 +6,7 @@
 # This work is based from experiences from the UNITE project
 # http://apps.fz-juelich.de/unite/
 ##
-easyblock='MakeCp'
+easyblock='Binary'
 
 name = "Vampir"
 version = "8.1.0"
@@ -20,11 +20,9 @@ description = """The VAMPIR software tool provides an easy-to-use framework that
 
 toolchain = {'name': 'dummy', 'version': 'dummy'}
 
-sources = [('vampir-%s-standard%s-setup.bin' % (version, versionsuffix), 'cp %s .')]
+sources = ['vampir-%s-standard%s-setup.bin' % (version, versionsuffix)]
 
-premakeopts = "./vampir-8.1.0-standard-linux-x86_64-setup.bin --silent --instdir=. #"
-
-files_to_copy = ["bin", "doc"]
+install_cmd = "./vampir-8.1.0-standard-linux-x86_64-setup.bin --silent --instdir=%(installdir)s"
 
 sanity_check_paths = {
     'files': ["bin/vampir", "doc/vampir-manual.pdf"],
