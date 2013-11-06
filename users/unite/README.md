@@ -42,5 +42,19 @@ I tried to document everything with structured comments of the following form:
 
 Any feedback, additions, corrections, requests, comments on this package welcome!
 
+Candidate list for future additions:
+- ThreadSpotter
+- HPC Toolkit
+- IPM
+- dyninst support
+- SIONLib support
+- CUDA measurement support
+- mpiP
+- ompP
+- OpenSpeedshop
+- PerfSuite
+- Periscope
+- Intel Trace Analyzer and Collector
+
 Bernd Mohr
 b.mohr@fz-juelich.de
