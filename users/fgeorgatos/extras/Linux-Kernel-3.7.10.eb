@@ -1,6 +1,5 @@
-
 name = 'Linux'
-version = '3.7.1'
+version = '3.7.10'
 
 homepage = 'http://www.kernel.org/'
 description = """Linux is a clone of the operating system Unix, written from scratch by Linus Torvalds
@@ -18,20 +17,22 @@ description = """Linux is a clone of the operating system Unix, written from scr
 
 toolchain = {'name': 'dummy', 'version': 'dummy'}
 
-# eg. http://www.kernel.org/pub/linux/kernel/v3.0/linux-3.7.1.tar.bz2
-sources = ['linux-%s.tar.bz2' % version]
-source_urls = ['http://www.kernel.org/pub/linux/kernel/v%s.0/' % version.split('.')[0]]
+# eg. http://www.kernel.org/pub/linux/kernel/v3.0/linux-3.7.10.tar.xz
+sources = [SOURCELOWER_TAR_XZ]
+source_urls = ['http://www.kernel.org/pub/linux/kernel/v%(version_major)s.0/'] # % version.split('.')[0]]
 
-preconfigopts = "make defconfig && /bin/true"
+preconfigopts = "make defconfig && /bin/true "
+
 makeopts = "bzImage modules"
-preinstallopts = "INSTALL_MOD_PATH=/tmp/modules INSTALL_PATH=/tmp"
+
+preinstallopts = "INSTALL_MOD_PATH=/tmp/modules INSTALL_PATH=/tmp "
 installopts = "modules_install"
 
 sanity_check_paths = {
-                      'files': ["/tmp/vmlinuz-3.7.1"], 
-                      'dirs': []
-                     }
+    'files': ["/tmp/vmlinuz-%(version)s", "/tmp/config-%(version)s", "System.map-%(version)s"], 
+    'dirs': []
+}
 
 # runtest = 'installcheck' # future work :-)
 
-moduleclass = 'base'
+moduleclass = 'base' # as much base as it gets!
