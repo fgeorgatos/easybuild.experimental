@@ -29,7 +29,7 @@ preinstallopts = "INSTALL_MOD_PATH=/tmp/modules INSTALL_PATH=/tmp "
 installopts = "modules_install"
 
 sanity_check_paths = {
-    'files': ["/tmp/vmlinuz-%(version)s", "/tmp/config-%(version)s", "System.map-%(version)s"], 
+    'files': ["/tmp/vmlinuz-%(version)s", "/tmp/config-%(version)s", "/tmp/System.map-%(version)s"], 
     'dirs': []
 }
 
