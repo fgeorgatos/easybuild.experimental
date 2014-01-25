@@ -1,0 +1,24 @@
+name = "microbiomeutil"
+version = "r20110519"
+
+homepage = 'http://microbiomeutil.sourceforge.net/'
+description = """The Human Microbiome Project (HMP) is an exciting Roadmap initiative funded by the
+ National Institutes of Health (NIH). The goal of the project is to understand how the microbial
+ communities inhabiting our bodies contribute to normal human health, development, and disease
+ (http://nihroadmap.nih.gov/hmp)."""
+
+toolchain = {'version': '1.4.10', 'name': 'goolf'}
+
+sources = [SOURCE_TGZ]
+source_urls = ['http://downloads.sourceforge.net/project/microbiomeutil/']
+
+patches = []
+
+dependencies = []
+
+sanity_check_paths = {
+    'files': [],
+    'dirs': ["."]
+}
+
+moduleclass = 'bio'
