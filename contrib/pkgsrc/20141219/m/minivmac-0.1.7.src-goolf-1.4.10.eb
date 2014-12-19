@@ -1,0 +1,69 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'minivmac-0.1.7'
+version = '0.1.7.src'
+versionsuffix = '-20141219'
+
+description = "minivmac-0.1.7.src: Miniature Macintosh emulator"
+
+sources = ['minivmac-0.1.7.src.tgz']
+version = '0.1.7'
+name = 'minivmac'
+source_urls = ['http://sourceforge.net/projects/minivmac/files', 'download']
+
+homepage = 'http://minivmac.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/emulators/minivmac/Makefile ######
+## $NetBSD: Makefile,v 1.19 2012/10/03 12:55:15 asau Exp $
+#
+#DISTNAME=	minivmac-0.1.7.src
+#PKGNAME=	minivmac-0.1.7
+#PKGREVISION=	2
+#CATEGORIES=	emulators
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=minivmac/}
+#EXTRACT_SUFX=	.tgz
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://minivmac.sourceforge.net/
+#COMMENT=	Miniature Macintosh emulator
+#
+#WRKSRC=		${WRKDIR}/minivmac
+#
+#SCRIPTS_ENV+=	CC="${CC}"
+#
+#DOCDIR=		${PREFIX}/share/doc/html/minivmac
+#
+#INSTALLATION_DIRS=	bin
+#
+#do-build:
+#	cd ${WRKSRC}/tool/bash; ${SETENV} ${SCRIPTS_ENV} ${SH} build
+#
+#do-install:
+#	${INSTALL_DATA_DIR} ${DESTDIR}${DOCDIR}
+#	${INSTALL_PROGRAM} ${WRKSRC}/drv/minivmac ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_DATA} ${WRKSRC}/doc/*.html ${DESTDIR}${DOCDIR}
+#
+#.include "../../x11/libXext/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

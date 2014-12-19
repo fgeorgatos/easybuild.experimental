@@ -1,0 +1,52 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '-'
+version = '0.4.1'
+versionsuffix = '-20141219'
+
+description = "defusedxml-0.4.1: XML bomb protection for Python stdlib modules"
+
+sources = ['defusedxml-0.4.1.tar.gz']
+source_urls = ['https://pypi.python.org/packages/source/d/defusedxml/']
+
+homepage = 'https://bitbucket.org/tiran/defusedxml'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/py-defusedxml/Makefile ######
+## $NetBSD: Makefile,v 1.2 2014/06/01 23:34:08 rodent Exp $
+#
+#DISTNAME=	defusedxml-0.4.1
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+#CATEGORIES=	python textproc
+#MASTER_SITES=	https://pypi.python.org/packages/source/d/defusedxml/
+#
+#MAINTAINER=	rodent@NetBSD.org
+#HOMEPAGE=	https://bitbucket.org/tiran/defusedxml
+#COMMENT=	XML bomb protection for Python stdlib modules
+#LICENSE=	python-software-foundation
+#
+#USE_LANGUAGES=	# none
+#
+#.include "../../lang/python/distutils.mk"
+#.include "../../mk/bsd.pkg.mk"

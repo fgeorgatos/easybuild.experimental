@@ -1,0 +1,60 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Types-1.100910'
+versionsuffix = '-20141219'
+
+description = "POEx-Types-1.100910: Exported Types for use within POEx modules"
+
+sources = ['POEx-Types-1.100910.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/../../authors/id/N/NP/NPEREZ/']
+
+homepage = 'http://search.cpan.org/dist/POEx-Types/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-POEx-Types/Makefile ######
+## $NetBSD: Makefile,v 1.5 2014/05/29 23:36:10 wiz Exp $
+#
+#DISTNAME=	POEx-Types-1.100910
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	3
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=../../authors/id/N/NP/NPEREZ/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/POEx-Types/
+#COMMENT=	Exported Types for use within POEx modules
+#LICENSE=	${PERL5_LICENSE}
+#
+#USE_LANGUAGES=	# empty
+#PERL5_PACKLIST= auto/POEx/Types/.packlist
+#
+#DEPENDS+=	p5-MooseX-Types-[0-9]*:../../devel/p5-MooseX-Types
+#DEPENDS+=	p5-MooseX-Types-Structured-[0-9]*:../../devel/p5-MooseX-Types-Structured
+#DEPENDS+=	p5-POE-[0-9]*:../../devel/p5-POE
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

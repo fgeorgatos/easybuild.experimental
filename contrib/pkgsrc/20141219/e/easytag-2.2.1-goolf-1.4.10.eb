@@ -1,0 +1,66 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'easytag'
+version = '2.2.1'
+versionsuffix = '-20141219'
+
+description = "easytag-2.2.1: GTK+ tag editor for MP3, Ogg Vorbis files, and others"
+
+sources = [SOURCE_TAR_XZ]
+source_urls = ['http://sourceforge.net/projects/sources/easytag/2.2/files', 'download']
+
+homepage = 'http://projects.gnome.org/easytag/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/easytag/Makefile ######
+## $NetBSD: Makefile,v 1.95 2014/05/05 00:47:36 ryoon Exp $
+#
+#DISTNAME=	easytag-2.2.1
+#PKGREVISION=	1
+#CATEGORIES=	audio
+#MASTER_SITES=	${MASTER_SITE_GNOME:=sources/easytag/2.2/}
+#EXTRACT_SUFX=	.tar.xz
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://projects.gnome.org/easytag/
+#COMMENT=	GTK+ tag editor for MP3, Ogg Vorbis files, and others
+#LICENSE=	gnu-gpl-v2
+#
+#BUILD_DEPENDS+=	itstool-[0-9]*:../../textproc/itstool
+#
+#GNU_CONFIGURE=		yes
+#USE_LANGUAGES=		c c++
+#USE_PKGLOCALEDIR=	yes
+#USE_TOOLS+=		gmake intltool pkg-config xgettext
+#
+#.include "options.mk"
+#
+#.include "../../audio/id3lib/buildlink3.mk"
+#.include "../../audio/libid3tag/buildlink3.mk"
+#BUILDLINK_API_DEPENDS.taglib+=	taglib>=1.9.1
+#.include "../../audio/taglib/buildlink3.mk"
+#.include "../../graphics/hicolor-icon-theme/buildlink3.mk"
+#.include "../../x11/gtk3/buildlink3.mk"
+#.include "../../sysutils/desktop-file-utils/desktopdb.mk"
+#.include "../../mk/bsd.pkg.mk"

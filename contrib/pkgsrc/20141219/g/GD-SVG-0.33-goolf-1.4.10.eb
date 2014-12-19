@@ -1,0 +1,60 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'SVG-0.33'
+versionsuffix = '-20141219'
+
+description = "GD-SVG-0.33: Enables SVG output from scripts written using GD"
+
+sources = ['GD-SVG-0.33.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/GD/']
+
+homepage = 'http://search.cpan.org/dist/GD-SVG/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/p5-GD-SVG/Makefile ######
+## $NetBSD: Makefile,v 1.11 2014/05/29 23:36:39 wiz Exp $
+##
+#
+#DISTNAME=	GD-SVG-0.33
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	5
+#CATEGORIES=	graphics perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=GD/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/GD-SVG/
+#COMMENT=	Enables SVG output from scripts written using GD
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=		p5-GD-[0-9]*:../../graphics/p5-GD
+#DEPENDS+=		p5-SVG-[0-9]*:../../graphics/p5-SVG
+#
+#PERL5_PACKLIST=		auto/GD/SVG/.packlist
+#USE_LANGUAGES=		# none
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

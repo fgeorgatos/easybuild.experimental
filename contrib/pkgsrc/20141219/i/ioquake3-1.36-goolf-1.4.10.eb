@@ -1,0 +1,59 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'ioquake3'
+version = '1.36'
+versionsuffix = '-20141219'
+
+description = "ioquake3-1.36: Open source Quake 3 distribution"
+
+sources = [SOURCE_TAR_BZ2]
+source_urls = ['http://ioquake3.org/files/1.36/']
+
+homepage = 'http://www.ioquake3.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/ioquake3/Makefile ######
+## $NetBSD: Makefile,v 1.3 2012/10/06 11:54:43 asau Exp $
+##
+#
+#DISTNAME=	ioquake3-1.36
+#CATEGORIES=	games
+#MASTER_SITES=	http://ioquake3.org/files/1.36/
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.ioquake3.org/
+#COMMENT=	Open source Quake 3 distribution
+#
+#USE_TOOLS+=	gmake
+#BUILD_TARGET=	release
+#
+#do-install:
+#	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/lib/ioquake3
+#	cd ${WRKSRC} && ${GMAKE} copyfiles COPYDIR=${DESTDIR}${PREFIX}/lib/ioquake3
+#
+#.include "../../audio/openal/buildlink3.mk"
+#.include "../../devel/SDL/buildlink3.mk"
+#.include "../../graphics/MesaLib/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

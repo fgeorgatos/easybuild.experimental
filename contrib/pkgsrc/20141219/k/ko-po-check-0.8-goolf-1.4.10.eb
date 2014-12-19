@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'ko'
+version = 'po-check-0.8'
+versionsuffix = '-20141219'
+
+description = "ko-po-check-0.8: Korean .po file checker"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://kldp.net/frs/download.php/3863/']
+
+homepage = 'http://ko-po-check.kldp.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/ko-po-check/Makefile ######
+## $NetBSD: Makefile,v 1.13 2014/05/09 07:36:59 wiz Exp $
+#
+#DISTNAME=	ko-po-check-0.8
+#PKGREVISION=	3
+#CATEGORIES=	devel korean textproc
+#MASTER_SITES=	http://kldp.net/frs/download.php/3863/
+#
+#MAINTAINER=	junyoung@mogua.com
+#HOMEPAGE=	http://ko-po-check.kldp.net/
+#COMMENT=	Korean .po file checker
+#
+#GNU_CONFIGURE=	yes
+#
+#CONFIGURE_ENV+=	PYTHON=${PYTHONBIN:Q}
+#
+#REPLACE_PYTHON=	scripts/ko-po-check.in
+#PYTHON_VERSIONS_INCOMPATIBLE=	33 34 # not yet ported as of 0.8
+#
+#.include "../../lang/python/application.mk"
+#.include "../../mk/bsd.pkg.mk"

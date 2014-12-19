@@ -1,0 +1,66 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'compiz'
+version = 'bcop-'
+versionsuffix = '-20141219'
+
+description = "compiz-bcop-: Option code generator for compiz"
+
+sources = ['compiz-bcop-${PKGVER}.tar.gz']
+source_urls = ['http://releases.compiz.org/${PKGVER}/']
+
+homepage = 'http://www.compiz-fusion.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/compiz-bcop/Makefile ######
+## $NetBSD: Makefile,v 1.10 2014/01/01 11:52:11 wiz Exp $
+##
+#
+#PKGVER=		0.8.8
+#DISTNAME=	compiz-bcop-${PKGVER}
+#PKGREVISION=	1
+#CATEGORIES=	devel wm x11
+#MASTER_SITES=	http://releases.compiz.org/${PKGVER}/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.compiz-fusion.org/
+#COMMENT=	Option code generator for compiz
+#LICENSE=	gnu-gpl-v2
+#
+#GNU_CONFIGURE=		yes
+#USE_TOOLS+=		intltool pkg-config msgfmt bash:run
+#USE_PKGLOCALEDIR=	yes
+#USE_LIBTOOL=		yes
+#
+#PKGCONFIG_OVERRIDE+=	bcop.pc.in
+#DEPENDS+=	getopt-[0-9]*:../../misc/getopt
+#REPLACE_BASH+=	src/bcop.in
+#
+#SUBST_CLASSES+=	getopt
+#SUBST_STAGE.getopt=	pre-configure
+#SUBST_FILES.getopt=	src/bcop.in
+#SUBST_SED.getopt=	-e "s|getopt|${PREFIX}/bin/getopt|"
+#
+#.include "../../textproc/libxslt/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,80 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'RTFM'
+version = '2.4.5'
+versionsuffix = '-20141219'
+
+description = "RTFM-2.4.5: Enterprise-grade knowledge management tool"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://download.bestpractical.com/pub/rt/release/']
+
+homepage = 'http://www.bestpractical.com/rtfm/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/RTFM/Makefile ######
+## $NetBSD: Makefile,v 1.12 2013/10/18 11:41:17 bsiegert Exp $
+##
+#
+#DISTNAME=	RTFM-2.4.5
+#CATEGORIES=	devel
+#MASTER_SITES=	http://download.bestpractical.com/pub/rt/release/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.bestpractical.com/rtfm/
+#COMMENT=	Enterprise-grade knowledge management tool
+#
+#DEPENDS+=	rt>=3.4.5:../../devel/rt3
+#
+#USE_TOOLS+=	pax
+#
+#.include "../../devel/rt3/dirs.mk"
+#
+#PLIST_SUBST+=	RT_HTML_DIR=${RT_HTML_DIR:C/^${LOCALBASE}\///}	\
+#		RT_I18N_DIR=${RT_I18N_DIR:C/^${LOCALBASE}\///}
+#
+#NO_BUILD=	YES
+#NO_CONFIGURE=	YES
+#
+#INSTALLATION_DIRS=	lib share
+#
+#do-install:
+#	@${ECHO} "=> Libraries"
+#	${INSTALL_DATA_DIR} ${DESTDIR}${RT_LIB_DIR}/RT
+#	cd ${WRKSRC}/lib/RT && ${FIND} . -type f ! -name '*.orig' 2>/dev/null |		\
+#		pax -rw ${DESTDIR}${RT_LIB_DIR}/RT
+#	@${ECHO} "=> HTML Documents"
+#	${INSTALL_DATA_DIR} ${DESTDIR}${RT_HTML_DIR}
+#	cd ${WRKSRC}/html && ${FIND} . -type f ! -name '*.orig' 2>/dev/null |		\
+#		pax -rw ${DESTDIR}${RT_HTML_DIR}
+##	@${ECHO} "=> Locales"
+##	${INSTALL_DATA_DIR} ${DESTDIR}${RT_I18N_DIR}
+##	cd ${WRKSRC}/po && ${FIND} . -type f ! -name '*.orig' 2>/dev/null |		\
+##		pax -rw ${DESTDIR}${RT_I18N_DIR}
+#	@${ECHO} "=> Database Schemas"
+#	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/RTFM
+#	for file in acl.Oracle acl.Pg acl.mysql schema.Oracle schema.Pg schema.mysql;	\
+#	do ${INSTALL_DATA} ${WRKSRC}/etc/$$file ${DESTDIR}${PREFIX}/share/RTFM; done
+#
+#.include "../../mk/bsd.pkg.mk"

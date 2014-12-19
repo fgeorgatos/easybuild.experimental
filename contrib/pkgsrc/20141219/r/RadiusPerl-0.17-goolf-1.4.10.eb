@@ -1,0 +1,60 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = '0.17'
+versionsuffix = '-20141219'
+
+description = "RadiusPerl-0.17: Provide simple Radius client facilities"
+
+sources = ['RadiusPerl-0.17.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://search.cpan.org/CPAN/authors/id/M/MA/MANOWAR/']
+
+homepage = 'http://search.cpan.org/dist/RadiusPerl/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/p5-RadiusPerl/Makefile ######
+## $NetBSD: Makefile,v 1.11 2014/05/29 23:37:10 wiz Exp $
+##
+#
+#DISTNAME=	RadiusPerl-0.17
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	5
+#CATEGORIES=	net
+#MASTER_SITES=	http://search.cpan.org/CPAN/authors/id/M/MA/MANOWAR/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/RadiusPerl/
+#COMMENT=	Provide simple Radius client facilities
+#LICENSE=	artistic-2.0
+#
+#DEPENDS+=	p5-Data-HexDump>=0.02:../../textproc/p5-Data-HexDump
+#
+#WRKSRC=		${WRKDIR}/Authen-Radius-0.17
+#PERL5_PACKLIST=	auto/Authen/Radius/.packlist
+#USE_LANGUAGES=	# none
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,60 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'kdirstat'
+version = '2.4.4'
+versionsuffix = '-20141219'
+
+description = "kdirstat-2.4.4: Graphical disk usage utility"
+
+sources = [SOURCE_TAR_BZ2]
+source_urls = ['http://kdirstat.sourceforge.net/download/']
+
+homepage = 'http://kdirstat.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/kdirstat/Makefile ######
+## $NetBSD: Makefile,v 1.61 2014/08/22 11:24:42 wiz Exp $
+#
+#DISTNAME=	kdirstat-2.4.4
+#PKGREVISION=	29
+#CATEGORIES=	sysutils kde
+#MASTER_SITES=	http://kdirstat.sourceforge.net/download/
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://kdirstat.sourceforge.net/
+#COMMENT=	Graphical disk usage utility
+#
+#USE_TOOLS+=		gmake msgfmt
+#USE_LANGUAGES=		c c++
+#USE_LIBTOOL=		yes
+#GNU_CONFIGURE=		yes
+#SET_LIBDIR=		yes
+#
+#REPLACE_PERL=		kdirstat/fix_move_to_trash_bin.pl
+#
+#.include "../../meta-pkgs/kde3/kde3.mk"
+#.include "../../graphics/hicolor-icon-theme/buildlink3.mk"
+#.include "../../x11/kdelibs3/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

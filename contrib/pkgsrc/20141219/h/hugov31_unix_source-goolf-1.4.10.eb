@@ -1,0 +1,76 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'wxhugo-3.1.02'
+version = 'hugov31_unix_source'
+versionsuffix = '-20141219'
+
+description = "hugov31_unix_source: Interactive fiction interpreter with sound and graphics support"
+
+sources = ['hugov31_unix_source.tar.gz']
+version = '3.1.02'
+name = 'wxhugo'
+source_urls = ['${MASTER_SITE_IFARCHIVE:=programming/hugo/source/}']
+
+homepage = 'http://www.generalcoffee.com/hugo.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/wxhugo/Makefile ######
+## $NetBSD: Makefile,v 1.43 2014/05/05 00:47:53 ryoon Exp $
+##
+#
+#DISTNAME=	hugov31_unix_source
+#PKGNAME=	wxhugo-3.1.02
+#PKGREVISION=	29
+#CATEGORIES=	games
+#MASTER_SITES=	${MASTER_SITE_IFARCHIVE:=programming/hugo/source/}
+#DISTFILES=	${DISTNAME}${EXTRACT_SUFX} ${DISTFILE_WX}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.generalcoffee.com/hugo.html
+#COMMENT=	Interactive fiction interpreter with sound and graphics support
+#
+#DISTFILE_WX=	hugov31_wxwin_source${EXTRACT_SUFX}
+##EXTRACT_ONLY=	${DISTNAME}${EXTRACT_SUFX}
+#
+#DIST_SUBDIR=	hugo-3.1.02
+#USE_LANGUAGES=	c c++
+#USE_TOOLS+=	gmake
+#WRKSRC=		${WRKDIR}/hugov3.1.02/hewx
+#
+## The gcc-2.95 Preprocessor chokes on DOS line-ends in macro continuations
+#SUBST_CLASSES+=		dos_eol
+#SUBST_MESSAGE.dos_eol=	Removing DOS line-ends
+#SUBST_STAGE.dos_eol=	post-extract
+#SUBST_FILES.dos_eol=	*.c *.cpp */*.c */*.cpp */*/*.c */*/*.cpp
+#SUBST_FILTER_CMD.dos_eol=	${TR} -d '\r'
+#
+#INSTALLATION_DIRS=	bin
+#
+#.include "../../audio/libmikmod/buildlink3.mk"
+#.include "../../x11/wxGTK24/buildlink3.mk"
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/hewx ${DESTDIR}${PREFIX}/bin
+#
+#.include "../../mk/bsd.pkg.mk"

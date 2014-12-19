@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'usbids'
+version = '20081118'
+versionsuffix = '-20141219'
+
+description = "usbids-20081118: Repository of USB IDs usb.ids database "
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.invisible.ca/~jmcneill/distfiles/']
+
+homepage = 'http://www.linux-usb.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/misc/usbids/Makefile ######
+## $NetBSD: Makefile,v 1.4 2012/10/08 09:57:39 asau Exp $
+##
+#
+#DISTNAME=	usbids-20081118
+#CATEGORIES=	misc
+#MASTER_SITES=	http://www.invisible.ca/~jmcneill/distfiles/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.linux-usb.org/
+#COMMENT=	Repository of USB IDs (usb.ids database)
+#LICENSE=	modified-bsd OR gnu-gpl-v2
+#
+#NO_BUILD=		yes
+#
+#WRKSRC=		${WRKDIR}
+#
+#do-install:
+#	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/usbids
+#	${INSTALL_DATA} ${WRKSRC}/usb.ids ${DESTDIR}${PREFIX}/share/usbids
+#
+#.include "../../mk/bsd.pkg.mk"

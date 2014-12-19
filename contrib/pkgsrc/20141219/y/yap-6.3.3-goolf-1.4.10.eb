@@ -1,0 +1,63 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'yap'
+version = '6.3.3'
+versionsuffix = '-20141219'
+
+description = "yap-6.3.3: ISO-compliant Prolog"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.dcc.fc.up.pt/~vsc/Yap/']
+
+homepage = 'http://www.ncc.up.pt/~vsc/Yap/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/lang/yap/Makefile ######
+## $NetBSD: Makefile,v 1.16 2013/07/15 02:02:25 ryoon Exp $
+#
+#DISTNAME=		yap-6.3.3
+#CATEGORIES=		lang
+## MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=yap/}
+#MASTER_SITES=		http://www.dcc.fc.up.pt/~vsc/Yap/ \
+#			http://www.dcc.fc.up.pt/~vsc/Yap/current/
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://www.ncc.up.pt/~vsc/Yap/
+#COMMENT=		ISO-compliant Prolog
+#
+#USE_LANGUAGES=		c c++
+#USE_PKGLOCALEDIR=	yes
+#GNU_CONFIGURE=		yes
+#USE_TOOLS=		gmake
+#
+#CONFIGURE_ENV+=		INDENT=${TRUE:Q}
+#
+## debug option:
+##CONFIGURE_ARGS+=	--enable-debug-yap
+#
+#.include "../../archivers/libarchive/buildlink3.mk"
+#.include "../../devel/ncurses/buildlink3.mk"
+#.include "../../devel/readline/buildlink3.mk"
+#.include "../../devel/gmp/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

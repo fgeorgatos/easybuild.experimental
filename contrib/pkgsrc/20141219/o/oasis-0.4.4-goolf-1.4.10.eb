@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'oasis'
+version = '0.4.4'
+versionsuffix = '-20141219'
+
+description = "oasis-0.4.4: Build system for OCaml projects"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://forge.ocamlcore.org/frs/download.php/1391/']
+
+homepage = 'http://oasis.forge.ocamlcore.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/ocaml-oasis/Makefile ######
+## $NetBSD: Makefile,v 1.1 2014/08/17 13:51:01 jaapb Exp $
+#
+#DISTNAME=	oasis-0.4.4
+#CATEGORIES=	devel
+#MASTER_SITES=	http://forge.ocamlcore.org/frs/download.php/1391/
+#
+#MAINTAINER=	jaapb@NetBSD.org
+#HOMEPAGE=	http://oasis.forge.ocamlcore.org/
+#COMMENT=	Build system for OCaml projects
+#LICENSE=	gnu-lgpl-v2.1
+#
+#OCAML_USE_OASIS=	yes
+#
+#.include "../../devel/ocaml-odn/buildlink3.mk"
+#.include "../../devel/ocamlify/buildlink3.mk"
+#.include "../../devel/ocamlmod/buildlink3.mk"
+#.include "../../mk/ocaml.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'sci'
+version = '0.5.6'
+versionsuffix = '-20141219'
+
+description = "sci-0.5.6: Curses based data entry via templates"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://linuxparts.com/']
+
+homepage = 'http://linuxparts.com/software.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/misc/sci/Makefile ######
+## $NetBSD: Makefile,v 1.15 2012/10/08 09:57:37 asau Exp $
+##
+#
+#DISTNAME=	sci-0.5.6
+#PKGREVISION=	1
+#CATEGORIES=	misc
+#MASTER_SITES=	http://linuxparts.com/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://linuxparts.com/software.html
+#COMMENT=	Curses based data entry via templates
+#
+#GNU_CONFIGURE=	yes
+#
+#INSTALLATION_DIRS+=	share/doc/sci share/examples/sci
+#
+#post-install:
+#	for i in COPYING README INSTALL NEWS ; do \
+#		${INSTALL_DATA} ${WRKSRC}/$$i ${DESTDIR}${PREFIX}/share/doc/sci ; \
+#	   done
+#	for i in samples/* ; do \
+#		${INSTALL_DATA} ${WRKSRC}/$$i ${DESTDIR}${PREFIX}/share/examples/sci ; \
+#	   done
+#
+#.include "../../mk/curses.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

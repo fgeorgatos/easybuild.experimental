@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '-'
+version = '0.37'
+versionsuffix = '-20141219'
+
+description = "web.py-0.37: Simple, public domain web publishing system"
+
+sources = ['web.py-0.37.tar.gz']
+source_urls = ['http://webpy.org/static/']
+
+homepage = 'http://webpy.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/py-webpy/Makefile ######
+## $NetBSD: Makefile,v 1.14 2014/05/09 07:37:26 wiz Exp $
+#
+#DISTNAME=	web.py-0.37
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+#CATEGORIES=	www python
+#MASTER_SITES=	http://webpy.org/static/
+#
+#MAINTAINER=	darcy@NetBSD.org
+#HOMEPAGE=	http://webpy.org/
+#COMMENT=	Simple, public domain web publishing system
+#LICENSE=	public-domain
+#
+#USE_LANGUAGES=	#none
+#
+#REPLACE_PYTHON+=	web/__init__.py web/utils.py
+#PYTHON_VERSIONS_INCOMPATIBLE=	33 34 # not yet ported as of 0.37
+#
+#.include "../../lang/python/application.mk"
+#.include "../../lang/python/distutils.mk"
+#.include "../../mk/bsd.pkg.mk"

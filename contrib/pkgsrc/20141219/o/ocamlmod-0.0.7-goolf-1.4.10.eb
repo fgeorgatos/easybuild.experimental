@@ -1,0 +1,52 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '#definedtoavoidprefixingwithocaml-'
+version = '0.0.7'
+versionsuffix = '-20141219'
+
+description = "ocamlmod-0.0.7: Generate OCaml modules from source files"
+
+sources = ['ocamlmod-0.0.7.tar.gz']
+source_urls = ['http://forge.ocamlcore.org/frs/download.php/1350/']
+
+homepage = 'http://forge.ocamlcore.org/projects/ocamlmod/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/ocamlmod/Makefile ######
+## $NetBSD: Makefile,v 1.1 2014/08/17 13:41:42 jaapb Exp $
+#
+#PKGNAME=${DISTNAME} # defined to avoid prefixing with ocaml-
+#DISTNAME=	ocamlmod-0.0.7
+#CATEGORIES=	devel
+#MASTER_SITES=	http://forge.ocamlcore.org/frs/download.php/1350/
+#
+#MAINTAINER=	jaapb@NetBSD.org
+#HOMEPAGE=	http://forge.ocamlcore.org/projects/ocamlmod/
+#COMMENT=	Generate OCaml modules from source files
+#LICENSE=	gnu-lgpl-v2.1
+#
+#OCAML_USE_OASIS=	yes
+#
+#.include "../../mk/ocaml.mk"
+#.include "../../mk/bsd.pkg.mk"

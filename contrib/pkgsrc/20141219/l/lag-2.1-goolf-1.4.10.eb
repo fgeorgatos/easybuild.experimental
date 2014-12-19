@@ -1,0 +1,65 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'gp-lag-2.1'
+version = '2.1'
+versionsuffix = '-20141219'
+
+description = "lag-2.1: GAP Bracket Lie Algebra functions"
+
+sources = ['lag-2.1.zoo']
+version = 'lag-2.1'
+name = 'gp'
+source_urls = ['ftp://ftp-gap.dcs.st-and.ac.uk/pub/gap/gap4/share/']
+
+homepage = 'http://www.gap-system.org/Share/lag.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/math/gp-lag/Makefile ######
+## $NetBSD: Makefile,v 1.13 2012/09/11 23:04:21 asau Exp $
+##
+#
+#DISTNAME=	lag-2.1
+#PKGNAME=	gp-lag-2.1
+#PKGREVISION=	1
+#SVR4_PKGNAME=	gplag
+#CATEGORIES=	math
+#MASTER_SITES=	ftp://ftp-gap.dcs.st-and.ac.uk/pub/gap/gap4/share/
+#EXTRACT_SUFX=	.zoo
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.gap-system.org/Share/lag.html
+#COMMENT=	GAP Bracket Lie Algebra functions
+#
+#WRKSRC=		${WRKDIR}/lag
+#NO_BUILD=	YES
+#GAP_PKG_NAME=	lag
+#
+#USE_TOOLS+=	pax
+#
+#do-install:
+#	${INSTALL_DATA_DIR} ${DESTDIR}${GAP_PKG_ROOT}
+#	cd ${WRKDIR} && pax -rw ${GAP_PKG_NAME} ${DESTDIR}${GAP_PKG_ROOT}
+#
+#.include "../../math/gap/gap.package.mk"
+#.include "../../mk/bsd.pkg.mk"

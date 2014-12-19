@@ -1,0 +1,64 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'GladeXML-1.007'
+versionsuffix = '-20141219'
+
+description = "Gtk2-GladeXML-1.007: Perl bindings for Glade 2 "
+
+sources = ['Gtk2-GladeXML-1.007.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://sourceforge.net/projects/gtk2-perl/files', 'download']
+
+homepage = 'http://gtk2-perl.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Gtk2-GladeXML/Makefile ######
+## $NetBSD: Makefile,v 1.31 2014/05/29 23:35:57 wiz Exp $
+#
+#DISTNAME=	Gtk2-GladeXML-1.007
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	27
+#CATEGORIES=	x11 perl5
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=gtk2-perl/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://gtk2-perl.sourceforge.net/
+#COMMENT=	Perl bindings for Glade (2)
+#
+#MAKE_JOBS_SAFE=		no
+#
+#DEPENDS+=	p5-ExtUtils-Depends>=0.300:../../devel/p5-ExtUtils-Depends
+#DEPENDS+=	p5-ExtUtils-PkgConfig>=1.03:../../devel/p5-ExtUtils-PkgConfig
+#
+#USE_TOOLS+=	pkg-config
+#
+#PERL5_PACKLIST=	auto/Gtk2/GladeXML/.packlist
+#
+#.include "../../devel/p5-glib2/buildlink3.mk"
+#.include "../../devel/libglade/buildlink3.mk"
+#.include "../../lang/perl5/module.mk"
+#.include "../../x11/p5-gtk2/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

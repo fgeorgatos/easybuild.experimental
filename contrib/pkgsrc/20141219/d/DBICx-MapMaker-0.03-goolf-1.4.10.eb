@@ -1,0 +1,60 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'MapMaker-0.03'
+versionsuffix = '-20141219'
+
+description = "DBICx-MapMaker-0.03: Perl 5 module to automatically create a DBIx::Class mapping table"
+
+sources = ['DBICx-MapMaker-0.03.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/../by-authors/id/J/JR/JROCKWAY/']
+
+homepage = 'http://search.cpan.org/dist/DBICx-MapMaker/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/databases/p5-DBICx-MapMaker/Makefile ######
+## $NetBSD: Makefile,v 1.11 2014/05/29 23:35:27 wiz Exp $
+#
+#DISTNAME=	DBICx-MapMaker-0.03
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	3
+#CATEGORIES=	databases perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=../by-authors/id/J/JR/JROCKWAY/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/DBICx-MapMaker/
+#COMMENT=	Perl 5 module to automatically create a DBIx::Class mapping table
+#
+#USE_LANGUAGES=	# empty
+#PERL5_PACKLIST=	auto/DBICx/MapMaker/.packlist
+#
+#BUILD_DEPENDS+=	p5-DBICx-TestDatabase-[0-9]*:../../databases/p5-DBICx-TestDatabase
+#BUILD_DEPENDS+=	p5-DBIx-Class-[0-9]*:../../databases/p5-DBIx-Class
+#BUILD_DEPENDS+=	p5-Test-use-ok-[0-9]*:../../devel/p5-Test-use-ok
+#DEPENDS+=	p5-Moose-[0-9]*:../../devel/p5-Moose
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

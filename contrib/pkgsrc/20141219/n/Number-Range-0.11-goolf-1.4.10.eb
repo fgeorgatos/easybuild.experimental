@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Range-0.11'
+versionsuffix = '-20141219'
+
+description = "Number-Range-0.11: Define ranges and test if number is in range"
+
+sources = ['Number-Range-0.11.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Number/']
+
+homepage = 'http://search.cpan.org/dist/Number-Range/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/math/p5-Number-Range/Makefile ######
+## $NetBSD: Makefile,v 1.2 2014/06/11 20:52:07 schmonz Exp $
+#
+#DISTNAME=		Number-Range-0.11
+#PKGNAME=		p5-${DISTNAME}
+#CATEGORIES=		math perl5
+#MASTER_SITES=		${MASTER_SITE_PERL_CPAN:=Number/}
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://search.cpan.org/dist/Number-Range/
+#COMMENT=		Define ranges and test if number is in range
+#LICENSE=		${PERL5_LICENSE}
+#
+#PERL5_PACKLIST=		auto/Number/Range/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

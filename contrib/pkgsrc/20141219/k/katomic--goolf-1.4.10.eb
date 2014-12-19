@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'katomic'
+version = ''
+versionsuffix = '-20141219'
+
+description = "katomic-: Build complex atoms with a minimal amount of moves"
+
+sources = ['katomic-${_KDE_VERSION}.tar.gz']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/katomic/Makefile ######
+## $NetBSD: Makefile,v 1.14 2014/08/22 11:24:31 wiz Exp $
+#
+#DISTNAME=	katomic-${_KDE_VERSION}
+#PKGREVISION=	4
+#CATEGORIES=	games
+#COMMENT=	Build complex atoms with a minimal amount of moves
+#
+#.include "../../meta-pkgs/kde4/Makefile.kde4"
+#
+#REPLACE_PERL+=	katomic-levelset-upd.pl
+#
+#.include "../../meta-pkgs/kde4/kde4.mk"
+#
+#.include "../../games/libkdegames/buildlink3.mk"
+#.include "../../graphics/hicolor-icon-theme/buildlink3.mk"
+#.include "../../sysutils/desktop-file-utils/desktopdb.mk"
+#.include "../../x11/kdelibs4/buildlink3.mk"
+#
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

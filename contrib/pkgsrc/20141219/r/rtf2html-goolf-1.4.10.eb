@@ -1,0 +1,59 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'rtf2html-1.1'
+version = 'rtf2html'
+versionsuffix = '-20141219'
+
+description = "rtf2html: Rich Text to HTML file converter"
+
+sources = ['rtf2html.tar.gz']
+version = '1.1'
+name = 'rtf2html'
+source_urls = ['http://www.45.free.net/~vitus/ice/misc/']
+
+homepage = 'http://www.45.free.net/~vitus/ice/catdoc/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/converters/rtf2html/Makefile ######
+## $NetBSD: Makefile,v 1.16 2012/10/03 00:20:17 asau Exp $
+##
+#
+#DISTNAME=	rtf2html
+#PKGNAME=	rtf2html-1.1
+#CATEGORIES=	converters
+#MASTER_SITES=	http://www.45.free.net/~vitus/ice/misc/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.45.free.net/~vitus/ice/catdoc/
+#COMMENT=	Rich Text to HTML file converter
+#
+#BUILD_TARGET=	rtf2html
+#MAKE_FLAGS+=	CFLAGS=${CFLAGS:M*:Q}
+#
+#INSTALLATION_DIRS=	bin
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/rtf2html ${DESTDIR}${PREFIX}/bin
+#
+#.include "../../mk/bsd.pkg.mk"

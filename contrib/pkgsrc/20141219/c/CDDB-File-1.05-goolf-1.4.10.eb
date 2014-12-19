@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'File-1.05'
+versionsuffix = '-20141219'
+
+description = "CDDB-File-1.05: Parses a CDDB/freedb data file"
+
+sources = ['CDDB-File-1.05.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/CDDB/']
+
+homepage = 'http://search.cpan.org/dist/CDDB-File/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/p5-CDDB-File/Makefile ######
+## $NetBSD: Makefile,v 1.10 2014/05/29 23:35:15 wiz Exp $
+#
+#DISTNAME=	CDDB-File-1.05
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	6
+#CATEGORIES=	audio perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=CDDB/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/CDDB-File/
+#COMMENT=	Parses a CDDB/freedb data file
+#LICENSE=	gnu-gpl-v2
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#PERL5_PACKLIST=	auto/CDDB/File/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

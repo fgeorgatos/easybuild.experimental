@@ -1,0 +1,68 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'fnlib'
+version = '0.5'
+versionsuffix = '-20141219'
+
+description = "fnlib-0.5: Color font rendering library for X11R6"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/enlightenment/files', 'download']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/fnlib/Makefile ######
+## $NetBSD: Makefile,v 1.53 2014/09/08 21:24:44 wiz Exp $
+#
+#DISTNAME=		fnlib-0.5
+#PKGREVISION=		23
+#CATEGORIES=		x11 graphics
+#MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=enlightenment/}
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#COMMENT=		Color font rendering library for X11R6
+#
+## XXX Added to stop old distfiles conflicting due to the authors updating
+## XXX fnlib-0.5.tar.gz without changing the filename.
+## XXX Delete when DISTNAME next changes
+#DIST_SUBDIR=		fnlib
+#
+#GNU_CONFIGURE=		YES
+#USE_LIBTOOL=		YES
+#
+#CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR:Q}
+#EGDIR=			${PREFIX}/share/examples/fnlib
+#CONF_FILES=		${EGDIR}/fnrc ${PKG_SYSCONFDIR}/fnrc
+#
+#INSTALLATION_DIRS+=	share/doc/fnlib
+#
+#post-install:
+#	${INSTALL_DATA} ${WRKSRC}/doc/fontinfo.README ${DESTDIR}${PREFIX}/share/doc/fnlib
+#
+#.include "../../graphics/imlib/buildlink3.mk"
+#.include "../../x11/libSM/buildlink3.mk"
+#.include "../../x11/libXext/buildlink3.mk"
+#
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

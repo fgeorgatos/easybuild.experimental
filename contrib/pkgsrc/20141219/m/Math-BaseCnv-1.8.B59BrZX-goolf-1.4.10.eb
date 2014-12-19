@@ -1,0 +1,63 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'BaseCnv-1.8.B59BrZX'
+versionsuffix = '-20141219'
+
+description = "Math-BaseCnv-1.8.B59BrZX: Fast functions to CoNVert between number Bases"
+
+sources = ['Math-BaseCnv-1.8.B59BrZX.tgz']
+version = '${DISTNAME:C:\.[/.]*$::}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/../by-authors/id/P/PI/PIP/']
+
+homepage = 'http://search.cpan.org/dist/Math-BaseCnv/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/math/p5-Math-BaseCnv/Makefile ######
+## $NetBSD: Makefile,v 1.9 2014/05/29 23:36:53 wiz Exp $
+##
+#
+#DISTNAME=	Math-BaseCnv-1.8.B59BrZX
+#PKGNAME=	p5-${DISTNAME:C:\.[^.]*$::}
+#PKGREVISION=	3
+#CATEGORIES=	textproc perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=../by-authors/id/P/PI/PIP/}
+#EXTRACT_SUFX=	.tgz
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Math-BaseCnv/
+#COMMENT=	Fast functions to CoNVert between number Bases
+#LICENSE=	gnu-gpl-v3
+#
+## actually, TEST_DEPENDS
+#BUILD_DEPENDS+=	p5-Test-Pod-[0-9]*:../../devel/p5-Test-Pod
+#BUILD_DEPENDS+=	p5-Test-Pod-Coverage-[0-9]*:../../devel/p5-Test-Pod-Coverage
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#PERL5_PACKLIST=		auto/Math/BaseCnv/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

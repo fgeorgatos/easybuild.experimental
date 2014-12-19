@@ -1,0 +1,74 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'deskmenu-'
+version = 'deskmenu_'
+versionsuffix = '-20141219'
+
+description = "deskmenu_: X utility for providing root menus"
+
+sources = ['deskmenu_${VERSION}.tar.gz']
+version = '${VERSION}'
+name = 'deskmenu'
+source_urls = ['http://www.oroborus.org/debian/dists/sid/main/source/x11/']
+
+homepage = 'http://www.oroborus.org/?node=Download'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/deskmenu/Makefile ######
+## $NetBSD: Makefile,v 1.24 2014/05/05 00:48:27 ryoon Exp $
+##
+#
+#VERSION=	1.4.2
+#DISTNAME=	deskmenu_${VERSION}
+#PKGNAME=	deskmenu-${VERSION}
+#PKGREVISION=	20
+#CATEGORIES=	x11
+#MASTER_SITES=	http://www.oroborus.org/debian/dists/sid/main/source/x11/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.oroborus.org/?node=Download
+#COMMENT=	X utility for providing root menus
+#
+#WRKSRC=		${WRKDIR}/${PKGNAME_NOREV}
+#USE_TOOLS+=	gmake pkg-config
+#GNU_CONFIGURE=	yes
+#
+#INSTALLATION_DIRS=	bin share/examples/deskmenu
+#
+#SUBST_CLASSES+=			fix-paths
+#SUBST_STAGE.fix-paths=		pre-configure
+#SUBST_MESSAGE.fix-paths=	Fixing absolute paths
+#SUBST_FILES.fix-paths=		src/deskmenu.c
+#SUBST_SED.fix-paths=		-e 's,"/etc,"${PKG_SYSCONFBASE},g'
+#
+#BUILD_DEFS+=	PKG_SYSCONFBASE
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/src/deskmenu ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_DATA} ${WRKSRC}/example_rc \
+#		${DESTDIR}${PREFIX}/share/examples/deskmenu/deskmenurc
+#
+#.include "../../x11/libX11/buildlink3.mk"
+#.include "../../x11/gtk2/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

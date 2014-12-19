@@ -1,0 +1,50 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'tex--3.8l'
+version = 'babel.doc'
+versionsuffix = '-20141219'
+
+description = "babel.doc: Documentation for tex-babel"
+
+sources = ['babel.doc.tar.gz']
+version = '${DISTNAME:S/./-/}-3.8l'
+name = 'tex'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/print/tex-babel-doc/Makefile ######
+## $NetBSD: Makefile,v 1.3 2010/11/15 17:54:14 minskim Exp $
+#
+#DISTNAME=	babel.doc
+#PKGNAME=	tex-${DISTNAME:S/./-/}-3.8l
+#TEXLIVE_REV=	20253
+#
+#MAINTAINER=	minskim@NetBSD.org
+#COMMENT=	Documentation for tex-babel
+#
+#CONFLICTS+=	teTeX-texmf<=3.0nb13
+#
+#.include "../../print/texlive/package.mk"
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

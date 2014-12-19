@@ -1,0 +1,50 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'tex--2009'
+version = 'braket'
+versionsuffix = '-20141219'
+
+description = "braket: Dirac bra-ket and set notations for LaTeX"
+
+sources = ['braket.tar.gz']
+version = '${DISTNAME}-2009'
+name = 'tex'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/print/tex-braket/Makefile ######
+## $NetBSD: Makefile,v 1.1.1.1 2010/04/11 20:48:10 minskim Exp $
+## TeX Live Revision 17127
+#
+#DISTNAME=	braket
+#PKGNAME=	tex-${DISTNAME}-2009
+#
+#MAINTAINER=	minskim@NetBSD.org
+#COMMENT=	Dirac bra-ket and set notations for LaTeX
+#
+#CONFLICTS+=	tex-ltxmisc<2009
+#
+#.include "../../print/texlive/package.mk"
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

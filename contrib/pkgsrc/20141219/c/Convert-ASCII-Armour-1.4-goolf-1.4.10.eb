@@ -1,0 +1,63 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'ASCII-Armour-1.4'
+versionsuffix = '-20141219'
+
+description = "Convert-ASCII-Armour-1.4: Perl5 module to convert binary octets into ASCII armour"
+
+sources = ['Convert-ASCII-Armour-1.4.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Convert/']
+
+homepage = 'http://search.cpan.org/dist/Convert-ASCII-Armour/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/p5-Convert-ASCII-Armour/Makefile ######
+## $NetBSD: Makefile,v 1.25 2014/05/29 23:37:35 wiz Exp $
+##
+#
+#DISTNAME=		Convert-ASCII-Armour-1.4
+#PKGNAME=		p5-${DISTNAME}
+#PKGREVISION=		10
+#SVR4_PKGNAME=		p5cas
+#CATEGORIES=		converters perl5
+#MASTER_SITES=		${MASTER_SITE_PERL_CPAN:=Convert/}
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://search.cpan.org/dist/Convert-ASCII-Armour/
+#COMMENT=		Perl5 module to convert binary octets into ASCII armour
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#DEPENDS+=		{perl>=5.7.3,p5-Digest-MD5-[0-9]*}:../../security/p5-Digest-MD5
+#DEPENDS+=		{perl>=5.7.3,p5-MIME-Base64-[0-9]*}:../../converters/p5-MIME-Base64
+#DEPENDS+=		{perl>=5.9.3,p5-IO-Compress-[0-9]*}:../../devel/p5-IO-Compress	# Compress::Zlib>=0
+#
+#USE_LANGUAGES=		# empty
+#PERL5_PACKLIST=		auto/Convert/ASCII/Armour/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,52 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'http'
+version = '0.6.1'
+versionsuffix = '-20141219'
+
+description = "http-0.6.1: Simple Ruby DSL for making HTTP requests"
+
+sources = [SOURCE_TAR_GZ]
+
+homepage = 'https://github.com/tarcieri/http'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/ruby-http/Makefile ######
+## $NetBSD: Makefile,v 1.2 2014/06/01 16:36:48 tsutsui Exp $
+##
+#
+#DISTNAME=	http-0.6.1
+#CATEGORIES=	www
+#
+#MAINTAINER=	tsutsui@NetBSD.org
+#HOMEPAGE=	https://github.com/tarcieri/http
+#COMMENT=	Simple Ruby DSL for making HTTP requests
+#LICENSE=	mit
+#
+#DEPENDS+=	${RUBY_PKGPREFIX}-http_parser.rb>=0.6.0:../../www/ruby-http_parser.rb
+#
+#USE_LANGUAGES=	# none
+#
+#.include "../../lang/ruby/gem.mk"
+#.include "../../mk/bsd.pkg.mk"

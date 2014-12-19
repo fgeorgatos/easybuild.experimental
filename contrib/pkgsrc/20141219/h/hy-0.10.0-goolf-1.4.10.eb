@@ -1,0 +1,64 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '-'
+version = '0.10.0'
+versionsuffix = '-20141219'
+
+description = "hy-0.10.0: Lisp and Python love each other"
+
+sources = ['hy-0.10.0.tar.gz']
+source_urls = ['https://pypi.python.org/packages/source/h/hy/']
+
+homepage = 'http://hylang.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/lang/py-hy/Makefile ######
+## $NetBSD: Makefile,v 1.1 2014/05/18 03:32:16 rodent Exp $
+#
+#DISTNAME=	hy-0.10.0
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+#CATEGORIES=	lang python
+#MASTER_SITES=	https://pypi.python.org/packages/source/h/hy/
+#
+#MAINTAINER=	rodent@NetBSD.org
+#HOMEPAGE=	http://hylang.org/
+#COMMENT=	Lisp and Python love each other
+#LICENSE=	mit
+#
+#DEPENDS+=	${PYPKGPREFIX}-rply>=0.7.0:../../devel/py-rply
+#DEPENDS+=	${PYPKGPREFIX}-astor>=0.3:../../devel/py-astor
+#
+#USE_LANGUAGES=	# none
+#
+#PY_PATCHPLIST=	yes
+#PLIST_SUBST+=	PYVERSSUFFIX=${PYVERSSUFFIX}
+#
+#post-install:
+#	${MV} ${DESTDIR}${PREFIX}/bin/hy \
+#		${DESTDIR}${PREFIX}/bin/hy${PYVERSSUFFIX}
+#	${MV} ${DESTDIR}${PREFIX}/bin/hyc \
+#		${DESTDIR}${PREFIX}/bin/hyc${PYVERSSUFFIX}
+#
+#.include "../../lang/python/egg.mk"
+#.include "../../mk/bsd.pkg.mk"

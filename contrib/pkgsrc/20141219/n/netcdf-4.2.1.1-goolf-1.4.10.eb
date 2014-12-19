@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'netcdf'
+version = '4.2.1.1'
+versionsuffix = '-20141219'
+
+description = "netcdf-4.2.1.1: Library for array-oriented data access"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.unidata.ucar.edu/downloads/netcdf/ftp/']
+
+homepage = 'http://www.unidata.ucar.edu/software/netcdf/index.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/netcdf/Makefile ######
+## $NetBSD: Makefile,v 1.37 2014/02/12 23:17:49 tron Exp $
+#
+#DISTNAME=	netcdf-4.2.1.1
+#PKGREVISION=	2
+#CATEGORIES=	devel
+#MASTER_SITES=	http://www.unidata.ucar.edu/downloads/netcdf/ftp/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.unidata.ucar.edu/software/netcdf/index.html
+#COMMENT=	Library for array-oriented data access
+#
+#USE_LANGUAGES=		c c++
+#USE_LIBTOOL=		yes
+#GNU_CONFIGURE=		yes
+#CONFIGURE_ARGS+=	--disable-doxygen
+#CONFIGURE_ARGS+=	--disable-examples
+#
+#.include "../../devel/hdf5/buildlink3.mk"
+#.include "../../www/curl/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,59 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'jikes'
+version = '1.22'
+versionsuffix = '-20141219'
+
+description = "jikes-1.22: Java source to byte-code compiler"
+
+sources = [SOURCE_TAR_BZ2]
+source_urls = ['http://sourceforge.net/projects/jikes/files', 'download']
+
+homepage = 'http://jikes.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/lang/jikes/Makefile ######
+## $NetBSD: Makefile,v 1.38 2012/10/02 20:11:43 asau Exp $
+##
+#
+#DISTNAME=	jikes-1.22
+#PKGREVISION=	3
+#CATEGORIES=	lang java
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=jikes/}
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://jikes.sourceforge.net/
+#COMMENT=	Java source to byte-code compiler
+#
+#GNU_CONFIGURE=		yes
+#USE_LANGUAGES=		c c++
+#UNLIMIT_RESOURCES=	datasize
+#
+## enable "-source 1.5" -- not complete, but does not break normal compiles
+#CONFIGURE_ARGS+=	--enable-source15
+#
+#USE_TOOLS+=	gmake	# uses multi-line comments with \ (naughty hack!)
+#
+#.include "../../mk/bsd.pkg.mk"

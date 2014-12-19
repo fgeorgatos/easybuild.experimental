@@ -1,0 +1,73 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'glibmm'
+version = '2.40.0'
+versionsuffix = '-20141219'
+
+description = "glibmm-2.40.0: C++ bindings for glib"
+
+sources = [SOURCE_TAR_XZ]
+source_urls = ['http://sourceforge.net/projects/sources/glibmm/${PKGVERSION_NOREV:R}/files', 'download']
+
+homepage = 'http://www.gtkmm.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/glibmm/Makefile ######
+## $NetBSD: Makefile,v 1.62 2014/09/08 11:42:08 prlw1 Exp $
+#
+#DISTNAME=	glibmm-2.40.0
+#CATEGORIES=	devel gnome
+#MASTER_SITES=	${MASTER_SITE_GNOME:=sources/glibmm/${PKGVERSION_NOREV:R}/}
+#EXTRACT_SUFX=	.tar.xz
+#
+#MAINTAINER=	adam@NetBSD.org
+#HOMEPAGE=	http://www.gtkmm.org/
+#COMMENT=	C++ bindings for glib
+#LICENSE=	gnu-gpl-v2 AND gnu-lgpl-v2.1
+#
+#USE_LANGUAGES=		c c++
+#USE_LIBTOOL=		yes
+#USE_PKGLOCALEDIR=	yes
+#USE_TOOLS+=		gmake pkg-config perl:run
+#GNU_CONFIGURE=		yes
+#EXTRACT_USING=		bsdtar # added for pkg/42258
+#
+#PKGCONFIG_OVERRIDE+=	gio/giomm.pc.in
+#PKGCONFIG_OVERRIDE+=	glib/glibmm.pc.in
+#
+#BUILDLINK_API_DEPENDS.glib2+=	glib2>=2.40.0
+#BUILDLINK_API_DEPENDS.libsigcpp+=	libsigc++>=2.2.10
+#
+## x11/gtkmm needs these tools
+#INSTALLATION_DIRS=	share/glibmm-2.4/doctool
+#
+#post-install:
+#.for tool in doc-install.pl doc-postprocess.pl
+#	${INSTALL_SCRIPT} ${WRKSRC}/docs/${tool} \
+#		${DESTDIR}${PREFIX}/share/glibmm-2.4/doctool/${tool}
+#.endfor
+#
+#.include "../../devel/glib2/buildlink3.mk"
+#.include "../../devel/libsigc++/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

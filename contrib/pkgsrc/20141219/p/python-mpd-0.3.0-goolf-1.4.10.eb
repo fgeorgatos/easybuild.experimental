@@ -1,0 +1,55 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '-mpd-0.3.0'
+version = 'mpd-0.3.0'
+versionsuffix = '-20141219'
+
+description = "python-mpd-0.3.0: Python mpd client library"
+
+sources = ['python-mpd-0.3.0.tar.bz2']
+source_urls = ['http://pypi.python.org/packages/source/p/python-mpd/']
+
+homepage = 'http://www.musicpd.org/~jat/python-mpd/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/py-mpd/Makefile ######
+## $NetBSD: Makefile,v 1.6 2014/01/17 14:47:25 wiz Exp $
+#
+#DISTNAME=	python-mpd-0.3.0
+#PKGNAME=	${PYPKGPREFIX}-mpd-0.3.0
+#CATEGORIES=	audio
+#MASTER_SITES=	http://pypi.python.org/packages/source/p/python-mpd/
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.musicpd.org/~jat/python-mpd/
+#COMMENT=	Python mpd client library
+#LICENSE=	gnu-lgpl-v3
+#
+#USE_LANGUAGES=	# none
+#
+#EGG_NAME=	${DISTNAME:S/-/_/}
+#
+#.include "../../lang/python/distutils.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'libbdplus'
+version = '0.1.0'
+versionsuffix = '-20141219'
+
+description = "libbdplus-0.1.0: Research project to implement the BD+ System Specifications"
+
+sources = [SOURCE_TAR_BZ2]
+source_urls = ['ftp://ftp.videolan.org/pub/videolan/libbdplus/0.1.0/']
+
+homepage = 'https://www.videolan.org/developers/libbdplus.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/multimedia/libbdplus/Makefile ######
+## $NetBSD: Makefile,v 1.1 2014/01/08 23:07:09 wiz Exp $
+#
+#DISTNAME=	libbdplus-0.1.0
+#CATEGORIES=	multimedia
+#MASTER_SITES=	ftp://ftp.videolan.org/pub/videolan/libbdplus/0.1.0/
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	https://www.videolan.org/developers/libbdplus.html
+#COMMENT=	Research project to implement the BD+ System Specifications
+#LICENSE=	gnu-lgpl-v2.1
+#
+#GNU_CONFIGURE=	yes
+#USE_LIBTOOL=	yes
+#USE_TOOLS+=	pkg-config
+#
+#PKGCONFIG_OVERRIDE+=	src/libbdplus.pc.in
+#
+#.include "../../multimedia/libaacs/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

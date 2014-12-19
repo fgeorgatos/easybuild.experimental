@@ -1,0 +1,59 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'INET6Glue-0.602'
+versionsuffix = '-20141219'
+
+description = "Net-INET6Glue-0.602: Make common Perl modules IPv6 ready by hotpatching"
+
+sources = ['Net-INET6Glue-0.602.tar.gz']
+version = '${DISTNAME:S/602/6.2/}'
+name = 'p5'
+source_urls = ['${MASTER_SITE_PERL_CPAN:S/modules\/by-module\//authors\/id\/S\/SU\/SULLR//}']
+
+homepage = 'http://search.cpan.org/dist/Net-INET6Glue/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/p5-Net-INET6Glue/Makefile ######
+## $NetBSD: Makefile,v 1.8 2014/09/05 20:23:06 kim Exp $
+#
+#DISTNAME=	Net-INET6Glue-0.602
+#PKGNAME=	p5-${DISTNAME:S/602/6.2/}
+#PKGREVISION=	1
+#CATEGORIES=	net perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:S/modules\/by-module\//authors\/id\/S\/SU\/SULLR\//}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Net-INET6Glue/
+#COMMENT=	Make common Perl modules IPv6 ready by hotpatching
+#LICENSE=	${PERL5_LICENSE}
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#DEPENDS+=		p5-IO-Socket-INET6>=2.54:../../net/p5-IO-Socket-INET6
+#
+#PERL5_PACKLIST=		auto/Net/INET6Glue/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,59 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '-libdnet-1.12'
+version = '1.12'
+versionsuffix = '-20141219'
+
+description = "libdnet-1.12: Python wrapper for libdnet"
+
+sources = ['libdnet-1.12.tgz']
+source_urls = ['http://libdnet.googlecode.com/files/']
+
+homepage = 'http://code.google.com/p/libdnet/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/py-libdnet/Makefile ######
+## $NetBSD: Makefile,v 1.13 2014/05/09 07:37:15 wiz Exp $
+#
+#DISTNAME=	libdnet-1.12
+#PKGNAME=	${PYPKGPREFIX}-libdnet-1.12
+#PKGREVISION=	1
+#CATEGORIES=	devel net
+#MASTER_SITES=	http://libdnet.googlecode.com/files/
+#EXTRACT_SUFX=	.tgz
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://code.google.com/p/libdnet/
+#COMMENT=	Python wrapper for libdnet
+#LICENSE=	modified-bsd
+#
+#GNU_CONFIGURE=	yes
+#PYSETUPSUBDIR=	python
+#PYTHON_VERSIONS_INCOMPATIBLE=	33 34 # not yet ported as of 1.12
+#
+#EGG_NAME=	${DISTNAME:S/^lib//}
+#
+#.include "../../lang/python/distutils.mk"
+#.include "../../net/libdnet/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

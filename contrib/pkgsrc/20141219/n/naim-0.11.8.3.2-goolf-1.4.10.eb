@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'naim'
+version = '0.11.8.3.2'
+versionsuffix = '-20141219'
+
+description = "naim-0.11.8.3.2: curses-based AIM, ICQ, IRC, and Lily client"
+
+sources = [SOURCE_TAR_BZ2]
+source_urls = ['http://naim.googlecode.com/files/']
+
+homepage = 'http://naim.n.ml.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/chat/naim/Makefile ######
+## $NetBSD: Makefile,v 1.53 2013/10/15 21:20:29 roy Exp $
+#
+#DISTNAME=	naim-0.11.8.3.2
+#PKGREVISION=	1
+#CATEGORIES=	chat
+#MASTER_SITES=	http://naim.googlecode.com/files/
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://naim.n.ml.org/
+#COMMENT=	curses-based AIM, ICQ, IRC, and Lily client
+#
+#GNU_CONFIGURE=		yes
+#MAKE_JOBS_SAFE=		no
+#USE_LIBTOOL=		yes
+#
+#.include "../../mk/curses.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

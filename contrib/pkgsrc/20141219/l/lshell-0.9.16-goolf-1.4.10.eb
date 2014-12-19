@@ -1,0 +1,73 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'lshell'
+version = '0.9.16'
+versionsuffix = '-20141219'
+
+description = "lshell-0.9.16: Lshell restricts user s environment to specified commands"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/lshell/files', 'download']
+
+homepage = 'http://ghantoos.org/limited-shell-lshell/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/shells/lshell/Makefile ######
+## $NetBSD: Makefile,v 1.14 2014/05/09 07:37:18 wiz Exp $
+#
+#DISTNAME=	lshell-0.9.16
+#CATEGORIES=	shells python
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=lshell/}
+#
+#MAINTAINER=	imil@gcu.info
+#HOMEPAGE=	http://ghantoos.org/limited-shell-lshell/
+#COMMENT=	Lshell restricts user's environment to specified commands
+#LICENSE=	gnu-gpl-v3
+#
+#DEPENDS+=	${PYPKGPREFIX}-readline>=0nb2:../../devel/py-readline
+#
+#PKG_GROUPS=	lshellg
+#PKG_SHELL=	bin/lshell
+#
+#USE_LANGUAGES=		# none
+#
+#PYDISTUTILSPKG=		yes
+#PYTHON_VERSIONS_INCOMPATIBLE=	33 34 # not yet ported as of 0.9.16
+#
+#EGDIR=			share/examples/lshell
+#
+#SUBST_CLASSES+=		setup
+#SUBST_STAGE.setup=	post-patch
+#SUBST_FILES.setup=	setup.py
+#SUBST_SED.setup=	-e 's,/etc,${EGDIR},'
+#SUBST_SED.setup+=	-e 's,share/man,${PKGMANDIR},'
+#
+#INSTALLATION_DIRS+=	${EGDIR} ${EGDIR}/logrotate.d ${PKGMANDIR}/man1
+#
+#CONF_FILES=		${PREFIX}/${EGDIR}/lshell.conf \
+#			${PKG_SYSCONFDIR}/lshell.conf
+#
+#.include "../../lang/python/application.mk"
+#.include "../../lang/python/extension.mk"
+#.include "../../mk/bsd.pkg.mk"

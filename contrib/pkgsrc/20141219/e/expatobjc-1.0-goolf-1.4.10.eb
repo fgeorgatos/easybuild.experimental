@@ -1,0 +1,66 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'expatobjc'
+version = '1.0'
+versionsuffix = '-20141219'
+
+description = "expatobjc-1.0: Objective-C Wrapper for Expat"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/expatobjc/files', 'download']
+
+homepage = 'http://expatobjc.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/expatobjc/Makefile ######
+## $NetBSD: Makefile,v 1.17 2013/12/23 11:57:06 wiz Exp $
+#
+#DISTNAME=		expatobjc-1.0
+#PKGREVISION=		5
+#CATEGORIES=		textproc
+#MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=expatobjc/}
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://expatobjc.sourceforge.net/
+#COMMENT=		Objective-C Wrapper for Expat
+#LICENSE=		mit
+#
+#USE_LANGUAGES=		objc
+#USE_PKGLOCALEDIR=	yes
+#USE_TOOLS+=		gmake
+#GNU_CONFIGURE=		yes
+#AUTO_MKDIRS=		yes
+#
+#CONFIGURE_ENV+=		objc_works=yes
+#MAKE_ENV+=		INSTALL_DATA=${INSTALL_DATA:Q}
+#
+#SUBST_CLASSES+=		expatobjc
+#SUBST_STAGE.expatobjc=	pre-configure
+#SUBST_FILES.expatobjc=	Makefile.in
+#SUBST_SED.expatobjc+=	-e 's|\$$(INSTALL) -c -m 644|\$${INSTALL_DATA}|'
+#SUBST_SED.expatobjc+=	-e 's|\$$(libdir)|\$${DESTDIR}\$${PREFIX}/lib|'
+#SUBST_SED.expatobjc+=	-e 's|\$$(incdir)|\$${DESTDIR}\$${PREFIX}/include|'
+#
+#.include "../../textproc/expat/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

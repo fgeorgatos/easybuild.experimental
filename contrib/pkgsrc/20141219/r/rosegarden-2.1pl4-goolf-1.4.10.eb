@@ -1,0 +1,65 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'rosegarden-2.1.4'
+version = '2.1pl4'
+versionsuffix = '-20141219'
+
+description = "rosegarden-2.1pl4: "
+
+sources = ['rosegarden-2.1pl4.tar.gz']
+version = '2.1.4'
+name = 'rosegarden'
+source_urls = ['http://www.cannam.demon.co.uk/rosegarden/distribution/']
+
+homepage = 'http://www.rosegardenmusic.com/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/rosegarden/Makefile ######
+## $NetBSD: Makefile,v 1.30 2014/01/11 14:42:01 adam Exp $
+#
+#DISTNAME=	rosegarden-2.1pl4
+#PKGNAME=	rosegarden-2.1.4
+#PKGREVISION=	6
+#CATEGORIES=	audio
+#MASTER_SITES=	http://www.cannam.demon.co.uk/rosegarden/distribution/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.rosegardenmusic.com/
+#COMMENT=	Notation editor & MIDI sequencer
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#MAKE_JOBS_SAFE=		no
+#
+#GNU_CONFIGURE=	YES
+#USE_TOOLS+=	gmake makedepend
+#MAKE_ENV+=	GCC=yes
+#
+#INSTALLATION_DIRS+=	bin lib/X11/app-defaults
+#
+#post-extract:
+#	cd ${WRKSRC} && ${MV} Rosegarden Rosegarden.in
+#
+#.include "../../x11/libXaw/buildlink3.mk"
+#.include "../../lang/tcl/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

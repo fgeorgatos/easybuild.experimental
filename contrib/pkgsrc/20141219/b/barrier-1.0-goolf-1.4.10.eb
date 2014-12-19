@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'barrier'
+version = '1.0'
+versionsuffix = '-20141219'
+
+description = "barrier-1.0: Tests whether pkgsrc barriers work as expected"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['#none']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/regress/barrier/Makefile ######
+## $NetBSD: Makefile,v 1.4 2014/05/29 23:37:18 wiz Exp $
+##
+#
+#DISTNAME=	barrier-1.0
+#PKGREVISION=	1
+#CATEGORIES=	regress
+#MASTER_SITES=	# none
+#DISTFILES=	# none
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#COMMENT=	Tests whether pkgsrc barriers work as expected
+#
+#WRKSRC=		${WRKDIR}
+#
+#do-build:
+#	perl -e 'print "hello\n";'
+#
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

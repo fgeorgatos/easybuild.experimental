@@ -1,0 +1,64 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'ppp'
+version = ''
+versionsuffix = '-20141219'
+
+description = "ppp-: PPP Daemon"
+
+sources = ['ppp-${PPPD_VERSION}.tar.gz']
+source_urls = ['ftp://ftp.samba.org/pub/ppp/']
+
+homepage = 'http://ppp.samba.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/pppd/Makefile ######
+## $NetBSD: Makefile,v 1.12 2012/10/23 17:19:00 asau Exp $
+#
+#DISTNAME=		ppp-${PPPD_VERSION}
+#PKGNAME=		${DISTNAME:S/ppp/&d/}
+#PKGREVISION=		2
+#CATEGORIES=		net
+#MASTER_SITES=		ftp://ftp.samba.org/pub/ppp/
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://ppp.samba.org/
+#COMMENT=		PPP Daemon
+#
+#USE_PKGLOCALEDIR=	yes
+#HAS_CONFIGURE=		yes
+#USE_TOOLS+=		gmake
+#
+#ONLY_FOR_PLATFORM+=	NetBSD-*-* Linux-*-* DragonFly*
+#
+#PKG_SYSCONFSUBDIR=	ppp
+#CONFIGURE_ENV+=		PREFIX=${PREFIX:Q} PKGSYSCONFDIR=${PKG_SYSCONFDIR:Q}
+#
+#PPPD_VERSION=	2.4.3
+#PLIST_SUBST+=	PPPD_VERSION=${PPPD_VERSION:Q}
+#
+#DESTDIR_VARNAME=	#empty
+#INSTALL_MAKE_FLAGS+=	DESTDIR=${DESTDIR}${PREFIX}
+#
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,59 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'libosip2'
+version = '4.1.0'
+versionsuffix = '-20141219'
+
+description = "libosip2-4.1.0: Implementation of SIP"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://ftp.gnu.org/gnu/libosip2']
+
+homepage = 'http://www.gnu.org/software/osip/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/libosip/Makefile ######
+## $NetBSD: Makefile,v 1.18 2014/07/12 16:48:26 schwarz Exp $
+##
+#
+#DISTNAME=	libosip2-4.1.0
+#CATEGORIES=	devel
+#MASTER_SITES=	${MASTER_SITE_GNU:=osip/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.gnu.org/software/osip/
+#COMMENT=	Implementation of SIP
+#LICENSE=	gnu-lgpl-v2.1
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#USE_LIBTOOL=		yes
+#GNU_CONFIGURE=		yes
+#
+#PKGCONFIG_OVERRIDE+=	libosip2.pc.in
+#
+#.include "options.mk"
+#
+#.include "../../mk/pthread.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

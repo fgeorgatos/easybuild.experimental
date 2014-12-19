@@ -1,0 +1,60 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'gpa'
+version = '0.7.0'
+versionsuffix = '-20141219'
+
+description = "gpa-0.7.0: GUI frontend to gnupg"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['ftp://ftp.gnupg.org/gcrypt/alpha/gpa/']
+
+homepage = 'http://www.gnupg.org/related_software/gpa/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/gpa/Makefile ######
+## $NetBSD: Makefile,v 1.45 2014/05/05 00:48:18 ryoon Exp $
+##
+#
+#DISTNAME=	gpa-0.7.0
+#PKGREVISION=	26
+#CATEGORIES=	x11 security
+#MASTER_SITES=	ftp://ftp.gnupg.org/gcrypt/alpha/gpa/
+#
+#MAINTAINER=	pr@alles.prima.de
+#HOMEPAGE=	http://www.gnupg.org/related_software/gpa/
+#COMMENT=	GUI frontend to gnupg
+#
+#USE_TOOLS+=		pkg-config
+#GNU_CONFIGURE=		YES
+#USE_PKGLOCALEDIR=	YES
+#
+#LIBS+=			${BUILDLINK_LDADD.getopt}
+#
+#CONFIGURE_ENV+=		ac_cv_path_GPG=${GPGME_GPG:Q}
+#
+#.include "../../devel/libgetopt/buildlink3.mk"
+#.include "../../security/gpgme/buildlink3.mk"
+#.include "../../x11/gtk2/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

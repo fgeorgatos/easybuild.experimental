@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'MIME-ContentType-1.017'
+versionsuffix = '-20141219'
+
+description = "Email-MIME-ContentType-1.017: Perl module for parsing a MIME Content-Type header"
+
+sources = ['Email-MIME-ContentType-1.017.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Email/']
+
+homepage = 'http://search.cpan.org/dist/Email-MIME-ContentType/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/mail/p5-Email-MIME-ContentType/Makefile ######
+## $NetBSD: Makefile,v 1.11 2014/05/29 23:36:48 wiz Exp $
+#
+#DISTNAME=		Email-MIME-ContentType-1.017
+#PKGNAME=		p5-${DISTNAME}
+#PKGREVISION=		1
+#SVR4_PKGNAME=		p5emc
+#CATEGORIES=		mail perl5
+#MASTER_SITES=		${MASTER_SITE_PERL_CPAN:=Email/}
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://search.cpan.org/dist/Email-MIME-ContentType/
+#COMMENT=		Perl module for parsing a MIME Content-Type header
+#LICENSE=		${PERL5_LICENSE}
+#
+#PERL5_PACKLIST=		auto/Email/MIME/ContentType/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

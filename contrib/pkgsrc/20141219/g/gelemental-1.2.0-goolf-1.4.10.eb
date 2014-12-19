@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'gelemental'
+version = '1.2.0'
+versionsuffix = '-20141219'
+
+description = "gelemental-1.2.0: Periodic table viewer"
+
+sources = [SOURCE_TAR_BZ2]
+source_urls = ['http://www.kdau.com/files/']
+
+homepage = 'http://www.kdau.com/projects/gelemental/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/misc/gelemental/Makefile ######
+## $NetBSD: Makefile,v 1.26 2014/05/05 00:48:08 ryoon Exp $
+##
+#
+#DISTNAME=	gelemental-1.2.0
+#PKGREVISION=	21
+#CATEGORIES=	misc
+#MASTER_SITES=	http://www.kdau.com/files/
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.kdau.com/projects/gelemental/
+#COMMENT=	Periodic table viewer
+#
+#GNU_CONFIGURE=	yes
+#USE_LIBTOOL=	yes
+#USE_TOOLS+=	pkg-config intltool gmake msgfmt
+#USE_LANGUAGES=	c c++
+#
+#PKGCONFIG_OVERRIDE+=	data/libelemental.pc.in
+#
+#.include "../../devel/glibmm/buildlink3.mk"
+#.include "../../devel/pango/buildlink3.mk"
+#.include "../../x11/gtkmm/buildlink3.mk"
+#.include "../../graphics/hicolor-icon-theme/buildlink3.mk"
+#.include "../../sysutils/desktop-file-utils/desktopdb.mk"
+#.include "../../mk/bsd.pkg.mk"

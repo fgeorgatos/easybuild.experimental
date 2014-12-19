@@ -1,0 +1,67 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'mixer.app-1.8.0'
+version = '1.8.0'
+versionsuffix = '-20141219'
+
+description = "Mixer.app-1.8.0: Another mixer intended for the windowmaker dockapp"
+
+sources = ['Mixer.app-1.8.0.tar.gz']
+source_urls = ['#http://www.fukt.bth.se/~per/mixer/']
+
+homepage = 'http://www.fukt.bth.se/~per/mixer/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/mixer.app/Makefile ######
+## $NetBSD: Makefile,v 1.18 2012/10/23 10:24:02 wiz Exp $
+##
+#
+#DISTNAME=	Mixer.app-1.8.0
+#PKGNAME=	mixer.app-1.8.0
+#PKGREVISION=	1
+#CATEGORIES=	audio
+#CATEGORIES=	audio windowmaker
+#MASTER_SITES=	# http://www.fukt.bth.se/~per/mixer/
+#
+#MAINTAINER=	ptiJo@noos.fr
+#HOMEPAGE=	http://www.fukt.bth.se/~per/mixer/
+#COMMENT=	Another mixer intended for the windowmaker dockapp
+#
+#NOT_FOR_PLATFORM=	Interix-*-*
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#USE_LANGUAGES=	c++
+#
+#INSTALLATION_DIRS=	bin
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/Mixer.app ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/doc/Mixer.app
+#	${INSTALL_DATA} ${WRKSRC}/README ${DESTDIR}${PREFIX}/share/doc/Mixer.app
+#
+#.include "../../x11/libXext/buildlink3.mk"
+#.include "../../x11/libXpm/buildlink3.mk"
+#.include "../../mk/oss.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

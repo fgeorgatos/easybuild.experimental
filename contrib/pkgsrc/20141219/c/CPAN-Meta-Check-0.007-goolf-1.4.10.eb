@@ -1,0 +1,60 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Meta-Check-0.007'
+versionsuffix = '-20141219'
+
+description = "CPAN-Meta-Check-0.007: Perl module to verify requirements in a CPAN::Meta object"
+
+sources = ['CPAN-Meta-Check-0.007.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/CPAN/']
+
+homepage = 'http://search.cpan.org/dist/CPAN-Meta-Check/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-CPAN-Meta-Check/Makefile ######
+## $NetBSD: Makefile,v 1.7 2014/05/29 23:35:41 wiz Exp $
+#
+#DISTNAME=	CPAN-Meta-Check-0.007
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	2
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=CPAN/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/CPAN-Meta-Check/
+#COMMENT=	Perl module to verify requirements in a CPAN::Meta object
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	{perl>=5.16.0,p5-CPAN-Meta>=2.120920}:../../devel/p5-CPAN-Meta
+#DEPENDS+=	{perl>=5.18.0,p5-CPAN-Meta-Requirements>=2.122}:../../devel/p5-CPAN-Meta-Requirements
+#
+#BUILD_DEPENDS+= p5-Test-Deep-[0-9]*:../../devel/p5-Test-Deep
+#
+#PERL5_PACKLIST=		auto/CPAN/Meta/Check/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

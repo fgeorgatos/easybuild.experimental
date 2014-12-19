@@ -1,0 +1,71 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'shtk'
+version = '1.4'
+versionsuffix = '-20141219'
+
+description = "shtk-1.4: Application toolkit for POSIX-compliant shell scripts"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['https://github.com/jmmv/shtk/releases/download/${DISTNAME}/']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/shtk/Makefile ######
+## $NetBSD: Makefile,v 1.7 2014/08/14 13:48:21 jmmv Exp $
+#
+#DISTNAME=	shtk-1.4
+#CATEGORIES=	devel
+#MASTER_SITES=	https://github.com/jmmv/shtk/releases/download/${DISTNAME}/
+#
+#MAINTAINER=	jmmv@NetBSD.org
+#COMMENT=	Application toolkit for POSIX-compliant shell scripts
+#LICENSE=	modified-bsd
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#GNU_CONFIGURE=		yes
+#TEST_TARGET=		check
+#USE_LANGUAGES=		# empty
+#USE_TOOLS=		pkg-config
+#
+#CONFIGURE_ARGS+=	SHTK_SHELL="${SH}"
+#
+#PKG_OPTIONS_VAR=	PKG_OPTIONS.shtk
+#PKG_SUPPORTED_OPTIONS=	tests
+#PKG_SUGGESTED_OPTIONS=	tests
+#
+#.include "../../mk/bsd.options.mk"
+#
+#.if $(PKG_OPTIONS:Mtests)
+#.  include "../../devel/atf/buildlink3.mk"
+#CONFIGURE_ARGS+=	--with-atf=yes
+#PLIST_SUBST+=		TESTS=
+#.else
+#CONFIGURE_ARGS+=	--with-atf=no
+#PLIST_SUBST+=		TESTS=@comment
+#.endif
+#
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

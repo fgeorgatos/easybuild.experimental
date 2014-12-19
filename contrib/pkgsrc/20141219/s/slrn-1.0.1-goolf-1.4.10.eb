@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'slrn'
+version = '1.0.1'
+versionsuffix = '-20141219'
+
+description = "slrn-1.0.1: Highly customizable threaded newsreader"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/slrn/files', 'download']
+
+homepage = 'http://slrn.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/news/slrn/Makefile ######
+## $NetBSD: Makefile,v 1.59 2014/08/23 09:34:48 obache Exp $
+#
+#DISTNAME=	slrn-1.0.1
+#CATEGORIES=	news
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=slrn/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://slrn.sourceforge.net/
+#COMMENT=	Highly customizable threaded newsreader
+#LICENSE=	gnu-gpl-v2
+#
+#USE_PKGLOCALEDIR=	yes
+#GNU_CONFIGURE=		yes
+#CONFIGURE_ARGS+=	--disable-inews --with-slrnpull --enable-spool \
+#			--enable-grouplens --with-libdir=${PREFIX}/lib/slrn \
+#			--enable-mid-cache \
+#			--with-slang=${BUILDLINK_PREFIX.libslang2} \
+#			--with-localedir=${PREFIX}/${PKGLOCALEDIR}/locale
+#
+#.include "options.mk"
+#
+#LDFLAGS.SunOS+=	-lsocket -lnsl
+#
+#.include "../../devel/libslang2/buildlink3.mk"
+#.include "../../devel/gettext-lib/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

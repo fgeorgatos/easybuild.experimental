@@ -1,0 +1,53 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'wmavgload'
+version = '0.7.0'
+versionsuffix = '-20141219'
+
+description = "wmavgload-0.7.0: Another WindowMaker load gauge"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['ftp://ftp.windowmaker.info/pub/contrib/srcs/utils/']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/wmavgload/Makefile ######
+## $NetBSD: Makefile,v 1.18 2012/10/29 05:06:55 asau Exp $
+#
+#DISTNAME=	wmavgload-0.7.0
+#PKGREVISION=	1
+#CATEGORIES=	x11 windowmaker
+#MASTER_SITES=	ftp://ftp.windowmaker.info/pub/contrib/srcs/utils/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#COMMENT=	Another WindowMaker load gauge
+#
+#USE_IMAKE=	YES
+#
+#NO_INSTALL_MANPAGES=	YES
+#
+#.include "../../x11/libXext/buildlink3.mk"
+#.include "../../x11/libXpm/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

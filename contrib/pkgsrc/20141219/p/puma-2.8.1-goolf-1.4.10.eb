@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'puma'
+version = '2.8.1'
+versionsuffix = '-20141219'
+
+description = "puma-2.8.1: Modern concurrent web server for Ruby"
+
+sources = [SOURCE_TAR_GZ]
+
+homepage = 'http://puma.io/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/ruby-puma/Makefile ######
+## $NetBSD: Makefile,v 1.5 2014/09/25 10:50:58 fhajny Exp $
+#
+#DISTNAME=	puma-2.8.1
+#CATEGORIES=	www
+#
+#MAINTAINER=	taca@NetBSD.org
+#HOMEPAGE=	http://puma.io/
+#COMMENT=	Modern concurrent web server for Ruby
+#LICENSE=	mit
+#
+#DEPENDS+=	${RUBY_PKGPREFIX}-rack>=1.2<2:../../www/ruby-rack
+#
+#CONFLICTS+=	ruby[1-9][0-9][0-9]-puma-[0-9]*
+#
+#USE_GCC_RUNTIME=	yes
+#
+#.include "../../lang/ruby/gem.mk"
+#.include "../../security/openssl/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

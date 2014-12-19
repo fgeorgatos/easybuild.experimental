@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'openvas'
+version = 'client-2.0.1'
+versionsuffix = '-20141219'
+
+description = "openvas-client-2.0.1: Client for the Open Vulnerability Assessment System"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://wald.intevation.org/frs/download.php/552/']
+
+homepage = 'http://www.openvas.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/openvas-client/Makefile ######
+## $NetBSD: Makefile,v 1.28 2014/09/25 19:15:27 jperkin Exp $
+##
+#
+#DISTNAME=	openvas-client-2.0.1
+#PKGREVISION=	23
+#CATEGORIES=	security
+#MASTER_SITES=	http://wald.intevation.org/frs/download.php/552/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.openvas.org/
+#COMMENT=	Client for the Open Vulnerability Assessment System
+#
+#USE_TOOLS+=	gmake pkg-config
+#GNU_CONFIGURE=	YES
+#BUILD_DEFS+=	VARBASE
+#USE_X11=	YES
+#
+#CONFIGURE_ARGS+=	--localstatedir=${VARBASE}
+#CONFIGURE_ARGS+=	--with-x11
+#CONFIGURE_ARGS+=	--with-ssl=${BUILDLINK_PREFIX.openssl}
+#
+#.include "../../security/openvas-libraries/buildlink3.mk"
+#.include "../../security/openssl/buildlink3.mk"
+#.include "../../devel/glib2/buildlink3.mk"
+#.include "../../x11/gtk2/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

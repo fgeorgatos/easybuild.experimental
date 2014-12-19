@@ -1,0 +1,63 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'gtkglarea'
+version = '1.2.3'
+versionsuffix = '-20141219'
+
+description = "gtkglarea-1.2.3: OpenGL/Mesa widget for GTK+ GUI toolkit"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/openev/files', 'download']
+
+homepage = 'http://web.archive.org/web/20011204180640/http://www.student.oulu.fi/~jlof/gtkglarea/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/gtkglarea/Makefile ######
+## $NetBSD: Makefile,v 1.44 2012/10/29 05:06:19 asau Exp $
+#
+#DISTNAME=	gtkglarea-1.2.3
+#PKGREVISION=	3
+#CATEGORIES=	x11 graphics
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=openev/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://web.archive.org/web/20011204180640/http://www.student.oulu.fi/~jlof/gtkglarea/
+#COMMENT=	OpenGL/Mesa widget for GTK+ GUI toolkit
+#
+#USE_LIBTOOL=		yes
+#GNU_CONFIGURE=		yes
+#CONFIGURE_ARGS+=	--with-lib-MesaGL
+#
+#post-install:
+#	${INSTALL_MAN_DIR} "${DESTDIR}${PREFIX}/share/doc/gtkglarea"
+#	set -e; cd ${WRKSRC}/docs ; \
+#	${INSTALL_MAN} HOWTO.txt "${DESTDIR}${PREFIX}/share/doc/gtkglarea" ; \
+#	${INSTALL_MAN} gdkgl.txt "${DESTDIR}${PREFIX}/share/doc/gtkglarea" ; \
+#	${INSTALL_MAN} gtkglarea.txt "${DESTDIR}${PREFIX}/share/doc/gtkglarea"
+#
+#.include "../../graphics/MesaLib/buildlink3.mk"
+#.include "../../graphics/glu/buildlink3.mk"
+#.include "../../x11/gtk/buildlink3.mk"
+#
+#.include "../../mk/bsd.pkg.mk"

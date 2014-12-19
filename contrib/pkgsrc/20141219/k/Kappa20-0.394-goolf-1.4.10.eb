@@ -1,0 +1,72 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'ja-kappa20-0.394'
+version = '0.394'
+versionsuffix = '-20141219'
+
+description = "Kappa20-0.394: 20x20 dots X11 bitmap font for Japanese with several extra fonts"
+
+sources = ['Kappa20-0.394.tar.bz2']
+version = 'kappa20-0.394'
+name = 'ja'
+source_urls = ['${MASTER_SITE_LOCAL}']
+
+homepage = 'http://kappa.allnet.ne.jp/20dot.fonts/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/fonts/ja-kappa20/Makefile ######
+## $NetBSD: Makefile,v 1.17 2014/06/01 16:35:34 wiz Exp $
+#
+#DISTNAME=		Kappa20-0.394
+#PKGNAME=		ja-kappa20-0.394
+#PKGREVISION=		2
+#CATEGORIES=		fonts x11 japanese
+#MASTER_SITES=		${MASTER_SITE_LOCAL}
+#EXTRACT_SUFX=		.tar.bz2
+#
+#MAINTAINER=		tech-pkg-ja@jp.NetBSD.org
+#HOMEPAGE=		http://kappa.allnet.ne.jp/20dot.fonts/
+#COMMENT=		20x20 dots X11 bitmap font for Japanese with several extra fonts
+#
+#USE_X11BASE=		YES
+#FONTDIR=		${PREFIX}/share/fonts/X11/local
+#ALIAS_KAPPA=		${PREFIX}/share/examples/fonts.alias.Kappa20
+#
+#USE_TOOLS+=		bdftopcf gzip mkfontdir patch
+#
+#FILES_SUBST+=		FONTDIR=${FONTDIR:Q}
+#FILES_SUBST+=		ALIAS_KAPPA=${ALIAS_KAPPA:Q}
+#
+## do not build experimental JIS X 0213 font.
+#BUILD_TARGET=		default
+#
+#INSTALLATION_DIRS=	share/fonts/X11/local share/doc share/examples
+#
+#do-install:
+#	${INSTALL_DATA} ${WRKSRC}/README \
+#		${DESTDIR}${PREFIX}/share/doc/README.Kappa20
+#	${INSTALL_DATA} ${WRKSRC}/pcf/fonts.alias ${DESTDIR}${ALIAS_KAPPA}
+#	${INSTALL_DATA} ${WRKSRC}/pcf/*.pcf.* ${DESTDIR}${FONTDIR}
+#
+#.include "../../mk/bsd.pkg.mk"

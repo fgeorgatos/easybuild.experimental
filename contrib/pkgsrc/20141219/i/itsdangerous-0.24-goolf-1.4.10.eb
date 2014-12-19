@@ -1,0 +1,52 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '-'
+version = '0.24'
+versionsuffix = '-20141219'
+
+description = "itsdangerous-0.24: Helpers to pass trusted data to untrusted environments and back"
+
+sources = ['itsdangerous-0.24.tar.gz']
+source_urls = ['http://pypi.python.org/packages/source/i/itsdangerous/']
+
+homepage = 'http://pythonhosted.org/itsdangerous/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/py-itsdangerous/Makefile ######
+## $NetBSD: Makefile,v 1.6 2014/04/03 08:40:28 kleink Exp $
+#
+#DISTNAME=	itsdangerous-0.24
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+#CATEGORIES=	security python
+#MASTER_SITES=	http://pypi.python.org/packages/source/i/itsdangerous/
+#
+#MAINTAINER=	kleink@NetBSD.org
+#HOMEPAGE=	http://pythonhosted.org/itsdangerous/
+#COMMENT=	Helpers to pass trusted data to untrusted environments and back
+#LICENSE=	modified-bsd
+#
+#USE_LANGUAGES=	# empty
+#
+#.include "../../lang/python/egg.mk"
+#.include "../../mk/bsd.pkg.mk"

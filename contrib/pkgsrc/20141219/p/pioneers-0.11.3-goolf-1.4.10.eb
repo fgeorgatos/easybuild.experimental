@@ -1,0 +1,67 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'pioneers'
+version = '0.11.3'
+versionsuffix = '-20141219'
+
+description = "pioneers-0.11.3: GNOME version of the Settlers of Catan board game"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/pio/files', 'download']
+
+homepage = 'http://pio.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/pioneers/Makefile ######
+## $NetBSD: Makefile,v 1.48 2014/05/05 00:47:52 ryoon Exp $
+##
+#
+#DISTNAME=	pioneers-0.11.3
+#PKGREVISION=	31
+#CATEGORIES=	games gnome
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=pio/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://pio.sourceforge.net/
+#COMMENT=	GNOME version of the Settlers of Catan board game
+#
+#GNU_CONFIGURE=		YES
+#USE_TOOLS+=		gmake pkg-config msgfmt
+#USE_LIBTOOL=		YES
+#USE_PKGLOCALEDIR=	YES
+#
+#BUILDLINK_DEPMETHOD.librsvg=	build	# generates icons
+#
+#SUBST_CLASSES+=		paths
+#SUBST_STAGE.paths=	post-patch
+#SUBST_MESSAGE.paths=	Fixing hardcoded paths.
+#SUBST_FILES.paths=	docs/*.6
+#SUBST_SED.paths=	-e s,/usr/share/,${PREFIX}/share/,
+#
+#.include "../../devel/libgnome/buildlink3.mk"
+#.include "../../graphics/librsvg/buildlink3.mk"
+#.include "../../mk/omf-scrollkeeper.mk"
+#.include "../../x11/gtk2/buildlink3.mk"
+#.include "../../sysutils/desktop-file-utils/desktopdb.mk"
+#.include "../../mk/bsd.pkg.mk"

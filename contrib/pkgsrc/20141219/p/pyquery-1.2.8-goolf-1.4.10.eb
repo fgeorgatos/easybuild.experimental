@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '-'
+version = '1.2.8'
+versionsuffix = '-20141219'
+
+description = "pyquery-1.2.8: Python jquery-like library"
+
+sources = ['pyquery-1.2.8.zip']
+source_urls = ['https://pypi.python.org/packages/source/p/pyquery/']
+
+homepage = 'https://github.com/gawel/pyquery'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/py-pyquery/Makefile ######
+## $NetBSD: Makefile,v 1.1 2014/05/16 01:06:29 rodent Exp $
+#
+#DISTNAME=	pyquery-1.2.8
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+#CATEGORIES=	python textproc
+#MASTER_SITES=	https://pypi.python.org/packages/source/p/pyquery/
+#EXTRACT_SUFX=	.zip
+#
+#MAINTAINER=	rodent@NetBSD.org
+#HOMEPAGE=	https://github.com/gawel/pyquery
+#COMMENT=	Python jquery-like library
+#LICENSE=	modified-bsd
+#
+#DEPENDS+=	${PYPKGPREFIX}-lxml>=2.1:../../textproc/py-lxml
+#DEPENDS+=	${PYPKGPREFIX}-cssselect-[0-9]*:../../textproc/py-cssselect
+#
+#USE_LANGUAGES=	# none
+#
+#.include "../../lang/python/egg.mk"
+#.include "../../mk/bsd.pkg.mk"

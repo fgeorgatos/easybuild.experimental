@@ -1,0 +1,72 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'rabbit'
+version = '2.1.3'
+versionsuffix = '-20141219'
+
+description = "rabbit-2.1.3: RD-document-based presentation application"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://rabbit-shocker.org/download/']
+
+homepage = 'http://rabbit-shocker.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/rabbit/Makefile ######
+## $NetBSD: Makefile,v 1.48 2014/08/04 09:32:14 obache Exp $
+##
+#
+#DISTNAME=	rabbit-2.1.3
+#CATEGORIES=	graphics ruby
+#MASTER_SITES=	http://rabbit-shocker.org/download/
+#
+#MAINTAINER=	obache@NetBSD.org
+#HOMEPAGE=	http://rabbit-shocker.org/
+#COMMENT=	RD-document-based presentation application
+#LICENSE=	gnu-gpl-v2 # or later
+#
+#RUBY_VERSION_SUPPORTED=	193 200 21
+#
+#DEPENDS+=	${RUBY_PKGPREFIX}-gnome2-gtk>=0.90.3:../../x11/ruby-gnome2-gtk
+#DEPENDS+=	${RUBY_PKGPREFIX}-gnome2-rsvg-[0-9]*:../../graphics/ruby-gnome2-rsvg
+#DEPENDS+=	${RUBY_PKGPREFIX}-gnome2-poppler-[0-9]*:../../print/ruby-gnome2-poppler
+#DEPENDS+=	${RUBY_PKGPREFIX}-hikidoc-[0-9]*:../../textproc/ruby-hikidoc
+#DEPENDS+=	${RUBY_PKGPREFIX}-nokogiri-[0-9]*:../../textproc/ruby-nokogiri
+#DEPENDS+=	${RUBY_PKGPREFIX}-rdtool>=0.6.20:../../textproc/ruby-rdtool
+#DEPENDS+=	${RUBY_PKGPREFIX}-rttool-[0-9]*:../../textproc/ruby-rttool
+#DEPENDS+=	${RUBY_PKGPREFIX}-coderay>=1.0.0:../../textproc/ruby-coderay
+#DEPENDS+=	${RUBY_PKGPREFIX}-kramdown-[0-9]*:../../textproc/ruby-kramdown
+#DEPENDS+=	${RUBY_PKGPREFIX}-gettext>=3.0.1:../../devel/ruby-gettext
+#DEPENDS+=	${RUBY_PKGPREFIX}-faraday-[0-9]*:../../www/ruby-faraday
+##DEPENDS+=	${RUBY_PKGPREFIX}-gnome2-gstreamer-[0-9]*:../../multimedia/ruby-gnome2-gstreamer
+#
+#USE_RUBY_SETUP=		yes
+#USE_RUBY_SETUP_PKG=	yes
+#
+#CONFIGURE_ARGS+=	--siteruby=${PREFIX}/${RUBY_VENDORLIB_BASE} \
+#			--siterubyver=${PREFIX}/${RUBY_VENDORLIB} \
+#			--siterubyverarch=${PREFIX}/${RUBY_VENDORARCHLIB}
+#
+#.include "../../lang/ruby/modules.mk"
+#.include "../../mk/bsd.pkg.mk"

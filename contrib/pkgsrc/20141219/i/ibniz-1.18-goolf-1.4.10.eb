@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'ibniz'
+version = '1.18'
+versionsuffix = '-20141219'
+
+description = "ibniz-1.18: Virtual machine designed for extremely compact audiovisual programs"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://pelulamu.net/ibniz/']
+
+homepage = 'http://pelulamu.net/ibniz/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/ibniz/Makefile ######
+## $NetBSD: Makefile,v 1.1 2013/01/08 09:48:58 wiz Exp $
+##
+#
+#DISTNAME=	ibniz-1.18
+#CATEGORIES=	audio
+#MASTER_SITES=	http://pelulamu.net/ibniz/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://pelulamu.net/ibniz/
+#COMMENT=	Virtual machine designed for extremely compact audiovisual programs
+#LICENSE=	zlib
+#
+#INSTALLATION_DIRS=	bin share/doc/ibniz
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/ibniz ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_DATA} ${WRKSRC}/ibniz.txt ${DESTDIR}${PREFIX}/share/doc/ibniz
+#
+#.include "../../devel/SDL/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

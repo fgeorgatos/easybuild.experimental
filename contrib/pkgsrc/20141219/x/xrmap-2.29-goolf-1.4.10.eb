@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'xrmap-base-2.29'
+version = '2.29'
+versionsuffix = '-20141219'
+
+description = "xrmap-2.29: Earth map viewer - base program"
+
+sources = ['xrmap-2.29.tar.bz2']
+version = 'base-2.29'
+name = 'xrmap'
+source_urls = ['ftp://ftp.ac-grenoble.fr/ge/geosciences/xrmap/']
+
+
+homepage = 'http://frmas.free.fr/li_1.htm'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/geography/xrmap-base/Makefile ######
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://frmas.free.fr/li_1.htm
+#COMMENT=		Earth map viewer - complete
+#
+#META_PACKAGE=		# empty
+#
+#DEPENDS+=	xrmap-base-2.29{,nb*}:../../geography/xrmap-base
+#DEPENDS+=	xrmap-data>=0:../../geography/xrmap-data
+#DEPENDS+=	xrmap-factbook_text>=2002:../../geography/xrmap-factbook_text
+#DEPENDS+=	xrmap-factbook_html>=2002:../../geography/xrmap-factbook_html
+#DEPENDS+=	xrmap-anthems>=1.1:../../geography/xrmap-anthems
+#DEPENDS+=	xrmap-flags>=1.1:../../geography/xrmap-flags
+#DEPENDS+=	xrmap-hymns>=1.2:../../geography/xrmap-hymns
+#DEPENDS+=	xrmap-pdfmaps>=1.1:../../geography/xrmap-pdfmaps
+#
+#.include "../../mk/bsd.pkg.mk"

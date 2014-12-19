@@ -1,0 +1,65 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '-'
+version = ''
+versionsuffix = '-20141219'
+
+description = "trytond_analytic_account-: The analytic account module of the Tryton application platform"
+
+sources = ['trytond_analytic_account-${TRYTOND_VERSION}.tar.gz']
+source_urls = ['${TRYTON_SITES}']
+
+homepage = 'http://www.tryton.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/finance/py-trytond-analytic-account/Makefile ######
+## $NetBSD: Makefile,v 1.1 2014/09/10 16:03:48 richard Exp $
+#TRYTOND_MODULE_REVISION=	1
+#.include "../../devel/py-trytond/Makefile.common"
+#DISTNAME=	trytond_analytic_account-${TRYTOND_VERSION}
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME:S/_/-/1}
+#CATEGORIES=	finance python
+#MASTER_SITES=	${TRYTON_SITES}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.tryton.org/
+#COMMENT=	The analytic_account module of the Tryton application platform
+#LICENSE=	gnu-gpl-v3
+#
+#DEPENDS+=	${PYPKGPREFIX}-trytond-account-[0-9]*:../../finance/py-trytond-account
+#DEPENDS+=	${PYPKGPREFIX}-trytond-company-[0-9]*:../../misc/py-trytond-company
+#DEPENDS+=	${PYPKGPREFIX}-trytond-party-[0-9]*:../../misc/py-trytond-party
+#DEPENDS+=	${PYPKGPREFIX}-trytond-currency-[0-9]*:../../finance/py-trytond-currency
+#DEPENDS+=	${PYPKGPREFIX}-trytond-[0-9]*:../../devel/py-trytond
+#
+#USE_LANGUAGES=	# none
+#
+#PYTHON_VERSIONED_DEPENDENCIES=	dateutil
+#
+#REPLACE_PYTHON+=	tests/test_analytic_account.py
+#
+#.include "../../lang/python/application.mk"
+#.include "../../lang/python/egg.mk"
+#.include "../../lang/python/versioned_dependencies.mk"
+#.include "../../mk/bsd.pkg.mk"

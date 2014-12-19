@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-0'
+version = 'Interrupt-1.1'
+versionsuffix = '-20141219'
+
+description = "Async-Interrupt-1.1: Allow C/XS libraries to interrupt perl asynchronously"
+
+sources = ['Async-Interrupt-1.1.tar.gz']
+version = '${DISTNAME}0'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Async/']
+
+homepage = 'http://search.cpan.org/dist/Async-Interrupt/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Async-Interrupt/Makefile ######
+## $NetBSD: Makefile,v 1.13 2014/05/29 23:35:39 wiz Exp $
+#
+#DISTNAME=	Async-Interrupt-1.1
+#PKGNAME=	p5-${DISTNAME}0
+#PKGREVISION=	1
+#CATEGORIES=	devel
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Async/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Async-Interrupt/
+#COMMENT=	Allow C/XS libraries to interrupt perl asynchronously
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	p5-common-sense-[0-9]*:../../devel/p5-common-sense
+#
+#USE_LANGUAGES=		c
+#PERL5_PACKLIST=		auto/Async/Interrupt/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

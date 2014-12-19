@@ -1,0 +1,99 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'sudo'
+version = '1.7.10p8'
+versionsuffix = '-20141219'
+
+description = "sudo-1.7.10p8: Allow others to run commands as root"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.sudo.ws/dist/']
+
+homepage = 'http://www.sudo.ws/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/sudo/Makefile ######
+## $NetBSD: Makefile,v 1.143 2014/07/28 20:07:42 jperkin Exp $
+##
+#
+#DISTNAME=		sudo-1.7.10p8
+##PKGREVISION=		0
+#CATEGORIES=		security
+#MASTER_SITES=		http://www.sudo.ws/dist/ \
+#			ftp://ftp.sudo.ws/pub/sudo/ \
+#			ftp://ftp.uwsg.indiana.edu/pub/security/sudo/ \
+#			ftp://ftp.twaren.net/Unix/Security/Sudo/ \
+#			http://ftp.tux.org/pub/security/sudo/
+#
+#MAINTAINER=		kim@tac.nyc.ny.us
+#HOMEPAGE=		http://www.sudo.ws/
+#COMMENT=		Allow others to run commands as root
+#LICENSE=		isc AND modified-bsd
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#USE_LIBTOOL=		yes
+#OWN_DIRS+=		${VARBASE}/run
+#GNU_CONFIGURE=		yes
+#BUILD_DEFS+=		VARBASE
+#PLIST_VARS+=		ldap noexec
+#
+#.include "../../mk/bsd.prefs.mk"
+#
+## to always install man instead of cat
+#CONFIGURE_ENV+=		NROFFPROG=${CAT:Q}
+#CONFIGURE_ENV+=		mansectsu=8
+#CONFIGURE_ENV+=		mansectform=5
+#CONFIGURE_ARGS+=	--disable-root-mailer --with-ignore-dot
+#CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR}
+#CONFIGURE_ARGS+=	--with-timedir=${VARBASE}/run/sudo
+#CONFIGURE_ARGS+=	--with-logpath=${VARBASE}/log/sudo.log
+#
+#.if ${OPSYS} == "Darwin"
+#CONFIGURE_ARGS+=	--with-noexec=no
+#.else
+#PLIST.noexec=		yes
+#.endif
+#
+#.include "options.mk"
+#
+#CONFIGURE_ARGS+=	--with-nbsdops --disable-path-info
+#
+#DOCDIR=			share/doc/${PKGBASE}
+#EGDIR=			share/examples/${PKGBASE}
+#CONF_FILES_PERMS=	${EGDIR}/sudoers ${PKG_SYSCONFDIR}/sudoers \
+#			${REAL_ROOT_USER} ${REAL_ROOT_GROUP} 0440
+#OWN_DIRS+=		${PKG_SYSCONFDIR}/sudoers.d
+#SPECIAL_PERMS+=		bin/sudo ${SETUID_ROOT_PERMS}
+#SPECIAL_PERMS+=		bin/sudoreplay ${REAL_ROOT_USER} ${REAL_ROOT_GROUP} 511
+#
+#INSTALLATION_DIRS+=	${DOCDIR} ${EGDIR}
+#
+#post-install:
+#	${INSTALL_DATA} ${WRKSRC}/UPGRADE ${DESTDIR}${PREFIX}/${DOCDIR}
+#	${INSTALL_DATA} ${WRKSRC}/sudoers ${DESTDIR}${PREFIX}/${EGDIR}/sudoers
+#	${INSTALL_DATA} ${WRKSRC}/README ${DESTDIR}${PREFIX}/${DOCDIR}
+#
+#.include "../../devel/zlib/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

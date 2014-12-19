@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'cvs'
+version = 'fast-export-1.10'
+versionsuffix = '-20141219'
+
+description = "cvs-fast-export-1.10: Export an RCS or CVS history as a fast-import stream"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.catb.org/~esr/cvs-fast-export/']
+
+homepage = 'http://www.catb.org/~esr/cvs-fast-export/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/cvs-fast-export/Makefile ######
+## $NetBSD: Makefile,v 1.7 2014/05/17 16:10:42 wiz Exp $
+##
+#
+#DISTNAME=	cvs-fast-export-1.10
+#PKGREVISION=	1
+#CATEGORIES=	devel
+#MASTER_SITES=	http://www.catb.org/~esr/cvs-fast-export/
+#
+#MAINTAINER=	apb@NetBSD.org
+#HOMEPAGE=	http://www.catb.org/~esr/cvs-fast-export/
+#COMMENT=	Export an RCS or CVS history as a fast-import stream
+#LICENSE=	gnu-gpl-v2
+#
+#USE_TOOLS+=	flex yacc
+#BUILD_DEPENDS+=	asciidoc-[0-9]*:../../textproc/asciidoc
+#
+#REPLACE_PYTHON+=	cvssync
+#
+#.include "../../lang/python/application.mk"
+#.include "../../mk/bsd.pkg.mk"

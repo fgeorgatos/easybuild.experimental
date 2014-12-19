@@ -1,0 +1,65 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'arpack-96'
+version = 'arpack96'
+versionsuffix = '-20141219'
+
+description = "arpack96: Library of subroutines to solve eigenvalue problems"
+
+sources = ['arpack96.tar.gz']
+version = '96'
+name = 'arpack'
+source_urls = ['http://www.caam.rice.edu/software/ARPACK/SRC/']
+
+homepage = 'http://www.caam.rice.edu/software/ARPACK/SRC/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/math/arpack/Makefile ######
+## $NetBSD: Makefile,v 1.2 2012/09/11 23:04:16 asau Exp $
+#
+#DISTNAME=	arpack96
+#PKGNAME=	arpack-96
+#CATEGORIES=	math
+#MASTER_SITES=	http://www.caam.rice.edu/software/ARPACK/SRC/
+#DISTFILES=	arpack96.tar.gz patch.tar.gz
+#
+#MAINTAINER=	jwbacon@tds.net
+#HOMEPAGE=	http://www.caam.rice.edu/software/ARPACK/SRC/
+#COMMENT=	Library of subroutines to solve eigenvalue problems
+#LICENSE=	original-bsd
+#
+#WRKSRC=		${WRKDIR}/ARPACK
+#USE_LANGUAGES=	fortran77
+#MAKE_ENV+=	WRKSRC=${WRKSRC}
+#
+#INSTALLATION_DIRS=	lib
+#
+## Patches must be extracted AFTER the main dist to overwrite files
+#post-extract:
+#	cd ${WRKDIR} && ${TAR} -zxf ${DISTDIR}/patch.tar.gz
+#
+#do-install:
+#	${INSTALL_DATA} ${WRKSRC}/libarpack.a ${DESTDIR}${PREFIX}/lib
+#
+#.include "../../mk/bsd.pkg.mk"

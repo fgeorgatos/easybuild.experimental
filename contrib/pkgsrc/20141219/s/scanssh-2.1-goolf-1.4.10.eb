@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'scanssh'
+version = '2.1'
+versionsuffix = '-20141219'
+
+description = "scanssh-2.1: SSH remote version scanner"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://monkey.org/~provos/']
+
+homepage = 'http://monkey.org/~provos/scanssh/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/scanssh/Makefile ######
+## $NetBSD: Makefile,v 1.35 2014/02/12 23:18:36 tron Exp $
+#
+#DISTNAME=	scanssh-2.1
+#PKGREVISION=	14
+#CATEGORIES=	security
+#MASTER_SITES=	http://monkey.org/~provos/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://monkey.org/~provos/scanssh/
+#COMMENT=	SSH remote version scanner
+#
+#GNU_CONFIGURE=		YES
+#USE_BUILTIN.libevent=	NO
+#
+#.include "../../devel/libevent/buildlink3.mk"
+#.include "../../net/libpcap/buildlink3.mk"
+#.include "../../net/libdnet/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

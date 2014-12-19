@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'tex--3.141592653.26647'
+version = 'plain'
+versionsuffix = '-20141219'
+
+description = "plain: The Plain TeX format"
+
+sources = ['plain.tar.gz']
+version = '${DISTNAME}-3.141592653.26647'
+name = 'tex'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/print/tex-plain/Makefile ######
+## $NetBSD: Makefile,v 1.8 2012/10/14 21:53:34 minskim Exp $
+#
+#DISTNAME=	plain
+#PKGNAME=	tex-${DISTNAME}-3.141592653.26647
+#TEXLIVE_REV=	26647
+#
+#MAINTAINER=	minskim@NetBSD.org
+#COMMENT=	The Plain TeX format
+#
+#CONFLICTS+=	teTeX-texmf<=3.0nb11
+#DEPENDS+=	tex-amsfonts-[0-9]*:../../fonts/tex-amsfonts
+#DEPENDS+=	tex-cm-[0-9]*:../../fonts/tex-cm
+#DEPENDS+=	tex-hyphen-base-[0-9]*:../../print/tex-hyphen-base
+#DEPENDS+=	tex-misc-[0-9]*:../../print/tex-misc
+#
+#.include "../../print/texlive/package.mk"
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

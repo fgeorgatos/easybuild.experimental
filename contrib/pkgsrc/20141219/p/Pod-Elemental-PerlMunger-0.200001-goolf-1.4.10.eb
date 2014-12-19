@@ -1,0 +1,63 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Elemental-PerlMunger-0.200001'
+versionsuffix = '-20141219'
+
+description = "Pod-Elemental-PerlMunger-0.200001: Perl5 module that takes a string of Perl and rewrites its Pod"
+
+sources = ['Pod-Elemental-PerlMunger-0.200001.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Pod/']
+
+homepage = 'http://search.cpan.org/dist/Pod-Elemental-PerlMunger/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/p5-Pod-Elemental-PerlMunger/Makefile ######
+## $NetBSD: Makefile,v 1.8 2014/05/29 23:37:38 wiz Exp $
+#
+#DISTNAME=	Pod-Elemental-PerlMunger-0.200001
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	1
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Pod/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Pod-Elemental-PerlMunger/
+#COMMENT=	Perl5 module that takes a string of Perl and rewrites its Pod
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	p5-List-AllUtils-[0-9]*:../../devel/p5-List-AllUtils
+#DEPENDS+=	p5-Moose-[0-9]*:../../devel/p5-Moose
+#DEPENDS+=	p5-PPI-[0-9]*:../../devel/p5-PPI
+#DEPENDS+=	p5-Pod-Elemental>=0.092941:../../textproc/p5-Pod-Elemental
+#DEPENDS+=	p5-namespace-autoclean-[0-9]*:../../devel/p5-namespace-autoclean
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#PERL5_PACKLIST=		auto/Pod/Elemental/PerlMunger/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

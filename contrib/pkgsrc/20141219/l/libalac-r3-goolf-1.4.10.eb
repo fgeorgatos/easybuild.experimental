@@ -1,0 +1,59 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'libalac-0.0.20111026'
+version = 'r3'
+versionsuffix = '-20141219'
+
+description = "libalac-r3: Apple Lossless Audio Codec is an audio codec developed by Apple"
+
+sources = ['libalac-r3.tar.bz2']
+version = '0.0.20111026'
+name = 'libalac'
+source_urls = ['${MASTER_SITE_LOCAL}']
+
+homepage = 'http://alac.macosforge.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/libalac/Makefile ######
+## $NetBSD: Makefile,v 1.3 2012/09/12 00:24:41 asau Exp $
+##
+#
+#DISTNAME=	libalac-r3
+#PKGNAME=	libalac-0.0.20111026
+#CATEGORIES=	audio
+#MASTER_SITES=	${MASTER_SITE_LOCAL}
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	ryoon@NetBSD.org
+#HOMEPAGE=	http://alac.macosforge.org/
+#COMMENT=	Apple Lossless Audio Codec is an audio codec developed by Apple
+#LICENSE=	apache-2.0
+#
+#WRKSRC=		${WRKDIR}/libalac-r3/codec
+#USE_LANGUAGES=	c c++
+#MAKE_FILE=	makefile
+#
+#USE_LIBTOOL=	yes
+#
+#.include "../../mk/bsd.pkg.mk"

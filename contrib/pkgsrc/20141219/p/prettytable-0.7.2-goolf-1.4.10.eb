@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '-'
+version = '0.7.2'
+versionsuffix = '-20141219'
+
+description = "prettytable-0.7.2: Simple Python library for easily displaying tabular data"
+
+sources = ['prettytable-0.7.2.tar.gz']
+source_urls = ['http://pypi.python.org/packages/source/P/PrettyTable/']
+
+homepage = 'http://code.google.com/p/prettytable/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/py-prettytable/Makefile ######
+## $NetBSD: Makefile,v 1.4 2014/04/17 21:11:31 imil Exp $
+##
+#
+#DISTNAME=	prettytable-0.7.2
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+#PKGREVISION=	1
+#CATEGORIES=	textproc
+#MASTER_SITES=	http://pypi.python.org/packages/source/P/PrettyTable/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://code.google.com/p/prettytable/
+#COMMENT=	Simple Python library for easily displaying tabular data
+#LICENSE=	modified-bsd
+#
+#USE_LANGUAGES=	# none
+#
+#post-extract:
+#	${CHMOD} -R a+r ${WRKSRC}
+#
+#.include "../../lang/python/egg.mk"
+#.include "../../mk/bsd.pkg.mk"

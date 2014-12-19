@@ -1,0 +1,74 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'edict-20061208'
+version = 'edict'
+versionsuffix = '-20141219'
+
+description = "edict: Japanese-English dictionary file"
+
+sources = ['edict.gz']
+version = '20061208'
+name = 'edict'
+source_urls = ['http://sourceforge.net/projects/${PKGNAME_NOREV}/files', 'download']
+
+homepage = 'http://www.csse.monash.edu.au/~jwb/edict.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/misc/edict/Makefile ######
+## $NetBSD: Makefile,v 1.10 2012/10/08 09:57:20 asau Exp $
+##
+## Update instructions:
+## . bump PKGNAME to today's date
+## . get distfiles from OMASTER_SITES
+## . update ${DISTDIR}/${PKGNAME_NOREV} to
+##   ftp.NetBSD.org:/pub/NetBSD/packages/distfiles/LOCAL_PORTS/
+#
+#DISTNAME=	edict
+#PKGNAME=	edict-20061208
+#CATEGORIES=	japanese misc
+#MASTER_SITES=	${MASTER_SITE_LOCAL:=${PKGNAME_NOREV}/}
+#OMASTER_SITES=	ftp://ftp.cc.monash.edu.au/pub/nihongo/
+#EXTRACT_SUFX=	.gz
+#DISTFILES=	edict.gz edict_doc.html
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.csse.monash.edu.au/~jwb/edict.html
+#COMMENT=	Japanese-English dictionary file
+#
+#WRKSRC=		${WRKDIR}
+#DIST_SUBDIR=	${PKGNAME_NOREV}
+#EXTRACT_ONLY=	edict.gz
+#
+#NO_BUILD=	yes
+#
+#do-install:
+#	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/edict
+#	${INSTALL_DATA} ${WRKSRC}/edict ${DESTDIR}${PREFIX}/share/edict/
+#	${INSTALL_DATA} ${DISTDIR}/${DIST_SUBDIR}/edict.gz \
+#		${DESTDIR}${PREFIX}/share/edict
+#	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/doc/edict
+#	${INSTALL_DATA} ${DISTDIR}/${DIST_SUBDIR}/edict_doc.html \
+#		${DESTDIR}${PREFIX}/share/doc/edict
+#
+#.include "../../mk/bsd.pkg.mk"

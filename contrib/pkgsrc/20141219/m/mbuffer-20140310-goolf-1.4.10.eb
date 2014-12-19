@@ -1,0 +1,53 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'mbuffer'
+version = '20140310'
+versionsuffix = '-20141219'
+
+description = "mbuffer-20140310: Tool for buffering data streams"
+
+sources = [SOURCE_TGZ]
+source_urls = ['http://www.maier-komor.de/software/mbuffer/']
+
+homepage = 'http://www.maier-komor.de/mbuffer.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/misc/mbuffer/Makefile ######
+## $NetBSD: Makefile,v 1.1 2014/05/08 11:21:24 jperkin Exp $
+#
+#DISTNAME=	mbuffer-20140310
+#CATEGORIES=	misc
+#MASTER_SITES=	http://www.maier-komor.de/software/mbuffer/
+#EXTRACT_SUFX=	.tgz
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.maier-komor.de/mbuffer.html
+#COMMENT=	Tool for buffering data streams
+#LICENSE=	gnu-gpl-v3
+#
+#NOT_FOR_PLATFORM=	NetBSD-*-*	# Needs sysctl bits
+#
+#GNU_CONFIGURE=	yes
+#
+#.include "../../mk/bsd.pkg.mk"

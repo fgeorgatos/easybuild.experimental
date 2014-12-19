@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'XML'
+version = 'XSH-1.8.2'
+versionsuffix = '-20141219'
+
+description = "XML-XSH-1.8.2: XML Editing Shell"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/xsh/files', 'download']
+
+homepage = 'http://xsh.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/shells/xsh/Makefile ######
+## $NetBSD: Makefile,v 1.22 2014/05/29 23:37:26 wiz Exp $
+#
+#DISTNAME=	XML-XSH-1.8.2
+#PKGNAME=	${DISTNAME:S/XML-XSH/xsh/}
+#PKGREVISION=	13
+#CATEGORIES=	shells
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=xsh/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://xsh.sourceforge.net/
+#COMMENT=	XML Editing Shell
+#
+#DEPENDS+=	p5-Parse-RecDescent>=1.94:../../devel/p5-Parse-RecDescent
+#DEPENDS+=	{perl>=5.17.10,p5-Term-ReadLine>=1.12}:../../devel/p5-Term-ReadLine
+#DEPENDS+=	p5-XML-LibXML>=1.31:../../textproc/p5-XML-LibXML
+#DEPENDS+=	p5-XML-LibXML-Iterator-[0-9]*:../../textproc/p5-XML-LibXML-Iterator
+#DEPENDS+=	p5-XML-NodeFilter-[0-9]*:../../textproc/p5-XML-NodeFilter
+#
+#USE_TOOLS+=	gmake
+#PKG_SHELL=	bin/xsh
+#
+#PERL5_PACKLIST= auto/XML/XSH/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

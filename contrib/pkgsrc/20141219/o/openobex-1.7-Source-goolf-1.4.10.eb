@@ -1,0 +1,77 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'openobex-1.7'
+version = '1.7-Source'
+versionsuffix = '-20141219'
+
+description = "openobex-1.7-Source: Implementation of the Object Exchange OBEX protocol"
+
+sources = ['openobex-1.7-Source.tar.gz']
+version = '1.7'
+name = 'openobex'
+source_urls = ['http://sourceforge.net/projects/openobex/files', 'download']
+
+homepage = 'https://gitorious.org/openobex'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/comms/openobex/Makefile ######
+## $NetBSD: Makefile,v 1.26 2014/04/28 12:14:27 joerg Exp $
+#
+#DISTNAME=	openobex-1.7-Source
+#PKGNAME=	openobex-1.7
+#PKGREVISION=	2
+#CATEGORIES=	comms
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=openobex/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	https://gitorious.org/openobex
+#COMMENT=	Implementation of the Object Exchange (OBEX) protocol
+#LICENSE=	gnu-lgpl-v2
+#
+#BUILD_DEPENDS+=	doxygen>=1.8.7:../../devel/doxygen
+#
+#USE_CMAKE=	yes
+#USE_TOOLS+=	cmake pkg-config
+#
+#PKGCONFIG_OVERRIDE=	openobex.pc.in
+#
+#LDFLAGS.SunOS+=	-lsocket -lnsl
+#
+#.include "../../mk/bsd.prefs.mk"
+#
+#EGDIR=		share/examples/openobex
+#
+#.if ${OPSYS} == "Linux"
+#INSTALLATION_DIRS+=	${EGDIR}
+#MAKE_DIRS+=		/etc/udev /etc/udev/rules.d
+#CONF_FILES+=		${EGDIR}/60-openobex.rules \
+#			/etc/udev/rules.d/60-openobex.rules
+#
+#post-install:
+#	${MV} ${DESTDIR}/lib/udev/rules.d/60-openobex.rules \
+#	      ${DESTDIR}${PREFIX}/${EGDIR}/60-openobex.rules
+#.endif
+#
+#.include "../../devel/libusb/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

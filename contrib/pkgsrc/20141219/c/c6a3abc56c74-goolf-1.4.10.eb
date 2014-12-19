@@ -1,0 +1,73 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'shelldap-0.5'
+version = 'c6a3abc56c74'
+versionsuffix = '-20141219'
+
+description = "c6a3abc56c74: Shell-like interface for browsing LDAP servers"
+
+version = '0.5'
+name = 'shelldap'
+sources = ['c6a3abc56c74.zip']
+source_urls = ['http://code.martini.nu/shelldap/archive/']
+
+homepage = 'http://projects.martini.nu/shelldap'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/shelldap/Makefile ######
+## $NetBSD: Makefile,v 1.11 2014/05/29 23:37:32 wiz Exp $
+##
+#
+#PKGNAME=	shelldap-0.5
+#DISTNAME=	c6a3abc56c74
+#PKGREVISION=	4
+#CATEGORIES=	sysutils
+#MASTER_SITES=	http://code.martini.nu/shelldap/archive/
+#EXTRACT_SUFX=	.zip
+#
+#MAINTAINER=	imil@NetBSD.org
+#HOMEPAGE=	http://projects.martini.nu/shelldap
+#COMMENT=	Shell-like interface for browsing LDAP servers
+#LICENSE=	modified-bsd
+#
+#DEPENDS+=	p5-YAML-Syck>=1.15:../../textproc/p5-YAML-Syck
+#DEPENDS+=	p5-Term-Shell>=0.02:../../devel/p5-Term-Shell
+#DEPENDS+=	{perl>=5.13.6,p5-Digest-MD5>=2.51}:../../security/p5-Digest-MD5
+#DEPENDS+=	p5-Algorithm-Diff>=1.1902:../../devel/p5-Algorithm-Diff
+#DEPENDS+=	p5-perl-ldap>=0.40.01:../../databases/p5-perl-ldap
+#DEPENDS+=	p5-Term-ReadLine>=1.20:../../devel/p5-Term-ReadLine
+#
+#WRKSRC=		${WRKDIR}/shelldap-c6a3abc56c74
+#USE_LANGUAGES=	# none
+#
+#NO_BUILD=	yes
+#REPLACE_PERL+=	shelldap
+#USE_TOOLS+=	perl:run
+#
+#INSTALLATION_DIRS+=	bin
+#
+#do-install:
+#	${INSTALL_SCRIPT} ${WRKSRC}/shelldap ${DESTDIR}${PREFIX}/bin/
+#
+#.include "../../mk/bsd.pkg.mk"

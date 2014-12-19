@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'libradius'
+version = 'linux-20040827'
+versionsuffix = '-20141219'
+
+description = "libradius-linux-20040827: RADIUS client library"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://portal-to-web.de/tacacs/']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/libradius/Makefile ######
+## $NetBSD: Makefile,v 1.16 2014/02/24 12:43:11 wiedi Exp $
+#
+#DISTNAME=	libradius-linux-20040827
+#PKGNAME=	${DISTNAME:S/-linux//}
+#PKGREVISION=	2
+#CATEGORIES=	net
+#MASTER_SITES=	http://portal-to-web.de/tacacs/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#COMMENT=	RADIUS client library
+#
+#USE_FEATURES+=	cdefs
+#
+#CONFLICTS+=	inn-[0-9]*
+#
+#WRKSRC=		${WRKDIR}/libradius-linux
+#
+#CPPFLAGS.SunOS+=	-Du_int32_t=uint32_t
+#
+#INSTALLATION_DIRS=	include lib ${PKGMANDIR}/man3 ${PKGMANDIR}/man5
+#
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

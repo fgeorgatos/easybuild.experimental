@@ -1,0 +1,69 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'subtitleeditor'
+version = '0.30.0'
+versionsuffix = '-20141219'
+
+description = "subtitleeditor-0.30.0: GTK+2 tool to edit movie subtitles"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://download.gna.org/subtitleeditor/0.30/']
+
+homepage = 'http://home.gna.org/subtitleeditor/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/multimedia/subtitleeditor/Makefile ######
+## $NetBSD: Makefile,v 1.30 2014/05/05 00:48:12 ryoon Exp $
+##
+#
+#DISTNAME=		subtitleeditor-0.30.0
+#PKGREVISION=		21
+#CATEGORIES=		multimedia
+#MASTER_SITES=		http://download.gna.org/subtitleeditor/0.30/
+#
+#MAINTAINER=		ccatrian@eml.cc
+#HOMEPAGE=		http://home.gna.org/subtitleeditor/
+#COMMENT=		GTK+2 tool to edit movie subtitles
+#
+#USE_PKGLOCALEDIR=	yes
+#USE_LIBTOOL=		yes
+#USE_TOOLS+=		gmake intltool pkg-config msgfmt
+#GNU_CONFIGURE=		yes
+#USE_LANGUAGES=		c c++
+#
+#BUILDLINK_API_DEPENDS.glibmm+=	glibmm>=2.16.3
+#.include "../../devel/glibmm/buildlink3.mk"
+#.include "../../devel/libglademm/buildlink3.mk"
+#.include "../../graphics/hicolor-icon-theme/buildlink3.mk"
+#.include "../../multimedia/gstreamer0.10/buildlink3.mk"
+#.include "../../multimedia/gst-plugins0.10-base/buildlink3.mk"
+#.include "../../multimedia/gst-plugins0.10-good/buildlink3.mk"
+#.include "../../textproc/enchant/buildlink3.mk"
+#.include "../../textproc/iso-codes/buildlink3.mk"
+#.include "../../textproc/libxml++/buildlink3.mk"
+#BUILDLINK_API_DEPENDS.gtkmm+=	gtkmm>=2.12
+#.include "../../x11/gtkmm/buildlink3.mk"
+#.include "../../sysutils/desktop-file-utils/desktopdb.mk"
+#
+#.include "../../mk/bsd.pkg.mk"

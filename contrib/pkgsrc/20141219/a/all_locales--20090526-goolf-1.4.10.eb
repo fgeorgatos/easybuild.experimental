@@ -1,0 +1,69 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'squirrelmail-locales-'
+version = '-20090526'
+versionsuffix = '-20141219'
+
+description = "all_locales--20090526: Locale package for SquirrelMail"
+
+sources = ['all_locales-${VER}-20090526.tar.bz2']
+version = 'locales-${VER}'
+name = 'squirrelmail'
+source_urls = ['http://sourceforge.net/projects/squirrelmail/files', 'download']
+
+homepage = 'http://www.squirrelmail.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/mail/squirrelmail-locales/Makefile ######
+## $NetBSD: Makefile,v 1.28 2012/10/08 12:19:32 asau Exp $
+#
+#DISTNAME=	all_locales-${VER}-20090526
+#PKGNAME=	squirrelmail-locales-${VER}
+#CATEGORIES=	mail
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=squirrelmail/}
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.squirrelmail.org/
+#COMMENT=	Locale package for SquirrelMail
+#LICENSE=	gnu-gpl-v2
+#
+#VER=		1.4.18
+#
+#NO_CONFIGURE=		yes
+#USE_TOOLS+=		pax
+#INSTALLATION_DIRS=	share/squirrelmail
+#
+#WRKSRC=		${WRKDIR}
+#
+#do-build:
+#	cd ${WRKDIR}/help && rm -rf en_US
+#
+#do-install:
+#	cd ${WRKDIR} && \
+#		pax -rw -pp help images locale \
+#			${DESTDIR}${PREFIX}/share/squirrelmail
+#
+#.include "../../mail/squirrelmail/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

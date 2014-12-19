@@ -1,0 +1,59 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Animation-2.6'
+versionsuffix = '-20141219'
+
+description = "Term-Animation-2.6: ASCII sprite animation package"
+
+sources = ['Term-Animation-2.6.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://search.cpan.org/CPAN/authors/id/K/KB/KBAUCOM/']
+
+homepage = 'http://search.cpan.org/~kbaucom/Term-Animation/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Term-Animation/Makefile ######
+## $NetBSD: Makefile,v 1.5 2014/05/29 23:36:19 wiz Exp $
+##
+#
+#DISTNAME=	Term-Animation-2.6
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	3
+#CATEGORIES=	devel
+#MASTER_SITES=	http://search.cpan.org/CPAN/authors/id/K/KB/KBAUCOM/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/~kbaucom/Term-Animation/
+#COMMENT=	ASCII sprite animation package
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	p5-Curses>=1.06:../../devel/p5-Curses
+#
+#PERL5_PACKLIST=	auto/Term/Animation/.packlist
+#USE_LANGUAGES=	# none
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

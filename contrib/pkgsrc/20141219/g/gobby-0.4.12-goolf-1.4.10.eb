@@ -1,0 +1,64 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'gobby'
+version = '0.4.12'
+versionsuffix = '-20141219'
+
+description = "gobby-0.4.12: Collaborative Editor"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://releases.0x539.de/gobby/']
+
+homepage = 'http://gobby.0x539.de/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/editors/gobby/Makefile ######
+## $NetBSD: Makefile,v 1.38 2014/05/05 00:47:48 ryoon Exp $
+#
+#DISTNAME=	gobby-0.4.12
+#PKGREVISION=	21
+#CATEGORIES=	editors
+#MASTER_SITES=	http://releases.0x539.de/gobby/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://gobby.0x539.de/
+#COMMENT=	Collaborative Editor
+#LICENSE=	gnu-gpl-v2
+#
+#USE_LANGUAGES=		c c++
+#USE_PKGLOCALEDIR=	yes
+#USE_TOOLS+=		gmake intltool msgfmt pkg-config
+#GNU_CONFIGURE=		yes
+#
+#.include "options.mk"
+#
+#.include "../../devel/glibmm/buildlink3.mk"
+#.include "../../devel/libsigc++/buildlink3.mk"
+#.include "../../editors/obby/buildlink3.mk"
+#.include "../../graphics/hicolor-icon-theme/buildlink3.mk"
+#.include "../../net/net6/buildlink3.mk"
+#.include "../../textproc/libxml++/buildlink3.mk"
+#.include "../../x11/gtkmm/buildlink3.mk"
+#.include "../../x11/gtksourceview2/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

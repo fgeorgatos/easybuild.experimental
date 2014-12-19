@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'holtz'
+version = '1.3.1'
+versionsuffix = '-20141219'
+
+description = "holtz-1.3.1: Engine for the abstract strategy games Zèrtz and Dvonn"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/holtz/files', 'download']
+
+homepage = 'http://holtz.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/holtz/Makefile ######
+## $NetBSD: Makefile,v 1.19 2014/08/13 10:57:35 adam Exp $
+##
+#
+#DISTNAME=	holtz-1.3.1
+#PKGREVISION=	17
+#CATEGORIES=	games
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=holtz/}
+#
+#MAINTAINER=	wiz@NetBSD.org
+#HOMEPAGE=	http://holtz.sourceforge.net/
+#COMMENT=	Engine for the abstract strategy games Zèrtz and Dvonn
+#LICENSE=	gnu-gpl-v2
+#
+#GNU_CONFIGURE=		yes
+#USE_PKGLOCALEDIR=	yes
+#USE_LANGUAGES=		c c++
+#USE_TOOLS+=		gmake
+#
+#.include "../../devel/boost-libs/buildlink3.mk"
+#.include "../../x11/wxGTK28/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

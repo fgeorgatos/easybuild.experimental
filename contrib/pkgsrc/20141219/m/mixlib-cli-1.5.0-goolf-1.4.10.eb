@@ -1,0 +1,47 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'mixlib'
+version = 'cli-1.5.0'
+versionsuffix = '-20141219'
+
+description = "mixlib-cli-1.5.0: Mixin for creating command line applications"
+
+sources = [SOURCE_TAR_GZ]
+
+homepage = 'https://github.com/opscode/mixlib-cli'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/ruby-mixlib-cli/Makefile ######
+## $NetBSD: Makefile,v 1.1 2014/06/03 13:12:32 jperkin Exp $
+#
+#DISTNAME=	mixlib-cli-1.5.0
+#CATEGORIES=	devel
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	https://github.com/opscode/mixlib-cli
+#COMMENT=	Mixin for creating command line applications
+#LICENSE=	apache-2.0
+#
+#.include "../../lang/ruby/gem.mk"
+#.include "../../mk/bsd.pkg.mk"

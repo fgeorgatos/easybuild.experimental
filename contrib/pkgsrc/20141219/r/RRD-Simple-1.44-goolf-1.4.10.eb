@@ -1,0 +1,65 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Simple-1.44'
+versionsuffix = '-20141219'
+
+description = "RRD-Simple-1.44: RRD::Simple implementation for Perl"
+
+sources = ['RRD-Simple-1.44.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/../by-authors/id/N/NI/NICOLAW/']
+
+homepage = 'http://search.cpan.org/dist/RRD-Simple/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/databases/p5-RRD-Simple/Makefile ######
+## $NetBSD: Makefile,v 1.26 2014/05/29 23:35:30 wiz Exp $
+#
+#DISTNAME=	RRD-Simple-1.44
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	24
+#CATEGORIES=	perl5 databases
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=../by-authors/id/N/NI/NICOLAW/}
+#
+#MAINTAINER=	rhaen@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/RRD-Simple/
+#COMMENT=	RRD::Simple implementation for Perl
+#LICENSE=	apache-2.0
+#
+#BUILD_DEPENDS+= p5-Test-Pod>=1.26:../../devel/p5-Test-Pod
+#BUILD_DEPENDS+= p5-Pod-Coverage>=0.18:../../textproc/p5-Pod-Coverage
+#BUILD_DEPENDS+= p5-Test-Pod-Coverage>=1.08:../../devel/p5-Test-Pod-Coverage
+#BUILD_DEPENDS+= p5-Test-Deep>=0.096:../../devel/p5-Test-Deep
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#PERL5_MODULE_TYPE=	Module::Build
+#PERL5_PACKLIST=		auto/RRD/Simple/.packlist
+#MAKE_PARAMS+=		< /dev/null
+#
+#.include "../../databases/rrdtool/buildlink3.mk"
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'xaniroc-1.02'
+version = 'xaniroc'
+versionsuffix = '-20141219'
+
+description = "xaniroc: Animate your root-cursor"
+
+sources = ['xaniroc.src.tar.Z']
+version = '1.02'
+name = 'xaniroc'
+source_urls = ['ftp://ftp.42.org/pub/orphan/']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/xaniroc/Makefile ######
+## $NetBSD: Makefile,v 1.17 2012/10/29 05:06:57 asau Exp $
+#
+#DISTNAME=	xaniroc
+#PKGNAME=	xaniroc-1.02
+#PKGREVISION=	4
+#CATEGORIES=	x11
+#MASTER_SITES=	ftp://ftp.42.org/pub/orphan/
+#EXTRACT_SUFX=	.src.tar.Z
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#COMMENT=	Animate your root-cursor
+#
+#USE_IMAKE=	yes
+#
+#post-extract:
+#	${MV} ${WRKSRC}/manpage.1 ${WRKSRC}/xaniroc.man
+#
+#.include "../../x11/libXaw/buildlink3.mk"
+#.include "../../x11/libX11/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

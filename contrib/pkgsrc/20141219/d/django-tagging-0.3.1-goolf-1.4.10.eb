@@ -1,0 +1,66 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '-'
+version = 'tagging-0.3.1'
+versionsuffix = '-20141219'
+
+description = "django-tagging-0.3.1: Generic tagging application for Django"
+
+sources = ['django-tagging-0.3.1.tar.gz']
+source_urls = ['http://django-tagging.googlecode.com/files/']
+
+homepage = 'http://code.google.com/p/django-tagging/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/py-django-tagging/Makefile ######
+## $NetBSD: Makefile,v 1.4 2014/05/09 07:37:25 wiz Exp $
+#
+#DISTNAME=	django-tagging-0.3.1
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+#PKGREVISION=	1
+#CATEGORIES=	www python
+#MASTER_SITES=	http://django-tagging.googlecode.com/files/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://code.google.com/p/django-tagging/
+#COMMENT=	Generic tagging application for Django
+#LICENSE=	mit
+#
+#DEPENDS+=	${PYPKGPREFIX}-django-[0-9]*:../../www/py-django
+#
+#USE_LANGUAGES=		# none
+#PYTHON_VERSIONS_INCOMPATIBLE=	33 34 # not yet ported as of 0.3.1
+#EGG_NAME=	${DISTNAME:S/-/_/}
+#
+#INSTALLATION_DIRS+=	share/doc/py-django-tagging
+#
+#do-test:
+#	${RUN} cd ${WRKSRC}; ${SETENV} ${TEST_ENV} ${PYTHONBIN} tagging/tests/tests.py
+#
+#post-install:
+#	${INSTALL_DATA} ${WRKSRC}/docs/overview.txt \
+#		${DESTDIR}${PREFIX}/share/doc/py-django-tagging
+#
+#.include "../../lang/python/distutils.mk"
+#.include "../../mk/bsd.pkg.mk"

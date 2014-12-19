@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'libnms'
+version = '0.6.0'
+versionsuffix = '-20141219'
+
+description = "libnms-0.6.0: Open Media Streaming Client Library"
+
+sources = [SOURCE_TAR_BZ2]
+source_urls = ['http://www.paldo.org/paldo/sources/libnms/']
+
+homepage = 'http://streaming.polito.it/client/library/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/multimedia/libnms/Makefile ######
+## $NetBSD: Makefile,v 1.4 2013/10/24 09:45:34 jperkin Exp $
+##
+#
+#DISTNAME=	libnms-0.6.0
+#CATEGORIES=	multimedia
+#MASTER_SITES=	http://www.paldo.org/paldo/sources/libnms/
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	jfranz@bsdprojects.net
+#HOMEPAGE=	http://streaming.polito.it/client/library/
+#COMMENT=	Open Media Streaming Client Library
+#
+#GNU_CONFIGURE=	yes
+#USE_TOOLS+=	pkg-config
+#USE_LIBTOOL=	yes
+#
+#PKGCONFIG_OVERRIDE+=	libnms.pc.in
+#
+#LDFLAGS.SunOS+=	-lsocket -lnsl
+#
+#.include "../../mk/bsd.pkg.mk"

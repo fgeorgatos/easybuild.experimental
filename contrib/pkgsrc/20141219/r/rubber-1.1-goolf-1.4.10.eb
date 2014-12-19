@@ -1,0 +1,68 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'rubber'
+version = '1.1'
+versionsuffix = '-20141219'
+
+description = "rubber-1.1: Automated system for building LaTeX documents"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://ebeffara.free.fr/pub/']
+
+homepage = 'https://launchpad.net/rubber'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/rubber/Makefile ######
+## $NetBSD: Makefile,v 1.28 2014/05/09 07:37:22 wiz Exp $
+#
+#DISTNAME=	rubber-1.1
+#PKGREVISION=	5
+#CATEGORIES=	textproc
+#MASTER_SITES=	http://ebeffara.free.fr/pub/
+#
+#MAINTAINER=	tonio@NetBSD.org
+#HOMEPAGE=	https://launchpad.net/rubber
+#COMMENT=	Automated system for building LaTeX documents
+#
+#DEPENDS+=	tex-latex-bin-[0-9]*:../../print/tex-latex-bin
+#
+#USE_TOOLS+=		makeinfo
+#USE_PKGLOCALEDIR=	yes
+#HAS_CONFIGURE=		yes
+#INFO_FILES=		yes
+#TEXINFO_REQD=		4.6
+#
+#CONFIGURE_ARGS+=	--python=${PYTHONBIN:Q}
+#CONFIGURE_ARGS+=	--prefix=${PREFIX:Q}
+#CONFIGURE_ARGS+=	--datadir=${PREFIX:Q}/share
+#CONFIGURE_ARGS+=	--mandir=${PREFIX:Q}/${PKGMANDIR:Q}
+#CONFIGURE_ARGS+=	--infodir=${PREFIX:Q}/${PKGINFODIR:Q}
+#
+#PLIST_SUBST+=		RUBBERVERSUFFIX=${PKGVERSION_NOREV}
+#PLIST_SUBST+=		PYVERSSUFFIX=${PYVERSSUFFIX}
+#
+#PYTHON_VERSIONS_INCOMPATIBLE=	33 34 # not yet ported as of 1.1
+#
+#.include "../../lang/python/application.mk"
+#.include "../../mk/bsd.pkg.mk"

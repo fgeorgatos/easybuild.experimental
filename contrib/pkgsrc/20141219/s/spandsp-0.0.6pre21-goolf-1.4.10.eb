@@ -1,0 +1,67 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'spandsp'
+version = '0.0.6pre21'
+versionsuffix = '-20141219'
+
+description = "spandsp-0.0.6pre21: Library of DSP functions for telephony"
+
+sources = [SOURCE_TGZ]
+source_urls = ['http://www.soft-switch.org/downloads/spandsp/']
+
+homepage = 'http://www.soft-switch.org/downloads/spandsp/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/comms/spandsp/Makefile ######
+## $NetBSD: Makefile,v 1.7 2013/06/09 23:29:34 rodent Exp $
+##
+#
+#DISTNAME=	spandsp-0.0.6pre21
+#CATEGORIES=	comms
+#MASTER_SITES=	http://www.soft-switch.org/downloads/spandsp/
+#EXTRACT_SUFX=	.tgz
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.soft-switch.org/downloads/spandsp/
+#COMMENT=	Library of DSP functions for telephony
+#LICENSE=	gnu-lgpl-v2.1
+#
+#WRKSRC=		${WRKDIR}/spandsp-0.0.6
+#GNU_CONFIGURE=	yes
+#USE_TOOLS+=	gsed pkg-config
+#USE_LANGUAGES=	c c++
+#USE_LIBTOOL=	yes
+#
+#PKGCONFIG_OVERRIDE+=	spandsp.pc.in
+#
+#INSTALLATION_DIRS=	share/doc/${PKGBASE}
+#
+#.include "options.mk"
+#
+#post-install:
+#	${INSTALL_DATA} ${WRKSRC}/DueDiligence ${DESTDIR}${PREFIX}/share/doc/${PKGBASE}
+#
+#.include "../../graphics/tiff/buildlink3.mk"
+#.include "../../mk/pthread.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

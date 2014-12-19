@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'gtk3-engines-'
+version = '1.0.2'
+versionsuffix = '-20141219'
+
+description = "unico-1.0.2: Unico Gtk+ Theming Engine for GTK+ 3.0"
+
+sources = ['unico-1.0.2.tar.gz']
+version = 'engines-${DISTNAME}'
+name = 'gtk3'
+source_urls = ['https://launchpad.net/unico/1.0/1.0.2/+download/']
+
+homepage = 'https://launchpad.net/unico'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/gtk3-engines-unico/Makefile ######
+## $NetBSD: Makefile,v 1.2 2014/05/05 00:48:30 ryoon Exp $
+#
+#DISTNAME=	unico-1.0.2
+#PKGNAME=	gtk3-engines-${DISTNAME}
+#PKGREVISION=	1
+#CATEGORIES=	x11
+#MASTER_SITES=	https://launchpad.net/unico/1.0/1.0.2/+download/
+#
+#MAINTAINER=	rodent@NetBSD.org
+#HOMEPAGE=	https://launchpad.net/unico
+#COMMENT=	Unico Gtk+ Theming Engine for GTK+ 3.0
+#LICENSE=	gnu-lgpl-v2.1
+#
+#GNU_CONFIGURE=	yes
+#USE_LIBTOOL=	yes
+#USE_TOOLS+=	pkg-config
+#
+#.include "options.mk"
+#
+#.include "../../graphics/cairo/buildlink3.mk"
+#.include "../../x11/gtk3/buildlink3.mk"
+#.include "../../devel/glib2/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

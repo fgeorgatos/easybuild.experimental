@@ -1,0 +1,53 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'bbdate'
+version = '0.2.4'
+versionsuffix = '-20141219'
+
+description = "bbdate-0.2.4: Display the current date"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/bbtools/files', 'download']
+
+homepage = 'http://bbtools.sourceforge.net/download.php?file=3'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/time/bbdate/Makefile ######
+## $NetBSD: Makefile,v 1.14 2012/10/08 13:04:17 asau Exp $
+##
+#
+#DISTNAME=	bbdate-0.2.4
+#PKGREVISION=	1
+#CATEGORIES=	time
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=bbtools/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://bbtools.sourceforge.net/download.php?file=3
+#COMMENT=	Display the current date
+#
+#GNU_CONFIGURE=	YES
+#USE_LANGUAGES=	c c++
+#
+#.include "../../x11/libX11/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

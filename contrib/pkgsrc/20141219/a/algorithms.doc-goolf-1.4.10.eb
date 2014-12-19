@@ -1,0 +1,52 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'tex--2009'
+version = 'algorithms.doc'
+versionsuffix = '-20141219'
+
+description = "algorithms.doc: Documentation for tex-algorithms"
+
+sources = ['algorithms.doc.tar.gz']
+version = '${DISTNAME:S/./-/}-2009'
+name = 'tex'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/print/tex-algorithms-doc/Makefile ######
+## $NetBSD: Makefile,v 1.4 2010/09/29 19:50:50 minskim Exp $
+#
+#DISTNAME=	algorithms.doc
+#PKGNAME=	tex-${DISTNAME:S/./-/}-2009
+#TEXLIVE_REV=	15878
+#DIST_SUBDIR=	${PKGBASE:S/-doc//}-${TEXLIVE_REV}.2010
+#
+#MAINTAINER=	minskim@NetBSD.org
+#COMMENT=	Documentation for tex-algorithms
+#LICENSE=	gnu-lgpl-v2.1
+#
+#CONFLICTS+=	teTeX-texmf<=3.0nb19
+#
+#.include "../../print/texlive/package.mk"
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

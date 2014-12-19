@@ -1,0 +1,49 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'activemerchant'
+version = '1.20.0'
+versionsuffix = '-20141219'
+
+description = "activemerchant-1.20.0: Ruby library for credit card processing"
+
+sources = [SOURCE_TAR_GZ]
+
+homepage = 'http://activemerchant.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/finance/ruby-activemerchant/Makefile ######
+## $NetBSD: Makefile,v 1.7 2011/12/15 15:34:16 taca Exp $
+#
+#DISTNAME=	activemerchant-1.20.0
+#CATEGORIES=	finance
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://activemerchant.org/
+#COMMENT=	Ruby library for credit card processing
+#LICENSE=	mit
+#
+#DEPENDS+=	${RUBY_PKGPREFIX}-builder>=2.0.0:../../textproc/ruby-builder
+#
+#.include "../../lang/ruby/gem.mk"
+#.include "../../mk/bsd.pkg.mk"

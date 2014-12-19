@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Pluggable-1.29'
+versionsuffix = '-20141219'
+
+description = "Object-Pluggable-1.29: Base class for creating plugin-enabled objects"
+
+sources = ['Object-Pluggable-1.29.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Object/']
+
+homepage = 'http://search.cpan.org/dist/Object-Pluggable/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Object-Pluggable/Makefile ######
+## $NetBSD: Makefile,v 1.6 2014/05/29 23:36:10 wiz Exp $
+##
+#
+#DISTNAME=	Object-Pluggable-1.29
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	3
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Object/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Object-Pluggable/
+#COMMENT=	Base class for creating plugin-enabled objects
+#LICENSE=	${PERL5_LICENSE}
+#
+#BUILD_DEPENDS+=	{perl>=5.10.1,p5-Pod-Parser>=1.36}:../../textproc/p5-Pod-Parser
+#
+#DEPENDS+=	p5-Task-Weaken-[0-9]*:../../devel/p5-Task-Weaken
+#
+#USE_LANGUAGES=	# empty
+#PERL5_PACKLIST=	auto/Object/Pluggable/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

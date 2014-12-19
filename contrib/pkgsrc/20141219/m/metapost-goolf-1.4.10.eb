@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'tex--1.803'
+version = 'metapost'
+versionsuffix = '-20141219'
+
+description = "metapost: Development of MetaFont for creating graphics"
+
+sources = ['metapost.tar.gz']
+version = '${DISTNAME}-1.803'
+name = 'tex'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/tex-metapost/Makefile ######
+## $NetBSD: Makefile,v 1.5 2013/12/03 22:44:48 minskim Exp $
+#
+#DISTNAME=	metapost
+#PKGNAME=	tex-${DISTNAME}-1.803
+#TEXLIVE_REV=	31860
+#
+#MAINTAINER=	minskim@NetBSD.org
+#COMMENT=	Development of MetaFont for creating graphics
+#
+#CONFLICTS+=	teTeX-texmf<=3.0nb25
+#DEPENDS+=	tex-kpathsea>=2009.16044:../../print/tex-kpathsea
+#DEPENDS+=	web2c>=2011:../../print/web2c
+#
+#TEX_MAP_FILES=		troff-updmap.map
+#
+#.include "../../print/texlive/package.mk"
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

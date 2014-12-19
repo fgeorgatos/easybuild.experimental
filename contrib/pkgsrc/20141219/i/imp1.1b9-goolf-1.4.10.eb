@@ -1,0 +1,73 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'impress-1.1b9'
+version = 'imp1.1b9'
+versionsuffix = '-20141219'
+
+description = "imp1.1b9: WYSIWYG vector graphics application"
+
+sources = ['imp1.1b9.tar.gz']
+version = '1.1b9'
+name = 'impress'
+source_urls = ['http://www.ntlug.org/~ccox/impress/']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/impress/Makefile ######
+## $NetBSD: Makefile,v 1.16 2014/01/09 12:11:12 jperkin Exp $
+##
+#
+#DISTNAME=	imp1.1b9
+#PKGNAME=	impress-1.1b9
+#PKGREVISION=	3
+#CATEGORIES=	graphics
+#MASTER_SITES=	http://www.ntlug.org/~ccox/impress/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+## HOMEPAGE=	http://www.ntlug.org/~ccox/impress/
+## AWOL, but ccox@ is listed as board member of ntlug.org
+#COMMENT=	WYSIWYG vector graphics application
+#
+#DEPENDS+=	pstoedit>=3.19:../../graphics/pstoedit
+#DEPENDS+=	tcl>=8.3.2nb2:../../lang/tcl
+#DEPENDS+=	tk>=8.3.2nb1:../../x11/tk
+#
+#WRKSRC=		${WRKDIR}/impress-1.1b9
+#
+#USE_LANGUAGES=	c++
+#
+#INSTALL_MAKE_FLAGS+=	PREFIX=${DESTDIR}${PREFIX}
+#INSTALLATION_DIRS+=	bin
+#
+#.include "../../mk/bsd.prefs.mk"
+#
+#.if ${OPSYS} == "SunOS"
+#BUILDLINK_TRANSFORM+=	rm:-static
+#.endif
+#
+#do-build:
+#	cd ${WRKSRC} && make make_impress make_font3d
+#
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

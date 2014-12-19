@@ -1,0 +1,88 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'opencpn-'
+version = '-Source'
+versionsuffix = '-20141219'
+
+description = "OpenCPN--Source: Concise ChartPlotter/Navigator"
+
+sources = ['OpenCPN-${VERSION}-Source.tar.gz']
+version = '${VERSION}'
+name = 'opencpn'
+source_urls = ['http://sourceforge.net/projects/opencpn/${VERSION}/files', 'download']
+
+homepage = 'http://www.opencpn.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/geography/opencpn/Makefile ######
+## $NetBSD: Makefile,v 1.2 2014/07/08 14:59:40 jperkin Exp $
+##
+#
+#VERSION=	3.2.2
+#DISTNAME=	OpenCPN-${VERSION}-Source
+#PKGNAME=	opencpn-${VERSION}
+#PKGREVISION=	1
+#CATEGORIES=	geography
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=opencpn/${VERSION}/}
+#
+#MAINTAINER=	bouyer@NetBSD.org
+#HOMEPAGE=	http://www.opencpn.org/
+#COMMENT=	Concise ChartPlotter/Navigator
+#LICENSE=	gnu-gpl-v2
+#
+#USE_LANGUAGES=		c c++
+#USE_TOOLS=		gettext
+#USE_CMAKE=		yes
+#
+#CMAKE_ARGS+=	-DPREFIX:PATH=${PREFIX} -DPREFIX_PLUGINS:PATH=${PREFIX}/lib/opencpn
+#CMAKE_MODULE_PATH_OVERRIDE = \
+#		plugins/grib_pi/CMakeLists.txt \
+#		plugins/demo_pi_sample/src/CMakeLists.txt \
+#		plugins/demo_pi_sample/CMakeLists.txt \
+#		plugins/dashboard_pi/CMakeLists.txt \
+#		plugins/CMakeLists.txt
+#
+#SUBST_CLASSES+=		prefix
+#SUBST_STAGE.prefix=	pre-configure
+#SUBST_MESSAGE.prefix=	replace /usr/local with ${PREFIX}
+#SUBST_FILES.prefix=	src/mygdal/cpl_csv.cpp			\
+#			src/mygdal/cpl_findfile.cpp		\
+#			data/doc/help_en_US.html		\
+#			Findgps.cmake
+#SUBST_SED.prefix=	-e s,"/usr/local,"${PREFIX},g
+#
+## Ensure we export symbols in the linked shared object.
+#LDFLAGS+=	${EXPORT_SYMBOLS_LDFLAGS}
+#
+#.include "../../devel/cmake/buildlink3.mk"
+#.include "../../x11/gtk2/buildlink3.mk"
+#.include "../../x11/wxGTK28/buildlink3.mk"
+#.include "../../graphics/MesaLib/buildlink3.mk"
+#.include "../../graphics/glu/buildlink3.mk"
+#.include "../../archivers/bzip2/buildlink3.mk"
+#.include "../../audio/portaudio-devel/buildlink3.mk"
+#.include "../../textproc/tinyxml/buildlink3.mk"
+#.include "../../graphics/hicolor-icon-theme/buildlink3.mk"
+#.include "../../sysutils/desktop-file-utils/desktopdb.mk"
+#.include "../../mk/bsd.pkg.mk"

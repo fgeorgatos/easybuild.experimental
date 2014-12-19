@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'SDL2_ttf'
+version = '2.0.12'
+versionsuffix = '-20141219'
+
+description = "SDL2_ttf-2.0.12: Sample library allowing for using TrueType fonts in SDL applications"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.libsdl.org/projects/SDL_ttf/release/']
+
+homepage = 'http://www.libsdl.org/projects/SDL_ttf/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/fonts/SDL2_ttf/Makefile ######
+## $NetBSD: Makefile,v 1.4 2014/04/18 15:08:49 adam Exp $
+#
+#DISTNAME=	SDL2_ttf-2.0.12
+#CATEGORIES=	fonts
+#MASTER_SITES=	http://www.libsdl.org/projects/SDL_ttf/release/
+#
+#MAINTAINER=	rodent@NetBSD.org
+#HOMEPAGE=	http://www.libsdl.org/projects/SDL_ttf/
+#COMMENT=	Sample library allowing for using TrueType fonts in SDL applications
+#LICENSE=	zlib
+#
+#USE_LIBTOOL=		yes
+#USE_TOOLS+=		pkg-config
+#GNU_CONFIGURE=		yes
+#
+#PKGCONFIG_OVERRIDE+=	SDL2_ttf.pc.in
+#
+#.include "../../devel/SDL2/buildlink3.mk"
+#.include "../../graphics/freetype2/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

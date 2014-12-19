@@ -1,0 +1,65 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'mad-flute-1.7'
+version = 'mad_fcl_v1.7_src'
+versionsuffix = '-20141219'
+
+description = "mad_fcl_v1.7_src: Reliable Multicast Layering"
+
+sources = ['mad_fcl_v1.7_src.tar.gz']
+version = 'flute-1.7'
+name = 'mad'
+source_urls = ['http://mad.cs.tut.fi/download/']
+
+homepage = 'http://mad.cs.tut.fi/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/mad-flute/Makefile ######
+## $NetBSD: Makefile,v 1.6 2014/02/12 23:17:48 tron Exp $
+#
+#DISTNAME=		mad_fcl_v1.7_src
+#PKGNAME=		mad-flute-1.7
+#PKGREVISION=		3
+#CATEGORIES=		devel
+#MASTER_SITES=		http://mad.cs.tut.fi/download/
+#
+#MAINTAINER=		agc@NetBSD.org
+#HOMEPAGE=		http://mad.cs.tut.fi/
+#COMMENT=		Reliable Multicast Layering
+#LICENSE=		gnu-gpl-v2
+#
+#MAKE_JOBS_SAFE=		no
+#
+#USE_TOOLS+=		gmake
+#
+#INSTALLATION_DIRS+=	bin
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/bin/flute ${DESTDIR}${PREFIX}/bin/flute
+#	${INSTALL_PROGRAM} ${WRKSRC}/bin/multis_flute ${DESTDIR}${PREFIX}/bin/multis_flute
+#
+#.include "../../textproc/expat/buildlink3.mk"
+#.include "../../www/curl/buildlink3.mk"
+#
+#.include "../../mk/bsd.pkg.mk"

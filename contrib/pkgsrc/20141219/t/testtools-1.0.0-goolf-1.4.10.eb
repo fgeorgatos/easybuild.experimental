@@ -1,0 +1,52 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '-'
+version = '1.0.0'
+versionsuffix = '-20141219'
+
+description = "testtools-1.0.0: Extensions to the Python standard library unit testing framework"
+
+sources = ['testtools-1.0.0.tar.gz']
+source_urls = ['https://pypi.python.org/packages/source/t/testtools/']
+
+homepage = 'https://github.com/testing-cabal/testtools'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/py-testtools/Makefile ######
+## $NetBSD: Makefile,v 1.12 2014/09/10 09:01:49 obache Exp $
+#
+#DISTNAME=	testtools-1.0.0
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+#CATEGORIES=	devel
+#MASTER_SITES=	https://pypi.python.org/packages/source/t/testtools/
+#
+#MAINTAINER=	obache@NetBSD.org
+#HOMEPAGE=	https://github.com/testing-cabal/testtools
+#COMMENT=	Extensions to the Python standard library unit testing framework
+#LICENSE=	mit AND python-software-foundation
+#
+#USE_LANGUAGES=	# none
+#
+#.include "../../lang/python/egg.mk"
+#.include "../../mk/bsd.pkg.mk"

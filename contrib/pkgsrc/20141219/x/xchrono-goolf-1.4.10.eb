@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'xchrono-19900813'
+version = 'xchrono'
+versionsuffix = '-20141219'
+
+description = "xchrono: Multi-timezone X11-based clock"
+
+sources = ['xchrono.shar']
+version = '19900813'
+name = 'xchrono'
+source_urls = ['http://www.mit.edu/afs/athena/contrib/softbone/source/src/xchrono/']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/time/xchrono/Makefile ######
+## $NetBSD: Makefile,v 1.11 2012/10/08 13:04:31 asau Exp $
+##
+#
+#DISTNAME=		xchrono
+#PKGNAME=		xchrono-19900813
+#PKGREVISION=		2
+#CATEGORIES=		time x11
+#MASTER_SITES=		http://www.mit.edu/afs/athena/contrib/softbone/source/src/xchrono/
+#EXTRACT_SUFX=		.shar
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#COMMENT=		Multi-timezone X11-based clock
+#
+#USE_IMAKE=		yes
+#
+#INSTALLATION_DIRS=	share/doc/xchrono
+#
+#post-install:
+#	${INSTALL_DATA} ${WRKSRC}/README ${DESTDIR}${PREFIX}/share/doc/xchrono/
+#
+#.include "../../x11/libXaw/buildlink3.mk"
+#.include "../../x11/libXt/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'tex--1.933'
+version = 'fontinst'
+versionsuffix = '-20141219'
+
+description = "fontinst: Help with installing fonts for TeX and LaTeX"
+
+sources = ['fontinst.tar.gz']
+version = '${DISTNAME}-1.933'
+name = 'tex'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/fonts/tex-fontinst/Makefile ######
+## $NetBSD: Makefile,v 1.1 2013/11/18 19:02:57 minskim Exp $
+#
+#DISTNAME=	fontinst
+#PKGNAME=	tex-${DISTNAME}-1.933
+#TEXLIVE_REV=	29764
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#COMMENT=	Help with installing fonts for TeX and LaTeX
+#LICENSE=	lppl-1.3c
+#
+#USE_TOOLS+=	sh:run
+#REPLACE_SH=	bin/fontinst
+#
+#INSTALLATION_DIRS+=	bin
+#
+#.include "../../print/texlive/package.mk"
+#
+#post-extract:
+#	${MKDIR} ${WRKSRC}/bin
+#	${MV} ${WRKSRC}/texmf-dist/scripts/texlive/fontinst.sh \
+#		${WRKSRC}/bin/fontinst
+#	${RM} -rf ${WRKSRC}/texmf-dist/scripts
+#
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

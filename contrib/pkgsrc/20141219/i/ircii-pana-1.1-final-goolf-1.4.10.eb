@@ -1,0 +1,79 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'bitchx-1.1'
+version = 'pana-1.1-final'
+versionsuffix = '-20141219'
+
+description = "ircii-pana-1.1-final: IRC client based on ircII"
+
+sources = ['ircii-pana-1.1-final.tar.gz']
+version = '1.1'
+name = 'bitchx'
+source_urls = ['http://sourceforge.net/projects/bitchx/files', 'download']
+
+homepage = 'http://www.bitchx.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/chat/bitchx/Makefile ######
+## $NetBSD: Makefile,v 1.54 2014/02/12 23:17:35 tron Exp $
+#
+#DISTNAME=	ircii-pana-1.1-final
+#PKGNAME=	bitchx-1.1
+#PKGREVISION=	7
+#CATEGORIES=	chat
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=bitchx/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.bitchx.org/
+#COMMENT=	IRC client based on ircII
+#
+## This package is not even remotely 64-bit clean
+#NOT_FOR_PLATFORM=	${LP64PLATFORMS}
+#
+#USE_TOOLS+=	bash
+#
+#WRKSRC=			${WRKDIR}/BitchX
+#GNU_CONFIGURE=		YES
+#CONFIGURE_ARGS+=	--with-ssl
+#CONFIG_SHELL=		${TOOLS_PATH.bash}
+#
+#.include "../../mk/bsd.prefs.mk"
+#
+#.if ${OPSYS} == "Darwin"
+#CFLAGS+=	-DBIND_8_COMPAT
+#.endif
+#
+#SUBST_CLASSES+=		manpage
+#SUBST_STAGE.manpage=	post-patch
+#SUBST_FILES.manpage+=	doc/BitchX.1
+#SUBST_SED.manpage+=	-e 's,@PREFIX@,${PREFIX},g'
+#
+#INSTALL_MAKE_FLAGS+=	prefix=${DESTDIR}${PREFIX}
+#INSTALL_MAKE_FLAGS+=	mandir=${DESTDIR}${PREFIX}/${PKGMANDIR}
+#
+#.include "../../archivers/bzip2/buildlink3.mk"
+#.include "../../security/openssl/buildlink3.mk"
+#
+#.include "../../mk/terminfo.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

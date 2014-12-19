@@ -1,0 +1,53 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'srm'
+version = '1.2.8'
+versionsuffix = '-20141219'
+
+description = "srm-1.2.8: Secure replacement for rm 1 "
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/srm/files', 'download']
+
+homepage = 'http://srm.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/srm/Makefile ######
+## $NetBSD: Makefile,v 1.6 2012/10/23 18:16:59 asau Exp $
+##
+#
+#DISTNAME=		srm-1.2.8
+#PKGREVISION=		1
+#CATEGORIES=		security
+#MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=srm/}
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://srm.sourceforge.net/
+#COMMENT=		Secure replacement for rm(1)
+#
+#GNU_CONFIGURE=		yes
+#
+#CONFLICTS+=		sr-[0-9]* # bin/srm
+#
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'aspell6'
+version = 'te-0.01-2'
+versionsuffix = '-20141219'
+
+description = "aspell6-te-0.01-2: Telugu language support for aspell"
+
+sources = [SOURCE_TAR_BZ2]
+source_urls = ['http://ftp.gnu.org/gnu/aspell6']
+
+homepage = 'http://www.swecha.org/wiki/Wordlist_and_Dictionaries'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/aspell-te/Makefile ######
+## $NetBSD: Makefile,v 1.1 2013/04/10 00:18:18 rodent Exp $
+##
+#
+#DISTNAME=	aspell6-te-0.01-2
+#PKGNAME=	${DISTNAME:S/6-/-/1:S/-2/.2/1}
+#CATEGORIES=	textproc
+#MASTER_SITES=	${MASTER_SITE_GNU:=aspell/dict/te/}
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	prudhvi-krishna-bsd@surapaneni.in
+#HOMEPAGE=	http://www.swecha.org/wiki/Wordlist_and_Dictionaries
+#COMMENT=	Telugu language support for aspell
+#LICENSE=	gnu-gpl-v2
+#
+#HAS_CONFIGURE=	yes
+#
+#.include "../../textproc/aspell/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

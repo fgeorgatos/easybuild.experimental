@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'x2vnc'
+version = '1.7.2'
+versionsuffix = '-20141219'
+
+description = "x2vnc-1.7.2: Multi-console display using X and VNC"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://fredrik.hubbe.net/x2vnc/']
+
+homepage = 'http://fredrik.hubbe.net/x2vnc.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/x2vnc/Makefile ######
+## $NetBSD: Makefile,v 1.22 2014/01/27 23:27:04 wiedi Exp $
+##
+#
+#DISTNAME=		x2vnc-1.7.2
+#PKGREVISION=		1
+#CATEGORIES=		net x11
+#MASTER_SITES=		http://fredrik.hubbe.net/x2vnc/
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://fredrik.hubbe.net/x2vnc.html
+#COMMENT=		Multi-console display using X and VNC
+#LICENSE=		gnu-gpl-v2
+#
+#GNU_CONFIGURE=		yes
+#LDFLAGS.SunOS+=		-lresolv -lsocket -lnsl
+#
+#.include "options.mk"
+#
+#.include "../../x11/libX11/buildlink3.mk"
+#.include "../../x11/libXScrnSaver/buildlink3.mk"
+#.include "../../x11/libXext/buildlink3.mk"
+#.include "../../x11/libXinerama/buildlink3.mk"
+#.include "../../x11/libXrandr/buildlink3.mk"
+#.include "../../x11/scrnsaverproto/buildlink3.mk"
+#.include "../../x11/xineramaproto/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

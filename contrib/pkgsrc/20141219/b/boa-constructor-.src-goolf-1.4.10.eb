@@ -1,0 +1,89 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'boa-constructor-'
+version = 'constructor-.src'
+versionsuffix = '-20141219'
+
+description = "boa-constructor-.src: Python IDE"
+
+sources = ['boa-constructor-${VERSION}.src.zip']
+version = 'constructor-${VERSION}'
+name = 'boa'
+source_urls = ['http://sourceforge.net/projects/boa-constructor/files', 'download']
+
+homepage = 'http://boa-constructor.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/boa-constructor/Makefile ######
+## $NetBSD: Makefile,v 1.30 2014/05/09 07:36:58 wiz Exp $
+#
+#VERSION=		0.6.1
+#DISTNAME=		boa-constructor-${VERSION}.src
+#PKGNAME=		boa-constructor-${VERSION}
+#PKGREVISION=		23
+#CATEGORIES=		devel
+#MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=boa-constructor/}
+#EXTRACT_SUFX=		.zip
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://boa-constructor.sourceforge.net/
+#COMMENT=		Python IDE
+#
+#DEPENDS+=		${PYPKGPREFIX}-expat-[0-9]*:../../textproc/py-expat
+#
+#PREV_PKGPATH=		devel/boaconstructor
+#
+#WRKSRC=			${WRKDIR}/${PKGNAME_NOREV}
+#BOADIR=			${PREFIX}/share/boa-constructor-${VERSION}
+#INSTALLATION_DIRS=	bin ${BOADIR}
+#
+#SEDSUBSTS=	-e "s|@PYTHONBIN@|${PYTHONBIN}|"
+#SEDSUBSTS+=	-e "s|@PREFIX@|${PREFIX}|"
+#SEDSUBSTS+=	-e "s|@VERSION@|${VERSION}|"
+#
+#PYTHON_VERSIONS_INCOMPATIBLE=	33 34 # py-wxWidgets
+#
+#REPLACE_PYTHON+=	Boa.py
+#REPLACE_PYTHON+=	Examples/advanced/FramePanels/wxApp1.py
+#REPLACE_PYTHON+=	Examples/frames/wxApp1.py
+#REPLACE_PYTHON+=	Examples/guide/App1.py
+#REPLACE_PYTHON+=	Examples/mdi/wxApp1.py
+#REPLACE_PYTHON+=	ExternalLib/ndiff.py
+#REPLACE_PYTHON+=	ExternalLib/pylint.py
+#REPLACE_PYTHON+=	ExternalLib/reindent.py
+#REPLACE_PYTHON+=	ExternalLib/tarfile.py
+#
+#USE_TOOLS+=	pax
+#
+#do-build:
+#	${SED} ${SEDSUBSTS} < ${FILESDIR}/Boa.sh > ${WRKDIR}/Boa
+#
+#do-install:
+#	cd ${WRKSRC} && pax -rw . ${DESTDIR}${BOADIR}
+#	${CHMOD} -R go-w ${DESTDIR}${BOADIR}
+#	${INSTALL_SCRIPT} ${WRKDIR}/Boa ${DESTDIR}${PREFIX}/bin
+#
+#.include "../../lang/python/application.mk"
+#.include "../../x11/py-wxWidgets/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,65 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'mosh'
+version = '1.2.4'
+versionsuffix = '-20141219'
+
+description = "mosh-1.2.4: Remote terminal application which allows roaming"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://mosh.mit.edu/']
+
+homepage = 'http://mosh.mit.edu/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/mosh/Makefile ######
+## $NetBSD: Makefile,v 1.9 2014/05/29 23:37:04 wiz Exp $
+#
+#DISTNAME=	mosh-1.2.4
+#PKGREVISION=	2
+#CATEGORIES=	net
+#MASTER_SITES=	http://mosh.mit.edu/
+#
+#MAINTAINER=	agc@NetBSD.org
+#HOMEPAGE=	http://mosh.mit.edu/
+#COMMENT=	Remote terminal application which allows roaming
+#LICENSE=	gnu-gpl-v3
+#
+#DEPENDS+=       p5-IO-tty>=1.08:../../devel/p5-IO-Tty
+#
+#GNU_CONFIGURE=	yes
+#USE_TOOLS+=	pkg-config
+#USE_LANGUAGES+=	c c++
+#
+#REPLACE_PERL+=	scripts/mosh
+#
+#.include "../../devel/ncurses/buildlink3.mk"
+#.include "../../devel/protobuf/buildlink3.mk"
+#BUILDLINK_API_DEPENDS.zlib+=    zlib>=1.2.0.4
+#.include "../../devel/zlib/buildlink3.mk"
+#.include "../../security/openssl/buildlink3.mk"
+#
+#.include "../../mk/pthread.buildlink3.mk"
+#.include "../../mk/terminfo.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

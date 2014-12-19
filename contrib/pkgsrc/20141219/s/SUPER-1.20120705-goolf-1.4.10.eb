@@ -1,0 +1,60 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = '1.20120705'
+versionsuffix = '-20141219'
+
+description = "SUPER-1.20120705: Perl 5 module to control superclass method dispatch"
+
+sources = ['SUPER-1.20120705.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/SUPER/']
+
+homepage = 'http://search.cpan.org/dist/SUPER/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-SUPER/Makefile ######
+## $NetBSD: Makefile,v 1.12 2014/05/29 23:36:15 wiz Exp $
+##
+#
+#DISTNAME=	SUPER-1.20120705
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	3
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=SUPER/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/SUPER/
+#COMMENT=	Perl 5 module to control superclass method dispatch
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	p5-Sub-Identify>=0.03:../../devel/p5-Sub-Identify
+#
+#USE_LANGUAGES=		# empty
+#PERL5_PACKLIST=		auto/SUPER/.packlist
+#PERL5_MODULE_TYPE=	Module::Build
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

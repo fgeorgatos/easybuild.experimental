@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '-'
+version = '0.01'
+versionsuffix = '-20141219'
+
+description = "pycrack-0.01: Python interface to cracklib"
+
+sources = ['pycrack-0.01.tar.gz']
+source_urls = ['http://www.digitalevacuation.org/pycrack/']
+
+homepage = 'http://www.digitalevacuation.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/py-crack/Makefile ######
+## $NetBSD: Makefile,v 1.12 2014/01/25 10:30:19 wiz Exp $
+#
+#DISTNAME=	pycrack-0.01
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME:C/py//}
+#PKGREVISION=	2
+#CATEGORIES=	security python
+#MASTER_SITES=	http://www.digitalevacuation.org/pycrack/
+#
+#MAINTAINER=	darcy@NetBSD.org
+#HOMEPAGE=	http://www.digitalevacuation.org/
+#COMMENT=	Python interface to cracklib
+#LICENSE=	gnu-gpl-v2
+#
+#DEPENDS+=			crack>=5.0:../../security/crack
+#
+#.include "../../lang/python/distutils.mk"
+#.include "../../security/libcrack/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

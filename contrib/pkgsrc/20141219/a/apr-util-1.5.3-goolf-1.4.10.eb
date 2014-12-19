@@ -1,0 +1,74 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'apr'
+version = 'util-1.5.3'
+versionsuffix = '-20141219'
+
+description = "apr-util-1.5.3: Apache Portable Runtime utilities"
+
+sources = [SOURCE_TAR_BZ2]
+source_urls = ['http://sourceforge.net/projects/apr/files', 'download']
+
+homepage = 'http://apr.apache.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/apr-util/Makefile ######
+## $NetBSD: Makefile,v 1.37 2014/04/09 07:27:05 obache Exp $
+#
+#DISTNAME=	apr-util-1.5.3
+#PKGREVISION=	3
+#CATEGORIES=	devel
+#MASTER_SITES=	${MASTER_SITE_APACHE:=apr/}
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://apr.apache.org/
+#COMMENT=	Apache Portable Runtime utilities
+#LICENSE=	apache-2.0
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#USE_LIBTOOL=		yes
+#USE_TOOLS+=		pkg-config
+#GNU_CONFIGURE=		yes
+#CONFIGURE_ARGS+=	--with-apr=${BUILDLINK_PREFIX.apr}/bin/apr-1-config
+#CONFIGURE_ARGS+=	--with-expat=${BUILDLINK_PREFIX.expat}
+#CONFIGURE_ARGS+=	--without-gdbm
+#CONFIGURE_ARGS+=	--without-odbc
+#CONFIGURE_ARGS+=	--without-sqlite2
+#PKGCONFIG_OVERRIDE+=	apr-util.pc.in
+#
+## just a list of exported symbols for a library that also starts with shebang
+#CHECK_INTERPRETER_SKIP=	lib/aprutil.exp
+#
+#MAKE_ENV+=	WRAPPER_DIR=${WRAPPER_DIR}
+#
+#.include "../../mk/bsd.prefs.mk"
+#.include "options.mk"
+#
+#.include "../../converters/libiconv/buildlink3.mk"
+#BUILDLINK_API_DEPENDS.apr+=	apr>=1.5.0
+#.include "../../devel/apr/buildlink3.mk"
+#.include "../../textproc/expat/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

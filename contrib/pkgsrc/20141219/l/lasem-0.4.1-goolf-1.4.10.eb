@@ -1,0 +1,65 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'lasem'
+version = '0.4.1'
+versionsuffix = '-20141219'
+
+description = "lasem-0.4.1: Lasem is a library for rendering SVG and Mathml"
+
+sources = [SOURCE_TAR_XZ]
+source_urls = ['ftp://ftp.gnome.org/pub/gnome/sources/lasem/0.4/']
+
+homepage = 'https://live.gnome.org/Lasem'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/lasem/Makefile ######
+## $NetBSD: Makefile,v 1.8 2014/05/05 00:47:58 ryoon Exp $
+##
+#
+#DISTNAME=	lasem-0.4.1
+#PKGREVISION=	6
+#CATEGORIES=	graphics gnome
+#MASTER_SITES=	ftp://ftp.gnome.org/pub/gnome/sources/lasem/0.4/
+#EXTRACT_SUFX=	.tar.xz
+#
+#MAINTAINER=	pkgsrc.gnome@gmail.com
+#HOMEPAGE=	https://live.gnome.org/Lasem
+#COMMENT=	Lasem is a library for rendering SVG and Mathml
+#LICENSE=	gnu-gpl-v2
+#
+#GNU_CONFIGURE=	yes
+#USE_LIBTOOL=	yes
+#USE_TOOLS+=	bison flex gettext gmake intltool pkg-config
+#TEST_TARGET=	check
+#
+#PKGCONFIG_OVERRIDE+=	lasem.pc.in
+#
+#.include "../../devel/glib2/buildlink3.mk"
+#BUILDLINK_API_DEPENDS.pango+=	pango>=1.6.0
+#.include "../../devel/pango/buildlink3.mk"
+#BUILDLINK_API_DEPENDS.cairo+=	cairo>=1.0.0nb2
+#.include "../../graphics/cairo/buildlink3.mk"
+#.include "../../graphics/gdk-pixbuf2/buildlink3.mk"
+#.include "../../textproc/libxml2/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

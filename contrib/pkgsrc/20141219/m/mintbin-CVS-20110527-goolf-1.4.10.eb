@@ -1,0 +1,82 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'cross-freemint-'
+version = 'CVS-20110527'
+versionsuffix = '-20141219'
+
+description = "mintbin-CVS-20110527: Cross FreeMiNT utility for FreeMiNT"
+
+sources = ['mintbin-CVS-20110527.tar.gz']
+version = 'freemint-${DISTNAME:S/CVS-//}'
+name = 'cross'
+source_urls = ['http://vincent.riviere.free.fr/soft/m68k-atari-mint/archives/']
+
+homepage = 'http://vincent.riviere.free.fr/soft/m68k-atari-mint/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/cross/freemint-mintbin/Makefile ######
+## $NetBSD: Makefile,v 1.2 2013/09/16 04:47:42 ryoon Exp $
+#
+#DISTNAME=	mintbin-CVS-20110527
+#PKGNAME=	cross-freemint-${DISTNAME:S/CVS-//}
+#PKGREVISION=	1
+#CATEGORIES=	cross
+#MASTER_SITES=	http://vincent.riviere.free.fr/soft/m68k-atari-mint/archives/
+#
+#MAINTAINER=	ryoon@NetBSD.org
+#HOMEPAGE=	http://vincent.riviere.free.fr/soft/m68k-atari-mint/
+#COMMENT=	Cross FreeMiNT utility for FreeMiNT
+#LICENSE=	gnu-gpl-v2
+#
+#FREEMINT_PREFIX=	${PREFIX}/cross-freemint
+#
+#USE_TOOLS+=	makeinfo
+#GNU_CONFIGURE=	yes
+#
+#OBJDIR=			../build
+#CONFIGURE_DIRS=		${OBJDIR}
+#CONFIGURE_SCRIPT=	${WRKSRC}/configure
+#GNU_CONFIGURE_PREFIX=	${FREEMINT_PREFIX}
+#
+#CONFIGURE_ARGS+=	--target=m68k-atari-mint
+#INFO_FILES=		yes
+#
+#INSTALLATION_DIRS+=	bin ${FREEMINT_PREFIX}
+#
+#pre-configure:
+#	${RUN} cd ${WRKSRC} && ${MKDIR} ${OBJDIR}
+#	${CP} ${PKGSRCDIR}/mk/gnu-config/config.guess ${WRKSRC}
+#	${CP} ${PKGSRCDIR}/mk/gnu-config/config.sub ${WRKSRC}
+#
+#
+#post-install:
+#	for f in m68k-atari-mint-arconv		m68k-atari-mint-cnm \
+#		 m68k-atari-mint-csize		m68k-atari-mint-flags \
+#		 m68k-atari-mint-mintbin	m68k-atari-mint-stack \
+#		 m68k-atari-mint-cstrip		m68k-atari-mint-symex ; do \
+#		${LN} -s ${FREEMINT_PREFIX}/m68k-atari-mint/bin/"$$f" \
+#		  ${DESTDIR}${PREFIX}/bin/"$$f" || exit 1; \
+#	done
+#
+#.include "../../mk/bsd.pkg.mk"

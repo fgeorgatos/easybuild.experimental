@@ -1,0 +1,64 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'aamath'
+version = '0.3'
+versionsuffix = '-20141219'
+
+description = "aamath-0.3: ASCII art mathematics"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://fuse.superglue.se/aamath/']
+
+homepage = 'http://fuse.superglue.se/aamath/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/math/aamath/Makefile ######
+## $NetBSD: Makefile,v 1.6 2013/07/15 02:02:25 ryoon Exp $
+##
+#
+#DISTNAME=	aamath-0.3
+#PKGREVISION=	2
+#CATEGORIES=	math
+#MASTER_SITES=	http://fuse.superglue.se/aamath/
+#
+#MAINTAINER=	esg@sdf.lonestar.org
+#HOMEPAGE=	http://fuse.superglue.se/aamath/
+#COMMENT=	ASCII art mathematics
+#
+#INSTALLATION_DIRS=	bin ${PKGMANDIR}/man1
+#
+#WRKSRC=		${WRKDIR}/aamath
+#USE_LANGUAGES=	c++
+#MAKE_JOBS_SAFE=	no
+#
+#USE_TOOLS=	yacc lex
+#
+#BUILD_TARGET=	aamath
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/aamath ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_MAN} ${WRKSRC}/aamath.1 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man1
+#
+#.include "../../mk/readline.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

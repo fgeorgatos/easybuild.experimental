@@ -1,0 +1,70 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'genesplicer-20030403'
+version = 'GeneSplicer'
+versionsuffix = '-20141219'
+
+description = "GeneSplicer: Computational Method for Splice Site Prediction"
+
+sources = ['GeneSplicer.tar.gz']
+version = '20030403'
+name = 'genesplicer'
+source_urls = ['ftp://ftp.tigr.org/pub/software/GeneSplicer/']
+
+homepage = 'ftp://ftp.tigr.org/pub/software/GeneSplicer/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/biology/genesplicer/Makefile ######
+## $NetBSD: Makefile,v 1.13 2013/04/06 13:24:18 rodent Exp $
+##
+#
+#DISTNAME=		GeneSplicer
+#PKGNAME=		genesplicer-20030403
+#CATEGORIES=		biology
+#MASTER_SITES=		ftp://ftp.tigr.org/pub/software/GeneSplicer/
+#
+#MAINTAINER=		hdp@cs.nmsu.edu
+#HOMEPAGE=		ftp://ftp.tigr.org/pub/software/GeneSplicer/
+#COMMENT=		Computational Method for Splice Site Prediction
+#
+#USE_LANGUAGES=		c c++
+#USE_TOOLS+=		pax
+#
+#EXDIR=			${PREFIX}/share/examples/genesplicer
+#EXAMPLES=		arabidopsis drosophila malaria pyoelii human rice \
+#			training_data_sets/Arabidopsis			  \
+#			training_data_sets/Human
+#MAKE_FILE=		makefile
+#BUILD_DIRS=		sources
+#INSTALLATION_DIRS=	bin
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/sources/genesplicer ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_DATA_DIR} ${DESTDIR}${EXDIR}
+#.for doc in readme fasta.example fasta.results
+#	${INSTALL_DATA} ${WRKSRC}/sources/${doc} ${DESTDIR}${EXDIR}
+#.endfor
+#	cd ${WRKSRC} && pax -rw ${EXAMPLES} ${DESTDIR}${EXDIR}
+#
+#.include "../../mk/bsd.pkg.mk"

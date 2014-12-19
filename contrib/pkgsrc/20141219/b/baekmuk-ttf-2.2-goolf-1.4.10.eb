@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'baekmuk'
+version = 'ttf-2.2'
+versionsuffix = '-20141219'
+
+description = "baekmuk-ttf-2.2: Baekmuk family Korean TrueType fonts"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://kldp.net/download.php/1429/']
+
+homepage = 'http://kldp.net/projects/baekmuk/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/fonts/baekmuk-ttf/Makefile ######
+## $NetBSD: Makefile,v 1.18 2014/06/01 16:35:32 wiz Exp $
+#
+#DISTNAME=	baekmuk-ttf-2.2
+#PKGREVISION=	3
+#CATEGORIES=	fonts korean
+#MASTER_SITES=	http://kldp.net/download.php/1429/
+#
+#MAINTAINER=	yui@yui.pe.kr
+#HOMEPAGE=	http://kldp.net/projects/baekmuk/
+#COMMENT=	Baekmuk family Korean TrueType fonts
+#
+#USE_X11BASE=	YES
+#NO_CONFIGURE=	YES
+#NO_BUILD=	YES
+#
+#FONTS_DIRS.ttf=	${PREFIX}/share/fonts/X11/TTF
+#DOCDIR=		${PREFIX}/share/doc/baekmuk-ttf
+#
+#do-install:
+#	${INSTALL_DATA_DIR} ${DESTDIR}${FONTS_DIRS.ttf}
+#	${INSTALL_DATA} ${WRKSRC}/ttf/*.ttf ${DESTDIR}${FONTS_DIRS.ttf}
+#	${INSTALL_DATA_DIR} ${DESTDIR}${DOCDIR}
+#	${INSTALL_DATA} ${WRKSRC}/COPYRIGHT* ${DESTDIR}${DOCDIR}
+#
+#.include "../../mk/bsd.pkg.mk"

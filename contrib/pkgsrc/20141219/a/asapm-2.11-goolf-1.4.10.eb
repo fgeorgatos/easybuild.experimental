@@ -1,0 +1,64 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'asapm'
+version = '2.11'
+versionsuffix = '-20141219'
+
+description = "asapm-2.11: Laptop battery status display for X11"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.tigr.net/afterstep/download/asapm/']
+
+homepage = 'http://www.tigr.net/afterstep/view.php?applet=asapm/data'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/asapm/Makefile ######
+## $NetBSD: Makefile,v 1.42 2012/10/23 19:50:51 asau Exp $
+##
+#
+#DISTNAME=		asapm-2.11
+#PKGREVISION=	4
+#CATEGORIES=		sysutils x11
+#MASTER_SITES=		http://www.tigr.net/afterstep/download/asapm/ \
+#			ftp://ftp.afterstep.org/apps/asapm/
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://www.tigr.net/afterstep/view.php?applet=asapm/data
+#COMMENT=		Laptop battery status display for X11
+#LICENSE=		gnu-gpl-v2
+#
+#.if !exists(/usr/include/machine/apmvar.h)
+#PKG_FAIL_REASON+=	"APM needs /usr/include/machine/apmvar.h to build."
+#.endif
+#
+#GNU_CONFIGURE=		YES
+#CONFIGURE_ARGS+=	--disable-jpeg	# there actually is no JPEG support
+#CONFIGURE_ARGS+=	--with-xpm
+#CONFIGURE_ARGS+=	--with-xpm-includes=${BUILDLINK_PREFIX.libXpm}/include
+#CONFIGURE_ARGS+=	--with-xpm-library=${BUILDLINK_PREFIX.libXpm}/lib
+#
+#INSTALLATION_DIRS+=	bin ${PKGMANDIR}/man1
+#
+#.include "../../x11/libXpm/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

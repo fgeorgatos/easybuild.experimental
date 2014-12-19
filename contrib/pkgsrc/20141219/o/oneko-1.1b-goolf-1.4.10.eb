@@ -1,0 +1,59 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'oneko-1.2'
+version = '1.1b'
+versionsuffix = '-20141219'
+
+description = "oneko-1.1b: Like xneko except on the desktop and with other animals"
+
+sources = ['oneko-1.1b.tar.Z']
+version = '1.2'
+name = 'oneko'
+source_urls = ['${MASTER_SITE_XCONTRIB:S/contrib/R5contrib/}']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/oneko/Makefile ######
+## $NetBSD: Makefile,v 1.12 2012/10/29 05:06:42 asau Exp $
+#
+#DISTNAME=		oneko-1.1b
+#PKGNAME=		oneko-1.2
+#PKGREVISION=		2
+#CATEGORIES=		x11 games
+#MASTER_SITES=		${MASTER_SITE_XCONTRIB:S/contrib/R5contrib/}
+#EXTRACT_SUFX=		.tar.Z
+#
+#PATCHFILES=		oneko-1.2.diff.gz
+#PATCH_SITES=		http://www.bsddiary.net/oneko/
+#PATCH_DIST_STRIP=	-p1
+#
+#MAINTAINER=		johnam@mail.kemper.org
+#COMMENT=		Like xneko except on the desktop and with other animals
+#
+#WRKSRC=			${WRKDIR}/oneko
+#USE_IMAKE=		yes
+#
+#.include "../../x11/libXext/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

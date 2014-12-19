@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'HandlesVia-0.001005'
+versionsuffix = '-20141219'
+
+description = "MooX-HandlesVia-0.001005: NativeTrait-like behavior for Moo"
+
+sources = ['MooX-HandlesVia-0.001005.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/../../authors/id/M/MA/MATTP/']
+
+homepage = 'http://search.cpan.org/dist/MooX-HandlesVia/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-MooX-HandlesVia/Makefile ######
+## $NetBSD: Makefile,v 1.1 2014/09/06 14:22:44 wiz Exp $
+#
+#DISTNAME=	MooX-HandlesVia-0.001005
+#PKGNAME=	p5-${DISTNAME}
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=../../authors/id/M/MA/MATTP/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/MooX-HandlesVia/
+#COMMENT=	NativeTrait-like behavior for Moo
+#LICENSE=	gnu-gpl-v1 OR artistic
+#
+#DEPENDS+=	p5-Moo-[0-9]*:../../devel/p5-Moo
+#DEPENDS+=	p5-Data-Perl-[0-9]*:../../devel/p5-Data-Perl
+#DEPENDS+=	p5-MooX-Types-MooseLike-[0-9]*:../../devel/p5-MooX-Types-MooseLike
+#
+#BUILD_DEPENDS+=	p5-Test-Exception-[0-9]*:../../devel/p5-Test-Fatal
+#BUILD_DEPENDS+=	p5-Test-Fatal-[0-9]*:../../devel/p5-Test-Fatal
+#
+#PERL5_PACKLIST=	auto/MooX/HandlesVia/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

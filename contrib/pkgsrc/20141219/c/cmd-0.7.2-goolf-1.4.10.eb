@@ -1,0 +1,52 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'cmd'
+version = '0.7.2'
+versionsuffix = '-20141219'
+
+description = "cmd-0.7.2: Library for building line-oriented command interpreters"
+
+sources = [SOURCE_TAR_GZ]
+
+homepage = 'http://rubyforge.org/projects/cmd/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/ruby-cmd/Makefile ######
+## $NetBSD: Makefile,v 1.10 2013/03/07 15:08:11 taca Exp $
+#
+#DISTNAME=	cmd-0.7.2
+#PKGREVISION=	1
+#CATEGORIES=	devel
+#
+#MAINTAINER=	minskim@NetBSD.org
+#HOMEPAGE=	http://rubyforge.org/projects/cmd/
+#COMMENT=	Library for building line-oriented command interpreters
+#LICENSE=	mit
+#
+#DEPENDS+=	${RUBY_PKGPREFIX}-readline>=${RUBY_VERSION}:../../devel/ruby-readline
+#
+#OVERRIDE_GEMSPEC=	:files download= rdoc=
+#
+#.include "../../lang/ruby/gem.mk"
+#.include "../../mk/bsd.pkg.mk"

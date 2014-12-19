@@ -1,0 +1,66 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'dvtm'
+version = '0.9'
+versionsuffix = '-20141219'
+
+description = "dvtm-0.9: Dynamic virtual terminal manager"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.brain-dump.org/projects/dvtm/']
+
+homepage = 'http://www.brain-dump.org/projects/dvtm/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/misc/dvtm/Makefile ######
+## $NetBSD: Makefile,v 1.10 2013/11/24 07:38:41 dholland Exp $
+#
+#DISTNAME=	dvtm-0.9
+#PKGREVISION=	1
+#CATEGORIES=	misc
+#MASTER_SITES=	http://www.brain-dump.org/projects/dvtm/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.brain-dump.org/projects/dvtm/
+#COMMENT=	Dynamic virtual terminal manager
+#LICENSE=	mit
+#
+#USE_LANGUAGES=		c99
+#NO_CONFIGURE=		yes
+#
+#SUBST_CLASSES+=		config
+#SUBST_STAGE.config=	pre-build
+#SUBST_MESSAGE.config=	Fixing config.mk
+#SUBST_FILES.config=	config.mk
+#SUBST_SED.config=	-e 's,/usr/local,${PREFIX},'
+#SUBST_SED.config+=	-e 's,share/man,${PKGMANDIR},'
+#SUBST_SED.config+=	-e '/LIBS/s/-lncursesw/-lcurses/'
+#SUBST_SED.config+=	-e 's,^CFLAGS =,CFLAGS +=,'
+#SUBST_SED.config+=	-e 's,^LDFLAGS =,LDFLAGS +=,'
+#SUBST_SED.config+=	-e 's/cc/${CC:Q}/'
+#
+#INSTALLATION_DIRS=	bin ${PKGMANDIR}/man1
+#
+#.include "../../mk/curses.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

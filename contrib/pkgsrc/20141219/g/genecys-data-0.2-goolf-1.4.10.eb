@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'genecys'
+version = 'data-0.2'
+versionsuffix = '-20141219'
+
+description = "genecys-data-0.2: Game datafiles for Genecys"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/genecys/files', 'download']
+
+homepage = 'http://www.genecys.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/games/genecys-data/Makefile ######
+## $NetBSD: Makefile,v 1.8 2013/01/11 13:25:40 joerg Exp $
+##
+#
+#DISTNAME=		genecys-data-0.2
+#PKGREVISION=		2
+#CATEGORIES=		games
+#MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=genecys/}
+#
+#MAINTAINER=		root@garbled.net
+#HOMEPAGE=		http://www.genecys.org/
+#COMMENT=		Game datafiles for Genecys
+#
+#WRKSRC=			${WRKDIR}
+#NO_BUILD=		YES
+#NO_CONFIGURE=		YES
+#USE_TOOLS+=		bsdtar
+#
+#do-extract:
+#
+#do-install:
+#	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/genecys
+#	cd ${DESTDIR}${PREFIX}/share/genecys && \
+#		${GZCAT} ${DISTDIR}/${DISTFILES} | ${TOOLS_PATH.bsdtar} xmf -
+#
+#.include "../../mk/bsd.pkg.mk"

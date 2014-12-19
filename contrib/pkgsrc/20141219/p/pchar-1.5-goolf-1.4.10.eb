@@ -1,0 +1,78 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'pchar'
+version = '1.5'
+versionsuffix = '-20141219'
+
+description = "pchar-1.5: Tool for measuring Internet path characteristics"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.kitchenlab.org/www/bmah/Software/pchar/']
+
+homepage = 'http://www.kitchenlab.org/www/bmah/Software/pchar/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/pchar/Makefile ######
+## $NetBSD: Makefile,v 1.40 2014/02/12 23:18:24 tron Exp $
+#
+#DISTNAME=		pchar-1.5
+#PKGREVISION=		4
+#CATEGORIES=		net
+#MASTER_SITES=		http://www.kitchenlab.org/www/bmah/Software/pchar/
+#
+#MAINTAINER=		soren@NetBSD.org
+#HOMEPAGE=		http://www.kitchenlab.org/www/bmah/Software/pchar/
+#COMMENT=		Tool for measuring Internet path characteristics
+#
+#GNU_CONFIGURE=		yes
+#USE_LANGUAGES=		c c++
+#
+#PKG_OPTIONS_VAR=	PKG_OPTIONS.pchar
+#PKG_SUPPORTED_OPTIONS=	inet6
+#PKG_SUGGESTED_OPTIONS=	inet6
+#
+#.include "../../mk/bsd.options.mk"
+#
+#.if !empty(PKG_OPTIONS:Minet6)
+#CONFIGURE_ARGS+=	--with-ipv6
+#.endif
+#
+#.if ${OPSYS} == "NetBSD"
+#.  include "../../net/net-snmp/buildlink3.mk"
+#CONFIGURE_ARGS+=	--with-snmp=${BUILDLINK_PREFIX.net-snmp}
+#LIBS+=			-lsnmp -lcrypto -ldes
+#.endif
+#
+#.if ${OPSYS} == "Darwin"
+#CFLAGS+=	-D__APPLE_USE_RFC_3542
+#.endif
+#
+#INSTALLATION_DIRS=	${PKGMANDIR}/man8 sbin
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/pchar ${DESTDIR}${PREFIX}/sbin
+#	${INSTALL_MAN} ${WRKSRC}/pchar.8 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man8
+#
+#.include "../../security/openssl/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

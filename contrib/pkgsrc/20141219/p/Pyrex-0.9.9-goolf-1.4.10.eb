@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '-'
+version = '0.9.9'
+versionsuffix = '-20141219'
+
+description = "Pyrex-0.9.9: Language for Writing Python Extension Modules"
+
+sources = ['Pyrex-0.9.9.tar.gz']
+source_urls = ['http://www.cosc.canterbury.ac.nz/greg.ewing/python/Pyrex/']
+
+homepage = 'http://www.cosc.canterbury.ac.nz/greg.ewing/python/Pyrex/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/lang/py-pyrex/Makefile ######
+## $NetBSD: Makefile,v 1.26 2014/05/09 07:37:09 wiz Exp $
+#
+#DISTNAME=	Pyrex-0.9.9
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME:S/P/p/}
+#PKGREVISION=	2
+#CATEGORIES=	lang python
+#MASTER_SITES=	http://www.cosc.canterbury.ac.nz/greg.ewing/python/Pyrex/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.cosc.canterbury.ac.nz/greg.ewing/python/Pyrex/
+#COMMENT=	Language for Writing Python Extension Modules
+#LICENSE=	apache-2.0
+#
+#USE_TOOLS+= 	 	pax
+#
+#PYTHON_SELF_CONFLICT=	yes
+#PYTHON_VERSIONS_INCOMPATIBLE=	33 34 # not yet ported as of 0.9.9
+#
+#.include "../../lang/python/distutils.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Writer-String-0.1'
+versionsuffix = '-20141219'
+
+description = "XML-Writer-String-0.1: Perl module for writing XML documents based on XML::Writer"
+
+sources = ['XML-Writer-String-0.1.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/XML/']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/p5-XML-Writer-String/Makefile ######
+## $NetBSD: Makefile,v 1.17 2014/05/29 23:37:48 wiz Exp $
+##
+#
+#DISTNAME=	XML-Writer-String-0.1
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	8
+#SVR4_PKGNAME=	p5xws
+#CATEGORIES=	textproc perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=XML/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#COMMENT=	Perl module for writing XML documents based on XML::Writer
+#
+#DEPENDS+=	p5-XML-Writer-[0-9]*:../../textproc/p5-XML-Writer
+#
+#PERL5_PACKLIST=		auto/XML/Writer/String/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

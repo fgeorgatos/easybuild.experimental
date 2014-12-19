@@ -1,0 +1,48 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'tex--2.2b'
+version = 'optional'
+versionsuffix = '-20141219'
+
+description = "optional: Facilitate optional printing of parts of a document"
+
+sources = ['optional.tar.gz']
+version = '${DISTNAME}-2.2b'
+name = 'tex'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/print/tex-optional/Makefile ######
+## $NetBSD: Makefile,v 1.1.1.1 2010/05/25 07:58:12 minskim Exp $
+#
+#DISTNAME=	optional
+#PKGNAME=	tex-${DISTNAME}-2.2b
+#TEXLIVE_REV=	18131
+#
+#MAINTAINER=	minskim@NetBSD.org
+#COMMENT=	Facilitate optional printing of parts of a document
+#
+#.include "../../print/texlive/package.mk"
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

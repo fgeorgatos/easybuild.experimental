@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = '0.24'
+versionsuffix = '-20141219'
+
+description = "Spoon-0.24: Spiffy Application Building Framework"
+
+sources = ['Spoon-0.24.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/../by-${AUTHOR_DIR}/']
+
+homepage = 'http://search.cpan.org/dist/Spoon/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Spoon/Makefile ######
+## $NetBSD: Makefile,v 1.22 2014/05/29 23:36:17 wiz Exp $
+#
+#DISTNAME=	Spoon-0.24
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	7
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=../by-${AUTHOR_DIR}/}
+#AUTHOR_DIR=	authors/id/I/IN/INGY
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Spoon/
+#COMMENT=	Spiffy Application Building Framework
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	p5-IO-All>=0.32:../../devel/p5-IO-All
+#DEPENDS+=	p5-Spiffy>=0.22:../../devel/p5-Spiffy
+#DEPENDS+=	p5-Template-Toolkit>=2.10:../../www/p5-Template-Toolkit
+#DEPENDS+=	{perl>=5.7.3,p5-Time-HiRes-[0-9]*}:../../time/p5-Time-HiRes
+#
+#PERL5_PACKLIST=	auto/Spoon/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

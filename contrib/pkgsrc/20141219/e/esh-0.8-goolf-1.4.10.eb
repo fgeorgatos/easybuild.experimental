@@ -1,0 +1,65 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'esh'
+version = '0.8'
+versionsuffix = '-20141219'
+
+description = "esh-0.8: Unix shell with Lisp-like syntax"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['${MASTER_SITE_BACKUP}']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/shells/esh/Makefile ######
+## $NetBSD: Makefile,v 1.30 2013/07/12 17:25:09 wiz Exp $
+#
+#DISTNAME=		esh-0.8
+#PKGREVISION=		4
+#CATEGORIES=		shells
+#MASTER_SITES=		${MASTER_SITE_BACKUP}
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#COMMENT=		Unix shell with Lisp-like syntax
+#
+#WRKSRC=			${WRKDIR}/esh
+#PKG_SHELL=		bin/esh
+#INFO_FILES=		yes
+#INSTALLATION_DIRS=	bin ${PKGINFODIR} share/doc/esh share/examples/esh
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/esh ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_DATA} ${WRKSRC}/examples/*.esh 			\
+#	    ${DESTDIR}${PREFIX}/share/examples/esh
+#	${INSTALL_DATA} ${WRKSRC}/emacs/esh-mode.el 			\
+#	    ${DESTDIR}${PREFIX}/share/examples/esh
+#	cd ${WRKSRC}/doc; for f in *.info *.info-[0-9]*; do		\
+#		${TEST} ! -f "$$f" ||					\
+#		${INSTALL_DATA} "$$f" ${DESTDIR}${PREFIX}/${PKGINFODIR};		\
+#	done
+#	cd ${WRKSRC}/doc && ${INSTALL_DATA} esh.html esh_toc.html	\
+#	    ${DESTDIR}${PREFIX}/share/doc/esh/
+#
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

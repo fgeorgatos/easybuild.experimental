@@ -1,0 +1,49 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'gettext_i18n_rails'
+version = '1.0.3'
+versionsuffix = '-20141219'
+
+description = "gettext_i18n_rails-1.0.3: Simple FastGettext Rails integration"
+
+sources = [SOURCE_TAR_GZ]
+
+homepage = 'https://github.com/grosser/gettext_i18n_rails'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/ruby-gettext_i18n_rails/Makefile ######
+## $NetBSD: Makefile,v 1.12 2014/03/14 15:39:42 taca Exp $
+#
+#DISTNAME=	gettext_i18n_rails-1.0.3
+#CATEGORIES=	devel
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	https://github.com/grosser/gettext_i18n_rails
+#COMMENT=	Simple FastGettext Rails integration
+#LICENSE=	public-domain
+#
+#DEPENDS+=	${RUBY_PKGPREFIX}-fast_gettext>=0.4.8:../../devel/ruby-fast_gettext
+#
+#.include "../../lang/ruby/gem.mk"
+#.include "../../mk/bsd.pkg.mk"

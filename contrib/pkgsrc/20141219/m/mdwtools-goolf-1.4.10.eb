@@ -1,0 +1,52 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'tex--1.05.4'
+version = 'mdwtools'
+versionsuffix = '-20141219'
+
+description = "mdwtools: Miscellaneous LaTeX tools by Mark Wooding"
+
+sources = ['mdwtools.tar.gz']
+version = '${DISTNAME}-1.05.4'
+name = 'tex'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/print/tex-mdwtools/Makefile ######
+## $NetBSD: Makefile,v 1.1.1.1 2012/04/18 19:31:47 minskim Exp $
+#
+#DISTNAME=	mdwtools
+#PKGNAME=	tex-${DISTNAME}-1.05.4
+#TEXLIVE_REV=	15878
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#COMMENT=	Miscellaneous LaTeX tools by Mark Wooding
+#LICENSE=	gnu-gpl-v2
+#
+#CONFLICTS=	teTeX-texmf<3.0nb35
+#DEPENDS+=	tex-latex-bin-[0-9]*:../../print/tex-latex-bin
+#
+#.include "../../print/texlive/package.mk"
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

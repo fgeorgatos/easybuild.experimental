@@ -1,0 +1,65 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'gmfsk'
+version = '0.6'
+versionsuffix = '-20141219'
+
+description = "gmfsk-0.6: Multimode HF terminal program"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://gmfsk.connect.fi/']
+
+homepage = 'http://gmfsk.connect.fi/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/ham/gmfsk/Makefile ######
+## $NetBSD: Makefile,v 1.60 2014/05/05 00:48:01 ryoon Exp $
+##
+#
+#DISTNAME=	gmfsk-0.6
+#PKGREVISION=	44
+#CATEGORIES=	ham
+#MASTER_SITES=	http://gmfsk.connect.fi/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://gmfsk.connect.fi/
+#COMMENT=	Multimode HF terminal program
+#
+#USE_LANGUAGES=	c c++
+#USE_TOOLS+=	gmake pkg-config
+#GNU_CONFIGURE=	yes
+#GCONF_SCHEMAS+=gmfsk.schemas
+#
+#CONFIGURE_ARGS+=--enable-hamlib
+#
+#.include "../../mk/bsd.prefs.mk"
+#LDFLAGS+=	${LIBOSSAUDIO}
+#
+#.include "../../devel/GConf/schemas.mk"
+#.include "../../devel/libgnomeui/buildlink3.mk"
+#.include "../../math/fftw2/buildlink3.mk"
+#.include "../../ham/hamlib/buildlink3.mk"
+#.include "../../mk/omf-scrollkeeper.mk"
+#.include "../../mk/oss.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

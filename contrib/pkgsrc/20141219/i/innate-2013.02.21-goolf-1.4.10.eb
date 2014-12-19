@@ -1,0 +1,49 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'innate'
+version = '2013.02.21'
+versionsuffix = '-20141219'
+
+description = "innate-2013.02.21: Powerful web-framework wrapper for Rack"
+
+sources = [SOURCE_TAR_GZ]
+
+homepage = 'http://github.com/manveru/innate'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/ruby-innate/Makefile ######
+## $NetBSD: Makefile,v 1.9 2013/04/06 13:09:26 rodent Exp $
+#
+#DISTNAME=	innate-2013.02.21
+#CATEGORIES=	devel
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://github.com/manveru/innate
+#COMMENT=	Powerful web-framework wrapper for Rack
+#LICENSE=	mit
+#
+#DEPENDS+=	${RUBY_PKGPREFIX}-rack>=1.5.2<1.6:../../www/ruby-rack
+#
+#.include "../../lang/ruby/gem.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,67 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Template-Plus-0.05'
+versionsuffix = '-20141219'
+
+description = "Excel-Template-Plus-0.05: Extension to the Excel::Template module"
+
+sources = ['Excel-Template-Plus-0.05.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Excel/']
+
+homepage = 'http://search.cpan.org/dist/Excel-Template-Plus/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/math/p5-Excel-Template-Plus/Makefile ######
+## $NetBSD: Makefile,v 1.10 2014/05/29 23:36:53 wiz Exp $
+#
+#DISTNAME=	Excel-Template-Plus-0.05
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	5
+#CATEGORIES=	math perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Excel/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Excel-Template-Plus/
+#COMMENT=	Extension to the Excel::Template module
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	p5-Excel-Template-[0-9]*:../../math/p5-Excel-Template
+#DEPENDS+=	p5-IO-String-[0-9]*:../../devel/p5-IO-String
+#DEPENDS+=	p5-Moose>=0.18:../../devel/p5-Moose
+#DEPENDS+=	p5-MooseX-Param>=0.01:../../devel/p5-MooseX-Param
+#DEPENDS+=	p5-Spreadsheet-ParseExcel-[0-9]*:../../math/p5-Spreadsheet-ParseExcel
+#DEPENDS+=	p5-Template-Toolkit-[0-9]*:../../www/p5-Template-Toolkit
+#DEPENDS+=	p5-Test-Deep-[0-9]*:../../devel/p5-Test-Deep
+#
+#BUILD_DEPENDS+=	p5-Test-Exception>=0.21:../../devel/p5-Test-Exception
+#
+#USE_LANGUAGES=		# empty
+#PERL5_PACKLIST=		auto/Excel/Template/Plus/.packlist
+#PERL5_MODULE_TYPE=	Module::Build
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,63 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Date-1.104'
+versionsuffix = '-20141219'
+
+description = "Email-Date-1.104: Find and Format Date Headers"
+
+sources = ['Email-Date-1.104.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Email/']
+
+homepage = 'http://cpan.uwinnipeg.ca/dist/Email-Date'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/mail/p5-Email-Date/Makefile ######
+## $NetBSD: Makefile,v 1.14 2014/05/29 23:36:47 wiz Exp $
+#
+#DISTNAME=	Email-Date-1.104
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	2
+#CATEGORIES=	mail perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Email/}
+#
+#MAINTAINER=	rhaen@NetBSD.org
+#HOMEPAGE=	http://cpan.uwinnipeg.ca/dist/Email-Date
+#COMMENT=	Find and Format Date Headers
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	{perl>=5.7.3,p5-Test-Simple>=0.47}:../../devel/p5-Test-Simple
+#DEPENDS+=	p5-Email-Simple>=1.9:../../mail/p5-Email-Simple
+#DEPENDS+=	{perl>=5.9.5,p5-Time-Piece>=1.08}:../../time/p5-Time-Piece
+#DEPENDS+=	{perl>=5.14.0,p5-Time-Local>=1.07}:../../time/p5-Time-Local
+#DEPENDS+=	p5-TimeDate>=2.27:../../time/p5-TimeDate
+#DEPENDS+=	p5-Email-Abstract>=2.10:../../mail/p5-Email-Abstract
+#DEPENDS+=	p5-Email-Date-Format>=1.000:../../mail/p5-Email-Date-Format
+#
+#PERL5_PACKLIST=	auto/Email/Date/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

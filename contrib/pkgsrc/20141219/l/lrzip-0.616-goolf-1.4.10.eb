@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'lrzip'
+version = '0.616'
+versionsuffix = '-20141219'
+
+description = "lrzip-0.616: Long Range ZIP or Lzma RZIP"
+
+sources = [SOURCE_TAR_BZ2]
+source_urls = ['http://ck.kolivas.org/apps/lrzip/']
+
+homepage = 'http://ck.kolivas.org/apps/lrzip/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/archivers/lrzip/Makefile ######
+## $NetBSD: Makefile,v 1.4 2014/01/09 15:34:02 jperkin Exp $
+#
+#DISTNAME=	lrzip-0.616
+#PKGREVISION=	1
+#CATEGORIES=	archivers
+#MASTER_SITES=	http://ck.kolivas.org/apps/lrzip/
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	tm@core.io
+#HOMEPAGE=	http://ck.kolivas.org/apps/lrzip/
+#COMMENT=	Long Range ZIP or Lzma RZIP
+#LICENSE=	gnu-gpl-v2
+#
+#GNU_CONFIGURE=	yes
+#USE_LIBTOOL=	yes
+#USE_TOOLS+=	bash:run pkg-config pod2man
+#USE_LANGUAGES=	c c++
+#
+#PKGCONFIG_OVERRIDE+=	lrzip.pc.in
+#
+#REPLACE_BASH+=	lrztar
+#
+#.include "../../archivers/bzip2/buildlink3.mk"
+#.include "../../archivers/lzo/buildlink3.mk"
+#.include "../../devel/zlib/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,52 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'hlfl'
+version = '0.60.1'
+versionsuffix = '-20141219'
+
+description = "hlfl-0.60.1: High Level Firewall Language"
+
+sources = [SOURCE_TAR_BZ2]
+source_urls = ['http://www.hlfl.org/hlfl/']
+
+homepage = 'http://www.hlfl.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/hlfl/Makefile ######
+## $NetBSD: Makefile,v 1.8 2013/04/08 11:17:18 rodent Exp $
+##
+#
+#DISTNAME=		hlfl-0.60.1
+#PKGREVISION=		1
+#CATEGORIES=		net
+#MASTER_SITES=		http://www.hlfl.org/hlfl/
+#EXTRACT_SUFX=		.tar.bz2
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://www.hlfl.org/
+#COMMENT=		High Level Firewall Language
+#
+#GNU_CONFIGURE=		yes
+#
+#.include "../../mk/bsd.pkg.mk"

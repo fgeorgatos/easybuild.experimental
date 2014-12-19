@@ -1,0 +1,53 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '-'
+version = '0.5.10'
+versionsuffix = '-20141219'
+
+description = "logan-0.5.10: Toolkit for building standalone Django applications"
+
+sources = ['logan-0.5.10.tar.gz']
+source_urls = ['https://pypi.python.org/packages/source/l/logan/']
+
+homepage = 'http://github.com/dcramer/logan'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/py-logan/Makefile ######
+## $NetBSD: Makefile,v 1.4 2014/05/09 07:37:01 wiz Exp $
+#
+#DISTNAME=	logan-0.5.10
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+#CATEGORIES=	devel python
+#MASTER_SITES=	https://pypi.python.org/packages/source/l/logan/
+#
+#MAINTAINER=	rodent@NetBSD.org
+#HOMEPAGE=	http://github.com/dcramer/logan
+#COMMENT=	Toolkit for building standalone Django applications
+#LICENSE=	apache-2.0
+#
+#USE_LANGUAGES=	# none
+#PYTHON_VERSIONS_INCOMPATIBLE=	33 34 # not yet ported as of 0.5.9.1
+#
+#.include "../../lang/python/egg.mk"
+#.include "../../mk/bsd.pkg.mk"

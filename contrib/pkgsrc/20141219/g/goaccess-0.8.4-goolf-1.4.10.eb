@@ -1,0 +1,65 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'goaccess'
+version = '0.8.4'
+versionsuffix = '-20141219'
+
+description = "goaccess-0.8.4: Real-time web log analyzer"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://tar.goaccess.io/']
+
+homepage = 'http://goaccess.prosoftcorp.com/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/goaccess/Makefile ######
+## $NetBSD: Makefile,v 1.4 2014/09/08 17:31:36 wiedi Exp $
+#
+#DISTNAME=	goaccess-0.8.4
+#CATEGORIES=	www
+#MASTER_SITES=	http://tar.goaccess.io/
+#
+#MAINTAINER=	wiedi@frubar.net
+#HOMEPAGE=	http://goaccess.prosoftcorp.com/
+#COMMENT=	Real-time web log analyzer
+#LICENSE=	gnu-gpl-v2
+#
+#GNU_CONFIGURE=	yes
+#
+#USE_TOOLS+=     pkg-config aclocal automake
+#USE_NCURSES=	yes
+#
+#EGDIR=		${PREFIX}/share/examples/${PKGBASE}
+#CONF_FILES=	${EGDIR}/goaccess.conf ${PKG_SYSCONFDIR}/goaccess.conf
+#
+#LIBS.SunOS+=	-lsocket -lnsl
+#CPPFLAGS.SunOS+=	-D__EXTENSIONS__
+#
+#.include "options.mk"
+#
+#pre-configure:
+#	cd ${WRKSRC} && aclocal && automake --add-missing
+#
+#.include "../../devel/glib2/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

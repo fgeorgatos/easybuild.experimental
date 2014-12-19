@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'matchbox'
+version = 'common-0.9.1'
+versionsuffix = '-20141219'
+
+description = "matchbox-common-0.9.1: Shared icons and configuration data for Matchbox"
+
+sources = [SOURCE_TAR_BZ2]
+source_urls = ['http://matchbox-project.org/sources/matchbox-common/0.9/']
+
+homepage = 'http://matchbox-project.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/x11/matchbox-common/Makefile ######
+## $NetBSD: Makefile,v 1.18 2013/06/06 12:55:19 wiz Exp $
+##
+#
+#DISTNAME=		matchbox-common-0.9.1
+#PKGREVISION=		10
+#CATEGORIES=		x11
+#MASTER_SITES=		http://matchbox-project.org/sources/matchbox-common/0.9/
+#EXTRACT_SUFX=		.tar.bz2
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://matchbox-project.org/
+#COMMENT=		Shared icons and configuration data for Matchbox
+#
+#GNU_CONFIGURE=		yes
+#USE_TOOLS+=		pkg-config
+#
+#PKG_SYSCONFSUBDIR=	matchbox
+#
+#SUBST_CLASSES+=		session
+#SUBST_MESSAGE.session=	Fixing location of system-wide matchbox session.
+#SUBST_STAGE.session=	pre-configure
+#SUBST_FILES.session=	matchbox-session
+#SUBST_SED.session=	-e 's|/etc/matchbox|${PKG_SYSCONFDIR}|g'
+#
+#.include "../../devel/libmatchbox/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,102 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'opensmtpd'
+version = ''
+versionsuffix = '-20141219'
+
+description = "opensmtpd-: The OpenSMTPD mail transfer agent, a replacement for sendmail"
+
+sources = ['opensmtpd-${VERSION}.tar.gz']
+source_urls = ['http://www.opensmtpd.org/archives/']
+
+homepage = 'http://www.opensmtpd.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/mail/opensmtpd/Makefile ######
+## $NetBSD: Makefile,v 1.4 2014/08/17 19:05:50 joerg Exp $
+#
+#VERSION=	5.3.3p1
+#DISTNAME=	opensmtpd-${VERSION}
+#PKGREVISION=	1
+#CATEGORIES=	mail net
+#MASTER_SITES=	http://www.opensmtpd.org/archives/
+#
+#MAINTAINER=	ftigeot@wolfpond.org
+#HOMEPAGE=	http://www.opensmtpd.org/
+#COMMENT=	The OpenSMTPD mail transfer agent, a replacement for sendmail
+#LICENSE=	isc AND modified-bsd AND 2-clause-bsd
+#
+#CONFLICTS+=	courier-mta-[0-9]* fastforward>=0.51nb2 sendmail-[0-9]*
+#CONFLICTS+=	esmtp>=1.2 nullmailer-[0-9]* postfix-[0-9]*
+#
+#BUILD_DEFS+=	VARBASE
+#
+#USE_LANGUAGES=	c
+#USE_LIBTOOL=	yes
+#USE_TOOLS+=	pkg-config yacc
+#USE_TOOLS+=	automake aclocal autoheader autoconf
+#
+#SMTPD_HOME=	${VARBASE}/chroot/smtpd
+#OWN_DIRS=	${SMTPD_HOME}
+#
+#PKG_GROUPS=		_smtpd
+#PKG_USERS=		_smtpd:_smtpd
+#PKG_GECOS._smtpd=	OpenSMTPD pseudo-user
+#PKG_HOME._smtpd=	${SMTPD_HOME}
+#
+#GNU_CONFIGURE=	yes
+#
+#EXAMPLEDIR=	${PREFIX}/share/examples/opensmtpd
+#CONF_FILES=	${EXAMPLEDIR}/smtpd.conf ${PKG_SYSCONFDIR}/smtpd.conf
+#
+#RCD_SCRIPTS=	opensmtpd
+#
+#SUBST_CLASSES+=		paths
+#SUBST_FILES.paths=	${WRKDIR}/mailer.conf
+#SUBST_SED.paths+=	-e 's,@PREFIX@,${PREFIX},g'
+#SUBST_STAGE.paths=	post-patch
+#
+#SUBST_CLASSES+=			exampledir
+#SUBST_STAGE.exampledir=		pre-configure
+#SUBST_MESSAGE.exampledir=	Fixing exampledir path
+#SUBST_FILES.exampledir=		smtpd/Makefile.am
+#SUBST_SED.exampledir+=		-e 's,@EXAMPLE_DIR@,${EXAMPLEDIR},'
+#
+#post-extract:
+#	cp ${FILESDIR}/mailer.conf ${WRKDIR}/mailer.conf
+#
+#pre-configure:
+#	cd $(WRKSRC) && ${PREFIX}/bin/libtoolize --copy --force
+#	cd $(WRKSRC) && ${TOOLS_CMD.aclocal}
+#	cd $(WRKSRC) && ${TOOLS_CMD.autoconf}
+#	cd $(WRKSRC) && ${TOOLS_CMD.autoheader}
+#	cd $(WRKSRC) && ${TOOLS_CMD.automake} --foreign --add-missing --copy
+#
+#post-install:
+#	${INSTALL_DATA} ${WRKDIR}/mailer.conf \
+#		${DESTDIR}${EXAMPLEDIR}/mailer.conf
+#
+#.include "../../devel/libevent/buildlink3.mk"
+#.include "../../devel/zlib/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

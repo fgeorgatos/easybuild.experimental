@@ -1,0 +1,60 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'mpc'
+version = '0.26'
+versionsuffix = '-20141219'
+
+description = "mpc-0.26: Command-line client for musicpd"
+
+sources = [SOURCE_TAR_XZ]
+source_urls = ['http://www.musicpd.org/download/mpc/0/']
+
+homepage = 'http://musicpd.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/mpc/Makefile ######
+## $NetBSD: Makefile,v 1.21 2014/06/09 12:27:51 wiz Exp $
+#
+#DISTNAME=		mpc-0.26
+#CATEGORIES=		audio
+##MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=musicpd/}
+#MASTER_SITES=		http://www.musicpd.org/download/mpc/0/
+#EXTRACT_SUFX=		.tar.xz
+#
+#MAINTAINER=		simonb@NetBSD.org
+#HOMEPAGE=		http://musicpd.org/
+#COMMENT=		Command-line client for musicpd
+#LICENSE=		gnu-gpl-v2
+#
+#GNU_CONFIGURE=		yes
+#USE_LIBTOOL=		yes
+#USE_TOOLS+=		pkg-config
+#
+#REPLACE_SH=		doc/*.sh
+#
+#LIBS.SunOS+=		${BUILDLINK_LDADD.iconv}
+#
+#.include "../../audio/libmpdclient/buildlink3.mk"
+#.include "../../converters/libiconv/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

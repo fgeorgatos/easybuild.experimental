@@ -1,0 +1,49 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'tex--1.7b4'
+version = 'otf.doc'
+versionsuffix = '-20141219'
+
+description = "japanese-otf.doc: Documentation for tex-japanese-otf"
+
+sources = ['japanese-otf.doc.tar.gz']
+version = '${DISTNAME:S/./-/}-1.7b4'
+name = 'tex'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/fonts/tex-japanese-otf-doc/Makefile ######
+## $NetBSD: Makefile,v 1.1.1.1 2012/03/04 01:13:54 minskim Exp $
+#
+#DISTNAME=	japanese-otf.doc
+#PKGNAME=	tex-${DISTNAME:S/./-/}-1.7b4
+#CATEGORIES=	fonts
+#TEXLIVE_REV=	25453
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#COMMENT=	Documentation for tex-japanese-otf
+#
+#.include "../../print/texlive/package.mk"
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

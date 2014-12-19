@@ -1,0 +1,55 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Minimal-1.29'
+versionsuffix = '-20141219'
+
+description = "CGI-Minimal-1.29: Perl5 module for simple CGI scripts"
+
+sources = ['CGI-Minimal-1.29.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/CGI/']
+
+homepage = 'http://search.cpan.org/dist/CGI-Minimal/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/p5-CGI-Minimal/Makefile ######
+## $NetBSD: Makefile,v 1.22 2014/05/29 23:38:00 wiz Exp $
+#
+#DISTNAME=		CGI-Minimal-1.29
+#PKGNAME=		p5-${DISTNAME}
+#PKGREVISION=		6
+#SVR4_PKGNAME=		p5cgm
+#CATEGORIES=		www perl5
+#MASTER_SITES=		${MASTER_SITE_PERL_CPAN:=CGI/}
+#
+#MAINTAINER=		rhaen@NetBSD.org
+#HOMEPAGE=		http://search.cpan.org/dist/CGI-Minimal/
+#COMMENT=		Perl5 module for simple CGI scripts
+#
+#PERL5_PACKLIST=		auto/CGI/Minimal/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

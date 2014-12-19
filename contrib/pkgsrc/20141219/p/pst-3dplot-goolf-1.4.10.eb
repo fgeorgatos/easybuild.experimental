@@ -1,0 +1,55 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'tex--1.94'
+version = '3dplot'
+versionsuffix = '-20141219'
+
+description = "pst-3dplot: Draw 3d curves and graphs using PSTricks"
+
+sources = ['pst-3dplot.tar.gz']
+version = '${DISTNAME}-1.94'
+name = 'tex'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/tex-pst-3dplot/Makefile ######
+## $NetBSD: Makefile,v 1.1.1.1 2011/03/18 19:49:23 minskim Exp $
+#
+#DISTNAME=	pst-3dplot
+#PKGNAME=	tex-${DISTNAME}-1.94
+#TEXLIVE_REV=	21588
+#
+#MAINTAINER=	minskim@NetBSD.org
+#COMMENT=	Draw 3d curves and graphs using PSTricks
+#
+#DEPENDS+=	tex-multido-[0-9]*:../../devel/tex-multido
+#DEPENDS+=	tex-pst-3d-[0-9]*:../../graphics/tex-pst-3d
+#DEPENDS+=	tex-pst-node-[0-9]*:../../graphics/tex-pst-node
+#DEPENDS+=	tex-pst-plot-[0-9]*:../../graphics/tex-pst-plot
+#DEPENDS+=	tex-pstricks-[0-9]*:../../graphics/tex-pstricks
+#DEPENDS+=	tex-xkeyval-[0-9]*:../../print/tex-xkeyval
+#
+#.include "../../print/texlive/package.mk"
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

@@ -1,0 +1,65 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'tex--2013'
+version = 'kpathsea'
+versionsuffix = '-20141219'
+
+description = "kpathsea: Translation tables for TeX"
+
+sources = ['kpathsea.tar.gz']
+version = '${DISTNAME}-2013'
+name = 'tex'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/print/tex-kpathsea/Makefile ######
+## $NetBSD: Makefile,v 1.14 2013/11/17 17:12:19 minskim Exp $
+#
+#DISTNAME=	kpathsea
+#PKGNAME=	tex-${DISTNAME}-2013
+#TEXLIVE_REV=	30947
+#
+#MAINTAINER=	minskim@NetBSD.org
+#COMMENT=	Translation tables for TeX
+#LICENSE=	gnu-lgpl-v2.1
+#
+#CONFLICTS+=	tex-bin-kpathsea-[0-9]*
+#CONFLICTS+=	texlive-tetex<=2011nb2
+#SUPERSEDES=	tex-bin-kpathsea<=2008.12897
+#
+#PKG_SYSCONFSUBDIR=	texmf
+#
+#MAKE_DIRS+=	${PKG_SYSCONFDIR}/web2c
+#CONF_FILES+=	${PREFIX}/share/texmf-dist/web2c/fmtutil.cnf \
+#		${PKG_SYSCONFDIR}/web2c/fmtutil.cnf
+#
+#TEX_TEXMF_DIRS+=	${PKG_SYSCONFDIR} ${PREFIX}/share/texmf-dist
+#
+#TEXLIVE_IGNORE_PATTERNS=	texmf-dist/web2c/mktex.opt \
+#				texmf-dist/web2c/mktex[a-z]* \
+#				texmf-dist/web2c/texmf.cnf
+#
+#.include "../../print/texlive/package.mk"
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

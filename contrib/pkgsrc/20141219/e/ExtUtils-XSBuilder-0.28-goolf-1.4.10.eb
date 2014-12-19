@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'XSBuilder-0.28'
+versionsuffix = '-20141219'
+
+description = "ExtUtils-XSBuilder-0.28: Perl5 module for automatic XS glue code generation"
+
+sources = ['ExtUtils-XSBuilder-0.28.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/ExtUtils/']
+
+homepage = 'http://search.cpan.org/dist/ExtUtils-XSBuilder/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-ExtUtils-XSBuilder/Makefile ######
+## $NetBSD: Makefile,v 1.16 2014/05/29 23:35:53 wiz Exp $
+#
+#DISTNAME=	ExtUtils-XSBuilder-0.28
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	6
+#SVR4_PKGNAME=	p5exs
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=ExtUtils/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/ExtUtils-XSBuilder/
+#COMMENT=	Perl5 module for automatic XS glue code generation
+#LICENSE=	${PERL5_LICENSE}
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#DEPENDS+=	p5-Parse-RecDescent-[0-9]*:../../devel/p5-Parse-RecDescent
+#DEPENDS+=	p5-Tie-IxHash-[0-9]*:../../devel/p5-Tie-IxHash
+#
+#USE_LANGUAGES=		# empty
+#PERL5_PACKLIST=		auto/ExtUtils/XSBuilder/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

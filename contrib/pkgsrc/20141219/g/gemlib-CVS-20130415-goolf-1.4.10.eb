@@ -1,0 +1,65 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'cross-freemint-'
+version = 'CVS-20130415'
+versionsuffix = '-20141219'
+
+description = "gemlib-CVS-20130415: GEMlib for FreeMiNT"
+
+sources = ['gemlib-CVS-20130415.tar.bz2']
+version = 'freemint-${DISTNAME:S/CVS-//}'
+name = 'cross'
+source_urls = ['http://vincent.riviere.free.fr/soft/m68k-atari-mint/archives/']
+
+homepage = 'http://vincent.riviere.free.fr/soft/m68k-atari-mint/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/cross/freemint-gemlib/Makefile ######
+## $NetBSD: Makefile,v 1.1 2013/09/12 14:04:41 ryoon Exp $
+#
+#DISTNAME=	 	gemlib-CVS-20130415
+#PKGNAME=		cross-freemint-${DISTNAME:S/CVS-//}
+#CATEGORIES=		cross
+#MASTER_SITES=		http://vincent.riviere.free.fr/soft/m68k-atari-mint/archives/
+#MAINTAINER=		ryoon@NetBSD.org
+#HOMEPAGE=		http://vincent.riviere.free.fr/soft/m68k-atari-mint/
+#COMMENT=		GEMlib for FreeMiNT
+#EXTRACT_SUFX=		.tar.bz2
+#
+#MAKE_JOBS_SAFE=		no
+#
+#DEPENDS+=	cross-freemint-gcc-[0-9]*:../../cross/freemint-gcc
+#
+#USE_TOOLS+=		gmake
+#
+#FREEMINT_PREFIX=	${PREFIX}/cross-freemint
+#
+#MAKE_ENV+=		FREEMINT_PREFIX=${FREEMINT_PREFIX}
+#
+#BUILD_DIRS=		gemlib
+#
+#.include "../../cross/freemint-mintbin/buildlink3.mk"
+##.include "../../cross/freemint-mintlib/buildlink3.mk"
+##.include "../../cross/freemint-pml/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

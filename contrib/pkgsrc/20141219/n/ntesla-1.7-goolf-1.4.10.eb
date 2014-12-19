@@ -1,0 +1,53 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'ntesla'
+version = '1.7'
+versionsuffix = '-20141219'
+
+description = "ntesla-1.7: Tesla coil design program"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://ftp.nluug.nl/sunsite/apps/circuits/']
+
+homepage = 'http://www.nic.funet.fi/pub/sci/electrical/tesla/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/cad/ntesla/Makefile ######
+## $NetBSD: Makefile,v 1.9 2012/10/08 13:25:14 asau Exp $
+##
+#
+#DISTNAME=		ntesla-1.7
+#CATEGORIES=		cad
+#MASTER_SITES=		${MASTER_SITE_SUNSITE:=apps/circuits/}
+#
+#MAINTAINER=		dmcmahill@NetBSD.org
+#HOMEPAGE=		http://www.nic.funet.fi/pub/sci/electrical/tesla/
+#COMMENT=		Tesla coil design program
+#
+#INSTALLATION_DIRS=	bin
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/ntesla ${DESTDIR}${PREFIX}/bin
+#
+#.include "../../mk/bsd.pkg.mk"

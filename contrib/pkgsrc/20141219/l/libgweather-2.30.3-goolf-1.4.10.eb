@@ -1,0 +1,64 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'libgweather'
+version = '2.30.3'
+versionsuffix = '-20141219'
+
+description = "libgweather-2.30.3: Weather information access library"
+
+sources = [SOURCE_TAR_BZ2]
+source_urls = ['http://sourceforge.net/projects/sources/libgweather/2.30/files', 'download']
+
+homepage = 'http://www.gnome.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/libgweather/Makefile ######
+## $NetBSD: Makefile,v 1.50 2014/05/05 00:47:45 ryoon Exp $
+##
+#
+#DISTNAME=	libgweather-2.30.3
+#PKGREVISION=	26
+#CATEGORIES=	devel
+#MASTER_SITES=	${MASTER_SITE_GNOME:=sources/libgweather/2.30/}
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.gnome.org/
+#COMMENT=	Weather information access library
+#LICENSE=	gnu-gpl-v2
+#
+#GNU_CONFIGURE=	yes
+#USE_LIBTOOL=	yes
+#USE_TOOLS+=	pkg-config intltool gmake msgfmt
+#
+#GCONF_SCHEMAS+=	gweather.schemas
+#PKGCONFIG_OVERRIDE+=	libgweather/gweather.pc.in
+#
+#CONFLICTS+=	gnome-applets<2.22.0
+#
+#.include "../../devel/GConf/schemas.mk"
+#.include "../../graphics/gnome-icon-theme/buildlink3.mk"
+#.include "../../x11/gtk2/buildlink3.mk"
+#.include "../../net/libsoup24/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,94 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'ubuntu-fonts-'
+version = 'font-family-'
+versionsuffix = '-20141219'
+
+description = "ubuntu-font-family-: TrueType font family from Ubuntu"
+
+version = 'fonts-${VERSION}'
+name = 'ubuntu'
+sources = ['ubuntu-font-family-${VERSION}.zip']
+source_urls = ['http://font.ubuntu.com/download/']
+
+homepage = 'http://font.ubuntu.com/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/fonts/ubuntu-fonts/Makefile ######
+## $NetBSD: Makefile,v 1.2 2014/06/01 16:35:37 wiz Exp $
+#
+#VERSION=	0.80
+#PKGNAME=	ubuntu-fonts-${VERSION}
+#PKGREVISION=	1
+#CATEGORIES=	fonts
+#DISTNAME=	ubuntu-font-family-${VERSION}
+#EXTRACT_SUFX=	.zip
+#MASTER_SITES=	http://font.ubuntu.com/download/ \
+#		${MASTER_SITE_LOCAL}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://font.ubuntu.com/
+#COMMENT=	TrueType font family from Ubuntu
+#LICENSE=	ubuntu-font-license
+#
+#NO_CONFIGURE=	yes
+#NO_BUILD=	yes
+#
+#DOCDIR=		${PREFIX}/share/doc/${PKGBASE}
+#FONTDIR=	${PREFIX}/share/fonts/X11/TTF
+#FONTS_DIRS.ttf=	${FONTDIR}
+#
+#INSTALLATION_DIRS=	${DOCDIR} ${FONTDIR}
+#
+#INSTALL_FONTS=	Ubuntu-B.ttf			\
+#		Ubuntu-BI.ttf			\
+#		Ubuntu-C.ttf			\
+#		Ubuntu-L.ttf			\
+#		Ubuntu-LI.ttf			\
+#		Ubuntu-M.ttf			\
+#		Ubuntu-MI.ttf			\
+#		Ubuntu-R.ttf			\
+#		Ubuntu-RI.ttf			\
+#		UbuntuMono-B.ttf		\
+#		UbuntuMono-BI.ttf		\
+#		UbuntuMono-R.ttf		\
+#		UbuntuMono-RI.ttf
+#
+#INSTALL_DOCS=	CONTRIBUTING.txt		\
+#		FONTLOG.txt			\
+#		LICENCE-FAQ.txt			\
+#		LICENCE.txt			\
+#		README.txt			\
+#		TRADEMARKS.txt			\
+#		copyright.txt
+#
+#do-install:
+#.for fontfile in ${INSTALL_FONTS}
+#	${INSTALL_DATA} ${WRKSRC}/${fontfile} ${DESTDIR}${FONTDIR}
+#.endfor
+#.for docfile in ${INSTALL_DOCS}
+#	${INSTALL_DATA} ${WRKSRC}/${docfile} ${DESTDIR}${DOCDIR}
+#.endfor
+#
+#.include "../../mk/bsd.pkg.mk"

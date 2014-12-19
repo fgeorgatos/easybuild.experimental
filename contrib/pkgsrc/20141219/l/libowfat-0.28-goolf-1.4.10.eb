@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'libowfat'
+version = '0.28'
+versionsuffix = '-20141219'
+
+description = "libowfat-0.28: Library of general purpose APIs"
+
+sources = [SOURCE_TAR_BZ2]
+source_urls = ['http://dl.fefe.de/']
+
+homepage = 'http://www.fefe.de/libowfat/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/libowfat/Makefile ######
+## $NetBSD: Makefile,v 1.5 2012/10/31 11:17:19 asau Exp $
+##
+#
+#DISTNAME=	libowfat-0.28
+#PKGREVISION=	1
+#CATEGORIES=	devel
+#MASTER_SITES=	http://dl.fefe.de/
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.fefe.de/libowfat/
+#COMMENT=	Library of general purpose APIs
+#LICENSE=	gnu-gpl-v2
+#
+#CONFLICTS=	libtai-[0-9]*
+#
+#MAKE_FILE=	GNUmakefile
+#USE_TOOLS+=	gmake
+#
+#INSTALL_MAKE_FLAGS=	prefix=${DESTDIR}${PREFIX}
+#
+#.include "../../mk/bsd.pkg.mk"

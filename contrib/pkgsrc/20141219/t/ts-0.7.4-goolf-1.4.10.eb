@@ -1,0 +1,53 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'ts'
+version = '0.7.4'
+versionsuffix = '-20141219'
+
+description = "ts-0.7.4: Simple handy batch system"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://vicerveza.homeunix.net/~viric/soft/ts/']
+
+homepage = 'http://vicerveza.homeunix.net/~viric/soft/ts/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/ts/Makefile ######
+## $NetBSD: Makefile,v 1.4 2014/05/18 13:23:32 wiz Exp $
+#
+#DISTNAME=	ts-0.7.4
+#CATEGORIES=	sysutils
+#MASTER_SITES=	http://vicerveza.homeunix.net/~viric/soft/ts/
+#
+#MAINTAINER=	jan.smydke@jh-inst.cas.cz
+#HOMEPAGE=	http://vicerveza.homeunix.net/~viric/soft/ts/
+#COMMENT=	Simple handy batch system
+#LICENSE=	gnu-gpl-v2
+#
+#USE_LANGUAGES=	c
+#USE_TOOLS+=	gmake
+#
+#LDFLAGS.SunOS+=	-lsocket -lnsl
+#
+#.include "../../mk/bsd.pkg.mk"

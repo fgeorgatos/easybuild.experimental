@@ -1,0 +1,50 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'jquery'
+version = 'rails-3.1.0'
+versionsuffix = '-20141219'
+
+description = "jquery-rails-3.1.0: Rails jQuery support"
+
+sources = [SOURCE_TAR_GZ]
+
+homepage = 'http://rubygems.org/gems/jquery-rails/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/ruby-jquery-rails/Makefile ######
+## $NetBSD: Makefile,v 1.8 2014/03/14 19:04:03 taca Exp $
+#
+#DISTNAME=	jquery-rails-3.1.0
+#CATEGORIES=	www
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://rubygems.org/gems/jquery-rails/
+#COMMENT=	Rails jQuery support
+#LICENSE=	mit
+#
+#DEPENDS+=	${RUBY_RAILTIES_DEPENDS}
+#DEPENDS+=	${RUBY_PKGPREFIX}-thor>=0.14<2:../../devel/ruby-thor
+#
+#.include "../../lang/ruby/gem.mk"
+#.include "../../mk/bsd.pkg.mk"

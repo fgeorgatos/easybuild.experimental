@@ -1,0 +1,51 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'gnome'
+version = 'common-3.12.0'
+versionsuffix = '-20141219'
+
+description = "gnome-common-3.12.0: Generic M4 macros for GNOME development"
+
+sources = [SOURCE_TAR_XZ]
+source_urls = ['http://sourceforge.net/projects/sources/gnome-common/3.12/files', 'download']
+
+homepage = 'http://www.gnome.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/gnome-common/Makefile ######
+## $NetBSD: Makefile,v 1.19 2014/03/31 08:19:33 wiz Exp $
+#
+#DISTNAME=	gnome-common-3.12.0
+#CATEGORIES=	devel gnome
+#MASTER_SITES=	${MASTER_SITE_GNOME:=sources/gnome-common/3.12/}
+#EXTRACT_SUFX=	.tar.xz
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.gnome.org/
+#COMMENT=	Generic M4 macros for GNOME development
+#LICENSE=	gnu-gpl-v3
+#
+#GNU_CONFIGURE=		YES
+#
+#.include "../../mk/bsd.pkg.mk"

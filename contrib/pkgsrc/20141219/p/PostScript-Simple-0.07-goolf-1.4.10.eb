@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Simple-0.07'
+versionsuffix = '-20141219'
+
+description = "PostScript-Simple-0.07: Produce PostScript files from Perl"
+
+sources = ['PostScript-Simple-0.07.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/PostScript/']
+
+homepage = 'http://search.cpan.org/dist/PostScript-Simple/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/print/p5-PostScript-Simple/Makefile ######
+## $NetBSD: Makefile,v 1.8 2014/05/29 23:37:17 wiz Exp $
+#
+#DISTNAME=	PostScript-Simple-0.07
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	5
+#CATEGORIES=	print perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=PostScript/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/PostScript-Simple/
+#COMMENT=	Produce PostScript files from Perl
+#LICENSE=	gnu-gpl-v2
+#
+#REPLACE_PERL+=		lib/PostScript/Simple.pm lib/PostScript/Simple/EPS.pm
+#
+#PERL5_PACKLIST=		auto/PostScript/Simple/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

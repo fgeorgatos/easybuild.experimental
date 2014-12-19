@@ -1,0 +1,60 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'mdf2iso'
+version = '0.3.0-src'
+versionsuffix = '-20141219'
+
+description = "mdf2iso-0.3.0-src: Utility to convert Alcohol 120% images to ISO-9660 format"
+
+sources = [SOURCE_TAR_BZ2]
+source_urls = ['http://download.berlios.de/mdf2iso/']
+
+homepage = 'http://mdf2iso.berlios.de/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/mdf2iso/Makefile ######
+## $NetBSD: Makefile,v 1.6 2012/10/23 19:51:12 asau Exp $
+##
+#
+#DISTNAME=	mdf2iso-0.3.0-src
+#PKGNAME=	${DISTNAME:S/-src//}
+#CATEGORIES=	sysutils
+#MASTER_SITES=	http://download.berlios.de/mdf2iso/
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://mdf2iso.berlios.de/
+#COMMENT=	Utility to convert Alcohol 120% images to ISO-9660 format
+#
+#INSTALLATION_DIRS=	bin
+#
+#WRKSRC=			${WRKDIR}/mdf2iso
+#
+#do-build:
+#	cd ${WRKSRC} && cc ${CFLAGS} src/mdf2iso.c -o mdf2iso
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/mdf2iso ${DESTDIR}${PREFIX}/bin
+#
+#.include "../../mk/bsd.pkg.mk"

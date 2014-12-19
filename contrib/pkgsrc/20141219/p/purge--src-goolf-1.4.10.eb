@@ -1,0 +1,65 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'squidpurge-0.'
+version = '-src'
+versionsuffix = '-20141219'
+
+description = "purge--src: Squid cache tool to list, extract or purge objects"
+
+sources = ['purge-${PURGEVERSION}-src.tar.gz']
+version = '0.${PURGEVERSION}'
+name = 'squidpurge'
+source_urls = ['http://www.wa.apana.org.au/~dean/sources/']
+
+homepage = 'http://www.wa.apana.org.au/~dean/squidpurge/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/squidpurge/Makefile ######
+## $NetBSD: Makefile,v 1.8 2012/10/28 06:31:05 asau Exp $
+##
+#
+#DISTNAME=	purge-${PURGEVERSION}-src
+#PKGNAME=	squidpurge-0.${PURGEVERSION}
+#PKGREVISION=	1
+#CATEGORIES=	www
+#MASTER_SITES=	http://www.wa.apana.org.au/~dean/sources/
+#
+#MAINTAINER=	gdt@NetBSD.org
+#HOMEPAGE=	http://www.wa.apana.org.au/~dean/squidpurge/
+#COMMENT=	Squid cache tool to list, extract or purge objects
+#
+#PURGEVERSION=	20040201
+#
+#WRKSRC=		${WRKDIR}/purge
+#
+#USE_TOOLS+=	gmake
+#USE_LANGUAGES=	c++
+#
+#INSTALLATION_DIRS=	bin share/doc/squidpurge
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/purge ${DESTDIR}${PREFIX}/bin/squidpurge
+#	${INSTALL_DATA} ${WRKSRC}/README ${DESTDIR}${PREFIX}/share/doc/squidpurge
+#
+#.include "../../mk/bsd.pkg.mk"

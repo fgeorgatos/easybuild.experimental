@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '-'
+version = '1.0.1'
+versionsuffix = '-20141219'
+
+description = "gevent-1.0.1: Python-gevent a coroutine-based Python networking library"
+
+sources = ['gevent-1.0.1.tar.gz']
+source_urls = ['https://pypi.python.org/packages/source/g/gevent/']
+
+homepage = 'http://www.gevent.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/py-gevent/Makefile ######
+## $NetBSD: Makefile,v 1.1 2014/06/08 22:36:22 rodent Exp $
+#
+#DISTNAME=	gevent-1.0.1
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+#CATEGORIES=	net python
+#MASTER_SITES=	https://pypi.python.org/packages/source/g/gevent/
+#
+#MAINTAINER=	kamel.derouiche@gmail.com
+#HOMEPAGE=	http://www.gevent.org/
+#COMMENT=	Python-gevent a coroutine-based Python networking library
+#LICENSE=	mit
+#
+#DEPENDS+=	${PYPKGPREFIX}-greenlet>=0.4.1:../../devel/py-greenlet
+#
+#USE_LANGUAGES=	c c++
+#
+#PYTHON_VERSIONS_INCOMPATIBLE=	33 34
+#
+#do-test:
+#	${RUN} cd ${WRKSRC}/greentest; ${SETENV} ${TEST_ENV} ${PYTHONBIN} testrunner.py
+#
+#.include "../../devel/py-cython/buildlink3.mk"
+#BUILDLINK_API_DEPENDS.libevent+=	libevent>=0.6
+#.include "../../devel/libevent/buildlink3.mk"
+#.include "../../lang/python/egg.mk"
+#.include "../../mk/bsd.pkg.mk"

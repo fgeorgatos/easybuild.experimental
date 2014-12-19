@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'twm'
+version = '1.0.8'
+versionsuffix = '-20141219'
+
+description = "twm-1.0.8: Tom s Window Manager"
+
+sources = [SOURCE_TAR_BZ2]
+source_urls = ['http://sourceforge.net/projects/app/files', 'download']
+
+homepage = 'http://xorg.freedesktop.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/wm/twm/Makefile ######
+## $NetBSD: Makefile,v 1.9 2013/09/07 05:53:39 wiz Exp $
+#
+#DISTNAME=	twm-1.0.8
+#CATEGORIES=	x11 wm
+#MASTER_SITES=	${MASTER_SITE_XORG:=app/}
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://xorg.freedesktop.org/
+#COMMENT=	Tom's Window Manager
+#
+#GNU_CONFIGURE=		yes
+#USE_TOOLS+=		pkg-config yacc
+#
+## Work around borked configure test in 1.0.7
+#CONFIGURE_ENV+=		ac_cv_prog_YACC=yacc
+#
+#.include "../../x11/libXext/buildlink3.mk"
+#.include "../../x11/libXmu/buildlink3.mk"
+#.include "../../x11/libXt/buildlink3.mk"
+#.include "../../x11/xbitmaps/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

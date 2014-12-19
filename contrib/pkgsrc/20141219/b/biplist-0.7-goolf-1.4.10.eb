@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '-'
+version = '0.7'
+versionsuffix = '-20141219'
+
+description = "biplist-0.7: Library for reading/writing binary plists"
+
+sources = ['biplist-0.7.tar.gz']
+source_urls = ['https://pypi.python.org/packages/source/b/biplist/']
+
+homepage = 'https://bitbucket.org/wooster/biplist'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/py-biplist/Makefile ######
+## $NetBSD: Makefile,v 1.2 2014/07/16 23:21:51 rodent Exp $
+#
+#DISTNAME=	biplist-0.7
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+#CATEGORIES=	python textproc
+#MASTER_SITES=	https://pypi.python.org/packages/source/b/biplist/
+#
+#MAINTAINER=	rodent@NetBSD.org
+#HOMEPAGE=	https://bitbucket.org/wooster/biplist
+#COMMENT=	Library for reading/writing binary plists
+#LICENSE=	modified-bsd
+#
+#DEPENDS+=	${PYPKGPREFIX}-six-[0-9]*:../../lang/py-six
+#
+#USE_LANGUAGES=	# none
+#
+#.include "../../lang/python/egg.mk"
+#.include "../../mk/bsd.pkg.mk"

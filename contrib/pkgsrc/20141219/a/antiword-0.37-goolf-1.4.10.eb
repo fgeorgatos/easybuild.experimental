@@ -1,0 +1,68 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'antiword'
+version = '0.37'
+versionsuffix = '-20141219'
+
+description = "antiword-0.37: Free MS Word to text and PostScript converter"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.winfield.demon.nl/linux/']
+
+homepage = 'http://www.winfield.demon.nl/index.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/antiword/Makefile ######
+## $NetBSD: Makefile,v 1.24 2013/12/23 11:57:06 wiz Exp $
+#
+#DISTNAME=	antiword-0.37
+#PKGREVISION=	1
+#CATEGORIES=	textproc converters print
+#MASTER_SITES=	http://www.winfield.demon.nl/linux/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.winfield.demon.nl/index.html
+#COMMENT=	Free MS Word to text and PostScript converter
+#
+#CONFLICTS=	siag<3.6.1
+#
+#USE_TOOLS+=	mktemp:run
+#
+#CFLAGS.SunOS+=	-D__STDC_ISO_10646__
+#
+#REPLACE_INTERPRETER+=	bash
+#REPLACE.bash.old=	/bin/bash
+#REPLACE.bash.new=	${SH}
+#REPLACE_FILES.bash=	kantiword
+#
+#INSTALLATION_DIRS=	bin ${PKGMANDIR}/man1
+#
+#post-patch:
+#	cd ${WRKSRC} ; \
+#	for pf in antiword.h Docs/antiword.1 ; do \
+#	  ${MV} $${pf} $${pf}.old ; \
+#	  ${SED} -e "s|/usr/share|${PREFIX}/share|g" $${pf}.old > $${pf} ; \
+#	done
+#
+#.include "../../mk/bsd.pkg.mk"

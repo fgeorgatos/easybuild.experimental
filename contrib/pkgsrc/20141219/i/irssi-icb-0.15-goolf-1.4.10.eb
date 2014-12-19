@@ -1,0 +1,79 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'irssi'
+version = 'icb-0.15'
+versionsuffix = '-20141219'
+
+description = "irssi-icb-0.15: Irssi plugin to access ICB networks"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['https://github.com/downloads/jperkin/irssi-icb/']
+
+homepage = 'http://www.irssi.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/chat/irssi-icb/Makefile ######
+## $NetBSD: Makefile,v 1.38 2014/09/30 08:59:58 jperkin Exp $
+##
+#
+#DISTNAME=	irssi-icb-0.15
+#CATEGORIES=	chat
+#MASTER_SITES=	https://github.com/downloads/jperkin/irssi-icb/
+#DISTFILES=	${DISTNAME}.tar.gz ${IRSSI_DISTFILE}
+#
+#MAINTAINER=	jperkin@joyent.com
+#HOMEPAGE=	http://www.irssi.org/
+#COMMENT=	Irssi plugin to access ICB networks
+#LICENSE=	gnu-gpl-v2
+#
+#.include "../../mk/bsd.prefs.mk"
+#.include "../../chat/irssi/Makefile.common"
+#
+#WRKSRC=		${WRKDIR}/${IRSSI_DISTNAME}/${DISTNAME}
+#
+#DEPENDS+=	irssi>=${IRSSI_VERSION}:../../chat/irssi
+#
+#GNU_CONFIGURE=	yes
+#
+#USE_LIBTOOL=	yes
+#USE_TOOLS+=	pkg-config
+#SHLIBTOOL_OVERRIDE=	# empty
+#
+#CONFIGURE_ARGS+=	--with-irssi=${WRKDIR}/${IRSSI_DISTNAME}
+#CONFIGURE_ARGS+=	--with-glib-prefix=${BUILDLINK_PREFIX.glib2}
+#CONFIGURE_ARGS+=	--disable-glibtest
+#
+#INSTALLATION_DIRS+=	share/doc/irssi
+#
+#post-extract:
+#	cd ${WRKDIR} && ${LN} -s ${IRSSI_DISTNAME:S/a//} ${IRSSI_DISTNAME}
+#	${MV} ${WRKDIR}/${DISTNAME} ${WRKDIR}/${IRSSI_DISTNAME}
+#	${CP} ${IRSSI_CONFIG_H} ${WRKDIR}/${IRSSI_DISTNAME}/config.h
+#	${CP} ${IRSSI_CONFIG} ${WRKDIR}/${IRSSI_DISTNAME}/irssi-config
+#
+#post-install:
+#	${INSTALL_DATA} ${WRKSRC}/README ${DESTDIR}${PREFIX}/share/doc/irssi/README.icb
+#
+#.include "../../devel/glib2/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

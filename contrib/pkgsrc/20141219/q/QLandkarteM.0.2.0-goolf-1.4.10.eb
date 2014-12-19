@@ -1,0 +1,81 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'qlandkartem-0.2.0'
+version = 'QLandkarteM.0.2.0'
+versionsuffix = '-20141219'
+
+description = "QLandkarteM.0.2.0: QLandkarteM is a moving map application for mobile devices"
+
+sources = ['QLandkarteM.0.2.0.tar.gz']
+version = '0.2.0'
+name = 'qlandkartem'
+source_urls = ['http://sourceforge.net/projects/qlandkartegt/files', 'download']
+
+homepage = 'http://www.qlandkarte.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/geography/qlandkartem/Makefile ######
+## $NetBSD: Makefile,v 1.32 2014/05/15 14:41:51 adam Exp $
+##
+#
+#DISTNAME=	QLandkarteM.0.2.0
+#PKGNAME=	qlandkartem-0.2.0
+#PKGREVISION=	27
+#CATEGORIES=	geography
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=qlandkartegt/}
+#
+#MAINTAINER=	jkunz@NetBSD.org
+#HOMEPAGE=	http://www.qlandkarte.org/
+#COMMENT=	QLandkarteM is a moving map application for mobile devices
+#LICENSE=	gnu-gpl-v2
+#
+#WRKSRC=		${WRKDIR}/QLandkarteM
+#USE_LIBTOOL=	yes
+#USE_LANGUAGES=	c c++
+#QMAKE=		${QTDIR}/bin/qmake
+#
+#SUBST_CLASSES+=		proj
+#SUBST_STAGE.proj=	pre-configure
+#SUBST_FILES.proj=	src/*.cpp
+#SUBST_FILES.proj+=	src/CMapRaster.h
+#SUBST_SED.proj=		-e '/^.include .projects.h./s/projects/proj_api/'
+#SUBST_MESSAGE.proj=	Fixing geography/proj interface
+#
+#INSTALLATION_DIRS+=	bin
+#
+#do-configure:
+#	cd ${WRKSRC} && ${QMAKE} ${CONFIGURE_ARGS}
+#
+#do-install:
+#	cp ${WRKSRC}/bin/qlm ${DESTDIR}${PREFIX}/bin
+#
+#DEPENDS+=		qt4-sqlite3>=4.4:../../x11/qt4-sqlite3
+#
+#.include "../../devel/cmake/buildlink3.mk"
+#.include "../../geography/gdal-lib/buildlink3.mk"
+#.include "../../geography/proj/buildlink3.mk"
+#.include "../../graphics/tiff/buildlink3.mk"
+#.include "../../x11/qt4-libs/buildlink3.mk"
+#.include "../../x11/qt4-tools/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

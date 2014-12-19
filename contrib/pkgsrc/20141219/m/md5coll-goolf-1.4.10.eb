@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'md5-collision-20051118'
+version = 'md5coll'
+versionsuffix = '-20141219'
+
+description = "md5coll: MD5 Collision generator"
+
+sources = ['md5coll.c']
+version = 'collision-20051118'
+name = 'md5'
+source_urls = ['http://www.stachliu.com/']
+
+homepage = 'http://www.stachliu.com/collisions.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/md5-collision/Makefile ######
+## $NetBSD: Makefile,v 1.5 2012/10/23 18:16:36 asau Exp $
+#
+#DISTNAME=	md5coll
+#PKGNAME=	md5-collision-20051118
+#CATEGORIES=	security
+#MASTER_SITES=	http://www.stachliu.com/
+#EXTRACT_SUFX=	.c
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.stachliu.com/collisions.html
+#COMMENT=	MD5 Collision generator
+#
+#WRKSRC=			${WRKDIR}
+#
+#INSTALLATION_DIRS=	bin
+#
+#do-build:
+#	cd ${WRKSRC} && ${CC} ${CFLAGS} -o md5coll md5coll.c
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/md5coll ${DESTDIR}${PREFIX}/bin
+#
+#.include "../../mk/bsd.pkg.mk"

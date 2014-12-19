@@ -1,0 +1,63 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'zinnia-tomoe-0.6.0.20080911'
+version = 'tomoe-0.6.0-20080911'
+versionsuffix = '-20141219'
+
+description = "zinnia-tomoe-0.6.0-20080911: Zinna recognition models traned with Tomoe data"
+
+sources = ['zinnia-tomoe-0.6.0-20080911.tar.bz2']
+version = 'tomoe-0.6.0.20080911'
+name = 'zinnia'
+source_urls = ['http://sourceforge.net/projects/zinnia/files', 'download']
+
+homepage = 'http://zinnia.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/inputmethod/zinnia-tomoe/Makefile ######
+## $NetBSD: Makefile,v 1.2 2012/10/06 14:25:22 asau Exp $
+##
+#
+#DISTNAME=	zinnia-tomoe-0.6.0-20080911
+#PKGNAME=	zinnia-tomoe-0.6.0.20080911
+#CATEGORIES=	inputmethod
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=zinnia/}
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	obache@NetBSD.org
+#HOMEPAGE=	http://zinnia.sourceforge.net/
+#COMMENT=	Zinna recognition models traned with Tomoe data
+##LICENSE=	# Tomoe's
+#
+#BUILD_DEPENDS+=	zinnia-[0-9]*:../../inputmethod/zinnia
+#
+#GNU_CONFIGURE=	yes
+#USE_LANGUAGES=	# none
+#
+#FIND_PREFIX:=	ZINNIA_DIR=zinnia
+#.include "../../mk/find-prefix.mk"
+#
+#CONFIGURE_ARGS+=	--with-zinnia-convert=${ZINNIA_DIR}/bin/zinnia_convert
+#
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Fmode-0.13'
+versionsuffix = '-20141219'
+
+description = "FileHandle-Fmode-0.13: Perl 5 module to determine how a filehandle is opened"
+
+sources = ['FileHandle-Fmode-0.13.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/FileHandle/']
+
+homepage = 'http://search.cpan.org/dist/FileHandle-Fmode/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-FileHandle-Fmode/Makefile ######
+## $NetBSD: Makefile,v 1.10 2014/05/29 23:35:56 wiz Exp $
+##
+#
+#DISTNAME=	FileHandle-Fmode-0.13
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	2
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=FileHandle/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/FileHandle-Fmode/
+#COMMENT=	Perl 5 module to determine how a filehandle is opened
+#LICENSE=	${PERL5_LICENSE}
+#
+#PERL5_PACKLIST=	auto/FileHandle/Fmode/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

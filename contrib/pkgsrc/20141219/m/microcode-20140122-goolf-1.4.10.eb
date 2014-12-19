@@ -1,0 +1,74 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'intel-microcode-netbsd-20140122'
+version = '20140122'
+versionsuffix = '-20141219'
+
+description = "microcode-20140122: Firmware updates for Intel x86 processors"
+
+sources = ['microcode-20140122.tgz']
+version = 'microcode-netbsd-20140122'
+name = 'intel'
+source_urls = ['http://downloadmirror.intel.com/23574/eng/']
+
+homepage = 'http://downloadcenter.intel.com/Detail_Desc.aspx?DwnldID=23574'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/intel-microcode-netbsd/Makefile ######
+## $NetBSD: Makefile,v 1.6 2014/02/19 19:00:14 drochner Exp $
+##
+#
+#DISTNAME=	microcode-20140122
+#PKGNAME=	intel-microcode-netbsd-20140122
+#CATEGORIES=	sysutils
+#MASTER_SITES=	http://downloadmirror.intel.com/23574/eng/
+#EXTRACT_SUFX=	.tgz
+#
+#MAINTAINER=	drochner@NetBSD.org
+#HOMEPAGE=	http://downloadcenter.intel.com/Detail_Desc.aspx?DwnldID=23574
+#COMMENT=	Firmware updates for Intel x86 processors
+##LICENSE=	# TODO: (see mk/license.mk)
+#
+#ONLY_FOR_PLATFORM+=	NetBSD-6.99.*-i386
+#ONLY_FOR_PLATFORM+=	NetBSD-6.99.*-x86_64
+#
+#WRKSRC=		${WRKDIR}
+#USE_LANGUAGES=	c
+#
+#FWDIR=	libdata/firmware/cpu_x86_intel1
+#INSTALLATION_DIRS+= ${FWDIR}
+#
+#RCD_SCRIPTS+=	intel-microcode
+#
+#post-extract:
+#	${CP} ${FILESDIR}/extract.c ${WRKSRC}
+#
+#do-build:
+#	cd ${WRKSRC} && ${CC} extract.c -o extract
+#
+#do-install:
+#	cd ${DESTDIR}${PREFIX}/${FWDIR} && \
+#		${WRKSRC}/extract ${WRKSRC}/microcode.dat
+#
+#.include "../../mk/bsd.pkg.mk"

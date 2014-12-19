@@ -1,0 +1,69 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'GPG-1.63'
+versionsuffix = '-20141219'
+
+description = "Crypt-GPG-1.63: Object Oriented Interface to GnuPG"
+
+sources = ['Crypt-GPG-1.63.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Crypt/']
+
+homepage = 'http://search.cpan.org/~agul/Crypt-GPG/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/security/p5-Crypt-GPG/Makefile ######
+## $NetBSD: Makefile,v 1.9 2014/05/29 23:37:22 wiz Exp $
+##
+#
+#DISTNAME=		Crypt-GPG-1.63
+#PKGNAME=		p5-${DISTNAME}
+#PKGREVISION=		7
+#CATEGORIES=		security perl5
+#MASTER_SITES=		${MASTER_SITE_PERL_CPAN:=Crypt/}
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://search.cpan.org/~agul/Crypt-GPG/
+#COMMENT=		Object Oriented Interface to GnuPG
+#
+#DEPENDS+=		gnupg-[0-9]*:../../security/gnupg
+#DEPENDS+=		p5-IPC-Run-[0-9]*:../../devel/p5-IPC-Run
+#DEPENDS+=		{perl>=5.6.1,p5-File-Temp-[0-9]*}:../../devel/p5-File-Temp
+#DEPENDS+=		p5-TimeDate-[0-9]*:../../time/p5-TimeDate
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+## It defaults to a gpg path in /usr/local, which is not helpful
+#SUBST_CLASSES+=		local
+#SUBST_FILES.local=	GPG.pm
+#SUBST_SED.local=	-e s,/usr/local,${PREFIX},
+#SUBST_STAGE.local=	post-patch
+#
+#USE_LANGUAGES=		# empty
+#PERL5_PACKLIST=		auto/Crypt/GPG/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

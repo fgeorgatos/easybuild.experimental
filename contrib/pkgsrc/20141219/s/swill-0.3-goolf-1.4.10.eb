@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'swill'
+version = '0.3'
+versionsuffix = '-20141219'
+
+description = "swill-0.3: The Simple Web Interface Link Library"
+
+sources = [SOURCE_TGZ]
+source_urls = ['http://sourceforge.net/projects/swill/files', 'download']
+
+homepage = 'http://swill.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/swill/Makefile ######
+## $NetBSD: Makefile,v 1.13 2012/10/28 06:31:06 asau Exp $
+#
+#DISTNAME=		swill-0.3
+#PKGREVISION=		1
+#CATEGORIES=		www devel
+#MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=swill/}
+#EXTRACT_SUFX=		.tgz
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://swill.sourceforge.net/
+#COMMENT=		The Simple Web Interface Link Library
+#LICENSE=		gnu-lgpl-v2.1
+#
+#WRKSRC=			${WRKDIR}/SWILL-0.3
+#GNU_CONFIGURE=		yes
+#INSTALL_MAKE_FLAGS+=	prefix=${DESTDIR}${PREFIX}
+#
+#.include "../../mk/bsd.pkg.mk"

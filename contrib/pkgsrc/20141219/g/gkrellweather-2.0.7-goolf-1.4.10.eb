@@ -1,0 +1,80 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'gkrellm-weather-2.0.7'
+version = '2.0.7'
+versionsuffix = '-20141219'
+
+description = "gkrellweather-2.0.7: Gkrellm2 weather plugin"
+
+sources = ['gkrellweather-2.0.7.tgz']
+version = 'weather-2.0.7'
+name = 'gkrellm'
+source_urls = ['http://kmlinux.fjfi.cvut.cz/~makovick/gkrellm/']
+
+homepage = 'http://kmlinux.fjfi.cvut.cz/~makovick/gkrellm/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/misc/gkrellm-weather/Makefile ######
+## $NetBSD: Makefile,v 1.57 2014/05/29 23:36:57 wiz Exp $
+#
+#DISTNAME=	gkrellweather-2.0.7
+#PKGNAME=	gkrellm-weather-2.0.7
+#PKGREVISION=	28
+#CATEGORIES=	misc
+#MASTER_SITES=	http://kmlinux.fjfi.cvut.cz/~makovick/gkrellm/
+#EXTRACT_SUFX=	.tgz
+#
+#MAINTAINER=	tripledes@eslack.org
+#HOMEPAGE=	http://kmlinux.fjfi.cvut.cz/~makovick/gkrellm/
+#COMMENT=	Gkrellm2 weather plugin
+#
+#DEPENDS+=	wget>=1.8:../../net/wget
+#
+#USE_TOOLS+=		gmake msgfmt perl:run pkg-config
+#USE_PKGLOCALEDIR=	YES
+#REPLACE_PERL=		GrabWeather
+#BUILD_TARGET=		gkrellweather.so
+#
+#LOCALEDIR=		${PREFIX}/${PKGLOCALEDIR}/locale
+#INSTALLATION_DIRS=	bin lib lib/gkrellm2/plugins
+#
+#MAKE_ENV+=	LOCALEDIR=${LOCALEDIR}
+#MAKE_ENV+=	enable_nls=1
+#
+#do-install:
+#	${INSTALL_SCRIPT} ${WRKSRC}/GrabWeather ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_LIB} ${WRKSRC}/gkrellweather.so \
+#	    ${DESTDIR}${PREFIX}/lib/gkrellm2/plugins
+#	set -e; cd ${WRKSRC}/po && for f in *.mo; do \
+#	    base=`basename "$$f" .mo`;					\
+#	    modir=${DESTDIR}${LOCALEDIR}/"$${base}"/LC_MESSAGES;	\
+#	    ${INSTALL_DATA_DIR} "$${modir}";				\
+#	    ${INSTALL_DATA} "$$f" "$${modir}"/gkrellweather.mo;		\
+#	done
+#
+#.include "../../sysutils/gkrellm/buildlink3.mk"
+#.include "../../x11/gtk2/buildlink3.mk"
+#.include "../../mk/pthread.buildlink3.mk"
+#
+#.include "../../mk/bsd.pkg.mk"

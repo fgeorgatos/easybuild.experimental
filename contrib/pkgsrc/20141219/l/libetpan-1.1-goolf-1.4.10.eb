@@ -1,0 +1,70 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'libetpan'
+version = '1.1'
+versionsuffix = '-20141219'
+
+description = "libetpan-1.1: Really nice mail library"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/libetpan/files', 'download']
+
+homepage = 'http://libetpan.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/mail/libetpan/Makefile ######
+## $NetBSD: Makefile,v 1.40 2014/02/12 23:18:08 tron Exp $
+#
+#DISTNAME=	libetpan-1.1
+#PKGREVISION=	3
+#CATEGORIES=	mail
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=libetpan/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://libetpan.sourceforge.net/
+#COMMENT=	Really nice mail library
+#LICENSE=	modified-bsd
+#
+#BDB_ACCEPTED=		db3 db4 db5
+#USE_LANGUAGES=		c c++
+#USE_LIBTOOL=		yes
+#GNU_CONFIGURE=		yes
+#MAKE_JOBS_SAFE=		no
+#
+#SUBST_CLASSES+=		conf
+#SUBST_STAGE.conf=	pre-configure
+#SUBST_FILES.conf=	libetpan-config.in
+#SUBST_SED.conf=		-e "s|@COMPILERFLAGS@|${COMPILER_RPATH_FLAG}|g"
+#SUBST_MESSAGE.conf=	Fixing libetpan-config.
+#
+#LDFLAGS.SunOS+=		-lsocket -lnsl
+#
+#.include "../../converters/libiconv/buildlink3.mk"
+#.include "../../security/cyrus-sasl/buildlink3.mk"
+#.include "../../security/openssl/buildlink3.mk"
+#.include "../../textproc/expat/buildlink3.mk"
+#.include "../../www/curl/buildlink3.mk"
+#.include "../../mk/bdb.buildlink3.mk"
+#.include "../../mk/pthread.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

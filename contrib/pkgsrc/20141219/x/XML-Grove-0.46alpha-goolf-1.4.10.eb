@@ -1,0 +1,59 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Grove-0.46alpha'
+versionsuffix = '-20141219'
+
+description = "XML-Grove-0.46alpha: Perl 5 module providing simple objects for parsed XML documents"
+
+sources = ['XML-Grove-0.46alpha.tar.gz']
+version = '${DISTNAME:S/alpha/.0.1/}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/XML/']
+
+homepage = 'http://search.cpan.org/dist/XML-Grove/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/p5-XML-Grove/Makefile ######
+## $NetBSD: Makefile,v 1.25 2014/05/29 23:37:46 wiz Exp $
+##
+#
+#DISTNAME=	XML-Grove-0.46alpha
+#PKGNAME=	p5-${DISTNAME:S/alpha/.0.1/}
+#PKGREVISION=	10
+#SVR4_PKGNAME=	p5xgr
+#CATEGORIES=	textproc perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=XML/}
+#
+#MAINTAINER=	explorer@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/XML-Grove/
+#COMMENT=	Perl 5 module providing simple objects for parsed XML documents
+#LICENSE=	artistic
+#
+#DEPENDS+=	p5-libxml>=0.0.7:../../textproc/p5-libxml
+#
+#PERL5_PACKLIST=		auto/XML/Grove/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

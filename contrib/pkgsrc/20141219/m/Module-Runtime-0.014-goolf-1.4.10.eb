@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Runtime-0.014'
+versionsuffix = '-20141219'
+
+description = "Module-Runtime-0.014: Deal with runtime handling of Perl modules"
+
+sources = ['Module-Runtime-0.014.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Module/']
+
+homepage = 'http://search.cpan.org/dist/Module-Runtime/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Module-Runtime/Makefile ######
+## $NetBSD: Makefile,v 1.9 2014/05/29 23:36:05 wiz Exp $
+#
+#DISTNAME=		Module-Runtime-0.014
+#PKGNAME=		p5-${DISTNAME}
+#PKGREVISION=		1
+#CATEGORIES=		devel perl5
+#MASTER_SITES=		${MASTER_SITE_PERL_CPAN:=Module/}
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://search.cpan.org/dist/Module-Runtime/
+#COMMENT=		Deal with runtime handling of Perl modules
+#LICENSE=		${PERL5_LICENSE}
+#
+#PERL5_MODULE_TYPE=	Module::Build
+#PERL5_PACKLIST=		auto/Module/Runtime/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,55 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'orc'
+version = '0.4.18'
+versionsuffix = '-20141219'
+
+description = "orc-0.4.18: Compiler for vector operations"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://code.entropywave.com/download/orc/']
+
+homepage = 'http://code.entropywave.com/projects/orc/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/orc/Makefile ######
+## $NetBSD: Makefile,v 1.8 2013/09/02 16:10:39 wiz Exp $
+#
+#DISTNAME=	orc-0.4.18
+#CATEGORIES=	devel
+#MASTER_SITES=	http://code.entropywave.com/download/orc/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://code.entropywave.com/projects/orc/
+#COMMENT=	Compiler for vector operations
+#LICENSE=	modified-bsd
+#
+#GNU_CONFIGURE=	yes
+#USE_LIBTOOL=	yes
+#USE_TOOLS=	gmake
+#
+#PKGCONFIG_OVERRIDE+=	orc.pc.in
+#TEST_TARGET=	check
+#
+#.include "../../mk/bsd.pkg.mk"

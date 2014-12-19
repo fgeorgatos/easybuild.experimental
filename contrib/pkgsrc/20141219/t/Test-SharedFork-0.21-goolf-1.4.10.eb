@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'SharedFork-0.21'
+versionsuffix = '-20141219'
+
+description = "Test-SharedFork-0.21: Perl 5 module to make forking test"
+
+sources = ['Test-SharedFork-0.21.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Test/']
+
+homepage = 'http://search.cpan.org/dist/Test-SharedFork/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Test-SharedFork/Makefile ######
+## $NetBSD: Makefile,v 1.13 2014/05/29 23:36:23 wiz Exp $
+#
+#DISTNAME=	Test-SharedFork-0.21
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	2
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Test/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Test-SharedFork/
+#COMMENT=	Perl 5 module to make forking test
+#LICENSE=	${PERL5_LICENSE}
+#
+#USE_LANGUAGES=	# empty
+#PERL5_PACKLIST=	auto/Test/SharedFork/.packlist
+#
+#DEPENDS+=	p5-Test-Requires>=0:../../devel/p5-Test-Requires
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

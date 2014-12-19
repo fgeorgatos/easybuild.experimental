@@ -1,0 +1,65 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Role-Parameterized-1.02'
+versionsuffix = '-20141219'
+
+description = "MooseX-Role-Parameterized-1.02: Roles with composition parameters"
+
+sources = ['MooseX-Role-Parameterized-1.02.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/../../authors/id/S/SA/SARTAK/']
+
+homepage = 'https://metacpan.org/release/MooseX-Role-Parameterized'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-MooseX-Role-Parameterized/Makefile ######
+## $NetBSD: Makefile,v 1.16 2014/05/29 23:36:07 wiz Exp $
+##
+#
+#DISTNAME=	MooseX-Role-Parameterized-1.02
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	1
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=../../authors/id/S/SA/SARTAK/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	https://metacpan.org/release/MooseX-Role-Parameterized
+#COMMENT=	Roles with composition parameters
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	p5-Module-Runtime-[0-9]*:../../devel/p5-Module-Runtime
+#DEPENDS+=	p5-Moose>=2.0300:../../devel/p5-Moose
+#
+#BUILD_DEPENDS+=	p5-Test-Fatal-[0-9]*:../../devel/p5-Test-Fatal
+#
+#USE_LANGUAGES=	# empty
+#PERL5_PACKLIST=	auto/MooseX/Role/Parameterized/.packlist
+#PERL5_MODULE_TYPE=	Module::Install::Bundled
+#
+#PERL5_PACKLIST=	auto/MooseX/Role/Parameterized/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

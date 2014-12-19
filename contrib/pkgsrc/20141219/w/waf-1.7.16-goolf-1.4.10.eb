@@ -1,0 +1,59 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'waf'
+version = '1.7.16'
+versionsuffix = '-20141219'
+
+description = "waf-1.7.16: Framework for configuring, compiling and installing applications"
+
+sources = [SOURCE_TAR_BZ2]
+source_urls = ['http://ftp.waf.io/pub/release/']
+
+homepage = 'https://code.google.com/p/waf/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/waf/Makefile ######
+## $NetBSD: Makefile,v 1.1 2014/09/08 11:29:44 wiz Exp $
+#
+#DISTNAME=	waf-1.7.16
+#CATEGORIES=	devel
+#MASTER_SITES=	http://ftp.waf.io/pub/release/
+#EXTRACT_SUFX=	.tar.bz2
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	https://code.google.com/p/waf/
+#COMMENT=	Framework for configuring, compiling and installing applications
+#LICENSE=	modified-bsd
+#
+#REPLACE_PYTHON=		waf-light
+#INSTALLATION_DIRS=	bin
+#
+#do-build:
+#	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ./waf-light configure build
+#
+#do-install:
+#	${INSTALL_SCRIPT} ${WRKSRC}/waf ${DESTDIR}${PREFIX}/bin
+#
+#.include "../../lang/python/application.mk"
+#.include "../../mk/bsd.pkg.mk"

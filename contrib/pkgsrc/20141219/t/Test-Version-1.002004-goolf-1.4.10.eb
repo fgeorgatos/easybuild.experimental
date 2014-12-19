@@ -1,0 +1,60 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Version-1.002004'
+versionsuffix = '-20141219'
+
+description = "Test-Version-1.002004: Check to see that version s in modules are sane"
+
+sources = ['Test-Version-1.002004.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Test/']
+
+homepage = 'http://search.cpan.org/dist/Test-Version/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Test-Version/Makefile ######
+## $NetBSD: Makefile,v 1.2 2014/05/29 23:36:24 wiz Exp $
+##
+#
+#DISTNAME=		Test-Version-1.002004
+#PKGNAME=		p5-${DISTNAME}
+#PKGREVISION=		1
+#CATEGORIES=		devel perl5
+#MASTER_SITES=		${MASTER_SITE_PERL_CPAN:=Test/}
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://search.cpan.org/dist/Test-Version/
+#COMMENT=		Check to see that version's in modules are sane
+#LICENSE=		${PERL5_LICENSE}
+#
+#DEPENDS+=		p5-File-Find-Rule-Perl>=0:../../devel/p5-File-Find-Rule-Perl
+#DEPENDS+=		p5-Module-Metadata>=0:../../devel/p5-Module-Metadata
+#
+#USE_LANGUAGES=		# empty
+#PERL5_PACKLIST=		auto/Test/Version/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,53 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'ir'
+version = 'account-0.2'
+versionsuffix = '-20141219'
+
+description = "ir-account-0.2: Copy accounts among systems and manage sudo privs"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.ir.bbn.com/~gdt/ir-account/']
+
+homepage = 'http://www.ir.bbn.com/~gdt/ir-account/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/ir-account/Makefile ######
+## $NetBSD: Makefile,v 1.6 2012/10/23 19:51:08 asau Exp $
+##
+#
+#DISTNAME=		ir-account-0.2
+#CATEGORIES=		sysutils
+#MASTER_SITES=		http://www.ir.bbn.com/~gdt/ir-account/
+#
+#MAINTAINER=		gdt@NetBSD.org
+#HOMEPAGE=		http://www.ir.bbn.com/~gdt/ir-account/
+#COMMENT=		Copy accounts among systems and manage sudo privs
+#
+#USE_PKGLOCALEDIR=	yes
+#GNU_CONFIGURE=		yes
+#
+#DEPENDS+=		sudo>=1.6:../../security/sudo
+#
+#.include "../../mk/bsd.pkg.mk"

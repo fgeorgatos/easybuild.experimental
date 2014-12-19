@@ -1,0 +1,71 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'gimp-'
+version = '0.16'
+versionsuffix = '-20141219'
+
+description = "resynthesizer-0.16: Gimp plug-in for texture synthesis"
+
+sources = ['resynthesizer-0.16.tar.gz']
+version = '${DISTNAME}'
+name = 'gimp'
+source_urls = ['http://www.logarithmic.net/pfh-files/resynthesizer/']
+
+homepage = 'http://www.logarithmic.net/pfh/resynthesizer'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/gimp-resynthesizer/Makefile ######
+## $NetBSD: Makefile,v 1.26 2014/05/05 00:47:56 ryoon Exp $
+##
+#
+#DISTNAME=	resynthesizer-0.16
+#PKGNAME=	gimp-${DISTNAME}
+#PKGREVISION=	23
+#CATEGORIES=	graphics
+#MASTER_SITES=	http://www.logarithmic.net/pfh-files/resynthesizer/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.logarithmic.net/pfh/resynthesizer
+#COMMENT=	Gimp plug-in for texture synthesis
+#LICENSE=	gnu-gpl-v2
+#
+#USE_LANGUAGES=	c++
+#USE_TOOLS+=	pkg-config
+#
+#INSTALLATION_DIRS=	lib/gimp/2.0/plug-ins
+#INSTALLATION_DIRS+=	share/gimp/2.0/scripts
+#INSTALLATION_DIRS+=	share/doc/gimp-resynthesizer
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/resynth \
+#		${DESTDIR}${PREFIX}/lib/gimp/2.0/plug-ins/
+#	${INSTALL_DATA} ${WRKSRC}/smart-enlarge.scm \
+#		${DESTDIR}${PREFIX}/share/gimp/2.0/scripts/
+#	${INSTALL_DATA} ${WRKSRC}/smart-remove.scm \
+#		${DESTDIR}${PREFIX}/share/gimp/2.0/scripts/
+#	${INSTALL_DATA} ${WRKSRC}/README \
+#		${DESTDIR}${PREFIX}/share/doc/gimp-resynthesizer
+#
+#.include "../../graphics/gimp/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

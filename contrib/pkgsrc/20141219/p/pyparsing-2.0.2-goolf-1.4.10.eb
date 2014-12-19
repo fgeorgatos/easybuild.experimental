@@ -1,0 +1,51 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '-'
+version = '2.0.2'
+versionsuffix = '-20141219'
+
+description = "pyparsing-2.0.2: Pyparsing module for Python"
+
+sources = ['pyparsing-2.0.2.tar.gz']
+source_urls = ['http://sourceforge.net/projects/pyparsing/pyparsing/${DISTNAME}/files', 'download']
+
+homepage = 'http://sourceforge.net/projects/pyparsing'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/py-pyparsing/Makefile ######
+## $NetBSD: Makefile,v 1.3 2014/06/02 00:07:40 rodent Exp $
+#
+#DISTNAME=		pyparsing-2.0.2
+#PKGNAME=		${PYPKGPREFIX}-${DISTNAME}
+#CATEGORIES=		devel python
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=pyparsing/pyparsing/${DISTNAME}/}
+#MASTER_SITES+=	https://pypi.python.org/packages/source/p/pyparsing/
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://sourceforge.net/projects/pyparsing
+#COMMENT=		Pyparsing module for Python
+#LICENSE=      	mit
+#
+#.include "../../lang/python/distutils.mk"
+#.include "../../mk/bsd.pkg.mk"

@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '-'
+version = '2.2.1'
+versionsuffix = '-20141219'
+
+description = "h5py-2.2.1: Python interface to the HDF5 library"
+
+sources = ['h5py-2.2.1.tar.gz']
+source_urls = ['https://pypi.python.org/packages/source/h/h5py/']
+
+homepage = 'http://www.h5py.org'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/py-h5py/Makefile ######
+## $NetBSD: Makefile,v 1.2 2014/02/06 14:59:11 drochner Exp $
+#
+#DISTNAME=	h5py-2.2.1
+#PKGNAME=        ${PYPKGPREFIX}-${DISTNAME}
+#CATEGORIES=	devel python
+#MASTER_SITES=	https://pypi.python.org/packages/source/h/h5py/
+#
+#MAINTAINER=	jihbed.research@gmail.com
+#HOMEPAGE=	http://www.h5py.org
+#COMMENT=	Python interface to the HDF5 library
+#LICENSE=	modified-bsd
+#
+#PKG_OPTIONS_VAR=	PKG_OPTIONS.h5py
+#PKG_SUPPORTED_OPTIONS=	cython
+#
+#.include "../../mk/bsd.options.mk"
+#
+#.if !empty(PKG_OPTIONS:Mcython)
+#.include "../../devel/py-cython/buildlink3.mk"
+#.endif
+#
+#.include "../../devel/hdf5/buildlink3.mk"
+#.include "../../lang/python/distutils.mk"
+#.include "../../math/py-numpy/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

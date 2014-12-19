@@ -1,0 +1,84 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'luma'
+version = '3.0.7'
+versionsuffix = '-20141219'
+
+description = "luma-3.0.7: LDAP browser"
+
+sources = [SOURCE_ZIP]
+source_urls = ['http://sourceforge.net/projects/luma/files', 'download']
+
+homepage = 'http://luma.sourceforge.net/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/databases/luma/Makefile ######
+## $NetBSD: Makefile,v 1.38 2014/09/29 12:27:16 jperkin Exp $
+#
+#DISTNAME=	luma-3.0.7
+#CATEGORIES=	databases
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=luma/}
+#EXTRACT_SUFX=	.zip
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://luma.sourceforge.net/
+#COMMENT=	LDAP browser
+#LICENSE=	gnu-gpl-v2
+#
+#REPLACE_PYTHON=		luma/luma.py
+#INSTALLATION_DIRS=	${PKGMANDIR}/man1 ${PYSITELIB}/luma/plugins/browser
+#
+#PYTHON_VERSIONS_INCOMPATIBLE=	33 34 # py-qt3-base, py-ldap
+#
+#SUBST_CLASSES+=		luma
+#SUBST_STAGE.luma=	pre-configure
+#SUBST_FILES.luma=	luma/luma.py
+#SUBST_SED.luma=		-e "s|@PATH@|${PREFIX}/${PYSITELIB}/luma|"
+#SUBST_MESSAGE.luma=	Adding library path to luma.
+#
+#post-extract:
+#	for f in ${WRKSRC}/luma/luma.py ${WRKSRC}/setup.py; do	\
+#		${TR} -d '\r' < $${f} > $${f}.new;		\
+#		${MV} $${f}.new $${f};				\
+#	done
+#
+## world-writeable files
+#pre-build:
+#	${CHMOD} 0644 ${WRKSRC}/data/icons/*/*.png
+#	${CHMOD} 0644 ${WRKSRC}/data/icons/*/*.svg
+#	${CHMOD} 0644 ${WRKSRC}/data/*.desktop
+#
+## some templates are not installed, do it manually
+## https://sourceforge.net/p/luma/bugs/48/
+#post-install:
+#	${MV} ${DESTDIR}${PREFIX}/share/man/man1/luma.1.gz ${DESTDIR}${PREFIX}/${PKGMANDIR}/man1
+#	${CP} -R ${WRKSRC}/luma/plugins/browser/templates ${DESTDIR}${PREFIX}/${PYSITELIB}/luma/plugins/browser/templates
+#
+#.include "../../databases/py-ldap/buildlink3.mk"
+#.include "../../lang/python/application.mk"
+#.include "../../lang/python/distutils.mk"
+#.include "../../x11/py-qt4/buildlink3.mk"
+#.include "../../sysutils/desktop-file-utils/desktopdb.mk"
+#.include "../../graphics/hicolor-icon-theme/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

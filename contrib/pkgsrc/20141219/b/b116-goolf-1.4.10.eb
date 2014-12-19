@@ -1,0 +1,71 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'brandybasic-1.0.16'
+version = 'b116'
+versionsuffix = '-20141219'
+
+description = "b116: Brandy Basic V interpreter - Acorn ARM Computers BASIC dialect"
+
+sources = ['b116.tgz']
+version = '1.0.16'
+name = 'brandybasic'
+source_urls = ['http://jaguar.orpheusweb.co.uk/']
+
+homepage = 'http://jaguar.orpheusweb.co.uk/branpage.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/lang/brandybasic/Makefile ######
+## $NetBSD: Makefile,v 1.18 2012/10/02 20:11:36 asau Exp $
+##
+#
+#DISTNAME=	b116
+#PKGNAME=	brandybasic-1.0.16
+#PKGREVISION=	1
+#CATEGORIES=	lang
+#MASTER_SITES=	http://jaguar.orpheusweb.co.uk/
+## http://jaguar.orpheusweb.co.uk/brandy_119.tgz
+#EXTRACT_SUFX=	.tgz
+#
+#MAINTAINER=	abs@NetBSD.org
+#HOMEPAGE=	http://jaguar.orpheusweb.co.uk/branpage.html
+#COMMENT=	Brandy Basic V interpreter - Acorn ARM Computers BASIC dialect
+#
+#NOT_FOR_PLATFORM=	SunOS-*-* # needs porting
+#
+#WRKSRC=		${WRKDIR}/brandy-1.0.16
+#DOCDIR=		share/doc/brandy
+#EXAMPLEDIR=	share/examples/brandy
+#BUILD_TARGET=	nodebug
+#
+#USE_TOOLS+=		gtar
+#INSTALLATION_DIRS=	bin ${DOCDIR} ${EXAMPLEDIR}
+#
+#do-install:
+#	cd ${WRKSRC}/docs && ${GTAR} -cf - `ls |grep -v .orig` | \
+#		(cd ${DESTDIR}${PREFIX}/${DOCDIR} && gtar xf -)
+#	cd ${WRKSRC}/examples && ${GTAR} -cf - [a-z]* | \
+#		(cd ${DESTDIR}${PREFIX}/${EXAMPLEDIR} && gtar xf -)
+#	${INSTALL_PROGRAM} ${WRKSRC}/brandy ${DESTDIR}${PREFIX}/bin/brandy
+#
+#.include "../../mk/bsd.pkg.mk"

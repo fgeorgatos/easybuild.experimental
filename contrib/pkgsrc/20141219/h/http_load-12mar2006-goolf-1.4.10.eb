@@ -1,0 +1,58 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'http_load-20060312'
+version = '12mar2006'
+versionsuffix = '-20141219'
+
+description = "http_load-12mar2006: Multiprocessing http test client"
+
+sources = ['http_load-12mar2006.tar.gz']
+source_urls = ['http://www.acme.com/software/http_load/']
+
+homepage = 'http://www.acme.com/software/http_load/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/http_load/Makefile ######
+## $NetBSD: Makefile,v 1.23 2014/02/12 23:18:45 tron Exp $
+#
+#DISTNAME=	http_load-12mar2006
+#PKGNAME=	http_load-20060312
+#PKGREVISION=	4
+#CATEGORIES=	www
+#MASTER_SITES=	http://www.acme.com/software/http_load/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.acme.com/software/http_load/
+#COMMENT=	Multiprocessing http test client
+#LICENSE=	2-clause-bsd
+#
+#MAKE_ENV+=	SSLBASE=${SSLBASE:Q}
+#
+#.include "../../mk/bsd.prefs.mk"
+#.if ${OPSYS} == "SunOS"
+#MAKE_ENV+=	SYSV_LIBS="-lnsl -lsocket -lresolv"
+#.endif
+#
+#.include "../../security/openssl/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

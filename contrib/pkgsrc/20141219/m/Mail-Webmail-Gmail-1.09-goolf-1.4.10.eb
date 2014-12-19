@@ -1,0 +1,59 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Webmail-Gmail-1.09'
+versionsuffix = '-20141219'
+
+description = "Mail-Webmail-Gmail-1.09: Interface to Google s webmail service"
+
+sources = ['Mail-Webmail-Gmail-1.09.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Mail/']
+
+homepage = 'http://search.cpan.org/dist/Mail-Webmail-Gmail/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/mail/p5-Mail-Webmail-Gmail/Makefile ######
+## $NetBSD: Makefile,v 1.10 2014/05/29 23:36:50 wiz Exp $
+#
+#DISTNAME=	Mail-Webmail-Gmail-1.09
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	6
+#CATEGORIES=	mail perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Mail/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Mail-Webmail-Gmail/
+#COMMENT=	Interface to Google's webmail service
+#
+#DEPENDS+=	p5-Crypt-SSLeay>=0.51:../../security/p5-Crypt-SSLeay
+#DEPENDS+=	p5-libwww>=5.80:../../www/p5-libwww
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#PERL5_PACKLIST=	auto/Mail/Webmail/Gmail/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

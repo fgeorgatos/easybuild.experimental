@@ -1,0 +1,50 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'chordii'
+version = '4.5.1'
+versionsuffix = '-20141219'
+
+description = "chordii-4.5.1: Produce PS sheet-music from text input"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/chordii/files', 'download']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/misc/chordii/Makefile ######
+## $NetBSD: Makefile,v 1.1 2014/05/29 08:54:02 darcy Exp $
+#
+#DISTNAME=	chordii-4.5.1
+#CATEGORIES=	misc
+#MASTER_SITES=	 ${MASTER_SITE_SOURCEFORGE:=chordii/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#COMMENT=	Produce PS sheet-music from text input
+#LICENSE=    gnu-gpl-v2 # or later
+#GNU_CONFIGURE = yes
+#
+#INSTALLATION_DIRS+=	bin ${PKGMANDIR}/man1
+#
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

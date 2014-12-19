@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'gmpc'
+version = 'jamendo-11.8.16'
+versionsuffix = '-20141219'
+
+description = "gmpc-jamendo-11.8.16: Jamendo plugin for GMPC"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://download.sarine.nl/Programs/gmpc/11.8/']
+
+homepage = 'http://gmpc.wikia.com/wiki/GMPC_PLUGIN_JAMENDO'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/audio/gmpc-jamendo/Makefile ######
+## $NetBSD: Makefile,v 1.6 2014/05/05 00:47:36 ryoon Exp $
+#
+#DISTNAME=	gmpc-jamendo-11.8.16
+#PKGREVISION=	4
+#CATEGORIES=	audio
+#MASTER_SITES=	http://download.sarine.nl/Programs/gmpc/11.8/ \
+#		${MASTER_SITE_SOURCEFORGE:=musicpd/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://gmpc.wikia.com/wiki/GMPC_PLUGIN_JAMENDO
+#COMMENT=	Jamendo plugin for GMPC
+#LICENSE=	gnu-gpl-v2
+#
+#GNU_CONFIGURE=	yes
+#USE_LIBTOOL=	yes
+#USE_TOOLS+=	intltool msgfmt pkg-config
+#
+#.include "../../audio/gmpc/buildlink3.mk"
+#.include "../../textproc/libxml2/buildlink3.mk"
+#.include "../../databases/sqlite3/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

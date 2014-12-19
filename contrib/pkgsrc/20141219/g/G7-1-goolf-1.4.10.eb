@@ -1,0 +1,71 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'epsg-docs-'
+version = '1'
+versionsuffix = '-20141219'
+
+description = "G7-1: EPSG geodetic parameters database documentation"
+
+sources = ['G7-1.tar.gz']
+version = 'docs-${VERS}'
+name = 'epsg'
+source_urls = ['http://www.epsg.org/guides/docs/']
+
+homepage = 'http://www.epsg.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/geography/epsg-docs/Makefile ######
+## $NetBSD: Makefile,v 1.6 2012/10/04 09:19:17 asau Exp $
+##
+#
+#DISTNAME=		G7-1
+#PKGNAME=		epsg-docs-${VERS}
+#VERS=			200911
+#PKGREVISION=		1
+#CATEGORIES=		geography databases
+#MASTER_SITES=		http://www.epsg.org/guides/docs/
+#DISTFILES=		G7-1.pdf G7-2.pdf G7-3.pdf G7-4.pdf
+#DIST_SUBDIR=		epsg-docs-${VERS}
+#
+#MAINTAINER=		cngo@nmsu.edu
+#HOMEPAGE=		http://www.epsg.org/
+#COMMENT=		EPSG geodetic parameters database documentation
+#LICENSE=		epsg-license
+#
+## Docs were included in geography/epsg up to 6.11.2, but are released
+## separately and hence now packaged separately.
+#CONFLICTS+=		epsg<6.13
+#
+#WRKSRC=			${WRKDIR}
+#NO_BUILD=		yes
+#DOCDIR=                 ${PREFIX}/share/doc/epsg
+#
+#do-install:
+#	${INSTALL_DATA_DIR} ${DESTDIR}${DOCDIR}
+#	${INSTALL_DATA} ${WRKSRC}/G7-1.pdf ${DESTDIR}${DOCDIR:Q}
+#	${INSTALL_DATA} ${WRKSRC}/G7-2.pdf ${DESTDIR}${DOCDIR:Q}
+#	${INSTALL_DATA} ${WRKSRC}/G7-3.pdf ${DESTDIR}${DOCDIR:Q}
+#	${INSTALL_DATA} ${WRKSRC}/G7-4.pdf ${DESTDIR}${DOCDIR:Q}
+#
+#.include "../../mk/bsd.pkg.mk"

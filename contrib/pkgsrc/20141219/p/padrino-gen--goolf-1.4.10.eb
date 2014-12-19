@@ -1,0 +1,53 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'padrino'
+version = 'gen-'
+versionsuffix = '-20141219'
+
+description = "padrino-gen-: Generators for easily creating and building padrino applications"
+
+sources = ['padrino-gen-${RUBY_PADRINO_VERS}.tar.gz']
+
+homepage = '${RUBY_PADRINO_SITE}'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/ruby-padrino-gen/Makefile ######
+## $NetBSD: Makefile,v 1.1 2013/02/11 14:31:55 taca Exp $
+#
+#DISTNAME=	padrino-gen-${RUBY_PADRINO_VERS}
+#CATEGORIES=	www
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	${RUBY_PADRINO_SITE}
+#COMMENT=	Generators for easily creating and building padrino applications
+#LICENSE=	mit
+#
+#DEPENDS+=	${RUBY_PKGPREFIX}-padrino-core>=${RUBY_PADRINO_VERS}:../../www/ruby-padrino-core
+#DEPENDS+=	${RUBY_PKGPREFIX}-bundler>=1.0<2:../../misc/ruby-bundler
+#
+#CONFLICTS+=	ruby[1-9][0-9][0-9]-padrino-gen-[0-9]*
+#
+#.include "../../www/ruby-padrino/Makefile.common"
+#.include "../../lang/ruby/gem.mk"
+#.include "../../mk/bsd.pkg.mk"

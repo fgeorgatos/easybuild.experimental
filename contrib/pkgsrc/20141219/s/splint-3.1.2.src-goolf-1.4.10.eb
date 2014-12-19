@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'splint'
+version = '3.1.2.src'
+versionsuffix = '-20141219'
+
+description = "splint-3.1.2.src: Statically check C programs"
+
+sources = [SOURCE_TGZ]
+source_urls = ['http://www.splint.org/downloads/']
+
+homepage = 'http://lclint.cs.virginia.edu/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/splint/Makefile ######
+## $NetBSD: Makefile,v 1.19 2013/05/04 19:48:00 richard Exp $
+##
+#
+#DISTNAME=	splint-3.1.2.src
+#PKGNAME=	${DISTNAME:S/.src$//}
+#CATEGORIES=	devel
+#MASTER_SITES=	http://www.splint.org/downloads/
+#EXTRACT_SUFX=	.tgz
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://lclint.cs.virginia.edu/
+#COMMENT=	Statically check C programs
+#LICENSE=        gnu-gpl-v2
+#
+#MAKE_JOBS_SAFE=		no
+#
+#USE_TOOLS+=	gmake lex
+#GNU_CONFIGURE=	YES
+#USE_LANGUAGES=	c99
+#
+#WRKSRC=		${WRKDIR}/${PKGNAME_NOREV}
+#
+#post-install:
+#	${INSTALL_MAN} ${WRKSRC}/doc/splint.1 ${DESTDIR}${PREFIX}/${PKGMANDIR}/man1
+#
+#.include "../../mk/bsd.pkg.mk"

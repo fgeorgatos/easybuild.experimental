@@ -1,0 +1,70 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'ttf'
+version = 'tlwg-0.6.0'
+versionsuffix = '-20141219'
+
+description = "ttf-tlwg-0.6.0: Thai fonts in TTF format"
+
+sources = [SOURCE_TAR_XZ]
+source_urls = ['ftp://linux.thai.net/pub/thailinux/software/thai-ttf/']
+
+homepage = 'http://linux.thai.net/projects/thaifonts-scalable'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/fonts/ttf-tlwg/Makefile ######
+## $NetBSD: Makefile,v 1.2 2014/06/01 16:35:37 wiz Exp $
+#
+#DISTNAME=	ttf-tlwg-0.6.0
+#PKGREVISION=	1
+#CATEGORIES=	fonts
+#MASTER_SITES=	ftp://linux.thai.net/pub/thailinux/software/thai-ttf/
+#EXTRACT_SUFX=	.tar.xz
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://linux.thai.net/projects/thaifonts-scalable
+#COMMENT=	Thai fonts in TTF format
+##LICENSE=	# TODO: (see mk/license.mk)
+#
+#USE_LANGUAGES=	# none
+#
+#FONTDIR=	${PREFIX}/share/fonts/X11/TTF
+#FONTS_DIRS.ttf= ${FONTDIR}
+#PKG_SYSCONFSUBDIR=	fontconfig
+#CONF_FILES=	${PREFIX}/share/fontconfig/conf.avail/64-ttf-thai-tlwg.conf \
+#		${PKG_SYSCONFDIR}/conf.d/64-ttf-thai-tlwg.conf
+#CONF_FILES+=	${PREFIX}/share/fontconfig/conf.avail/89-ttf-thai-tlwg-synthetic.conf \
+#		${PKG_SYSCONFDIR}/conf.d/89-ttf-thai-tlwg-synthetic.conf
+#INSTALLATION_DIRS=	${FONTDIR} share/fontconfig/conf.avail
+#
+#do-build:
+#
+#do-install:
+#	cd ${WRKSRC} && for f in *.ttf ; do \
+#		${INSTALL_DATA} $$f ${DESTDIR}${FONTDIR}/$$f; \
+#	done
+#	${INSTALL_DATA} ${WRKSRC}/etc/fonts/conf.avail/* \
+#		${DESTDIR}${PREFIX}/share/fontconfig/conf.avail
+#
+#.include "../../mk/bsd.pkg.mk"

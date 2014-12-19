@@ -1,0 +1,51 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'ncdu'
+version = '1.10'
+versionsuffix = '-20141219'
+
+description = "ncdu-1.10: Disk usage visualization tool"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/ncdu/files', 'download']
+
+homepage = 'http://dev.yorhel.nl/ncdu'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/ncdu/Makefile ######
+## $NetBSD: Makefile,v 1.1 2013/08/23 11:31:29 wiz Exp $
+#
+#DISTNAME=	ncdu-1.10
+#CATEGORIES=	filesystems
+#MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=ncdu/}
+#
+#COMMENT=	Disk usage visualization tool
+#MAINTAINER=	slitvinov@gmail.com
+#HOMEPAGE=	http://dev.yorhel.nl/ncdu
+#LICENSE=	modified-bsd
+#
+#GNU_CONFIGURE=	yes
+#
+#.include "../../devel/ncurses/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

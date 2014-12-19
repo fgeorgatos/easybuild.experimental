@@ -1,0 +1,65 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'kget'
+version = ''
+versionsuffix = '-20141219'
+
+description = "kget-: download manager for KDE"
+
+sources = ['kget-${_KDE_VERSION}.tar.gz']
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/net/kget/Makefile ######
+## $NetBSD: Makefile,v 1.11 2014/08/22 11:24:41 wiz Exp $
+#
+#DISTNAME=	kget-${_KDE_VERSION}
+#PKGREVISION=	6
+#CATEGORIES=	net
+#COMMENT=	download manager for KDE
+#
+#.include "../../meta-pkgs/kde4/Makefile.kde4"
+#
+#REPLACE_PERL+= \
+#	conf/kget_limitdownloads.pl \
+#	conf/kget_sensitive.pl
+#
+#.include "../../meta-pkgs/kde4/kde4.mk"
+#
+#.include "../../databases/sqlite3/buildlink3.mk"
+#.include "../../graphics/hicolor-icon-theme/buildlink3.mk"
+#.include "../../misc/kdepimlibs4/buildlink3.mk"
+#.include "../../misc/nepomuk-core/buildlink3.mk"
+#.include "../../misc/nepomuk-widgets/buildlink3.mk"
+## libmms-0.6 has a broken header file. comment out till 0.6.2 in pkgsrc
+###BUILDLINK_API_DEPENDS.libmms+=  libmms>=0.6.2
+###.include "../../net/libmms/buildlink3.mk"
+#.include "../../security/qca2/buildlink3.mk"
+#.include "../../sysutils/desktop-file-utils/desktopdb.mk"
+#.include "../../x11/kdelibs4/buildlink3.mk"
+#.include "../../x11/kde-baseapps4/buildlink3.mk"
+#.include "../../x11/kde-workspace4/buildlink3.mk"
+#
+#.include "../../mk/bsd.pkg.mk"
+
+homepage = "no default homepage provided" ## fixme

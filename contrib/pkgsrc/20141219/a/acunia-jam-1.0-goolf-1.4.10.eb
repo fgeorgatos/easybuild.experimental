@@ -1,0 +1,76 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'acunia'
+version = 'jam-1.0'
+versionsuffix = '-20141219'
+
+description = "acunia-jam-1.0: Acunia version of the program construction tool, like make 1 "
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['${MASTER_SITE_LOCAL}']
+
+homepage = 'http://wonka.acunia.com/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/acunia-jam/Makefile ######
+## $NetBSD: Makefile,v 1.15 2012/10/31 11:16:33 asau Exp $
+##
+#
+#DISTNAME=	acunia-jam-1.0
+#PKGREVISION=	1
+#CATEGORIES=	devel
+#MASTER_SITES=	${MASTER_SITE_LOCAL}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://wonka.acunia.com/
+#COMMENT=	Acunia version of the program construction tool, like make(1)
+#
+#CONFLICTS=	jam-[0-9]*
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#WRKSRC=		${WRKDIR}/jam
+#USE_TOOLS+=	yacc
+#
+#DOCDIR=		share/doc/${PKGBASE}
+#HTMLDIR=	share/doc/html/${PKGBASE}
+#
+#INSTALLATION_DIRS=	bin
+#
+#do-install:
+#	for file in jam mkjambase; do \
+#		${INSTALL_PROGRAM} ${WRKSRC}/bin.*/$${file} \
+#			${DESTDIR}${PREFIX}/bin; \
+#	done
+#	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/${DOCDIR}
+#	for file in Porting README RELNOTES; do \
+#		${INSTALL_DATA} ${WRKSRC}/$${file} \
+#			${DESTDIR}${PREFIX}/${DOCDIR}; \
+#	done
+#	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/${HTMLDIR}
+#	for file in ${WRKSRC}/*.html; do \
+#		${INSTALL_DATA} $${file} ${DESTDIR}${PREFIX}/${HTMLDIR}; \
+#	done
+#
+#.include "../../mk/bsd.pkg.mk"

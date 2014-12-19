@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'euler-1.61'
+version = '1.61.0'
+versionsuffix = '-20141219'
+
+description = "euler-1.61.0: Interactive numerical analysis and graphics program"
+
+sources = ['euler-1.61.0.tgz']
+version = '1.61'
+name = 'euler'
+source_urls = ['http://sourceforge.net/projects/euler/files', 'download']
+
+homepage = 'http://euler.sourceforge.net/index.html'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/math/euler/Makefile ######
+## $NetBSD: Makefile,v 1.40 2014/05/05 00:48:07 ryoon Exp $
+#
+#DISTNAME=		euler-1.61.0
+#PKGNAME=		euler-1.61
+#EXTRACT_SUFX=		.tgz
+#PKGREVISION=		20
+#CATEGORIES=		math
+#MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=euler/}
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://euler.sourceforge.net/index.html
+#COMMENT=		Interactive numerical analysis and graphics program
+#
+#USE_LANGUAGES=		c c++
+#GNU_CONFIGURE=		yes
+#USE_TOOLS+=		gmake pkg-config
+#
+#.include "../../x11/gtk2/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

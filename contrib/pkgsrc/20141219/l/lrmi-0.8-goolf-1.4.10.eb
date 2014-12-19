@@ -1,0 +1,62 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'lrmi'
+version = '0.8'
+versionsuffix = '-20141219'
+
+description = "lrmi-0.8: Wrapper to the i386 vm86 mode"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/lrmi/files', 'download']
+
+homepage = 'http://sourceforge.net/projects/lrmi/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/emulators/lrmi/Makefile ######
+## $NetBSD: Makefile,v 1.13 2012/10/03 12:55:15 asau Exp $
+##
+#
+#DISTNAME=		lrmi-0.8
+#PKGREVISION=		1
+#CATEGORIES=		emulators
+#MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=lrmi/}
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://sourceforge.net/projects/lrmi/
+#COMMENT=		Wrapper to the i386 vm86 mode
+#
+#ONLY_FOR_PLATFORM=	*-*-i386
+#NOT_FOR_PLATFORM+=	Interix-*-* # cannot call real mode from Windows
+#
+#MAKE_FILE=		Makefile.bsd
+#INSTALLATION_DIRS=	bin include lib
+#
+#do-install:
+#	${INSTALL_DATA} ${WRKSRC}/vbe.h ${DESTDIR}${PREFIX}/include
+#	${INSTALL_DATA} ${WRKSRC}/lrmi.h ${DESTDIR}${PREFIX}/include
+#	${INSTALL_DATA} ${WRKSRC}/liblrmi.a ${DESTDIR}${PREFIX}/lib
+#	${INSTALL_DATA} ${WRKSRC}/liblrmi.so ${DESTDIR}${PREFIX}/lib
+#	${INSTALL_PROGRAM} ${WRKSRC}/vbetest ${DESTDIR}${PREFIX}/bin
+#
+#.include "../../mk/bsd.pkg.mk"

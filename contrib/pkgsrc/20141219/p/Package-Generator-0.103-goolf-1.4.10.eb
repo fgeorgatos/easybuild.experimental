@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Generator-0.103'
+versionsuffix = '-20141219'
+
+description = "Package-Generator-0.103: Perl 5 module to generate new packages"
+
+sources = ['Package-Generator-0.103.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Package/']
+
+homepage = 'http://search.cpan.org/dist/Package-Generator/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Package-Generator/Makefile ######
+## $NetBSD: Makefile,v 1.10 2014/05/29 23:36:11 wiz Exp $
+##
+#
+#DISTNAME=	Package-Generator-0.103
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	6
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Package/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Package-Generator/
+#COMMENT=	Perl 5 module to generate new packages
+#LICENSE=	${PERL5_LICENSE}
+#
+#PERL5_PACKLIST=		auto/Package/Generator/.packlist
+#PERL5_MODULE_TYPE=	Module::Install::Bundled
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

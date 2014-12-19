@@ -1,0 +1,67 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'malsync-2.2.0'
+version = '.src'
+versionsuffix = '-20141219'
+
+description = ".src: Utility to synchronize Palm Pilots to the AvantGo.com service"
+
+sources = ['${PKGNAME_NOREV:S/-/_/}.src.tar.gz']
+version = '2.2.0'
+name = 'malsync'
+source_urls = ['http://www.tomw.org/malsync/']
+
+homepage = 'http://www.tomw.org/malsync/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/comms/malsync/Makefile ######
+## $NetBSD: Makefile,v 1.25 2013/12/23 11:57:02 wiz Exp $
+#
+#DISTNAME=	${PKGNAME_NOREV:S/-/_/}.src
+#PKGNAME=	malsync-2.2.0
+#PKGREVISION=	1
+#CATEGORIES=	comms
+#MASTER_SITES=	http://www.tomw.org/malsync/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.tomw.org/malsync/
+#COMMENT=	Utility to synchronize Palm Pilots to the AvantGo.com service
+#
+#CONFLICTS+=	libmal-[0-9]*
+#
+#WRKSRC=		${WRKDIR}/malsync
+#USE_TOOLS+=		gmake
+#MAKE_ENV+=		PILOT_LINK_DIR=${BUILDLINK_PREFIX.pilot-link-libs}
+#CPPFLAGS+=		-D__unix__=1
+#INSTALLATION_DIRS=	bin
+#
+#do-install:
+#	${INSTALL_PROGRAM} ${WRKSRC}/malsync ${DESTDIR}${PREFIX}/bin
+#	${INSTALL_DATA_DIR} ${DESTDIR}${PREFIX}/share/doc/malsync
+#.for doc in README_avantgo README_malsync
+#	${INSTALL_DATA} ${FILESDIR}/${doc} ${DESTDIR}${PREFIX}/share/doc/malsync
+#.endfor
+#
+#.include "../../comms/pilot-link-libs/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

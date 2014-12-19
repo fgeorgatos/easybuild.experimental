@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'epeg'
+version = '0.9.0'
+versionsuffix = '-20141219'
+
+description = "epeg-0.9.0: Fast JPEG scaling library for thumbnail generation"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://sourceforge.net/projects/enlightenment/files', 'download']
+
+homepage = 'http://www.enlightenment.org/Libraries/Epeg/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/graphics/epeg/Makefile ######
+## $NetBSD: Makefile,v 1.10 2013/01/26 21:36:26 adam Exp $
+##
+#
+#DISTNAME=		epeg-0.9.0
+#PKGREVISION=		4
+#CATEGORIES=		graphics
+#MASTER_SITES=		${MASTER_SITE_SOURCEFORGE:=enlightenment/}
+#
+#MAINTAINER=		Peter.Bex@student.kun.nl
+#HOMEPAGE=		http://www.enlightenment.org/Libraries/Epeg/
+#COMMENT=		Fast JPEG scaling library for thumbnail generation
+#
+#GNU_CONFIGURE=		YES
+#USE_LIBTOOL=		YES
+#
+#.include "../../devel/libltdl/buildlink3.mk"
+#.include "../../mk/jpeg.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

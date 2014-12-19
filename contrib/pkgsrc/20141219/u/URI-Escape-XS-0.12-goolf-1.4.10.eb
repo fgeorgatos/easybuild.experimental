@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Escape-XS-0.12'
+versionsuffix = '-20141219'
+
+description = "URI-Escape-XS-0.12: Escape and unescape unsafe characters in URIs"
+
+sources = ['URI-Escape-XS-0.12.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/URI/']
+
+homepage = 'http://search.cpan.org/dist/URI-Escape-XS/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/p5-URI-Escape-XS/Makefile ######
+## $NetBSD: Makefile,v 1.16 2014/06/09 20:09:49 schmonz Exp $
+#
+#DISTNAME=	URI-Escape-XS-0.12
+#PKGNAME=	p5-${DISTNAME}
+#CATEGORIES=	www net perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=URI/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/URI-Escape-XS/
+#COMMENT=	Escape and unescape unsafe characters in URIs
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	p5-URI>=1.35:../../www/p5-URI
+#
+#PERL5_PACKLIST=	auto/URI/Escape/XS/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

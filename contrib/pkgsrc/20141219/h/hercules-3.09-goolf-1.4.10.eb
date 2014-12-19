@@ -1,0 +1,76 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'hercules'
+version = '3.09'
+versionsuffix = '-20141219'
+
+description = "hercules-3.09: S370 emulator"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://downloads.hercules-390.eu/']
+
+homepage = 'http://www.hercules-390.eu/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/emulators/hercules/Makefile ######
+## $NetBSD: Makefile,v 1.33 2014/05/29 23:36:33 wiz Exp $
+#
+#DISTNAME=		hercules-3.09
+#PKGREVISION=		1
+#CATEGORIES=		emulators
+#MASTER_SITES=		http://downloads.hercules-390.eu/
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://www.hercules-390.eu/
+#COMMENT=		S370 emulator
+#LICENSE=		qpl-v1.0
+#
+#DEPENDS+=		hercules-images-[0-9]*:../../emulators/hercules-images
+#
+#AUTOCONF_REQD=		2.50
+#USE_TOOLS+=		autoconf gmake bash:run
+#GNU_CONFIGURE=		YES
+##MAKE_ENV+=		HOST_ARCH=${MACHINE_ARCH:Q}
+#USE_LIBTOOL=		YES
+#
+#PTHREAD_OPTS+=		require
+#
+#REPLACE_PERL+=		util/bldlvlck
+#USE_TOOLS+=		perl:run
+#
+#INSTALLATION_DIRS+=	bin share/examples/hercules
+##CONFIGURE_ARGS+=	--enable-setuid-hercifc=hercules
+##SPECIAL_PERMS+=		${PREFIX}/bin/hercifc ${SETUID_ROOT_PERMS}
+#
+#pre-configure:
+#	${RM} ${WRKSRC}/ltdl.h ${WRKSRC}/ltdl.c
+#	cd ${WRKSRC} && autoconf
+#
+#pre-install:
+#	${INSTALL_DATA} ${WRKSRC}/hercules.cnf ${DESTDIR}${PREFIX}/share/examples/hercules/
+##	${INSTALL_DATA} ${WRKSRC}/zzsa.cnf ${DESTDIR}${PREFIX}/share/examples/hercules/
+#
+#.include "../../mk/pthread.buildlink3.mk"
+#.include "../../devel/libltdl/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

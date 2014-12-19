@@ -1,0 +1,56 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '-'
+version = '1.0.2'
+versionsuffix = '-20141219'
+
+description = "static-1.0.2: Serve static or templated content via WSGI or stand-alone"
+
+sources = ['static-1.0.2.tar.gz']
+source_urls = ['https://pypi.python.org/packages/source/s/static/']
+
+homepage = 'https://pypi.python.org/pypi/static'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/py-static/Makefile ######
+## $NetBSD: Makefile,v 1.1 2014/08/20 13:44:58 wiz Exp $
+#
+#DISTNAME=	static-1.0.2
+#PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
+#CATEGORIES=	www
+#MASTER_SITES=	https://pypi.python.org/packages/source/s/static/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	https://pypi.python.org/pypi/static
+#COMMENT=	Serve static or templated content via WSGI or stand-alone
+#LICENSE=	mit
+#
+#USE_LANGUAGES=	# none
+#PLIST_SUBST+=	PYVERSSUFFIX=${PYVERSSUFFIX}
+#
+#post-install:
+#	${MV} ${DESTDIR}${PREFIX}/bin/static ${DESTDIR}${PREFIX}/bin/static-${PYVERSSUFFIX}
+#
+#.include "../../lang/python/egg.mk"
+#.include "../../mk/bsd.pkg.mk"

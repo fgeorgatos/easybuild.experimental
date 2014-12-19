@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'RTx'
+version = 'RightsMatrix-0.03.00'
+versionsuffix = '-20141219'
+
+description = "RTx-RightsMatrix-0.03.00: Utility to efficiently manage rights to a RT installation"
+
+sources = [SOURCE_TGZ]
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/RTx/']
+
+homepage = 'http://search.cpan.org/~htchapman/RTx-RightsMatrix/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/RTx-RightsMatrix/Makefile ######
+## $NetBSD: Makefile,v 1.10 2014/05/29 23:35:33 wiz Exp $
+##
+#
+#DISTNAME=	RTx-RightsMatrix-0.03.00
+#PKGREVISION=	6
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=RTx/}
+#EXTRACT_SUFX=	.tgz
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/~htchapman/RTx-RightsMatrix/
+#COMMENT=	Utility to efficiently manage rights to a RT installation
+#
+#DEPENDS+=	rt>=3.4.5:../../devel/rt3
+#
+#MAKE_ENV+=	DESTDIR=${DESTDIR}
+#
+#.include "../../devel/rt3/dirs.mk"
+#
+#PLIST_SUBST+=		RT_SHARE_DIR=share/rt3
+#
+#PERL5_PACKLIST=		auto/RTx/RightsMatrix/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

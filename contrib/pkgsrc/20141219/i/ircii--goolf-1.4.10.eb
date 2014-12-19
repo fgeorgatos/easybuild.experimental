@@ -1,0 +1,113 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'ircII-'
+version = ''
+versionsuffix = '-20141219'
+
+description = "ircii-:  Internet Relay Chat and Internet Citizens Band Client"
+
+sources = ['ircii-${VERS}.tar.bz2']
+version = '${VERS}'
+name = 'ircII'
+source_urls = ['http://ircii.warped.com/']
+
+homepage = 'http://www.eterna.com.au/ircii/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/chat/ircII/Makefile ######
+## $NetBSD: Makefile,v 1.68 2014/09/08 09:28:37 jperkin Exp $
+#
+#DISTNAME=		ircii-${VERS}
+#PKGNAME=		ircII-${VERS}
+#CATEGORIES=		chat
+#MASTER_SITES=		http://ircii.warped.com/
+#EXTRACT_SUFX=		.tar.bz2
+#
+#MAINTAINER=		pkgsrc-users@NetBSD.org
+#HOMEPAGE=		http://www.eterna.com.au/ircii/
+#COMMENT=		'Internet Relay Chat' and 'Internet Citizens Band' Client
+#LICENSE=		modified-bsd
+#
+#CONFLICTS=		blackened-[0-9]*
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#VERS=			20140831
+#PLIST_SUBST+=	VERS=${VERS:Q}
+#
+#.include "../../mk/bsd.prefs.mk"
+#
+## By default, mandir defaults to @datarootdir@/man, and then it gets
+## ${DESTDIR} applied already.  However, if you pass --mandir it does
+## not provide it, and you have to supply it directly as well.  To do
+## this in pkgsrc, we have to set CONFIGURE_HAS_MANDIR=no so that
+## we don't pass --mandir=${PREFIX}/man as well, last.
+#CONFIGURE_HAS_MANDIR=	no
+#CONFIGURE_ARGS+=	--mandir=${DESTDIR}${PREFIX}/man
+#
+#WRKSRC=			${WRKDIR}/ircii-${VERS}
+#GNU_CONFIGURE=		yes
+#.if defined(DEFAULT_IRC_SERVER)
+#CONFIGURE_ARGS+=	--with-default-server=${DEFAULT_IRC_SERVER:Q}
+#.endif
+#USE_TOOLS+=		chmod	# see post-extract
+#
+## This pkg auto-detects IPv6.
+#BUILD_DEFS+=		IPV6_READY
+#
+#.include "options.mk"
+#
+## Allow customizations from ${MAKECONF}
+#CONFIGURE_ARGS+=	${IRCII_CONFIGURE_ARGS}
+#CONFIGURE_ENV+=		${IRCII_CONFIGURE_ENV}
+#
+#LDFLAGS.Darwin+=-l$(BUILDLINK_LIBNAME.iconv)
+#LDFLAGS.SunOS+=	-l$(BUILDLINK_LIBNAME.iconv) -lsocket -lnsl
+#
+#.if ${OPSYS} == "Interix"
+#CONFIGURE_ARGS+=	--with-non-blocking=none
+#.endif
+#
+## Optionally install compressed help files if MANZ is defined.
+#.if defined(MANZ)
+#PLIST_SUBST+=		GZSUFFIX=".gz"
+#DOC_COMPRESS_ARGS=	-z ${DESTDIR}${PREFIX}
+#.else
+#PLIST_SUBST+=		GZSUFFIX=
+#DOC_COMPRESS_ARGS=	${DESTDIR}${PREFIX}
+#.endif
+#
+#post-extract:
+#	chmod -R g-w ${WRKSRC}/help/.
+#
+#post-install:
+#	${AWK} '/^share\/irc\/help\// { sub("\\$${GZSUFFIX}$$", ""); print }' \
+#		${PLIST_SRC} |						\
+#	${SETENV} PATH=${PATH:Q} PKG_VERBOSE=${PKG_VERBOSE:Q}		\
+#	${SH} ${PKGSRCDIR}/mk/plist/doc-compress ${DOC_COMPRESS_ARGS}
+#
+#.include "../../converters/libiconv/buildlink3.mk"
+#.include "../../security/openssl/buildlink3.mk"
+#.include "../../mk/termcap.buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

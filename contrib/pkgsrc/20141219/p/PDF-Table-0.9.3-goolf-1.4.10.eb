@@ -1,0 +1,57 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Table-0.9.3'
+versionsuffix = '-20141219'
+
+description = "PDF-Table-0.9.3: Utility class for building table layouts in a Perl5 PDF::API2 object"
+
+sources = ['PDF-Table-0.9.3.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/PDF/']
+
+homepage = 'http://search.cpan.org/dist/PDF-Table/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/p5-PDF-Table/Makefile ######
+## $NetBSD: Makefile,v 1.7 2014/05/29 23:37:38 wiz Exp $
+#
+#DISTNAME=	PDF-Table-0.9.3
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	4
+#CATEGORIES=	textproc perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=PDF/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/PDF-Table/
+#COMMENT=	Utility class for building table layouts in a Perl5 PDF::API2 object
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	p5-PDF-API2>=2.019:../../textproc/p5-PDF-API2
+#
+#PERL5_PACKLIST=	auto/PDF/Table/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

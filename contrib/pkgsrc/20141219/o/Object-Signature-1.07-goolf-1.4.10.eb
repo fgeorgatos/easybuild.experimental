@@ -1,0 +1,63 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Signature-1.07'
+versionsuffix = '-20141219'
+
+description = "Object-Signature-1.07: Generate cryptographic signatures for objects"
+
+sources = ['Object-Signature-1.07.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Object/']
+
+homepage = 'http://search.cpan.org/dist/Object-Signature/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Object-Signature/Makefile ######
+## $NetBSD: Makefile,v 1.12 2014/05/29 23:36:10 wiz Exp $
+#
+#DISTNAME=	Object-Signature-1.07
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	5
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Object/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Object-Signature/
+#COMMENT=	Generate cryptographic signatures for objects
+#LICENSE=	${PERL5_LICENSE}
+#
+##DEPENDS+=	p5-Storable>=2.11:../../devel/p5-Storable
+#DEPENDS+=	{perl>=5.7.3,p5-Digest-MD5>=2.00}:../../security/p5-Digest-MD5
+#DEPENDS+=	{perl>=5.8.1,p5-Test-Simple>=0.47}:../../devel/p5-Test-Simple
+#DEPENDS+=	p5-PathTools>=0.80:../../devel/p5-PathTools
+#DEPENDS+=	p5-ExtUtils-AutoInstall>=0.63:../../devel/p5-ExtUtils-AutoInstall
+#
+#USE_LANGUAGES=	# empty
+#PERL5_PACKLIST=	auto/Object/Signature/.packlist
+#PERL5_MODULE_TYPE=	Module::Install::Bundled
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

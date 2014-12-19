@@ -1,0 +1,71 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Method-Signatures-1.003014'
+versionsuffix = '-20141219'
+
+description = "Parse-Method-Signatures-1.003014: Perl 5 module providing Perl 6 like method signature parser"
+
+sources = ['Parse-Method-Signatures-1.003014.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Parse/']
+
+homepage = 'http://search.cpan.org/dist/Parse-Method-Signatures/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/devel/p5-Parse-Method-Signatures/Makefile ######
+## $NetBSD: Makefile,v 1.14 2014/05/29 23:36:12 wiz Exp $
+##
+#
+#DISTNAME=	Parse-Method-Signatures-1.003014
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	4
+#CATEGORIES=	devel perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Parse/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Parse-Method-Signatures/
+#COMMENT=	Perl 5 module providing Perl 6 like method signature parser
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	p5-List-MoreUtils>=0.20:../../devel/p5-List-MoreUtils
+#DEPENDS+=	p5-Moose-[0-9]*:../../devel/p5-Moose
+#DEPENDS+=	p5-MooseX-Traits>=0.06:../../devel/p5-MooseX-Traits
+#DEPENDS+=	p5-MooseX-Types>=0.17:../../devel/p5-MooseX-Types
+#DEPENDS+=	p5-MooseX-Types-Structured-[0-9]*:../../devel/p5-MooseX-Types-Structured
+#DEPENDS+=	p5-PPI>=1.203:../../devel/p5-PPI
+#DEPENDS+=	p5-namespace-clean>=0.10:../../devel/p5-namespace-clean
+#
+## For test target
+#BUILD_DEPENDS+=	p5-Test-Differences-[0-9]*:../../devel/p5-Test-Differences
+#BUILD_DEPENDS+=	p5-Test-Exception-[0-9]*:../../devel/p5-Test-Exception
+#BUILD_DEPENDS+=	p5-aliased-[0-9]*:../../devel/p5-aliased
+#
+#USE_LANGUAGES=	# empty
+#PERL5_MODULE_TYPE=	Module::Install::Bundled
+#PERL5_PACKLIST=	auto/Parse/Method/Signatures/.packlist
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

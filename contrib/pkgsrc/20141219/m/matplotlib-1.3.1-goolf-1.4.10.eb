@@ -1,0 +1,24 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = '-matplotlib-gtk-1.3.1'
+version = '1.3.1'
+versionsuffix = '-20141219'
+
+description = "matplotlib-1.3.1: GTK frontend for matplotlib"sources = ['matplotlib-1.3.1.tar.gz']
+source_urls = ['https://github.com/downloads/matplotlib/matplotlib/']
+
+
+
+homepage = 'http://matplotlib.sourceforge.net/'

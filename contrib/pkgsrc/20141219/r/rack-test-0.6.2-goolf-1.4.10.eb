@@ -1,0 +1,50 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'rack'
+version = 'test-0.6.2'
+versionsuffix = '-20141219'
+
+description = "rack-test-0.6.2: Simple testing API built on Rack"
+
+sources = [SOURCE_TAR_GZ]
+
+homepage = 'http://github.com/brynary/rack-test'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/www/ruby-rack-test/Makefile ######
+## $NetBSD: Makefile,v 1.6 2013/03/10 09:17:18 taca Exp $
+#
+#DISTNAME=	rack-test-0.6.2
+#PKGREVISION=	1
+#CATEGORIES=	www
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://github.com/brynary/rack-test
+#COMMENT=	Simple testing API built on Rack
+#LICENSE=	mit
+#
+#DEPENDS+=	${RUBY_PKGPREFIX}-rack14>=1.0:../../www/ruby-rack14
+#
+#.include "../../lang/ruby/gem.mk"
+#.include "../../mk/bsd.pkg.mk"

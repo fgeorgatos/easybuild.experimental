@@ -1,0 +1,54 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'lzo'
+version = '2.08'
+versionsuffix = '-20141219'
+
+description = "lzo-2.08: Portable lossless data compression library"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://www.oberhumer.com/opensource/lzo/download/']
+
+homepage = 'http://www.oberhumer.com/opensource/lzo/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/archivers/lzo/Makefile ######
+## $NetBSD: Makefile,v 1.15 2014/06/29 13:38:53 schwarz Exp $
+#
+#DISTNAME=	lzo-2.08
+#CATEGORIES=	archivers
+#MASTER_SITES=	http://www.oberhumer.com/opensource/lzo/download/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://www.oberhumer.com/opensource/lzo/
+#COMMENT=	Portable lossless data compression library
+#LICENSE=	gnu-gpl-v2
+#
+#PKG_INSTALLATION_TYPES=	overwrite pkgviews
+#
+#USE_LIBTOOL=		yes
+#GNU_CONFIGURE=		yes
+#TEST_TARGET=		test
+#
+#.include "../../mk/bsd.pkg.mk"

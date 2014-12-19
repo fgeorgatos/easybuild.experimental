@@ -1,0 +1,55 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'xbeats'
+version = '0.4'
+versionsuffix = '-20141219'
+
+description = "xbeats-0.4: Beats clock dockable in both Window Maker and AfterStep"
+
+sources = [SOURCE_TAR_GZ]
+source_urls = ['http://iznogood.bohemians.org/xbeats/']
+
+homepage = 'http://iznogood.bohemians.org/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/time/xbeats/Makefile ######
+## $NetBSD: Makefile,v 1.17 2014/09/25 19:43:06 jperkin Exp $
+##
+#
+#DISTNAME=	xbeats-0.4
+#PKGREVISION=	1
+#CATEGORIES=	x11 time
+#MASTER_SITES=	http://iznogood.bohemians.org/xbeats/
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://iznogood.bohemians.org/
+#COMMENT=	Beats clock dockable in both Window Maker and AfterStep
+#
+#GNU_CONFIGURE=	YES
+#
+#LDFLAGS.SunOS+=	-lX11
+#
+#.include "../../x11/libXext/buildlink3.mk"
+#.include "../../x11/libXpm/buildlink3.mk"
+#.include "../../mk/bsd.pkg.mk"

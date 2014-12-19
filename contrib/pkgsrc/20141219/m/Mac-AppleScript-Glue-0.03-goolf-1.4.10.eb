@@ -1,0 +1,60 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'AppleScript-Glue-0.03'
+versionsuffix = '-20141219'
+
+description = "Mac-AppleScript-Glue-0.03: Perl 5 module allowing AppleScript to be written in Perl"
+
+sources = ['Mac-AppleScript-Glue-0.03.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Mac/']
+
+homepage = 'http://search.cpan.org/dist/Mac-AppleScript-Glue/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/sysutils/p5-Mac-AppleScript-Glue/Makefile ######
+## $NetBSD: Makefile,v 1.7 2014/05/29 23:37:30 wiz Exp $
+#
+#DISTNAME=	Mac-AppleScript-Glue-0.03
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	5
+#CATEGORIES=	sysutils perl5
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Mac/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Mac-AppleScript-Glue/
+#COMMENT=	Perl 5 module allowing AppleScript to be written in Perl
+#
+#USE_LANGUAGES=		# empty
+#ONLY_FOR_PLATFORM=	Darwin-*-*
+#
+#PERL5_PACKLIST= auto/Mac/AppleScript/Glue/.packlist
+#
+#DEPENDS+=	p5-Mac-AppleScript>=0.03:../../sysutils/p5-Mac-AppleScript
+#BUILD_DEPENDS+=	p5-Test-Pod-[0-9]*:../../devel/p5-Test-Pod
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"

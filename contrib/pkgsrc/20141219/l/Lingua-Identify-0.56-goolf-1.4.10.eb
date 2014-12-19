@@ -1,0 +1,61 @@
+##
+# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright 2012-2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+#
+# This work implements a part of the HPCBIOS project and is a component of the policy:
+# http://hpcbios.readthedocs.org/en/latest/
+##
+
+easyblock = 'ConfigureMake'
+
+name = 'p5-'
+version = 'Identify-0.56'
+versionsuffix = '-20141219'
+
+description = "Lingua-Identify-0.56: Language identification"
+
+sources = ['Lingua-Identify-0.56.tar.gz']
+version = '${DISTNAME}'
+name = 'p5'
+source_urls = ['http://ftp.nluug.nl/languages/perl/CPAN/Lingua/']
+
+homepage = 'http://search.cpan.org/dist/Lingua-Identify/'
+
+toolchain = {'name': 'goolf', 'version': '1.4.10'}
+
+sanity_check_paths = {
+    'files': [],   ## fixme
+    'dirs': ['.'], ## fixme
+}
+
+parallel = 1         # this is a very conservative choice ## fixme
+moduleclass = 'base' # please change this from base to right category ## fixme
+
+###### Appended pkgsrc sourcefile: /home/users/fgeorgatos/arena/pkg2eb/pkgsrc/textproc/p5-Lingua-Identify/Makefile ######
+## $NetBSD: Makefile,v 1.6 2014/05/29 23:37:37 wiz Exp $
+##
+#
+#DISTNAME=	Lingua-Identify-0.56
+#PKGNAME=	p5-${DISTNAME}
+#PKGREVISION=	1
+#CATEGORIES=	textproc
+#MASTER_SITES=	${MASTER_SITE_PERL_CPAN:=Lingua/}
+#
+#MAINTAINER=	pkgsrc-users@NetBSD.org
+#HOMEPAGE=	http://search.cpan.org/dist/Lingua-Identify/
+#COMMENT=	Language identification
+#LICENSE=	${PERL5_LICENSE}
+#
+#DEPENDS+=	p5-Class-Factory-Util>=1.6:../../devel/p5-Class-Factory-Util
+#DEPENDS+=	p5-Text-Affixes>=0.07:../../textproc/p5-Text-Affixes
+#DEPENDS+=	p5-Text-Ngram>=0.13:../../textproc/p5-Text-Ngram
+#
+#PERL5_PACKLIST=	auto/Lingua/Identify/.packlist
+#USE_LANGUAGES=	# none
+#
+#.include "../../lang/perl5/module.mk"
+#.include "../../mk/bsd.pkg.mk"
