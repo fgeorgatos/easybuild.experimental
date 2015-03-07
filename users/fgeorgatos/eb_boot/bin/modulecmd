@@ -1,0 +1,25 @@
+#!/bin/bash --posix
+#
+# This script implements a fake modulecmd, using canned (surrogate) responses,
+# and demos nicely the fine art of orthogonality in software engineering ;-)
+#
+# Copyright:: Copyright 2014 NTUA
+# Authors::   Fotis Georgatos <fotis@cern.ch>
+# License::   MIT/GPL
+# $Id$
+
+echo modulecmd $* >>/tmp/modulecmd.txt ## just a logfile to keep track of what is being asked
+
+# calculate a file suffix, on the basis of $* parameter set
+HOMEMANGLED=`echo $HOME|sed "s/\//_/g"`
+PARAMS=`echo $*|sed "s/\ /_/g;s/\//_/g;s/$HOMEMANGLED//g"`
+
+# calculate the full filename now
+BASEDIR=$HOME/canned_responses
+FILE=$BASEDIR/modulecmd_$PARAMS
+
+# fake stdout wherever needed, including things like modulecmd_python_unuse__tmp_eb-1T8cqr_tmpMU8uJS_all
+[ "`echo modulecmd_$PARAMS|cut -c-31`" = "modulecmd_python_unuse__tmp_eb-" ] && echo && exit
+[ "`echo modulecmd_$PARAMS|cut -c-29`" = "modulecmd_python_use__tmp_eb-" ] && echo && exit
+
+cat $FILE || echo -e Do not know how to handle modulecmd $*, because $FILE does not exist \n\n

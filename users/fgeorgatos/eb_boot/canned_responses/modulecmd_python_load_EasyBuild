@@ -1,0 +1,1 @@
+os.environ['PYTHONPATH'] = '/Users/Guest/.local/easybuild/software/EasyBuild/1.15.2/lib/python2.7/site-packages'

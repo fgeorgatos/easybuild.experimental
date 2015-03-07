@@ -1,0 +1,1 @@
+os.environ['MODULEPATH'] = '/Users/Guest/.local/easybuild/modules/all:/Users/fg/.local/easybuild/modules/all'

@@ -1,0 +1,2 @@
+os.environ['MODULEPATH'] = ''
+del os.environ['MODULEPATH']
