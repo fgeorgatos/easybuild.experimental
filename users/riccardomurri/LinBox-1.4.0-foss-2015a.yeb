@@ -1,0 +1,42 @@
+%YAML 1.2
+---
+
+##
+# This file is an EasyBuild recipe; see https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2016 Riccardo Murri <riccardo.murri@gmail.com>
+# Authors::   Riccardo Murri <riccardo.murri@gmail.com>
+# License::   GPL
+#
+##
+
+name: LinBox
+version: 1.4.0
+description:
+  C++ library for exact, high-performance linear algebra
+homepage: 'http://linalg.org/'
+moduleclass: math
+
+source_urls:
+  - 'https://github.com/linbox-team/linbox/archive'
+sources:
+  - 'v1.4.0.zip'
+
+easyblock: ConfigureMake
+toolchain:
+  name: foss
+  version: 2015a
+builddependencies:
+  - [Autoconf, 2.69]
+  - [Automake, 1.15]
+  - [libtool, 2.4.6]
+dependencies:
+  - FFLAS-FFPACK: 2.2.0
+  - Givaro: 4.0.1
+# configure with: autoreconf -i && ./configure
+preconfigopts: 'env NOCONFIGURE=1 ./autogen.sh && '
+configopts: '--with-givaro=$EBROOTGIVARO --with-fflas-ffpack=$EBROOTFFLASMINFFPACK --enable-openmp'
+  
+sanity_check_paths: 
+  files: ['bin/linbox-config', 'include/linbox/linbox-config.h', 'lib/liblinbox.a']
+  dirs: ['bin', 'include', 'lib']

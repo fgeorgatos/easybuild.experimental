@@ -1,0 +1,41 @@
+%YAML 1.2
+---
+
+##
+# This file is an EasyBuild recipe; see https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2016 Riccardo Murri <riccardo.murri@gmail.com>
+# Authors::   Riccardo Murri <riccardo.murri@gmail.com>
+# License::   GPL
+#
+##
+
+name: Givaro
+version: 4.0.1
+description:
+  C++ library for arithmetic and algebraic computations
+homepage: 'http://givaro.forge.imag.fr/'
+moduleclass: math
+
+source_urls:
+  - 'https://github.com/linbox-team/givaro/archive'
+sources:
+  - 'v4.0.1.zip'
+
+easyblock: ConfigureMake
+toolchain:
+  name: foss
+  version: 2015a
+builddependencies:
+  - [Autoconf, 2.69]
+  - [Automake, 1.15]
+  - [libtool, 2.4.6]
+dependencies:
+ - GMP: 6.1.0
+# configure with: autoreconf -i && ./configure
+preconfigopts: 'env NOCONFIGURE=1 ./autogen.sh && '
+configopts: '--with-gmp=$EBROOTGMP --enable-inline'
+  
+sanity_check_paths: 
+  files: ['bin/givaro-config', 'include/givaro-config.h']
+  dirs: ['bin', 'include', 'lib']

@@ -1,0 +1,42 @@
+%YAML 1.2
+---
+
+##
+# This file is an EasyBuild recipe; see https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2016 Riccardo Murri <riccardo.murri@gmail.com>
+# Authors::   Riccardo Murri <riccardo.murri@gmail.com>
+# License::   GPL
+#
+##
+
+name: Rheinfall
+version: 0.16.03
+description:
+  The "Rheinfall" algorithm for parallel Gaussian elimination on sparse matrices
+homepage: 'https://github.com/riccardomurri/rheinfall'
+moduleclass: math
+
+source_urls:
+  - 'https://github.com/riccardomurri/rheinfall/archive'
+sources:
+  - 'master.zip'
+
+easyblock: ConfigureMake
+toolchain:
+  name: foss
+  version: 2015a
+builddependencies:
+  - [Autoconf, 2.69]
+  - [Automake, 1.15]
+  - [libtool, 2.4.6]
+dependencies:
+  - [Boost, 1.58.0, '-Python-2.7.10']
+  - GMP: 6.1.0
+# configure with: autoreconf -i && ./configure
+preconfigopts: 'autoreconf -i && '
+configopts: '--with-boost=$EBROOTBOOST --with-gmp=$EBROOTGMP'
+  
+sanity_check_paths: 
+  files: ['bin/rank-int', 'include/rheinfall/rank.hpp']
+  dirs:  ['bin', 'include/rheinfall']

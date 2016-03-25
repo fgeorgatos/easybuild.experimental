@@ -1,0 +1,44 @@
+%YAML 1.2
+---
+
+##
+# This file is an EasyBuild recipe; see https://github.com/hpcugent/easybuild
+#
+# Copyright:: Copyright (c) 2016 Riccardo Murri <riccardo.murri@gmail.com>
+# Authors::   Riccardo Murri <riccardo.murri@gmail.com>
+# License::   GPL
+#
+##
+
+name: FFLAS-FFPACK
+version: 2.2.0
+description:
+  Finite Field Linear Algebra Subroutines / Package
+homepage: 'https://linbox-team.github.io/fflas-ffpack/'
+moduleclass: math
+
+source_urls:
+  - 'https://github.com/linbox-team/fflas-ffpack/archive'
+sources:
+  - 'v2.2.0.zip'
+
+easyblock: ConfigureMake
+toolchain:
+  name: foss
+  version: 2015a
+builddependencies:
+  - [Autoconf, 2.69]
+  - [Automake, 1.15]
+  - [libtool, 2.4.6]
+dependencies:
+  - GMP: 6.1.0
+  - Givaro: 4.0.1
+# configure with: autoreconf -i && ./configure
+preconfigopts: 'env NOCONFIGURE=1 ./autogen.sh && '
+configopts: '--with-gmp=$EBROOTGMP --with-givaro=$EBROOTGIVARO --with-blas-cflags="-I$BLAS_INC_DIR" --with-blas-libs="-L$BLAS_LIB_DIR $LIBBLAS" --enable-openmp'
+  
+sanity_check_paths: 
+  files: ['bin/fflas-ffpack-config', 'include/fflas-ffpack/fflas-ffpack.h']
+  dirs: ['bin', 'include', 'lib']
+  
+  
