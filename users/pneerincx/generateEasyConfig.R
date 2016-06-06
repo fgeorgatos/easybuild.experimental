@@ -217,8 +217,15 @@ source_urls = ['http://cran.us.r-project.org/src/base/R-%(version_major)s']
 #
 # Configure options.
 #
-preconfigopts = 'BLAS_LIBS=\"$LIBBLAS\" LAPACK_LIBS=\"$LIBLAPACK\"'
+# NOTE: LAPACK support is built into BLAS, which will be detected correctly when LAPACK_LIBS is *not* specified.
+#       The summary at the end of the configure output should contain:
+#           External libraries: ...., BLAS(OpenBLAS), LAPACK(in blas), ....
+#
+#preconfigopts = 'BLAS_LIBS=\"$LIBBLAS\" LAPACK_LIBS=\"$LIBLAPACK\"'
+preconfigopts = 'BLAS_LIBS=\"$LIBBLAS\"'
 configopts = '--with-lapack --with-blas --with-pic --enable-threads --with-x=no --enable-R-shlib'
+configopts += ' --with-tcl-config=$EBROOTTCL/lib/tclConfig.sh --with-tk-config=$EBROOTTK/lib/tkConfig.sh '
+
 #
 # Enable graphics capabilities for plotting.
 #
@@ -231,15 +238,18 @@ configopts += ' --with-recommended-packages=no'
 dependencies = [
     ('libreadline', '6.3'),
     ('ncurses', '5.9'),
-    ('libpng', '1.6.17'),            # For plotting in R
-    ('libjpeg-turbo', '1.4.0'),      # For plotting in R
-    ('LibTIFF', '4.0.3'),            # For plotting in R
+    ('bzip2', '1.0.6'),
+    ('XZ', '5.2.2'),
+    ('libpng', '1.6.21'),            # For plotting in R
+    ('libjpeg-turbo', '1.4.2'),      # For plotting in R
+    ('LibTIFF', '4.0.4'),            # For plotting in R
     ('Tcl', '8.6.4'),                # For Tcl/Tk
     ('Tk', '8.6.4', '-no-X11'),      # For Tcl/Tk
-    ('cURL', '7.43.0'),              # For RCurl
+    ('cURL', '7.47.1'),              # For RCurl
     ('libxml2', '2.9.2'),            # For XML
-    ('cairo', '1.14.2'),             # For plotting in R
+    ('cairo', '1.14.6'),             # For plotting in R
     ('Java', '1.8.0_45', '', True),  # Java bindings are built if Java is found, might as well provide it.
+    ('PCRE', '8.38'),                # For rphast package.
 ]
 
 package_name_tmpl = '%(name)s_%(version)s.tar.gz'
