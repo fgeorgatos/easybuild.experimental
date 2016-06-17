@@ -7,8 +7,7 @@ If you have R packages from elsewhere you may have to tweak the generator.
 
 ## Graphics capabilities - plotting ##
 
-The generator assumes you will want an R with graphics capabilities for plotting. Therefore it includes dependencies on easyconfigs for various libs. 
-New/patched easyconfigs and patches where added where necessary for dependencies when these where not (yet) available from the main EasyBuld repos at the time of writing...
+The generator assumes you will want an R with graphics capabilities for plotting. Therefore it includes dependencies on EasyConfigs for various libs. 
 
 ## Graphics capabilities - X11 ##
 
@@ -20,5 +19,12 @@ You'll need to modify generateEasyconfig.R to enable X11 support by removing ''-
 ## System / OS dependencies ##
 
 The generator resolves installed R packages, but it does not resolve System / OS dependencies... 
-Hence you may have to tweak the currently hardcoded ''dependencies'' section to add/update additional dependencies on other EasyConfigs.
+Hence you may have to tweak the currently hardcoded ''dependencies'' section to add/update additional dependencies.
+
+## EasyConfig dependencies ##
+
+The generated EasyConfig for R will have dependencies on a bunch of other EasyConfigs.
+ * The ones that are already available from the official EasyBuild repos / releases at the time of writing are not included here.
+ * The ones that are not (yet) available from the official EasyBuild repos / releases are included here; 
+   These can either be completely new or patched compared to what is available from the EasyBuild repos.
 
