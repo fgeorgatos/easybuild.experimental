@@ -13,10 +13,10 @@ Therefore it includes dependencies on EasyConfigs for various graphics and compr
 
 ## Graphics capabilities - X11 ##
 
-Support for X11 was disabled as the required libs are often missing from "headless" compute nodes in a cluster, 
+Support for X11 was disabled as the required libs are often missing from *"headless"* compute nodes in a cluster, 
 which will cause trouble when you compile on a user interface / login node with X11 libs and then try to execute a job on an execution node without X11. 
 If you do want X11 capabilities and the required libs are available on all machines in your compute environment you can enable X11 and it should work without problems.
-You'll need to modify generateEasyconfig.R to enable X11 support by removing ''--with-x=no'' from the configopts.
+You'll need to modify generateEasyconfig.R to enable X11 support by removing `--with-x=no` from the configopts.
 
 ## System / OS dependencies ##
 
@@ -32,7 +32,7 @@ The generated EasyConfig for R will have dependencies on a bunch of other EasyCo
 
 ## R package repo URLs ##
 
-The determines CRAN and BioConductor repo URLs from which the packages can be downloaded. Some may be http URLs whereas others may be https URLs.
+The generator will fetch the CRAN and BioConductor repo URLs from which the packages can be downloaded. Some may be http URLs whereas others may be https URLs by default.
 The https URLs are automatically converted into http URLs, because the https ones may give SSL verification errors when your Python version is too old.
 If you do want to use https, you can disable the http -> https conversion in the generator and supply a more modern version of Python as build dependency.
 
@@ -40,7 +40,7 @@ If you do want to use https, you can disable the http -> https conversion in the
 
 There's more than one way to do it. Below is the checklist used @ UMCG. This checklist assumes you have 
  * Already installed EasyBuild
- * A cloned copy of the easybuild-easyconfigs repo in ${HOME}/git/.
+ * A cloned copy of the easybuild-easyconfigs repo in `${HOME}/git/`.
 
 In the steps below **bash>** and **R>** are prompts for bash and R sessions, respectively.
 The steps below are based on an example to create an EasyConfig for R 3.3.3 based on an existing one for R 3.2.1:
