@@ -235,6 +235,19 @@ configopts += ' --with-cairo --with-libpng --with-jpeglib --with-libtiff'
 #
 configopts += ' --with-recommended-packages=no'
 
+#
+# You may need to include a more recent Python to download R packages from HTTPS based URLs
+# when the Python that comes with your OS is too old and you encounter:
+#     SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure
+# In that case make sure to include a Python as builddependency. 
+# This Python should not be too new: it's dependencies like for example on ncursus should be compatible with R's dependencies.
+# For example Python 2.7.11 is too new as it requires ncurses 6.0 whereas our R requires ncurses 5.9.
+# The alternative is to replace the https URLs with http URLs in the generated EasyConfig.
+#
+#builddependencies = [
+#    ('Python', '2.7.10')
+#]
+
 dependencies = [
     ('libreadline', '6.3'),
     ('ncurses', '5.9'),
@@ -250,6 +263,7 @@ dependencies = [
     ('cairo', '1.14.6'),             # For plotting in R
     ('Java', '1.8.0_45', '', True),  # Java bindings are built if Java is found, might as well provide it.
     ('PCRE', '8.38'),                # For rphast package.
+    ('GMP', '6.1.1'),                # for igraph
 ]
 
 package_name_tmpl = '%(name)s_%(version)s.tar.gz'
@@ -258,7 +272,17 @@ package_name_tmpl = '%(name)s_%(version)s.tar.gz'
     for (this.repo in names(repos)) {
         writeLines(paste(this.repo, '_options = {', sep=''), fh)
         writeLines("    'source_urls': [", fh)
-        forget.this = lapply(unlist(repos[this.repo]), function(url) {writeLines(sprintf("        '%s',", url), fh)})
+        forget.this = lapply(unlist(repos[this.repo]), 
+                function(url) {
+                    #
+                    # Switch any https URLs to insecure http.
+                    # If you do want to use https make sure you have a recent Python in your build environment.
+                    # See also note on builddependencies above...
+                    #
+                    url = sub('https:', 'http:', url)
+                    writeLines(sprintf("        '%s',", url), fh)
+                }
+        )
         writeLines("    ],
     'source_tmpl': package_name_tmpl,
 }
